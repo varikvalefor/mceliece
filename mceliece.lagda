@@ -147,22 +147,4 @@ ni'o la'o zoi.\ \F k \B x .zoi.\ me'oi .dimension.\ lo se sinxa be la'oi .\B x.
 k : MCParam → ℕ
 k x = (toℕ $ MCParam.n x) ∸ MCParam.m x * (MCParam.t x)
 \end{code}
-
-\begin{code}
--- ni'o me'oi .test.
-
-{-
-j : MCParam
-j = record {
-      m = 5;
-      n = fromℕ! 3 g3;
-      t = 6;
-      ν = 3;
-      μ = fromℕ! 2 g2
-  }
-  where
-  g3 = from-yes $ (2 ^ 5) Data.Nat.>? 3
-  g2 = from-yes $ 3 Data.Nat.>? 2
--}
-\end{code}
 \end{document}
