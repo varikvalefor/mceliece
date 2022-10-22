@@ -148,7 +148,7 @@ record MCParam : Set
     f : Vec (Fin 2) t
     F : Vec (Fin 2) t
     ν : ℕ
-    μ : Fin ν
+    μ : Fin $ ν + 1
     -- ni'o le me'oi .field. poi srana le mu'oi glibau.
     -- symmetric cryptography .glibau. cu cnita dei
     ℓ : ℕ
