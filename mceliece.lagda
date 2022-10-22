@@ -114,16 +114,29 @@ postulate _/Ch_ : {a b : ℕ} → {c : Prime a} → {d : Prime b}
                 → Chevy a c → Chevy b d → Set
 \end{code}
 
-\chapter{la'oi .\D MCParam.\ je zo'e}
+\chapter{la'oi .\D{MCParam}.\ je zo'e}
 
-\section{la'oi .\D MCParam.}
-ni'o ro da poi me'oi .\D MCParam.\ zo'u da sinxa lo me'oi .parameter.\ be lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
+\section{la'oi .\D{MCParam}.}
+ni'o ro da poi me'oi .\D{MCParam}.\ zo'u da sinxa lo me'oi .parameter.\ be lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
 
 \subsection{le me'oi .field.}
 
 ni'o la'o zoi.\ \F{MCParam.n} \D q .zoi.\ ni lo me'oi .code.\ pe \D q cu clani
 
-ni'o la'o zoi.\ \F{MCParam.m} \D q .zoi.\ ni 
+ni'o la'o zoi.\ \F{MCParam.m} \D q .zoi.\ dugri lo ni lo me'oi .field.\ cu barda kei li re
+
+ni'o la'o zoi.\ \F{MCParam.t} \D q .zoi.\ ni me'oi .guarantee.\ le du'u cumki fa lo nu rinka ja gasnu ja zo'e lo nu binxo lo drani
+
+ni'o la'o zoi.\ \F{MCParam.f} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a be fi la'o zoi.\ \F{MCParam.m} \B q .zoi\ldots je cu co'e
+
+ni'o la'o zoi.\ \F{MCParam.F} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a be fi la'o zoi.\ \F{MCParam.t} \B q .zoi\ldots je cu co'e
+
+ni'o la'o zoi.\ \F {MCParam.k} \B q .zoi.\ me'oi .dimension.\ lo me'oi .code.\ pe la'oi .\B q.
+
+ni'o la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \F{MCParam.k} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.μ \B q} .zoi.
+
+ni'o la'o zoi.\ \F{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \F{MCParam.ν \B q} .zoi.\ je cu dubjavme'a lo vujnu be la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B q .zoi.
+
 \begin{code}
 record MCParam : Set
   where
@@ -137,16 +150,11 @@ record MCParam : Set
     -- la'o zoi. MCParam.m x .zoi. cu mleca la'o zoi.
     -- MCParam.n x .zoi.
     f : (z : ℕ) → {q : Prime z} → Chevy z q
+    F : (z : ℕ) → {q : Prime z} → Chevy z q
     ν : ℕ
     μ : Fin ν
-\end{code}
-
-\section{la'oi .\F k.}
-ni'o la'o zoi.\ \F k \B x .zoi.\ me'oi .dimension.\ lo se sinxa be la'oi .\B x.
-
-\begin{code}
-k : MCParam → ℕ
-k x = (toℕ $ MCParam.n x) ∸ MCParam.m x * (MCParam.t x)
+  k : MCParam → ℕ
+  k x = toℕ n  ∸ m * t
 \end{code}
 
 \section{la'oi .\D poly.}
