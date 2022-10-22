@@ -73,6 +73,11 @@ open import Algebra.Solver.Ring
 open import Relation.Nullary.Decidable using (from-yes)
 \end{code}
 
+\chapter{le vrici}
+
+\section{la'oi .\F{fromℕ!}.}
+ni'o la'o zoi.\ \F{fromℕ!} \B q \B p .zoi.\ dunli pe'a ru'e la'oi .\B q.\ je cu se me'oi .type.\ la'o zoi.\ \D{Fin} \B o .zoi.
+
 \begin{code}
 postulate fromℕ! : ∀ {o : ℕ} → (n : ℕ) → (n Data.Nat.< o) → Fin o
 \end{code}
@@ -201,8 +206,8 @@ record MCParam : Set
     -- ^ ni'o la .varik. cu jinvi le du'u tolmle... kei
     -- je cu te selneimau lo su'u na pilno lo mu'oi
     -- glibau. line break .glibau.
-  k : MCParam → ℕ
-  k x = toℕ n  ∸ m * t
+  k : ℕ
+  k = toℕ n  ∸ m * t
 \end{code}
 
 \section{la'oi .\D{polly}.}
