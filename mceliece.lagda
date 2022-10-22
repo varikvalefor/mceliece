@@ -82,49 +82,6 @@ ni'o la'o zoi.\ \F{fromℕ!} \B q \B p .zoi.\ dunli pe'a ru'e la'oi .\B q.\ je c
 postulate fromℕ! : ∀ {o : ℕ} → (n : ℕ) → (n Data.Nat.< o) → Fin o
 \end{code}
 
-\chapter{la'oi .\D{Chevy}.\ je zo'e}
-
-\section{la'oi .\D{Chevy}.}
-ni'o la'o zoi.\ \D{Chevy} \B n .zoi.\ cu sinxa lo mu'oi glibau.\ GALOIS field .glibau.\ poi se me'oi .order.\ la'oi .\B n.
-
-ni'o ko'a goi zo'oi .\D{𝔽Ord}.\ pamoi cmene  .i ku'i ko'a na mutce lo ka ce'u zdile la .varik.
-
-\begin{code}
-postulate Chevy : (n : ℕ) → Prime n → Set
-\end{code}
-
-\section{la'o zoi.\ \F{\_+Ch\_} .zoi.}
-ni'o la'o zoi.\ \B a \Sym{+Ch} \B b .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
-
-\begin{code}
-postulate _+Ch_ : {a b : ℕ} → {c : Prime a} → {d : Prime b}
-                → Chevy a c → Chevy b d → Set
-\end{code}
-
-\section{la'o zoi.\ \F{\_-Ch\_} .zoi.}
-ni'o la'o zoi.\ \B a \Sym{-Ch} \B b .zoi.\ vujnu la'oi .\B a.\ la'oi .\B b.
-
-\begin{code}
-postulate _-Ch_ : {a b : ℕ} → {c : Prime a} → {d : Prime b}
-                → Chevy a c → Chevy b d → Set
-\end{code}
-
-\section{la'o zoi.\ \F{\_*Ch\_} .zoi.}
-ni'o la'o zoi.\ \B a \Sym{*Ch} \B b .zoi.\ pilji la'oi .\B a.\ la'oi .\B b.
-
-\begin{code}
-postulate _*Ch_ : {a b : ℕ} → {c : Prime a} → {d : Prime b}
-                → Chevy a c → Chevy b d → Set
-\end{code}
-
-\section{la'o zoi.\ \F{\_/Ch\_} .zoi.}
-ni'o la'o zoi.\ \B a \Sym{/Ch} \B b .zoi.\ dilcu la'oi .\B a.\ la'oi .\B b.
-
-\begin{code}
-postulate _/Ch_ : {a b : ℕ} → {c : Prime a} → {d : Prime b}
-                → Chevy a c → Chevy b d → Set
-\end{code}
-
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
 
 \section{la'oi .\D{MCParam}.}
