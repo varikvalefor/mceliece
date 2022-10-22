@@ -195,8 +195,7 @@ record MCParam : Set
     G : Fin $ 2 ^ ℓ
       → Fin $ _^_ 2 $ toℕ n Data.Nat.+
                   σ₂ * (2 ^ m) Data.Nat.+
-                  σ₁ * t Data.Nat.+
-                  ℓ
+                  σ₁ * t Data.Nat.+ ℓ
     -- ^ ni'o la .varik. cu jinvi le du'u tolmle... kei
     -- je cu te selneimau lo su'u na pilno lo mu'oi
     -- glibau. line break .glibau.
