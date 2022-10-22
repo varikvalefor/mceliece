@@ -64,6 +64,9 @@ ni'o le proga cu na xamgu je cu na mulno
 \chapter{le me'oi .preamble.}
 \begin{code}
 open import Data.Fin
+  renaming (
+    _+_ to _+F_
+  )
 open import Data.Nat
 open import Data.Vec
 open import Function
@@ -156,10 +159,7 @@ record MCParam : Set
     σ₂ : ℕ
     -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
     -- dubjavmau lo pilji be li re bei la'oi .m.
-    G : Fin $ 2 ^ ℓ
-      → Fin $ _^_ 2 $ toℕ n Data.Nat.+
-                      σ₂ * (2 ^ m) Data.Nat.+
-                      σ₁ * t Data.Nat.+ ℓ
+    G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * (2 ^ m) + σ₁ * t + ℓ)
     -- ^ ni'o la .varik. cu jinvi le du'u tolmle... kei
     -- je cu te selneimau lo su'u na pilno lo mu'oi
     -- glibau. line break .glibau.
