@@ -56,6 +56,8 @@
 
 \maketitle
 
+\tableofcontents
+
 \chapter{le me'oi .disclaimer.}
 ni'o le proga cu na xamgu je cu na mulno
 
