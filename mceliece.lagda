@@ -157,8 +157,8 @@ record MCParam : Set
   k x = toℕ n  ∸ m * t
 \end{code}
 
-\section{la'oi .\D poly.}
-ni'o la'o zoi.\ \D polly x .zoi.\ vasru lo ro me'oi .polynomial.\ pe la'oi .\B x.
+\section{la'oi .\D{polly}.}
+ni'o la'o zoi.\ \D{polly} x .zoi.\ vasru lo ro me'oi .polynomial.\ pe la'oi .\B x.
 
 \begin{code}
 postulate polly : MCParam → Set
