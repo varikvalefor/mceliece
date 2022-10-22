@@ -217,6 +217,17 @@ postulate polly : MCParam → Set
 \section{la'oi .\D{Private}.}
 ni'o ro da poi me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
 
+\subsection{le me'oi .field.}
+
+\paragraph{la'oi .\F{Private.g}.}
+ni'o la'o zoi.\ \F{Private.g} \B p .zoi.\ cpolinomi'a
+
+\paragraph{la'oi .\F{Private.Γ}.}
+ni'o la'o zoi.\ \F{Private.Γ} \B p) .zoi.\ liste lo'i cpolinomi'a je cu se nilzilcmi lo sumji be la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.\ bei li pa
+
+\paragraph{la'oi .\F{Private.s}.}
+ni'o la'o zoi.\ \F{Private.s} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.
+
 \begin{code}
 record Private (p : MCParam) : Set
   where
