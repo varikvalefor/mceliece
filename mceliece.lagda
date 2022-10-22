@@ -193,11 +193,10 @@ record MCParam : Set
     -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
     -- dubjavmau lo pilji be li re bei la'oi .m.
     G : Fin $ 2 ^ ℓ
-      → Fin (2 ^ (toℕ n Data.Nat.+
+      → Fin $ _^_ 2 $ toℕ n Data.Nat.+
                   σ₂ * (2 ^ m) Data.Nat.+
                   σ₁ * t Data.Nat.+
                   ℓ
-      ))
     -- ^`ni'o la .varik. cu jinvi le du'u tolmle... kei
     -- je cu te selneimau lo su'u na pilno lo mu'oi
     -- glibau. line break .glibau.
