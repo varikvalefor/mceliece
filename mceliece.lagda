@@ -197,7 +197,7 @@ record MCParam : Set
                   σ₂ * (2 ^ m) Data.Nat.+
                   σ₁ * t Data.Nat.+
                   ℓ
-    -- ^`ni'o la .varik. cu jinvi le du'u tolmle... kei
+    -- ^ ni'o la .varik. cu jinvi le du'u tolmle... kei
     -- je cu te selneimau lo su'u na pilno lo mu'oi
     -- glibau. line break .glibau.
   k : MCParam → ℕ
