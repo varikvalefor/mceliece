@@ -165,6 +165,8 @@ record MCParam : Set
     -- glibau. line break .glibau.
   k : ℕ
   k = toℕ n  ∸ m * t
+  q : ℕ
+  q = 2 ^ m
 \end{code}
 
 \section{la'oi .\D{polly}.}
@@ -194,8 +196,8 @@ ni'o la'o zoi.\ \F{Private.s} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi l
 record Private (p : MCParam) : Set
   where
   field
-    g : polly p
-    Γ : Vec (polly p) $ suc $ toℕ $ MCParam.n p
-    s : Vec Bool $ toℕ $ MCParam.n p
+    g : {n : ℕ} → Vec (Fin $ MCParam.q p) n
+    Γ : Vec (Fin $ MCParam.q p) $ suc $ toℕ $ MCParam.n p
+    s : Vec (Fin 2) $ toℕ $ MCParam.n p
 \end{code}
 \end{document}
