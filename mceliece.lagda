@@ -185,8 +185,8 @@ record MCParam : Set
     -- .zoi. zmadu li re ke je lo nu lo pilji be ko'a bei
     -- la'o zoi. MCParam.m x .zoi. cu mleca la'o zoi.
     -- MCParam.n x .zoi.
-    f : (z : ℕ) → {q : Prime z} → Chevy z q
-    F : (z : ℕ) → {q : Prime z} → Chevy z q
+    f : Vec (Fin 2) t
+    F : Vec (Fin 2) t
     ν : ℕ
     μ : Fin ν
     -- ni'o le me'oi .field. poi srana le mu'oi glibau.
