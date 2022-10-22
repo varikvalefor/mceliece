@@ -195,7 +195,7 @@ record Private (p : MCParam) : Set
   where
   field
     g : polly p
-    Γ : Vec (polly p) $ toℕ (MCParam.n p) + 1
+    Γ : Vec (polly p) $ suc $ toℕ $ MCParam.n p
     s : Vec Bool $ toℕ $ MCParam.n p
 \end{code}
 \end{document}
