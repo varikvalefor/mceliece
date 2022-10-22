@@ -39,6 +39,10 @@
 \newunicodechar{⁇}{\ensuremath{\mathrm{?\!?}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{ℓ}{\ensuremath{\ell}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{₁}{\ensuremath{_1}}
+\newunicodechar{₂}{\ensuremath{_2}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -121,6 +125,7 @@ ni'o ro da poi me'oi .\D{MCParam}.\ zo'u da sinxa lo me'oi .parameter.\ be lo mu
 
 \subsection{le me'oi .field.}
 
+\subsubsection{le vrici je me'oi .field.}
 ni'o la'o zoi.\ \F{MCParam.n} \D q .zoi.\ ni lo me'oi .code.\ pe \D q cu clani
 
 ni'o la'o zoi.\ \F{MCParam.m} \D q .zoi.\ dugri lo ni lo me'oi .field.\ cu barda kei li re
@@ -136,6 +141,17 @@ ni'o la'o zoi.\ \F {MCParam.k} \B q .zoi.\ me'oi .dimension.\ lo me'oi .code.\ p
 ni'o la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \F{MCParam.k} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.μ \B q} .zoi.
 
 ni'o la'o zoi.\ \F{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \F{MCParam.ν \B q} .zoi.\ je cu dubjavme'a lo vujnu be la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B q .zoi.
+
+\subsubsection{le me'oi .field.\ poi srana le mu'oi glibau.\ symmetric cryptography .glibau.}
+ni'o la'o zoi.\ \F{MCParam.ℓ} \B q .zoi.\ ni clani fa lo me'oi .output.\ be la'o zoi.\ \F{MCParam.H} \B q .zoi.\
+
+ni'o la'o zoi.\ \F{MCParam.H} \B q .zoi.\ me'oi .hash.\ fancu
+
+ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
+
+.i la'o zoi.\ \F{MCParam.σ₂} \B q .zoi.\ go'i
+
+ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ cu me'oi .pseudorandom.\ poi ke'a goi ko'a zo'u pilno la'oi .\B x.\ lo nu me'oi .calculate.\ ko'a
 
 \begin{code}
 record MCParam : Set
@@ -153,6 +169,25 @@ record MCParam : Set
     F : (z : ℕ) → {q : Prime z} → Chevy z q
     ν : ℕ
     μ : Fin ν
+    -- ni'o le me'oi .field. poi srana le mu'oi glibau.
+    -- symmetric cryptography .glibau. cu cnita dei
+    ℓ : ℕ
+    H : ℕ → Fin $ 2 ^ ℓ
+    σ₁ : ℕ
+    -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
+    -- dubjavmau la'oi .m.
+    σ₂ : ℕ
+    -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
+    -- dubjavmau lo pilji be li re bei la'oi .m.
+    G : Fin $ 2 ^ ℓ
+      → Fin (2 ^ (toℕ n Data.Nat.+
+                  σ₂ * (2 ^ m) Data.Nat.+
+                  σ₁ * t Data.Nat.+
+                  ℓ
+      ))
+    -- ^`ni'o la .varik. cu jinvi le du'u tolmle... kei
+    -- je cu te selneimau lo su'u na pilno lo mu'oi
+    -- glibau. line break .glibau.
   k : MCParam → ℕ
   k x = toℕ n  ∸ m * t
 \end{code}
