@@ -61,6 +61,7 @@ open import Data.Fin
 open import Data.Nat
 open import Data.Vec
 open import Function
+open import Data.Bool
 open import Data.Nat.Primality
 open import Algebra.Solver.Ring
 open import Relation.Nullary.Decidable using (from-yes)
@@ -146,5 +147,26 @@ ni'o la'o zoi.\ \F k \B x .zoi.\ me'oi .dimension.\ lo se sinxa be la'oi .\B x.
 \begin{code}
 k : MCParam → ℕ
 k x = (toℕ $ MCParam.n x) ∸ MCParam.m x * (MCParam.t x)
+\end{code}
+
+\section{la'oi .\D poly.}
+ni'o la'o zoi.\ \D polly x .zoi.\ vasru lo ro me'oi .polynomial.\ pe la'oi .\B x.
+
+\begin{code}
+postulate polly : MCParam → Set
+\end{code}
+
+\chapter{la'oi .\D{Private}.\ je zo'e}
+
+\section{la'oi .\D{Private}.}
+ni'o ro da poi me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
+
+\begin{code}
+record Private (p : MCParam) : Set
+  where
+  field
+    g : polly p
+    Γ : Vec (polly p) $ toℕ (MCParam.n p) Data.Nat.+ 1
+    s : Vec Bool $ toℕ $ MCParam.n p
 \end{code}
 \end{document}
