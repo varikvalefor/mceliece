@@ -155,7 +155,7 @@ record MCParam : Set
     t : ℕ
     -- ^ .i dukse le ka ce'u sampu je nai me'oi .strict.
     -- .i sarcu fa lo nu ko'a goi la'o zoi. MCParam.t x
-    -- .zoi. zmadu li re ke je lo nu lo pilji be ko'a bei
+    -- .zoi. zmadu li re kei je lo nu lo pilji be ko'a bei
     -- la'o zoi. MCParam.m x .zoi. cu mleca la'o zoi.
     -- MCParam.n x .zoi.
     f : Vec (Fin 2) t
