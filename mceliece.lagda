@@ -25,6 +25,7 @@
 \newunicodechar{𝕗}{\ensuremath{\mathbb{f}}}
 \newunicodechar{ℙ}{\ensuremath{\mathbb{P}}}
 \newunicodechar{𝔽}{\ensuremath{\mathbb{F}}}
+\newunicodechar{𝕄}{\ensuremath{\mathbb{M}}}
 \newunicodechar{ν}{\ensuremath{\nu}}
 \newunicodechar{μ}{\ensuremath{\mu}}
 \newunicodechar{◆}{\ensuremath{\mathnormal\blackdiamond}}
@@ -71,6 +72,9 @@ open import Data.Nat
 open import Data.Vec
 open import Function
 open import Data.Bool
+  hiding (
+    T
+  )
 open import Data.Nat.Primality
 open import Algebra.Solver.Ring
 open import Relation.Nullary.Decidable using (from-yes)
@@ -83,6 +87,15 @@ ni'o la'o zoi.\ \F{fromℕ!} \B q \B p .zoi.\ dunli pe'a ru'e la'oi .\B q.\ je c
 
 \begin{code}
 postulate fromℕ! : ∀ {o : ℕ} → (n : ℕ) → (n Data.Nat.< o) → Fin o
+\end{code}
+
+\chapter{la'oi .\D 𝕄.\ je zo'e}
+
+\section{la'oi .\D 𝕄.}
+ni'o ro da poi mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
+
+\begin{code}
+postulate 𝕄 : ∀ {a} → {A : Set a} → ℕ → ℕ → A → Set
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
@@ -199,5 +212,20 @@ record Private (p : MCParam) : Set
     g : {n : ℕ} → Vec (Fin $ MCParam.q p) n
     Γ : Vec (Fin $ MCParam.q p) $ suc $ toℕ $ MCParam.n p
     s : Vec (Fin 2) $ toℕ $ MCParam.n p
+\end{code}
+
+\section{la'oi .\D{Public}.}
+ni'o ro da poi me'oi .\D{Public}.\ zo'u da sinxa lo gubni termifckiku
+
+\subsection{le me'oi .field.}
+
+\paragraph{la'oi .\F{T}.}
+ni'o la'o zoi.\ \F{Public.T} \B q .zoi.\ nacmeimei lo vujnu be la'o zoi.\ \F{fromℕ} \Sym\$ \F{MCParam.n} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B p .zoi.\ je cu vasru lo cmima be la'o zoi.\ \D{Fin} 2 .zoi.\ po'o
+
+\begin{code}
+record Public (p : MCParam) : Set
+  where
+  field
+    T : 𝕄 (toℕ (MCParam.n p) ∸ MCParam.k p) (MCParam.k p) $ Fin 2
 \end{code}
 \end{document}
