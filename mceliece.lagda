@@ -177,7 +177,7 @@ record MCParam : Set
     ℓ : ℕ
     H : ℕ → Fin $ 2 ^ ℓ
     σ₁ : ℕ
-    -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
+    -- ^ ni'o dukse le ka ce'u sampu  .i sarcu fa lo nu
     -- dubjavmau la'oi .m.
     σ₂ : ℕ
     -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
