@@ -181,11 +181,15 @@ record MCParam : Set
     σ₂ : ℕ
     -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
     -- dubjavmau lo pilji be li re bei la'oi .m.
-    G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * (2 ^ m) + σ₁ * toℕ t + ℓ)
-  k : ℕ
-  k = toℕ n ∸ m * toℕ t
   q : ℕ
   q = 2 ^ m
+  -- | ni'o la .varik. cu jinvi le du'u le su'u dargau cu
+  -- tolmle  .i ku'i ganai co'e le me'oi .alternative. gi
+  -- lo me'oi .hbox. cu me'oi .overfull.  .i mabla
+  field
+    G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * q + σ₁ * toℕ t + ℓ)
+  k : ℕ
+  k = toℕ n ∸ m * toℕ t
 \end{code}
 
 \chapter{la'oi .\D{Private}.\ je zo'e}
