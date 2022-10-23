@@ -75,6 +75,7 @@ open import Data.Bool
   hiding (
     T
   )
+open import Data.Nat.DivMod
 open import Data.Nat.Primality
 open import Algebra.Solver.Ring
 open import Relation.Nullary.Decidable using (from-yes)
@@ -87,6 +88,15 @@ ni'o la'o zoi.\ \F{fromℕ!} \B q \B p .zoi.\ dunli pe'a ru'e la'oi .\B q.\ je c
 
 \begin{code}
 postulate fromℕ! : ∀ {o : ℕ} → (n : ℕ) → (n Data.Nat.< o) → Fin o
+\end{code}
+
+\section{la'oi .\F{\_div2\_}.}
+ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \Sym{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
+
+\begin{code}
+_div2_ : ℕ → ℕ → ℕ
+_ div2 0 = 0
+a div2 (suc b) = a div (suc b)
 \end{code}
 
 \chapter{la'oi .\D 𝕄.\ je zo'e}
@@ -152,14 +162,13 @@ record MCParam : Set
   field
     m : ℕ
     n : Fin (2 ^ m)
-    t : ℕ
+    t : Fin $ (toℕ n) div2 m
     -- ^ .i dukse le ka ce'u sampu je nai me'oi .strict.
     -- .i sarcu fa lo nu ko'a goi la'o zoi. MCParam.t x
-    -- .zoi. zmadu li re kei je lo nu lo pilji be ko'a bei
-    -- la'o zoi. MCParam.m x .zoi. cu mleca la'o zoi.
+    -- .zoi. zmadu li re
     -- MCParam.n x .zoi.
-    f : Vec (Fin 2) t
-    F : Vec (Fin 2) t
+    f : Vec (Fin 2) $ toℕ t
+    F : Vec (Fin 2) $ toℕ t
     ν : ℕ
     μ : Fin $ ν + 1
     -- ni'o le me'oi .field. poi srana le mu'oi glibau.
@@ -172,12 +181,12 @@ record MCParam : Set
     σ₂ : ℕ
     -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
     -- dubjavmau lo pilji be li re bei la'oi .m.
-    G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * (2 ^ m) + σ₁ * t + ℓ)
+    G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * (2 ^ m) + σ₁ * toℕ t + ℓ)
     -- ^ ni'o la .varik. cu jinvi le du'u tolmle... kei
     -- je cu te selneimau lo su'u na pilno lo mu'oi
     -- glibau. line break .glibau.
   k : ℕ
-  k = toℕ n ∸ m * t
+  k = toℕ n ∸ m * toℕ t
   q : ℕ
   q = 2 ^ m
 \end{code}
