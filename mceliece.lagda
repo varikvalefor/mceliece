@@ -95,7 +95,7 @@ postulate fromℕ! : ∀ {o : ℕ} → (n : ℕ) → (n Data.Nat.< o) → Fin o
 ni'o ro da poi mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-postulate 𝕄 : ∀ {a} → {A : Set a} → A → ℕ → ℕ → Set
+postulate 𝕄 : ∀ {a} → (A : Set a) → ℕ → ℕ → Set
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
