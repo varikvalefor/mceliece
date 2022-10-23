@@ -218,6 +218,9 @@ record Private (p : MCParam) : Set
     s : Vec (Fin 2) $ toℕ $ MCParam.n p
 \end{code}
 
+\chapter{la'oi .\D{Public}.}
+ni'o la'au la'oi .\D{Public}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Public}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{Public}.\ po'o ku'o je le pinka be ko'a
+
 \section{la'oi .\D{Public}.}
 ni'o ro da poi me'oi .\D{Public}.\ zo'u da sinxa lo gubni termifckiku
 
