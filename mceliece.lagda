@@ -51,7 +51,7 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
-\title{le me'oi .Agda.\ me'oi .implementation.\ be la'o zoi.\ Classic MCELIECE .zoi.}
+\title{le me'oi .Agda.\ me'oi .implementation.\ be la'o glibau.\ Classic MCELIECE .glibau.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
