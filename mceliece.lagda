@@ -84,13 +84,6 @@ open import Relation.Nullary.Decidable using (from-yes)
 
 \chapter{le vrici}
 
-\section{la'oi .\F{fromℕ!}.}
-ni'o la'o zoi.\ \F{fromℕ!} \B q \B p .zoi.\ dunli pe'a ru'e la'oi .\B q.\ je cu se me'oi .type.\ la'o zoi.\ \D{Fin} \B o .zoi.
-
-\begin{code}
-postulate fromℕ! : ∀ {o : ℕ} → (n : ℕ) → (n Data.Nat.≤ o) → Fin o
-\end{code}
-
 \section{la'oi .\F{\_div2\_}.}
 ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \Sym{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
