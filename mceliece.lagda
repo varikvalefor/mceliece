@@ -64,6 +64,8 @@
 ni'o le proga cu na xamgu je cu na mulno
 
 \chapter{le me'oi .preamble.}
+ni'o la'au le me'oi .preamble.\ li'u vasru le .importe ja me'oi .pragma.\ selsku
+
 \begin{code}
 open import Data.Fin
   renaming (
@@ -83,6 +85,7 @@ open import Relation.Nullary.Decidable using (from-yes)
 \end{code}
 
 \chapter{le vrici}
+ni'o la'au le vrici li'u vasru zo'e poi ke'a goi ko'a zo'u na racli fa lo nu zbasu lo me'oi .chapter.\ poi vasru ko'a po'o
 
 \section{la'oi .\F{\_div2\_}.}
 ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \Sym{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
@@ -94,6 +97,7 @@ a div2 (suc b) = a div (suc b)
 \end{code}
 
 \chapter{la'oi .\D 𝕄.\ je zo'e}
+ni'o la'au la'oi .\D M.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D M.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D M.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D 𝕄.}
 ni'o ro da poi mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
@@ -103,6 +107,7 @@ postulate 𝕄 : ∀ {a} → (A : Set a) → ℕ → ℕ → Set
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
+ni'o la'au la'oi .\D MCParam.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D MCParam.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D MCParam.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{MCParam}.}
 ni'o ro da poi me'oi .\D{MCParam}.\ zo'u da sinxa lo me'oi .parameter.\ be lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
@@ -188,6 +193,7 @@ record MCParam : Set
 \end{code}
 
 \chapter{la'oi .\D{Private}.\ je zo'e}
+ni'o la'au la'oi .\D Private.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D Private.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D Private.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{Private}.}
 ni'o ro da poi me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
