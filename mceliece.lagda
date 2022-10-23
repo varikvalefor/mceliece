@@ -161,8 +161,14 @@ record MCParam : Set
     -- .i sarcu fa lo nu ko'a goi la'o zoi. MCParam.t x
     -- .zoi. dubjavmau li re
     -- MCParam.n x .zoi.
-    f : Vec (Fin 2) $ toℕ t
-    F : Vec (Fin 2) $ toℕ t
+  q : ℕ
+  q = 2 ^ m
+  -- | ni'o la .varik. cu jinvi le du'u le su'u dargau cu
+  -- tolmle  .i ku'i ganai co'e le me'oi .alternative. gi
+  -- lo me'oi .hbox. cu me'oi .overfull.  .i mabla
+  field
+    f : Vec (Fin 2) m
+    F : Vec (Fin q) $ toℕ t
     ν : ℕ
     μ : Fin $ ν + 1
     -- ni'o le me'oi .field. poi srana le mu'oi glibau.
@@ -175,12 +181,6 @@ record MCParam : Set
     σ₂ : ℕ
     -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
     -- dubjavmau lo pilji be li re bei la'oi .m.
-  q : ℕ
-  q = 2 ^ m
-  -- | ni'o la .varik. cu jinvi le du'u le su'u dargau cu
-  -- tolmle  .i ku'i ganai co'e le me'oi .alternative. gi
-  -- lo me'oi .hbox. cu me'oi .overfull.  .i mabla
-  field
     G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * q + σ₁ * toℕ t + ℓ)
   k : ℕ
   k = toℕ n ∸ m * toℕ t
