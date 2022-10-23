@@ -44,6 +44,7 @@
 \newunicodechar{σ}{\ensuremath{\sigma}}
 \newunicodechar{₁}{\ensuremath{_1}}
 \newunicodechar{₂}{\ensuremath{_2}}
+\newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -87,7 +88,7 @@ open import Relation.Nullary.Decidable using (from-yes)
 ni'o la'o zoi.\ \F{fromℕ!} \B q \B p .zoi.\ dunli pe'a ru'e la'oi .\B q.\ je cu se me'oi .type.\ la'o zoi.\ \D{Fin} \B o .zoi.
 
 \begin{code}
-postulate fromℕ! : ∀ {o : ℕ} → (n : ℕ) → (n Data.Nat.< o) → Fin o
+postulate fromℕ! : ∀ {o : ℕ} → (n : ℕ) → (n Data.Nat.≤ o) → Fin o
 \end{code}
 
 \section{la'oi .\F{\_div2\_}.}
