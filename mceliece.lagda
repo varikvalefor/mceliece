@@ -158,9 +158,8 @@ record MCParam : Set
     n : Fin $ suc $ 2 ^ m
     t : Fin $ (toℕ n) div2 m
     -- ^ .i dukse le ka ce'u sampu je nai me'oi .strict.
-    -- .i sarcu fa lo nu ko'a goi la'o zoi. MCParam.t x
-    -- .zoi. dubjavmau li re
-    -- MCParam.n x .zoi.
+    -- .i sarcu fa lo nu la'o zoi. MCParam.t x .zoi.
+    -- dubjavmau li re
   q : ℕ
   q = 2 ^ m
   -- | ni'o la .varik. cu jinvi le du'u le su'u dargau cu
