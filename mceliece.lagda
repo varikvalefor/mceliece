@@ -107,7 +107,7 @@ postulate 𝕄 : ∀ {a} → (A : Set a) → ℕ → ℕ → Set
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
-ni'o la'au la'oi .\D MCParam.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D MCParam.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D MCParam.\ po'o ku'o je le pinka be ko'a
+ni'o la'au la'oi .\D{MCParam}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{MCParam}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{MCParam}.}
 ni'o ro da poi me'oi .\D{MCParam}.\ zo'u da sinxa lo me'oi .parameter.\ be lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
@@ -193,7 +193,7 @@ record MCParam : Set
 \end{code}
 
 \chapter{la'oi .\D{Private}.\ je zo'e}
-ni'o la'au la'oi .\D Private.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D Private.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D Private.\ po'o ku'o je le pinka be ko'a
+ni'o la'au la'oi .\D{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{Private}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{Private}.}
 ni'o ro da poi me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
