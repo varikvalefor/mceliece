@@ -162,9 +162,9 @@ record MCParam : Set
     -- dubjavmau li re
   q : ℕ
   q = 2 ^ m
-  -- | ni'o la .varik. cu jinvi le du'u le su'u dargau cu
-  -- tolmle  .i ku'i ganai co'e le me'oi .alternative. gi
-  -- lo me'oi .hbox. cu me'oi .overfull.  .i mabla
+  -- | ni'o le su'u dargau cu tolmle la .varik.  .i ku'i
+  -- ganai co'e le me'oi .alternative. gi lo me'oi .hbox.
+  -- cu me'oi .overfull.  .i mabla
   field
     f : Vec (Fin 2) m
     F : Vec (Fin q) $ toℕ t
