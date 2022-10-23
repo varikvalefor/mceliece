@@ -165,7 +165,7 @@ record MCParam : Set
     t : Fin $ (toℕ n) div2 m
     -- ^ .i dukse le ka ce'u sampu je nai me'oi .strict.
     -- .i sarcu fa lo nu ko'a goi la'o zoi. MCParam.t x
-    -- .zoi. zmadu li re
+    -- .zoi. dubjavmau li re
     -- MCParam.n x .zoi.
     f : Vec (Fin 2) $ toℕ t
     F : Vec (Fin 2) $ toℕ t
