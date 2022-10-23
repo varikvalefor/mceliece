@@ -109,7 +109,7 @@ ni'o la'o zoi.\ \F{MCParam.f} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\
 ni'o la'o zoi.\ \F{MCParam.F} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a be fi la'o zoi.\ \F{MCParam.t} \B q .zoi\ldots je cu co'e
 
 \paragraph{la'oi .\F{MCParam.k}.}
-ni'o la'o zoi.\ \F {MCParam.k} \B q .zoi.\ me'oi .dimension.\ lo me'oi .code.\ pe la'oi .\B q.
+ni'o la'o zoi.\ \F{MCParam.k} \B q .zoi.\ me'oi .dimension.\ lo me'oi .code.\ pe la'oi .\B q.
 
 \paragraph{la'oi .\F{MCParam.ν}.}
 ni'o la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \F{MCParam.k} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.μ \B q} .zoi.
@@ -164,7 +164,7 @@ record MCParam : Set
     -- je cu te selneimau lo su'u na pilno lo mu'oi
     -- glibau. line break .glibau.
   k : ℕ
-  k = toℕ n  ∸ m * t
+  k = toℕ n ∸ m * t
   q : ℕ
   q = 2 ^ m
 \end{code}
