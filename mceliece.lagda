@@ -95,7 +95,7 @@ postulate fromℕ! : ∀ {o : ℕ} → (n : ℕ) → (n Data.Nat.< o) → Fin o
 ni'o ro da poi mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-postulate 𝕄 : ∀ {a} → {A : Set a} → ℕ → ℕ → A → Set
+postulate 𝕄 : ∀ {a} → {A : Set a} → A → ℕ → ℕ → Set
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
@@ -226,6 +226,6 @@ ni'o la'o zoi.\ \F{Public.T} \B q .zoi.\ nacmeimei lo vujnu be la'o zoi.\ \F{fro
 record Public (p : MCParam) : Set
   where
   field
-    T : 𝕄 (toℕ (MCParam.n p) ∸ MCParam.k p) (MCParam.k p) $ Fin 2
+    T : 𝕄 (Fin 2) (toℕ (MCParam.n p) ∸ MCParam.k p) $ MCParam.k p
 \end{code}
 \end{document}
