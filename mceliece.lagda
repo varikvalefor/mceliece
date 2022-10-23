@@ -191,13 +191,6 @@ record MCParam : Set
   q = 2 ^ m
 \end{code}
 
-\section{la'oi .\D{polly}.}
-ni'o la'o zoi.\ \D{polly} x .zoi.\ vasru lo ro me'oi .polynomial.\ pe la'oi .\B x.
-
-\begin{code}
-postulate polly : MCParam → Set
-\end{code}
-
 \chapter{la'oi .\D{Private}.\ je zo'e}
 
 \section{la'oi .\D{Private}.}
