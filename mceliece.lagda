@@ -155,7 +155,7 @@ record MCParam : Set
   where
   field
     m : ℕ
-    n : Fin (2 ^ m)
+    n : Fin $ suc $ 2 ^ m
     t : Fin $ (toℕ n) div2 m
     -- ^ .i dukse le ka ce'u sampu je nai me'oi .strict.
     -- .i sarcu fa lo nu ko'a goi la'o zoi. MCParam.t x
