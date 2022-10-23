@@ -170,7 +170,7 @@ record MCParam : Set
     f : Vec (Fin 2) m
     F : Vec (Fin q) $ toℕ t
     ν : ℕ
-    -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
+    -- ^ ni'o dukse le ka ce'u sampu  .i sarcu fa lo nu
     -- dubjavme'a lo sumji be la'oi .μ. bei la'oi .k.
     μ : Fin $ ν + 1
     -- ni'o le me'oi .field. poi srana le mu'oi glibau.
