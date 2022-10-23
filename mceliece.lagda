@@ -182,9 +182,6 @@ record MCParam : Set
     -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
     -- dubjavmau lo pilji be li re bei la'oi .m.
     G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * (2 ^ m) + σ₁ * toℕ t + ℓ)
-    -- ^ ni'o la .varik. cu jinvi le du'u tolmle... kei
-    -- je cu te selneimau lo su'u na pilno lo mu'oi
-    -- glibau. line break .glibau.
   k : ℕ
   k = toℕ n ∸ m * toℕ t
   q : ℕ
