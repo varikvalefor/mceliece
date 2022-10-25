@@ -67,6 +67,9 @@ ni'o le proga cu na xamgu je cu na mulno
 ni'o la'au le me'oi .preamble.\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 
 \begin{code}
+{-# OPTIONS --guardedness #-}
+
+open import IO
 open import Data.Fin
   renaming (
     _+_ to _+F_
@@ -78,6 +81,8 @@ open import Data.Bool
   hiding (
     T
   )
+open import Data.Maybe
+open import Data.Product
 open import Data.Nat.DivMod
 open import Data.Nat.Primality
 open import Algebra.Solver.Ring
@@ -190,7 +195,18 @@ record MCParam : Set
     G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * q + σ₁ * toℕ t + ℓ)
   k : ℕ
   k = toℕ n ∸ m * toℕ t
+  n-k : ℕ
+  n-k = toℕ n ∸ k
 \end{code}
+
+\section{la'oi .\F{pus}.}
+ni'o la'o zoi.\ \F{pus} \B q .zoi.\ me'oi .type.\ lo gubni termifckiku pe la'oi .\B q.
+
+\begin{code}
+pus : MCParam → Set
+pus p = 𝕄 (Fin 2) (MCParam.n-k p) $ MCParam.k p
+\end{code}
+
 
 \chapter{la'oi .\D{Private}.\ je zo'e}
 ni'o la'au la'oi .\D{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{Private}.\ po'o ku'o je le pinka be ko'a
@@ -219,6 +235,14 @@ record Private (p : MCParam) : Set
     s : Vec (Fin 2) $ toℕ $ MCParam.n p
 \end{code}
 
+\section{la'oi .\F{MatGen}.}
+
+ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
+
+\begin{code}
+postulate MatGen : {p : MCParam} → (P : Private p) → Maybe $ pus p
+\end{code}
+
 \chapter{la'oi .\D{Public}.}
 ni'o la'au la'oi .\D{Public}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Public}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{Public}.\ po'o ku'o je le pinka be ko'a
 
@@ -234,6 +258,50 @@ ni'o la'o zoi.\ \F{Public.T} \Sym\$ \D{Public} \B q .zoi.\ nacmeimei lo vujnu be
 record Public (p : MCParam) : Set
   where
   field
-    T : 𝕄 (Fin 2) (toℕ (MCParam.n p) ∸ MCParam.k p) $ MCParam.k p
+    T : pus p
+\end{code}
+
+\chapter{la'oi .\D{KP}. je zo'e}
+
+\section{la'oi .\D{KP}.}
+ni'o ro da poi me'oi .\D{KP}.\ zo'u da sinxa lo mu'oi glibau.\ key pair .glibau.\ pe la'o glibau.\ Classic MCELIECE .glibau.
+
+\subsection{le me'oi .field.}
+\paragraph{la'oi .F{KP.pu}.}
+ni'o ge ko'a goi la'o zoi.\ \F{KP.pu} \B t .zoi.\ gubni termifckiku gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{KP.pr} \B t .zoi.
+
+\paragraph{la'oi .\F{KP.pr}.}
+ni'o ge ko'a goi la'o zoi.\ \F{KP.pu} \B t .zoi.\ gubni termifckiku gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{KP.pr} \B t .zoi.
+
+\begin{code}
+record KP (p : MCParam) : Set
+  where
+  field
+    pu : Public p
+    pr : Private p
+\end{code}
+
+\chapter{le fancu poi ke'a goi ko'a zo'u lo nu xamgu pilno ko'a cu filri'a lo nu zbasu lo termifckiku}
+
+\section{la'oi .\F{SeededKeyGen}.}
+
+ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku gi la'o zoi.\ \F{KP.pu} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
+
+\subsection{le samselpla}
+\begin{code}
+-- | ni'o le su'u pilno ko'a goi le mu'oi glibau. line break
+-- .glibau. cu tolmle la .varik.  .i ku'i ganai na pilno
+-- ko'a gi lo me'oi .\hbox. cu me'oi .overfull.  .i lo me'oi
+-- .\hbox. cu na me'oi .overfull.
+postulate
+  SeededKeyGen : (p : MCParam) → Fin $ 2 ^ (MCParam.ℓ p) → KP p
+\end{code}
+
+\section{la'oi .\F{KeyGen}.}
+ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi mapti la'oi .\B q.\ gi la'o zoi.\ \F{KP.pu} \Sym{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi mapti ko'a
+
+\subsection{le samselpla}
+\begin{code}
+postulate KeyGen : (p : MCParam) → IO $ KP p
 \end{code}
 \end{document}
