@@ -204,10 +204,10 @@ ni'o ro da poi me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o g
 ni'o la'o zoi.\ \F{Private.g} \B p .zoi.\ cpolinomi'a
 
 \paragraph{la'oi .\F{Private.Γ}.}
-ni'o la'o zoi.\ \F{Private.Γ} \Sym\$ \D MCParam p) .zoi.\ liste lo'i cmima be lo cleti poi se nilzilcmi la'o zoi.\ \F{MCParam.q p} .zoi.\ be'o je cu se nilzilcmi lo sumji be la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.\ bei li pa
+ni'o la'o zoi.\ \F{Private.Γ} \Sym\$ \D{Private} p) .zoi.\ liste lo'i cmima be lo cletu poi se nilzilcmi la'o zoi.\ \F{MCParam.q} \B p .zoi.\ be'o je cu se nilzilcmi lo sumji be la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.\ bei li pa
 
 \paragraph{la'oi .\F{Private.s}.}
-ni'o la'o zoi.\ \F{Private.s} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.
+ni'o la'o zoi.\ \F{Private.s} \Sym\$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.
 
 
 \begin{code}
@@ -227,8 +227,8 @@ ni'o ro da poi me'oi .\D{Public}.\ zo'u da sinxa lo gubni termifckiku
 
 \subsection{le me'oi .field.}
 
-\paragraph{la'oi .\F{T}.}
-ni'o la'o zoi.\ \F{Public.T} \B q .zoi.\ nacmeimei lo vujnu be la'o zoi.\ \F{fromℕ} \Sym\$ \F{MCParam.n} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B p .zoi.\ je cu vasru lo cmima be la'o zoi.\ \D{Fin} 2 .zoi.\ po'o
+\paragraph{la'oi .\F{Public.T}.}
+ni'o la'o zoi.\ \F{Public.T} \Sym\$ \D{Public} \B q .zoi.\ nacmeimei lo vujnu be la'o zoi.\ \F{fromℕ} \Sym\$ \F{MCParam.n} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B p .zoi.\ je cu vasru lo cmima be la'o zoi.\ \D{Fin} 2 .zoi.\ po'o
 
 \begin{code}
 record Public (p : MCParam) : Set
