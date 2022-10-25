@@ -10,7 +10,6 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
-% \setmathfont{XITS Math}
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
 \newunicodechar{∃}{\ensuremath{\mathnormal\exists}}
 \newunicodechar{∄}{\ensuremath{\mathnormal\nexists}}
