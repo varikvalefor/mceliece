@@ -204,7 +204,7 @@ ni'o ro da poi me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o g
 ni'o la'o zoi.\ \F{Private.g} \B p .zoi.\ cpolinomi'a
 
 \paragraph{la'oi .\F{Private.Γ}.}
-ni'o la'o zoi.\ \F{Private.Γ} \B p) .zoi.\ liste lo'i cpolinomi'a je cu se nilzilcmi lo sumji be la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.\ bei li pa
+ni'o la'o zoi.\ \F{Private.Γ} \Sym\$ \D MCParam p) .zoi.\ liste lo'i cmima be lo cleti poi se nilzilcmi la'o zoi.\ \F{MCParam.q p} .zoi.\ be'o je cu se nilzilcmi lo sumji be la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.\ bei li pa
 
 \paragraph{la'oi .\F{Private.s}.}
 ni'o la'o zoi.\ \F{Private.s} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.
