@@ -209,12 +209,13 @@ ni'o la'o zoi.\ \F{Private.Γ} \B p) .zoi.\ liste lo'i cpolinomi'a je cu se nilz
 \paragraph{la'oi .\F{Private.s}.}
 ni'o la'o zoi.\ \F{Private.s} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.
 
+
 \begin{code}
 record Private (p : MCParam) : Set
   where
   field
     g : {n : ℕ} → Vec (Fin $ MCParam.q p) n
-    Γ : Vec (Fin $ MCParam.q p) $ suc $ toℕ $ MCParam.n p
+    Γ : Vec (Fin $ MCParam.q p) $ toℕ $ MCParam.n p
     s : Vec (Fin 2) $ toℕ $ MCParam.n p
 \end{code}
 
