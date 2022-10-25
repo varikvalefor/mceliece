@@ -207,7 +207,6 @@ pus : MCParam → Set
 pus p = 𝕄 (Fin 2) (MCParam.n-k p) $ MCParam.k p
 \end{code}
 
-
 \chapter{la'oi .\D{Private}.\ je zo'e}
 ni'o la'au la'oi .\D{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{Private}.\ po'o ku'o je le pinka be ko'a
 
@@ -225,7 +224,6 @@ ni'o la'o zoi.\ \F{Private.Γ} \Sym\$ \D{Private} p) .zoi.\ liste lo'i cmima be 
 \paragraph{la'oi .\F{Private.s}.}
 ni'o la'o zoi.\ \F{Private.s} \Sym\$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.
 
-
 \begin{code}
 record Private (p : MCParam) : Set
   where
@@ -236,7 +234,6 @@ record Private (p : MCParam) : Set
 \end{code}
 
 \section{la'oi .\F{MatGen}.}
-
 ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
 
 \begin{code}
@@ -285,7 +282,6 @@ record KP (p : MCParam) : Set
 ni'o la'au le fancu poi ke'a goi ko'a zo'u lo nu xamgu pilno ko'a cu filri'a lo nu zbasu lo termifckiku li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu zbasu lo nu zbasu lo termifckiku
 
 \section{la'oi .\F{SeededKeyGen}.}
-
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku gi la'o zoi.\ \F{KP.pu} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
 \subsection{le samselpla}
