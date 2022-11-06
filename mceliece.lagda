@@ -391,6 +391,6 @@ postulate Decode : {p : MCParam}
                  → pus p
                  → {n : ℕ} → Vec (Fin $ MCParam.q p) n
                  → Vec (Fin $ MCParam.q p) $ toℕ $ MCParam.n p
-                 → Maybe $ Vec (Fin 2) $ (toℕ $ MCParam.n p)
+                 → Maybe $ Vec (Fin 2) $ toℕ $ MCParam.n p
 \end{code}
 \end{document}
