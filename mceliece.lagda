@@ -45,6 +45,8 @@
 \newunicodechar{₂}{\ensuremath{_2}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 
+\newcommand\hashish{cbf1 42fe 1ebd b0b2 87a4 4018 340b 8159 7ef1 3a63 6f5d 76f4 6f48 a080 b2bc d3f1 3922 f0f1 5219 94cc 5e71 fb1f b2d9 d9f8 dd3b ffe6 be32 0056 5cca 21c4 28eb 9de1}
+
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
@@ -91,6 +93,22 @@ open import Relation.Nullary.Decidable using (from-yes)
 
 \chapter{le vrici}
 ni'o la'au le vrici li'u vasru zo'e poi ke'a goi ko'a zo'u na racli fa lo nu zbasu lo me'oi .chapter.\ poi vasru ko'a po'o
+
+\section{la'oi .\F{hWV𝔽2}.}
+ni'o la'o zoi.\ \F{hWV𝔽2} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.
+
+\begin{code}
+postulate hWV𝔽2 : {a : ℕ} → Vec (Fin 2) a → ℕ
+\end{code}
+
+\section{la'oi .\Sym{≡}.}
+ni'o go la'o zoi.\ \B x \Sym{≡} \B y .zoi.\ zasti gi la'oi .\B x.\ du la'oi .\B y.
+
+\begin{code}
+data _≡_ {A : Set} (a : A) : A → Set
+  where
+  das-auto : a ≡ a
+\end{code}
 
 \section{la'oi .\Sym{\_!\_}.}
 ni'o la'o zoi.\ \B x \Sym{!} \B n .zoi.\ meirmoi la'oi .\B n.\ fo la'oi .\B x.  .i li no cu me'oi .index.
@@ -346,5 +364,33 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .r
 \subsection{le samselpla}
 \begin{code}
 postulate KeyGen : (p : MCParam) → IO $ KP p
+\end{code}
+
+\chapter{le fancu poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
+
+\section{la'oi .\F{Encode}.}
+ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}.\ poi se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+
+\begin{code}
+-- | ni'o su'u pilno le mu'oi glibau. line break .glibau.
+-- cu tolmle la .varik.  .i ku'i ganai na pilno le mu'oi
+-- glibau. line break .glibau. gi co'e... ki'ai zo'oi .ZZZ.
+postulate Encode : {p : MCParam}
+                 → (e : Vec (Fin 2) $ toℕ $ MCParam.n p)
+                 → Public p
+                 → {(hWV𝔽2 e) ≡ (toℕ $ MCParam.t p)}
+                 → Vec (Fin 2) $ MCParam.n-k p
+\end{code}
+
+\section{la'oi .\F{Decode}.}
+ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Decode}.\ poi se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
+
+\begin{code}
+postulate Decode : {p : MCParam}
+                 → Vec (Fin 2) $ MCParam.n-k p
+                 → pus p
+                 → {n : ℕ} → Vec (Fin $ MCParam.q p) n
+                 → Vec (Fin $ MCParam.q p) $ toℕ $ MCParam.n p
+                 → Maybe $ Vec (Fin 2) $ (toℕ $ MCParam.n p)
 \end{code}
 \end{document}
