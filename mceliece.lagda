@@ -134,8 +134,6 @@ data 𝕄 {a} (A : Set a) : ℕ → ℕ → Set a
 ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
--- | ni'o ganai na pilno le mu'oi glibau. line break
--- .glibau. gi lo me'oi .\hbox. cu me'oi .overfull.
 _𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
 (m ∷𝕄 ms) 𝕄!! n = (m ! n) ∷ (ms 𝕄!! n)
 (to𝕄 x) 𝕄!! n = (x ! n) ∷ []
