@@ -73,7 +73,6 @@ open import Data.Fin
   renaming (
     _+_ to _+F_
   )
-open import Data.Nat
 open import Data.Vec
 open import Function
 open import Data.Bool
@@ -82,7 +81,9 @@ open import Data.Bool
   )
 open import Data.Maybe
 open import Data.Product
+open import Data.Nat as ℕ
 open import Data.Nat.DivMod
+open import Algebra.Structures
 open import Data.Nat.Primality
 open import Algebra.Solver.Ring
 open import Relation.Nullary.Decidable using (from-yes)
@@ -90,6 +91,15 @@ open import Relation.Nullary.Decidable using (from-yes)
 
 \chapter{le vrici}
 ni'o la'au le vrici li'u vasru zo'e poi ke'a goi ko'a zo'u na racli fa lo nu zbasu lo me'oi .chapter.\ poi vasru ko'a po'o
+
+\section{la'oi .\Sym{\_!\_}.}
+ni'o la'o zoi.\ \B x \Sym{!} \B n .zoi.\ meirmoi la'oi .\B n.\ fo la'oi .\B x.  .i li no cu me'oi .index.
+
+\begin{code}
+_!_ : ∀ {a} → {A : Set a} → {n : ℕ} → Vec A n → Fin n → A
+(x ∷ xs) ! (suc n) = xs ! n
+(x ∷ xs) ! zero = x
+\end{code}
 
 \section{la'oi .\F{\_div2\_}.}
 ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \Sym{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
@@ -106,8 +116,47 @@ ni'o la'au la'oi .\D M.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D M.\ 
 \section{la'oi .\D 𝕄.}
 ni'o ro da poi mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
 
+\subsection{le me'oi .field.\ pe'a ru'e}
+ni'o ro da poi m'oi .\D 𝕄.\ zo'u lo pa moi me'oi .field.\ pe'a ru'e be da cu me'oi .type.\ lo selvau be lo selsni be da
+
+ni'o ro da poi m'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu ganra
+
+ni'o ro da poi m'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu rajycla
+
 \begin{code}
-postulate 𝕄 : ∀ {a} → (A : Set a) → ℕ → ℕ → Set
+data 𝕄 {a} (A : Set a) : ℕ → ℕ → Set a
+  where
+  to𝕄 : ∀ {m} → Vec A m → 𝕄 A m 1
+  _∷𝕄_ : ∀ {m n} → Vec A m → 𝕄 A m n → 𝕄 A m (suc n)
+\end{code}
+
+\section{la'oi .\Sym{𝕄!!}.}
+ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
+
+\begin{code}
+-- | ni'o ganai na pilno le mu'oi glibau. line break
+-- .glibau. gi lo me'oi .\hbox. cu me'oi .overfull.
+_𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
+(m ∷𝕄 ms) 𝕄!! n = (m ! n) ∷ (ms 𝕄!! n)
+(to𝕄 x) 𝕄!! n = (x ! n) ∷ []
+\end{code}
+
+\section{la'oi .\Sym{𝕄!!'}.}
+ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
+
+\begin{code}
+_𝕄!!'_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin o → Vec A n
+(to𝕄 t) 𝕄!!' zero = t
+(t ∷𝕄 _) 𝕄!!' zero = t
+(_ ∷𝕄 ts) 𝕄!!' (Data.Fin.suc n) = ts 𝕄!!' n
+\end{code}
+
+\section{la'oi .\F{f𝕄}.}
+ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
+
+\begin{code}
+postulate f𝕄 : ∀ {a b} → {m n : ℕ} → {A : Set a} → {B : Set b}
+             → (A → B) → 𝕄 A m n → 𝕄 B m n
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
