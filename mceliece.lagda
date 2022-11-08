@@ -391,7 +391,7 @@ ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Decode}
 postulate Decode : {p : MCParam}
                  → Vec (Fin 2) $ MCParam.n-k p
                  → pus p
-                 → {n : ℕ} → Vec (Fin $ MCParam.q p) n
+                 → ({n : ℕ} → Vec (Fin $ MCParam.q p) n)
                  → Vec (Fin $ MCParam.q p) $ toℕ $ MCParam.n p
                  → Maybe $ Vec (Fin 2) $ toℕ $ MCParam.n p
 \end{code}
