@@ -171,8 +171,10 @@ _𝕄!!'_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin o → Vec A n
 ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
-postulate f𝕄 : ∀ {a b} → {m n : ℕ} → {A : Set a} → {B : Set b}
-             → (A → B) → 𝕄 A m n → 𝕄 B m n
+f𝕄 : ∀ {a b} → {m n : ℕ} → {A : Set a} → {B : Set b}
+   → (A → B) → 𝕄 A m n → 𝕄 B m n
+f𝕄 f (m ∷𝕄 ms) = Data.Vec.map f m ∷𝕄 (f𝕄 f ms)
+f𝕄 f (to𝕄 q) = to𝕄 $ Data.Vec.map f q
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
