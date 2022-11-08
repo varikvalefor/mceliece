@@ -380,7 +380,7 @@ ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}
 postulate Encode : {p : MCParam}
                  → (e : Vec (Fin 2) $ toℕ $ MCParam.n p)
                  → Public p
-                 → {(hWV𝔽2 e) ≡ (toℕ $ MCParam.t p)}
+                 → {hWV𝔽2 e ≡ (toℕ $ MCParam.t p)}
                  → Vec (Fin 2) $ MCParam.n-k p
 \end{code}
 
