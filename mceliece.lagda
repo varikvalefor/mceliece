@@ -115,8 +115,8 @@ ni'o la'o zoi.\ \B x \Sym{!} \B n .zoi.\ meirmoi la'oi .\B n.\ fo la'oi .\B x.  
 
 \begin{code}
 _!_ : ∀ {a} → {A : Set a} → {n : ℕ} → Vec A n → Fin n → A
-(x ∷ xs) ! (suc n) = xs ! n
-(x ∷ xs) ! zero = x
+(_ ∷ xs) ! (suc n) = xs ! n
+(x ∷ _) ! zero = x
 \end{code}
 
 \section{la'oi .\F{\_div2\_}.}
