@@ -142,10 +142,10 @@ ni'o ro da poi m'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu 
 ni'o ro da poi m'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu rajycla
 
 \begin{code}
-data 𝕄 {a} (A : Set a) : ℕ → ℕ → Set a
+data 𝕄 {a} (A : Set a) (x : ℕ) : ℕ → Set a
   where
-  to𝕄 : ∀ {m} → Vec A m → 𝕄 A m 1
-  _∷𝕄_ : ∀ {m n} → Vec A m → 𝕄 A m n → 𝕄 A m (suc n)
+  []𝕄 : 𝕄 A x 0
+  _∷𝕄_ : ∀ {n} → Vec A x → 𝕄 A x n → 𝕄 A x (suc n)
 \end{code}
 
 \section{la'oi .\Sym{𝕄!!}.}
@@ -154,7 +154,7 @@ ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 \begin{code}
 _𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
 (m ∷𝕄 ms) 𝕄!! n = (m ! n) ∷ (ms 𝕄!! n)
-(to𝕄 x) 𝕄!! n = (x ! n) ∷ []
+[]𝕄 𝕄!! _ = []
 \end{code}
 
 \section{la'oi .\Sym{𝕄!!'}.}
@@ -162,7 +162,6 @@ ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
 _𝕄!!'_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin o → Vec A n
-(to𝕄 t) 𝕄!!' zero = t
 (t ∷𝕄 _) 𝕄!!' zero = t
 (_ ∷𝕄 ts) 𝕄!!' (Data.Fin.suc n) = ts 𝕄!!' n
 \end{code}
@@ -171,10 +170,10 @@ _𝕄!!'_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin o → Vec A n
 ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
-f𝕄 : ∀ {a b} → {m n : ℕ} → {A : Set a} → {B : Set b}
+f𝕄 : ∀ {a b m n} → {A : Set a} → {B : Set b}
    → (A → B) → 𝕄 A m n → 𝕄 B m n
 f𝕄 f (m ∷𝕄 ms) = Data.Vec.map f m ∷𝕄 (f𝕄 f ms)
-f𝕄 f (to𝕄 q) = to𝕄 $ Data.Vec.map f q
+f𝕄 _ []𝕄 = []𝕄
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
