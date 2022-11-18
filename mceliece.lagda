@@ -94,11 +94,16 @@ open import Relation.Nullary.Decidable using (from-yes)
 \chapter{le vrici}
 ni'o la'au le vrici li'u vasru zo'e poi ke'a goi ko'a zo'u na racli fa lo nu zbasu lo me'oi .chapter.\ poi vasru ko'a po'o
 
-\section{la'oi .\F{hWV𝔽2}.}
-ni'o la'o zoi.\ \F{hWV𝔽2} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.
+\section{la'oi .\F{hWV𝔽}.}
+ni'o la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.
 
 \begin{code}
-postulate hWV𝔽2 : {a : ℕ} → Vec (Fin 2) a → ℕ
+hWV𝔽 : {a b : ℕ} → Vec (Fin b) a → ℕ
+hWV𝔽 = Data.Vec.sum ∘ Data.Vec.map f
+  where
+  f : ∀ {a} → Fin a → ℕ
+  f (suc _) = 1
+  f zero = 0
 \end{code}
 
 \section{la'oi .\Sym{≡}.}
@@ -379,7 +384,7 @@ ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}
 postulate Encode : {p : MCParam}
                  → (e : Vec (Fin 2) $ toℕ $ MCParam.n p)
                  → Public p
-                 → {hWV𝔽2 e ≡ (toℕ $ MCParam.t p)}
+                 → {hWV𝔽 e ≡ (toℕ $ MCParam.t p)}
                  → Vec (Fin 2) $ MCParam.n-k p
 \end{code}
 
