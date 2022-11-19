@@ -204,10 +204,12 @@ ni'o la'o zoi.\ \Sym{⍉} \B q .zoi.\ me'oi .transpose.\ la'oi .\B q.
   conq (x ∷ xs) = x ∷𝕄 conq xs
   conq [] = []𝕄
   rose : 𝕄 A (suc m) n → Vec (Vec A n) $ suc m
-  rose t = Data.Vec.map (_𝕄!!_ t) $ nbel t
+  rose t = Data.Vec.map (_𝕄!!_ t) $ nbel $ w𝕄 t
     where
+    w𝕄 : 𝕄 A (suc m) n → Fin $ suc m
+    w𝕄 _ = fromℕ m
     postulate
-      nbel : 𝕄 A (suc m) n → Vec (Fin $ suc m) $ suc m
+      nbel : Fin $ suc m → Vec (Fin $ suc m) $ suc m
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
