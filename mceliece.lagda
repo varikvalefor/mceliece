@@ -44,6 +44,7 @@
 \newunicodechar{₁}{\ensuremath{_1}}
 \newunicodechar{₂}{\ensuremath{_2}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
+\newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
 
 \newcommand\hashish{cbf1 42fe 1ebd b0b2 87a4 4018 340b 8159 7ef1 3a63 6f5d 76f4 6f48 a080 b2bc d3f1 3922 f0f1 5219 94cc 5e71 fb1f b2d9 d9f8 dd3b ffe6 be32 0056 5cca 21c4 28eb 9de1}
 
@@ -179,6 +180,34 @@ f𝕄 : ∀ {a b m n} → {A : Set a} → {B : Set b}
    → (A → B) → 𝕄 A m n → 𝕄 B m n
 f𝕄 f (m ∷𝕄 ms) = Data.Vec.map f m ∷𝕄 (f𝕄 f ms)
 f𝕄 _ []𝕄 = []𝕄
+\end{code}
+
+\section{la'oi .\F{f𝕄'}.}
+ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
+
+\begin{code}
+f𝕄' : ∀ {a b m n} → {A : Set a} → {B : Set b}
+    → (Vec A m → B) → 𝕄 A m n → Vec B n
+f𝕄' f (x ∷𝕄 xs) = f x ∷ f𝕄' f xs
+f𝕄' _ []𝕄 = []
+\end{code}
+
+\section{la'oi .\Sym{⍉}.}
+ni'o la'o zoi.\ \Sym{⍉} \B q .zoi.\ me'oi .transpose.\ la'oi .\B q.
+
+\begin{code}
+⍉ : ∀ {a m n} → {A : Set a} → 𝕄 A m n → 𝕄 A n m
+⍉ {_} {zero} _ = []𝕄
+⍉ {a} {suc m} {n} {A} = conq ∘ rose
+  where
+  conq : ∀ {a m n} → {A : Set a} → Vec (Vec A m) n → 𝕄 A m n
+  conq (x ∷ xs) = x ∷𝕄 conq xs
+  conq [] = []𝕄
+  rose : 𝕄 A (suc m) n → Vec (Vec A n) $ suc m
+  rose t = Data.Vec.map (_𝕄!!_ t) $ nbel t
+    where
+    postulate
+      nbel : 𝕄 A (suc m) n → Vec (Fin $ suc m) $ suc m
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
