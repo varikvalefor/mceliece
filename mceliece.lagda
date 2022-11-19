@@ -141,11 +141,11 @@ ni'o la'au la'oi .\D M.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D M.\ 
 ni'o ro da poi mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
 
 \subsection{le me'oi .field.\ pe'a ru'e}
-ni'o ro da poi m'oi .\D 𝕄.\ zo'u lo pa moi me'oi .field.\ pe'a ru'e be da cu me'oi .type.\ lo selvau be lo selsni be da
+ni'o ro da poi me'oi .\D 𝕄.\ zo'u lo pa moi me'oi .field.\ pe'a ru'e be da cu me'oi .type.\ lo selvau be lo selsni be da
 
-ni'o ro da poi m'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu ganra
+ni'o ro da poi me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu ganra
 
-ni'o ro da poi m'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu rajycla
+ni'o ro da poi me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu rajycla
 
 \begin{code}
 data 𝕄 {a} (A : Set a) (x : ℕ) : ℕ → Set a
