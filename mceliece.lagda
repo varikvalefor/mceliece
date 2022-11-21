@@ -148,10 +148,8 @@ ni'o ro da poi me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu
 ni'o ro da poi me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu rajycla
 
 \begin{code}
-data 𝕄 {a} (A : Set a) (x : ℕ) : ℕ → Set a
-  where
-  []𝕄 : 𝕄 A x 0
-  _∷𝕄_ : ∀ {n} → Vec A x → 𝕄 A x n → 𝕄 A x (suc n)
+𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
+𝕄 A a b = Vec (Vec A a) b
 \end{code}
 
 \section{la'oi .\Sym{𝕄!!}.}
@@ -159,37 +157,8 @@ ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
 _𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
-(m ∷𝕄 ms) 𝕄!! n = (m ! n) ∷ (ms 𝕄!! n)
-[]𝕄 𝕄!! _ = []
-\end{code}
-
-\section{la'oi .\Sym{𝕄!!'}.}
-ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
-
-\begin{code}
-_𝕄!!'_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin o → Vec A n
-(t ∷𝕄 _) 𝕄!!' zero = t
-(_ ∷𝕄 ts) 𝕄!!' (Data.Fin.suc n) = ts 𝕄!!' n
-\end{code}
-
-\section{la'oi .\F{f𝕄}.}
-ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
-
-\begin{code}
-f𝕄 : ∀ {a b m n} → {A : Set a} → {B : Set b}
-   → (A → B) → 𝕄 A m n → 𝕄 B m n
-f𝕄 f (m ∷𝕄 ms) = Data.Vec.map f m ∷𝕄 (f𝕄 f ms)
-f𝕄 _ []𝕄 = []𝕄
-\end{code}
-
-\section{la'oi .\F{f𝕄'}.}
-ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
-
-\begin{code}
-f𝕄' : ∀ {a b m n} → {A : Set a} → {B : Set b}
-    → (Vec A m → B) → 𝕄 A m n → Vec B n
-f𝕄' f (x ∷𝕄 xs) = f x ∷ f𝕄' f xs
-f𝕄' _ []𝕄 = []
+(m ∷ ms) 𝕄!! n = (m ! n) ∷ (ms 𝕄!! n)
+[] 𝕄!! _ = []
 \end{code}
 
 \section{la'oi .\Sym{⍉}.}
@@ -197,17 +166,11 @@ ni'o la'o zoi.\ \Sym{⍉} \B q .zoi.\ me'oi .transpose.\ la'oi .\B q.
 
 \begin{code}
 ⍉ : ∀ {a m n} → {A : Set a} → 𝕄 A m n → 𝕄 A n m
-⍉ {_} {zero} _ = []𝕄
-⍉ {a} {suc m} {n} {A} = conq ∘ rose
+⍉ {_} {zero} _ = []
+⍉ {_} {suc m} {_} {_} t = Data.Vec.map (_𝕄!!_ t) rind
   where
-  conq : ∀ {a m n} → {A : Set a} → Vec (Vec A m) n → 𝕄 A m n
-  conq (x ∷ xs) = x ∷𝕄 conq xs
-  conq [] = []𝕄
-  rose : 𝕄 A (suc m) n → Vec (Vec A n) $ suc m
-  rose t = Data.Vec.map (_𝕄!!_ t) rind
-    where
-    postulate
-      rind : Vec (Fin $ suc m) $ suc m
+  postulate
+    rind : Vec (Fin $ suc m) $ suc m
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
