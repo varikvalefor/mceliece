@@ -180,6 +180,15 @@ ni'o la'o zoi.\ \F{hw𝕄} \B t .zoi.\ cu sumji be lo'i mu'oi glibau.\ HAMMING w
 hw𝕄 : ∀ {a m n} → 𝕄 (Fin a) m n → ℕ
 hw𝕄 = sum ∘ Data.Vec.map hWV𝔽
 \end{code}
+
+\section{la'oi .\F{rf}.}
+ni'o go la'o zoi.\ \F{rf} \D t .zoi.\ zasti gi da mapti le mu'oi glibau.\ reduced row-echelon form .glibau.
+
+\begin{code}
+postulate
+  rf : ∀ {a m n} → (q : 𝕄 (Fin a) m n) → hw𝕄 q ≡ n → Set
+\end{code}
+
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
 ni'o la'au la'oi .\D{MCParam}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{MCParam}.\ po'o ku'o je le pinka be ko'a
 
