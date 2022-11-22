@@ -134,6 +134,13 @@ _ div2 0 = 0
 a div2 (suc b) = a div (suc b)
 \end{code}
 
+\section{la'oi .\F{rind}.}
+ni'o ro da poi me'oi .\F{rind}.\ zo'u ge da zmaduse gi ro de poi selvau da zo'u ro di poi selvau da je poi na du de zo'u lo meirmoi be da bei fo da cu na du lo meirmoi be di bei fo da  .i la'oi .\F{rind}.\ simsa la'oi .\F{Data.List.upTo}.
+
+\begin{code}
+postulate rind : ∀ {n} → Vec (Fin $ suc n) $ suc n
+\end{code}
+
 \chapter{la'oi .\D 𝕄.\ je zo'e}
 ni'o la'au la'oi .\D M.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D M.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D M.\ po'o ku'o je le pinka be ko'a
 
@@ -167,10 +174,7 @@ ni'o la'o zoi.\ \Sym{⍉} \B q .zoi.\ me'oi .transpose.\ la'oi .\B q.
 \begin{code}
 ⍉ : ∀ {a m n} → {A : Set a} → 𝕄 A m n → 𝕄 A n m
 ⍉ {_} {zero} _ = []
-⍉ {_} {suc m} {_} {_} t = Data.Vec.map (_𝕄!!_ t) rind
-  where
-  postulate
-    rind : Vec (Fin $ suc m) $ suc m
+⍉ {_} {suc m} t = Data.Vec.map (_𝕄!!_ t) rind
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
