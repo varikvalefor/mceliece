@@ -268,10 +268,10 @@ record MCParam : Set
     H : ℕ → Fin $ 2 ^ ℓ
     σ₁ : ℕ
     -- ^ ni'o dukse le ka ce'u sampu  .i sarcu fa lo nu
-    -- dubjavmau la'oi .m.
+    -- la'oi .σ₁. dubjavmau la'oi .m.
     σ₂ : ℕ
     -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
-    -- dubjavmau lo pilji be li re bei la'oi .m.
+    -- la'oi .σ₂. dubjavmau lo pilji be li re bei la'oi .m.
     G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * q + σ₁ * toℕ t + ℓ)
   k : ℕ
   k = toℕ n ∸ m * toℕ t
