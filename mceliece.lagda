@@ -187,7 +187,7 @@ ni'o go la'o zoi.\ \F{rf} \D t \D n .zoi.\ zasti gi da mapti le mu'oi glibau.\ r
 \begin{code}
 data rf {m n} (q : 𝕄 (Fin 2) m n) : ℕ → Set
   where
-  radfrq : rf q (hw𝕄 q)
+  radfrq : rf q $ hw𝕄 q
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
