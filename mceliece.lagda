@@ -182,7 +182,7 @@ hw𝕄 = sum ∘ Data.Vec.map hWV𝔽
 \end{code}
 
 \section{la'oi .\F{rf}.}
-ni'o go la'o zoi.\ \F{rf} \D t .zoi.\ zasti gi da mapti le mu'oi glibau.\ reduced row-echelon form .glibau.
+ni'o go la'o zoi.\ \F{rf} \D t \D n .zoi.\ zasti gi da mapti le mu'oi glibau.\ reduced row-echelon form .glibau.
 
 \begin{code}
 data rf {m n} (q : 𝕄 (Fin 2) m n) : ℕ → Set
