@@ -185,8 +185,9 @@ hw𝕄 = sum ∘ Data.Vec.map hWV𝔽
 ni'o go la'o zoi.\ \F{rf} \D t .zoi.\ zasti gi da mapti le mu'oi glibau.\ reduced row-echelon form .glibau.
 
 \begin{code}
-postulate
-  rf : ∀ {a m n} → (q : 𝕄 (Fin a) m n) → hw𝕄 q ≡ n → Set
+data rf {m n} (q : 𝕄 (Fin 2) m n) : ℕ → Set
+  where
+  radfrq : rf q (hw𝕄 q)
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
