@@ -169,8 +169,7 @@ ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
 _𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
-(m ∷ ms) 𝕄!! n = (m ! n) ∷ (ms 𝕄!! n)
-[] 𝕄!! _ = []
+_𝕄!!_ m n = Data.Vec.map (flip _!_ n) m
 \end{code}
 
 \section{la'oi .\Sym{⍉}.}
