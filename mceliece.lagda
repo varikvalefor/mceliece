@@ -321,7 +321,19 @@ record Private (p : MCParam) : Set
 ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
 
 \begin{code}
-postulate MatGen : {p : MCParam} → (P : Private p) → Maybe $ pus p
+MatGen : {p : MCParam} → (P : Private p) → Maybe $ pus p
+MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl hijmat
+  where
+  tee = toℕ $ MCParam.t p
+  enn = toℕ $ MCParam.n p
+  mf = 𝕄 (Fin $ MCParam.q p) tee enn
+  mftwom = 𝕄 (Fin 2) (tee * MCParam.m p) enn
+  postulate
+    SysForm : Set
+    repl : mf → mftwom
+    toPus : SysForm → pus p
+    cyst : mftwom → Maybe SysForm
+    hijmat : mf
 \end{code}
 
 \chapter{la'oi .\D{Public}.}
