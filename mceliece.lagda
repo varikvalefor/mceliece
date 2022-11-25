@@ -25,6 +25,7 @@
 \newunicodechar{ℙ}{\ensuremath{\mathbb{P}}}
 \newunicodechar{𝔽}{\ensuremath{\mathbb{F}}}
 \newunicodechar{𝕄}{\ensuremath{\mathbb{M}}}
+\newunicodechar{𝔹}{\ensuremath{\mathbb{B}}}
 \newunicodechar{ν}{\ensuremath{\nu}}
 \newunicodechar{μ}{\ensuremath{\mu}}
 \newunicodechar{◆}{\ensuremath{\mathnormal\blackdiamond}}
@@ -137,6 +138,13 @@ ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \Sym{div2} b .z
 _div2_ : ℕ → ℕ → ℕ
 _ div2 0 = 0
 a div2 (suc b) = a div (suc b)
+\end{code}
+
+\section{la'oi .\_∧𝔹ℕ𝔽\_.}
+ni'o la'o zoi.\ \B a \Sym{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
+
+\begin{code}
+postulate _∧𝔹ℕ𝔽_ : ∀ {a} → ℕ → Fin a → Fin a
 \end{code}
 
 \section{la'oi .\F{rind}.}
