@@ -164,9 +164,9 @@ rind {n} = rind2 [ zero ]
     --  la'oi .k.
     suck : ∀ {a} → Fin a → Fin a
     -- | ni'o gonai ge la'oi .n. ni ce'u goi la'oi .t.
-    -- vasru gi ko'a du la'oi .t. gi ge la'oi .t. du la'o
-    -- zoi. x ∷ xs .zoi. gi ko'a du la'o zoi.
-    -- suck x ∷ x ∷ xs .zoi.
+    -- vasru gi ko'a goi la'o zoi. rind2 t .zoi. cu du
+    -- la'oi .t. gi ge la'oi .t. du la'o zoi. x ∷ xs .zoi.
+    -- gi ko'a du la'o zoi. suck x ∷ x ∷ xs .zoi.
     rind2 : ∀ {o} → VL $ suc o → VL $ suc n
 \end{code}
 
