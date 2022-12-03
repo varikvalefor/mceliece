@@ -151,7 +151,23 @@ postulate _∧𝔹ℕ𝔽_ : ∀ {a} → ℕ → Fin a → Fin a
 ni'o ro da poi me'oi .\F{rind}.\ zo'u ge da zmaduse gi ro de poi selvau da zo'u ro di poi selvau da je poi na du de zo'u lo meirmoi be da bei fo da cu na du lo meirmoi be di bei fo da  .i la'oi .\F{rind}.\ simsa la'oi .\F{Data.List.upTo}.
 
 \begin{code}
-postulate rind : ∀ {n} → Vec (Fin $ suc n) $ suc n
+rind : ∀ {n} → Vec (Fin $ suc n) $ suc n
+rind {n} = rind2 []
+  where
+  postulate
+    -- | ni'o gonai ge ge lo me'oi .successor. be la'oi
+    -- .k. cu dubjavmau la'oi .a. gi la'o zoi. Fin a .zoi.
+    -- ctaipe la'oi .k. gi ko'a goi la'o zoi. suck k .zoi.
+    -- du la'oi .k. gi ko'a me'oi .successor.
+    --  la'oi .k.
+    suck : ∀ {a} → Fin a → Fin a
+    -- | ni'o gonai ge la'oi .t. du la'o zoi. [] .zoi. gi
+    -- ko'a goi la'o zoi. rind2 t .zoi. du la'o zoi.
+    -- rind2 [ zero ] .zoi. gi gonai ge la'oi .n. ni ce'u
+    -- goi la'oi .t. vasru gi ko'a du la'oi .t. gi ge la'oi
+    -- .t. du la'o zoi. x ∷ xs .zoi. gi ko'a du la'o zoi.
+    -- suck x ∷ x ∷ xs .zoi.
+    rind2 : ∀ {o} → Vec (Fin $ suc n) o → Vec (Fin $ suc n) $ suc n
 \end{code}
 
 \chapter{la'oi .\D 𝕄.\ je zo'e}
