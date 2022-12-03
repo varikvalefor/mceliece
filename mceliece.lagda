@@ -160,8 +160,7 @@ rind {n} = rind2 [ zero ]
     -- | ni'o gonai ge ge lo me'oi .successor. be la'oi
     -- .k. cu dubjavmau la'oi .a. gi la'o zoi. Fin a .zoi.
     -- ctaipe la'oi .k. gi ko'a goi la'o zoi. suck k .zoi.
-    -- du la'oi .k. gi ko'a me'oi .successor.
-    --  la'oi .k.
+    -- du la'oi .k. gi ko'a me'oi .successor. la'oi .k.
     suck : ∀ {a} → Fin a → Fin a
     -- | ni'o gonai ge la'oi .n. ni ce'u goi la'oi .t.
     -- vasru gi ko'a goi la'o zoi. rind2 t .zoi. cu du
