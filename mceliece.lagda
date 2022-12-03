@@ -154,6 +154,8 @@ ni'o ro da poi me'oi .\F{rind}.\ zo'u ge da zmaduse gi ro de poi selvau da zo'u 
 rind : ∀ {n} → Vec (Fin $ suc n) $ suc n
 rind {n} = rind2 [ zero ]
   where
+  VL : ℕ → Set
+  VL = Vec (Fin $ suc n)
   postulate
     -- | ni'o gonai ge ge lo me'oi .successor. be la'oi
     -- .k. cu dubjavmau la'oi .a. gi la'o zoi. Fin a .zoi.
@@ -165,8 +167,7 @@ rind {n} = rind2 [ zero ]
     -- vasru gi ko'a du la'oi .t. gi ge la'oi .t. du la'o
     -- zoi. x ∷ xs .zoi. gi ko'a du la'o zoi.
     -- suck x ∷ x ∷ xs .zoi.
-    rind2 : ∀ {o} → Vec (Fin $ suc n) $ suc o
-          → Vec (Fin $ suc n) $ suc n
+    rind2 : ∀ {o} → VL $ suc o → VL $ suc n
 \end{code}
 
 \chapter{la'oi .\D 𝕄.\ je zo'e}
