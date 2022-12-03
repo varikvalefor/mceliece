@@ -152,7 +152,7 @@ ni'o ro da poi me'oi .\F{rind}.\ zo'u ge da zmaduse gi ro de poi selvau da zo'u 
 
 \begin{code}
 rind : ∀ {n} → Vec (Fin $ suc n) $ suc n
-rind {n} = rind2 []
+rind {n} = rind2 [ zero ]
   where
   postulate
     -- | ni'o gonai ge ge lo me'oi .successor. be la'oi
@@ -161,13 +161,12 @@ rind {n} = rind2 []
     -- du la'oi .k. gi ko'a me'oi .successor.
     --  la'oi .k.
     suck : ∀ {a} → Fin a → Fin a
-    -- | ni'o gonai ge la'oi .t. du la'o zoi. [] .zoi. gi
-    -- ko'a goi la'o zoi. rind2 t .zoi. du la'o zoi.
-    -- rind2 [ zero ] .zoi. gi gonai ge la'oi .n. ni ce'u
-    -- goi la'oi .t. vasru gi ko'a du la'oi .t. gi ge la'oi
-    -- .t. du la'o zoi. x ∷ xs .zoi. gi ko'a du la'o zoi.
+    -- | ni'o gonai ge la'oi .n. ni ce'u goi la'oi .t.
+    -- vasru gi ko'a du la'oi .t. gi ge la'oi .t. du la'o
+    -- zoi. x ∷ xs .zoi. gi ko'a du la'o zoi.
     -- suck x ∷ x ∷ xs .zoi.
-    rind2 : ∀ {o} → Vec (Fin $ suc n) o → Vec (Fin $ suc n) $ suc n
+    rind2 : ∀ {o} → Vec (Fin $ suc n) $ suc o
+          → Vec (Fin $ suc n) $ suc n
 \end{code}
 
 \chapter{la'oi .\D 𝕄.\ je zo'e}
