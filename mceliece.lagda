@@ -162,21 +162,7 @@ ni'o ro da poi me'oi .\F{rind}.\ zo'u ge da zmaduse gi ro de poi selvau da zo'u 
 
 \begin{code}
 rind : ∀ {n} → Vec (Fin $ suc n) $ suc n
-rind {n} = rind2 [ zero ]
-  where
-  VL : ℕ → Set
-  VL = Vec $ Fin $ suc n
-  postulate
-    -- | ni'o gonai ge ge lo me'oi .successor. be la'oi
-    -- .k. cu dubjavmau la'oi .a. gi la'o zoi. Fin a .zoi.
-    -- ctaipe la'oi .k. gi ko'a goi la'o zoi. suck k .zoi.
-    -- du la'oi .k. gi ko'a me'oi .successor. la'oi .k.
-    suck : ∀ {a} → Fin a → Fin a
-    -- | ni'o gonai ge la'oi .n. ni ce'u goi la'oi .t.
-    -- vasru gi ko'a goi la'o zoi. rind2 t .zoi. cu du
-    -- la'oi .t. gi ge la'oi .t. du la'o zoi. x ∷ xs .zoi.
-    -- gi ko'a du la'o zoi. suck x ∷ x ∷ xs .zoi.
-    rind2 : ∀ {o} → VL $ suc o → VL $ suc n
+rind {n} = allFin $ suc n
 \end{code}
 
 \chapter{la'oi .\D 𝕄.\ je zo'e}
