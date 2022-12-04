@@ -143,7 +143,7 @@ a div2 (suc b) = a div (suc b)
 \section{la'oi .\F{nbits}.}
 ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
-.i la'oi .\F{nbits}.\ cu simsa la'o zoi. \F{Data.Bin.toBits} .zoi.\  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
+.i la'oi .\F{nbits}.\ cu simsa la'o zoi. \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
 
 \begin{code}
 postulate nbits : ∀ {a} → ℕ → Vec (Fin 2) a
