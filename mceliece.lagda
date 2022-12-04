@@ -173,7 +173,7 @@ rind : ∀ {n} → Vec (Fin $ suc n) $ suc n
 rind {n} = rind2 [ zero ]
   where
   VL : ℕ → Set
-  VL = Vec (Fin $ suc n)
+  VL = Vec $ Fin $ suc n
   postulate
     -- | ni'o gonai ge ge lo me'oi .successor. be la'oi
     -- .k. cu dubjavmau la'oi .a. gi la'o zoi. Fin a .zoi.
