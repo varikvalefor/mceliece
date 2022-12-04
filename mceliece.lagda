@@ -140,11 +140,29 @@ _ div2 0 = 0
 a div2 (suc b) = a div (suc b)
 \end{code}
 
-\section{la'oi .\_∧𝔹ℕ𝔽\_.}
+\section{la'oi .\F{nbits}.}
+ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
+
+.i la'oi .\F{nbits}.\ cu simsa la'o zoi. \F{Data.Bin.toBits} .zoi.\  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
+
+\begin{code}
+postulate nbits : ∀ {a} → ℕ → Vec (Fin 2) a
+\end{code}
+
+\section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
 ni'o la'o zoi.\ \B a \Sym{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-postulate _∧𝔹ℕ𝔽_ : ∀ {a} → ℕ → Fin a → Fin a
+_∧𝔹ℕ𝔽_ : ∀ {a} → ℕ → Fin a → Fin a
+_∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
+  where
+  ∧𝔹ℕ𝔽' : ∀ {n} → Vec (Fin 2) n → Vec (Fin 2) n → Vec (Fin 2) n
+  ∧𝔹ℕ𝔽' (suc zero ∷ xs) (suc zero ∷ ys) = suc zero ∷ ∧𝔹ℕ𝔽' xs ys
+  ∧𝔹ℕ𝔽' (_ ∷ xs) (_ ∷ ys) = zero ∷ ∧𝔹ℕ𝔽' xs ys
+  ∧𝔹ℕ𝔽' [] [] = []
+  postulate
+    -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
+    toFin : Vec (Fin 2) a! → Fin a!
 \end{code}
 
 \section{la'oi .\F{rind}.}
