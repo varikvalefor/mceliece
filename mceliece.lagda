@@ -122,15 +122,6 @@ data _≡_ {A : Set} (a : A) : A → Set
   das-auto : a ≡ a
 \end{code}
 
-\section{la'oi .\Sym{\_!\_}.}
-ni'o la'o zoi.\ \B x \Sym{!} \B n .zoi.\ meirmoi la'oi .\B n.\ fo la'oi .\B x.  .i li no cu me'oi .index.
-
-\begin{code}
-_!_ : ∀ {a} → {A : Set a} → {n : ℕ} → Vec A n → Fin n → A
-(_ ∷ xs) ! (suc n) = xs ! n
-(x ∷ _) ! zero = x
-\end{code}
-
 \section{la'oi .\F{\_div2\_}.}
 ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \Sym{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
@@ -211,7 +202,7 @@ ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
 _𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
-_𝕄!!_ m n = Data.Vec.map (flip _!_ n) m
+_𝕄!!_ m n = Data.Vec.map (flip lookup n) m
 \end{code}
 
 \section{la'oi .\Sym{⍉}.}
