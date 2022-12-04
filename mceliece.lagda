@@ -166,7 +166,7 @@ _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
 \end{code}
 
 \section{la'oi .\F{rind}.}
-ni'o ro da poi me'oi .\F{rind}.\ zo'u ge da zmaduse gi ro de poi selvau da zo'u ro di poi selvau da je poi na du de zo'u lo meirmoi be da bei fo da cu na du lo meirmoi be di bei fo da  .i la'oi .\F{rind}.\ simsa la'oi .\F{Data.List.upTo}.
+ni'o ro da poi me'oi .\F{rind}.\ zo'u ge da zmaduse gi ro de poi selvau da zo'u ro di poi selvau da je poi na du de zo'u lo meirmoi be da bei fo da cu na du lo meirmoi be di bei fo da  .i la'oi .\F{rind}.\ simsa la'o zoi.\ \F{Data.List.upTo} .zoi.
 
 \begin{code}
 rind : ∀ {n} → Vec (Fin $ suc n) $ suc n
