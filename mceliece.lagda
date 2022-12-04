@@ -219,8 +219,8 @@ ni'o la'o zoi.\ \Sym{⍉} \B q .zoi.\ me'oi .transpose.\ la'oi .\B q.
 
 \begin{code}
 ⍉ : ∀ {a m n} → {A : Set a} → 𝕄 A m n → 𝕄 A n m
-⍉ {_} {zero} _ = []
 ⍉ {_} {suc _} t = Data.Vec.map (_𝕄!!_ t) rind
+⍉ {_} {zero} _ = []
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
