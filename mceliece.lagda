@@ -83,6 +83,9 @@ open import Data.Fin
     _+_ to _+F_
   )
 open import Data.Vec
+  renaming (
+    transpose to ⍉
+  )
 open import Function
 open import Data.Bool
   hiding (
@@ -157,14 +160,6 @@ _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
     toFin : Vec (Fin 2) a! → Fin a!
 \end{code}
 
-\section{la'oi .\F{rind}.}
-ni'o ro da poi me'oi .\F{rind}.\ zo'u ge da zmaduse gi ro de poi selvau da zo'u ro di poi selvau da je poi na du de zo'u lo meirmoi be da bei fo da cu na du lo meirmoi be di bei fo da  .i la'oi .\F{rind}.\ simsa la'o zoi.\ \F{Data.List.upTo} .zoi.
-
-\begin{code}
-rind : ∀ {n} → Vec (Fin $ suc n) $ suc n
-rind {n} = allFin $ suc n
-\end{code}
-
 \chapter{la'oi .\D 𝕄.\ je zo'e}
 ni'o la'au la'oi .\D M.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D M.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D M.\ po'o ku'o je le pinka be ko'a
 
@@ -189,15 +184,6 @@ ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 \begin{code}
 _𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
 _𝕄!!_ m n = Data.Vec.map (flip lookup n) m
-\end{code}
-
-\section{la'oi .\Sym{⍉}.}
-ni'o la'o zoi.\ \Sym{⍉} \B q .zoi.\ me'oi .transpose.\ la'oi .\B q.
-
-\begin{code}
-⍉ : ∀ {a m n} → {A : Set a} → 𝕄 A m n → 𝕄 A n m
-⍉ {_} {suc _} t = Data.Vec.map (_𝕄!!_ t) rind
-⍉ {_} {zero} _ = []
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
