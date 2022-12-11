@@ -97,8 +97,6 @@ open import Data.Nat as ℕ
 open import Data.Nat.DivMod
 open import Algebra.Structures
 open import Data.Nat.Primality
-open import Algebra.Solver.Ring
-open import Relation.Nullary.Decidable using (from-yes)
 \end{code}
 
 \chapter{le vrici}
