@@ -132,6 +132,27 @@ _ div2 0 = 0
 a div2 (suc b) = a div (suc b)
 \end{code}
 
+\section{la'oi .\F{\_+𝔽!\_}.}
+ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi gonai ge lo sumji be lo se sinxa be la'oi .\B a.\ bei la'oi .\B c.\ cu mleca la'oi .\B n.\ gi ko'a goi la'o zoi.\ \B a \Sym{\_+𝔽!\_} \B b .zoi.\ sinxa lo sumji be lo sinxa be la'oi .\B a.\ be'o bei la'oi .\B b.\ gi ko'a sinxa lo vujnu be la'oi .\B n.\ bei li pa
+
+\begin{code}
+postulate _+𝔽!_ : {n : ℕ} → Fin n → ℕ → Fin n
+\end{code}
+
+\section{la'oi .\F{\_*𝔽!\_}.}
+ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi gonai ge lo pilji be lo selsni be la'oi .\B a.\ bei la'oi .\B c.\ cu mleca la'oi .\B n.\ gi ko'a goi la'o zoi.\ \B a \Sym{\_𝔽!\_} \B b .zoi.\ sinxa lo pilji be lo selsni be la'oi .\B a.\ be'o bei la'oi .\B b.\ gi ko'a sinxa lo vujnu be la'oi .\B n.\ bei li pa
+
+\begin{code}
+postulate _*𝔽!_ : {n : ℕ} → Fin n → ℕ → Fin n
+\end{code}
+
+\section{la'oi .\F{\_**𝔽!\_}.}
+ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi gonai ge lo tenfa be lo selsni be la'oi .\B a.\ bei la'oi .\B c.\ cu mleca la'oi .\B n.\ gi ko'a goi la'o zoi.\ \B a \Sym{\_**𝔽!\_} \B b .zoi.\ sinxa lo tenfa be lo selsni be la'oi .\B a.\ be'o bei la'oi .\B b.\ gi ko'a sinxa lo vujnu be la'oi .\B n.\ bei li pa
+
+\begin{code}
+postulate _**𝔽!_ : {n : ℕ} → Fin n → ℕ → Fin n
+\end{code}
+
 \section{la'oi .\F{nbits}.}
 ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
