@@ -332,6 +332,8 @@ MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl hijmat
   mf = 𝕄 (Fin $ MCParam.q p) tee enn
   mftwom = 𝕄 (Fin 2) (tee * MCParam.m p) enn
   postulate
+    -- | ni'o ro da zo'u go da selvau la'oi .SysForm. gi
+    -- da srana le mu'oi glibau. systematic form .glibau.
     SysForm : Set
     repl : mf → mftwom
     toPus : SysForm → pus p
