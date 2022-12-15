@@ -430,9 +430,6 @@ postulate KeyGen : (p : MCParam) → IO $ KP p
 ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}.\ poi se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
--- | ni'o su'u pilno le mu'oi glibau. line break .glibau.
--- cu tolmle la .varik.  .i ku'i ganai na pilno le mu'oi
--- glibau. line break .glibau. gi co'e... ki'ai zo'oi .ZZZ.
 postulate Encode : {p : MCParam}
                  → (e : Vec (Fin 2) $ toℕ $ MCParam.n p)
                  → Public p
