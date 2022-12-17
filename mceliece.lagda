@@ -44,6 +44,7 @@
 \newunicodechar{σ}{\ensuremath{\sigma}}
 \newunicodechar{₁}{\ensuremath{_1}}
 \newunicodechar{₂}{\ensuremath{_2}}
+\newunicodechar{ᵥ}{\ensuremath{_\mathsf{v}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
 
@@ -84,6 +85,12 @@ open import Data.Fin
   )
 open import Data.Vec
   renaming (
+    map to mapᵥ;
+    sum to sumᵥ;
+    foldr to foldrᵥ;
+    zipWith to zipWithᵥ;
+    zip to zipᵥ;
+    reverse to reverseᵥ;
     transpose to ⍉
   )
 open import Function
@@ -107,7 +114,7 @@ ni'o la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ 
 
 \begin{code}
 hWV𝔽 : {a b : ℕ} → Vec (Fin b) a → ℕ
-hWV𝔽 = Data.Vec.sum ∘ Data.Vec.map f
+hWV𝔽 = sumᵥ ∘ mapᵥ f
   where
   f : ∀ {a} → Fin a → ℕ
   f (suc _) = 1
@@ -179,15 +186,15 @@ ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi selsni la'oi .\B x.\ noi 
 
 \begin{code}
 b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
-b2f {n} = cond ∘ flip Data.Vec.zip indy ∘ Data.Vec.map f2f
+b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
   postulate
     f2f : {m n : ℕ} → Fin m → Fin n
     zf : Fin $ 2 ^ n
   cond : Vec (Fin (2 ^ n) × Fin (2 ^ n)) n → Fin $ 2 ^ n
-  cond = Data.Vec.foldr _ _+𝔽!_ zf ∘ Data.Vec.map (uncurry _**𝔽!_)
+  cond = foldrᵥ _ _+𝔽!_ zf ∘ mapᵥ (uncurry _**𝔽!_)
   indy : Vec (Fin $ 2 ^ n) n
-  indy = Data.Vec.reverse $ Data.Vec.map f2f $ allFin n
+  indy = reverseᵥ $ mapᵥ f2f $ allFin n
 \end{code}
 
 \section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
@@ -201,7 +208,7 @@ _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   and𝔽 (suc zero) (suc zero) = suc zero
   and𝔽 _ _ = zero
   ∧𝔹ℕ𝔽' : ∀ {n} → Vec (Fin 2) n → Vec (Fin 2) n → Vec (Fin 2) n
-  ∧𝔹ℕ𝔽' = Data.Vec.zipWith and𝔽
+  ∧𝔹ℕ𝔽' = zipWithᵥ and𝔽
   postulate
     -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
     toFin : Vec (Fin 2) a! → Fin a!
@@ -230,7 +237,7 @@ ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
 _𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
-_𝕄!!_ m n = Data.Vec.map (flip lookup n) m
+_𝕄!!_ m n = mapᵥ (flip lookup n) m
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
@@ -238,7 +245,7 @@ ni'o la'o zoi.\ \F{hw𝕄} \B t .zoi.\ cu sumji be lo'i mu'oi glibau.\ HAMMING w
 
 \begin{code}
 hw𝕄 : ∀ {a m n} → 𝕄 (Fin a) m n → ℕ
-hw𝕄 = sum ∘ Data.Vec.map hWV𝔽
+hw𝕄 = sumᵥ ∘ mapᵥ hWV𝔽
 \end{code}
 
 \section{la'oi .\F{rf}.}
