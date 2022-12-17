@@ -153,13 +153,41 @@ ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi gonai ge lo te
 postulate _**𝔽!_ : {n : ℕ} → Fin n → Fin n → Fin n
 \end{code}
 
+\chapter{le fancu poi srana lo porsi be lo'i me'oi .bit.}
+
 \section{la'oi .\F{nbits}.}
 ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
 .i la'oi .\F{nbits}.\ cu simsa la'o zoi. \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
 
 \begin{code}
-postulate nbits : ∀ {a} → ℕ → Vec (Fin 2) a
+{-# TERMINATING #-}
+nbits : ∀ {a} → ℕ → Vec (Fin 2) a
+nbits {ln} = resize zero ∘ fromList ∘ bitnybi'o []
+  where
+  bitnybi'o : List ℕ → ℕ → List $ Fin 2
+  bitnybi'o q (suc n) = bitnybi'o (suc n % 2 ∷ q) $ n div 2
+  bitnybi'o q 0 = Data.List.map n2f $ Data.List.reverse q
+    where
+    n2f : ℕ → Fin 2
+    n2f 0 = zero
+    n2f _ = suc zero
+\end{code}
+
+\section{la'oi .\F{b2f}.}
+ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi selsni la'oi .\B x.\ noi .endi le me'oi .little.
+
+\begin{code}
+b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
+b2f {n} = cond ∘ flip Data.Vec.zip indy ∘ Data.Vec.map f2f
+  where
+  postulate
+    f2f : {m n : ℕ} → Fin m → Fin n
+    zf : Fin $ 2 ^ n
+  cond : Vec (Fin (2 ^ n) × Fin (2 ^ n)) n → Fin $ 2 ^ n
+  cond = Data.Vec.foldr _ _+𝔽!_ zf ∘ Data.Vec.map (uncurry _**𝔽!_)
+  indy : Vec (Fin $ 2 ^ n) n
+  indy = Data.Vec.reverse $ Data.Vec.map f2f $ allFin n
 \end{code}
 
 \section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
