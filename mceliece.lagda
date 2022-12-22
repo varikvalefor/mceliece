@@ -125,9 +125,9 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 ni'o go la'o zoi.\ \B x \Sym{≡} \B y .zoi.\ zasti gi la'oi .\B x.\ du la'oi .\B y.
 
 \begin{code}
-data _≡_ {A : Set} (a : A) : A → Set
+data _≡_ {a} {A : Set a} (a' : A) : A → Set a
   where
-  das-auto : a ≡ a
+  das-auto : a' ≡ a'
 \end{code}
 
 \section{la'oi .\F{\_div2\_}.}
