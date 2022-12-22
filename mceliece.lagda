@@ -139,25 +139,19 @@ _ div2 0 = 0
 a div2 (suc b) = a div (suc b)
 \end{code}
 
-\section{la'oi .\F{\_+𝔽!\_}.}
-ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi gonai ge lo sumji be lo se sinxa be la'oi .\B a.\ bei la'oi .\B c.\ cu mleca la'oi .\B n.\ gi ko'a goi la'o zoi.\ \B a \Sym{\_+𝔽!\_} \B b .zoi.\ sinxa lo sumji be lo sinxa be la'oi .\B a.\ be'o bei la'oi .\B b.\ gi ko'a sinxa lo vujnu be la'oi .\B n.\ bei li pa
+\section{la'oi .\F{f2f}.}
+ni'o ganai ge la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \F{Fin} \B m .zoi.\ gi gonai ge lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
 
 \begin{code}
-postulate _+𝔽!_ : {n : ℕ} → Fin n → Fin n → Fin n
+postulate f2f : {m n : ℕ} → Fin m → Fin n
 \end{code}
 
-\section{la'oi .\F{\_*𝔽!\_}.}
-ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi gonai ge lo pilji be lo selsni be la'oi .\B a.\ bei la'oi .\B c.\ cu mleca la'oi .\B n.\ gi ko'a goi la'o zoi.\ \B a \Sym{\_𝔽!\_} \B b .zoi.\ sinxa lo pilji be lo selsni be la'oi .\B a.\ be'o bei la'oi .\B b.\ gi ko'a sinxa lo vujnu be la'oi .\B n.\ bei li pa
+\section{la'oi .\F{f𝔽}.}
+ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecai be la'o zoi.\ \F{fromℕ} \Sym\$ f (\F{toℕ} \B a) \Sym\$ \F{toℕ} \B b .zoi. ce la'oi .\B q.
 
 \begin{code}
-postulate _*𝔽!_ : {n : ℕ} → Fin n → Fin n → Fin n
-\end{code}
-
-\section{la'oi .\F{\_**𝔽!\_}.}
-ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi gonai ge lo tenfa be lo selsni be la'oi .\B a.\ bei la'oi .\B c.\ cu mleca la'oi .\B n.\ gi ko'a goi la'o zoi.\ \B a \Sym{\_**𝔽!\_} \B b .zoi.\ sinxa lo tenfa be lo selsni be la'oi .\B a.\ be'o bei la'oi .\B b.\ gi ko'a sinxa lo vujnu be la'oi .\B n.\ bei li pa
-
-\begin{code}
-postulate _**𝔽!_ : {n : ℕ} → Fin n → Fin n → Fin n
+f𝔽 : {n : ℕ} → (ℕ → ℕ → ℕ) → Fin n → Fin n → Fin n
+f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
 \chapter{le fancu poi srana lo porsi be lo'i me'oi .bit.}
@@ -189,10 +183,9 @@ b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
 b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
   postulate
-    f2f : {m n : ℕ} → Fin m → Fin n
     zf : Fin $ 2 ^ n
   cond : Vec (Fin (2 ^ n) × Fin (2 ^ n)) n → Fin $ 2 ^ n
-  cond = foldrᵥ _ _+𝔽!_ zf ∘ mapᵥ (uncurry _**𝔽!_)
+  cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
   indy : Vec (Fin $ 2 ^ n) n
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
 \end{code}
