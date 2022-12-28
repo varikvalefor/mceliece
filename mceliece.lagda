@@ -202,9 +202,9 @@ _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   and𝔽 _ _ = zero
   ∧𝔹ℕ𝔽' : ∀ {n} → Vec (Fin 2) n → Vec (Fin 2) n → Vec (Fin 2) n
   ∧𝔹ℕ𝔽' = zipWithᵥ and𝔽
-  postulate
-    -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
-    toFin : Vec (Fin 2) a! → Fin a!
+  -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
+  toFin : Vec (Fin 2) a! → Fin a!
+  toFin = f2f ∘ b2f
 \end{code}
 
 \chapter{la'oi .\D 𝕄.\ je zo'e}
