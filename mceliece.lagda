@@ -98,6 +98,17 @@ open import Data.Bool
   hiding (
     T
   )
+open import Data.List
+  using (
+    _∷_;
+    List;
+    map;
+    reverse;
+    []
+  )
+  renaming (
+    take to takeₗ
+  )
 open import Data.Maybe
 open import Data.Product
 open import Data.Nat as ℕ
