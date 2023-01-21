@@ -119,7 +119,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \chapter{le vrici}
-ni'o la'au le vrici li'u vasru zo'e poi ke'a goi ko'a zo'u na racli fa lo nu zbasu lo me'oi .chapter.\ poi vasru ko'a po'o
+ni'o la'au le vrici li'u vasru zo'e poi ke'a goi ko'a zo'u na racli fa lo nu zbasu lo me'oi .chapter.\ poi ke'a vasru ko'a po'o
 
 \section{la'oi .\F{hWV𝔽}.}
 ni'o la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.
@@ -157,10 +157,10 @@ f𝔽 : {n : ℕ} → (ℕ → ℕ → ℕ) → Fin n → Fin n → Fin n
 f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
-\chapter{le fancu poi srana lo porsi be lo'i me'oi .bit.}
+\chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
-ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
+ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
 .i la'oi .\F{nbits}.\ cu simsa la'o zoi. \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
 
@@ -179,7 +179,7 @@ nbits {ln} = resize zero ∘ fromList ∘ bitnybi'o []
 \end{code}
 
 \section{la'oi .\F{b2f}.}
-ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi selsni la'oi .\B x.\ noi .endi le me'oi .little.
+ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .little.
 
 \begin{code}
 b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
@@ -211,17 +211,17 @@ _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
 \end{code}
 
 \chapter{la'oi .\D 𝕄.\ je zo'e}
-ni'o la'au la'oi .\D M.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D M.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D M.\ po'o ku'o je le pinka be ko'a
+ni'o la'au la'oi .\D M.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D M.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D M.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D 𝕄.}
-ni'o ro da poi mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
+ni'o ro da poi ke'a mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
 
 \subsection{le me'oi .field.\ pe'a ru'e}
-ni'o ro da poi me'oi .\D 𝕄.\ zo'u lo pa moi me'oi .field.\ pe'a ru'e be da cu me'oi .type.\ lo selvau be lo selsni be da
+ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo pa moi me'oi .field.\ pe'a ru'e be da cu me'oi .type.\ lo selvau be lo selsni be da
 
-ni'o ro da poi me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu ganra
+ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu ganra
 
-ni'o ro da poi me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu rajycla
+ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu rajycla
 
 \begin{code}
 𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
@@ -254,10 +254,10 @@ data rf {m n} (q : 𝕄 (Fin 2) m n) : ℕ → Set
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
-ni'o la'au la'oi .\D{MCParam}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{MCParam}.\ po'o ku'o je le pinka be ko'a
+ni'o la'au la'oi .\D{MCParam}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{MCParam}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{MCParam}.}
-ni'o ro da poi me'oi .\D{MCParam}.\ zo'u da sinxa lo me'oi .parameter.\ be lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
+ni'o ro da poi ke'a me'oi .\D{MCParam}.\ zo'u da sinxa lo me'oi .parameter.\ be lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
 
 \subsection{le me'oi .field.}
 
@@ -286,7 +286,7 @@ ni'o la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo s
 \paragraph{la'oi .\F{MCParam.ν}.}
 ni'o la'o zoi.\ \F{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \F{MCParam.ν \B q} .zoi.\ je cu dubjavme'a lo vujnu be la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B q .zoi.
 
-\subsubsection{le me'oi .field.\ poi srana le mu'oi glibau.\ symmetric cryptography .glibau.}
+\subsubsection{le me'oi .field.\ poi ke'a srana le mu'oi glibau.\ symmetric cryptography .glibau.}
 \paragraph{la'oi .\F{MCParam.ℓ}.}
 ni'o la'o zoi.\ \F{MCParam.ℓ} \B q .zoi.\ ni clani fa lo me'oi .output.\ be la'o zoi.\ \F{MCParam.H} \B q .zoi.\
 
@@ -321,8 +321,8 @@ record MCParam : Set
     -- ^ ni'o dukse le ka ce'u sampu  .i sarcu fa lo nu
     -- dubjavme'a lo sumji be la'oi .μ. bei la'oi .k.
     μ : Fin $ ν + 1
-    -- ni'o le me'oi .field. poi srana le mu'oi glibau.
-    -- symmetric cryptography .glibau. cu cnita dei
+    -- ni'o le me'oi .field. poi ke'a srana le mu'oi
+    -- glibau. symmetric cryptography .glibau. cu cnita dei
     ℓ : ℕ
     H : ℕ → Fin $ 2 ^ ℓ
     σ₁ : ℕ
@@ -347,10 +347,10 @@ pus p = 𝕄 (Fin 2) (MCParam.n-k p) $ MCParam.k p
 \end{code}
 
 \chapter{la'oi .\D{Private}.\ je zo'e}
-ni'o la'au la'oi .\D{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{Private}.\ po'o ku'o je le pinka be ko'a
+ni'o la'au la'oi .\D{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{Private}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{Private}.}
-ni'o ro da poi me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
+ni'o ro da poi ke'a me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
 
 \subsection{le me'oi .field.}
 
@@ -358,7 +358,7 @@ ni'o ro da poi me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o g
 ni'o la'o zoi.\ \F{Private.g} \B p .zoi.\ cpolinomi'a
 
 \paragraph{la'oi .\F{Private.Γ}.}
-ni'o la'o zoi.\ \F{Private.Γ} \Sym\$ \D{Private} p) .zoi.\ liste lo'i cmima be lo cletu poi se nilzilcmi la'o zoi.\ \F{MCParam.q} \B p .zoi.\ be'o je cu se nilzilcmi lo sumji be la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.\ bei li pa
+ni'o la'o zoi.\ \F{Private.Γ} \Sym\$ \D{Private} p) .zoi.\ liste lo'i cmima be lo cletu poi ke'a se nilzilcmi la'o zoi.\ \F{MCParam.q} \B p .zoi.\ be'o je cu se nilzilcmi lo sumji be la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.\ bei li pa
 
 \paragraph{la'oi .\F{Private.s}.}
 ni'o la'o zoi.\ \F{Private.s} \Sym\$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.
@@ -373,7 +373,7 @@ record Private (p : MCParam) : Set
 \end{code}
 
 \section{la'oi .\F{MatGen}.}
-ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
+ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
 
 \begin{code}
 MatGen : {p : MCParam} → (P : Private p) → Maybe $ pus p
@@ -394,10 +394,10 @@ MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl hijmat
 \end{code}
 
 \chapter{la'oi .\D{Public}.}
-ni'o la'au la'oi .\D{Public}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Public}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi srana la'oi .\D{Public}.\ po'o ku'o je le pinka be ko'a
+ni'o la'au la'oi .\D{Public}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Public}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{Public}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{Public}.}
-ni'o ro da poi me'oi .\D{Public}.\ zo'u da sinxa lo gubni termifckiku
+ni'o ro da poi ke'a me'oi .\D{Public}.\ zo'u da sinxa lo gubni termifckiku
 
 \subsection{le me'oi .field.}
 
@@ -414,7 +414,7 @@ record Public (p : MCParam) : Set
 \chapter{la'oi .\D{KP}. je zo'e}
 
 \section{la'oi .\D{KP}.}
-ni'o ro da poi me'oi .\D{KP}.\ zo'u da sinxa lo mu'oi glibau.\ key pair .glibau.\ pe la'o glibau.\ Classic MCELIECE .glibau.
+ni'o ro da poi ke'a me'oi .\D{KP}.\ zo'u da sinxa lo mu'oi glibau.\ key pair .glibau.\ pe la'o glibau.\ Classic MCELIECE .glibau.
 
 \subsection{le me'oi .field.}
 \paragraph{la'oi .F{KP.pu}.}
@@ -448,7 +448,7 @@ postulate
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi mapti la'oi .\B q.\ gi la'o zoi.\ \F{KP.pu} \Sym{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi mapti ko'a
+ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{KP.pu} \Sym{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
 
 \subsection{le samselpla}
 \begin{code}
@@ -458,7 +458,7 @@ postulate KeyGen : (p : MCParam) → IO $ KP p
 \chapter{le fancu poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
 
 \section{la'oi .\F{Encode}.}
-ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}.\ poi se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}.\ poi ke'a se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
 postulate Encode : {p : MCParam}
@@ -469,7 +469,7 @@ postulate Encode : {p : MCParam}
 \end{code}
 
 \section{la'oi .\F{Decode}.}
-ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Decode}.\ poi se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
+ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Decode}.\ poi ke'a se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
 
 \begin{code}
 postulate Decode : {p : MCParam}
