@@ -313,6 +313,9 @@ ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
 \paragraph{la'oi .\F{MCParam.G}.}
 ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ cu me'oi .pseudorandom.\ poi ke'a goi ko'a zo'u pilno la'oi .\B x.\ lo nu me'oi .calculate.\ ko'a
 
+\paragraph{la'oi .\F{MCParam.t≥2}.\ je la'oi .\F{ν≤μ+k}.\ je la'oi .\F{σ₁≥m}.\ je la'oi .\F{σ₂≥2*m}.}
+ni'o la .varik.\ cu jinvi le du'u le se ctaipe cu banzuka
+
 \begin{code}
 record MCParam : Set
   where
@@ -320,34 +323,29 @@ record MCParam : Set
     m : ℕ
     n : Fin $ suc $ 2 ^ m
     t : Fin $ (toℕ n) div2 m
-    -- ^ ni'o dukse le ka ce'u sampu je nai me'oi .strict.
-    -- .i sarcu fa lo nu la'o zoi. MCParam.t x .zoi.
-    -- dubjavmau li re
   q : ℕ
   q = 2 ^ m
   field
     f : Vec (Fin 2) m
     F : Vec (Fin q) $ toℕ t
     ν : ℕ
-    -- ^ ni'o dukse le ka ce'u sampu  .i sarcu fa lo nu
-    -- dubjavme'a lo sumji be la'oi .μ. bei la'oi .k.
     μ : Fin $ ν + 1
-    -- ni'o le me'oi .field. poi ke'a srana le mu'oi
-    -- glibau. symmetric cryptography .glibau. cu cnita dei
     ℓ : ℕ
     H : ℕ → Fin $ 2 ^ ℓ
     σ₁ : ℕ
-    -- ^ ni'o dukse le ka ce'u sampu  .i sarcu fa lo nu
-    -- la'oi .σ₁. dubjavmau la'oi .m.
     σ₂ : ℕ
-    -- ^ ni'o dukse le ka ce'u sampu  .i cadga fa lo nu
-    -- la'oi .σ₂. dubjavmau lo pilji be li re bei la'oi .m.
     G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * q + σ₁ * toℕ t + ℓ)
   k : ℕ
   k = toℕ n ∸ m * toℕ t
   n-k : ℕ
   n-k = toℕ n ∸ k
+  field
+    t≥2 : toℕ t ℕ.≥ 2
+    ν≤μ+k : ν ℕ.≤ (toℕ μ ℕ.+ k)
+    σ₁≥m : σ₁ ℕ.≥ m
+    σ₂≥2*m : σ₂ ℕ.≥ 2 * m
 \end{code}
+
 
 \section{la'oi .\F{pus}.}
 ni'o la'o zoi.\ \F{pus} \B q .zoi.\ me'oi .type.\ lo gubni termifckiku pe la'oi .\B q.
