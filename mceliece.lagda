@@ -157,6 +157,17 @@ f𝔽 : {n : ℕ} → (ℕ → ℕ → ℕ) → Fin n → Fin n → Fin n
 f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
+\section{la'oi .\F{resize}.}
+ni'o cadga fa lo nu lo mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
+
+\begin{code}
+resize : ∀ {a} → {m n : ℕ} → {A : Set a} → A → Vec A m → Vec A n
+resize {_} {m} {n} {A} x xs = mapTo xs $ replicate x
+  where
+  postulate
+    mapTo : {m' : ℕ} → Vec A m' → Vec A n → Vec A n
+\end{code}
+
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
