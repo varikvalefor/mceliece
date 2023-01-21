@@ -115,6 +115,7 @@ open import Data.Nat as ℕ
 open import Data.Nat.DivMod
 open import Algebra.Structures
 open import Data.Nat.Primality
+open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \chapter{le vrici}
@@ -130,15 +131,6 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
   f : ∀ {a} → Fin a → ℕ
   f (suc _) = 1
   f zero = 0
-\end{code}
-
-\section{la'oi .\Sym{≡}.}
-ni'o go la'o zoi.\ \B x \Sym{≡} \B y .zoi.\ zasti gi la'oi .\B x.\ du la'oi .\B y.
-
-\begin{code}
-data _≡_ {a} {A : Set a} (a' : A) : A → Set a
-  where
-  das-auto : a' ≡ a'
 \end{code}
 
 \section{la'oi .\F{\_div2\_}.}
