@@ -313,7 +313,7 @@ ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
 \paragraph{la'oi .\F{MCParam.G}.}
 ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ cu me'oi .pseudorandom.\ poi ke'a goi ko'a zo'u pilno la'oi .\B x.\ lo nu me'oi .calculate.\ ko'a
 
-\paragraph{la'oi .\F{n≤q}.\ je la'oi .\F{n≤2^m}.\ je la'oi .\F{t≥2}.\ je la'oi .\F{ν≥μ}.\ je la'oi .\F{ν≤μ+k}.\ je la'oi .\F{σ₁≥m}.\ je la'oi .\F{σ₂≥2*m}.\ je la'oi .\F{m*t<n}.}
+\paragraph{la'oi .\F{n≤q}.\ je la'oi .\F{t≥2}.\ je la'oi .\F{ν≥μ}.\ je la'oi .\F{ν≤μ+k}.\ je la'oi .\F{σ₁≥m}.\ je la'oi .\F{σ₂≥2*m}.\ je la'oi .\F{m*t<n}.}
 ni'o la .varik.\ cu jinvi le du'u le se ctaipe cu banzuka
 
 \begin{code}
@@ -341,7 +341,6 @@ record MCParam : Set
   n-k = n ∸ k
   field
     n≤q : n ℕ.≤ q
-    n≤2^m : n ℕ.≤ 2 ^ m
     t≥2 : t ℕ.≥ 2
     ν≥μ : ν ℕ.≥ μ
     ν≤μ+k : ν ℕ.≤ (μ ℕ.+ k)
