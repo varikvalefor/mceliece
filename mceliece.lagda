@@ -119,7 +119,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \chapter{le vrici}
-ni'o la'au le vrici li'u vasru zo'e poi ke'a goi ko'a zo'u na racli fa lo nu zbasu lo me'oi .chapter.\ poi ke'a vasru ko'a po'o
+ni'o la'au le vrici li'u vasru zo'e poi na racli fa lo nu zbasu lo me'oi .chapter.\ poi ke'a xi re vasru ke'a xi pa po'o
 
 \section{la'oi .\F{hWV𝔽}.}
 ni'o la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.
