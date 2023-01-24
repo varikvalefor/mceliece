@@ -313,7 +313,7 @@ ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
 \paragraph{la'oi .\F{MCParam.G}.}
 ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ cu me'oi .pseudorandom.\ poi ke'a goi ko'a zo'u pilno la'oi .\B x.\ lo nu me'oi .calculate.\ ko'a
 
-\paragraph{la'oi .\F{MCParam.t≥2}.\ je la'oi .\F{ν≤μ+k}.\ je la'oi .\F{σ₁≥m}.\ je la'oi .\F{σ₂≥2*m}.}
+\paragraph{la'oi .\F{n≤q}.\ je la'oi .\F{n≤2^m}.\ je la'oi .\F{t≥2}.\ je la'oi .\F{ν≥μ}.\ je la'oi .\F{ν≤μ+k}.\ je la'oi .\F{σ₁≥m}.\ je la'oi .\F{σ₂≥2*m}.\ je la'oi .\F{m*t<n}.}
 ni'o la .varik.\ cu jinvi le du'u le se ctaipe cu banzuka
 
 \begin{code}
@@ -321,29 +321,33 @@ record MCParam : Set
   where
   field
     m : ℕ
-    n : Fin $ suc $ 2 ^ m
-    t : Fin $ (toℕ n) div2 m
+    n : ℕ
+    t : ℕ
   q : ℕ
   q = 2 ^ m
   field
     f : Vec (Fin 2) m
-    F : Vec (Fin q) $ toℕ t
+    F : Vec (Fin q) t
     ν : ℕ
-    μ : Fin $ ν + 1
+    μ : ℕ
     ℓ : ℕ
     H : ℕ → Fin $ 2 ^ ℓ
     σ₁ : ℕ
     σ₂ : ℕ
-    G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (toℕ n + σ₂ * q + σ₁ * toℕ t + ℓ)
+    G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (n + σ₂ * q + σ₁ * t + ℓ)
   k : ℕ
-  k = toℕ n ∸ m * toℕ t
+  k = n ∸ m * t
   n-k : ℕ
-  n-k = toℕ n ∸ k
+  n-k = n ∸ k
   field
-    t≥2 : toℕ t ℕ.≥ 2
-    ν≤μ+k : ν ℕ.≤ (toℕ μ ℕ.+ k)
+    n≤q : n ℕ.≤ q
+    n≤2^m : n ℕ.≤ 2 ^ m
+    t≥2 : t ℕ.≥ 2
+    ν≥μ : ν ℕ.≥ μ
+    ν≤μ+k : ν ℕ.≤ (μ ℕ.+ k)
     σ₁≥m : σ₁ ℕ.≥ m
     σ₂≥2*m : σ₂ ℕ.≥ 2 * m
+    m*t<n : m * t ℕ.< n
 \end{code}
 
 
@@ -377,19 +381,19 @@ record Private (p : MCParam) : Set
   where
   field
     g : {n : ℕ} → Vec (Fin $ MCParam.q p) n
-    Γ : Vec (Fin $ MCParam.q p) $ toℕ $ MCParam.n p
-    s : Vec (Fin 2) $ toℕ $ MCParam.n p
+    Γ : Vec (Fin $ MCParam.q p) $ MCParam.n p
+    s : Vec (Fin 2) $ MCParam.n p
 \end{code}
 
-\section{la'oi .\F{MatGen}.}
+\section{la'oi .\F{ratGen}.}
 ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
 
 \begin{code}
 MatGen : {p : MCParam} → Private p → Maybe $ pus p
 MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl hijmat
   where
-  tee = toℕ $ MCParam.t p
-  enn = toℕ $ MCParam.n p
+  tee = MCParam.t p
+  enn = MCParam.n p
   mf = 𝕄 (Fin $ MCParam.q p) tee enn
   mftwom = 𝕄 (Fin 2) (tee * MCParam.m p) enn
   postulate
@@ -471,9 +475,9 @@ ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}
 
 \begin{code}
 postulate Encode : {p : MCParam}
-                 → (e : Vec (Fin 2) $ toℕ $ MCParam.n p)
+                 → (e : Vec (Fin 2) $ MCParam.n p)
                  → Public p
-                 → {hWV𝔽 e ≡ (toℕ $ MCParam.t p)}
+                 → {hWV𝔽 e ≡ MCParam.t p}
                  → Vec (Fin 2) $ MCParam.n-k p
 \end{code}
 
@@ -485,7 +489,7 @@ postulate Decode : {p : MCParam}
                  → Vec (Fin 2) $ MCParam.n-k p
                  → pus p
                  → ({n : ℕ} → Vec (Fin $ MCParam.q p) n)
-                 → Vec (Fin $ MCParam.q p) $ toℕ $ MCParam.n p
-                 → Maybe $ Vec (Fin 2) $ toℕ $ MCParam.n p
+                 → Vec (Fin $ MCParam.q p) $ MCParam.n p
+                 → Maybe $ Vec (Fin 2) $ MCParam.n p
 \end{code}
 \end{document}
