@@ -369,23 +369,31 @@ ni'o ro da poi ke'a me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe l
 \paragraph{la'oi .\F{Private.lg}.}
 ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja zo'e la'o zoi.\ \F{Private.g} \B p .zoi.
 
-\paragraph{la'oi .\F{Private.g}.}
-ni'o la'o zoi.\ \F{Private.g} \B p .zoi.\ cpolinomi'a
-
 \paragraph{la'oi .\F{Private.Γ}.}
-ni'o la'o zoi.\ \F{Private.Γ} \Sym\$ \D{Private} p) .zoi.\ liste lo'i cmima be lo cletu poi ke'a se nilzilcmi la'o zoi.\ \F{MCParam.q} \B p .zoi.\ be'o je cu se nilzilcmi lo sumji be la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.\ bei li pa
+ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \F{Fin} \Sym\$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\F{Private.s}.}
 ni'o la'o zoi.\ \F{Private.s} \Sym\$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.
 
+\paragraph{la'oi .\F{Private.g}.}
+ni'o la'o zoi.\ \F{Private.g} \B q .zoi.\ cpolinomi'a je cu pa moi lo'i ro selvau be la'o zoi.\ \F{Private.Γ} \B q .zoi.
+
+\paragraph{la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.}
+ni'o la .varik. cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velcki be la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.
+
+.i cumki fa lo nu lo me'oi .private.\ co'e cu vasru la'oi .MCq.\ je la'oi .MCn.  .i ku'i lo nu lo me'oi .private.\ co'e cu na vasru la'oi .MCq.\ je la'oi .MCn.\ cu filri'a lo nu ciksi
+
 \begin{code}
 record Private (p : MCParam) : Set
   where
+  q = MCParam.q p
+  n = MCParam.n p
   field
     lg : ℕ
-    g : Vec (Fin $ MCParam.q p) lg
-    Γ : Vec (Fin $ MCParam.q p) $ MCParam.n p
-    s : Vec (Fin 2) $ MCParam.n p
+    Γ : Vec (Fin q) lg × Vec (Fin q) n
+    s : Vec (Fin 2) n
+  g : Vec (Fin q) lg
+  g = proj₁ Γ
 \end{code}
 
 \section{la'oi .\F{ratGen}.}
