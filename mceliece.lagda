@@ -366,6 +366,9 @@ ni'o ro da poi ke'a me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe l
 
 \subsection{le me'oi .field.}
 
+\paragraph{la'oi .\F{Private.lg}.}
+ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja zo'e la'o zoi.\ \F{Private.g} \B p .zoi.
+
 \paragraph{la'oi .\F{Private.g}.}
 ni'o la'o zoi.\ \F{Private.g} \B p .zoi.\ cpolinomi'a
 
@@ -379,7 +382,8 @@ ni'o la'o zoi.\ \F{Private.s} \Sym\$ \D{Private} \B p .zoi.\ liste lo'i samsle j
 record Private (p : MCParam) : Set
   where
   field
-    g : {n : ℕ} → Vec (Fin $ MCParam.q p) n
+    lg : ℕ
+    g : Vec (Fin $ MCParam.q p) lg
     Γ : Vec (Fin $ MCParam.q p) $ MCParam.n p
     s : Vec (Fin 2) $ MCParam.n p
 \end{code}
