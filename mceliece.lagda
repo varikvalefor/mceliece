@@ -350,12 +350,12 @@ record MCParam : Set
 \end{code}
 
 
-\section{la'oi .\F{pus}.}
-ni'o la'o zoi.\ \F{pus} \B q .zoi.\ me'oi .type.\ lo gubni termifckiku pe la'oi .\B q.
+\section{la'oi .\F{Public}.}
+ni'o la'o zoi.\ \F{Public} \B q .zoi.\ me'oi .type.\ lo gubni termifckiku pe la'oi .\B q.
 
 \begin{code}
-pus : MCParam → Set
-pus p = 𝕄 (Fin 2) (MCParam.n-k p) $ MCParam.k p
+Public : MCParam → Set
+Public p = 𝕄 (Fin 2) (MCParam.n-k p) $ MCParam.k p
 \end{code}
 
 \chapter{la'oi .\D{Private}.\ je zo'e}
@@ -400,7 +400,7 @@ record Private (p : MCParam) : Set
 ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
 
 \begin{code}
-MatGen : {p : MCParam} → Private p → Maybe $ pus p
+MatGen : {p : MCParam} → Private p → Maybe $ Public p
 MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl hijmat
   where
   tee = MCParam.t p
@@ -412,27 +412,9 @@ MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl hijmat
     -- da srana le mu'oi glibau. systematic form .glibau.
     SysForm : Set
     repl : mf → mftwom
-    toPus : SysForm → pus p
+    toPus : SysForm → Public p
     cyst : mftwom → Maybe SysForm
     hijmat : mf
-\end{code}
-
-\chapter{la'oi .\D{Public}.}
-ni'o la'au la'oi .\D{Public}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Public}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{Public}.\ po'o ku'o je le pinka be ko'a
-
-\section{la'oi .\D{Public}.}
-ni'o ro da poi ke'a me'oi .\D{Public}.\ zo'u da sinxa lo gubni termifckiku
-
-\subsection{le me'oi .field.}
-
-\paragraph{la'oi .\F{Public.T}.}
-ni'o la'o zoi.\ \F{Public.T} \Sym\$ \D{Public} \B q .zoi.\ nacmeimei lo vujnu be la'o zoi.\ \F{fromℕ} \Sym\$ \F{MCParam.n} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B p .zoi.\ je cu vasru lo cmima be la'o zoi.\ \D{Fin} 2 .zoi.\ po'o
-
-\begin{code}
-record Public (p : MCParam) : Set
-  where
-  field
-    T : pus p
 \end{code}
 
 \chapter{la'oi .\D{KP}. je zo'e}
@@ -498,7 +480,7 @@ ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Decode}
 \begin{code}
 postulate Decode : {p : MCParam}
                  → Vec (Fin 2) $ MCParam.n-k p
-                 → pus p
+                 → Public p
                  → ({n : ℕ} → Vec (Fin $ MCParam.q p) n)
                  → Vec (Fin $ MCParam.q p) $ MCParam.n p
                  → Maybe $ Vec (Fin 2) $ MCParam.n p
