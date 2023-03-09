@@ -390,7 +390,6 @@ record Private (p : MCParam) : Set
     lg : ℕ
     Γ : Vec (Fin q) lg × Vec (Fin q) n
     s : Vec (Fin 2) n
-  g : Vec (Fin q) lg
   g = proj₁ Γ
 \end{code}
 
