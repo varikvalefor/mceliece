@@ -396,7 +396,7 @@ record Private (p : MCParam) : Set
   g = proj₁ Γ
 \end{code}
 
-\section{la'oi .\F{ratGen}.}
+\section{la'oi .\F{MatGen}.}
 ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
 
 \begin{code}
