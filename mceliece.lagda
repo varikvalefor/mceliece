@@ -184,9 +184,7 @@ nbits {ln} = resize zero ∘ fromList ∘ bitnybi'o []
   bitnybi'o q (suc n) = bitnybi'o (suc n % 2 ∷ q) $ n div 2
   bitnybi'o q 0 = Data.List.map n2f $ Data.List.reverse q
     where
-    n2f : ℕ → Fin 2
-    n2f 0 = zero
-    n2f _ = suc zero
+    n2f = λ f → if f ≡ᵇ 0 then zero else suc zero
 \end{code}
 
 \section{la'oi .\F{b2f}.}
