@@ -271,7 +271,7 @@ ni'o ro da poi ke'a me'oi .\D{MCParam}.\ zo'u da sinxa lo me'oi .parameter.\ be 
 
 \subsubsection{le vrici je me'oi .field.}
 \paragraph{la'oi .\F{MCParam.n}.}
-ni'o la'o zoi.\ \F{MCParam.n} \D q .zoi.\ ni lo me'oi .code.\ pe \D q cu clani
+ni'o la'o zoi.\ \F{MCParam.n} \D q .zoi.\ ni lo me'oi .code.\ pe la'o zoi.\ \D q .zoi.\ cu clani
 
 \paragraph{la'oi .\F{MCParam.m}.}
 ni'o la'o zoi.\ \F{MCParam.m} \D q .zoi.\ dugri lo ni lo me'oi .field.\ cu barda kei li re
