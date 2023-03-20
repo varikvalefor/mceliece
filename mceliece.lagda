@@ -109,6 +109,10 @@ open import Data.List
   renaming (
     take to takeₗ
   )
+open import Data.Digit
+  using (
+    toNatDigits
+  )
 open import Data.Maybe
 open import Data.Product
 open import Data.Nat as ℕ
@@ -176,15 +180,10 @@ ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'
 .i la'oi .\F{nbits}.\ cu simsa la'o zoi. \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
 
 \begin{code}
-{-# TERMINATING #-}
 nbits : ∀ {a} → ℕ → Vec (Fin 2) a
-nbits {ln} = resize zero ∘ fromList ∘ bitnybi'o []
+nbits {ln} = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
   where
-  bitnybi'o : List ℕ → ℕ → List $ Fin 2
-  bitnybi'o q (suc n) = bitnybi'o (suc n % 2 ∷ q) $ n div 2
-  bitnybi'o q 0 = Data.List.map n2f $ Data.List.reverse q
-    where
-    n2f = λ f → if f ≡ᵇ 0 then zero else suc zero
+  n2f = λ f → if f ≡ᵇ 0 then zero else suc zero
 \end{code}
 
 \section{la'oi .\F{b2f}.}
