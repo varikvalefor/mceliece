@@ -42,11 +42,14 @@
 \newunicodechar{∀}{\ensuremath{\forall}}
 \newunicodechar{ℓ}{\ensuremath{\ell}}
 \newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{α}{\ensuremath{\alpha}}
 \newunicodechar{₁}{\ensuremath{_1}}
 \newunicodechar{₂}{\ensuremath{_2}}
 \newunicodechar{ᵥ}{\ensuremath{_\mathsf{v}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
+\newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
+\newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 
 \newcommand\hashish{cbf1 42fe 1ebd b0b2 87a4 4018 340b 8159 7ef1 3a63 6f5d 76f4 6f48 a080 b2bc d3f1 3922 f0f1 5219 94cc 5e71 fb1f b2d9 d9f8 dd3b ffe6 be32 0056 5cca 21c4 28eb 9de1}
 
@@ -114,11 +117,20 @@ open import Data.Digit
     toNatDigits
   )
 open import Data.Maybe
+open import Algebra.Core
 open import Data.Product
 open import Data.Nat as ℕ
 open import Data.Nat.DivMod
+open import Data.Vec.Bounded
+  using (
+    Vec≤
+  )
 open import Algebra.Structures
 open import Data.Nat.Primality
+open import Relation.Nullary.Decidable
+  using (
+    isNo
+  )
 open import Relation.Binary.PropositionalEquality
 \end{code}
 
@@ -474,11 +486,40 @@ postulate Encode : {p : MCParam}
 ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Decode}.\ poi ke'a se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
 
 \begin{code}
-postulate Decode : {p : MCParam}
-                 → Vec (Fin 2) $ MCParam.n-k p
-                 → Public p
-                 → ({n : ℕ} → Vec (Fin $ MCParam.q p) n)
-                 → Vec (Fin $ MCParam.q p) $ MCParam.n p
-                 → Maybe $ Vec (Fin 2) $ MCParam.n p
+Decode : {p : MCParam}
+       → Vec (Fin 2) $ MCParam.n-k p
+       → Public p
+       → ({n : ℕ} → Vec (Fin $ MCParam.q p) n)
+       → Vec (Fin $ MCParam.q p) $ MCParam.n p
+       → Maybe $ Vec (Fin 2) $ MCParam.n p
+Decode {p} C₀ bar g α' = e Data.Maybe.>>= junk?
+  where
+  xv = λ f → Vec (Fin 2) $ f p
+  dist : xv MCParam.n → xv MCParam.n → ℕ
+  dist = Vec≤.length ∘₂ Data.Vec.filter drata ∘₂ zipᵥ
+    where
+    drata = λ (a , b) → Data.Bool._≟_ true $ isNo $ a Data.Fin.≟ b
+  postulate
+    sumji : Op₂ $ xv MCParam.n
+    -- | .i ca le nu ciska dei kei la .varik. cu na
+    -- birti lo du'u ma kau ctaipe je cu zabna le ka
+    -- ce'u mapti kei je zo'e
+    dunli : _ → _ → Bool
+    v : xv MCParam.n
+    c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
+  c = Data.Maybe.map proj₁ c'
+  e = flip Data.Maybe.map c $ sumji v
+  -- | .i lisri
+  huck : {m n : ℕ} → Vec (Fin m) n → ℕ
+  huck {m} {n} = Data.List.sum ∘ pilji ∘ zipf
+    where
+    zipf = Data.List.zip (Data.List.upTo n) ∘ toList
+    pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
+  junk? : xv MCParam.n → Maybe $ xv MCParam.n
+  junk? e = if xd ∧ xh then just e else nothing
+    where
+    -- | .i zo'oi .x. cmavlaka'i zo xamgu
+    xd = dunli C₀ $ MCParam.H p $ huck e
+    xh = hWV𝔽 e ≡ᵇ MCParam.t p
 \end{code}
 \end{document}
