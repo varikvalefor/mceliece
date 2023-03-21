@@ -489,10 +489,10 @@ ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Decode}
 Decode : {p : MCParam}
        → Vec (Fin 2) $ MCParam.n-k p
        → Public p
-       → ({n : ℕ} → Vec (Fin $ MCParam.q p) n)
+       → (Σ ℕ $ Vec $ Fin (MCParam.q p))
        → Vec (Fin $ MCParam.q p) $ MCParam.n p
        → Maybe $ Vec (Fin 2) $ MCParam.n p
-Decode {p} C₀ bar g α' = e Data.Maybe.>>= junk?
+Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
   where
   xv = λ f → Vec (Fin 2) $ f p
   dist : xv MCParam.n → xv MCParam.n → ℕ
