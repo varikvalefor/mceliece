@@ -50,6 +50,7 @@
 \newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
 \newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{δ}{\ensuremath{\mathnormal{\delta}}}
 
 \newcommand\hashish{cbf1 42fe 1ebd b0b2 87a4 4018 340b 8159 7ef1 3a63 6f5d 76f4 6f48 a080 b2bc d3f1 3922 f0f1 5219 94cc 5e71 fb1f b2d9 d9f8 dd3b ffe6 be32 0056 5cca 21c4 28eb 9de1}
 
@@ -451,14 +452,58 @@ ni'o la'au le fancu poi ke'a goi ko'a zo'u lo nu xamgu pilno ko'a cu filri'a lo 
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku gi la'o zoi.\ \F{KP.pu} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
+.i ga naja la .varik.\ cu djuno lo du'u lojysra lo du'u me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING. zoi glibau.\ NON\_TERMINATING .glibau.
+
 \subsection{le samselpla}
 \begin{code}
--- | ni'o le su'u pilno ko'a goi le mu'oi glibau. line break
--- .glibau. cu tolmle la .varik.  .i ku'i ganai na pilno
--- ko'a gi lo me'oi .\hbox. cu me'oi .overfull.  .i lo me'oi
--- .\hbox. cu na me'oi .overfull.
-postulate
-  SeededKeyGen : (p : MCParam) → Fin $ 2 ^ (MCParam.ℓ p) → KP p
+{-# NON_TERMINATING #-}
+SeededKeyGen : (p : MCParam) → Fin $ 2 ^ (MCParam.ℓ p) → KP p
+SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
+  where
+  Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
+  SeededKeyGen' : Fin $ 2 ^ (MCParam.ℓ p) → Public p × Vqt × KP p
+  SeededKeyGen' δ = foo , g , record {pu = foo; pr = pry}
+    where
+    E = MCParam.G p δ
+    rev = Data.Vec.reverse
+    b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
+    b2f' = clip ∘ b2f
+      where
+      postulate
+        clip : {m n : ℕ} → Fin m → Fin n
+    δ' : Fin $ 2 ^ MCParam.ℓ p
+    δ' = b2f $ rev $ takel $ rev themDigits
+      where
+      takel = Data.Vec.take $ MCParam.ℓ p
+      postulate
+        blah : ℕ
+        themDigits : Vec (Fin 2) $ MCParam.ℓ p + blah
+    s : Fin $ MCParam.n p
+    s = b2f' themDigits
+      where
+      postulate
+        themDigits : Vec (Fin 2) $ MCParam.n p + 0
+    -- | .i cumki fa lo nu cumki fa lo nu la'oi .t.
+    -- na me'oi .terminate.
+    g : Vqt
+    g = maybe id retry tird
+      where
+      -- | .i ca li renoreci pi'e ci pi'e rere
+      -- lo nu vimcu le me'oi .parenthesis. cu
+      -- rinka lo nu lo nu troci lo nu samrkompli
+      -- cu rinka lo nu mutce le ka ce'u pilno loi
+      -- me'oi .RAM.
+      p₂ = λ (_ , b , _) → b
+      retry = p₂ $ SeededKeyGen' δ'
+      postulate
+        tird : Maybe Vqt
+    postulate
+      pry : Private p
+    foo : Public p
+    foo = maybe id retry $ MatGen {p} pry
+      where
+      p₁ = λ (a , _ , _) → a
+      retry = p₁ $ SeededKeyGen' δ'
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
