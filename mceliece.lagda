@@ -500,10 +500,7 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
     postulate
       pry : Private p
     foo : Public p
-    foo = maybe id retry $ MatGen {p} pry
-      where
-      p₁ = λ (a , _ , _) → a
-      retry = p₁ $ SeededKeyGen' δ'
+    foo = maybe id (proj₁ $ SeededKeyGen' δ') $ MatGen {p} pry
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
