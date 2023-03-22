@@ -483,7 +483,7 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
       where
       postulate
         themDigits : Vec (Fin 2) $ MCParam.n p + 0
-    -- | .i cumki fa lo nu cumki fa lo nu la'oi .t.
+    -- | .i cumki fa lo nu cumki fa lo nu la'oi .g.
     -- na me'oi .terminate.
     g : Vqt
     g = maybe id retry tird
