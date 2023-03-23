@@ -517,11 +517,28 @@ postulate KeyGen : (p : MCParam) → IO $ KP p
 ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}.\ poi ke'a se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
-postulate Encode : {p : MCParam}
-                 → (e : Vec (Fin 2) $ MCParam.n p)
-                 → Public p
-                 → {hWV𝔽 e ≡ MCParam.t p}
-                 → Vec (Fin 2) $ MCParam.n-k p
+Encode : {p : MCParam}
+       → (e : Vec (Fin 2) $ MCParam.n p)
+       → Public p
+       → {hWV𝔽 e ≡ MCParam.t p}
+       → Vec (Fin 2) $ MCParam.n-k p
+Encode {p} e T = moult H e
+  where
+  postulate
+    moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
+          → Vec (Fin 2) m
+  H : 𝕄 (Fin 2) (MCParam.n-k p) $ suc (MCParam.k p)
+  H = lookup I n-k𝔽 ∣ T
+    where
+    n-k𝔽 = f2f $ fromℕ $ MCParam.n-k p
+    _∣_ : ∀ {a} → {A : Set a} → {n : ℕ}
+        → A → Vec A n → Vec A $ suc n
+    _∣_ = λ a → reverseᵥ ∘ _∷_ a ∘ reverseᵥ
+    I : {n : ℕ} → 𝕄 (Fin 2) n n
+    I = mapᵥ f $ allFin _
+      where
+      f : {n : ℕ} → Fin n → Vec (Fin 2) n
+      f = λ x → updateAt x (const $ suc zero) $ replicate zero
 \end{code}
 
 \section{la'oi .\F{Decode}.}
