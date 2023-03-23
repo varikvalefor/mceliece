@@ -246,7 +246,7 @@ ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo ci moi me'oi .field.\ pe'a ru'e be 
 
 \begin{code}
 𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
-𝕄 A a b = Vec (Vec A a) b
+𝕄 = Vec ∘₂ Vec
 \end{code}
 
 \section{la'oi .\Sym{𝕄!!}.}
