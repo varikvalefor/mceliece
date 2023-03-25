@@ -118,6 +118,13 @@ open import Data.Digit
     toNatDigits
   )
 open import Data.Maybe
+open import Data.These
+  using (
+    These;
+    this;
+    that;
+    these
+  )
 open import Algebra.Core
 open import Data.Product
 open import Data.Nat as ℕ
@@ -555,13 +562,20 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
   dist = Vec≤.length ∘₂ Data.Vec.filter drata ∘₂ zipᵥ
     where
     drata = λ (a , b) → Data.Bool._≟_ true $ isNo $ a Data.Fin.≟ b
+  v : xv MCParam.n
+  v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
+    where
+    postulate zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
+    tv : These (Fin 2) (Fin 2) → Fin 2
+    tv (this a) = a
+    tv (these a _) = a
+    tv (that b) = b
   postulate
     sumji : Op₂ $ xv MCParam.n
     -- | .i ca le nu ciska dei kei la .varik. cu na
     -- birti lo du'u ma kau ctaipe je cu zabna le ka
     -- ce'u mapti kei je zo'e
     dunli : _ → _ → Bool
-    v : xv MCParam.n
     c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
   c = Data.Maybe.map proj₁ c'
   e = flip Data.Maybe.map c $ sumji v
