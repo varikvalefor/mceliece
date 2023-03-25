@@ -467,10 +467,7 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
     E = MCParam.G p δ
     rev = Data.Vec.reverse
     b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
-    b2f' = clip ∘ b2f
-      where
-      postulate
-        clip : {m n : ℕ} → Fin m → Fin n
+    b2f' = f2f ∘ b2f
     δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ rev $ takel $ rev themDigits
       where
