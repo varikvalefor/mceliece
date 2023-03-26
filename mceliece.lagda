@@ -417,20 +417,21 @@ ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni
 
 \begin{code}
 MatGen : {p : MCParam} → Private p → Maybe $ Public p
-MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl hijmat
+MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl H~
   where
   tee = MCParam.t p
   enn = MCParam.n p
   mf = 𝕄 (Fin $ MCParam.q p) tee enn
   mftwom = 𝕄 (Fin 2) (tee * MCParam.m p) enn
   postulate
-    -- | ni'o ro da zo'u go da selvau la'oi .SysForm. gi
-    -- da srana le mu'oi glibau. systematic form .glibau.
-    SysForm : Set
+    -- | ni'o ro da zo'u go la'oi .SemiSysForm. ctaipe da
+    -- gi da srana le mu'oi glibau. semi-systematic form
+    -- .glibau.
+    SemiSysForm : Set
     repl : mf → mftwom
-    toPus : SysForm → Public p
-    cyst : mftwom → Maybe SysForm
-    hijmat : mf
+    cyst : mftwom → Maybe SemiSysForm
+    toPus : SemiSysForm → Public p
+    H~ : mf
 \end{code}
 
 \chapter{la'oi .\D{KP}. je zo'e}
