@@ -531,14 +531,15 @@ Encode {p} e T = moult H e
   where
   postulate
     moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
-          → Vec (Fin 2) m
-  H : 𝕄 (Fin 2) (MCParam.n-k p) $ suc (MCParam.k p)
-  H = lookup I n-k𝔽 ∣ T
+          → Vec (Fin 2) n
+  H : 𝕄 (Fin 2) (MCParam.n-k p + MCParam.k p) $ MCParam.n-k p
+  H = I ∣ T
     where
-    n-k𝔽 = f2f $ fromℕ $ MCParam.n-k p
-    _∣_ : ∀ {a} → {A : Set a} → {n : ℕ}
-        → A → Vec A n → Vec A $ suc n
-    _∣_ = λ a → reverseᵥ ∘ _∷_ a ∘ reverseᵥ
+    _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
+        → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
+    _∣_ a b = Data.Vec.map (lookup++ a b) $ allFin _
+      where
+      lookup++ = λ a b n → lookup a n ++ lookup b n
     I : {n : ℕ} → 𝕄 (Fin 2) n n
     I = mapᵥ f $ allFin _
       where
