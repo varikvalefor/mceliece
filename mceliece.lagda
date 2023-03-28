@@ -498,8 +498,7 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
       -- rinka lo nu lo nu troci lo nu samrkompli
       -- cu rinka lo nu mutce le ka ce'u pilno loi
       -- me'oi .RAM.
-      p₂ = proj₁ ∘ proj₂
-      retry = p₂ $ SeededKeyGen' δ'
+      retry = proj₁ $ proj₂ $ SeededKeyGen' δ'
       postulate
         tird : Maybe Vqt
     postulate
