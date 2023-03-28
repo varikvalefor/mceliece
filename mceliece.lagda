@@ -118,6 +118,9 @@ open import Data.Digit
     toNatDigits
   )
 open import Data.Maybe
+  renaming (
+    map to mapₘ
+  )
 open import Data.These
   using (
     These;
@@ -556,7 +559,7 @@ Decode : {p : MCParam}
        → (Σ ℕ $ Vec $ Fin (MCParam.q p))
        → Vec (Fin $ MCParam.q p) $ MCParam.n p
        → Maybe $ Vec (Fin 2) $ MCParam.n p
-Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
+Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ junk?
   where
   xv = λ f → Vec (Fin 2) $ f p
   dist : xv MCParam.n → xv MCParam.n → ℕ
@@ -576,7 +579,6 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
     -- | .i ca le nu ciska dei kei la .varik. cu na
     -- birti lo du'u ma kau ctaipe je cu zabna le ka
     -- ce'u mapti kei je zo'e
-    dunli : _ → _ → Bool
     c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
   c = Data.Maybe.map proj₁ c'
   e = flip Data.Maybe.map c $ sumji v
@@ -586,11 +588,14 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
     where
     zipf = Data.List.zip (Data.List.upTo n) ∘ toList
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
-  junk? : xv MCParam.n → Maybe $ xv MCParam.n
-  junk? e = if xd ∧ xh then just e else nothing
+  isNotJunk = λ e → (hWV𝔽 e ≡ MCParam.t p) × C₀ ≡ H e
     where
-    -- | .i zo'oi .x. cmavlaka'i zo xamgu
-    xd = dunli C₀ $ MCParam.H p $ huck e
-    xh = hWV𝔽 e ≡ᵇ MCParam.t p
+    postulate
+      -- | .i cadga fa lo nu xe'o filri'a lo nu
+      -- karbi
+      f : _ → _
+    H = f ∘ MCParam.H p ∘ huck
+  postulate
+    junk? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) isNotJunk
 \end{code}
 \end{document}
