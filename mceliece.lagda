@@ -372,7 +372,7 @@ ni'o la'o zoi.\ \F{Public} \B q .zoi.\ me'oi .type.\ lo gubni termifckiku pe la'
 
 \begin{code}
 Public : MCParam → Set
-Public p = 𝕄 (Fin 2) (MCParam.n-k p) $ MCParam.k p
+Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 \end{code}
 
 \chapter{la'oi .\D{Private}.\ je zo'e}
