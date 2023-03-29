@@ -609,7 +609,12 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
   junk? e = if xd ∧ xh then just e else nothing
     where
     -- | .i zo'oi .x. cmavlaka'i zo xamgu
-    xd = dunli C₀ $ MCParam.H p $ huck e
+    xd = dunli C₀ $ moult H e
+      where
+      H = Hx {p} bar
+      postulate
+        moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
+              → Vec (Fin 2) n
     xh = hWV𝔽 e ≡ᵇ MCParam.t p
 \end{code}
 \end{document}
