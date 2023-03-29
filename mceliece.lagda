@@ -586,7 +586,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
     postulate zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
-    tv : These (Fin 2) (Fin 2) → Fin 2
+    tv : (λ x → These x x → x) $ Fin 2
     tv (this a) = a
     tv (these a _) = a
     tv (that b) = b
