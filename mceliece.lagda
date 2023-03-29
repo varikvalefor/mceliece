@@ -595,7 +595,6 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
     -- | .i ca le nu ciska dei kei la .varik. cu na
     -- birti lo du'u ma kau ctaipe je cu zabna le ka
     -- ce'u mapti kei je zo'e
-    dunli : _ → _ → Bool
     c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
   c = Data.Maybe.map proj₁ c'
   e = flip Data.Maybe.map c $ sumji v
@@ -613,6 +612,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
       where
       H = Hx {p} bar
       postulate
+        dunli : _ → _ → Bool
         moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
               → Vec (Fin 2) n
     xh = hWV𝔽 e ≡ᵇ MCParam.t p
