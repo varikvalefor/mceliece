@@ -46,6 +46,7 @@
 \newunicodechar{₁}{\ensuremath{_1}}
 \newunicodechar{₂}{\ensuremath{_2}}
 \newunicodechar{ᵥ}{\ensuremath{_\mathsf{v}}}
+\newunicodechar{ₘ}{\ensuremath{_\mathsf{m}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
 \newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
@@ -118,6 +119,9 @@ open import Data.Digit
     toNatDigits
   )
 open import Data.Maybe
+  renaming (
+    map to mapₘ
+  )
 open import Data.These
   using (
     These;
@@ -575,7 +579,7 @@ Decode : {p : MCParam}
        → (Σ ℕ $ Vec $ Fin (MCParam.q p))
        → Vec (Fin $ MCParam.q p) $ MCParam.n p
        → Maybe $ Vec (Fin 2) $ MCParam.n p
-Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
+Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ junk?
   where
   xv = λ f → Vec (Fin 2) $ f p
   dist : xv MCParam.n → xv MCParam.n → ℕ
@@ -604,17 +608,18 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
     where
     zipf = Data.List.zip (Data.List.upTo n) ∘ toList
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
-  junk? : xv MCParam.n → Maybe $ xv MCParam.n
-  junk? e = if xd ∧ xh then just e else nothing
+  isNotJunk = λ e → (hWV𝔽 e ≡ MCParam.t p) × dunli C₀ (H* e)
     where
+    postulate
+      dunli : _ → _ → Set
     -- | .i zo'oi .x. cmavlaka'i zo xamgu
-    xd = dunli C₀ $ moult H e
+    H* = moult H
       where
       H = Hx {p} bar
       postulate
-        dunli : _ → _ → Bool
         moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
               → Vec (Fin 2) n
-    xh = hWV𝔽 e ≡ᵇ MCParam.t p
+  postulate
+    junk? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) isNotJunk
 \end{code}
 \end{document}
