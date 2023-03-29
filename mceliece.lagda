@@ -597,9 +597,6 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
     tv (that b) = b
   postulate
     sumji : Op₂ $ xv MCParam.n
-    -- | .i ca le nu ciska dei kei la .varik. cu na
-    -- birti lo du'u ma kau ctaipe je cu zabna le ka
-    -- ce'u mapti kei je zo'e
     c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
   c = Data.Maybe.map proj₁ c'
   e = flip Data.Maybe.map c $ sumji v
