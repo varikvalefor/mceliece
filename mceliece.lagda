@@ -521,6 +521,7 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{KP.pu} \Sym{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
 
 \subsection{le velcki}
+
 \begin{code}
 postulate KeyGen : (p : MCParam) → IO $ KP p
 \end{code}
