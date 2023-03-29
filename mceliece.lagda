@@ -457,6 +457,16 @@ record KP (p : MCParam) : Set
 \chapter{le fancu poi lo nu xamgu pilno ke'a cu filri'a lo nu zbasu lo termifckiku}
 ni'o la'au le fancu poi ke'a goi ko'a zo'u lo nu xamgu pilno ko'a cu filri'a lo nu zbasu lo termifckiku li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu zbasu lo nu zbasu lo termifckiku
 
+\section{la'oi .\F{FieldOrdering}.}
+ni'o la'oi .\F{FieldOrdering}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{FieldOrdering}.\ poi ke'a se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+
+\begin{code}
+postulate
+  FieldOrdering : {p : MCParam}
+                → Fin $ MCParam.σ₂ p * MCParam.q p
+                → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
+\end{code}
+
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku gi la'o zoi.\ \F{KP.pu} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
