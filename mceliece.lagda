@@ -523,7 +523,11 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .r
 \subsection{le velcki}
 
 \begin{code}
-postulate KeyGen : (p : MCParam) → IO $ KP p
+KeyGen : (p : MCParam) → IO $ KP p
+KeyGen p = SeededKeyGen p IO.<$> cunso
+  where
+  postulate
+    cunso : _
 \end{code}
 
 \chapter{le fancu poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
