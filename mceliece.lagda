@@ -579,7 +579,7 @@ Decode : {p : MCParam}
        → (Σ ℕ $ Vec $ Fin (MCParam.q p))
        → Vec (Fin $ MCParam.q p) $ MCParam.n p
        → Maybe $ Vec (Fin 2) $ MCParam.n p
-Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ junk?
+Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
   dist : xv MCParam.n → xv MCParam.n → ℕ
@@ -608,8 +608,8 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ junk?
     where
     zipf = Data.List.zip (Data.List.upTo n) ∘ toList
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
-  isNotJunk : xv MCParam.n → Set
-  isNotJunk e = (hWV𝔽 e ≡ MCParam.t p) × dunli C₀ H*e
+  mapti : xv MCParam.n → Set
+  mapti e = (hWV𝔽 e ≡ MCParam.t p) × dunli C₀ H*e
     where
     postulate
       dunli : _ → _ → Set
@@ -621,6 +621,6 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ junk?
         moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
               → Vec (Fin 2) n
   postulate
-    junk? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) isNotJunk
+    mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
 \end{code}
 \end{document}
