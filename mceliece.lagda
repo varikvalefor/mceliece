@@ -608,12 +608,13 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ junk?
     where
     zipf = Data.List.zip (Data.List.upTo n) ∘ toList
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
-  isNotJunk = λ e → (hWV𝔽 e ≡ MCParam.t p) × dunli C₀ (H* e)
+  isNotJunk : xv MCParam.n → Set
+  isNotJunk e = (hWV𝔽 e ≡ MCParam.t p) × dunli C₀ H*e
     where
     postulate
       dunli : _ → _ → Set
     -- | .i zo'oi .x. cmavlaka'i zo xamgu
-    H* = moult H
+    H*e = moult H e
       where
       H = Hx {p} bar
       postulate
