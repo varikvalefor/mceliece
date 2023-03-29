@@ -527,6 +527,27 @@ postulate KeyGen : (p : MCParam) → IO $ KP p
 
 \chapter{le fancu poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
 
+\section{la'oi .\F{Hx}.}
+ni'o la'o zoi.\ \F{Hx} \{\B p\} \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T .zoi.
+
+\begin{code}
+Hx : {p : MCParam}
+   → Public p
+   → 𝕄 (Fin 2) (MCParam.n-k p + MCParam.k p) $ MCParam.n-k p
+Hx {p} T = I ∣ T
+  where
+  _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
+      → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
+  _∣_ a b = Data.Vec.map (lookup++ a b) $ allFin _
+    where
+    lookup++ = λ a b n → lookup a n ++ lookup b n
+  I : {n : ℕ} → 𝕄 (Fin 2) n n
+  I = mapᵥ f $ allFin _
+    where
+    f : {n : ℕ} → Fin n → Vec (Fin 2) n
+    f = λ x → updateAt x (const $ suc zero) $ replicate zero
+\end{code}
+
 \section{la'oi .\F{Encode}.}
 ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}.\ poi ke'a se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
@@ -538,22 +559,10 @@ Encode : {p : MCParam}
        → Vec (Fin 2) $ MCParam.n-k p
 Encode {p} e T = moult H e
   where
+  H = Hx {p} T
   postulate
     moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
           → Vec (Fin 2) n
-  H : 𝕄 (Fin 2) (MCParam.n-k p + MCParam.k p) $ MCParam.n-k p
-  H = I ∣ T
-    where
-    _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
-        → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
-    _∣_ a b = Data.Vec.map (lookup++ a b) $ allFin _
-      where
-      lookup++ = λ a b n → lookup a n ++ lookup b n
-    I : {n : ℕ} → 𝕄 (Fin 2) n n
-    I = mapᵥ f $ allFin _
-      where
-      f : {n : ℕ} → Fin n → Vec (Fin 2) n
-      f = λ x → updateAt x (const $ suc zero) $ replicate zero
 \end{code}
 
 \section{la'oi .\F{Decode}.}
