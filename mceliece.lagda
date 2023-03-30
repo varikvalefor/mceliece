@@ -193,7 +193,7 @@ ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'
 
 \begin{code}
 nbits : ∀ {a} → ℕ → Vec (Fin 2) a
-nbits {ln} = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
+nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
   where
   n2f = λ f → if f ≡ᵇ 0 then zero else suc zero
 \end{code}
