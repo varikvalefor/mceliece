@@ -176,7 +176,8 @@ f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 ni'o cadga fa lo nu lo mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
-resize : ∀ {a} → {m n : ℕ} → {A : Set a} → A → Vec A m → Vec A n
+resize : ∀ {a} → {m n : ℕ} → {A : Set a}
+       → A → Vec A m → Vec A n
 resize {_} {m} {n} {A} x xs = mapTo xs $ replicate x
   where
   postulate
