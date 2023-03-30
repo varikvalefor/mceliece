@@ -584,9 +584,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
     where
     postulate zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
     tv : (λ x → These x x → x) $ Fin 2
-    tv (this a) = a
-    tv (these a _) = a
-    tv (that b) = b
+    tv = Data.These.fold id id $ λ a _ → a
   postulate
     sumji : Op₂ $ xv MCParam.n
     c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
