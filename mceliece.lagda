@@ -578,7 +578,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= junk?
   dist : xv MCParam.n → xv MCParam.n → ℕ
   dist = Vec≤.length ∘₂ Data.Vec.filter drata ∘₂ zipᵥ
     where
-    drata = λ (a , b) → Data.Bool._≟_ true $ isNo $ a Data.Fin.≟ b
+    drata = Data.Bool._≟_ true ∘ isNo ∘ uncurry Data.Fin._≟_
   v : xv MCParam.n
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
