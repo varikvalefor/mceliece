@@ -11,33 +11,24 @@
 \usepackage{newunicodechar}
 
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
-\newunicodechar{∃}{\ensuremath{\mathnormal\exists}}
-\newunicodechar{∄}{\ensuremath{\mathnormal\nexists}}
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{∨}{\ensuremath{\mathnormal\vee}}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
-\newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
-\newunicodechar{⊹}{\ensuremath{\mathnormal\dag}}
-\newunicodechar{𝕗}{\ensuremath{\mathbb{f}}}
 \newunicodechar{ℙ}{\ensuremath{\mathbb{P}}}
 \newunicodechar{𝔽}{\ensuremath{\mathbb{F}}}
 \newunicodechar{𝕄}{\ensuremath{\mathbb{M}}}
 \newunicodechar{𝔹}{\ensuremath{\mathbb{B}}}
 \newunicodechar{ν}{\ensuremath{\nu}}
 \newunicodechar{μ}{\ensuremath{\mu}}
-\newunicodechar{◆}{\ensuremath{\mathnormal\blackdiamond}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
 \newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
 \newunicodechar{ϕ}{\ensuremath{\mathnormal{\phi}}}
-\newunicodechar{χ}{\ensuremath{\mathnormal{\chi}}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\wedge}}}
-\newunicodechar{∅}{\ensuremath{\mathnormal{\emptyset}}}
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
-\newunicodechar{⁇}{\ensuremath{\mathrm{?\!?}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
 \newunicodechar{ℓ}{\ensuremath{\ell}}
@@ -189,7 +180,8 @@ f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 ni'o cadga fa lo nu lo mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
-resize : ∀ {a} → {m n : ℕ} → {A : Set a} → A → Vec A m → Vec A n
+resize : ∀ {a} → {m n : ℕ} → {A : Set a}
+       → A → Vec A m → Vec A n
 resize {_} {m} {n} {A} x xs = mapTo xs $ replicate x
   where
   postulate
@@ -205,7 +197,7 @@ ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'
 
 \begin{code}
 nbits : ∀ {a} → ℕ → Vec (Fin 2) a
-nbits {ln} = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
+nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
   where
   n2f = λ f → if f ≡ᵇ 0 then zero else suc zero
 \end{code}
@@ -590,15 +582,13 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   dist : xv MCParam.n → xv MCParam.n → ℕ
   dist = Vec≤.length ∘₂ Data.Vec.filter drata ∘₂ zipᵥ
     where
-    drata = λ (a , b) → Data.Bool._≟_ true $ isNo $ a Data.Fin.≟ b
+    drata = Data.Bool._≟_ true ∘ isNo ∘ uncurry Data.Fin._≟_
   v : xv MCParam.n
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
     postulate zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
     tv : (λ x → These x x → x) $ Fin 2
-    tv (this a) = a
-    tv (these a _) = a
-    tv (that b) = b
+    tv = Data.These.fold id id const
   postulate
     sumji : Op₂ $ xv MCParam.n
     c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
