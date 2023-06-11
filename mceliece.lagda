@@ -499,11 +499,6 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
     g : Vqt
     g = maybe id retry tird
       where
-      -- | .i ca li renoreci pi'e ci pi'e rere
-      -- lo nu vimcu le me'oi .parenthesis. cu
-      -- rinka lo nu lo nu troci lo nu samrkompli
-      -- cu rinka lo nu mutce le ka ce'u pilno loi
-      -- me'oi .RAM.
       retry = proj₁ $ proj₂ $ SeededKeyGen' δ'
       postulate
         tird : Maybe Vqt
