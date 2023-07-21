@@ -610,7 +610,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   e = flip Data.Maybe.map c $ sumji v
   -- | .i lisri
   huck : {m n : ℕ} → Vec (Fin m) n → ℕ
-  huck {m} = Data.List.sum ∘ pilji ∘ zipf
+  huck {m} {n} = Data.List.sum ∘ pilji ∘ zipf
     where
     zipf = Data.List.zip (Data.List.upTo n) ∘ toList
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
