@@ -203,11 +203,8 @@ resize {_} {m} {n} {A} x xs = xt
     where
     padin : Vec A $ n ∸ m + m
     padin = Data.Vec._++_ (replicate {n = n ∸ m} x) xs
-    -- | "Nice shootin', Tex!"
-    grit : {m n : ℕ} → ¬ (m ℕ.≤ n) → m ℕ.≥ n
-    grit = Data.Nat.Properties.≰⇒≥
     bitc : n ∸ m + m ≡ n
-    bitc = m∸n+n≡m $ grit z
+    bitc = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ z
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
