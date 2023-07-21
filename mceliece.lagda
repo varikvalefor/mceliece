@@ -619,7 +619,6 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     where
     postulate
       dunli : _ → _ → Set
-    -- | .i zo'oi .x. cmavlaka'i zo xamgu
     H*e = moult H e
       where
       H = Hx {p} bar
