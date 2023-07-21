@@ -43,6 +43,8 @@
 \newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{δ}{\ensuremath{\mathnormal{\delta}}}
+\newunicodechar{⇒}{\ensuremath{\mathnormal{\Rightarrow}}}
+\newunicodechar{≰}{\ensuremath{\mathnormal{\nleq}}}
 
 \newcommand\hashish{cbf1 42fe 1ebd b0b2 87a4 4018 340b 8159 7ef1 3a63 6f5d 76f4 6f48 a080 b2bc d3f1 3922 f0f1 5219 94cc 5e71 fb1f b2d9 d9f8 dd3b ffe6 be32 0056 5cca 21c4 28eb 9de1}
 
@@ -124,12 +126,18 @@ open import Algebra.Core
 open import Data.Product
 open import Data.Nat as ℕ
 open import Data.Nat.DivMod
+open import Relation.Nullary
 open import Data.Vec.Bounded
   using (
     Vec≤
   )
 open import Algebra.Structures
 open import Data.Nat.Primality
+open import Data.Nat.Properties
+  using (
+    m∸n+n≡m
+  )
+open import Truthbrary.Data.Fin
 open import Relation.Nullary.Decidable
   using (
     isNo
@@ -177,15 +185,29 @@ f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
 \section{la'oi .\F{resize}.}
-ni'o cadga fa lo nu lo mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
+ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \{\_\}\ \{m\}\ \{n\}\ \B t\ .zoi.\ du la'o zoi.\ \F{Data.Vec.drop}\ \Sym \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{Data.Vec.\_++\_}\ \Sym \$\ \F{replicate}\ \B t\ .zoi.
 
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
        → A → Vec A m → Vec A n
-resize {_} {m} {n} {A} x xs = mapTo xs $ replicate x
+resize {_} {m} {n} {A} x xs = xt
   where
-  postulate
-    mapTo : {m' : ℕ} → Vec A m' → Vec A n → Vec A n
+  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+  coerce refl = id
+  xt : Vec A n
+  xt with n ℕ.≤? m
+  ... | (yes z) = Data.Vec.drop (m ∸ n) $ coc xs
+    where
+    coc = coerce $ cong (Vec _) $ sym $ m∸n+n≡m z
+  ... | (no z) = coerce (cong (Vec _) bitc) padin
+    where
+    padin : Vec A $ n ∸ m + m
+    padin = Data.Vec._++_ (replicate {n = n ∸ m} x) xs
+    -- | "Nice shootin', Tex!"
+    grit : {m n : ℕ} → ¬ (m ℕ.≤ n) → m ℕ.≥ n
+    grit = Data.Nat.Properties.≰⇒≥
+    bitc : n ∸ m + m ≡ n
+    bitc = m∸n+n≡m $ grit z
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
