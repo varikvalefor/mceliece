@@ -601,7 +601,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
     postulate zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
-    tv : (λ x → These x x → x) $ Fin 2
+    tv : ∀ {a} → {A : Set a} → These A A → A
     tv = Data.These.fold id id const
   postulate
     sumji : Op₂ $ xv MCParam.n
