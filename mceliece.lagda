@@ -625,7 +625,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
       postulate
         moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
               → Vec (Fin 2) n
-  postulate
-    mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
+  mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
+  mapti? e = {!!} $ hWV𝔽 e ℕ.≟ MCParam.t p
 \end{code}
 \end{document}
