@@ -193,12 +193,12 @@ ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a go
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
        → A → Vec A m → Vec A n
-resize {_} {m} {n} {A} x xs = xt
+resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   where
   coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
   coerce refl = id
-  xt : Vec A n
-  xt with n ℕ.≤? m
+  xt : Dec (n ℕ.≤ m) → Vec A n
+  xt q with q
   ... | (yes z) = Data.Vec.drop (m ∸ n) $ coc xs
     where
     coc = coerce $ sym $ cong (Vec _) $ m∸n+n≡m z
@@ -217,7 +217,7 @@ resize {_} {m} {n} {A} x xs = xt
              xs
              (coerce
                (cong (Vec A) $ m∸n+n≡m g)
-               (flip _++_ xt $ take (m ∸ n) xs')))
+               (flip _++_ (xt $ yes g) $ take (m ∸ n) xs')))
   dropis g = sym $ begin
     coerce k konk ≡⟨ sym $ cong _ konkdus ⟩
     coerce (sym $ sym k) xs' ≡⟨ sym $ flipko (sym k) xs ⟩
@@ -227,7 +227,7 @@ resize {_} {m} {n} {A} x xs = xt
     xs' : Vec A $ m ∸ n + n
     xs' = coerce (sym k) xs
     konk : Vec A $ m ∸ n + n
-    konk = take (m ∸ n) xs' ++ xt
+    konk = take (m ∸ n) xs' ++ xt (yes g)
     flipko : ∀ {a} → {A B : Set a}
            → (d : A ≡ B)
            → (x : A)
