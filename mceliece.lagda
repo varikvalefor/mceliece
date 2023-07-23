@@ -193,12 +193,12 @@ ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a go
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
        → A → Vec A m → Vec A n
-resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
+resize {_} {m} {n} {A} x xs = xt
   where
   coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
   coerce refl = id
-  xt : Dec (n ℕ.≤ m) → Vec A n
-  xt q with q
+  xt : Vec A n
+  xt with n ℕ.≤? m
   ... | (yes z) = Data.Vec.drop (m ∸ n) $ coc xs
     where
     coc = coerce $ sym $ cong (Vec _) $ m∸n+n≡m z
