@@ -216,7 +216,7 @@ resize {_} {m} {n} {A} x xs = xt
                (cong (Vec A) $ m∸n+n≡m g)
                (flip _++_ xt $ take (m ∸ n) xs')))
   dropis g = sym $ begin
-    coerce k (flip _++_ xt $ take (m ∸ n) xs') ≡⟨ cong _ $ sym konkdus ⟩
+    coerce k konk ≡⟨ cong _ $ sym konkdus ⟩
     coerce (sym $ sym k) xs' ≡⟨ sym $ flipko (sym k) xs ⟩
     xs ∎
     where
