@@ -205,6 +205,32 @@ resize {_} {m} {n} {A} x xs = xt
     padin = Data.Vec._++_ (replicate {n = n ∸ m} x) xs
     bitc : n ∸ m + m ≡ n
     bitc = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ z
+
+  open ≡-Reasoning
+
+  dropis : (g : n ℕ.≤ m)
+         → let xs' = coerce (sym $ cong (Vec A) $ m∸n+n≡m g) xs in
+           (_≡_
+             xs
+             (coerce
+               (cong (Vec A) $ m∸n+n≡m g)
+               (flip _++_ xt $ take (m ∸ n) xs')))
+  dropis g = sym $ begin
+    coerce (cong (Vec A) $ m∸n+n≡m g) (flip _++_ xt $ take (m ∸ n) xs') ≡⟨ cong _ $ sym konkdus ⟩
+    coerce (sym $ sym $ cong (Vec A) $ m∸n+n≡m g) xs' ≡⟨ sym $ flipko (sym $ cong (Vec A) $ m∸n+n≡m g) xs ⟩
+    xs ∎
+    where
+    xs' : Vec A $ m ∸ n + n
+    xs' = coerce (sym $ cong (Vec A) $ m∸n+n≡m g) xs
+    konk : Vec A $ m ∸ n + n
+    konk = take (m ∸ n) xs' ++ xt
+    flipko : ∀ {a} → {A B : Set a}
+           → (d : A ≡ B)
+           → (x : A)
+           → x ≡ coerce (sym d) (coerce d x)
+    flipko refl j = refl
+    konkdus : konk ≡ xs'
+    konkdus = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
