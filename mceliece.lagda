@@ -216,12 +216,13 @@ resize {_} {m} {n} {A} x xs = xt
                (cong (Vec A) $ m∸n+n≡m g)
                (flip _++_ xt $ take (m ∸ n) xs')))
   dropis g = sym $ begin
-    coerce (cong (Vec A) $ m∸n+n≡m g) (flip _++_ xt $ take (m ∸ n) xs') ≡⟨ cong _ $ sym konkdus ⟩
-    coerce (sym $ sym $ cong (Vec A) $ m∸n+n≡m g) xs' ≡⟨ sym $ flipko (sym $ cong (Vec A) $ m∸n+n≡m g) xs ⟩
+    coerce k (flip _++_ xt $ take (m ∸ n) xs') ≡⟨ cong _ $ sym konkdus ⟩
+    coerce (sym $ sym k) xs' ≡⟨ sym $ flipko (sym k) xs ⟩
     xs ∎
     where
+    k = cong (Vec A) $ m∸n+n≡m g
     xs' : Vec A $ m ∸ n + n
-    xs' = coerce (sym $ cong (Vec A) $ m∸n+n≡m g) xs
+    xs' = coerce (sym k) xs
     konk : Vec A $ m ∸ n + n
     konk = take (m ∸ n) xs' ++ xt
     flipko : ∀ {a} → {A B : Set a}
