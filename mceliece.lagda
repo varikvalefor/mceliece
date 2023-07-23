@@ -219,7 +219,8 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
                (cong (Vec A) $ m∸n+n≡m g)
                (flip _++_ (xt $ yes g) $ take (m ∸ n) xs')))
   dropis g = sym $ begin
-    coerce k konk ≡⟨ sym $ cong _ konkdus ⟩
+    coerce k konk ≡⟨ cong (coerce k) konkdus ⟩
+    coerce k xs' ≡⟨ cong (λ t → coerce t xs') $ symref k ⟩
     coerce (sym $ sym k) xs' ≡⟨ sym $ flipko (sym k) xs ⟩
     xs ∎
     where
@@ -228,6 +229,10 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     xs' = coerce (sym k) xs
     konk : Vec A $ m ∸ n + n
     konk = take (m ∸ n) xs' ++ xt (yes g)
+    symref : ∀ {a} → {A B : Set a}
+           → (t : A ≡ B)
+           → t ≡ sym (sym t)
+    symref refl = refl
     flipko : ∀ {a} → {A B : Set a}
            → (d : A ≡ B)
            → (x : A)
