@@ -201,8 +201,8 @@ resize {_} {m} {n} {A} x xs = xt
   xt with n ℕ.≤? m
   ... | (yes z) = Data.Vec.drop (m ∸ n) $ coc xs
     where
-    coc = coerce $ sym $ cong (Vec _) $ m∸n+n≡m z
-  ... | (no z) = coerce (cong (Vec _) bitc) padin
+    coc = coerce $ sym $ cong (Vec A) $ m∸n+n≡m z
+  ... | (no z) = coerce (cong (Vec A) bitc) padin
     where
     padin : Vec A $ n ∸ m + m
     padin = Data.Vec._++_ (replicate {n = n ∸ m} x) xs
