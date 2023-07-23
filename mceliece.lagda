@@ -53,6 +53,8 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
+\newcommand\algoritma[1]{\textsc{#1}}
+
 \title{le me'oi .Agda.\ me'oi .implementation.\ be la'o glibau.\ Classic MCELIECE .glibau.}
 \author{la .varik.\ .VALefor.}
 
@@ -473,7 +475,7 @@ record KP (p : MCParam) : Set
 ni'o la'au le fancu poi ke'a goi ko'a zo'u lo nu xamgu pilno ko'a cu filri'a lo nu zbasu lo termifckiku li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu zbasu lo nu zbasu lo termifckiku
 
 \section{la'oi .\F{FieldOrdering}.}
-ni'o la'oi .\F{FieldOrdering}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{FieldOrdering}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o la'oi .\F{FieldOrdering}.\ me'oi .implementation.\ ko'a goi la'oi .\algoritma{FieldOrdering}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
 postulate
@@ -564,7 +566,7 @@ Hx {p} T = I ∣ T
 \end{code}
 
 \section{la'oi .\F{Encode}.}
-ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\algoritma{Encode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
 Encode : {p : MCParam}
@@ -581,7 +583,7 @@ Encode {p} e T = moult H e
 \end{code}
 
 \section{la'oi .\F{Decode}.}
-ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Decode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
+ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\algoritma{Decode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
 
 \begin{code}
 Decode : {p : MCParam}
