@@ -211,14 +211,19 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 
   open ≡-Reasoning
 
-  dropis : (g : n ℕ.≤ m)
+  dropis : ∀ {a} → {A : Set a} → {m n : ℕ}
+         → (x : A)
+         → (xs : Vec A m)
+         → (g : n ℕ.≤ m)
          → let xs' = coerce (sym $ cong (Vec A) $ m∸n+n≡m g) xs in
            (_≡_
              xs
              (coerce
                (cong (Vec A) $ m∸n+n≡m g)
-               (flip _++_ (xt $ yes g) $ take (m ∸ n) xs')))
-  dropis g = sym $ begin
+               (flip _++_
+                 (resize x xs)
+                 (take (m ∸ n) xs'))))
+  dropis {_} {A} {m} {n} x xs g = sym $ begin
     coerce k konk ≡⟨ cong (coerce k) konkdus ⟩
     coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
     coerce (sym $ sym k) xs' ≡⟨ sym $ flipko (sym k) xs ⟩
@@ -228,7 +233,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     xs' : Vec A $ m ∸ n + n
     xs' = coerce (sym k) xs
     konk : Vec A $ m ∸ n + n
-    konk = take (m ∸ n) xs' ++ xt (yes g)
+    konk = take (m ∸ n) xs' ++ resize x xs
     symref : ∀ {a} → {A B : Set a}
            → (t : A ≡ B)
            → t ≡ sym (sym t)
