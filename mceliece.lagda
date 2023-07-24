@@ -630,6 +630,6 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
   mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
   ... | yes x = {!!}
-  ... | no x = nothing
+  ... | no _ = nothing
 \end{code}
 \end{document}
