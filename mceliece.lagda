@@ -525,7 +525,7 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
     s = b2f' themDigits
       where
       postulate
-        themDigits : Vec (Fin 2) $ MCParam.n p + 0
+        themDigits : Vec (Fin 2) $ MCParam.n p
     -- | .i cumki fa lo nu cumki fa lo nu la'oi .g.
     -- na me'oi .terminate.
     g : Vqt
