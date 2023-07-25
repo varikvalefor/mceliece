@@ -517,7 +517,7 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
     δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ rev $ takel $ rev themDigits
       where
-      takel = Data.Vec.take $ MCParam.ℓ p
+      takel = take $ MCParam.ℓ p
       postulate
         blah : ℕ
         themDigits : Vec (Fin 2) $ MCParam.ℓ p + blah
@@ -607,7 +607,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
   dist : xv MCParam.n → xv MCParam.n → ℕ
-  dist = Vec≤.length ∘₂ Data.Vec.filter drata ∘₂ zipᵥ
+  dist = Vec≤.length ∘₂ filter drata ∘₂ zipᵥ
     where
     drata = Data.Bool._≟_ true ∘ isNo ∘ uncurry Data.Fin._≟_
   v : xv MCParam.n
