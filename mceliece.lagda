@@ -188,7 +188,7 @@ f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
 \section{la'oi .\F{resize}.}
-ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \{\_\}\ \{m\}\ \{n\}\ \B t\ .zoi.\ du la'o zoi.\ \F{Data.Vec.drop}\ \Sym \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{Data.Vec.\_++\_}\ \Sym \$\ \F{replicate}\ \B t\ .zoi.
+ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \{\_\}\ \{m\}\ \{n\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \Sym \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\_++\_}\ \Sym \$\ \F{replicate}\ \B t\ .zoi.
 
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
