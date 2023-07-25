@@ -15,6 +15,7 @@
 \newunicodechar{∨}{\ensuremath{\mathnormal\vee}}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
+\newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{ℙ}{\ensuremath{\mathbb{P}}}
@@ -56,7 +57,9 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
-\title{le me'oi .Agda.\ me'oi .implementation.\ be la'o glibau.\ Classic MCELIECE .glibau.}
+\newcommand\algoritma[1]{\textsc{#1}}
+
+\title{le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
@@ -69,7 +72,7 @@
 ni'o le proga cu na xamgu je cu na mulno
 
 \chapter{le terfi'i ja co'e}
-ni'o ko'a goi la'au le me'oi .Agda.\ me'oi .implementation.\ be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a cu filri'a lo nu jimpe le mu'oi glibau.\ Classic MCELIECE .glibau.
+ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a cu filri'a lo nu jimpe le mu'oi glibau.\ Classic MCELIECE .glibau.
 
 .i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u sutra  .i ku'i la .varik.\ cu na tolnei lo nu da'i ko'a drani ba'e je cu sutra
 
@@ -318,6 +321,16 @@ ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be 
 
 ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo ci moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu rajycla
 
+ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F \F ∷ 3 \F ∷ \F{[]}) \F ∷ (4 \F ∷ 5 \F ∷ 6 \F ∷ \F{[]}) \F ∷ (7 \F ∷ 8 \F ∷ 9 \F ∷ \F{[]}) \F ∷ \F{[]}) .zoi.\ du le nacmeimei poi ke'a du la'o cmaci.
+\[
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		4 & 5 & 6 \\
+		7 & 8 & 9
+	\end{bmatrix}
+\]
+.cmaci.
+
 \begin{code}
 𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
 𝕄 = Vec ∘₂ Vec
@@ -525,7 +538,7 @@ record KP (p : MCParam) : Set
 ni'o la'au le fancu poi ke'a goi ko'a zo'u lo nu xamgu pilno ko'a cu filri'a lo nu zbasu lo termifckiku li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu zbasu lo nu zbasu lo termifckiku
 
 \section{la'oi .\F{FieldOrdering}.}
-ni'o la'oi .\F{FieldOrdering}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{FieldOrdering}.\ poi ke'a se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o la'oi .\F{FieldOrdering}.\ velcki ja co'e ko'a goi la'oi .\algoritma{FieldOrdering}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
 postulate
@@ -556,7 +569,7 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
     δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ rev $ takel $ rev themDigits
       where
-      takel = Data.Vec.take $ MCParam.ℓ p
+      takel = take $ MCParam.ℓ p
       postulate
         blah : ℕ
         themDigits : Vec (Fin 2) $ MCParam.ℓ p + blah
@@ -564,7 +577,7 @@ SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
     s = b2f' themDigits
       where
       postulate
-        themDigits : Vec (Fin 2) $ MCParam.n p + 0
+        themDigits : Vec (Fin 2) $ MCParam.n p
     -- | .i cumki fa lo nu cumki fa lo nu la'oi .g.
     -- na me'oi .terminate.
     g : Vqt
@@ -616,7 +629,7 @@ Hx {p} T = I ∣ T
 \end{code}
 
 \section{la'oi .\F{Encode}.}
-ni'o la'oi .\F{Encode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Encode}.\ poi ke'a se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o la'oi .\F{Encode}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Encode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
 Encode : {p : MCParam}
@@ -633,7 +646,7 @@ Encode {p} e T = moult H e
 \end{code}
 
 \section{la'oi .\F{Decode}.}
-ni'o la'oi .\F{Decode}.\ me'oi .implementation.\ ko'a goi la'oi .\textsc{Decode}.\ poi ke'a se velcki la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
+ni'o la'oi .\F{Decode}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Decode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
 
 \begin{code}
 Decode : {p : MCParam}
@@ -646,14 +659,14 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
   dist : xv MCParam.n → xv MCParam.n → ℕ
-  dist = Vec≤.length ∘₂ Data.Vec.filter drata ∘₂ zipᵥ
+  dist = Vec≤.length ∘₂ filter drata ∘₂ zipᵥ
     where
     drata = Data.Bool._≟_ true ∘ isNo ∘ uncurry Data.Fin._≟_
   v : xv MCParam.n
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
     postulate zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
-    tv : ∀ {a} → {A : Set a} → These A A → A
+    tv : (λ t → These t t → t) $ Fin 2
     tv = Data.These.fold id id const
   postulate
     sumji : Op₂ $ xv MCParam.n
@@ -678,6 +691,8 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
         moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
               → Vec (Fin 2) n
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
-  mapti? e = {!!} $ hWV𝔽 e ℕ.≟ MCParam.t p
+  mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
+  ... | yes x = {!!}
+  ... | no _ = nothing
 \end{code}
 \end{document}
