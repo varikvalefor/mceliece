@@ -15,6 +15,7 @@
 \newunicodechar{∨}{\ensuremath{\mathnormal\vee}}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
+\newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{ℙ}{\ensuremath{\mathbb{P}}}
@@ -267,6 +268,16 @@ ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo pa moi me'oi .field.\ pe'a ru'e be 
 ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu ganra
 
 ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo ci moi me'oi .field.\ pe'a ru'e be da cu ni lo selsni be da cu rajycla
+
+ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F \F ∷ 3 \F ∷ \F{[]}) \F ∷ (4 \F ∷ 5 \F ∷ 6 \F ∷ \F{[]}) \F ∷ (7 \F ∷ 8 \F ∷ 9 \F ∷ \F{[]}) \F ∷ \F{[]}) .zoi.\ du le nacmeimei poi ke'a du la'o cmaci.
+\[
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		4 & 5 & 6 \\
+		7 & 8 & 9
+	\end{bmatrix}
+\]
+.cmaci.
 
 \begin{code}
 𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
