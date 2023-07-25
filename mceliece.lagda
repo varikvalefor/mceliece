@@ -72,7 +72,7 @@
 ni'o le proga cu na xamgu je cu na mulno
 
 \chapter{le terfi'i ja co'e}
-ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a cu filri'a lo nu jimpe le mu'oi glibau.\ Classic MCELIECE .glibau.
+ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a cu filri'a lo nu jimpe fi le mu'oi glibau.\ Classic MCELIECE .glibau.
 
 .i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u sutra  .i ku'i la .varik.\ cu na tolnei lo nu da'i ko'a drani ba'e je cu sutra
 
@@ -550,13 +550,13 @@ postulate
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku gi la'o zoi.\ \F{KP.pu} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
-.i ga naja la .varik.\ cu djuno lo du'u lojysra lo du'u me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING. zoi glibau.\ NON\_TERMINATING .glibau.
+.i ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING. zoi glibau.\ NON\_TERMINATING .glibau.
 
 \subsection{le velcki}
 \begin{code}
 {-# NON_TERMINATING #-}
 SeededKeyGen : (p : MCParam) → Fin $ 2 ^ (MCParam.ℓ p) → KP p
-SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
+SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
   where
   Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
   SeededKeyGen' : Fin $ 2 ^ (MCParam.ℓ p) → Public p × Vqt × KP p
