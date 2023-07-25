@@ -504,7 +504,7 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ s
 \begin{code}
 {-# NON_TERMINATING #-}
 SeededKeyGen : (p : MCParam) → Fin $ 2 ^ (MCParam.ℓ p) → KP p
-SeededKeyGen p = (λ (_ , _ , kp) → kp) ∘ SeededKeyGen'
+SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
   where
   Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
   SeededKeyGen' : Fin $ 2 ^ (MCParam.ℓ p) → Public p × Vqt × KP p
