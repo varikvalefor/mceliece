@@ -146,6 +146,8 @@ open import Relation.Nullary.Decidable
     isNo
   )
 open import Relation.Binary.PropositionalEquality
+
+import Data.Vec.Properties as DVP
 \end{code}
 
 \chapter{le vrici}
@@ -193,16 +195,15 @@ ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a go
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
        → A → Vec A m → Vec A n
-resize {_} {m} {n} {A} x xs = xt
+resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   where
   coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
   coerce refl = id
-  xt : Vec A n
-  xt with n ℕ.≤? m
-  ... | (yes z) = drop (m ∸ n) $ coc xs
+  xt : Dec (n ℕ.≤ m) → Vec A n
+  xt (yes z) = drop (m ∸ n) $ coc xs
     where
     coc = coerce $ sym $ cong (Vec A) $ m∸n+n≡m z
-  ... | (no z) = coerce (cong (Vec A) bitc) padin
+  xt (no z) = coerce (cong (Vec A) bitc) padin
     where
     padin : Vec A $ n ∸ m + m
     padin = _++_ (replicate {n = n ∸ m} x) xs
@@ -211,19 +212,30 @@ resize {_} {m} {n} {A} x xs = xt
 
   open ≡-Reasoning
 
-  dropis : ∀ {a} → {A : Set a} → {m n : ℕ}
-         → (x : A)
-         → (xs : Vec A m)
-         → (g : n ℕ.≤ m)
+  -- ni'o la .varik. cu djica ko'a goi lo nu
+  -- zoi zoi. resize x xs .zoi. ja zo'e je zo'e cu basti
+  -- zoi zoi. xt (yes g) .zoi. je zo'e
+  -- .i tu'a la'o zoi. resize x xs .zoi. ja zo'e cu
+  -- zmadu tu'a la'o zoi. xt (yes g) .zoi. je zo'e le
+  -- ka la .varik. cu jinvi le du'u ce'u sampu kei kei je
+  -- le ka la .varik. cu se frili fa lo nu jimpe fi ce'u
+  --
+  -- .i la .varik. cu jinvi le du'u ko'a se sarcu lo
+  -- nu ciksi lo ctaipe be le su'u ga naja ctaipe
+  -- lo su'u la'o zoi. m .zoi. dubjavme'a
+  -- la'o zoi. n .zoi. gi la'o zoi. resize x xs .zoi.
+  -- du la'o zoi. xt (yes g) .zoi. ja zo'e
+
+  dropis : (g : n ℕ.≤ m)
          → let xs' = coerce (sym $ cong (Vec A) $ m∸n+n≡m g) xs in
            (_≡_
              xs
              (coerce
                (cong (Vec A) $ m∸n+n≡m g)
                (flip _++_
-                 (resize x xs)
+                 (xt $ yes g)
                  (take (m ∸ n) xs'))))
-  dropis {_} {A} {m} {n} x xs g = sym $ begin
+  dropis g = sym $ begin
     coerce k konk ≡⟨ cong (coerce k) konkdus ⟩
     coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
     coerce (sym $ sym k) xs' ≡⟨ sym $ flipko (sym k) xs ⟩
@@ -233,7 +245,7 @@ resize {_} {m} {n} {A} x xs = xt
     xs' : Vec A $ m ∸ n + n
     xs' = coerce (sym k) xs
     konk : Vec A $ m ∸ n + n
-    konk = take (m ∸ n) xs' ++ resize x xs
+    konk = take (m ∸ n) xs' ++ xt (yes g)
     symref : ∀ {a} → {A B : Set a}
            → (t : A ≡ B)
            → t ≡ sym (sym t)
@@ -244,7 +256,7 @@ resize {_} {m} {n} {A} x xs = xt
            → x ≡ coerce (sym d) (coerce d x)
     flipko refl j = refl
     konkdus : konk ≡ xs'
-    konkdus = {!!}
+    konkdus = DVP.take-drop-id (m ∸ n) xs'
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
