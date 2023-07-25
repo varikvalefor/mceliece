@@ -199,13 +199,13 @@ resize {_} {m} {n} {A} x xs = xt
   coerce refl = id
   xt : Vec A n
   xt with n ℕ.≤? m
-  ... | (yes z) = Data.Vec.drop (m ∸ n) $ coc xs
+  ... | (yes z) = drop (m ∸ n) $ coc xs
     where
     coc = coerce $ cong (Vec _) $ sym $ m∸n+n≡m z
   ... | (no z) = coerce (cong (Vec _) bitc) padin
     where
     padin : Vec A $ n ∸ m + m
-    padin = Data.Vec._++_ (replicate {n = n ∸ m} x) xs
+    padin = _++_ (replicate {n = n ∸ m} x) xs
     bitc : n ∸ m + m ≡ n
     bitc = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ z
 \end{code}
