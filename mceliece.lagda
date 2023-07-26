@@ -573,7 +573,7 @@ Hx p T = I ∣ T
   I = mapᵥ f $ allFin _
     where
     f : {n : ℕ} → Fin n → Vec (Fin 2) n
-    f = λ x → updateAt x (const $ suc zero) $ replicate zero
+    f x = updateAt x (const $ suc zero) $ replicate zero
 \end{code}
 
 \section{la'oi .\F{Encode}.}
