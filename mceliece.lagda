@@ -181,7 +181,7 @@ postulate f2f : {m n : ℕ} → Fin m → Fin n
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
-ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \Sym\$ f (\F{toℕ} \B a) \Sym\$ \F{toℕ} \B b .zoi. ce la'oi .\B q.
+ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \Sym\$ f (\F{toℕ} \B a) \Sym\$ \F{toℕ} \B b .zoi.\ ce la'oi .\B q.
 
 \begin{code}
 f𝔽 : {n : ℕ} → (ℕ → ℕ → ℕ) → Fin n → Fin n → Fin n
@@ -214,9 +214,9 @@ resize {_} {m} {n} {A} x xs = xt
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
-ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
+ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
-.i la'oi .\F{nbits}.\ cu simsa la'o zoi. \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
+.i la'oi .\F{nbits}.\ cu simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
 
 \begin{code}
 nbits : ∀ {a} → ℕ → Vec (Fin 2) a
@@ -425,7 +425,7 @@ ni'o la'o zoi.\ \F{Private.s} \Sym\$ \D{Private} \B p .zoi.\ liste lo'i samsle j
 ni'o la'o zoi.\ \F{Private.g} \B q .zoi.\ cpolinomi'a je cu pa moi lo'i ro selvau be la'o zoi.\ \F{Private.Γ} \B q .zoi.
 
 \paragraph{la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.}
-ni'o la .varik. cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velcki be la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.
+ni'o la .varik.\ cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velcki be la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.
 
 .i cumki fa lo nu lo me'oi .private.\ co'e cu vasru la'oi .MCq.\ je la'oi .MCn.  .i ku'i lo nu lo me'oi .private.\ co'e cu na vasru la'oi .MCq.\ je la'oi .MCn.\ cu filri'a lo nu ciksi
 
@@ -463,7 +463,7 @@ MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl H~
     H~ : mf
 \end{code}
 
-\chapter{la'oi .\D{KP}. je zo'e}
+\chapter{la'oi .\D{KP}.\ je zo'e}
 
 \section{la'oi .\D{KP}.}
 ni'o ro da poi ke'a me'oi .\D{KP}.\ zo'u da sinxa lo mu'oi glibau.\ key pair .glibau.\ pe la'o glibau.\ Classic MCELIECE .glibau.
@@ -499,7 +499,7 @@ postulate
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku gi la'o zoi.\ \F{KP.pu} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
-.i ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING. zoi glibau.\ NON\_TERMINATING .glibau.
+.i ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.
 
 \subsection{le velcki}
 \begin{code}
