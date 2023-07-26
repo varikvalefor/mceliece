@@ -559,10 +559,10 @@ KeyGen p = SeededKeyGen p IO.<$> cunso
 ni'o la'o zoi.\ \F{Hx} \{\B p\} \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T .zoi.
 
 \begin{code}
-Hx : {p : MCParam}
+Hx : (p : MCParam)
    → Public p
    → 𝕄 (Fin 2) (MCParam.n-k p + MCParam.k p) $ MCParam.n-k p
-Hx {p} T = I ∣ T
+Hx p T = I ∣ T
   where
   _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
       → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
@@ -580,14 +580,14 @@ Hx {p} T = I ∣ T
 ni'o la'oi .\F{Encode}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Encode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
-Encode : {p : MCParam}
+Encode : (p : MCParam)
        → (e : Vec (Fin 2) $ MCParam.n p)
        → Public p
        → {hWV𝔽 e ≡ MCParam.t p}
        → Vec (Fin 2) $ MCParam.n-k p
-Encode {p} e T = moult H e
+Encode p e T = moult H e
   where
-  H = Hx {p} T
+  H = Hx p T
   postulate
     moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
           → Vec (Fin 2) n
@@ -632,7 +632,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     where
     H*e = moult H e
       where
-      H = Hx {p} bar
+      H = Hx p bar
       postulate
         moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
               → Vec (Fin 2) n
