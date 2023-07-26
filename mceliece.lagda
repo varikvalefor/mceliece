@@ -282,7 +282,19 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
             → (z : Vec A n)
             → drop (length x) (x ++ z) ≡ z
     dropdus [] _ = refl
-    dropdus (x ∷ xs) t = ?
+    dropdus (x ∷ xs) t = subst (flip _≡_ _) (d xs x) $ dropdus xs t
+      where
+      d : ∀ {a} → {A : Set a} → {m n : ℕ}
+        → (x : Vec A m)
+        → {z : Vec A n}
+        → (e : A)
+        → (_≡_
+            (drop (length x) (x ++ z))
+            (drop (length $ e ∷ x) (e ∷ x ++ z)))
+      d [] _ = refl
+      d (x ∷ xs) {z} e = sym $ DVP.unfold-drop lisuk e $ x ∷ xs ++ z
+        where
+        lisuk = suc $ length xs
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
