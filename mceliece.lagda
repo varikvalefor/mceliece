@@ -37,6 +37,7 @@
 \newunicodechar{α}{\ensuremath{\alpha}}
 \newunicodechar{₁}{\ensuremath{_1}}
 \newunicodechar{₂}{\ensuremath{_2}}
+\newunicodechar{ₗ}{\ensuremath{_\mathsf{l}}}
 \newunicodechar{ᵥ}{\ensuremath{_\mathsf{v}}}
 \newunicodechar{ₘ}{\ensuremath{_\mathsf{m}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
