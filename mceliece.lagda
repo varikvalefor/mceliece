@@ -628,10 +628,8 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     zipf = Data.List.zip (Data.List.upTo n) ∘ toList
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
   mapti : xv MCParam.n → Set
-  mapti e = (hWV𝔽 e ≡ MCParam.t p) × dunli C₀ H*e
+  mapti e = (hWV𝔽 e ≡ MCParam.t p) × (C₀ ≡ H*e)
     where
-    postulate
-      dunli : _ → _ → Set
     H*e = moult H e
       where
       H = Hx {p} bar
