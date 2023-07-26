@@ -229,6 +229,12 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   -- la'o zoi. n .zoi. gi la'o zoi. resize x xs .zoi.
   -- du la'o zoi. xt (yes g) .zoi. ja zo'e
 
+  flipko : ∀ {a} → {A B : Set a}
+         → (d : A ≡ B)
+         → (x : A)
+         → x ≡ coerce (sym d) (coerce d x)
+  flipko refl j = refl
+
   dropis : (g : n ℕ.≤ m)
          → let xs' = coerce (sym $ cong (Vec A) $ m∸n+n≡m g) xs in
            (_≡_
@@ -253,13 +259,30 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
            → (t : A ≡ B)
            → t ≡ sym (sym t)
     symref refl = refl
-    flipko : ∀ {a} → {A B : Set a}
-           → (d : A ≡ B)
-           → (x : A)
-           → x ≡ coerce (sym d) (coerce d x)
-    flipko refl j = refl
     konkdus : konk ≡ xs'
     konkdus = DVP.take-drop-id (m ∸ n) xs'
+
+  takis : (g : ¬ (n ℕ.≤ m))
+        → let k = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ g in
+          let sink = sym $ cong (Vec A) k in
+          xs ≡ drop (n ∸ m) (coerce sink (xt $ no g))
+  takis g = sym $ begin
+    drop (n ∸ m) koxit ≡⟨ cong (drop $ n ∸ m) koxitydus ⟩
+    drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ⟩
+    xs ∎
+    where
+    pad = replicate x
+    k = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ g
+    koxit : Vec A $ n ∸ m + m
+    koxit = coerce (sym $ cong (Vec A) k) $ xt $ no g
+    koxitydus : koxit ≡ pad ++ xs
+    koxitydus = sym $ flipko (cong (Vec A) k) $ pad ++ xs
+    dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
+            → (x : Vec A m)
+            → (z : Vec A n)
+            → drop (length x) (x ++ z) ≡ z
+    dropdus [] _ = refl
+    dropdus (x ∷ xs) t = ?
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
