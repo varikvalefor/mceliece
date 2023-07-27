@@ -241,9 +241,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
              xs
              (coerce
                (cong (Vec A) $ m∸n+n≡m g)
-               (flip _++_
-                 (xt $ yes g)
-                 (take (m ∸ n) xs'))))
+               (take (m ∸ n) xs' ++ xt (yes g))))
   dropis g = sym $ begin
     coerce k konk ≡⟨ cong (coerce k) konkdus ⟩
     coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
