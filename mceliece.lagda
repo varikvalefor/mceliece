@@ -265,7 +265,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   takis : (g : ¬ (n ℕ.≤ m))
         → let k = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ g in
           let sink = sym $ cong (Vec A) k in
-          xs ≡ drop (n ∸ m) (coerce sink (xt $ no g))
+          xs ≡ drop (n ∸ m) (coerce sink $ xt $ no g)
   takis g = sym $ begin
     drop (n ∸ m) koxit ≡⟨ cong (drop $ n ∸ m) koxitydus ⟩
     drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ⟩
