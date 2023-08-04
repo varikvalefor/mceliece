@@ -589,9 +589,9 @@ Encode : (p : MCParam)
 Encode p e T = moult H e
   where
   H = Hx p T
-  postulate
-    moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
-          → Vec (Fin 2) n
+  moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
+        → Vec (Fin 2) n
+  moult = {!!}
 \end{code}
 
 \section{la'oi .\F{Decode}.}
