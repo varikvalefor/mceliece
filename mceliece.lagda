@@ -607,7 +607,7 @@ Decode : {p : MCParam}
 Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
-  dist : xv MCParam.n → xv MCParam.n → ℕ
+  dist : {n : ℕ} → Vec (Fin 2) n → Vec (Fin 2) n → ℕ
   dist = Vec≤.length ∘₂ filter drata ∘₂ zipᵥ
     where
     drata = Data.Bool._≟_ true ∘ isNo ∘ uncurry Data.Fin._≟_
