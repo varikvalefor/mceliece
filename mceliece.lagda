@@ -178,7 +178,7 @@ ni'o ganai ge la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi djica lo nu
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin n
-f2f = ?
+f2f = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
@@ -233,8 +233,7 @@ ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\
 b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
 b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
-  postulate
-    zf : Fin $ 2 ^ n
+  zf = {!!}
   cond : Vec (Fin (2 ^ n) × Fin (2 ^ n)) n → Fin $ 2 ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
   indy : Vec (Fin $ 2 ^ n) n
@@ -500,10 +499,10 @@ ni'o la'au le fancu poi ke'a goi ko'a zo'u lo nu xamgu pilno ko'a cu filri'a lo 
 ni'o la'oi .\F{FieldOrdering}.\ velcki ja co'e ko'a goi la'oi .\algoritma{FieldOrdering}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
-postulate
-  FieldOrdering : {p : MCParam}
-                → Fin $ MCParam.σ₂ p * MCParam.q p
-                → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
+FieldOrdering : {p : MCParam}
+              → Fin $ MCParam.σ₂ p * MCParam.q p
+              → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
+FieldOrdering = {!!}
 \end{code}
 
 \section{la'oi .\F{SeededKeyGen}.}
@@ -529,24 +528,22 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
     δ' = b2f $ rev $ takel $ rev themDigits
       where
       takel = take $ MCParam.ℓ p
-      postulate
-        blah : ℕ
-        themDigits : Vec (Fin 2) $ MCParam.ℓ p + blah
+      themDigits : Vec (Fin 2) $ MCParam.ℓ p + {!!}
+      themDigits = {!!}
     s : Fin $ MCParam.n p
     s = b2f' themDigits
       where
-      postulate
-        themDigits : Vec (Fin 2) $ MCParam.n p
+      themDigits : Vec (Fin 2) $ MCParam.n p
+      themDigits = {!!}
     -- | .i cumki fa lo nu cumki fa lo nu la'oi .g.
     -- na me'oi .terminate.
     g : Vqt
     g = fromMaybe retry tird
       where
       retry = proj₁ $ proj₂ $ SeededKeyGen' δ'
-      postulate
-        tird : Maybe Vqt
-    postulate
-      pry : Private p
+      tird : Maybe Vqt
+      tird = {!!}
+    pry = {!!}
     foo : Public p
     foo = fromMaybe (proj₁ $ SeededKeyGen' δ') $ MatGen {p} pry
 \end{code}
@@ -560,8 +557,7 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .r
 KeyGen : (p : MCParam) → IO $ KP p
 KeyGen p = SeededKeyGen p IO.<$> cunso
   where
-  postulate
-    cunso : _
+  cunso = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
@@ -621,12 +617,14 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   v : xv MCParam.n
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
-    postulate zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
+    zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
+    zenbyco'e = {!!}
     tv : (λ t → These t t → t) $ Fin 2
     tv = Data.These.fold id id const
-  postulate
-    sumji : Op₂ $ xv MCParam.n
-    c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
+  sumji : Op₂ $ xv MCParam.n
+  sumji = {!!}
+  c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
+  c' = {!!}
   c = Data.Maybe.map proj₁ c'
   e = flip Data.Maybe.map c $ sumji v
   -- | .i lisri
