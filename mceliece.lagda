@@ -177,7 +177,8 @@ a div2 (suc b) = a div (suc b)
 ni'o ganai ge la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \F{Fin} \B m .zoi.\ gi gonai ge lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
 
 \begin{code}
-postulate f2f : {m n : ℕ} → Fin m → Fin n
+f2f : {m n : ℕ} → Fin m → Fin n
+f2f = ?
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
