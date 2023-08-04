@@ -540,7 +540,7 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
     -- | .i cumki fa lo nu cumki fa lo nu la'oi .g.
     -- na me'oi .terminate.
     g : Vqt
-    g = maybe id retry tird
+    g = fromMaybe retry tird
       where
       retry = proj₁ $ proj₂ $ SeededKeyGen' δ'
       postulate
@@ -548,7 +548,7 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
     postulate
       pry : Private p
     foo : Public p
-    foo = maybe id (proj₁ $ SeededKeyGen' δ') $ MatGen {p} pry
+    foo = fromMaybe (proj₁ $ SeededKeyGen' δ') $ MatGen {p} pry
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
