@@ -310,6 +310,15 @@ data rf {m n} (q : 𝕄 (Fin 2) m n) : ℕ → Set
   radfrq : rf q $ hw𝕄 q
 \end{code}
 
+\section{la'oi .\F{moult}.}
+ni'o la'o zoi.\ \F{moult}\ \B a\ \B b\ .zoi.\ pilji la'o zoi.\ \B a\ .zoi.\ la'o zoi.\ \B b\ .zoi.
+
+\begin{code}
+moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
+      → Vec (Fin 2) n
+moult = {!!}
+\end{code}
+
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
 ni'o la'au la'oi .\D{MCParam}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{MCParam}.\ po'o ku'o je le pinka be ko'a
 
@@ -589,9 +598,6 @@ Encode : (p : MCParam)
 Encode p e T = moult H e
   where
   H = Hx p T
-  moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
-        → Vec (Fin 2) n
-  moult = {!!}
 \end{code}
 
 \section{la'oi .\F{Decode}.}
@@ -634,9 +640,6 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     H*e = moult H e
       where
       H = Hx p bar
-      postulate
-        moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
-              → Vec (Fin 2) n
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
   mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
   ... | yes x = {!!}
