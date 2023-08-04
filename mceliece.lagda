@@ -622,7 +622,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     tv : (λ t → These t t → t) $ Fin 2
     tv = Data.These.fold id id const
   sumji : Op₂ $ xv MCParam.n
-  sumji = {!!}
+  sumji = Data.Vec.zipWith $ f𝔽 _+_
   c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
   c' = {!!}
   c = Data.Maybe.map proj₁ c'
