@@ -255,7 +255,7 @@ _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   and𝔽 : {n : ℕ} → Op₂ $ Fin $ suc n
   and𝔽 (suc zero) (suc zero) = suc zero
   and𝔽 _ _ = zero
-  ∧𝔹ℕ𝔽' : ∀ {n} → Vec (Fin 2) n → Vec (Fin 2) n → Vec (Fin 2) n
+  ∧𝔹ℕ𝔽' : ∀ {n} → Op₂ $ Vec (Fin 2) n
   ∧𝔹ℕ𝔽' = zipWithᵥ and𝔽
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
   toFin : Vec (Fin 2) a! → Fin a!
