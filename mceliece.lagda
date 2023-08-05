@@ -460,7 +460,7 @@ ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni
 
 \begin{code}
 MatGen : {p : MCParam} → Private p → Maybe $ Public p
-MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl H~
+MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
   where
   tee = MCParam.t p
   enn = MCParam.n p
