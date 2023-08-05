@@ -466,15 +466,19 @@ MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl H~
   enn = MCParam.n p
   mf = 𝕄 (Fin $ MCParam.q p) tee enn
   mftwom = 𝕄 (Fin 2) (tee * MCParam.m p) enn
-  postulate
-    -- | ni'o ro da zo'u go la'oi .SemiSysForm. ctaipe da
-    -- gi da srana le mu'oi glibau. semi-systematic form
-    -- .glibau.
-    SemiSysForm : Set
-    repl : mf → mftwom
-    cyst : mftwom → Maybe SemiSysForm
-    toPus : SemiSysForm → Public p
-    H~ : mf
+  -- | ni'o ro da zo'u go la'oi .SemiSysForm. ctaipe da
+  -- gi da srana le mu'oi glibau. semi-systematic form
+  -- .glibau.
+  SemiSysForm : Set
+  SemiSysForm = {!!}
+  repl : mf → mftwom
+  repl = {!!}
+  cyst : mftwom → Maybe SemiSysForm
+  cyst = {!!}
+  toPus : SemiSysForm → Public p
+  toPus = {!!}
+  H~ : mf
+  H~ = {!!}
 \end{code}
 
 \chapter{la'oi .\D{KP}.\ je zo'e}
