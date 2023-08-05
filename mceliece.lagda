@@ -465,7 +465,7 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
   tee = MCParam.t p
   enn = MCParam.n p
   mf = 𝕄 (Fin $ MCParam.q p) tee enn
-  mftwom = 𝕄 (Fin 2) (tee * MCParam.m p) enn
+  mftwom = 𝕄 (Fin 2) (MCParam.m p * tee) enn
   -- | ni'o ro da zo'u da ctaipe la'oi .SemiSysForm.
   -- jo cu srana le mu'oi glibau. semi-systematic form
   -- .glibau.
