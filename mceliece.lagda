@@ -458,6 +458,8 @@ record Private (p : MCParam) : Set
 \section{la'oi .\F{MatGen}.}
 ni'o ga jonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
 
+ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je la .varik.\ cu djica lo nu mapti lo ro broda cei co'e gi le mu'oi glibau.\ systematic form .glibau.\ cu na mapti lo su'o broda
+
 \begin{code}
 MatGen : {p : MCParam} → Private p → Maybe $ Public p
 MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
