@@ -466,7 +466,7 @@ MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl H~
   enn = MCParam.n p
   mf = 𝕄 (Fin $ MCParam.q p) tee enn
   mftwom = 𝕄 (Fin 2) (tee * MCParam.m p) enn
-  -- | ni'o ro da zo'u go la'oi .SemiSysForm. ctaipe da
+  -- | ni'o ro da zo'u go da ctaipe la'oi .SemiSysForm.
   -- gi da srana le mu'oi glibau. semi-systematic form
   -- .glibau.
   SemiSysForm : Set
