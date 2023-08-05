@@ -456,7 +456,7 @@ record Private (p : MCParam) : Set
 \end{code}
 
 \section{la'oi .\F{MatGen}.}
-ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
+ni'o ga jonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
 
 \begin{code}
 MatGen : {p : MCParam} → Private p → Maybe $ Public p
