@@ -85,6 +85,9 @@ open import Data.Fin
   renaming (
     _+_ to _+F_
   )
+  hiding (
+    _≟_
+  )
 open import Data.Vec
   renaming (
     map to mapᵥ;
@@ -98,6 +101,7 @@ open import Data.Vec
 open import Function
 open import Data.Bool
   hiding (
+    _≟_;
     T
   )
 open import Data.List
@@ -129,6 +133,10 @@ open import Data.These
 open import Algebra.Core
 open import Data.Product
 open import Data.Nat as ℕ
+  hiding (
+    _≡ᵇ_;
+    _≟_
+  )
 open import Data.Nat.DivMod
 open import Relation.Nullary
 open import Data.Vec.Bounded
@@ -142,6 +150,7 @@ open import Data.Nat.Properties
     m∸n+n≡m
   )
 open import Truthbrary.Data.Fin
+open import Truthbrary.Record.Eq
 open import Relation.Nullary.Decidable
   using (
     isNo
@@ -624,7 +633,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   dist : {n : ℕ} → Vec (Fin 2) n → Vec (Fin 2) n → ℕ
   dist = Vec≤.length ∘₂ filter drata ∘₂ zipᵥ
     where
-    drata = Data.Bool._≟_ true ∘ isNo ∘ uncurry Data.Fin._≟_
+    drata = _≟_ true ∘ isNo ∘ uncurry _≟_
   v : xv MCParam.n
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
@@ -651,7 +660,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
       where
       H = Hx p bar
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
-  mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
+  mapti? e with hWV𝔽 e ≟ MCParam.t p
   ... | yes x = {!!}
   ... | no _ = nothing
 \end{code}
