@@ -532,12 +532,12 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
   SeededKeyGen' δ = foo , g , record {pu = foo; pr = pry}
     where
     E = MCParam.G p δ
-    rev = Data.Vec.reverse
     b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
     b2f' = f2f ∘ b2f
     δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ rev $ takel $ rev themDigits
       where
+      rev = Data.Vec.reverse
       takel = take $ MCParam.ℓ p
       themDigits : Vec (Fin 2) $ MCParam.ℓ p + {!!}
       themDigits = {!!}
