@@ -67,7 +67,7 @@
 \tableofcontents
 
 \chapter{le me'oi .disclaimer.}
-ni'o le proga cu na xamgu je cu na mulno
+ni'o le proga cu na zabna je cu na mulno
 
 \chapter{le terfi'i ja co'e}
 ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a cu filri'a lo nu jimpe fi le mu'oi glibau.\ Classic MCELIECE .glibau.
