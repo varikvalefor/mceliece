@@ -555,7 +555,7 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
       tird = {!!}
     pry = {!!}
     foo : Public p
-    foo = fromMaybe (proj₁ $ SeededKeyGen' δ') $ MatGen {p} pry
+    foo = fromMaybe (proj₁ $ SeededKeyGen' δ') $ MatGen pry
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
