@@ -245,7 +245,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
                (cong (Vec A) $ m∸n+n≡m g)
                (take (m ∸ n) xs' ++ xt (yes g))))
   dropis g = sym $ begin
-    coerce k konk ≡⟨ cong (coerce k) konkdus ⟩
+    coerce k konk ≡⟨ cong (coerce k) $ DVP.take-drop-id (m ∸ n) xs' ⟩
     coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
     coerce (sym $ sym k) xs' ≡⟨ sym $ flipko (sym k) xs ⟩
     xs ∎
@@ -259,8 +259,6 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
            → (t : A ≡ B)
            → t ≡ sym (sym t)
     symref refl = refl
-    konkdus : konk ≡ xs'
-    konkdus = DVP.take-drop-id (m ∸ n) xs'
 
   takis : (g : ¬ (n ℕ.≤ m))
         → let k = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ g in
