@@ -280,7 +280,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
             → (z : Vec A n)
             → drop (length x) (x ++ z) ≡ z
     dropdus [] _ = refl
-    dropdus (x ∷ xs) t = subst (flip _≡_ _) (d xs x) $ dropdus xs t
+    dropdus (x ∷ xs) = subst (flip _≡_ _) (d xs x) ∘ dropdus xs
       where
       d : ∀ {a} → {A : Set a} → {m n : ℕ}
         → (x : Vec A m)
