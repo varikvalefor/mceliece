@@ -37,6 +37,7 @@
 \newunicodechar{α}{\ensuremath{\alpha}}
 \newunicodechar{₁}{\ensuremath{_1}}
 \newunicodechar{₂}{\ensuremath{_2}}
+\newunicodechar{ₗ}{\ensuremath{_\mathsf{l}}}
 \newunicodechar{ᵥ}{\ensuremath{_\mathsf{v}}}
 \newunicodechar{ₘ}{\ensuremath{_\mathsf{m}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
@@ -69,7 +70,7 @@
 \tableofcontents
 
 \chapter{le me'oi .disclaimer.}
-ni'o le proga cu na xamgu je cu na mulno
+ni'o le proga cu na zabna je cu na mulno
 
 \chapter{le terfi'i ja co'e}
 ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a cu filri'a lo nu jimpe fi le mu'oi glibau.\ Classic MCELIECE .glibau.
@@ -169,7 +170,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 \end{code}
 
 \section{la'oi .\F{\_div2\_}.}
-ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \Sym{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
+ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _div2_ : ℕ → ℕ → ℕ
@@ -181,11 +182,12 @@ a div2 (suc b) = a div (suc b)
 ni'o ganai ge la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \F{Fin} \B m .zoi.\ gi gonai ge lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
 
 \begin{code}
-postulate f2f : {m n : ℕ} → Fin m → Fin n
+f2f : {m n : ℕ} → Fin m → Fin n
+f2f = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
-ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \Sym\$ f (\F{toℕ} \B a) \Sym\$ \F{toℕ} \B b .zoi. ce la'oi .\B q.
+ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \F \$ f (\F{toℕ} \B a) \F \$ \F{toℕ} \B b .zoi.\ ce la'oi .\B q.
 
 \begin{code}
 f𝔽 : {n : ℕ} → (ℕ → ℕ → ℕ) → Fin n → Fin n → Fin n
@@ -193,7 +195,7 @@ f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
 \section{la'oi .\F{resize}.}
-ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \{\_\}\ \{m\}\ \{n\}\ \B t\ .zoi.\ du la'o zoi.\ \F{Data.Vec.drop}\ \Sym \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{Data.Vec.\_++\_}\ \Sym \$\ \F{replicate}\ \B t\ .zoi.
+ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \{\_\}\ \{m\}\ \{n\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \F \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\_++\_}\ \F \$\ \F{replicate}\ \B t\ .zoi.
 
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
@@ -202,7 +204,6 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   where
   coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
   coerce refl = id
-
   xt : Dec (n ℕ.≤ m) → Vec A n
   xt (yes z) = drop (m ∸ n) $ coc xs
     where
@@ -299,9 +300,9 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
-ni'o ko'a goi la'o zoi. \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
+ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
-.i la'oi .\F{nbits}.\ cu simsa la'o zoi. \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
+.i la'oi .\F{nbits}.\ cu simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
 
 \begin{code}
 nbits : ∀ {a} → ℕ → Vec (Fin 2) a
@@ -317,8 +318,12 @@ ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\
 b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
 b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
-  postulate
-    zf : Fin $ 2 ^ n
+  -- | ni'o cadga fa lo nu la'oi .zf. du li no
+  -- .i ku'i le mu'oi glibau. proof checker
+  -- .glibau. cu na djuno le du'u ro da poi ke'a
+  -- kacna'u zo'u li no mleca lo tenfa be li re
+  -- bei da
+  zf = {!!}
   cond : Vec (Fin (2 ^ n) × Fin (2 ^ n)) n → Fin $ 2 ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
   indy : Vec (Fin $ 2 ^ n) n
@@ -326,16 +331,16 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
 \end{code}
 
 \section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
-ni'o la'o zoi.\ \B a \Sym{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
+ni'o la'o zoi.\ \B a \F{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _∧𝔹ℕ𝔽_ : ∀ {a} → ℕ → Fin a → Fin a
 _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   where
-  and𝔽 : Fin 2 → Fin 2 → Fin 2
+  and𝔽 : {n : ℕ} → Op₂ $ Fin $ suc n
   and𝔽 (suc zero) (suc zero) = suc zero
   and𝔽 _ _ = zero
-  ∧𝔹ℕ𝔽' : ∀ {n} → Vec (Fin 2) n → Vec (Fin 2) n → Vec (Fin 2) n
+  ∧𝔹ℕ𝔽' : ∀ {m n} → Op₂ $ Vec (Fin $ suc m) n
   ∧𝔹ℕ𝔽' = zipWithᵥ and𝔽
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
   toFin : Vec (Fin 2) a! → Fin a!
@@ -370,7 +375,7 @@ ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F \F ∷ 3 \F ∷ \F{[]}
 𝕄 = Vec ∘₂ Vec
 \end{code}
 
-\section{la'oi .\Sym{𝕄!!}.}
+\section{la'oi .\F{𝕄!!}.}
 ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
@@ -393,6 +398,15 @@ ni'o go la'o zoi.\ \F{rf} \D t \D n .zoi.\ zasti gi da mapti le mu'oi glibau.\ r
 data rf {m n} (q : 𝕄 (Fin 2) m n) : ℕ → Set
   where
   radfrq : rf q $ hw𝕄 q
+\end{code}
+
+\section{la'oi .\F{moult}.}
+ni'o la'o zoi.\ \F{moult}\ \B a\ \B b\ .zoi.\ pilji la'o zoi.\ \B a\ .zoi.\ la'o zoi.\ \B b\ .zoi.
+
+\begin{code}
+moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
+      → Vec (Fin 2) n
+moult = {!!}
 \end{code}
 
 \chapter{la'oi .\D{MCParam}.\ je zo'e}
@@ -501,16 +515,16 @@ ni'o ro da poi ke'a me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe l
 ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja zo'e la'o zoi.\ \F{Private.g} \B p .zoi.
 
 \paragraph{la'oi .\F{Private.Γ}.}
-ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \F{Fin} \Sym\$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
+ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \F{Fin} \F \$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\F{Private.s}.}
-ni'o la'o zoi.\ \F{Private.s} \Sym\$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \Sym\$ \F{MCParam.n} \B p .zoi.
+ni'o la'o zoi.\ \F{Private.s} \F \$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \F \$ \F{MCParam.n} \B p .zoi.
 
 \paragraph{la'oi .\F{Private.g}.}
 ni'o la'o zoi.\ \F{Private.g} \B q .zoi.\ cpolinomi'a je cu pa moi lo'i ro selvau be la'o zoi.\ \F{Private.Γ} \B q .zoi.
 
 \paragraph{la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.}
-ni'o la .varik. cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velcki be la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.
+ni'o la .varik.\ cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velcki be la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.
 
 .i cumki fa lo nu lo me'oi .private.\ co'e cu vasru la'oi .MCq.\ je la'oi .MCn.  .i ku'i lo nu lo me'oi .private.\ co'e cu na vasru la'oi .MCq.\ je la'oi .MCn.\ cu filri'a lo nu ciksi
 
@@ -527,28 +541,34 @@ record Private (p : MCParam) : Set
 \end{code}
 
 \section{la'oi .\F{MatGen}.}
-ni'o gonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
+ni'o ga jonai ko'a goi la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.\ gi ko'a me'oi .\F{nothing}.
+
+ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je la .varik.\ cu djica lo nu mapti lo ro broda cei co'e gi le mu'oi glibau.\ systematic form .glibau.\ cu na mapti lo su'o broda
 
 \begin{code}
 MatGen : {p : MCParam} → Private p → Maybe $ Public p
-MatGen {p} _ = Data.Maybe.map toPus $ cyst $ repl H~
+MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
   where
   tee = MCParam.t p
   enn = MCParam.n p
   mf = 𝕄 (Fin $ MCParam.q p) tee enn
-  mftwom = 𝕄 (Fin 2) (tee * MCParam.m p) enn
-  postulate
-    -- | ni'o ro da zo'u go la'oi .SemiSysForm. ctaipe da
-    -- gi da srana le mu'oi glibau. semi-systematic form
-    -- .glibau.
-    SemiSysForm : Set
-    repl : mf → mftwom
-    cyst : mftwom → Maybe SemiSysForm
-    toPus : SemiSysForm → Public p
-    H~ : mf
+  mftwom = 𝕄 (Fin 2) (MCParam.m p * tee) enn
+  -- | ni'o ro da zo'u da ctaipe la'oi .SemiSysForm.
+  -- jo cu srana le mu'oi glibau. semi-systematic form
+  -- .glibau.
+  SemiSysForm : Set
+  SemiSysForm = {!!}
+  repl : mf → mftwom
+  repl = {!!}
+  cyst : mftwom → Maybe SemiSysForm
+  cyst = {!!}
+  toPus : SemiSysForm → Public p
+  toPus = {!!}
+  H~ : mf
+  H~ = {!!}
 \end{code}
 
-\chapter{la'oi .\D{KP}. je zo'e}
+\chapter{la'oi .\D{KP}.\ je zo'e}
 
 \section{la'oi .\D{KP}.}
 ni'o ro da poi ke'a me'oi .\D{KP}.\ zo'u da sinxa lo mu'oi glibau.\ key pair .glibau.\ pe la'o glibau.\ Classic MCELIECE .glibau.
@@ -575,16 +595,16 @@ ni'o la'au le fancu poi ke'a goi ko'a zo'u lo nu xamgu pilno ko'a cu filri'a lo 
 ni'o la'oi .\F{FieldOrdering}.\ velcki ja co'e ko'a goi la'oi .\algoritma{FieldOrdering}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
-postulate
-  FieldOrdering : {p : MCParam}
-                → Fin $ MCParam.σ₂ p * MCParam.q p
-                → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
+FieldOrdering : {p : MCParam}
+              → Fin $ MCParam.σ₂ p * MCParam.q p
+              → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
+FieldOrdering = {!!}
 \end{code}
 
 \section{la'oi .\F{SeededKeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku gi la'o zoi.\ \F{KP.pu} \Sym\$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
+ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku gi la'o zoi.\ \F{KP.pu} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
-.i ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING. zoi glibau.\ NON\_TERMINATING .glibau.
+.i ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.
 
 \subsection{le velcki}
 \begin{code}
@@ -597,37 +617,34 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
   SeededKeyGen' δ = foo , g , record {pu = foo; pr = pry}
     where
     E = MCParam.G p δ
-    rev = Data.Vec.reverse
     b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
     b2f' = f2f ∘ b2f
     δ' : Fin $ 2 ^ MCParam.ℓ p
-    δ' = b2f $ rev $ takel $ rev themDigits
+    δ' = b2f $ rev $ take (MCParam.ℓ p) $ rev themDigits
       where
-      takel = take $ MCParam.ℓ p
-      postulate
-        blah : ℕ
-        themDigits : Vec (Fin 2) $ MCParam.ℓ p + blah
+      rev = Data.Vec.reverse
+      themDigits : Vec (Fin 2) $ MCParam.ℓ p + {!!}
+      themDigits = {!!}
     s : Fin $ MCParam.n p
     s = b2f' themDigits
       where
-      postulate
-        themDigits : Vec (Fin 2) $ MCParam.n p
+      themDigits : Vec (Fin 2) $ MCParam.n p
+      themDigits = {!!}
     -- | .i cumki fa lo nu cumki fa lo nu la'oi .g.
     -- na me'oi .terminate.
     g : Vqt
-    g = maybe id retry tird
+    g = fromMaybe retry tird
       where
       retry = proj₁ $ proj₂ $ SeededKeyGen' δ'
-      postulate
-        tird : Maybe Vqt
-    postulate
-      pry : Private p
+      tird : Maybe Vqt
+      tird = {!!}
+    pry = {!!}
     foo : Public p
-    foo = maybe id (proj₁ $ SeededKeyGen' δ') $ MatGen {p} pry
+    foo = fromMaybe (proj₁ $ SeededKeyGen' δ') $ MatGen pry
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{KP.pu} \Sym{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
+ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{KP.pu} \F{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
 
 \subsection{le velcki}
 
@@ -635,8 +652,7 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \Sym{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .r
 KeyGen : (p : MCParam) → IO $ KP p
 KeyGen p = SeededKeyGen p IO.<$> cunso
   where
-  postulate
-    cunso : _
+  cunso = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
@@ -645,10 +661,10 @@ KeyGen p = SeededKeyGen p IO.<$> cunso
 ni'o la'o zoi.\ \F{Hx} \{\B p\} \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T .zoi.
 
 \begin{code}
-Hx : {p : MCParam}
+Hx : (p : MCParam)
    → Public p
    → 𝕄 (Fin 2) (MCParam.n-k p + MCParam.k p) $ MCParam.n-k p
-Hx {p} T = I ∣ T
+Hx p T = I ∣ T
   where
   _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
       → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
@@ -659,24 +675,21 @@ Hx {p} T = I ∣ T
   I = mapᵥ f $ allFin _
     where
     f : {n : ℕ} → Fin n → Vec (Fin 2) n
-    f = λ x → updateAt x (const $ suc zero) $ replicate zero
+    f x = updateAt x (const $ suc zero) $ replicate zero
 \end{code}
 
 \section{la'oi .\F{Encode}.}
 ni'o la'oi .\F{Encode}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Encode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
-Encode : {p : MCParam}
+Encode : (p : MCParam)
        → (e : Vec (Fin 2) $ MCParam.n p)
        → Public p
        → {hWV𝔽 e ≡ MCParam.t p}
        → Vec (Fin 2) $ MCParam.n-k p
-Encode {p} e T = moult H e
+Encode p e T = moult H e
   where
-  H = Hx {p} T
-  postulate
-    moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
-          → Vec (Fin 2) n
+  H = Hx p T
 \end{code}
 
 \section{la'oi .\F{Decode}.}
@@ -692,19 +705,21 @@ Decode : {p : MCParam}
 Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
-  dist : xv MCParam.n → xv MCParam.n → ℕ
+  dist : {n : ℕ} → Vec (Fin 2) n → Vec (Fin 2) n → ℕ
   dist = Vec≤.length ∘₂ filter drata ∘₂ zipᵥ
     where
     drata = Data.Bool._≟_ true ∘ isNo ∘ uncurry Data.Fin._≟_
   v : xv MCParam.n
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
-    postulate zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
+    zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
+    zenbyco'e = {!!}
     tv : (λ t → These t t → t) $ Fin 2
     tv = Data.These.fold id id const
-  postulate
-    sumji : Op₂ $ xv MCParam.n
-    c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
+  sumji : Op₂ $ xv MCParam.n
+  sumji = zipWithᵥ $ f𝔽 _+_
+  c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
+  c' = {!!}
   c = Data.Maybe.map proj₁ c'
   e = flip Data.Maybe.map c $ sumji v
   -- | .i lisri
@@ -714,16 +729,11 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     zipf = Data.List.zip (Data.List.upTo n) ∘ toList
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
   mapti : xv MCParam.n → Set
-  mapti e = (hWV𝔽 e ≡ MCParam.t p) × dunli C₀ H*e
+  mapti e = (hWV𝔽 e ≡ MCParam.t p) × (C₀ ≡ H*e)
     where
-    postulate
-      dunli : _ → _ → Set
     H*e = moult H e
       where
-      H = Hx {p} bar
-      postulate
-        moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
-              → Vec (Fin 2) n
+      H = Hx p bar
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
   mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
   ... | yes x = {!!}
