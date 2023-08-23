@@ -234,7 +234,7 @@ b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
 b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
   -- | ni'o cadga fa lo nu la'oi .zf. du li no
-  -- .i ku'i le mu'oi glibau. proof checker
+  -- .i ku'i le mu'oi glibau. type checker
   -- .glibau. cu na djuno le du'u ro da poi ke'a
   -- kacna'u zo'u li no mleca lo tenfa be li re
   -- bei da
