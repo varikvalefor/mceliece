@@ -115,9 +115,6 @@ open import Data.List
     reverse;
     []
   )
-  renaming (
-    take to takeₗ
-  )
 open import Data.Digit
   using (
     toNatDigits
@@ -516,7 +513,7 @@ Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 ni'o la'au la'oi .\D{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{Private}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{Private}.}
-ni'o ro da poi ke'a me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
+ni'o ro da poi ke'a ctaipe la'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
 
 \subsection{le me'oi .field.}
 
@@ -618,11 +615,11 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ se
 \subsection{le velcki}
 \begin{code}
 {-# NON_TERMINATING #-}
-SeededKeyGen : (p : MCParam) → Fin $ 2 ^ (MCParam.ℓ p) → KP p
+SeededKeyGen : (p : MCParam) → Fin $ 2 ^ MCParam.ℓ p → KP p
 SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
   where
   Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
-  SeededKeyGen' : Fin $ 2 ^ (MCParam.ℓ p) → Public p × Vqt × KP p
+  SeededKeyGen' : Fin $ 2 ^ MCParam.ℓ p → Public p × Vqt × KP p
   SeededKeyGen' δ = foo , g , record {pu = foo; pr = pry}
     where
     E = MCParam.G p δ
@@ -729,8 +726,8 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   sumji = zipWithᵥ $ f𝔽 _+_
   c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
   c' = {!!}
-  c = Data.Maybe.map proj₁ c'
-  e = flip Data.Maybe.map c $ sumji v
+  c = mapₘ proj₁ c'
+  e = flip mapₘ c $ sumji v
   -- | .i lisri
   huck : {m n : ℕ} → Vec (Fin m) n → ℕ
   huck {m} {n} = Data.List.sum ∘ pilji ∘ zipf
