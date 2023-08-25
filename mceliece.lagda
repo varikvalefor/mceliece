@@ -307,7 +307,7 @@ hw𝕄 = sumᵥ ∘ mapᵥ hWV𝔽
 \end{code}
 
 \section{la'oi .\F{rf}.}
-ni'o go la'o zoi.\ \F{rf} \D t \D n .zoi.\ zasti gi da mapti le mu'oi glibau.\ reduced row-echelon form .glibau.
+ni'o go la'o zoi.\ \F{rf} \B t \B n .zoi.\ zasti gi da mapti le mu'oi glibau.\ reduced row-echelon form .glibau.
 
 \begin{code}
 data rf {m n} (q : 𝕄 (Fin 2) m n) : ℕ → Set
