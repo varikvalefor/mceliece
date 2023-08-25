@@ -433,7 +433,7 @@ Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 ni'o la'au la'oi .\D{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{Private}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{Private}.}
-ni'o ro da poi ke'a me'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
+ni'o ro da poi ke'a ctaipe la'oi .\D{Private}.\ zo'u da sinxa lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
 
 \subsection{le me'oi .field.}
 
