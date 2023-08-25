@@ -535,11 +535,11 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ se
 \subsection{le velcki}
 \begin{code}
 {-# NON_TERMINATING #-}
-SeededKeyGen : (p : MCParam) → Fin $ 2 ^ (MCParam.ℓ p) → KP p
+SeededKeyGen : (p : MCParam) → Fin $ 2 ^ MCParam.ℓ p → KP p
 SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
   where
   Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
-  SeededKeyGen' : Fin $ 2 ^ (MCParam.ℓ p) → Public p × Vqt × KP p
+  SeededKeyGen' : Fin $ 2 ^ MCParam.ℓ p → Public p × Vqt × KP p
   SeededKeyGen' δ = foo , g , record {pu = foo; pr = pry}
     where
     E = MCParam.G p δ
