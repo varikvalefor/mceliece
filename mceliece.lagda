@@ -32,6 +32,7 @@
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∃}{\ensuremath{\exists}}
 \newunicodechar{ℓ}{\ensuremath{\ell}}
 \newunicodechar{σ}{\ensuremath{\sigma}}
 \newunicodechar{α}{\ensuremath{\alpha}}
@@ -661,7 +662,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
       where
       H = Hx p bar
   mapti? : (t : xv MCParam.n)
-         → Maybe $ Σ (xv MCParam.n) $ λ t' → mapti t' × t' ≡ t
+         → Maybe $ ∃ $ λ t' → mapti t' × t' ≡ t
   mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
   ... | yes x = {!!}
   ... | no _ = nothing
