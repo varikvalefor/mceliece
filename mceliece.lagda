@@ -660,7 +660,8 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     H*e = moult H e
       where
       H = Hx p bar
-  mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
+  mapti? : (t : xv MCParam.n)
+         → Maybe $ Σ (xv MCParam.n) $ λ t' → mapti t' × t' ≡ t
   mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
   ... | yes x = {!!}
   ... | no _ = nothing
