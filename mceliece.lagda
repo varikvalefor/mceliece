@@ -646,8 +646,8 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   sumji = zipWithᵥ $ f𝔽 _+_
   c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
   c' = {!!}
-  c = Data.Maybe.map proj₁ c'
-  e = flip Data.Maybe.map c $ sumji v
+  c = mapₘ proj₁ c'
+  e = flip mapₘ c $ sumji v
   -- | .i lisri
   huck : {m n : ℕ} → Vec (Fin m) n → ℕ
   huck {m} {n} = Data.List.sum ∘ pilji ∘ zipf
