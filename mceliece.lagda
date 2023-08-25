@@ -88,6 +88,9 @@ open import Data.Fin
   renaming (
     _+_ to _+F_
   )
+  hiding (
+    _≟_
+  )
 open import Data.Vec
   renaming (
     map to mapᵥ;
@@ -101,6 +104,7 @@ open import Data.Vec
 open import Function
 open import Data.Bool
   hiding (
+    _≟_;
     T
   )
 open import Data.List
@@ -132,6 +136,9 @@ open import Data.These
 open import Algebra.Core
 open import Data.Product
 open import Data.Nat as ℕ
+  hiding (
+    _≟_
+  )
 open import Data.Nat.DivMod
 open import Relation.Nullary
 open import Data.Vec.Bounded
@@ -145,6 +152,10 @@ open import Data.Nat.Properties
     m∸n+n≡m
   )
 open import Truthbrary.Data.Fin
+open import Truthbrary.Record.Eq
+  using (
+    _≟_
+  )
 open import Relation.Nullary.Decidable
   using (
     isNo
@@ -211,7 +222,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   xt (no z) = coerce (cong (Vec A) bitc) padin
     where
     padin : Vec A $ n ∸ m + m
-    padin = _++_ (replicate {n = n ∸ m} x) xs
+    padin = replicate {n = n ∸ m} x ++ xs
     bitc : n ∸ m + m ≡ n
     bitc = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ z
 
@@ -317,7 +328,7 @@ b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
 b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
   -- | ni'o cadga fa lo nu la'oi .zf. du li no
-  -- .i ku'i le mu'oi glibau. proof checker
+  -- .i ku'i le mu'oi glibau. type checker
   -- .glibau. cu na djuno le du'u ro da poi ke'a
   -- kacna'u zo'u li no mleca lo tenfa be li re
   -- bei da
@@ -390,7 +401,7 @@ hw𝕄 = sumᵥ ∘ mapᵥ hWV𝔽
 \end{code}
 
 \section{la'oi .\F{rf}.}
-ni'o go la'o zoi.\ \F{rf} \D t \D n .zoi.\ zasti gi da mapti le mu'oi glibau.\ reduced row-echelon form .glibau.
+ni'o go la'o zoi.\ \F{rf} \B t \B n .zoi.\ zasti gi mapti le mu'oi glibau.\ reduced row-echelon form .glibau.
 
 \begin{code}
 data rf {m n} (q : 𝕄 (Fin 2) m n) : ℕ → Set
@@ -706,7 +717,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   dist : {n : ℕ} → Vec (Fin 2) n → Vec (Fin 2) n → ℕ
   dist = Vec≤.length ∘₂ filter drata ∘₂ zipᵥ
     where
-    drata = Data.Bool._≟_ true ∘ isNo ∘ uncurry Data.Fin._≟_
+    drata = _≟_ true ∘ isNo ∘ uncurry _≟_
   v : xv MCParam.n
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
