@@ -273,16 +273,16 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
           let sink = sym $ cong (Vec A) k in
           xs ≡ drop (n ∸ m) (coerce sink $ xt $ no g)
   takis g = sym $ begin
-    drop (n ∸ m) koxit ≡⟨ cong (drop $ n ∸ m) koxitydus ⟩
+    drop (n ∸ m) konk ≡⟨ cong (drop $ n ∸ m) konkydus ⟩
     drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ⟩
     xs ∎
     where
     pad = replicate x
     k = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ g
-    koxit : Vec A $ n ∸ m + m
-    koxit = coerce (sym $ cong (Vec A) k) $ xt $ no g
-    koxitydus : koxit ≡ pad ++ xs
-    koxitydus = sym $ flipko (cong (Vec A) k) $ pad ++ xs
+    konk : Vec A $ n ∸ m + m
+    konk = coerce (sym $ cong (Vec A) k) $ xt $ no g
+    konkydus : konk ≡ pad ++ xs
+    konkydus = sym $ flipko (cong (Vec A) k) $ pad ++ xs
     dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
             → (x : Vec A m)
             → (z : Vec A n)
