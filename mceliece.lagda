@@ -218,7 +218,7 @@ resize {_} {m} {n} {A} x xs = xt
   ... | (no z) = coerce (cong (Vec _) bitc) padin
     where
     padin : Vec A $ n ∸ m + m
-    padin = _++_ (replicate {n = n ∸ m} x) xs
+    padin = replicate {n = n ∸ m} x ++ xs
     bitc : n ∸ m + m ≡ n
     bitc = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ z
 \end{code}
