@@ -112,9 +112,6 @@ open import Data.List
     reverse;
     []
   )
-  renaming (
-    take to takeₗ
-  )
 open import Data.Digit
   using (
     toNatDigits
