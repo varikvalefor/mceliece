@@ -297,10 +297,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
         → (_≡_
             (drop (length x) (x ++ z))
             (drop (length $ e ∷ x) (e ∷ x ++ z)))
-      d [] _ = refl
-      d x@(_ ∷ xs) {z} e = sym $ DVP.unfold-drop lisuk e $ x ++ z
-        where
-        lisuk = suc $ length xs
+      d x {z} e = sym $ DVP.unfold-drop (length x) e $ x ++ z
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
