@@ -240,10 +240,10 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   -- du la'o zoi. xt (yes g) .zoi. ja zo'e
 
   flipko : ∀ {a} → {A B : Set a}
-         → (d : A ≡ B)
          → (x : A)
+         → (d : A ≡ B)
          → x ≡ coerce (sym d) (coerce d x)
-  flipko refl j = refl
+  flipko j refl = refl
 
   dropis : (g : n ℕ.≤ m)
          → let xs' = coerce (sym $ cong (Vec A) $ m∸n+n≡m g) xs in
@@ -255,7 +255,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   dropis g = sym $ begin
     coerce k konk ≡⟨ cong (coerce k) $ DVP.take-drop-id (m ∸ n) xs' ⟩
     coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
-    coerce (sym $ sym k) xs' ≡⟨ sym $ flipko (sym k) xs ⟩
+    coerce (sym $ sym k) xs' ≡⟨ sym $ flipko xs $ sym k ⟩
     xs ∎
     where
     k = cong (Vec A) $ m∸n+n≡m g
@@ -282,7 +282,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     konk : Vec A $ n ∸ m + m
     konk = coerce (sym $ cong (Vec A) k) $ xt $ no g
     konkydus : konk ≡ pad ++ xs
-    konkydus = sym $ flipko (cong (Vec A) k) $ pad ++ xs
+    konkydus = sym $ flipko (pad ++ xs) $ cong (Vec A) k
     dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
             → (x : Vec A m)
             → (z : Vec A n)
