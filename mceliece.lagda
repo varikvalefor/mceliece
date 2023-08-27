@@ -298,7 +298,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
             (drop (length x) (x ++ z))
             (drop (length $ e ∷ x) (e ∷ x ++ z)))
       d [] _ = refl
-      d (x ∷ xs) {z} e = sym $ DVP.unfold-drop lisuk e $ x ∷ xs ++ z
+      d x@(_ ∷ xs) {z} e = sym $ DVP.unfold-drop lisuk e $ x ++ z
         where
         lisuk = suc $ length xs
 \end{code}
