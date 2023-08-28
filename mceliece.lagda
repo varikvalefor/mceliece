@@ -559,7 +559,6 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
     g = fromMaybe retry tird
       where
       retry = proj₁ $ proj₂ $ SeededKeyGen' δ'
-      tird : Maybe Vqt
       tird = {!!}
     pry = {!!}
     foo : Public p
