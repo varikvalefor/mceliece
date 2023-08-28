@@ -82,11 +82,15 @@ ni'o la'au le me'oi .preamble.\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 
 open import IO
 open import Data.Fin
+  using (
+    fromℕ;
+    zero;
+    toℕ;
+    Fin;
+    suc
+  )
   renaming (
     _+_ to _+F_
-  )
-  hiding (
-    _≟_
   )
 open import Data.Vec
   renaming (
@@ -100,9 +104,10 @@ open import Data.Vec
   )
 open import Function
 open import Data.Bool
-  hiding (
-    _≟_;
-    T
+  using (
+    if_then_else_;
+    false;
+    true
   )
 open import Data.List
   using (
@@ -130,8 +135,14 @@ open import Data.These
 open import Algebra.Core
 open import Data.Product
 open import Data.Nat as ℕ
-  hiding (
-    _≟_
+  using (
+    _≡ᵇ_;
+    _^_;
+    _*_;
+    _+_;
+    _∸_;
+    suc;
+    ℕ
   )
 open import Data.Nat.DivMod
 open import Relation.Nullary
