@@ -260,10 +260,10 @@ ni'o la'o zoi.\ \B a \F{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .
 _∧𝔹ℕ𝔽_ : ∀ {a} → ℕ → Fin a → Fin a
 _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   where
-  and𝔽 : {n : ℕ} → Op₂ $ Fin $ suc n
+  and𝔽 : Op₂ $ Fin 2
   and𝔽 (suc zero) (suc zero) = suc zero
   and𝔽 _ _ = zero
-  ∧𝔹ℕ𝔽' : ∀ {m n} → Op₂ $ Vec (Fin $ suc m) n
+  ∧𝔹ℕ𝔽' : ∀ {n} → Op₂ $ Vec (Fin 2) n
   ∧𝔹ℕ𝔽' = zipWithᵥ and𝔽
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
   toFin : Vec (Fin 2) a! → Fin a!
