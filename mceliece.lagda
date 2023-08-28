@@ -587,7 +587,7 @@ ni'o la'o zoi.\ \F{Hx} \{\B p\} \B T .zoi.\ konkatena lo me'oi .identity.\ nacme
 Hx : (p : MCParam)
    → Public p
    → 𝕄 (Fin 2) (MCParam.n-k p + MCParam.k p) $ MCParam.n-k p
-Hx p T = I ∣ T
+Hx p = _∣_ I
   where
   _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
       → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
