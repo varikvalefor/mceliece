@@ -243,7 +243,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
          → (x : A)
          → (d : A ≡ B)
          → x ≡ coerce (sym d) (coerce d x)
-  flipko j refl = refl
+  flipko _ refl = refl
 
   dropis : (g : n ℕ.≤ m)
          → let v≡v = sym $ cong (Vec A) $ m∸n+n≡m g in
