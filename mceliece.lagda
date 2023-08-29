@@ -187,7 +187,7 @@ a div2 (suc b) = a div (suc b)
 \end{code}
 
 \section{la'oi .\F{f2f}.}
-ni'o ganai ge la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \F{Fin} \B m .zoi.\ gi gonai ge lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
+ni'o ganai ge la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \D{Fin} \B m .zoi.\ gi gonai ge lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin n
@@ -195,7 +195,7 @@ f2f = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
-ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \F{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \F \$ f (\F{toℕ} \B a) \F \$ \F{toℕ} \B b .zoi.\ ce la'oi .\B q.
+ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \F \$ f (\F{toℕ} \B a) \F \$ \F{toℕ} \B b .zoi.\ ce la'oi .\B q.
 
 \begin{code}
 f𝔽 : {n : ℕ} → (ℕ → ℕ → ℕ) → Fin n → Fin n → Fin n
@@ -518,7 +518,7 @@ ni'o ro da poi ke'a ctaipe la'oi .\D{Private}.\ zo'u da sinxa lo sivni termifcki
 ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja zo'e la'o zoi.\ \F{Private.g} \B p .zoi.
 
 \paragraph{la'oi .\F{Private.Γ}.}
-ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \F{Fin} \F \$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
+ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \D{Fin} \F \$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\F{Private.s}.}
 ni'o la'o zoi.\ \F{Private.s} \F \$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \F \$ \F{MCParam.n} \B p .zoi.
