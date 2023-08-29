@@ -16,6 +16,7 @@
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
 \newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
+\newunicodechar{∃}{\ensuremath{\mathnormal\exists}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{ℙ}{\ensuremath{\mathbb{P}}}
@@ -702,7 +703,7 @@ ni'o la'oi .\F{Decode}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Decode}.\ poi
 Decode : {p : MCParam}
        → Vec (Fin 2) $ MCParam.n-k p
        → Public p
-       → (Σ ℕ $ Vec $ Fin (MCParam.q p))
+       → ∃ (Vec $ Fin $ MCParam.q p)
        → Vec (Fin $ MCParam.q p) $ MCParam.n p
        → Maybe $ Vec (Fin 2) $ MCParam.n p
 Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
