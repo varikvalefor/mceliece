@@ -223,7 +223,7 @@ resize {_} {m} {n} {A} x xs = xt
   ... | (yes z) = drop (m ∸ n) $ coc xs
     where
     coc = coerce $ cong (Vec _) $ sym $ m∸n+n≡m z
-  ... | (no z) = coerce (cong (Vec _) bitc) padin
+  ... | (no z) = flip coerce padin $ cong (Vec _) bitc
     where
     padin : Vec A $ n ∸ m + m
     padin = replicate x ++ xs
