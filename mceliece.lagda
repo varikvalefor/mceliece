@@ -223,7 +223,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   where
   coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
   coerce refl = id
-  xt : Dec (n ℕ.≤ m) → Vec A n
+  xt : Dec $ n ℕ.≤ m → Vec A n
   xt (yes z) = drop (m ∸ n) $ coc xs
     where
     coc = coerce $ sym $ cong (Vec A) $ m∸n+n≡m z
