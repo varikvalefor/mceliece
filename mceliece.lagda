@@ -246,7 +246,8 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   flipko j refl = refl
 
   dropis : (g : n ℕ.≤ m)
-         → let xs' = coerce (sym $ cong (Vec A) $ m∸n+n≡m g) xs in
+         → let v≡v = sym $ cong (Vec A) $ m∸n+n≡m g in
+           let xs' = coerce v≡v xs in
            (_≡_
              xs
              (coerce
