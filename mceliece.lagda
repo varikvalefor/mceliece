@@ -703,7 +703,7 @@ ni'o la'oi .\F{Decode}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Decode}.\ poi
 Decode : {p : MCParam}
        → Vec (Fin 2) $ MCParam.n-k p
        → Public p
-       → ∃ (Vec $ Fin $ MCParam.q p)
+       → ∃ $ Vec $ Fin $ MCParam.q p
        → Vec (Fin $ MCParam.q p) $ MCParam.n p
        → Maybe $ Vec (Fin 2) $ MCParam.n p
 Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
