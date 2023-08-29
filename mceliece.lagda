@@ -296,8 +296,8 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
         → {z : Vec A n}
         → (e : A)
         → (_≡_
-            (drop (length x) (x ++ z))
-            (drop (length $ e ∷ x) (e ∷ x ++ z)))
+            (drop (length x) $ x ++ z)
+            (drop (length $ e ∷ x) $ e ∷ x ++ z))
       d x {z} e = sym $ DVP.unfold-drop (length x) e $ x ++ z
 \end{code}
 
