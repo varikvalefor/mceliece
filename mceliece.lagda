@@ -727,9 +727,9 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   e = flip mapₘ c $ sumji v
   -- | .i lisri
   huck : {m n : ℕ} → Vec (Fin m) n → ℕ
-  huck {m} {n} = Data.List.sum ∘ pilji ∘ zipf
+  huck {m} {n} = Data.List.sum ∘ pilji ∘ indice ∘ toList
     where
-    zipf = Data.List.zip (Data.List.upTo n) ∘ toList
+    indice = Data.List.zip $ Data.List.upTo n
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
   mapti : xv MCParam.n → Set
   mapti e = (hWV𝔽 e ≡ MCParam.t p) × (C₀ ≡ H*e)
