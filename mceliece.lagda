@@ -85,11 +85,15 @@ ni'o la'au le me'oi .preamble.\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 
 open import IO
 open import Data.Fin
+  using (
+    fromℕ;
+    zero;
+    toℕ;
+    Fin;
+    suc
+  )
   renaming (
     _+_ to _+F_
-  )
-  hiding (
-    _≟_
   )
 open import Data.Vec
   renaming (
@@ -103,9 +107,10 @@ open import Data.Vec
   )
 open import Function
 open import Data.Bool
-  hiding (
-    _≟_;
-    T
+  using (
+    if_then_else_;
+    false;
+    true
   )
 open import Data.List
   using (
@@ -133,8 +138,14 @@ open import Data.These
 open import Algebra.Core
 open import Data.Product
 open import Data.Nat as ℕ
-  hiding (
-    _≟_
+  using (
+    _≡ᵇ_;
+    _^_;
+    _*_;
+    _+_;
+    _∸_;
+    suc;
+    ℕ
   )
 open import Data.Nat.DivMod
 open import Relation.Nullary
@@ -219,7 +230,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   xt (no z) = coerce (cong (Vec A) bitc) padin
     where
     padin : Vec A $ n ∸ m + m
-    padin = replicate {n = n ∸ m} x ++ xs
+    padin = replicate x ++ xs
     bitc : n ∸ m + m ≡ n
     bitc = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ z
 
@@ -341,10 +352,10 @@ ni'o la'o zoi.\ \B a \F{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .
 _∧𝔹ℕ𝔽_ : ∀ {a} → ℕ → Fin a → Fin a
 _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   where
-  and𝔽 : {n : ℕ} → Op₂ $ Fin $ suc n
+  and𝔽 : Op₂ $ Fin 2
   and𝔽 (suc zero) (suc zero) = suc zero
   and𝔽 _ _ = zero
-  ∧𝔹ℕ𝔽' : ∀ {m n} → Op₂ $ Vec (Fin $ suc m) n
+  ∧𝔹ℕ𝔽' : ∀ {n} → Op₂ $ Vec (Fin 2) n
   ∧𝔹ℕ𝔽' = zipWithᵥ and𝔽
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
   toFin : Vec (Fin 2) a! → Fin a!
@@ -640,7 +651,6 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
     g = fromMaybe retry tird
       where
       retry = proj₁ $ proj₂ $ SeededKeyGen' δ'
-      tird : Maybe Vqt
       tird = {!!}
     pry = {!!}
     foo : Public p
@@ -668,7 +678,7 @@ ni'o la'o zoi.\ \F{Hx} \{\B p\} \B T .zoi.\ konkatena lo me'oi .identity.\ nacme
 Hx : (p : MCParam)
    → Public p
    → 𝕄 (Fin 2) (MCParam.n-k p + MCParam.k p) $ MCParam.n-k p
-Hx p T = I ∣ T
+Hx p = _∣_ I
   where
   _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
       → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
@@ -703,7 +713,7 @@ ni'o la'oi .\F{Decode}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Decode}.\ poi
 Decode : {p : MCParam}
        → Vec (Fin 2) $ MCParam.n-k p
        → Public p
-       → (Σ ℕ $ Vec $ Fin (MCParam.q p))
+       → Σ ℕ (Vec $ Fin $ MCParam.q p)
        → Vec (Fin $ MCParam.q p) $ MCParam.n p
        → Maybe $ Vec (Fin 2) $ MCParam.n p
 Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
