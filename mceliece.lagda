@@ -501,7 +501,7 @@ ni'o ro da poi ke'a ctaipe la'oi .\D{KP}.\ zo'u da sinxa lo mu'oi glibau.\ key p
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pu} \B t .zoi.\ gubni termifckiku gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{KP.pr} \B t .zoi.
 
 \paragraph{la'oi .\F{KP.pr}.}
-ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \B t .zoi.\ sivni termifckiku gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{KP.pr} \B t .zoi.
+ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \B t .zoi.\ sivni termifckiku gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{KP.pu} \B t .zoi.
 
 \begin{code}
 record KP (p : MCParam) : Set
