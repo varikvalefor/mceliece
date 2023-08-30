@@ -443,7 +443,7 @@ ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja zo'e la'o zoi.\ \F{Priva
 ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \F{Fin} \F \$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\F{Private.s}.}
-ni'o la'o zoi.\ \F{Private.s} \F \$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{toℕ} \F \$ \F{MCParam.n} \B p .zoi.
+ni'o la'o zoi.\ \F{Private.s} \F \$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
 
 \paragraph{la'oi .\F{Private.g}.}
 ni'o la'o zoi.\ \F{Private.g} \B q .zoi.\ cpolinomi'a je cu pa moi lo'i ro selvau be la'o zoi.\ \F{Private.Γ} \B q .zoi.
