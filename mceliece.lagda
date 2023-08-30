@@ -451,8 +451,6 @@ ni'o la'o zoi.\ \F{Private.g} \B q .zoi.\ cpolinomi'a je cu pa moi lo'i ro selva
 \paragraph{la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.}
 ni'o la .varik.\ cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velcki be la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.
 
-.i cumki fa lo nu lo me'oi .private.\ co'e cu vasru la'oi .MCq.\ je la'oi .MCn.  .i ku'i lo nu ciksi cu se filri'a lo nu lo me'oi .private.\ co'e cu na vasru la'oi .MCq.\ je la'oi .MCn.
-
 \begin{code}
 record Private (p : MCParam) : Set
   where
