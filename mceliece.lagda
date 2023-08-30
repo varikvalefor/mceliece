@@ -525,7 +525,7 @@ FieldOrdering = {!!}
 \end{code}
 
 \section{la'oi .\F{SeededKeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku gi la'o zoi.\ \F{KP.pu} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
+ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku gi la'o zoi.\ \F{KP.pu} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
 .i ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.
 
