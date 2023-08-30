@@ -325,15 +325,6 @@ hw𝕄 : ∀ {a m n} → 𝕄 (Fin a) m n → ℕ
 hw𝕄 = sumᵥ ∘ mapᵥ hWV𝔽
 \end{code}
 
-\section{la'oi .\F{rf}.}
-ni'o go la'o zoi.\ \F{rf} \B t \B n .zoi.\ zasti gi mapti le mu'oi glibau.\ reduced row-echelon form .glibau.
-
-\begin{code}
-data rf {m n} (q : 𝕄 (Fin 2) m n) : ℕ → Set
-  where
-  radfrq : rf q $ hw𝕄 q
-\end{code}
-
 \section{la'oi .\F{moult}.}
 ni'o la'o zoi.\ \F{moult}\ \B a\ \B b\ .zoi.\ pilji la'o zoi.\ \B a\ .zoi.\ la'o zoi.\ \B b\ .zoi.
 
