@@ -543,10 +543,10 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
     b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
     b2f' = f2f ∘ b2f
     δ' : Fin $ 2 ^ MCParam.ℓ p
-    δ' = b2f $ rev $ take (MCParam.ℓ p) $ rev themDigits
+    δ' = b2f themDigits
       where
       rev = Data.Vec.reverse
-      themDigits : Vec (Fin 2) $ MCParam.ℓ p + {!!}
+      themDigits : Vec (Fin 2) $ MCParam.ℓ p
       themDigits = {!!}
     s : Fin $ MCParam.n p
     s = b2f' themDigits
