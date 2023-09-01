@@ -331,7 +331,7 @@ moult = {!!}
 ni'o la'au la'oi .\D{MCParam}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{MCParam}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D{MCParam}.}
-ni'o ro da poi ke'a ctaipe la'oi .\D{MCParam}.\ zo'u da sinxa lo me'oi .parameter.\ be lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
+ni'o lo ro ctaipe be la'oi .\D{MCParam}.\ cu sinxa lo me'oi .parameter.\ be lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
 
 \subsection{le me'oi .field.}
 
