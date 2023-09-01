@@ -377,7 +377,7 @@ ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
 ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ me'oi .pseudorandom.\ poi pilno la'oi .\B x.\ lo nu me'oi .calculate.\ ke'a
 
 \paragraph{le ctaipe be lo su'u dubjavme'a ja co'e}
-ni'o la .varik.\ cu jinvi le du'u le se ctaipe cu banzuka
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{n≤q}.\ ja la'oi .\F{t≥2}.\ ja la'oi .\F{ν≥μ}.\ ja la'oi .\F{ν≤μ+k}.\ ja la'oi .\F{σ₁≥m}.\ ja la'oi .\F{σ₂≥2*m}.\ ja la'oi .\F{m*t<n}.\ bau la .lojban.
 
 \begin{code}
 record MCParam : Set
