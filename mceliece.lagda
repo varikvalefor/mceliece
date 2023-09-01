@@ -282,7 +282,7 @@ _∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
 \end{code}
 
 \chapter{la'oi .\D 𝕄.\ je zo'e}
-ni'o la'au la'oi .\D M.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D M.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D M.\ po'o ku'o je le pinka be ko'a
+ni'o la'au la'oi .\D 𝕄.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D 𝕄.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D 𝕄.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D 𝕄.}
 ni'o ro da poi ke'a ctaipe la'o zoi.\ .\D 𝕄 \B A \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.\ je cu vasru lo ctaipe be la'oi .\B A.
