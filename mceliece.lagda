@@ -412,7 +412,6 @@ record MCParam : Set
     m*t<n : m * t ℕ.< n
 \end{code}
 
-
 \section{la'oi .\F{Public}.}
 ni'o la'o zoi.\ \F{Public} \B q .zoi.\ ctaipe lo gubni termifckiku pe la'oi .\B q.
 
