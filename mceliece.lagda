@@ -490,7 +490,7 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
 ni'o lo ro ctaipe be la'oi .\D{KP}.\ cu mu'oi glibau. Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
 
 \subsection{le me'oi .field.}
-\paragraph{la'oi .F{KP.pu}.}
+\paragraph{la'oi .\F{KP.pu}.}
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pu} \B t .zoi.\ gubni termifckiku gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{KP.pr} \B t .zoi.
 
 \paragraph{la'oi .\F{KP.pr}.}
