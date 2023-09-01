@@ -376,7 +376,7 @@ ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
 \paragraph{la'oi .\F{MCParam.G}.}
 ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ me'oi .pseudorandom.\ poi pilno la'oi .\B x.\ lo nu me'oi .calculate.\ ke'a
 
-\paragraph{la'oi .\F{n≤q}.\ je la'oi .\F{t≥2}.\ je la'oi .\F{ν≥μ}.\ je la'oi .\F{ν≤μ+k}.\ je la'oi .\F{σ₁≥m}.\ je la'oi .\F{σ₂≥2*m}.\ je la'oi .\F{m*t<n}.}
+\paragraph{le ctaipe be lo su'u dubjavme'a ja co'e}
 ni'o la .varik.\ cu jinvi le du'u le se ctaipe cu banzuka
 
 \begin{code}
