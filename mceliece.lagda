@@ -546,11 +546,6 @@ SeededKeyGen p = SeededKeyGen'
             → Vec (Fin 2) $ MCParam.ℓ p + n
             → Vec (Fin 2) $ MCParam.ℓ p
         rom = rev ∘ take (MCParam.ℓ p) ∘ rev
-    s : Fin $ MCParam.n p
-    s = b2f' themDigits
-      where
-      themDigits : Vec (Fin 2) $ MCParam.n p
-      themDigits = Data.Vec.take (MCParam.n p) $ {!!} $ E
     mapti? : Maybe $ KP p
     mapti? = mapₘ₂ gumgau {!!} {!!}
       where
@@ -561,6 +556,11 @@ SeededKeyGen p = SeededKeyGen'
             → (A → B → C) → Maybe A → Maybe B → Maybe C
       mapₘ₂ f (just a) (just b) = just $ f a b
       mapₘ₂ _ _ _ = nothing
+      s : Fin $ MCParam.n p
+      s = b2f' themDigits
+        where
+        themDigits : Vec (Fin 2) $ MCParam.n p
+        themDigits = Data.Vec.take (MCParam.n p) $ {!!} $ E
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
