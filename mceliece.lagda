@@ -540,7 +540,7 @@ SeededKeyGen p = SeededKeyGen'
       where
       rev = Data.Vec.reverse
       themDigits : Vec (Fin 2) $ MCParam.ℓ p
-      themDigits = rom $ {!!} $ E
+      themDigits = rom $ nbits $ toℕ E
         where
         rom : {n : ℕ}
             → Vec (Fin 2) $ MCParam.ℓ p + n
@@ -560,7 +560,7 @@ SeededKeyGen p = SeededKeyGen'
       s = b2f' themDigits
         where
         themDigits : Vec (Fin 2) $ MCParam.n p
-        themDigits = Data.Vec.take (MCParam.n p) $ {!!} $ E
+        themDigits = Data.Vec.take (MCParam.n p) $ nbits $ toℕ E
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
