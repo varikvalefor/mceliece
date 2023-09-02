@@ -540,7 +540,12 @@ SeededKeyGen p = SeededKeyGen'
       where
       rev = Data.Vec.reverse
       themDigits : Vec (Fin 2) $ MCParam.ℓ p
-      themDigits = {!!}
+      themDigits = rom $ {!!} $ E
+        where
+        rom : {n : ℕ}
+            → Vec (Fin 2) $ MCParam.ℓ p + n
+            → Vec (Fin 2) $ MCParam.ℓ p
+        rom = rev ∘ take (MCParam.ℓ p) ∘ rev
     s : Fin $ MCParam.n p
     s = b2f' themDigits
       where
