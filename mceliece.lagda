@@ -545,7 +545,7 @@ SeededKeyGen p = SeededKeyGen'
     s = b2f' themDigits
       where
       themDigits : Vec (Fin 2) $ MCParam.n p
-      themDigits = Data.Vec.take (MCParam.n p) $ ? $ E
+      themDigits = Data.Vec.take (MCParam.n p) $ {!!} $ E
     mapti? : Maybe $ KP p
     mapti? = mapₘ₂ gumgau {!!} {!!}
       where
