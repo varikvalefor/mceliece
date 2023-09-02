@@ -528,8 +528,10 @@ SeededKeyGen : (p : MCParam) → Fin $ 2 ^ MCParam.ℓ p → KP p
 SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
   where
   Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
+  -- | .i cumki fa lo nu cumki fa lo nu tu'a le nu
+  -- me'oi .recurse. cu rinka lo nu na me'oi .terminate.
   SeededKeyGen' : Fin $ 2 ^ MCParam.ℓ p → Public p × Vqt × KP p
-  SeededKeyGen' δ = foo , g , record {pu = foo; pr = pry}
+  SeededKeyGen' δ = fromMaybe (SeededKeyGen' δ') mapti?
     where
     E = MCParam.G p δ
     b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
@@ -545,16 +547,8 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
       where
       themDigits : Vec (Fin 2) $ MCParam.n p
       themDigits = {!!}
-    -- | .i cumki fa lo nu cumki fa lo nu la'oi .g.
-    -- na me'oi .terminate.
-    g : Vqt
-    g = fromMaybe retry tird
-      where
-      retry = proj₁ $ proj₂ $ SeededKeyGen' δ'
-      tird = {!!}
-    pry = {!!}
-    foo : Public p
-    foo = fromMaybe (proj₁ $ SeededKeyGen' δ') $ MatGen pry
+    mapti? : Maybe $ Public p × Vqt × KP p
+    mapti? = {!!}
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
