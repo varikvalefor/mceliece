@@ -525,12 +525,12 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ se
 \begin{code}
 {-# NON_TERMINATING #-}
 SeededKeyGen : (p : MCParam) → Fin $ 2 ^ MCParam.ℓ p → KP p
-SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
+SeededKeyGen p = SeededKeyGen'
   where
   Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
   -- | .i cumki fa lo nu cumki fa lo nu tu'a le nu
   -- me'oi .recurse. cu rinka lo nu na me'oi .terminate.
-  SeededKeyGen' : Fin $ 2 ^ MCParam.ℓ p → Public p × Vqt × KP p
+  SeededKeyGen' : Fin $ 2 ^ MCParam.ℓ p → KP p
   SeededKeyGen' δ = fromMaybe (SeededKeyGen' δ') mapti?
     where
     E = MCParam.G p δ
@@ -547,8 +547,8 @@ SeededKeyGen p = proj₂ ∘ proj₂ ∘ SeededKeyGen'
       where
       themDigits : Vec (Fin 2) $ MCParam.n p
       themDigits = {!!}
-    mapti? : Maybe $ Public p × Vqt × KP p
-    mapti? = {!!}
+    mapti? : Maybe $ KP p
+    mapti? = ?
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
