@@ -548,7 +548,14 @@ SeededKeyGen p = SeededKeyGen'
       themDigits : Vec (Fin 2) $ MCParam.n p
       themDigits = {!!}
     mapti? : Maybe $ KP p
-    mapti? = ?
+    mapti? = mapₘ₂ gumgau {!!} {!!}
+      where
+      gumgau : Public p → Vqt → KP p
+      gumgau = {!!}
+      mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+            → (A → B → C) → Maybe A → Maybe B → Maybe C
+      mapₘ₂ f (just a) (just b) = just $ f a b
+      mapₘ₂ _ _ _ = nothing
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
