@@ -327,11 +327,11 @@ moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
 moult = {!!}
 \end{code}
 
-\chapter{la'oi .\D{MCParam}.\ je zo'e}
-ni'o la'au la'oi .\D{MCParam}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{MCParam}.\ po'o ku'o je le pinka be ko'a
+\chapter{la'oi .\AgdaRecord{MCParam}.\ je zo'e}
+ni'o la'au la'oi .\AgdaRecord{MCParam}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{MCParam}.\ po'o ku'o je le pinka be ko'a
 
-\section{la'oi .\D{MCParam}.}
-ni'o lo ro ctaipe be la'oi .\D{MCParam}.\ cu me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
+\section{la'oi .\AgdaRecord{MCParam}.}
+ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
 
 \subsection{le me'oi .field.}
 
@@ -420,11 +420,11 @@ Public : MCParam → Set
 Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 \end{code}
 
-\chapter{la'oi .\D{Private}.\ je zo'e}
-ni'o la'au la'oi .\D{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D{Private}.\ po'o ku'o je le pinka be ko'a
+\chapter{la'oi .\AgdaRecord{Private}.\ je zo'e}
+ni'o la'au la'oi .\AgdaRecord{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{Private}.\ po'o ku'o je le pinka be ko'a
 
-\section{la'oi .\D{Private}.}
-ni'o ro da poi ke'a ctaipe la'oi .\D{Private}.\ zo'u da sivni termifckiku co mu'oi glibau.\ Classic MCELIECE .glibau.
+\section{la'oi .\AgdaRecord{Private}.}
+ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
 
 \subsection{le me'oi .field.}
 
@@ -435,7 +435,7 @@ ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja zo'e la'o zoi.\ \F{Priva
 ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \F{Fin} \F \$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\F{Private.s}.}
-ni'o la'o zoi.\ \F{Private.s} \F \$ \D{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
+ni'o la'o zoi.\ \F{Private.s} \F \$ \AgdaRecord{Private} \B p .zoi.\ liste lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
 
 \paragraph{la'oi .\F{Private.g}.}
 ni'o la'o zoi.\ \F{Private.g} \B q .zoi.\ cpolinomi'a je cu pa moi lo'i ro selvau be la'o zoi.\ \F{Private.Γ} \B q .zoi.
@@ -483,10 +483,10 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
   H~ = {!!}
 \end{code}
 
-\chapter{la'oi .\D{KP}.\ je zo'e}
+\chapter{la'oi .\AgdaRecord{KP}.\ je zo'e}
 
-\section{la'oi .\D{KP}.}
-ni'o lo ro ctaipe be la'oi .\D{KP}.\ cu mu'oi glibau. Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
+\section{la'oi .\AgdaRecord{KP}.}
+ni'o la'oi .\AgdaRecord{KP}.\ se ctaipe lo mu'oi glibau. Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
 
 \subsection{le me'oi .field.}
 \paragraph{la'oi .\F{KP.pu}.}
