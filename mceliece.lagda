@@ -527,7 +527,6 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ se
 SeededKeyGen : (p : MCParam) → Fin $ 2 ^ MCParam.ℓ p → KP p
 SeededKeyGen p = SeededKeyGen'
   where
-  Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
   -- | .i cumki fa lo nu cumki fa lo nu tu'a le nu
   -- me'oi .recurse. cu rinka lo nu na me'oi .terminate.
   SeededKeyGen' : Fin $ 2 ^ MCParam.ℓ p → KP p
@@ -550,6 +549,7 @@ SeededKeyGen p = SeededKeyGen'
     mapti? : Maybe $ KP p
     mapti? = mapₘ₂ gumgau {!!} {!!}
       where
+      Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
       gumgau : Public p → Vqt → KP p
       gumgau = {!!}
       mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
