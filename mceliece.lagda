@@ -523,12 +523,18 @@ ni'o la'oi .\F{FieldOrdering}.\ velcki ja co'e ko'a goi la'oi .\algoritma{FieldO
 FieldOrdering : {p : MCParam}
               → Fin $ MCParam.σ₂ p * MCParam.q p
               → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
-FieldOrdering {p} f = Data.Maybe.map ? $ sartre a
+FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
   where
+  indice : ∀ {a} → {n : ℕ} → {A : Set a}
+         → Vec A n → Vec (A × Fin n) n
+  indice = flip Data.Vec.zip $ Data.Vec.allFin _
   v = Vec (Fin $ MCParam.σ₂ p) $ MCParam.q p
+  vex = Vec (Fin (MCParam.σ₂ p) × Fin q) q
+    where
+    q = MCParam.q p
   a : v
   a = {!!}
-  sartre : v → Maybe v
+  sartre : vex → Maybe vex
   sartre = {!!}
 \end{code}
 
