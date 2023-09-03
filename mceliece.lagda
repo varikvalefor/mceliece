@@ -527,7 +527,7 @@ FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
   where
   indice : ∀ {a} → {n : ℕ} → {A : Set a}
          → Vec A n → Vec (A × Fin n) n
-  indice = flip Data.Vec.zip $ Data.Vec.allFin _
+  indice = flip zipᵥ $ Data.Vec.allFin _
   q = MCParam.q p
   v = Vec (Fin $ MCParam.σ₂ p) q
   vex = Vec (Fin (MCParam.σ₂ p) × Fin q) q
