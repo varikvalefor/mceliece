@@ -523,7 +523,13 @@ ni'o la'oi .\F{FieldOrdering}.\ velcki ja co'e ko'a goi la'oi .\algoritma{FieldO
 FieldOrdering : {p : MCParam}
               → Fin $ MCParam.σ₂ p * MCParam.q p
               → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
-FieldOrdering = {!!}
+FieldOrdering {p} f = sartre a
+  where
+  v = Vec (Fin $ MCParam.q p) $ MCParam.q p
+  a : v
+  a = {!!}
+  sartre : v → Maybe v
+  sartre = ?
 \end{code}
 
 \section{la'oi .\F{SeededKeyGen}.}
