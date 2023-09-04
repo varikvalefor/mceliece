@@ -534,7 +534,15 @@ FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
   a : v
   a = {!!}
   sartre : vex → Maybe vex
-  sartre = {!!}
+  sartre = Data.Maybe.map jort ∘ panci
+    where
+    -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
+    -- me'oi .sort.
+    jort : ∀ {a} → {A : Set a} → {n : ℕ}
+         → Vec A n → Vec A n
+    jort = {!!}
+    panci : vex → Maybe vex
+    panci = {!!}
 \end{code}
 
 \section{la'oi .\F{SeededKeyGen}.}
