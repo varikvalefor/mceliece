@@ -252,12 +252,11 @@ ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\
 b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
 b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
-  -- | ni'o cadga fa lo nu la'oi .zf. du li no
-  -- .i ku'i le mu'oi glibau. type checker
-  -- .glibau. cu na djuno le du'u ro da poi ke'a
-  -- kacna'u zo'u li no mleca lo tenfa be li re
-  -- bei da
-  zf = {!!}
+  zf = mink zero $ proj₂ $ zerpaus n
+    where
+    zerpaus : (m : ℕ) → ∃ $ λ n → suc n ≡ 2 ^ m
+    zerpaus ℕ.zero = ℕ.zero , refl
+    zerpaus m@(suc _) = 2 ^ m ∸ 1 , {!!}
   cond : Vec (Fin (2 ^ n) × Fin (2 ^ n)) n → Fin $ 2 ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
   indy : Vec (Fin $ 2 ^ n) n
