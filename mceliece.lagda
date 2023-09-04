@@ -443,8 +443,9 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velc
 \begin{code}
 record Private (p : MCParam) : Set
   where
-  q = MCParam.q p
-  n = MCParam.n p
+  private
+    q = MCParam.q p
+    n = MCParam.n p
   field
     lg : ℕ
     Γ : Vec (Fin q) lg × Vec (Fin q) n
