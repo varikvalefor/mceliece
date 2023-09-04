@@ -615,7 +615,7 @@ Hx p = _∣_ I
   where
   _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
       → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
-  _∣_ a b = Data.Vec.map (lookup++ a b) $ allFin _
+  _∣_ a b = mapᵥ (lookup++ a b) $ allFin _
     where
     lookup++ = λ a b n → lookup a n ++ lookup b n
   I : {n : ℕ} → 𝕄 (Fin 2) n n
