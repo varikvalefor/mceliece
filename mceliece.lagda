@@ -298,9 +298,9 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
             2 * n + 3 + 1
               ≡⟨ flip DNP.+-comm 1 $ 2 * n + 3 ⟩
             suc (2 * n + 3) ∎
-  cond : Vec (Fin (2 ^ n) × Fin (2 ^ n)) n → Fin $ 2 ^ n
+  cond : flip Vec n $ Fin (2 ^ n) × Fin (2 ^ n) → Fin $ 2 ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
-  indy : Vec (Fin $ 2 ^ n) n
+  indy : flip Vec n $ Fin $ 2 ^ n
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
 \end{code}
 
