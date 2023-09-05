@@ -274,30 +274,23 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
         open Relation.Binary.PropositionalEquality.≡-Reasoning
         import Data.Nat.Properties as DNP
         mulsuk : (m : ℕ) → ∃ $ λ n → 2 * suc m ≡ suc n
-        mulsuk 0 = 1 , refl
-        mulsuk (suc n) = 2 * n + 3 , t n
+        mulsuk n = 2 * n + 1 , t n
           where
-          t : (n : ℕ) → 2 * suc (suc n) ≡ suc (2 * n + 3)
+          t : (n : ℕ) → 2 * suc n ≡ suc (2 * n + 1)
           t n = begin
-            2 * suc (suc n)
+            2 * suc n
               ≡⟨ refl ⟩
-            2 * (1 + suc n)
+            2 * (1 + n)
+              ≡⟨ cong (_*_ 2) $ DNP.+-comm 1 n ⟩
+            2 * (n + 1)
+              ≡⟨ DNP.*-distribˡ-+ 2 n 1 ⟩
+            2 * n + 2
               ≡⟨ refl ⟩
-            2 * (1 + (1 + n))
-              ≡⟨ sym $ cong (_*_ 2) $ DNP.+-assoc 1 1 n ⟩
-            2 * (1 + 1 + n)
-              ≡⟨ refl ⟩
-            2 * (2 + n)
-              ≡⟨ cong (_*_ 2) $ DNP.+-comm 2 n ⟩
-            2 * (n + 2)
-              ≡⟨ DNP.*-distribˡ-+ 2 n 2 ⟩
-            2 * n + 4
-              ≡⟨ refl ⟩
-            2 * n + (3 + 1)
-              ≡⟨ sym $ DNP.+-assoc (2 * n) 3 1 ⟩
-            2 * n + 3 + 1
-              ≡⟨ flip DNP.+-comm 1 $ 2 * n + 3 ⟩
-            suc (2 * n + 3) ∎
+            2 * n + (1 + 1)
+              ≡⟨ sym $ DNP.+-assoc (2 * n) 1 1 ⟩
+            2 * n + 1 + 1
+              ≡⟨ flip DNP.+-comm 1 $ 2 * n + 1 ⟩
+            suc (2 * n + 1) ∎
   cond : flip Vec n $ Fin (2 ^ n) × Fin (2 ^ n) → Fin $ 2 ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
   indy : flip Vec n $ Fin $ 2 ^ n
