@@ -16,7 +16,11 @@
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
 \newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
+\newunicodechar{∃}{\ensuremath{\mathnormal\exists}}
+\newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
+\newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{ℙ}{\ensuremath{\mathbb{P}}}
 \newunicodechar{𝔽}{\ensuremath{\mathbb{F}}}
@@ -26,6 +30,7 @@
 \newunicodechar{μ}{\ensuremath{\mu}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
+\newunicodechar{ˡ}{\ensuremath{^l}}
 \newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
 \newunicodechar{ϕ}{\ensuremath{\mathnormal{\phi}}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\wedge}}}
@@ -256,7 +261,43 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
     where
     zerpaus : (m : ℕ) → ∃ $ λ n → suc n ≡ 2 ^ m
     zerpaus ℕ.zero = ℕ.zero , refl
-    zerpaus m@(suc _) = 2 ^ m ∸ 1 , {!!}
+    zerpaus (suc n) = _ , sym mips
+      where
+      mips = begin
+        2 ^ (suc n) ≡⟨ refl ⟩
+        2 * (2 ^ n) ≡⟨ sym $ cong (_*_ 2) z₂ ⟩
+        2 * suc z₁ ≡⟨ proj₂ $ mulsuk z₁ ⟩
+        suc _ ∎
+        where
+        z₁ = proj₁ $ zerpaus n
+        z₂ = proj₂ $ zerpaus n
+        open Relation.Binary.PropositionalEquality.≡-Reasoning
+        import Data.Nat.Properties as DNP
+        mulsuk : (m : ℕ) → ∃ $ λ n → 2 * suc m ≡ suc n
+        mulsuk 0 = 1 , refl
+        mulsuk (suc n) = 2 * n + 3 , t n
+          where
+          t : (n : ℕ) → 2 * suc (suc n) ≡ suc (2 * n + 3)
+          t n = begin
+            2 * suc (suc n)
+              ≡⟨ refl ⟩
+            2 * (1 + suc n)
+              ≡⟨ refl ⟩
+            2 * (1 + (1 + n))
+              ≡⟨ sym $ cong (_*_ 2) $ DNP.+-assoc 1 1 n ⟩
+            2 * (1 + 1 + n)
+              ≡⟨ refl ⟩
+            2 * (2 + n)
+              ≡⟨ cong (_*_ 2) $ DNP.+-comm 2 n ⟩
+            2 * (n + 2)
+              ≡⟨ DNP.*-distribˡ-+ 2 n 2 ⟩
+            2 * n + 4
+              ≡⟨ refl ⟩
+            2 * n + (3 + 1)
+              ≡⟨ sym $ DNP.+-assoc (2 * n) 3 1 ⟩
+            2 * n + 3 + 1
+              ≡⟨ flip DNP.+-comm 1 $ 2 * n + 3 ⟩
+            suc (2 * n + 3) ∎
   cond : Vec (Fin (2 ^ n) × Fin (2 ^ n)) n → Fin $ 2 ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
   indy : Vec (Fin $ 2 ^ n) n
