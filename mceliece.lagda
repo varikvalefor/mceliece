@@ -265,7 +265,7 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
       where
       mips = begin
         2 ^ (suc n) ≡⟨ refl ⟩
-        2 * (2 ^ n) ≡⟨ sym $ cong (_*_ 2) z₂ ⟩
+        2 * (2 ^ n) ≡⟨ sym $ cong (_*_ 2) $ proj₂ $ zerpaus n ⟩
         2 * suc z₁ ≡⟨ refl ⟩
         2 * (1 + z₁) ≡⟨ cong (_*_ 2) $ DNP.+-comm 1 z₁ ⟩
         2 * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ 2 z₁ 1 ⟩
@@ -275,7 +275,6 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
         suc (2 * z₁ + 1) ∎
         where
         z₁ = proj₁ $ zerpaus n
-        z₂ = proj₂ $ zerpaus n
         open Relation.Binary.PropositionalEquality.≡-Reasoning
         import Data.Nat.Properties as DNP
   cond : flip Vec n $ Fin (2 ^ n) × Fin (2 ^ n) → Fin $ 2 ^ n
