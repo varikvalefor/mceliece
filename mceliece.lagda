@@ -260,7 +260,7 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   zf = mink zero $ proj₂ $ zerpaus n
     where
     zerpaus : (m : ℕ) → ∃ $ λ n → suc n ≡ 2 ^ m
-    zerpaus ℕ.zero = ℕ.zero , refl
+    zerpaus 0 = 0 , refl
     zerpaus (suc n) = _ , sym mips
       where
       mips = begin
