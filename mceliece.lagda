@@ -171,6 +171,8 @@ open import Relation.Nullary.Decidable
     isNo
   )
 open import Relation.Binary.PropositionalEquality
+
+import Data.Nat.Properties as DNP
 \end{code}
 
 \chapter{le vrici}
@@ -276,7 +278,6 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
         where
         z₁ = proj₁ $ zerpaus n
         open Relation.Binary.PropositionalEquality.≡-Reasoning
-        import Data.Nat.Properties as DNP
   cond : flip Vec n $ Fin (2 ^ n) × Fin (2 ^ n) → Fin $ 2 ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
   indy : flip Vec n $ Fin $ 2 ^ n
