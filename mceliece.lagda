@@ -160,15 +160,13 @@ open import Truthbrary.Record.Eq
   using (
     _≟_
   )
-open import Data.Nat.Properties as DNP
-  using (
-    m∸n+n≡m
-  )
 open import Relation.Nullary.Decidable
   using (
     isNo
   )
 open import Relation.Binary.PropositionalEquality
+
+import Data.Nat.Properties as DNP
 \end{code}
 
 \chapter{le vrici}
@@ -225,13 +223,13 @@ resize {_} {m} {n} {A} x xs = xt
   xt with n ℕ.≤? m
   ... | (yes z) = drop (m ∸ n) $ coc xs
     where
-    coc = coerce $ cong (Vec _) $ sym $ m∸n+n≡m z
+    coc = coerce $ cong (Vec _) $ sym $ DNP.m∸n+n≡m z
   ... | (no z) = flip coerce padin $ cong (Vec _) bitc
     where
     padin : Vec A $ n ∸ m + m
     padin = replicate x ++ xs
     bitc : n ∸ m + m ≡ n
-    bitc = m∸n+n≡m $ DNP.≰⇒≥ z
+    bitc = DNP.m∸n+n≡m $ DNP.≰⇒≥ z
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
