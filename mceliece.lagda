@@ -12,9 +12,7 @@
 
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
-\newunicodechar{∨}{\ensuremath{\mathnormal\vee}}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
-\newunicodechar{∈}{\ensuremath{\mathnormal\in}}
 \newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
 \newunicodechar{∃}{\ensuremath{\mathnormal\exists}}
 \newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
@@ -22,7 +20,6 @@
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
-\newunicodechar{ℙ}{\ensuremath{\mathbb{P}}}
 \newunicodechar{𝔽}{\ensuremath{\mathbb{F}}}
 \newunicodechar{𝕄}{\ensuremath{\mathbb{M}}}
 \newunicodechar{𝔹}{\ensuremath{\mathbb{B}}}
