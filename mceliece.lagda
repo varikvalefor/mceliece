@@ -157,22 +157,20 @@ open import Data.Vec.Bounded
   )
 open import Algebra.Structures
 open import Data.Nat.Primality
-open import Data.Nat.Properties
-  using (
-    m∸n+n≡m
-  )
 open import Truthbrary.Data.Fin
 open import Truthbrary.Record.Eq
   using (
     _≟_
+  )
+open import Data.Nat.Properties as DNP
+  using (
+    m∸n+n≡m
   )
 open import Relation.Nullary.Decidable
   using (
     isNo
   )
 open import Relation.Binary.PropositionalEquality
-
-import Data.Nat.Properties as DNP
 \end{code}
 
 \chapter{le vrici}
@@ -235,7 +233,7 @@ resize {_} {m} {n} {A} x xs = xt
     padin : Vec A $ n ∸ m + m
     padin = replicate x ++ xs
     bitc : n ∸ m + m ≡ n
-    bitc = m∸n+n≡m $ Data.Nat.Properties.≰⇒≥ z
+    bitc = m∸n+n≡m $ DNP.≰⇒≥ z
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
