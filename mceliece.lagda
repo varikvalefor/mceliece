@@ -163,16 +163,13 @@ open import Truthbrary.Record.Eq
   using (
     _≟_
   )
-open import Data.Nat.Properties as DNP
-  using (
-    m∸n+n≡m
-  )
 open import Relation.Nullary.Decidable
   using (
     isNo
   )
 open import Relation.Binary.PropositionalEquality
 
+import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
 \end{code}
 
@@ -229,13 +226,13 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   xt : Dec $ n ℕ.≤ m → Vec A n
   xt (yes z) = drop (m ∸ n) $ coc xs
     where
-    coc = coerce $ sym $ cong (Vec A) $ m∸n+n≡m z
+    coc = coerce $ sym $ cong (Vec A) $ DNP.m∸n+n≡m z
   xt (no z) = flip coerce padin $ cong (Vec A) bitc
     where
     padin : Vec A $ n ∸ m + m
     padin = replicate x ++ xs
     bitc : n ∸ m + m ≡ n
-    bitc = m∸n+n≡m $ DNP.≰⇒≥ z
+    bitc = DNP.m∸n+n≡m $ DNP.≰⇒≥ z
 
   open ≡-Reasoning
 
@@ -260,12 +257,12 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   flipko _ refl = refl
 
   dropis : (g : n ℕ.≤ m)
-         → let v≡v = sym $ cong (Vec A) $ m∸n+n≡m g in
+         → let v≡v = sym $ cong (Vec A) $ DNP.m∸n+n≡m g in
            let xs' = coerce v≡v xs in
            (_≡_
              xs
              (coerce
-               (cong (Vec A) $ m∸n+n≡m g)
+               (cong (Vec A) $ DNP.m∸n+n≡m g)
                (take (m ∸ n) xs' ++ xt (yes g))))
   dropis g = sym $ begin
     coerce k konk ≡⟨ cong (coerce k) $ DVP.take-drop-id (m ∸ n) xs' ⟩
@@ -273,7 +270,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     coerce (sym $ sym k) xs' ≡⟨ sym $ flipko xs $ sym k ⟩
     xs ∎
     where
-    k = cong (Vec A) $ m∸n+n≡m g
+    k = cong (Vec A) $ DNP.m∸n+n≡m g
     xs' : Vec A $ m ∸ n + n
     xs' = coerce (sym k) xs
     konk : Vec A $ m ∸ n + n
@@ -284,7 +281,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     symref refl = refl
 
   takis : (g : ¬ (n ℕ.≤ m))
-        → let k = m∸n+n≡m $ DNP.≰⇒≥ g in
+        → let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
           let sink = sym $ cong (Vec A) k in
           xs ≡ drop (n ∸ m) (coerce sink $ xt $ no g)
   takis g = sym $ begin
@@ -293,7 +290,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     xs ∎
     where
     pad = replicate x
-    k = m∸n+n≡m $ DNP.≰⇒≥ g
+    k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g
     konk : Vec A $ n ∸ m + m
     konk = coerce (sym $ cong (Vec A) k) $ xt $ no g
     konkydus : konk ≡ pad ++ xs
