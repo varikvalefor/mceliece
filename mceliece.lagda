@@ -28,6 +28,7 @@
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
 \newunicodechar{ˡ}{\ensuremath{^l}}
+\newunicodechar{ʳ}{\ensuremath{^r}}
 \newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
 \newunicodechar{ϕ}{\ensuremath{\mathnormal{\phi}}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\wedge}}}
@@ -254,24 +255,33 @@ ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\
 b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
 b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
-  zf = mink zero $ proj₂ $ zerpaus n
+  zf = mink zero $ proj₂ $ zerpaus _ n
     where
-    zerpaus : (m : ℕ) → ∃ $ λ n → suc n ≡ 2 ^ m
-    zerpaus 0 = 0 , refl
-    zerpaus (suc n) = _ , sym mips
+    zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
+    zerpaus _ 0 = 0 , refl
+    zerpaus 0 = _,_ 0 ∘ pau,uyn
+      where
+      pau,uyn : (n : ℕ) → 1 ≡ 1 ^ n
+      pau,uyn 0 = refl
+      pau,uyn (suc n) = cong (_*_ 1) $ pau,uyn n
+    zerpaus b' e@(ℕ.suc e') = _ , sym mips
       where
       mips = begin
-        2 ^ (suc n) ≡⟨ refl ⟩
-        2 * (2 ^ n) ≡⟨ sym $ cong (_*_ 2) $ proj₂ $ zerpaus n ⟩
-        2 * suc z₁ ≡⟨ refl ⟩
-        2 * (1 + z₁) ≡⟨ cong (_*_ 2) $ DNP.+-comm 1 z₁ ⟩
-        2 * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ 2 z₁ 1 ⟩
-        2 * z₁ + 2 ≡⟨ refl ⟩
-        2 * z₁ + (1 + 1) ≡⟨ sym $ DNP.+-assoc (2 * z₁) 1 1 ⟩
-        2 * z₁ + 1 + 1 ≡⟨ flip DNP.+-comm 1 $ 2 * z₁ + 1 ⟩
-        suc (2 * z₁ + 1) ∎
+        b ^ e ≡⟨ refl ⟩
+        b * (b ^ e') ≡⟨ sym $ cong (_*_ b) $ proj₂ $ zerpaus b' e' ⟩
+        b * suc z₁ ≡⟨ refl ⟩
+        b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
+        b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
+        b * z₁ + b * 1 ≡⟨ cong bizpu $ DNP.*-identityʳ b ⟩
+        b * z₁ + b ≡⟨ refl ⟩
+        b * z₁ + (1 + b') ≡⟨ cong bizpu $ DNP.+-comm 1 b' ⟩
+        b * z₁ + (b' + 1) ≡⟨ sym $ DNP.+-assoc (b * z₁) b' 1 ⟩
+        b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
+        suc (b * z₁ + b') ∎
         where
-        z₁ = proj₁ $ zerpaus n
+        z₁ = proj₁ $ zerpaus b' e'
+        b = ℕ.suc b'
+        bizpu = _+_ $ b * z₁
         open Relation.Binary.PropositionalEquality.≡-Reasoning
   cond : flip Vec n $ Fin (2 ^ n) × Fin (2 ^ n) → Fin $ 2 ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
