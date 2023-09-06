@@ -37,6 +37,7 @@
 \newunicodechar{ℓ}{\ensuremath{\ell}}
 \newunicodechar{σ}{\ensuremath{\sigma}}
 \newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
 \newunicodechar{₁}{\ensuremath{_1}}
 \newunicodechar{₂}{\ensuremath{_2}}
 \newunicodechar{ₗ}{\ensuremath{_\mathsf{l}}}
@@ -44,7 +45,6 @@
 \newunicodechar{ₘ}{\ensuremath{_\mathsf{m}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
-\newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{δ}{\ensuremath{\mathnormal{\delta}}}
 \newunicodechar{⇒}{\ensuremath{\mathnormal{\Rightarrow}}}
