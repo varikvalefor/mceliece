@@ -292,7 +292,7 @@ ni'o la'o zoi.\ \B a \F{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .
 
 \begin{code}
 _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Fin n → Fin n
-_∧𝔹ℕ𝔽_ {n} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
+_∧𝔹ℕ𝔽_ a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   where
   and𝔽 : Op₂ $ Fin 2
   and𝔽 (suc zero) (suc zero) = suc zero
@@ -300,7 +300,7 @@ _∧𝔹ℕ𝔽_ {n} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   ∧𝔹ℕ𝔽' : {n : ℕ} → Op₂ $ Vec (Fin 2) n
   ∧𝔹ℕ𝔽' = zipWithᵥ and𝔽
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
-  toFin : Vec (Fin 2) n → Fin n
+  toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
 \end{code}
 
