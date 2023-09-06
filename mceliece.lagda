@@ -339,7 +339,7 @@ _𝕄!!_ m n = mapᵥ (flip lookup n) m
 ni'o la'o zoi.\ \F{hw𝕄} \B t .zoi.\ cu sumji be lo'i mu'oi glibau.\ HAMMING weight .glibau.\ be lo'i ro rajypau pe'a ja co'e be la'oi .\B t.
 
 \begin{code}
-hw𝕄 : ∀ {a m n} → 𝕄 (Fin a) m n → ℕ
+hw𝕄 : {a m n : ℕ} → 𝕄 (Fin a) m n → ℕ
 hw𝕄 = sumᵥ ∘ mapᵥ hWV𝔽
 \end{code}
 
