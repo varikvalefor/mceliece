@@ -241,7 +241,7 @@ ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke
 .i la'oi .\F{nbits}.\ cu simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
 
 \begin{code}
-nbits : ∀ {a} → ℕ → Vec (Fin 2) a
+nbits : {n : ℕ} → ℕ → Vec (Fin 2) n
 nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
   where
   n2f = λ f → if f ≡ᵇ 0 then zero else suc zero
