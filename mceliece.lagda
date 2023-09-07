@@ -290,7 +290,7 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
 \end{code}
 
 \section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
-ni'o la'o zoi.\ \B a \F{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
+ni'o la'o zoi.\ \B a \AgdaOperator{\F{∧𝔹ℕ𝔽}} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Fin n → Fin n
