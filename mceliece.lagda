@@ -560,7 +560,7 @@ FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
   sartre = Data.Maybe.map jort ∘ panci
     where
     -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
-    -- me'oi .sort.
+    -- porganzu
     jort : ∀ {a} → {A : Set a} → {n : ℕ}
          → Vec A n → Vec A n
     jort = {!!}
