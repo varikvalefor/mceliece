@@ -282,7 +282,9 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
         bizpu = _+_ $ b * z₁
         open Relation.Binary.PropositionalEquality.≡-Reasoning
   cond : flip Vec n $ Fin (2 ^ n) × Fin (2 ^ n) → Fin $ 2 ^ n
-  cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
+  cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
+    where
+    pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * 2 ^ b
   indy : flip Vec n $ Fin $ 2 ^ n
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
 \end{code}
