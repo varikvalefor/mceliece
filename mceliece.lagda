@@ -362,7 +362,9 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
         bizpu = _+_ $ b * z₁
         open Relation.Binary.PropositionalEquality.≡-Reasoning
   cond : flip Vec n $ Fin (2 ^ n) × Fin (2 ^ n) → Fin $ 2 ^ n
-  cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ (uncurry $ f𝔽 _^_)
+  cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
+    where
+    pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * 2 ^ b
   indy : flip Vec n $ Fin $ 2 ^ n
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
 \end{code}
@@ -371,16 +373,16 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
 ni'o la'o zoi.\ \B a \F{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-_∧𝔹ℕ𝔽_ : ∀ {a} → ℕ → Fin a → Fin a
-_∧𝔹ℕ𝔽_ {a!} a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
+_∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Fin n → Fin n
+_∧𝔹ℕ𝔽_ a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   where
   and𝔽 : Op₂ $ Fin 2
   and𝔽 (suc zero) (suc zero) = suc zero
   and𝔽 _ _ = zero
-  ∧𝔹ℕ𝔽' : ∀ {n} → Op₂ $ Vec (Fin 2) n
+  ∧𝔹ℕ𝔽' : {n : ℕ} → Op₂ $ Vec (Fin 2) n
   ∧𝔹ℕ𝔽' = zipWithᵥ and𝔽
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
-  toFin : Vec (Fin 2) a! → Fin a!
+  toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
 \end{code}
 
