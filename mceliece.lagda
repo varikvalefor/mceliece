@@ -624,7 +624,7 @@ record KP (p : MCParam) : Set
 \end{code}
 
 \chap{le fancu poi lo nu xamgu pilno ke'a cu filri'a lo nu zbasu lo termifckiku}
-ni'o la'au \chapsname\ li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi tu'a ke'a filri'a lo nu zbasu lo nu zbasu lo termifckiku
+ni'o la'au \chapsname\ li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi tu'a ke'a filri'a lo nu zbasu lo termifckiku
 
 \section{la'oi .\F{Irreducible}.}
 ni'o la'oi .\F{Irreducible}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Irreducible}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
