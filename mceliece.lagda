@@ -161,7 +161,16 @@ open import Data.Nat as ℕ
     ℕ
   )
 open import Data.Nat.DivMod
+  using (
+    _div_
+  )
 open import Relation.Nullary
+  using (
+    Dec;
+    yes;
+    no;
+    ¬_
+  )
 open import Data.Vec.Bounded
   using (
     Vec≤
