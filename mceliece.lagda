@@ -60,6 +60,16 @@
 
 \newcommand\algoritma[1]{\textsc{#1}}
 
+% | ni'o cafne fa lo nu su'o da poi ke'a ckupau zo'u lo broda cei me'oi .abstract. be da cu vasru lo cmene be da  .i ko'a goi tu'a la'oi .chapsname. je la'oi .chap. cu rinka lo nu na sarcu fa lo nu broda batkyci'a lo cmene be lo ckupau
+%
+% .i ko'a na mutce le ka ce'u melbi la .varik.  .i ji'a ko'a na mutce le ka ce'u fegli la .varik.
+% .i la .varik. cu curmi lo nu lo tcidu cu stidi
+\newcommand\chapsname{}
+\newcommand\chap[1]{
+	\renewcommand\chapsname{#1}
+	\chapter{#1}
+}
+
 \title{le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.}
 \author{la .varik.\ .VALefor.}
 
@@ -69,16 +79,16 @@
 
 \tableofcontents
 
-\chapter{le me'oi .disclaimer.}
+\chap{le me'oi .disclaimer.}
 ni'o le proga cu na zabna je cu na mulno
 
-\chapter{le terfi'i ja co'e}
+\chap{le terfi'i ja co'e}
 ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a cu filri'a lo nu jimpe fi le mu'oi glibau.\ Classic MCELIECE .glibau.
 
 .i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u sutra  .i ku'i la .varik.\ cu na tolnei lo nu da'i ko'a drani ba'e je cu sutra
 
-\chapter{le me'oi .preamble.}
-ni'o la'au le me'oi .preamble.\ li'u vasru le .importe ja me'oi .pragma.\ selsku
+\chap{le me'oi .preamble.}
+ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 
 \begin{code}
 {-# OPTIONS --guardedness #-}
@@ -169,8 +179,8 @@ open import Relation.Binary.PropositionalEquality
 import Data.Nat.Properties as DNP
 \end{code}
 
-\chapter{le vrici}
-ni'o la'au le vrici li'u vasru zo'e poi na racli fa lo nu zbasu lo me'oi .chapter.\ poi ke'a xi re vasru ke'a xi pa po'o
+\chap{le vrici}
+ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo me'oi .chapter.\ poi ke'a xi re vasru ke'a xi pa po'o
 
 \section{la'oi .\F{hWV𝔽}.}
 ni'o la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.
@@ -232,7 +242,7 @@ resize {_} {m} {n} {A} x xs = xt
     bitc = DNP.m∸n+n≡m $ DNP.≰⇒≥ z
 \end{code}
 
-\chapter{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
+\chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
 ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
@@ -306,8 +316,8 @@ _∧𝔹ℕ𝔽_ a b = toFin $ ∧𝔹ℕ𝔽' (nbits a) $ nbits $ toℕ b
   toFin = f2f ∘ b2f
 \end{code}
 
-\chapter{la'oi .\D 𝕄.\ je zo'e}
-ni'o la'au la'oi .\D 𝕄.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\D 𝕄.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D 𝕄.\ po'o ku'o je le pinka be ko'a
+\chap{la'oi .\D 𝕄.\ je zo'e}
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\D 𝕄.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D 𝕄.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\D 𝕄.}
 ni'o ro da poi ke'a ctaipe la'o zoi.\ .\D 𝕄 \B A \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.\ je cu vasru lo ctaipe be la'oi .\B A.
@@ -352,8 +362,8 @@ moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
 moult = {!!}
 \end{code}
 
-\chapter{la'oi .\AgdaRecord{MCParam}.\ je zo'e}
-ni'o la'au la'oi .\AgdaRecord{MCParam}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{MCParam}.\ po'o ku'o je le pinka be ko'a
+\chap{la'oi .\AgdaRecord{MCParam}.\ je zo'e}
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{MCParam}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\AgdaRecord{MCParam}.}
 ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
@@ -445,8 +455,8 @@ Public : MCParam → Set
 Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 \end{code}
 
-\chapter{la'oi .\AgdaRecord{Private}.\ je zo'e}
-ni'o la'au la'oi .\AgdaRecord{Private}.\ je zo'e li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{Private}.\ po'o ku'o je le pinka be ko'a
+\chap{la'oi .\AgdaRecord{Private}.\ je zo'e}
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{Private}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\AgdaRecord{Private}.}
 ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
@@ -506,7 +516,7 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
   H~ = {!!}
 \end{code}
 
-\chapter{la'oi .\AgdaRecord{KP}.\ je zo'e}
+\chap{la'oi .\AgdaRecord{KP}.\ je zo'e}
 
 \section{la'oi .\AgdaRecord{KP}.}
 ni'o la'oi .\AgdaRecord{KP}.\ se ctaipe lo mu'oi glibau. Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
@@ -526,8 +536,8 @@ record KP (p : MCParam) : Set
     pr : Private p
 \end{code}
 
-\chapter{le fancu poi lo nu xamgu pilno ke'a cu filri'a lo nu zbasu lo termifckiku}
-ni'o la'au le fancu poi lo nu xamgu pilno ke'a cu filri'a lo nu zbasu lo termifckiku li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu zbasu lo nu zbasu lo termifckiku
+\chap{le fancu poi lo nu xamgu pilno ke'a cu filri'a lo nu zbasu lo termifckiku}
+ni'o la'au \chapsname\ li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu zbasu lo nu zbasu lo termifckiku
 
 \section{la'oi .\F{Irreducible}.}
 ni'o la'oi .\F{Irreducible}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Irreducible}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
@@ -627,7 +637,7 @@ KeyGen p = SeededKeyGen p IO.<$> cunso
   cunso = {!!}
 \end{code}
 
-\chapter{le fancu poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
+\chap{le fancu poi ke'a goi ko'a zo'u tu'a ko'a cu filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
 
 \section{la'oi .\F{Hx}.}
 ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T .zoi.
