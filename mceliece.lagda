@@ -697,10 +697,7 @@ SeededKeyGen p = SeededKeyGen'
       mapₘ₂ f (just a) (just b) = just $ f a b
       mapₘ₂ _ _ _ = nothing
       s : Fin $ MCParam.n p
-      s = b2f' themDigits
-        where
-        themDigits : Vec (Fin 2) $ MCParam.n p
-        themDigits = take (MCParam.n p) $ nbits $ toℕ E
+      s = b2f' $ take (MCParam.n p) $ nbits $ toℕ E
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
