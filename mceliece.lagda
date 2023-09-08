@@ -352,11 +352,11 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
       pau,uyn : (n : ℕ) → 1 ≡ 1 ^ n
       pau,uyn 0 = refl
       pau,uyn (suc n) = cong (_*_ 1) $ pau,uyn n
-    zerpaus b' e@(ℕ.suc e') = _ , sym mips
+    zerpaus b' (ℕ.suc e) = _ , sym mips
       where
       mips = begin
-        b ^ e ≡⟨ refl ⟩
-        b * (b ^ e') ≡⟨ sym $ cong (_*_ b) $ proj₂ $ zerpaus b' e' ⟩
+        b ^ ℕ.suc e ≡⟨ refl ⟩
+        b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ zerpaus b' e ⟩
         b * suc z₁ ≡⟨ refl ⟩
         b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
         b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
@@ -367,7 +367,7 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
         b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
         suc (b * z₁ + b') ∎
         where
-        z₁ = proj₁ $ zerpaus b' e'
+        z₁ = proj₁ $ zerpaus b' e
         b = ℕ.suc b'
         bizpu = _+_ $ b * z₁
         open Relation.Binary.PropositionalEquality.≡-Reasoning
