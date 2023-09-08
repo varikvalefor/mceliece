@@ -598,16 +598,7 @@ SeededKeyGen p = SeededKeyGen'
     b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
     b2f' = f2f ∘ b2f
     δ' : Fin $ 2 ^ MCParam.ℓ p
-    δ' = b2f themDigits
-      where
-      rev = Data.Vec.reverse
-      themDigits : Vec (Fin 2) $ MCParam.ℓ p
-      themDigits = rom $ nbits $ toℕ E
-        where
-        rom : {n : ℕ}
-            → Vec (Fin 2) $ MCParam.ℓ p + n
-            → Vec (Fin 2) $ MCParam.ℓ p
-        rom = rev ∘ take (MCParam.ℓ p) ∘ rev
+    δ' = b2f $ nbits {_ + 0} $ toℕ E
     mapti? : Maybe $ KP p
     mapti? = mapₘ₂ gumgau {!!} {!!}
       where
