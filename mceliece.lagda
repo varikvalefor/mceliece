@@ -685,7 +685,15 @@ SeededKeyGen p = SeededKeyGen'
     b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
     b2f' = f2f ∘ b2f
     δ' : Fin $ 2 ^ MCParam.ℓ p
-    δ' = b2f $ nbits {MCParam.ℓ p} $ toℕ E
+    δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
+      where
+      rev : {n : ℕ} → Fin n → Fin n
+      rev {0} ()
+      rev {suc _} = {!!}
+
+      module Veritas where
+        zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
+        zivle = {!!}
     mapti? : Maybe $ KP p
     mapti? = mapₘ₂ gumgau {!!} {!!}
       where
