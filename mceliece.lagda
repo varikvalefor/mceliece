@@ -403,11 +403,11 @@ _∧𝔹ℕ𝔽_ a b = toFin $ zipWithᵥ and𝔽 (nbits a) $ nbits $ toℕ b
   toFin = f2f ∘ b2f
 \end{code}
 
-\chap{la'oi .\D 𝕄.\ je zo'e}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\D 𝕄.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\D 𝕄.\ po'o ku'o je le pinka be ko'a
+\chap{la'oi .\F 𝕄.\ je zo'e}
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\F 𝕄.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\F 𝕄.\ po'o ku'o je le pinka be ko'a
 
-\section{la'oi .\D 𝕄.}
-ni'o ro da poi ke'a ctaipe la'o zoi.\ .\D 𝕄 \B A \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.\ je cu vasru lo ctaipe be la'oi .\B A.
+\section{la'oi .\F 𝕄.}
+ni'o ro da poi ke'a ctaipe la'o zoi.\ .\F 𝕄 \B A \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.\ je cu vasru lo ctaipe be la'oi .\B A.
 
 ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F \F ∷ 3 \F ∷ \F{[]}) \F ∷ (4 \F ∷ 5 \F ∷ 6 \F ∷ \F{[]}) \F ∷ (7 \F ∷ 8 \F ∷ 9 \F ∷ \F{[]}) \F ∷ \F{[]}) .zoi.\ du le nacmeimei poi ke'a du la'o cmaci.
 \[
