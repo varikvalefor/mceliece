@@ -705,7 +705,7 @@ SeededKeyGen p = SeededKeyGen'
       mapₘ₂ f (just a) (just b) = just $ f a b
       mapₘ₂ _ _ _ = nothing
       s : Fin $ 2 ^ MCParam.n p
-      s = b2f $ take (MCParam.n p) $ nbits $ toℕ E
+      s = b2f $ nbits {MCParam.n p} $ toℕ E
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
