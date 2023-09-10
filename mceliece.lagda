@@ -664,6 +664,17 @@ FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
     panci = {!!}
 \end{code}
 
+\section{la'oi .\F{FixedWeight}.}
+ni'o la'oi .\F{FieldOrdering}.\ velcki ja co'e la'oi .\algoritma{FixedWeight}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+
+\begin{code}
+FixedWeight : {p : MCParam}
+            → (IO $
+                Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
+                → hWV𝔽 e ≡ MCParam.t p)
+FixedWeight = {!!}
+\end{code}
+
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ selkra la'oi .\B l.\ je cu mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku gi la'o zoi.\ \F{KP.pu} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
