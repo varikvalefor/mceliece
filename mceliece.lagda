@@ -744,7 +744,7 @@ Hx p = _∣_ I
 \end{code}
 
 \section{la'oi .\F{Encode}.}
-ni'o la'oi .\F{Encode}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Encode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o la'oi .\F{Encode}.\ velcki ja co'e la'oi .\algoritma{Encode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
 
 \begin{code}
 Encode : (p : MCParam)
