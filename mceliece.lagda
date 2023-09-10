@@ -290,7 +290,6 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     xs ∎
     where
     k = cong (Vec A) $ DNP.m∸n+n≡m g
-    xs' : Vec A $ m ∸ n + n
     xs' = coerce (sym k) xs
     konk : Vec A $ m ∸ n + n
     konk = take (m ∸ n) xs' ++ xt (yes g)
