@@ -720,7 +720,7 @@ KeyGen p = SeededKeyGen p IO.<$> cunso
   cunso = {!!}
 \end{code}
 
-\chap{le fancu poi tu'a ke'a cu filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
+\chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
 
 \section{la'oi .\F{Hx}.}
 ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T .zoi.
