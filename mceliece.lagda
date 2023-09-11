@@ -559,7 +559,7 @@ ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ 
 ni'o la'o zoi.\ \F{Private.s} \F \$ \AgdaRecord{Private} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
 
 \paragraph{la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velcki be la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.
+ni'o la .varik.\ cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velcki be la'oi .\F{Private.q}.\ ja la'oi .\F{Private.n}.
 
 \begin{code}
 record Private (p : MCParam) : Set
