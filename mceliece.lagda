@@ -355,11 +355,6 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
     where
     zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
     zerpaus _ 0 = 0 , refl
-    zerpaus 0 = _,_ 0 ∘ pau,uyn
-      where
-      pau,uyn : (n : ℕ) → 1 ≡ 1 ^ n
-      pau,uyn 0 = refl
-      pau,uyn (suc n) = cong (_*_ 1) $ pau,uyn n
     zerpaus b' (ℕ.suc e) = _ , sym mips
       where
       mips = begin
