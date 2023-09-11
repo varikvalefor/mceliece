@@ -461,7 +461,7 @@ ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'o
 ni'o la'o zoi.\ \F{MCParam.n} \B q .zoi.\ ni lo me'oi .code.\ pe la'o zoi.\ \D q .zoi.\ cu clani
 
 \paragraph{la'oi .\F{MCParam.m}.}
-ni'o la'o zoi.\ \F{MCParam.m} \B q .zoi.\ dugri lo ni lo me'oi .field.\ cu barda kei li re
+ni'o la'o zoi.\ \F{MCParam.m} \B q .zoi.\ reldugri lo ni lo me'oi .field.\ cu barda
 
 \paragraph{la'oi .\F{MCParam.t}.}
 ni'o la'o zoi.\ \F{MCParam.t} \B q .zoi.\ ni me'oi .guarantee.\ le du'u cumki fa lo nu rinka ja gasnu ja co'e lo nu binxo lo drani
