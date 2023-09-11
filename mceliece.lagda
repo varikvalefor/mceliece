@@ -449,7 +449,7 @@ moult = {!!}
 \end{code}
 
 \chap{la'oi .\AgdaRecord{MCParam}.\ je zo'e}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{MCParam}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{MCParam}.\ po'o ku'o je le pinka be ko'a
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{MCParam}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{MCParam}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\AgdaRecord{MCParam}.}
 ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
@@ -542,7 +542,7 @@ Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 \end{code}
 
 \chap{la'oi .\AgdaRecord{Private}.\ je zo'e}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{Private}.\ po'o ku'o je le pinka be ko'a
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{Private}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\AgdaRecord{Private}.}
 ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
