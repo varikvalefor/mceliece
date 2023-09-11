@@ -749,8 +749,7 @@ Hx p = _∣_ I
   I : {n : ℕ} → 𝕄 (Fin 2) n n
   I = mapᵥ f $ allFin _
     where
-    f : {n : ℕ} → Fin n → Vec (Fin 2) n
-    f x = updateAt x (const $ suc zero) $ replicate zero
+    f = λ x → updateAt x (const $ suc zero) $ replicate zero
 \end{code}
 
 \section{la'oi .\F{Encode}.}
