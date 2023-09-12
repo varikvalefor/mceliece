@@ -687,7 +687,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   FixedWeight' c = {!!}
     where
     d : Vec ℕ τ
-    d = Data.Vec.map {!!} $ upToᵥ τ
+    d = mapᵥ {!!} $ upToᵥ τ
       where
       upToᵥ : (n : ℕ) → Vec ℕ n
       upToᵥ 0 = []
