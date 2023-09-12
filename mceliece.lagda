@@ -657,8 +657,8 @@ FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
     where
     -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
     -- porganzu
-    jort : ∀ {a} → {A : Set a} → {n : ℕ}
-         → Vec A n → Vec A n
+    jort : ∀ {a} → {A : Set a} → {m n : ℕ}
+         → Op₁ $ flip Vec n $ Fin m × A
     jort = {!!}
     panci : vex → Maybe vex
     panci = {!!}
