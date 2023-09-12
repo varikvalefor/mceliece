@@ -738,7 +738,6 @@ SeededKeyGen p = SeededKeyGen'
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
       rev : {n : ℕ} → Fin n → Fin n
-      rev {0} ()
       rev {suc _} = {!!}
 
       module Veritas where
