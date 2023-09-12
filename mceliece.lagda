@@ -672,7 +672,7 @@ ni'o \specimp{FixedWeight}
 FixedWeight : {p : MCParam}
             → (IO $
                 Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
-                → hWV𝔽 e ≡ MCParam.t p)
+                  → hWV𝔽 e ≡ MCParam.t p)
 FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   where
   OT = Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
