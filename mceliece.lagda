@@ -664,7 +664,7 @@ FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
 \end{code}
 
 \section{la'oi .\F{FixedWeight}.}
-ni'o \specimp{FieldOrdering}
+ni'o \specimp{FixedWeight}
 
 \begin{code}
 FixedWeight : {p : MCParam}
