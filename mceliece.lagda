@@ -696,6 +696,23 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
     a = {!!}
 \end{code}
 
+\section{la'oi .\F{Encap}.}
+ni'o \specimp{Encap}
+
+\begin{code}
+Encap : {p : MCParam}
+      → let F = Fin $ 2 ^ MCParam.ℓ p in
+        IO $ Vec (Fin 2) (MCParam.n-k p) × F × F
+Encap {p} = Encap' {p} IO.<$> FixedWeight {p}
+  where
+  Encap' : {p : MCParam}
+         → let F = Fin $ 2 ^ MCParam.ℓ p in
+           (Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
+              → hWV𝔽 e ≡ MCParam.t p)
+           → Vec (Fin 2) (MCParam.n-k p) × F × F
+  Encap' = {!!}
+\end{code}
+
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku gi la'o zoi.\ \F{KP.pu} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
