@@ -680,7 +680,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   -- | ni'o cumki fa lo nu cumki fa lo nu tu'a
   -- la'oi .restart?. rinka lo nu na me'oi .terminate.
   restart? : Maybe OT → IO OT
-  restart? = maybe pure (FixedWeight {p})
+  restart? = maybe pure $ FixedWeight {p}
   τ : ℕ
   τ with MCParam.n p ≟ MCParam.q p
   ... | yes _ = MCParam.t p
