@@ -25,6 +25,7 @@
 \newunicodechar{𝔹}{\ensuremath{\mathnormal{\mathbb{B}}}}
 \newunicodechar{ν}{\ensuremath{\mathnormal{\nu}}}
 \newunicodechar{μ}{\ensuremath{\mathnormal{\mu}}}
+\newunicodechar{τ}{\ensuremath{\mathnormal{\tau}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\mathrm{b}}}}
 \newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
@@ -667,11 +668,32 @@ FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
 ni'o \specimp{FixedWeight}
 
 \begin{code}
+{-# NON_TERMINATING #-}
 FixedWeight : {p : MCParam}
             → (IO $
                 Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
                 → hWV𝔽 e ≡ MCParam.t p)
-FixedWeight = {!!}
+FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
+  where
+  OT = Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
+         → hWV𝔽 e ≡ MCParam.t p
+  restart? : Maybe OT → IO OT
+  restart? = maybe pure (FixedWeight {p})
+  τ : ℕ
+  τ with MCParam.n p ≟ MCParam.q p
+  ... | yes _ = MCParam.t p
+  ... | no _ = {!!}
+  FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
+  FixedWeight' c = {!!}
+    where
+    d : Vec ℕ τ
+    d = Data.Vec.map {!!} $ upToᵥ τ
+      where
+      upToᵥ : (n : ℕ) → Vec ℕ n
+      upToᵥ 0 = []
+      upToᵥ s@(suc n) = s ∷ upToᵥ n
+    a : Maybe $ Vec ℕ $ MCParam.t p
+    a = {!!}
 \end{code}
 
 \section{la'oi .\F{SeededKeyGen}.}
