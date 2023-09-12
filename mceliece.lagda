@@ -61,7 +61,11 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
+\newcommand\sds{\spacefactor\sfcode`.\ \space}
+
 \newcommand\algoritma[1]{\textsc{#1}}
+
+\newcommand\specimp[1]{ni'o la'oi .\F{#1}.\ velcki ja co'e ko'a goi la'oi .\algoritma{#1}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.}
 
 % | ni'o cafne fa lo nu su'o da poi ke'a ckupau zo'u lo broda cei me'oi .abstract. be da cu vasru lo cmene be da  .i ko'a goi tu'a la'oi .chapsname. je la'oi .chap. cu rinka lo nu na sarcu fa lo nu broda batkyci'a lo cmene be lo ckupau
 %
@@ -621,7 +625,7 @@ record KP (p : MCParam) : Set
 ni'o la'au \chapsname\ li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi tu'a ke'a filri'a lo nu zbasu lo termifckiku
 
 \section{la'oi .\F{Irreducible}.}
-ni'o la'oi .\F{Irreducible}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Irreducible}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o \specimp{Irreducible}
 
 \begin{code}
 Irreducible : {p : MCParam}
@@ -631,7 +635,7 @@ Irreducible = {!!}
 \end{code}
 
 \section{la'oi .\F{FieldOrdering}.}
-ni'o la'oi .\F{FieldOrdering}.\ velcki ja co'e ko'a goi la'oi .\algoritma{FieldOrdering}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o \specimp{FieldOrdering}
 
 \begin{code}
 FieldOrdering : {p : MCParam}
@@ -660,7 +664,7 @@ FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
 \end{code}
 
 \section{la'oi .\F{FixedWeight}.}
-ni'o la'oi .\F{FieldOrdering}.\ velcki ja co'e la'oi .\algoritma{FixedWeight}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o \specimp{FieldOrdering}
 
 \begin{code}
 FixedWeight : {p : MCParam}
@@ -748,7 +752,7 @@ Hx p = _∣_ I
 \end{code}
 
 \section{la'oi .\F{Encode}.}
-ni'o la'oi .\F{Encode}.\ velcki ja co'e la'oi .\algoritma{Encode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.
+ni'o \specimp{Encode}
 
 \begin{code}
 Encode : (p : MCParam)
@@ -762,7 +766,7 @@ Encode p e T = moult H e
 \end{code}
 
 \section{la'oi .\F{Decode}.}
-ni'o la'oi .\F{Decode}.\ velcki ja co'e ko'a goi la'oi .\algoritma{Decode}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
+ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
 
 \begin{code}
 Decode : {p : MCParam}
