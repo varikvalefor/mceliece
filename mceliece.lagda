@@ -765,7 +765,7 @@ ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .ret
 KeyGen : (p : MCParam) → IO $ KP p
 KeyGen p = SeededKeyGen p IO.<$> cunso
   where
-  cunso = {!!}
+  cunso = b2f {MCParam.ℓ p} IO.<$> {!!}
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
