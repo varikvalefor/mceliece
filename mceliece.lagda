@@ -686,8 +686,13 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   ... | yes _ = MCParam.t p
   ... | no _ = {!!}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
-  FixedWeight' c = Data.Maybe.map {!!} a
+  FixedWeight' c = mapₘ (proj₁,₂ ∘ e') a
     where
+    proj₁,₂ : ∀ {a b c}
+            → {A : Set a} → {B : A → Set b} → {C : A → Set c}
+            → Σ A (λ a' → B a' × C a')
+            → Σ A B
+    proj₁,₂ (a , b , _) = a , b
     d : Vec ℕ τ
     d = mapᵥ {!!} $ upToᵥ τ
       where
@@ -696,6 +701,16 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       upToᵥ s@(suc n) = s ∷ upToᵥ n
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = {!!}
+    e' : (a : _)
+       → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
+         → hWV𝔽 e ≡ MCParam.t p
+         × let el = Data.List.allFin _ in
+           (_≡_
+             el
+             (flip Data.List.filter
+               el
+               (λ i → suc zero ≟ lookup e (lookup a i))))
+    e' = {!!}
 \end{code}
 
 \section{la'oi .\F{Encap}.}
