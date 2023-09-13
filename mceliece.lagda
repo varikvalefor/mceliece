@@ -686,7 +686,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   ... | yes _ = MCParam.t p
   ... | no _ = {!!}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
-  FixedWeight' c = mapₘ (proj₁,₂ ∘ e') a
+  FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a
     where
     proj₁,₂ : ∀ {a b c}
             → {A : Set a} → {B : A → Set b} → {C : A → Set c}
