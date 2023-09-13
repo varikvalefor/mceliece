@@ -642,7 +642,7 @@ ni'o \specimp{FieldOrdering}
 FieldOrdering : {p : MCParam}
               → Fin $ MCParam.σ₂ p * MCParam.q p
               → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
-FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
+FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
   where
   indice : ∀ {a} → {n : ℕ} → {A : Set a}
          → Vec A n → Vec (A × Fin n) n
@@ -653,7 +653,7 @@ FieldOrdering {p} f = Data.Maybe.map {!!} $ sartre $ indice a
   a : v
   a = {!!}
   sartre : vex → Maybe vex
-  sartre = Data.Maybe.map jort ∘ panci
+  sartre = mapₘ jort ∘ panci
     where
     -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
     -- porganzu
