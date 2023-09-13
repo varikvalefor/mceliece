@@ -686,7 +686,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   ... | yes _ = MCParam.t p
   ... | no _ = {!!}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
-  FixedWeight' c = {!!}
+  FixedWeight' c = Data.Maybe.map {!!} a
     where
     d : Vec ℕ τ
     d = mapᵥ {!!} $ upToᵥ τ
