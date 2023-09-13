@@ -768,7 +768,7 @@ SeededKeyGen p = SeededKeyGen'
       gumgau T _ = record {pu = T; pr = {!!}}
       mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
             → (A → B → C) → Maybe A → Maybe B → Maybe C
-      mapₘ₂ f (just a) (just b) = just $ f a b
+      mapₘ₂ f (just a) = mapₘ $ f a
       mapₘ₂ _ _ _ = nothing
       s : Fin $ 2 ^ MCParam.n p
       s = b2f $ nbits {MCParam.n p} $ toℕ E
