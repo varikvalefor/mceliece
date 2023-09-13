@@ -755,7 +755,7 @@ SeededKeyGen p = SeededKeyGen'
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
       rev : {n : ℕ} → Fin n → Fin n
-      rev {suc _} = {!!}
+      rev {suc _} = Data.Fin.opposite
 
       module Veritas where
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
