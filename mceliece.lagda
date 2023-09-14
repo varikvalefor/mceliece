@@ -607,7 +607,7 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
 \section{la'oi .\AgdaRecord{KP}.}
 ni'o la'oi .\AgdaRecord{KP}.\ se ctaipe lo mu'oi glibau. Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
 
-.i ga naja la'o zoi.\ \B t .zoi.\ ctaipe la'o zoi.\ \F{KP}\ \AgdaUnderscore\ .zoi.\ gi ga je ko'a goi la'o zoi.\ \F{proj₂} \B t .zoi.\ sivni termifckiku je cu mapti la'o zoi.\ \B t\ .zoi.\ gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{proj₁} \B t .zoi.
+.i ga naja la'o zoi.\ \B t .zoi.\ ctaipe la'o zoi.\ \F{KP}\ \AgdaUnderscore\ .zoi.\ gi cadga fa lo nu ga je ko'a goi la'o zoi.\ \F{proj₂} \B t .zoi.\ sivni termifckiku je cu mapti la'o zoi.\ \B t\ .zoi.\ gi ko'a mapti la'o zoi.\ \F{proj₁} \B t .zoi.
 
 \begin{code}
 KP : MCParam → Set
