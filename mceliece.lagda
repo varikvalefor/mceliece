@@ -607,19 +607,11 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
 \section{la'oi .\AgdaRecord{KP}.}
 ni'o la'oi .\AgdaRecord{KP}.\ se ctaipe lo mu'oi glibau. Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
 
-\subsection{le me'oi .field.}
-\paragraph{la'oi .\F{KP.pu}.}
-ni'o ge ko'a goi la'o zoi.\ \F{KP.pu} \B t .zoi.\ gubni termifckiku gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{KP.pr} \B t .zoi.
-
-\paragraph{la'oi .\F{KP.pr}.}
-ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \B t .zoi.\ sivni termifckiku gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{KP.pu} \B t .zoi.
+.i ga naja la'o zoi.\ \B t .zoi.\ ctaipe la'o zoi.\ \F{KP}\ \AgdaUnderscore\ .zoi.\ gi ga je ko'a goi la'o zoi.\ \F{proj₂} \B t .zoi.\ sivni termifckiku je cu mapti la'o zoi.\ \B t\ .zoi.\ gi cadga fa lo nu ko'a mapti la'o zoi.\ \F{proj₁} \B t .zoi.
 
 \begin{code}
-record KP (p : MCParam) : Set
-  where
-  field
-    pu : Public p
-    pr : Private p
+KP : MCParam → Set
+KP p = Public p × Private p
 \end{code}
 
 \chap{le fancu poi lo nu xamgu pilno ke'a cu filri'a lo nu zbasu lo termifckiku}
@@ -733,7 +725,7 @@ Encap {p} = Encap' {p} IO.<$> FixedWeight {p}
 \end{code}
 
 \section{la'oi .\F{SeededKeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku gi la'o zoi.\ \F{KP.pu} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
+ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku gi la'o zoi.\ \F{proj₁} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
 .i ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u la'oi .\F{SeededKeyGen}.\ me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.
 
@@ -774,7 +766,7 @@ SeededKeyGen p = SeededKeyGen'
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{KP.pr} \F{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{KP.pu} \F{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
+ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \F{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{proj₁} \F{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
 
 \subsection{le velcki}
 
