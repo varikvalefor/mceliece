@@ -791,7 +791,7 @@ ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei
 Hx : (p : MCParam)
    → Public p
    → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
-Hx p T = coerce (cong matmid n∸k+k≡n) $ I ∣ T
+Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ I
   where
   coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
   coerce refl = id
