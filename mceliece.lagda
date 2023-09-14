@@ -534,7 +534,7 @@ record MCParam : Set
 \end{code}
 
 \section{la'oi .\F{Public}.}
-ni'o la'o zoi.\ \F{Public} \B q .zoi.\ ctaipe lo gubni termifckiku pe la'oi .\B q.
+ni'o la'o zoi.\ \F{Public} \B q .zoi.\ se ctaipe lo gubni termifckiku pe la'oi .\B q.
 
 \begin{code}
 Public : MCParam → Set
