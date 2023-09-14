@@ -583,10 +583,10 @@ ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je l
 MatGen : {p : MCParam} → Private p → Maybe $ Public p
 MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
   where
-  tee = MCParam.t p
-  enn = MCParam.n p
-  mf = 𝕄 (Fin $ MCParam.q p) tee enn
-  mftwom = 𝕄 (Fin 2) (MCParam.m p * tee) enn
+  t = MCParam.t p
+  n = MCParam.n p
+  mf = 𝕄 (Fin $ MCParam.q p) t n
+  mftwom = 𝕄 (Fin 2) (MCParam.m p * t) n
   -- | ni'o ro da zo'u da ctaipe la'oi .SemiSysForm.
   -- jo cu srana le mu'oi glibau. semi-systematic form
   -- .glibau.
