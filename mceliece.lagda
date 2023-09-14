@@ -213,7 +213,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 \end{code}
 
 \section{la'oi .\F{\_div2\_}.}
-ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
+ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _div2_ : ℕ → ℕ → ℕ
@@ -222,7 +222,7 @@ a div2 (suc b) = a div (suc b)
 \end{code}
 
 \section{la'oi .\F{f2f}.}
-ni'o ganai ge la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \D{Fin} \B m .zoi.\ gi gonai ge lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
+ni'o ga naja ga je la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \D{Fin} \B m .zoi.\ gi ga jonai ga je lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin n
