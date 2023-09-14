@@ -498,7 +498,7 @@ ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
 ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ me'oi .pseudorandom.
 
 \paragraph{le ctaipe be lo su'u dubjavme'a ja co'e}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{n≤q}.\ ja la'oi .\F{t≥2}.\ ja la'oi .\F{ν≥μ}.\ ja la'oi .\F{ν≤μ+k}.\ ja la'oi .\F{σ₁≥m}.\ ja la'oi .\F{σ₂≥2*m}.\ ja la'oi .\F{m*t<n}.\ bau la .lojban.
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{n≤q}.\ ja la'oi .\F{t≥2}.\ ja la'oi .\F{ν≥μ}.\ ja la'oi .\F{ν≤μ+k}.\ ja la'oi .\F{σ₁≥m}.\ ja la'oi .\F{σ₂≥2*m}.\ ja la \F{ctejau}\ bau la .lojban.
 
 \begin{code}
 record MCParam : Set
@@ -530,7 +530,7 @@ record MCParam : Set
     ν≤μ+k : ν ℕ.≤ μ + k
     σ₁≥m : σ₁ ℕ.≥ m
     σ₂≥2*m : σ₂ ℕ.≥ 2 * m
-    m*t<n : m * t ℕ.< n
+    ctejau : m * t ℕ.< n
 \end{code}
 
 \section{la'oi .\F{Public}.}
