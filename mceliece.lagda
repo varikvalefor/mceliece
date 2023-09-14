@@ -309,7 +309,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
           xs ≡ drop (n ∸ m) (coerce sink $ xt $ no g)
   takis g = sym $ begin
     drop (n ∸ m) konk ≡⟨ cong (drop $ n ∸ m) konkydus ⟩
-    drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ⟩
+    drop (n ∸ m) (pad ++ xs) ≡⟨ sym $ dropdus pad xs ⟩
     xs ∎
     where
     pad = replicate x
@@ -321,9 +321,9 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
             → (x : Vec A m)
             → (z : Vec A n)
-            → drop (length x) (x ++ z) ≡ z
+            → z ≡ drop (length x) (x ++ z)
     dropdus [] _ = refl
-    dropdus (x ∷ xs) = subst (flip _≡_ _) (d xs x) ∘ dropdus xs
+    dropdus (x ∷ xs) = subst (_≡_ _) (d xs x) ∘ dropdus xs
       where
       d : ∀ {a} → {A : Set a} → {m n : ℕ}
         → (x : Vec A m)
