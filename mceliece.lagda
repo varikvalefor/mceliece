@@ -213,7 +213,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 \end{code}
 
 \section{la'oi .\F{\_div2\_}.}
-ni'o gonai ge la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
+ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _div2_ : ℕ → ℕ → ℕ
@@ -222,7 +222,7 @@ a div2 (suc b) = a div (suc b)
 \end{code}
 
 \section{la'oi .\F{f2f}.}
-ni'o ganai ge la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \D{Fin} \B m .zoi.\ gi gonai ge lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
+ni'o ga naja ga je la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \D{Fin} \B m .zoi.\ gi ga jonai ga je lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin n
@@ -238,7 +238,7 @@ f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
 \section{la'oi .\F{resize}.}
-ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\_\Sym\}\ \Sym\{\B m\Sym\}\ \Sym\{\B n\Sym\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \F \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\_++\_}\ \F \$\ \F{replicate}\ \B t\ .zoi.
+ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\}\ \Sym\{\B m\Sym\}\ \Sym\{\B n\Sym\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \F \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\_++\_}\ \F \$\ \F{replicate}\ \B t\ .zoi.
 
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
@@ -309,21 +309,21 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
           xs ≡ drop (n ∸ m) (coerce sink $ xt $ no g)
   takis g = sym $ begin
     drop (n ∸ m) konk ≡⟨ cong (drop $ n ∸ m) konkydus ⟩
-    drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ⟩
+    drop (n ∸ m) (pad ++ xs) ≡⟨ sym $ dropdus pad xs ⟩
     xs ∎
     where
     pad = replicate x
     k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g
     konk : Vec A $ n ∸ m + m
-    konk = coerce (sym $ cong (Vec A) k) $ xt $ no g
+    konk = flip coerce (xt $ no g) $ sym $ cong (Vec A) k
     konkydus : konk ≡ pad ++ xs
     konkydus = sym $ flipko (pad ++ xs) $ cong (Vec A) k
     dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
             → (x : Vec A m)
             → (z : Vec A n)
-            → drop (length x) (x ++ z) ≡ z
+            → z ≡ drop (length x) (x ++ z)
     dropdus [] _ = refl
-    dropdus (x ∷ xs) = subst (flip _≡_ _) (d xs x) ∘ dropdus xs
+    dropdus (x ∷ xs) = subst (_≡_ _) (d xs x) ∘ dropdus xs
       where
       d : ∀ {a} → {A : Set a} → {m n : ℕ}
         → (x : Vec A m)
@@ -338,7 +338,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
-ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ge le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
+ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
 .i la'oi .\F{nbits}.\ cu simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
 
@@ -467,7 +467,7 @@ ni'o la'o zoi.\ \F{MCParam.m} \B q .zoi.\ reldugri lo ni lo me'oi .field.\ cu ba
 ni'o la'o zoi.\ \F{MCParam.t} \B q .zoi.\ ni me'oi .guarantee.\ le du'u cumki fa lo nu rinka ja gasnu ja co'e lo nu binxo lo drani
 
 \paragraph{la'oi .\F{MCParam.f}.}
-ni'o la'o zoi.\ \F{MCParam.f} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a be fi la'o zoi.\ \F{MCParam.m} \B q .zoi\ldots je cu co'e
+ni'o la'o zoi.\ \F{MCParam.f} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \F{MCParam.m} \B q .zoi\ldots je cu co'e
 
 \paragraph{la'oi .\F{MCParam.F}.}
 ni'o la'o zoi.\ \F{MCParam.F} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a be fi la'o zoi.\ \F{MCParam.t} \B q .zoi\ldots je cu co'e
@@ -498,7 +498,7 @@ ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
 ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ me'oi .pseudorandom.
 
 \paragraph{le ctaipe be lo su'u dubjavme'a ja co'e}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{n≤q}.\ ja la'oi .\F{t≥2}.\ ja la'oi .\F{ν≥μ}.\ ja la'oi .\F{ν≤μ+k}.\ ja la'oi .\F{σ₁≥m}.\ ja la'oi .\F{σ₂≥2*m}.\ ja la'oi .\F{m*t<n}.\ bau la .lojban.
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{n≤q}.\ ja la'oi .\F{t≥2}.\ ja la'oi .\F{ν≥μ}.\ ja la'oi .\F{ν≤μ+k}.\ ja la'oi .\F{σ₁≥m}.\ ja la'oi .\F{σ₂≥2*m}.\ ja la \F{ctejau}\ bau la .lojban.
 
 \begin{code}
 record MCParam : Set
@@ -530,11 +530,11 @@ record MCParam : Set
     ν≤μ+k : ν ℕ.≤ μ + k
     σ₁≥m : σ₁ ℕ.≥ m
     σ₂≥2*m : σ₂ ℕ.≥ 2 * m
-    m*t<n : m * t ℕ.< n
+    ctejau : m * t ℕ.< n
 \end{code}
 
 \section{la'oi .\F{Public}.}
-ni'o la'o zoi.\ \F{Public} \B q .zoi.\ ctaipe lo gubni termifckiku pe la'oi .\B q.
+ni'o la'o zoi.\ \F{Public} \B q .zoi.\ se ctaipe lo gubni termifckiku pe la'oi .\B q.
 
 \begin{code}
 Public : MCParam → Set
@@ -558,9 +558,6 @@ ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ 
 \paragraph{la'oi .\F{Private.s}.}
 ni'o la'o zoi.\ \F{Private.s} \F \$ \AgdaRecord{Private} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
 
-\paragraph{la'oi .\F{Private.q}.\ je la'oi .\F{Private.n}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu ja xamgu fa lo nu jmina lo clani velcki be la'oi .\F{Private.q}.\ ja la'oi .\F{Private.n}.
-
 \begin{code}
 record Private (p : MCParam) : Set
   where
@@ -583,17 +580,17 @@ ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je l
 MatGen : {p : MCParam} → Private p → Maybe $ Public p
 MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
   where
-  tee = MCParam.t p
-  enn = MCParam.n p
-  mf = 𝕄 (Fin $ MCParam.q p) tee enn
-  mftwom = 𝕄 (Fin 2) (MCParam.m p * tee) enn
+  t = MCParam.t p
+  n = MCParam.n p
+  mf = 𝕄 (Fin $ MCParam.q p) t n
+  mftwom = 𝕄 (Fin 2) (MCParam.m p * t) n
   -- | ni'o ro da zo'u da ctaipe la'oi .SemiSysForm.
   -- jo cu srana le mu'oi glibau. semi-systematic form
   -- .glibau.
   SemiSysForm : Set
   SemiSysForm = {!!}
   repl : mf → mftwom
-  repl = {!!}
+  repl = mapᵥ {!!}
   cyst : mftwom → Maybe SemiSysForm
   cyst = {!!}
   toPus : SemiSysForm → Public p
@@ -614,7 +611,7 @@ KP : MCParam → Set
 KP p = Public p × Private p
 \end{code}
 
-\chap{le fancu poi lo nu xamgu pilno ke'a cu filri'a lo nu zbasu lo termifckiku}
+\chap{le fancu poi tu'a ke'a filri'a lo nu zbasu lo termifckiku}
 ni'o la'au \chapsname\ li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi tu'a ke'a filri'a lo nu zbasu lo termifckiku
 
 \section{la'oi .\F{Irreducible}.}
