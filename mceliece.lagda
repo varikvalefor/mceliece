@@ -590,7 +590,7 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
   SemiSysForm : Set
   SemiSysForm = {!!}
   repl : mf → mftwom
-  repl = {!!}
+  repl = mapᵥ {!!}
   cyst : mftwom → Maybe SemiSysForm
   cyst = {!!}
   toPus : SemiSysForm → Public p
