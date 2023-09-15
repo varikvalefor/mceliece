@@ -643,7 +643,7 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
   where
   indice : ∀ {a} → {n : ℕ} → {A : Set a}
          → Vec A n → Vec (A × Fin n) n
-  indice = flip zipᵥ $ Data.Vec.allFin _
+  indice = flip zipᵥ $ allFin _
   q = MCParam.q p
   v = flip Vec q $ Fin $ MCParam.σ₂ p
   vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
