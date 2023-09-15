@@ -90,7 +90,7 @@
 \chap{le me'oi .disclaimer.}
 ni'o le velcki cu na zabna je cu na mulno
 
-\chap{le terfi'i ja co'e}
+\chap{le terzu'e}
 ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a cu filri'a lo nu jimpe fi le mu'oi glibau.\ Classic MCELIECE .glibau.
 
 .i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u xi re sutra  .i ku'i la .varik.\ cu na tolnei lo nu da'i ko'a drani ba'e je cu sutra
@@ -238,7 +238,7 @@ f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
 \section{la'oi .\F{resize}.}
-ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\}\ \Sym\{\B m\Sym\}\ \Sym\{\B n\Sym\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \F \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\_++\_}\ \F \$\ \F{replicate}\ \B t\ .zoi.
+ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\}\ \Sym\{\B m\Sym\}\ \Sym\{\B n\Sym\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \F \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\AgdaUnderscore++\AgdaUnderscore}\ \F \$\ \F{replicate}\ \B t\ .zoi.
 
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
@@ -635,7 +635,7 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
   where
   indice : ∀ {a} → {n : ℕ} → {A : Set a}
          → Vec A n → Vec (A × Fin n) n
-  indice = flip zipᵥ $ Data.Vec.allFin _
+  indice = flip zipᵥ $ allFin _
   q = MCParam.q p
   v = flip Vec q $ Fin $ MCParam.σ₂ p
   vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
@@ -754,7 +754,7 @@ SeededKeyGen p = SeededKeyGen'
       where
       Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
       gumgau : Public p → Vqt → KP p
-      gumgau T _ = record {pu = T; pr = {!!}}
+      gumgau T _ = T , ?
       mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
             → (A → B → C) → Maybe A → Maybe B → Maybe C
       mapₘ₂ = ap ∘₂ mapₘ
@@ -782,9 +782,11 @@ ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei
 \begin{code}
 Hx : (p : MCParam)
    → Public p
-   → 𝕄 (Fin 2) (MCParam.n-k p + MCParam.k p) $ MCParam.n-k p
-Hx p = _∣_ I
+   → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
+Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ I
   where
+  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+  coerce refl = id
   _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
       → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
   _∣_ a b = mapᵥ (lookup++ a b) $ allFin _
@@ -794,6 +796,10 @@ Hx p = _∣_ I
   I = mapᵥ f $ allFin _
     where
     f = λ x → updateAt x (const $ suc zero) $ replicate zero
+  matmid =  λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
+  n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m (MCParam.n p) m*t
+    where
+    m*t = MCParam.m p * MCParam.t p
 \end{code}
 
 \section{la'oi .\F{Encode}.}
@@ -803,9 +809,9 @@ ni'o \specimp{Encode}
 Encode : (p : MCParam)
        → (e : Vec (Fin 2) $ MCParam.n p)
        → Public p
-       → {hWV𝔽 e ≡ MCParam.t p}
+       → hWV𝔽 e ≡ MCParam.t p
        → Vec (Fin 2) $ MCParam.n-k p
-Encode p e T = moult H e
+Encode p e T refl = moult H e
   where
   H = Hx p T
 \end{code}
