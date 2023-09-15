@@ -811,9 +811,9 @@ ni'o \specimp{Encode}
 Encode : (p : MCParam)
        → (e : Vec (Fin 2) $ MCParam.n p)
        → Public p
-       → {hWV𝔽 e ≡ MCParam.t p}
+       → hWV𝔽 e ≡ MCParam.t p
        → Vec (Fin 2) $ MCParam.n-k p
-Encode p e T = moult H e
+Encode p e T refl = moult H e
   where
   H = Hx p T
 \end{code}
