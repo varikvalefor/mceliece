@@ -842,7 +842,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     where
     drata = _≟_ true ∘ isNo ∘ uncurry _≟_
   v : xv MCParam.n
-  v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
+  v = zenbyco'e tv C₀ $ replicate zero
     where
     zenbyco'e : _ → xv MCParam.n-k → xv MCParam.n → xv MCParam.n
     zenbyco'e = {!!}
