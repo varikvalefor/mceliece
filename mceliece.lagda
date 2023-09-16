@@ -88,10 +88,10 @@
 \tableofcontents
 
 \chap{le me'oi .disclaimer.}
-ni'o le velcki cu na zabna je cu na mulno
+ni'o le velcki cu zabna jenai cu mulno
 
 \chap{le terzu'e}
-ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a cu filri'a lo nu jimpe fi le mu'oi glibau.\ Classic MCELIECE .glibau.
+ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a filri'a lo nu jimpe fi le mu'oi glibau.\ Classic MCELIECE .glibau.
 
 .i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u xi re sutra  .i ku'i la .varik.\ cu na tolnei lo nu da'i ko'a drani ba'e je cu sutra
 
@@ -201,7 +201,7 @@ import Data.Vec.Properties as DVP
 ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo me'oi .chapter.\ poi ke'a xi re vasru ke'a xi pa po'o
 
 \section{la'oi .\F{hWV𝔽}.}
-ni'o la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.
+ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.  .i sa'u nai ko'a nilzilcmi lo'i ro co'e ja cmima be la'o zoi.\ \B x .zoi.\ poi ke'a na du la'oi .\F{zero}.
 
 \begin{code}
 hWV𝔽 : {a b : ℕ} → Vec (Fin b) a → ℕ
@@ -222,7 +222,7 @@ a div2 (suc b) = a div (suc b)
 \end{code}
 
 \section{la'oi .\F{f2f}.}
-ni'o ga naja ga je la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n .zoi.\ gi djica lo nu pruce fi lo ctaipe be la'o zoi.\ \D{Fin} \B m .zoi.\ gi ga jonai ga je lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
+ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n .zoi.\ gi ga jonai ga je lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B m\Sym\} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin n
@@ -230,11 +230,19 @@ f2f = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
-ni'o ganai la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \F \$ f \Sym(\F{toℕ} \B a\Sym) \F \$ \F{toℕ} \B b .zoi.\ ce la'oi .\B q.
+ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \F \$ \B f \Sym(\F{toℕ} \B a\Sym) \F \$ \F{toℕ} \B b .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1 .zoi.
 
 \begin{code}
-f𝔽 : {n : ℕ} → (ℕ → ℕ → ℕ) → Fin n → Fin n → Fin n
+f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin n
 f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
+\end{code}
+
+\section{la'oi .\F{coerce}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{coerce}.\ bau la .lojban.
+
+\begin{code}
+coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+coerce refl = id
 \end{code}
 
 \section{la'oi .\F{resize}.}
@@ -245,8 +253,6 @@ resize : ∀ {a} → {m n : ℕ} → {A : Set a}
        → A → Vec A m → Vec A n
 resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   where
-  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
-  coerce refl = id
   xt : Dec $ n ℕ.≤ m → Vec A n
   xt (yes z) = drop (m ∸ n) $ coc xs
     where
@@ -785,8 +791,6 @@ Hx : (p : MCParam)
    → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
 Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ I
   where
-  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
-  coerce refl = id
   _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
       → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
   _∣_ a b = mapᵥ (lookup++ a b) $ allFin _
@@ -834,9 +838,9 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     where
     drata = _≟_ true ∘ isNo ∘ uncurry _≟_
   v : xv MCParam.n
-  v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
+  v = zenbyco'e tv C₀ $ replicate zero
     where
-    zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
+    zenbyco'e : _ → xv MCParam.n-k → Op₁ $ xv MCParam.n
     zenbyco'e = {!!}
     tv : (λ t → These t t → t) $ Fin 2
     tv = Data.These.fold id id const
