@@ -191,7 +191,7 @@ open import Truthbrary.Record.Eq
   )
 open import Relation.Nullary.Decidable
   using (
-    isNo
+    isYes
   )
 open import Relation.Binary.PropositionalEquality
 
@@ -835,7 +835,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   dist : {n : ℕ} → Vec (Fin 2) n → Vec (Fin 2) n → ℕ
   dist = Vec≤.length ∘₂ filter drata ∘₂ zipᵥ
     where
-    drata = _≟_ true ∘ isNo ∘ uncurry _≟_
+    drata = _≟_ false ∘ isYes ∘ uncurry _≟_
   v : xv MCParam.n
   v = zenbyco'e tv C₀ $ replicate zero
     where
