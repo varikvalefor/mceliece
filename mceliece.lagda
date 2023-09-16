@@ -237,6 +237,14 @@ f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin n
 f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
+\section{la'oi .\F{coerce}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{coerce}.\ bau la .lojban.
+
+\begin{code}
+coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+coerce refl = id
+\end{code}
+
 \section{la'oi .\F{resize}.}
 ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\}\ \Sym\{\B m\Sym\}\ \Sym\{\B n\Sym\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \F \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\AgdaUnderscore++\AgdaUnderscore}\ \F \$\ \F{replicate}\ \B t\ .zoi.
 
@@ -245,8 +253,6 @@ resize : ∀ {a} → {m n : ℕ} → {A : Set a}
        → A → Vec A m → Vec A n
 resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   where
-  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
-  coerce refl = id
   xt : Dec $ n ℕ.≤ m → Vec A n
   xt (yes z) = drop (m ∸ n) $ coc xs
     where
@@ -793,8 +799,6 @@ Hx : (p : MCParam)
    → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
 Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ I
   where
-  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
-  coerce refl = id
   _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
       → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
   _∣_ a b = mapᵥ (lookup++ a b) $ allFin _
