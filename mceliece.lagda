@@ -843,12 +843,10 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     zenbyco'e = {!!}
     tv : (λ t → These t t → t) $ Fin 2
     tv = Data.These.fold id id const
-  sumji : Op₂ $ xv MCParam.n
-  sumji = zipWithᵥ $ f𝔽 _+_
   c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
-  e = flip mapₘ c $ sumji v
+  e = flip mapₘ c $ flip zipWithᵥ v $ f𝔽 _+_
   -- | .i lisri
   huck : {m n : ℕ} → Vec (Fin m) n → ℕ
   huck {m} {n} = Data.List.sum ∘ pilji ∘ indice ∘ toList
