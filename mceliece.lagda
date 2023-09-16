@@ -846,7 +846,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
-  e = flip mapₘ c $ flip zipWithᵥ v $ f𝔽 _+_
+  e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
   -- | .i lisri
   huck : {m n : ℕ} → Vec (Fin m) n → ℕ
   huck {m} {n} = Data.List.sum ∘ pilji ∘ indice ∘ toList
