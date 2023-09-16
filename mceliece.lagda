@@ -414,7 +414,7 @@ ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\F 𝕄.\ je le p
 \section{la'oi .\F 𝕄.}
 ni'o ro da poi ke'a ctaipe la'o zoi.\ .\F 𝕄 \B A \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.\ je cu vasru lo ctaipe be la'oi .\B A.
 
-ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F \F ∷ 3 \F ∷ \F{[]}) \F ∷ (4 \F ∷ 5 \F ∷ 6 \F ∷ \F{[]}) \F ∷ (7 \F ∷ 8 \F ∷ 9 \F ∷ \F{[]}) \F ∷ \F{[]}) .zoi.\ du le nacmeimei poi ke'a du la'o cmaci.
+ni'o la'o zoi.\ \F 𝕄 \D ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F \F ∷ 3 \F ∷ \F{[]}) \F ∷ (4 \F ∷ 5 \F ∷ 6 \F ∷ \F{[]}) \F ∷ (7 \F ∷ 8 \F ∷ 9 \F ∷ \F{[]}) \F ∷ \F{[]}) .zoi.\ du le nacmeimei poi ke'a du la'o cmaci.
 \[
 	\begin{bmatrix}
 		1 & 2 & 3 \\
