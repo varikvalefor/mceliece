@@ -844,7 +844,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   v : xv MCParam.n
   v = zenbyco'e tv C₀ $ replicate {n = MCParam.n p} zero
     where
-    zenbyco'e : _ → _ → Vec (Fin 2) _ → xv MCParam.n
+    zenbyco'e : _ → xv MCParam.n-k → xv MCParam.n → xv MCParam.n
     zenbyco'e = {!!}
     tv : (λ t → These t t → t) $ Fin 2
     tv = Data.These.fold id id const
