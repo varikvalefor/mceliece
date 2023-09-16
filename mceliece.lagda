@@ -78,6 +78,8 @@
 	\chapter{#1}
 }
 
+\newcommand\nitynarcuhi[1]{ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'o zoi.\ #1 .zoi.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.}
+
 \title{le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.}
 \author{la .varik.\ .VALefor.}
 
@@ -662,7 +664,7 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
 \section{la'oi .\F{FixedWeight}.}
 ni'o \specimp{FixedWeight}
 
-ni'o ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'oi .\F{FixedWeight}.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.
+ni'o \nitynarcuhi{\F{FixedWeight}}
 
 \begin{code}
 {-# NON_TERMINATING #-}
@@ -730,7 +732,7 @@ Encap {p} = Encap' {p} IO.<$> FixedWeight {p}
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku gi la'o zoi.\ \F{proj₁} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
-.i ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u la'oi .\F{SeededKeyGen}.\ me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.
+.i \nitynarcuhi{\F{SeededKeyGen}}
 
 \subsection{le velcki}
 \begin{code}
