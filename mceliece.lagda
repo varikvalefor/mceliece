@@ -722,10 +722,10 @@ Encap : {p : MCParam}
 Encap {p} = Encap' {p} IO.<$> FixedWeight {p}
   where
   Encap' : {p : MCParam}
-         → let F = Fin $ 2 ^ MCParam.ℓ p in
-           (Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
+         → (Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
               → hWV𝔽 e ≡ MCParam.t p)
-         → Vec (Fin 2) (MCParam.n-k p) × F × F
+         → let F = Fin $ 2 ^ MCParam.ℓ p in
+           Vec (Fin 2) (MCParam.n-k p) × F × F
   Encap' = {!!}
 \end{code}
 
