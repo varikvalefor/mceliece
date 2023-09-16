@@ -233,7 +233,7 @@ f2f = {!!}
 ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \F \$ \B f \Sym(\F{toℕ} \B a\Sym) \F \$ \F{toℕ} \B b .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1 .zoi.
 
 \begin{code}
-f𝔽 : {n : ℕ} → (ℕ → ℕ → ℕ) → Fin n → Fin n → Fin n
+f𝔽 : {n : ℕ} → Op₂ ℕ → Fin n → Fin n → Fin n
 f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
