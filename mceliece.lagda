@@ -843,7 +843,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     zenbyco'e = {!!}
     tv : (λ t → These t t → t) $ Fin 2
     tv = Data.These.fold id id const
-  c' : Maybe $ Σ (xv MCParam.n) $ λ c → dist c v ℕ.≤ MCParam.t p
+  c' : Maybe $ ∃ $ λ c → dist c v ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
   e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
