@@ -662,7 +662,7 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
 \section{la'oi .\F{FixedWeight}.}
 ni'o \specimp{FixedWeight}
 
-ni'o ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.
+ni'o ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'oi .\F{FixedWeight}.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.
 
 \begin{code}
 {-# NON_TERMINATING #-}
