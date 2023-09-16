@@ -734,7 +734,6 @@ ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ 
 
 ni'o \nitynarcuhi{\F{SeededKeyGen}}
 
-\subsection{le velcki}
 \begin{code}
 {-# NON_TERMINATING #-}
 SeededKeyGen : (p : MCParam) → Fin $ 2 ^ MCParam.ℓ p → KP p
@@ -772,8 +771,6 @@ SeededKeyGen p = SeededKeyGen'
 
 \section{la'oi .\F{KeyGen}.}
 ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \F{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{proj₁} \F{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
-
-\subsection{le velcki}
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
