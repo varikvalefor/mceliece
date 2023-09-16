@@ -732,7 +732,7 @@ Encap {p} = Encap' {p} IO.<$> FixedWeight {p}
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku gi la'o zoi.\ \F{proj₁} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
-.i \nitynarcuhi{\F{SeededKeyGen}}
+ni'o \nitynarcuhi{\F{SeededKeyGen}}
 
 \subsection{le velcki}
 \begin{code}
