@@ -193,6 +193,10 @@ open import Relation.Nullary.Decidable
   using (
     isYes
   )
+open import Truthbrary.Data.Vec.Matrix
+  using (
+    𝕄
+  )
 open import Relation.Binary.PropositionalEquality
 
 import Data.Nat.Properties as DNP
@@ -408,35 +412,6 @@ _∧𝔹ℕ𝔽_ a b = toFin $ zipWithᵥ and𝔽 (nbits a) $ nbits $ toℕ b
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
   toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
-\end{code}
-
-\chap{la'oi .\F 𝕄.\ je zo'e}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\F 𝕄.\ je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\F 𝕄.\ po'o ku'o je le pinka be ko'a
-
-\section{la'oi .\F 𝕄.}
-ni'o ro da poi ke'a ctaipe la'o zoi.\ .\F 𝕄 \B A \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.\ je cu vasru lo ctaipe be la'oi .\B A.
-
-ni'o la'o zoi.\ \F 𝕄 \D ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F ∷ 3 \F ∷ \F{[]}) \F ∷ (4 \F ∷ 5 \F ∷ 6 \F ∷ \F{[]}) \F ∷ (7 \F ∷ 8 \F ∷ 9 \F ∷ \F{[]}) \F ∷ \F{[]}) .zoi.\ du le nacmeimei poi ke'a du la'o cmaci.
-\[
-	\begin{bmatrix}
-		1 & 2 & 3 \\
-		4 & 5 & 6 \\
-		7 & 8 & 9
-	\end{bmatrix}
-\]
-.cmaci.
-
-\begin{code}
-𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
-𝕄 = Vec ∘₂ Vec
-\end{code}
-
-\section{la'oi .\F{𝕄!!}.}
-ni'o cadga fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
-
-\begin{code}
-_𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
-_𝕄!!_ m n = mapᵥ (flip lookup n) m
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
