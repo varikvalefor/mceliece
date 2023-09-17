@@ -689,8 +689,8 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
     where
     proj₁,₂ : ∀ {a b c}
             → {A : Set a} → {B : A → Set b} → {C : A → Set c}
-            → Σ A (λ a' → B a' × C a')
-            → Σ A B
+            → ∃ (λ a' → B a' × C a')
+            → ∃ B
     proj₁,₂ (a , b , _) = a , b
     d : Vec ℕ τ
     d = mapᵥ {!!} $ upToᵥ τ
