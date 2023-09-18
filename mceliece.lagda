@@ -767,11 +767,8 @@ SeededKeyGen p = SeededKeyGen'
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
     mapti? : Maybe $ KP p
-    mapti? = mapₘ₂ gumgau {!!} {!!}
+    mapti? = mapₘ₂ _,_ {!!} {!!}
       where
-      Vqt = Vec (Fin $ MCParam.q p) $ MCParam.t p
-      gumgau : Public p → Vqt → KP p
-      gumgau T _ = T , {!!}
       mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
             → (A → B → C) → Maybe A → Maybe B → Maybe C
       mapₘ₂ = ap ∘₂ mapₘ
