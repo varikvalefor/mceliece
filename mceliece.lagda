@@ -773,7 +773,7 @@ SeededKeyGen p = SeededKeyGen'
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \OpF{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .\F{pure}.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{proj₁} \OpF{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
+ni'o la'o zoi.\ \F{SeededKeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo .orsi be li re bei lo Classic MCELIECE .glibau.\ ke sivni termifckiku bei lo mapti be ko'a
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
