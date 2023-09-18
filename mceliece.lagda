@@ -106,6 +106,11 @@ ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 {-# OPTIONS --guardedness #-}
 
 open import IO
+  using (
+    _<$>_;
+    pure;
+    IO
+  )
 open import Data.Fin
   using (
     fromℕ;
@@ -185,8 +190,15 @@ open import Data.Vec.Bounded
     Vec≤
   )
 open import Algebra.Structures
+  using (
+  )
 open import Data.Nat.Primality
+  using (
+  )
 open import Truthbrary.Data.Fin
+  using (
+    mink
+  )
 open import Truthbrary.Record.Eq
   using (
     _≟_;
