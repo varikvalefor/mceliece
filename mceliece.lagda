@@ -63,6 +63,7 @@
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\OpF[1]{\AgdaOperator{\F{#1}}}
 
 \newcommand\sds{\spacefactor\sfcode`.\ \space}
 
@@ -249,7 +250,7 @@ f2f = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
-ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \F \$ \B f \Sym(\F{toℕ} \B a\Sym) \F \$ \F{toℕ} \B b .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1 .zoi.
+ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1 .zoi.
 
 \begin{code}
 f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin n
@@ -265,7 +266,7 @@ coerce refl = id
 \end{code}
 
 \section{la'oi .\F{resize}.}
-ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \F{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\}\ \Sym\{\B m\Sym\}\ \Sym\{\B n\Sym\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \F \$\ \B m\ \F ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\AgdaUnderscore++\AgdaUnderscore}\ \F \$\ \F{replicate}\ \B t\ .zoi.
+ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \OpF{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\}\ \Sym\{\B m\Sym\}\ \Sym\{\B n\Sym\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \OpF \$\ \B m\ \OpF ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\AgdaUnderscore++\AgdaUnderscore}\ \OpF \$\ \F{replicate}\ \B t\ .zoi.
 
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
@@ -361,7 +362,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 \end{code}
 
 \section{la .\F{dist}.}
-ni'o la'o zoi.\ \F{dist} \Sym ⦃ \AgdaArgument Q \Sym = \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \F{Fin} \AgdaOperator{\F{\$}} \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi. be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
+ni'o la'o zoi.\ \F{dist} \Sym ⦃ \AgdaArgument Q \Sym = \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \F{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi. be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
 
 \begin{code}
 dist : ∀ {a} → {A : Set a}
@@ -429,7 +430,7 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
 \end{code}
 
 \section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
-ni'o la'o zoi.\ \B a \AgdaOperator{\F{∧𝔹ℕ𝔽}} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
+ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Fin n → Fin n
@@ -568,7 +569,7 @@ ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja co'e la'o zoi.\ \F{Priva
 ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \D{Fin} \F \$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\F{Private.s}.}
-ni'o la'o zoi.\ \F{Private.s} \F \$ \AgdaRecord{Private} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
+ni'o la'o zoi.\ \F{Private.s} \OpF \$ \AgdaRecord{Private} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
 
 \begin{code}
 record Private (p : MCParam) : Set
@@ -734,7 +735,7 @@ Encap {p} = Encap' {p} IO.<$> FixedWeight {p}
 \end{code}
 
 \section{la'oi .\F{SeededKeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku gi la'o zoi.\ \F{proj₁} \F \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
+ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \OpF \$ \F{SeededKeyGen} \B q \B l .zoi.\ mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku gi la'o zoi.\ \F{proj₁} \OpF \$ \F{SeededKeyGen} \B q \B l .zoi.\ cu mapti ko'a
 
 ni'o \nitynarcuhi{\F{SeededKeyGen}}
 
@@ -772,7 +773,7 @@ SeededKeyGen p = SeededKeyGen'
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \F{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{proj₁} \F{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
+ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \OpF{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{proj₁} \OpF{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
