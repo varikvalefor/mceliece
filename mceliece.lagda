@@ -761,13 +761,14 @@ SeededKeyGen p = SeededKeyGen'
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
     mapti? : Maybe $ KP p
-    mapti? = mapₘ₂ _,_ {!!} {!!}
+    mapti? = mapₘ₂ _,_ (sivni Data.Maybe.>>= MatGen) sivni
       where
       mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
             → (A → B → C) → Maybe A → Maybe B → Maybe C
       mapₘ₂ = ap ∘₂ mapₘ
       s : Fin $ 2 ^ MCParam.n p
       s = b2f $ nbits {MCParam.n p} $ toℕ E
+      sivni = ?
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
