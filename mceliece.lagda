@@ -189,12 +189,6 @@ open import Data.Vec.Bounded
   using (
     Vec≤
   )
-open import Algebra.Structures
-  using (
-  )
-open import Data.Nat.Primality
-  using (
-  )
 open import Truthbrary.Data.Fin
   using (
     mink
