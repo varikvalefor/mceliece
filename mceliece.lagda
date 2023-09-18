@@ -769,11 +769,11 @@ SeededKeyGen p = SeededKeyGen'
       mapₘ₂ = ap ∘₂ mapₘ
       s : Fin $ 2 ^ MCParam.n p
       s = b2f $ nbits {MCParam.n p} $ toℕ E
-      sivni = ?
+      sivni = {!!}
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
-ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \OpF{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .return.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{proj₁} \OpF{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
+ni'o ge ko'a goi la'o zoi.\ \F{proj₂} \OpF{<\$>} \F{KeyGen} \B q .zoi.\ me'oi .\F{pure}.\ ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ sivni bo termifckiku poi ke'a mapti la'oi .\B q.\ gi la'o zoi.\ \F{proj₁} \OpF{<\$>} \F{KeyGen} \B q \B l .zoi.\ me'oi .return.\ lo mu'oi glibau.\ Classic MCELIECE.\ .glibau.\ gubni bo termifckiku poi ke'a mapti ko'a
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
