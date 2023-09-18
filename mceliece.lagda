@@ -509,7 +509,7 @@ ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
 \paragraph{la'oi .\F{MCParam.G}.}
 ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ me'oi .pseudorandom.
 
-\paragraph{le ctaipe be lo su'u dubjavme'a ja co'e}
+\paragraph{lo ctaipe be lo su'u dubjavme'a ja co'e}
 ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{n≤q}.\ ja la'oi .\F{t≥2}.\ ja la'oi .\F{ν≥μ}.\ ja la'oi .\F{ν≤μ+k}.\ ja la'oi .\F{σ₁≥m}.\ ja la'oi .\F{σ₂≥2*m}.\ ja la \F{ctejau}\ bau la .lojban.
 
 \begin{code}
