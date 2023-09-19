@@ -124,6 +124,9 @@ open import Data.Fin
     _+_ to _+F_
   )
 open import Data.Vec
+  hiding (
+    length
+  )
   renaming (
     map to mapᵥ;
     sum to sumᵥ;
@@ -202,6 +205,7 @@ open import Truthbrary.Record.Eq
   )
 open import Truthbrary.Record.LLC
   using (
+    length;
     LL
   )
 open import Relation.Nullary.Decidable
@@ -396,7 +400,7 @@ cunsof {n} = {!!} ∘ fromBits ∘ mapₗ b2n <$> IO.lift (cunste n)
     where
     sumₗ = Data.List.sum
     pilji = λ (a , b) → a * 2 ^ b
-    indice = λ n → zipₗ n $ Data.List.upTo $ Data.List.length n
+    indice = λ n → zipₗ n $ Data.List.upTo $ length n
       where
       zipₗ = Data.List.zip
 
