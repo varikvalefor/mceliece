@@ -378,6 +378,34 @@ dist ⦃ Q = Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   z' = LL.vec Q z
 \end{code}
 
+\section{la .\F{cunsof}.}
+ni'o la .\F{cunsof}.\ me'oi .\f{pure}.\ lo me'oi .pseudorandom.
+
+ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
+
+\begin{code}
+cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
+cunsof {n} = {!!} <$> IO.lift (cunso2 n)
+  where
+  postulate cunso2 : ℕ → ABIO.IO ℕ
+  {-#
+    FOREIGN GHC
+    import qualified Data.ByteString.Lazy as BSL
+  #-}
+  {-#
+    COMPILE GHC
+    cunso2 :: Int -> Integer
+    cunso2 n = tenfysumji . take n <$> ramles
+      where
+      tenfysumji = sum . map (\(a,b) -> b * 2 ^ a) . zip [0..]
+      -- \| ni'o zo .ramles. cmavlaka'i
+      -- zo .randmodlires.
+      ramles = map toBin . BSL.unpack <$> randfil
+      toBin = flip mod 2 . toInteger
+      randfil = BSL.readFile "/dev/random"
+  #-}
+\end{code}
+
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
@@ -783,27 +811,7 @@ ni'o la'o zoi.\ \F{SeededKeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudo
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
-KeyGen p = SeededKeyGen p IO.<$> cunso
-  where
-  cunso = {!!} IO.<$> IO.lift (cunso2 $ MCParam.ℓ p)
-    where
-    postulate cunso2 : ℕ → ABIO.IO ℕ
-    {-#
-      FOREIGN GHC
-      import qualified Data.ByteString.Lazy as BSL
-    #-}
-    {-#
-      COMPILE GHC
-      cunso2 :: Int -> Integer
-      cunso2 n = tenfysumji . take n <$> ramles
-        where
-        tenfysumji = sum . map (\(a,b) -> b * 2 ^ a) . zip [0..]
-        -- \| ni'o zo .ramles. cmavlaka'i
-        -- zo .randmodlires.
-        ramles = map toBin . BSL.unpack <$> randfil
-        toBin = flip mod 2 . toInteger
-        randfil = BSL.readFile "/dev/random"
-    #-}
+KeyGen p = SeededKeyGen p IO.<$> cunsof {MCParam.ℓ p}
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
