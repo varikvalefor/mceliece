@@ -400,9 +400,7 @@ cunsof {n} = {!!} ∘ fromBits ∘ mapₗ b2n <$> IO.lift (cunste n)
     where
     sumₗ = Data.List.sum
     pilji = λ (a , b) → a * 2 ^ b
-    indice = λ n → zipₗ n $ Data.List.upTo $ length n
-      where
-      zipₗ = Data.List.zip
+    indice = λ n → Data.List.zip n $ Data.List.upTo $ length n
 
   {-#
     FOREIGN GHC
