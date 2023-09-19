@@ -394,8 +394,8 @@ cunsof {n} = {!!} <$> IO.lift (cunso2 n)
   #-}
   {-#
     COMPILE GHC
-    cunso2 :: Int -> Integer
-    cunso2 n = tenfysumji . take n <$> ramles
+    cunso2 :: Integer -> Integer
+    cunso2 n = tenfysumji . take (fromIntegral n) <$> ramles
       where
       tenfysumji = sum . map (\(a,b) -> b * 2 ^ a) . zip [0..]
       -- \| ni'o zo .ramles. cmavlaka'i
