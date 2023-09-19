@@ -390,9 +390,7 @@ cunsof {n} = {!!} ∘ fromBits ∘ mapₗ b2n <$> IO.lift (cunste n)
   where
   postulate cunste : ℕ → ABIO.IO $ List Bool
   mapₗ = Data.List.map
-  b2n : Bool → ℕ
-  b2n true = 1
-  b2n false = 0
+  b2n = λ n → if n then 1 else 0
   fromBits : List ℕ → ℕ
   fromBits = Data.List.sum ∘ Data.List.map pilji ∘ indice
     where
