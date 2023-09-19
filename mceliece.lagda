@@ -385,21 +385,18 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = {!!} <$> cunso2 n
+cunsof {n} = {!!} ∘ fromBits <$> IO.lift (cunste n)
   where
   postulate cunste : ℕ → ABIO.IO $ List ℕ
-  cunso2 : ℕ → IO ℕ
-  cunso2 = _<$>_ tenfysumji ∘ IO.lift ∘ cunste
+  fromBits : List ℕ → ℕ
+  fromBits = Data.List.sum ∘ Data.List.map pilji ∘ indice
     where
-    tenfysumji : List ℕ → ℕ
-    tenfysumji = Data.List.sum ∘ Data.List.map pilji ∘ indice
+    sumₗ = Data.List.sum
+    mapₗ = Data.List.map
+    pilji = λ (a , b) → a * 2 ^ b
+    indice = λ n → zipₗ n $ Data.List.upTo $ Data.List.length n
       where
-      sumₗ = Data.List.sum
-      mapₗ = Data.List.map
-      pilji = λ (a , b) → a * 2 ^ b
-      indice = λ n → zipₗ n $ Data.List.upTo $ Data.List.length n
-        where
-        zipₗ = Data.List.zip
+      zipₗ = Data.List.zip
 
   {-#
     FOREIGN GHC
