@@ -138,6 +138,7 @@ open import Data.Bool
   using (
     if_then_else_;
     false;
+    Bool;
     true
   )
 open import Data.List
@@ -385,14 +386,17 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = {!!} ∘ fromBits <$> IO.lift (cunste n)
+cunsof {n} = {!!} ∘ fromBits ∘ mapₗ b2n <$> IO.lift (cunste n)
   where
-  postulate cunste : ℕ → ABIO.IO $ List ℕ
+  postulate cunste : ℕ → ABIO.IO $ List Bool
+  mapₗ = Data.List.map
+  b2n : Bool → ℕ
+  b2n true = 1
+  b2n false = 0
   fromBits : List ℕ → ℕ
   fromBits = Data.List.sum ∘ Data.List.map pilji ∘ indice
     where
     sumₗ = Data.List.sum
-    mapₗ = Data.List.map
     pilji = λ (a , b) → a * 2 ^ b
     indice = λ n → zipₗ n $ Data.List.upTo $ Data.List.length n
       where
@@ -404,13 +408,13 @@ cunsof {n} = {!!} ∘ fromBits <$> IO.lift (cunste n)
   #-}
   {-#
     COMPILE GHC
-    cunste :: Integer -> [Integer]
-    cunste n = map toBin . take (fromIntegral n) <$> ramles
+    cunste :: Integer -> [Bool]
+    cunste n = map toBool . take (fromIntegral n) <$> ramles
       where
       -- \| ni'o zo .ramles. cmavlaka'i
       -- zo .randmodlires.
       ramles = map toBin . BSL.unpack <$> randfil
-      toBin = flip mod 2 . toInteger
+      toBool = (==) 1 . flip mod 2 . toInteger
       randfil = BSL.readFile "/dev/random"
   #-}
 \end{code}
