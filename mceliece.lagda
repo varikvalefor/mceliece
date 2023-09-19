@@ -408,7 +408,7 @@ cunsof {n} = {!!} ∘ fromBits ∘ mapₗ b2n <$> IO.lift (cunste n)
   #-}
   {-#
     COMPILE GHC
-    cunste :: Integer -> [Bool]
+    cunste :: Integer -> IO [Bool]
     cunste n = map toBool . take (fromIntegral n) <$> ramles
       where
       -- \| ni'o zo .ramles. cmavlaka'i
