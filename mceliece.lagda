@@ -379,7 +379,7 @@ dist ⦃ Q = Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 \end{code}
 
 \section{la .\F{cunsof}.}
-ni'o la .\F{cunsof}.\ me'oi .\f{pure}.\ lo me'oi .pseudorandom.
+ni'o la .\F{cunsof}.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.
 
 ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
