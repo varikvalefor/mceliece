@@ -383,42 +383,6 @@ dist ⦃ Q = Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   z' = LL.vec Q z
 \end{code}
 
-\section{la .\F{cunsof}.}
-ni'o la .\F{cunsof}.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.
-
-ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
-
-\begin{code}
-cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = {!!} ∘ fromBits ∘ mapₗ b2n <$> IO.lift (cunste n)
-  where
-  postulate cunste : ℕ → ABIO.IO $ List Bool
-  mapₗ = Data.List.map
-  b2n = λ n → if n then 1 else 0
-  fromBits : List ℕ → ℕ
-  fromBits = Data.List.sum ∘ Data.List.map pilji ∘ indice
-    where
-    sumₗ = Data.List.sum
-    pilji = λ (a , b) → a * 2 ^ b
-    indice = λ n → Data.List.zip n $ Data.List.upTo $ length n
-
-  {-#
-    FOREIGN GHC
-    import qualified Data.ByteString.Lazy as BSL
-  #-}
-  {-#
-    COMPILE GHC
-    cunste :: Integer -> IO [Bool]
-    cunste n = map toBool . take (fromIntegral n) <$> ramles
-      where
-      -- \| ni'o zo .ramles. cmavlaka'i
-      -- zo .randmodlires.
-      ramles = map toBin . BSL.unpack <$> randfil
-      toBool = (==) 1 . flip mod 2 . toInteger
-      randfil = BSL.readFile "/dev/random"
-  #-}
-\end{code}
-
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
@@ -469,6 +433,42 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
     pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * 2 ^ b
   indy : flip Vec n $ Fin $ 2 ^ n
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
+\end{code}
+
+\section{la .\F{cunsof}.}
+ni'o la .\F{cunsof}.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.
+
+ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
+
+\begin{code}
+cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
+cunsof {n} = {!!} ∘ fromBits ∘ mapₗ b2n <$> IO.lift (cunste n)
+  where
+  postulate cunste : ℕ → ABIO.IO $ List Bool
+  mapₗ = Data.List.map
+  b2n = λ n → if n then 1 else 0
+  fromBits : List ℕ → ℕ
+  fromBits = Data.List.sum ∘ Data.List.map pilji ∘ indice
+    where
+    sumₗ = Data.List.sum
+    pilji = λ (a , b) → a * 2 ^ b
+    indice = λ n → Data.List.zip n $ Data.List.upTo $ length n
+
+  {-#
+    FOREIGN GHC
+    import qualified Data.ByteString.Lazy as BSL
+  #-}
+  {-#
+    COMPILE GHC
+    cunste :: Integer -> IO [Bool]
+    cunste n = map toBool . take (fromIntegral n) <$> ramles
+      where
+      -- \| ni'o zo .ramles. cmavlaka'i
+      -- zo .randmodlires.
+      ramles = map toBin . BSL.unpack <$> randfil
+      toBool = (==) 1 . flip mod 2 . toInteger
+      randfil = BSL.readFile "/dev/random"
+  #-}
 \end{code}
 
 \section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
