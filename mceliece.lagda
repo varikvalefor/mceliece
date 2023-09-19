@@ -546,6 +546,9 @@ record MCParam : Set
     ctejau : m * t ℕ.< n
 \end{code}
 
+\chap{la'oi .\F{Public}.}
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\F{Public}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\F{Public}.\ po'o ku'o je le pinka be ko'a
+
 \section{la'oi .\F{Public}.}
 ni'o la'o zoi.\ \F{Public} \B q .zoi.\ se ctaipe lo gubni termifckiku pe la'oi .\B q.
 
