@@ -460,7 +460,7 @@ cunsof {n} = b2fₗ <$> IO.lift (cunste n)
       where
       -- \| ni'o zo .ramles. cmavlaka'i
       -- zo .randmodlires.
-      ramles = map toBool . BSL.unpack <$> randfil
+      ramles = BSL.unpack <$> randfil
       toBool = (==) 1 . flip mod 2 . toInteger
       randfil = BSL.readFile "/dev/random"
   #-}
