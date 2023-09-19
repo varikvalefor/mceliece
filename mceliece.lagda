@@ -442,17 +442,12 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = {!!} ∘ fromBits ∘ mapₗ b2n <$> IO.lift (cunste n)
+cunsof {n} = b2fₗ <$> IO.lift (cunste n)
   where
   postulate cunste : ℕ → ABIO.IO $ List Bool
-  mapₗ = Data.List.map
-  b2n = λ n → if n then 1 else 0
-  fromBits : List ℕ → ℕ
-  fromBits = Data.List.sum ∘ Data.List.map pilji ∘ indice
+  b2fₗ = b2f {n} ∘ resize zero ∘ fromList ∘ Data.List.map b2f₁
     where
-    sumₗ = Data.List.sum
-    pilji = λ (a , b) → a * 2 ^ b
-    indice = λ n → Data.List.zip n $ Data.List.upTo $ length n
+    b2f₁ = λ n → if n then suc zero else zero
 
   {-#
     FOREIGN GHC
