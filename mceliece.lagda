@@ -385,19 +385,31 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = {!!} <$> IO.lift (cunso2 n)
+cunsof {n} = {!!} <$> cunso2 n
   where
-  postulate cunso2 : ℕ → ABIO.IO ℕ
+  postulate cunste : ℕ → ABIO.IO $ List ℕ
+  cunso2 : ℕ → IO ℕ
+  cunso2 = _<$>_ tenfysumji ∘ IO.lift ∘ cunste
+    where
+    tenfysumji : List ℕ → ℕ
+    tenfysumji = Data.List.sum ∘ Data.List.map pilji ∘ indice
+      where
+      sumₗ = Data.List.sum
+      mapₗ = Data.List.map
+      pilji = λ (a , b) → a * 2 ^ b
+      indice = λ n → zipₗ n $ Data.List.upTo $ Data.List.length n
+        where
+        zipₗ = Data.List.zip
+
   {-#
     FOREIGN GHC
     import qualified Data.ByteString.Lazy as BSL
   #-}
   {-#
     COMPILE GHC
-    cunso2 :: Integer -> Integer
-    cunso2 n = tenfysumji . take (fromIntegral n) <$> ramles
+    cunste :: Integer -> [Integer]
+    cunste n = map toBin . take (fromIntegral n) <$> ramles
       where
-      tenfysumji = sum . map (\(a,b) -> b * 2 ^ a) . zip [0..]
       -- \| ni'o zo .ramles. cmavlaka'i
       -- zo .randmodlires.
       ramles = map toBin . BSL.unpack <$> randfil
