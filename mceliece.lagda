@@ -444,6 +444,9 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
 cunsof {n} = b2fₗ <$> IO.lift (cunste n)
   where
+  -- | ni'o cadga fa lo nu la'o zoi. cunste n .zoi.
+  -- me'oi .pure. lo me'oi .pseudorandom. poi la .n.
+  -- cu nilzilcmi ke'a
   postulate cunste : ℕ → ABIO.IO $ List Bool
   b2fₗ = b2f {n} ∘ resize zero ∘ fromList ∘ Data.List.map b2f₁
     where
