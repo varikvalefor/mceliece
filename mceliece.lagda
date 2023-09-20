@@ -164,7 +164,21 @@ open import Data.These
     these
   )
 open import Algebra.Core
+  using (
+    Op₁;
+    Op₂
+  )
 open import Data.Product
+  using (
+    uncurry;
+    proj₁;
+    proj₂;
+    curry;
+    _×_;
+    _,_;
+    Σ;
+    ∃
+  )
 open import Data.Nat as ℕ
   using (
     _≡ᵇ_;
