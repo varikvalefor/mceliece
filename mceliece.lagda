@@ -442,15 +442,15 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = b2fₗ <$> IO.lift (cunste n)
+cunsof {n} = b2f {n} ∘ mapᵥ b2f2 <$> cunvek
   where
   -- | ni'o cadga fa lo nu la'o zoi. cunste n .zoi.
   -- me'oi .pure. lo me'oi .pseudorandom. poi la .n.
   -- cu nilzilcmi ke'a
   postulate cunste : ℕ → ABIO.IO $ List Bool
-  b2fₗ = b2f {n} ∘ resize zero ∘ fromList ∘ Data.List.map b2f₁
-    where
-    b2f₁ = λ n → if n then suc zero else zero
+  cunvek : {n : ℕ} → IO $ Vec Bool n
+  cunvek {n} = resize false ∘ fromList <$> IO.lift (cunste n)
+  b2f2 = λ n → if n then suc zero else zero
 
   {-#
     FOREIGN GHC
