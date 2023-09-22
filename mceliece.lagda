@@ -874,8 +874,6 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   mapti : xv MCParam.n → Set
   mapti e = Σ (hWV𝔽 e ≡ MCParam.t p) $ _≡_ C₀ ∘ Encode p e bar
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
-  mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
-  ... | yes x = just $ e , {!!}
-  ... | no _ = nothing
+  mapti? e = mapₘ (_,_ e) ?
 \end{code}
 \end{document}
