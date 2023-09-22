@@ -459,12 +459,12 @@ cunsof {n} = b2f {n} ∘ mapᵥ b2f2 <$> cunvek
   {-#
     COMPILE GHC
     cunste :: Integer -> IO [Bool]
-    cunste n = map toBool . take (fromIntegral n) <$> ramles
+    cunste n = take (fromIntegral n) . toBools <$> ramles
       where
       -- \| ni'o zo .ramles. cmavlaka'i
       -- zo .randmodlires.
       ramles = BSL.unpack <$> BSL.readFile "/dev/random"
-      toBool = (==) 1 . flip mod 2
+      toBools = map (== 1) . filter (< 2)
   #-}
 \end{code}
 
