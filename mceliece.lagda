@@ -464,7 +464,7 @@ cunsof {n} = b2f {n} ∘ mapᵥ b2f2 <$> cunvek
       -- \| ni'o zo .ramles. cmavlaka'i
       -- zo .randmodlires.
       ramles = BSL.unpack <$> BSL.readFile "/dev/random"
-      toBool = (==) 1 . flip mod 2 . toInteger
+      toBool = (==) 1 . flip mod 2
   #-}
 \end{code}
 
