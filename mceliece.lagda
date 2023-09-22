@@ -872,11 +872,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     indice = Data.List.zip $ Data.List.upTo n
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
   mapti : xv MCParam.n → Set
-  mapti e = (hWV𝔽 e ≡ MCParam.t p) × (C₀ ≡ H*e)
-    where
-    H*e = moult H e
-      where
-      H = Hx p bar
+  mapti e = Σ (hWV𝔽 e ≡ MCParam.t p) $ _≡_ C₀ ∘ Encode p e bar
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
   mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
   ... | yes x = just $ e , {!!}
