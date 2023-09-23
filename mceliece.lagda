@@ -836,9 +836,7 @@ Encode : (p : MCParam)
        → Public p
        → hWV𝔽 e ≡ MCParam.t p
        → Vec (Fin 2) $ MCParam.n-k p
-Encode p e T refl = moult H e
-  where
-  H = Hx p T
+Encode p e T refl = flip moult e $ Hx p T
 \end{code}
 
 \section{la'oi .\F{Decode}.}
