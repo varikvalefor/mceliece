@@ -406,7 +406,7 @@ nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
 \end{code}
 
 \section{la'oi .\F{b2f}.}
-ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .little.
+ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .big.
 
 \begin{code}
 b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
