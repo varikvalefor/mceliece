@@ -158,6 +158,7 @@ open import Data.Digit
   )
 open import Data.Maybe
   renaming (
+    _>>=_ to _>>=ₘ_;
     map to mapₘ
   )
 open import Data.These
@@ -808,8 +809,6 @@ SeededKeyGen p = SeededKeyGen'
   SeededKeyGen' δ = fromMaybe (SeededKeyGen' δ') mapti?
     where
     E = MCParam.G p δ
-    b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
-    b2f' = f2f ∘ b2f
     δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
@@ -820,22 +819,21 @@ SeededKeyGen p = SeededKeyGen'
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
     mapti? : Maybe $ KP p
-    mapti? = mapₘ₂ _,_ (sivni Data.Maybe.>>= MatGen) sivni
+    mapti? = (ap ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
       where
-      mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-            → (A → B → C) → Maybe A → Maybe B → Maybe C
-      mapₘ₂ = ap ∘₂ mapₘ
-      s : Fin $ 2 ^ MCParam.n p
-      s = b2f $ nbits {MCParam.n p} $ toℕ E
-      sivni = just record {
-        lg = {!!};
-        Γ = {!!};
-        s = nbits $ toℕ s
+      sivni = g? >>=ₘ λ (j , lg , g) → just record {
+        lg = lg;
+        Γ = g , j;
+        s = nbits $ toℕ $ b2f $ nbits {MCParam.n p} $ toℕ E
         }
+        where
+        g? : let Vq = Vec $ Fin $ MCParam.q p in
+             Maybe $ Vq (MCParam.n p) × ∃ Vq
+        g? = mapₘ (λ g → {!!} , length g , g) $ Irreducible {p} {!!}
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
-ni'o la'o zoi.\ \F{SeededKeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.\ poi ke'a .orsi li re lo Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
+ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.\ poi ke'a .orsi li re lo Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
@@ -862,7 +860,7 @@ Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ I
   I = mapᵥ f $ allFin _
     where
     f = λ x → updateAt x (const $ suc zero) $ replicate zero
-  matmid =  λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
+  matmid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
   n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m (MCParam.n p) m*t
     where
     m*t = MCParam.m p * MCParam.t p
@@ -890,7 +888,7 @@ Decode : {p : MCParam}
        → ∃ $ Vec $ Fin $ MCParam.q p
        → Vec (Fin $ MCParam.q p) $ MCParam.n p
        → Maybe $ Vec (Fin 2) $ MCParam.n p
-Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
+Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
   v : xv MCParam.n
@@ -915,7 +913,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
   mapti? e = mapₘ (_,_ e) maptyctaipe
     where
-    maptyctaipe = dus Data.Maybe.>>= λ x → mapₘ (_,_ x) $ enk x
+    maptyctaipe = dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
       where
       dus : Maybe _
       dus with _ ≟ _
