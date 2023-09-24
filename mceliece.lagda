@@ -788,7 +788,11 @@ SeededKeyGen p = SeededKeyGen'
       mapₘ₂ = ap ∘₂ mapₘ
       s : Fin $ 2 ^ MCParam.n p
       s = b2f $ nbits {MCParam.n p} $ toℕ E
-      sivni = {!!}
+      sivni = just record {
+        lg = {!!};
+        Γ = {!!};
+        s = nbits $ toℕ s
+        }
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
