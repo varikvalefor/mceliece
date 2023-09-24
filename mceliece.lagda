@@ -96,7 +96,7 @@
 ni'o le velcki cu zabna jenai cu mulno
 
 \chap{le terzu'e}
-ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a filri'a lo nu jimpe fi le mu'oi glibau.\ Classic MCELIECE .glibau.
+ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a filri'a lo nu jimpe fi la'o glibau.\ Classic MCELIECE .glibau.
 
 .i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u xi re sutra  .i ku'i la .varik.\ cu na tolnei lo nu da'i ko'a drani ba'e je cu sutra
 
@@ -168,7 +168,21 @@ open import Data.These
     these
   )
 open import Algebra.Core
+  using (
+    Op₁;
+    Op₂
+  )
 open import Data.Product
+  using (
+    uncurry;
+    proj₁;
+    proj₂;
+    curry;
+    _×_;
+    _,_;
+    Σ;
+    ∃
+  )
 open import Data.Nat as ℕ
   using (
     _≡ᵇ_;
@@ -388,7 +402,7 @@ dist ⦃ Q = Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 \section{la'oi .\F{nbits}.}
 ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
-.i la'oi .\F{nbits}.\ cu simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
+.i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
 
 \begin{code}
 nbits : {n : ℕ} → ℕ → Vec (Fin 2) n
@@ -398,7 +412,7 @@ nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
 \end{code}
 
 \section{la'oi .\F{b2f}.}
-ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .little.
+ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .big.
 
 \begin{code}
 b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
@@ -813,7 +827,11 @@ SeededKeyGen p = SeededKeyGen'
       mapₘ₂ = ap ∘₂ mapₘ
       s : Fin $ 2 ^ MCParam.n p
       s = b2f $ nbits {MCParam.n p} $ toℕ E
-      sivni = {!!}
+      sivni = just record {
+        lg = {!!};
+        Γ = {!!};
+        s = nbits $ toℕ s
+        }
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
@@ -859,9 +877,7 @@ Encode : (p : MCParam)
        → Public p
        → hWV𝔽 e ≡ MCParam.t p
        → Vec (Fin 2) $ MCParam.n-k p
-Encode p e T refl = moult H e
-  where
-  H = Hx p T
+Encode p e T refl = flip moult e $ Hx p T
 \end{code}
 
 \section{la'oi .\F{Decode}.}
@@ -895,14 +911,18 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
     indice = Data.List.zip $ Data.List.upTo n
     pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
   mapti : xv MCParam.n → Set
-  mapti e = (hWV𝔽 e ≡ MCParam.t p) × (C₀ ≡ H*e)
-    where
-    H*e = moult H e
-      where
-      H = Hx p bar
+  mapti e = Σ (hWV𝔽 e ≡ MCParam.t p) $ _≡_ C₀ ∘ Encode p e bar
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
-  mapti? e with hWV𝔽 e ℕ.≟ MCParam.t p
-  ... | yes x = just $ e , {!!}
-  ... | no _ = nothing
+  mapti? e = mapₘ (_,_ e) maptyctaipe
+    where
+    maptyctaipe = dus Data.Maybe.>>= λ x → mapₘ (_,_ x) $ enk x
+      where
+      dus : Maybe _
+      dus with _ ≟ _
+      ... | yes t = just t
+      ... | _ = nothing
+      enk : (x : hWV𝔽 e ≡ MCParam.t p)
+          → Maybe $ C₀ ≡ Encode p e bar x
+      enk = {!!}
 \end{code}
 \end{document}
