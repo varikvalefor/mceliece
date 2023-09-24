@@ -782,11 +782,8 @@ SeededKeyGen p = SeededKeyGen'
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
     mapti? : Maybe $ KP p
-    mapti? = mapₘ₂ _,_ (sivni >>=ₘ MatGen) sivni
+    mapti? = (ap ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
       where
-      mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-            → (A → B → C) → Maybe A → Maybe B → Maybe C
-      mapₘ₂ = ap ∘₂ mapₘ
       sivni = g? >>=ₘ λ (j , lg , g) → just record {
         lg = lg;
         Γ = g , j;
