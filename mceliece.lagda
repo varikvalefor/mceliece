@@ -790,14 +790,12 @@ SeededKeyGen p = SeededKeyGen'
       sivni = g? >>=ₘ λ (j , lg , g) → just record {
         lg = lg;
         Γ = g , j;
-        s = nbits $ toℕ s
+        s = nbits $ toℕ $ b2f $ nbits {MCParam.n p} $ toℕ E
         }
         where
         g? : let q = MCParam.q p in
              Maybe $ Vec (Fin q) (MCParam.n p) × ∃ (Vec $ Fin q)
         g? = {!!}
-        s : Fin $ 2 ^ MCParam.n p
-        s = b2f $ nbits {MCParam.n p} $ toℕ E
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
