@@ -793,8 +793,8 @@ SeededKeyGen p = SeededKeyGen'
         s = nbits $ toℕ $ b2f $ nbits {MCParam.n p} $ toℕ E
         }
         where
-        g? : let q = MCParam.q p in
-             Maybe $ Vec (Fin q) (MCParam.n p) × ∃ (Vec $ Fin q)
+        g? : let Vq = Vec $ Fin $ MCParam.q p in
+             Maybe $ Vq (MCParam.n p) × ∃ Vq
         g? = {!!}
 \end{code}
 
