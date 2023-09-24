@@ -413,6 +413,8 @@ ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\
 b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
 b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
+  indy : flip Vec n $ Fin $ 2 ^ n
+  indy = reverseᵥ $ mapᵥ f2f $ allFin n
   zf = mink zero $ proj₂ $ zerpaus _ n
     where
     zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
@@ -440,8 +442,6 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
     where
     pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * 2 ^ b
-  indy : flip Vec n $ Fin $ 2 ^ n
-  indy = reverseᵥ $ mapᵥ f2f $ allFin n
 \end{code}
 
 \section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
