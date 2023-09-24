@@ -154,6 +154,7 @@ open import Data.Digit
   )
 open import Data.Maybe
   renaming (
+    _>>=_ to _>>=ₘ_;
     map to mapₘ
   )
 open import Data.These
@@ -781,12 +782,12 @@ SeededKeyGen p = SeededKeyGen'
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
     mapti? : Maybe $ KP p
-    mapti? = mapₘ₂ _,_ (sivni Data.Maybe.>>= MatGen) sivni
+    mapti? = mapₘ₂ _,_ (sivni >>=ₘ MatGen) sivni
       where
       mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
             → (A → B → C) → Maybe A → Maybe B → Maybe C
       mapₘ₂ = ap ∘₂ mapₘ
-      sivni = g? Data.Maybe.>>= λ (j , lg , g) → just record {
+      sivni = g? >>=ₘ λ (j , lg , g) → just record {
         lg = lg;
         Γ = g , j;
         s = nbits $ toℕ s
@@ -857,7 +858,7 @@ Decode : {p : MCParam}
        → ∃ $ Vec $ Fin $ MCParam.q p
        → Vec (Fin $ MCParam.q p) $ MCParam.n p
        → Maybe $ Vec (Fin 2) $ MCParam.n p
-Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
+Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
   v : xv MCParam.n
@@ -882,7 +883,7 @@ Decode {p} C₀ bar (_ , g) α' = e Data.Maybe.>>= mapₘ proj₁ ∘ mapti?
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
   mapti? e = mapₘ (_,_ e) maptyctaipe
     where
-    maptyctaipe = dus Data.Maybe.>>= λ x → mapₘ (_,_ x) $ enk x
+    maptyctaipe = dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
       where
       dus : Maybe _
       dus with _ ≟ _
