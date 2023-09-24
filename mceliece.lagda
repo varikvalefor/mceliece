@@ -786,14 +786,14 @@ SeededKeyGen p = SeededKeyGen'
       mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
             → (A → B → C) → Maybe A → Maybe B → Maybe C
       mapₘ₂ = ap ∘₂ mapₘ
-      sivni = g? Data.Maybe.>>= λ ((lg , g) , j) → just record {
+      sivni = g? Data.Maybe.>>= λ (j , lg , g) → just record {
         lg = lg;
         Γ = g , j;
         s = nbits $ toℕ s
         }
         where
         g? : let q = MCParam.q p in
-             Maybe $ ∃ (Vec $ Fin q) × Vec (Fin q) (MCParam.n p)
+             Maybe $ Vec (Fin q) (MCParam.n p) × ∃ (Vec $ Fin q)
         g? = {!!}
         s : Fin $ 2 ^ MCParam.n p
         s = b2f $ nbits {MCParam.n p} $ toℕ E
