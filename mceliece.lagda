@@ -823,7 +823,7 @@ Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ I
   I = mapᵥ f $ allFin _
     where
     f = λ x → updateAt x (const $ suc zero) $ replicate zero
-  matmid =  λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
+  matmid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
   n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m (MCParam.n p) m*t
     where
     m*t = MCParam.m p * MCParam.t p
