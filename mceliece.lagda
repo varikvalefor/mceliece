@@ -786,13 +786,14 @@ SeededKeyGen p = SeededKeyGen'
       mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
             → (A → B → C) → Maybe A → Maybe B → Maybe C
       mapₘ₂ = ap ∘₂ mapₘ
-      s : Fin $ 2 ^ MCParam.n p
-      s = b2f $ nbits {MCParam.n p} $ toℕ E
       sivni = just record {
         lg = {!!};
         Γ = {!!};
         s = nbits $ toℕ s
         }
+        where
+        s : Fin $ 2 ^ MCParam.n p
+        s = b2f $ nbits {MCParam.n p} $ toℕ E
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
