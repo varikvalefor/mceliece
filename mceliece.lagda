@@ -790,7 +790,7 @@ SeededKeyGen p = SeededKeyGen'
         where
         g? : let Vq = Vec $ Fin $ MCParam.q p in
              Maybe $ Vq (MCParam.n p) × ∃ Vq
-        g? = mapₘ (λ g → ? , length g , g) $ Irreducible {!!}
+        g? = mapₘ (λ g → {!!} , length g , g) $ Irreducible {p} {!!}
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
