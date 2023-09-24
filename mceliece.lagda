@@ -770,8 +770,6 @@ SeededKeyGen p = SeededKeyGen'
   SeededKeyGen' δ = fromMaybe (SeededKeyGen' δ') mapti?
     where
     E = MCParam.G p δ
-    b2f' : {m n : ℕ} → Vec (Fin 2) m → Fin n
-    b2f' = f2f ∘ b2f
     δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
