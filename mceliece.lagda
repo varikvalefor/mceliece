@@ -81,7 +81,7 @@
 	\chapter{#1}
 }
 
-\newcommand\nitynarcuhi[1]{ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'o zoi.\ #1 .zoi.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.}
+\newcommand\termineidyr[1]{ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'o zoi.\ #1 .zoi.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.}
 
 \title{le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.}
 \author{la .varik.\ .VALefor.}
@@ -687,7 +687,7 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
 \section{la'oi .\F{FixedWeight}.}
 ni'o \specimp{FixedWeight}
 
-ni'o \nitynarcuhi{\F{FixedWeight}}
+ni'o \termineidyr{\F{FixedWeight}}
 
 \begin{code}
 {-# NON_TERMINATING #-}
@@ -757,7 +757,7 @@ ni'o \specimp{SeededKeyGen}
 
 .i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re lo Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
-ni'o \nitynarcuhi{\F{SeededKeyGen}}
+ni'o \termineidyr{\F{SeededKeyGen}}
 
 \begin{code}
 {-# NON_TERMINATING #-}
