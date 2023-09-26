@@ -867,7 +867,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   c = mapₘ proj₁ c'
   e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
   mapti : xv MCParam.n → Set
-  mapti e = Σ (hWV𝔽 e ≡ MCParam.t p) $ _≡_ C₀ ∘ Encode p e bar
+  mapti e = ∃ $ _≡_ C₀ ∘ Encode p e bar
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
   mapti? e = mapₘ (_,_ e) maptyctaipe
     where
