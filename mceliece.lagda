@@ -843,7 +843,7 @@ Encode p e T refl = flip moult e $ Hx p T
 \end{code}
 
 \section{la'oi .\F{Decode}.}
-ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
+ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fanva ko'a
 
 \begin{code}
 Decode : {p : MCParam}
