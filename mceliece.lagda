@@ -410,12 +410,13 @@ nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
 ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .big.
 
 \begin{code}
-b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
-b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
+b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
+b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
-  indy : flip Vec n $ Fin $ 2 ^ n
+  m = suc m'
+  indy : flip Vec n $ Fin $ m ^ n
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
-  zf = mink zero $ proj₂ $ zerpaus _ n
+  zf = mink zero $ proj₂ $ zerpaus m' n
     where
     zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
     zerpaus _ 0 = 0 , refl
@@ -438,10 +439,10 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
         b = ℕ.suc b'
         bizpu = _+_ $ b * z₁
         open Relation.Binary.PropositionalEquality.≡-Reasoning
-  cond : flip Vec n $ Fin (2 ^ n) × Fin (2 ^ n) → Fin $ 2 ^ n
+  cond : flip Vec n $ Fin (m ^ n) × Fin (m ^ n) → Fin $ m ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
     where
-    pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * 2 ^ b
+    pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * m ^ b
 \end{code}
 
 \section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
@@ -800,7 +801,7 @@ ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom
 KeyGen : (p : MCParam) → IO $ KP p
 KeyGen p = SeededKeyGen p IO.<$> cunso
   where
-  cunso = b2f {MCParam.ℓ p} IO.<$> {!!}
+  cunso = b2f {n = MCParam.ℓ p} IO.<$> {!!}
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
