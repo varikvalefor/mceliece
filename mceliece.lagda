@@ -81,7 +81,7 @@
 	\chapter{#1}
 }
 
-\newcommand\nitynarcuhi[1]{ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'o zoi.\ #1 .zoi.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.}
+\newcommand\termineidyr[1]{ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'o zoi.\ #1 .zoi.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.}
 
 \title{le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.}
 \author{la .varik.\ .VALefor.}
@@ -229,6 +229,8 @@ open import Relation.Nullary.Decidable
   )
 open import Truthbrary.Data.Vec.Matrix
   using (
+    _∣_;
+    I;
     𝕄
   )
 open import Relation.Binary.PropositionalEquality
@@ -416,10 +418,13 @@ nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
 ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .big.
 
 \begin{code}
-b2f : {n : ℕ} → Vec (Fin 2) n → Fin $ 2 ^ n
-b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
+b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
+b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
-  zf = mink zero $ proj₂ $ zerpaus _ n
+  m = suc m'
+  indy : flip Vec n $ Fin $ m ^ n
+  indy = reverseᵥ $ mapᵥ f2f $ allFin n
+  zf = mink zero $ proj₂ $ zerpaus m' n
     where
     zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
     zerpaus _ 0 = 0 , refl
@@ -442,12 +447,10 @@ b2f {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
         b = ℕ.suc b'
         bizpu = _+_ $ b * z₁
         open Relation.Binary.PropositionalEquality.≡-Reasoning
-  cond : flip Vec n $ Fin (2 ^ n) × Fin (2 ^ n) → Fin $ 2 ^ n
+  cond : flip Vec n $ Fin (m ^ n) × Fin (m ^ n) → Fin $ m ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
     where
-    pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * 2 ^ b
-  indy : flip Vec n $ Fin $ 2 ^ n
-  indy = reverseᵥ $ mapᵥ f2f $ allFin n
+    pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * m ^ b
 \end{code}
 
 \section{la .\F{cunsof}.}
@@ -457,7 +460,7 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = b2f {n} ∘ mapᵥ b2f2 <$> cunvek
+cunsof {n} = b2f {n = n} ∘ mapᵥ b2f2 <$> cunvek
   where
   -- | ni'o cadga fa lo nu la'o zoi. cunste n .zoi.
   -- me'oi .pure. lo me'oi .pseudorandom. poi la .n.
@@ -487,7 +490,7 @@ cunsof {n} = b2f {n} ∘ mapᵥ b2f2 <$> cunvek
 ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-_∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Fin n → Fin n
+_∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin n
 _∧𝔹ℕ𝔽_ a b = toFin $ zipWithᵥ and𝔽 (nbits a) $ nbits $ toℕ b
   where
   and𝔽 : Op₂ $ Fin 2
@@ -612,7 +615,7 @@ Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 \end{code}
 
 \chap{la'oi .\AgdaRecord{Private}.\ je zo'e}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ ja zo'e be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana vu'oi la'oi .\AgdaRecord{Private}.\ ja zo'e vu'o po'o ku'o je le pinka be ko'a
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ ja zo'e be'o je le pinka be ko'a be'o je ko'e goi le fancu poi ke'a srana vu'oi ko'a ja zo'e vu'o po'o ku'o je le pinka be ko'e
 
 \section{la'oi .\AgdaRecord{Private}.}
 ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
@@ -626,7 +629,7 @@ ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja co'e la'o zoi.\ \F{Priva
 ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \D{Fin} \F \$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\F{Private.s}.}
-ni'o la'o zoi.\ \F{Private.s} \OpF \$ \AgdaRecord{Private} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
+ni'o la'o zoi.\ \F{Private.s} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
 
 \begin{code}
 record Private (p : MCParam) : Set
@@ -726,7 +729,7 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
 \section{la'oi .\F{FixedWeight}.}
 ni'o \specimp{FixedWeight}
 
-ni'o \nitynarcuhi{\F{FixedWeight}}
+ni'o \termineidyr{\F{FixedWeight}}
 
 \begin{code}
 {-# NON_TERMINATING #-}
@@ -743,9 +746,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   restart? : Maybe OT → IO OT
   restart? = maybe pure $ FixedWeight {p}
   τ : ℕ
-  τ with MCParam.n p ≟ MCParam.q p
-  ... | yes _ = MCParam.t p
-  ... | no _ = {!!}
+  τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
   FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a
     where
@@ -796,7 +797,7 @@ ni'o \specimp{SeededKeyGen}
 
 .i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re lo Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
-ni'o \nitynarcuhi{\F{SeededKeyGen}}
+ni'o \termineidyr{\F{SeededKeyGen}}
 
 \begin{code}
 {-# NON_TERMINATING #-}
@@ -833,11 +834,11 @@ SeededKeyGen p = SeededKeyGen'
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
-ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.\ poi ke'a .orsi li re lo Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
+ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.\ poi ke'a .orsi li re lo mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
-KeyGen p = SeededKeyGen p IO.<$> cunsof {MCParam.ℓ p}
+KeyGen p = SeededKeyGen p IO.<$> cunsof {n = MCParam.ℓ p}
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
@@ -849,17 +850,8 @@ ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei
 Hx : (p : MCParam)
    → Public p
    → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
-Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ I
+Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
   where
-  _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
-      → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
-  _∣_ a b = mapᵥ (lookup++ a b) $ allFin _
-    where
-    lookup++ = λ a b n → lookup a n ++ lookup b n
-  I : {n : ℕ} → 𝕄 (Fin 2) n n
-  I = mapᵥ f $ allFin _
-    where
-    f = λ x → updateAt x (const $ suc zero) $ replicate zero
   matmid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
   n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m (MCParam.n p) m*t
     where
@@ -879,7 +871,7 @@ Encode p e T refl = flip moult e $ Hx p T
 \end{code}
 
 \section{la'oi .\F{Decode}.}
-ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
+ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fanva ko'a
 
 \begin{code}
 Decode : {p : MCParam}
@@ -902,12 +894,6 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   c' = {!!}
   c = mapₘ proj₁ c'
   e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
-  -- | .i lisri
-  huck : {m n : ℕ} → Vec (Fin m) n → ℕ
-  huck {m} {n} = Data.List.sum ∘ pilji ∘ indice ∘ toList
-    where
-    indice = Data.List.zip $ Data.List.upTo n
-    pilji = Data.List.map $ λ (a , b) → a * m ^ toℕ b
   mapti : xv MCParam.n → Set
   mapti e = Σ (hWV𝔽 e ≡ MCParam.t p) $ _≡_ C₀ ∘ Encode p e bar
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
