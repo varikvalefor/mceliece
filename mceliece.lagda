@@ -224,6 +224,8 @@ open import Relation.Nullary.Decidable
   )
 open import Truthbrary.Data.Vec.Matrix
   using (
+    _∣_;
+    I;
     𝕄
   )
 open import Relation.Binary.PropositionalEquality
@@ -811,17 +813,8 @@ ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei
 Hx : (p : MCParam)
    → Public p
    → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
-Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ I
+Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
   where
-  _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
-      → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
-  _∣_ a b = mapᵥ (lookup++ a b) $ allFin _
-    where
-    lookup++ = λ a b n → lookup a n ++ lookup b n
-  I : {n : ℕ} → 𝕄 (Fin 2) n n
-  I = mapᵥ f $ allFin _
-    where
-    f = λ x → updateAt x (const $ suc zero) $ replicate zero
   matmid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
   n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m (MCParam.n p) m*t
     where
