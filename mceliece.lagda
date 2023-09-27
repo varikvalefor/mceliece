@@ -224,6 +224,8 @@ open import Relation.Nullary.Decidable
   )
 open import Truthbrary.Data.Vec.Matrix
   using (
+    _∣_;
+    I;
     𝕄
   )
 open import Relation.Binary.PropositionalEquality
@@ -449,7 +451,7 @@ b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
 ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-_∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Fin n → Fin n
+_∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin n
 _∧𝔹ℕ𝔽_ a b = toFin $ zipWithᵥ and𝔽 (nbits a) $ nbits $ toℕ b
   where
   and𝔽 : Op₂ $ Fin 2
@@ -574,7 +576,7 @@ Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 \end{code}
 
 \chap{la'oi .\AgdaRecord{Private}.\ je zo'e}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ ja zo'e be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana vu'oi la'oi .\AgdaRecord{Private}.\ ja zo'e vu'o po'o ku'o je le pinka be ko'a
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ ja zo'e be'o je le pinka be ko'a be'o je ko'e goi le fancu poi ke'a srana vu'oi ko'a ja zo'e vu'o po'o ku'o je le pinka be ko'e
 
 \section{la'oi .\AgdaRecord{Private}.}
 ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
@@ -588,7 +590,7 @@ ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja co'e la'o zoi.\ \F{Priva
 ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \D{Fin} \F \$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\F{Private.s}.}
-ni'o la'o zoi.\ \F{Private.s} \OpF \$ \AgdaRecord{Private} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
+ni'o la'o zoi.\ \F{Private.s} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
 
 \begin{code}
 record Private (p : MCParam) : Set
@@ -705,9 +707,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   restart? : Maybe OT → IO OT
   restart? = maybe pure $ FixedWeight {p}
   τ : ℕ
-  τ with MCParam.n p ≟ MCParam.q p
-  ... | yes _ = MCParam.t p
-  ... | no _ = {!!}
+  τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
   FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a
     where
@@ -795,7 +795,7 @@ SeededKeyGen p = SeededKeyGen'
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
-ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.\ poi ke'a .orsi li re lo Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
+ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.\ poi ke'a .orsi li re lo mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
@@ -813,17 +813,8 @@ ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei
 Hx : (p : MCParam)
    → Public p
    → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
-Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ I
+Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
   where
-  _∣_ : ∀ {a} → {A : Set a} → {m n p : ℕ}
-      → 𝕄 A m n → 𝕄 A p n → 𝕄 A (m + p) n
-  _∣_ a b = mapᵥ (lookup++ a b) $ allFin _
-    where
-    lookup++ = λ a b n → lookup a n ++ lookup b n
-  I : {n : ℕ} → 𝕄 (Fin 2) n n
-  I = mapᵥ f $ allFin _
-    where
-    f = λ x → updateAt x (const $ suc zero) $ replicate zero
   matmid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
   n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m (MCParam.n p) m*t
     where
@@ -843,7 +834,7 @@ Encode p e T refl = flip moult e $ Hx p T
 \end{code}
 
 \section{la'oi .\F{Decode}.}
-ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ cu na prane pe'a le ka ce'u xe fanva ko'a
+ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fanva ko'a
 
 \begin{code}
 Decode : {p : MCParam}
