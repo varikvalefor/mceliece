@@ -707,7 +707,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   restart? : Maybe OT → IO OT
   restart? = maybe pure $ FixedWeight {p}
   τ : ℕ
-  τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else ?
+  τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
   FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a
     where
