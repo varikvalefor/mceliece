@@ -489,7 +489,7 @@ ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'o
 
 \subsubsection{le vrici je me'oi .\AgdaKeyword{field}.}
 \paragraph{la'oi .\F{MCParam.n}.}
-ni'o la'o zoi.\ \F{MCParam.n} \B q .zoi.\ ni lo me'oi .code.\ pe la'o zoi.\ \D q .zoi.\ cu clani
+ni'o la'o zoi.\ \F{MCParam.n} \B q .zoi.\ ni lo me'oi .code.\ pe la'o zoi.\ \B q .zoi.\ cu clani
 
 \paragraph{la'oi .\F{MCParam.m}.}
 ni'o la'o zoi.\ \F{MCParam.m} \B q .zoi.\ reldugri lo ni lo me'oi .\AgdaKeyword{field}.\ cu barda
