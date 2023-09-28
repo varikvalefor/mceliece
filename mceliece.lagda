@@ -263,15 +263,17 @@ a div2 (suc b) = a div (suc b)
 ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n .zoi.\ gi ga jonai ga je lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B m\Sym\} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
 
 \begin{code}
-f2f : {m n : ℕ} → Fin m → Fin n
-f2f = {!!}
+f2f : {m n : ℕ} → Fin m → Fin $ suc n
+f2f {m} {n} f with toℕ f ℕ.<? suc n
+... | yes t = Data.Fin.fromℕ< t
+... | no _ = Data.Fin.opposite zero
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
 ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1 .zoi.
 
 \begin{code}
-f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin n
+f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin $ suc n
 f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
@@ -414,37 +416,38 @@ ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\
 
 \begin{code}
 b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
-b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
+b2f {_} {0} _ = zero
+b2f {m'} {n@(suc n')} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   where
   m = suc m'
-  indy : flip Vec n $ Fin $ m ^ n
-  indy = reverseᵥ $ mapᵥ f2f $ allFin n
-  zf = mink zero $ proj₂ $ zerpaus m' n
+  zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
+  zerpaus _ 0 = 0 , refl
+  zerpaus b' (ℕ.suc e) = _ , sym mips
     where
-    zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
-    zerpaus _ 0 = 0 , refl
-    zerpaus b' (ℕ.suc e) = _ , sym mips
+    mips = begin
+      b ^ ℕ.suc e ≡⟨ refl ⟩
+      b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ zerpaus b' e ⟩
+      b * suc z₁ ≡⟨ refl ⟩
+      b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
+      b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
+      b * z₁ + b * 1 ≡⟨ cong bizpu $ DNP.*-identityʳ b ⟩
+      b * z₁ + b ≡⟨ refl ⟩
+      b * z₁ + (1 + b') ≡⟨ cong bizpu $ DNP.+-comm 1 b' ⟩
+      b * z₁ + (b' + 1) ≡⟨ sym $ DNP.+-assoc (b * z₁) b' 1 ⟩
+      b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
+      suc (b * z₁ + b') ∎
       where
-      mips = begin
-        b ^ ℕ.suc e ≡⟨ refl ⟩
-        b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ zerpaus b' e ⟩
-        b * suc z₁ ≡⟨ refl ⟩
-        b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
-        b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
-        b * z₁ + b * 1 ≡⟨ cong bizpu $ DNP.*-identityʳ b ⟩
-        b * z₁ + b ≡⟨ refl ⟩
-        b * z₁ + (1 + b') ≡⟨ cong bizpu $ DNP.+-comm 1 b' ⟩
-        b * z₁ + (b' + 1) ≡⟨ sym $ DNP.+-assoc (b * z₁) b' 1 ⟩
-        b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
-        suc (b * z₁ + b') ∎
-        where
-        z₁ = proj₁ $ zerpaus b' e
-        b = ℕ.suc b'
-        bizpu = _+_ $ b * z₁
-        open Relation.Binary.PropositionalEquality.≡-Reasoning
-  cond : flip Vec n $ Fin (m ^ n) × Fin (m ^ n) → Fin $ m ^ n
-  cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
+      z₁ = proj₁ $ zerpaus b' e
+      b = ℕ.suc b'
+      bizpu = _+_ $ b * z₁
+      open Relation.Binary.PropositionalEquality.≡-Reasoning
+  zf = mink zero $ proj₂ $ zerpaus m' n
+  indy : flip Vec n $ Fin $ suc _
+  indy = reverseᵥ $ mapᵥ f2f $ allFin n
+  cond : flip Vec n $ Fin (suc _) × Fin (suc _) → Fin $ m ^ n
+  cond = kos ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ pilji
     where
+    kos = coerce $ cong Fin $ proj₂ $ zerpaus m' n
     pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * m ^ b
 \end{code}
 
@@ -452,14 +455,14 @@ b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
 ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-_∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin n
+_∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin $ suc n
 _∧𝔹ℕ𝔽_ a b = toFin $ zipWithᵥ and𝔽 (nbits a) $ nbits $ toℕ b
   where
   and𝔽 : Op₂ $ Fin 2
   and𝔽 (suc zero) (suc zero) = suc zero
   and𝔽 _ _ = zero
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
-  toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
+  toFin : {n : ℕ} → Vec (Fin 2) $ suc n → Fin $ suc n
   toFin = f2f ∘ b2f
 \end{code}
 
