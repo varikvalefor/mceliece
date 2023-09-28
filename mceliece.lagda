@@ -216,6 +216,7 @@ open import Truthbrary.Record.Eq
   )
 open import Truthbrary.Record.LLC
   using (
+    nu,iork;
     LL
   )
 open import Relation.Nullary.Decidable
@@ -684,7 +685,9 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
          → Op₁ $ flip Vec n $ Fin m × A
     jort = {!!}
     panci : vex → Maybe vex
-    panci = {!!}
+    panci v with Dec (nu,iork v) ∋ {!!}
+    ... | yes _ = just v
+    ... | _ = nothing
 \end{code}
 
 \section{la'oi .\F{FixedWeight}.}
