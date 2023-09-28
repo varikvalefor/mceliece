@@ -441,7 +441,6 @@ b2f {m'} {n@(suc n')} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
       b = ℕ.suc b'
       bizpu = _+_ $ b * z₁
       open Relation.Binary.PropositionalEquality.≡-Reasoning
-  zf = mink zero $ proj₂ $ zerpaus m' n
   indy : flip Vec n $ Fin $ suc _
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
   cond : flip Vec n $ Fin (suc _) × Fin (suc _) → Fin $ m ^ n
