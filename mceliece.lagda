@@ -182,7 +182,6 @@ open import Data.Product
   )
 open import Data.Nat as ℕ
   using (
-    _≡ᵇ_;
     _^_;
     _*_;
     _+_;
@@ -211,6 +210,7 @@ open import Truthbrary.Data.Fin
   )
 open import Truthbrary.Record.Eq
   using (
+    _≡ᵇ_;
     _≟_;
     Eq
   )
@@ -723,11 +723,11 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
     d : Vec ℕ τ
-    d = mapᵥ {!!} $ upToᵥ τ
+    d = mapᵥ {!!} upToᵥ
       where
-      upToᵥ : (n : ℕ) → Vec ℕ n
-      upToᵥ 0 = []
-      upToᵥ s@(suc n) = s ∷ upToᵥ n
+      upToᵥ : {n : ℕ} → Vec ℕ n
+      upToᵥ {0} = []
+      upToᵥ {suc n} = suc n ∷ upToᵥ
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = {!!}
     e' : (a : _)
