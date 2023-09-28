@@ -186,7 +186,6 @@ open import Data.Product
   )
 open import Data.Nat as ℕ
   using (
-    _≡ᵇ_;
     _^_;
     _*_;
     _+_;
@@ -215,6 +214,7 @@ open import Truthbrary.Data.Fin
   )
 open import Truthbrary.Record.Eq
   using (
+    _≡ᵇ_;
     _≟_;
     Eq
   )
