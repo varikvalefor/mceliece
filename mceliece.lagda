@@ -197,7 +197,6 @@ open import Data.Product
   )
 open import Data.Nat as ℕ
   using (
-    _≡ᵇ_;
     _^_;
     _*_;
     _+_;
@@ -226,11 +225,13 @@ open import Truthbrary.Data.Fin
   )
 open import Truthbrary.Record.Eq
   using (
+    _≡ᵇ_;
     _≟_;
     Eq
   )
 open import Truthbrary.Record.LLC
   using (
+    nu,iork;
     LL
   )
 open import Relation.Nullary.Decidable
@@ -504,19 +505,19 @@ ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'o
 
 \subsubsection{le vrici je me'oi .\AgdaKeyword{field}.}
 \paragraph{la'oi .\F{MCParam.n}.}
-ni'o la'o zoi.\ \F{MCParam.n} \B q .zoi.\ ni lo me'oi .code.\ pe la'o zoi.\ \D q .zoi.\ cu clani
+ni'o la'o zoi.\ \F{MCParam.n} \B q .zoi.\ ni clani fa lo me'oi .code.\ pe la'o zoi.\ \B q .zoi.
 
 \paragraph{la'oi .\F{MCParam.m}.}
-ni'o la'o zoi.\ \F{MCParam.m} \B q .zoi.\ reldugri lo ni lo me'oi .\AgdaKeyword{field}.\ cu barda
+ni'o la'o zoi.\ \F{MCParam.m} \B q .zoi.\ reldugri lo ni barda fa lo selvau be lo me'oi .\AgdaKeyword{field}.
 
 \paragraph{la'oi .\F{MCParam.t}.}
-ni'o la'o zoi.\ \F{MCParam.t} \B q .zoi.\ ni me'oi .guarantee.\ le du'u cumki fa lo nu rinka ja gasnu ja co'e lo nu binxo lo drani
+ni'o la'o zoi.\ \F{MCParam.t} \B q .zoi.\ ni cumki fa lo nu rinka ja gasnu ja co'e lo nu binxo lo drani
 
 \paragraph{la'oi .\F{MCParam.f}.}
 ni'o la'o zoi.\ \F{MCParam.f} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \F{MCParam.m} \B q .zoi\ldots je cu co'e
 
 \paragraph{la'oi .\F{MCParam.F}.}
-ni'o la'o zoi.\ \F{MCParam.F} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a be fi la'o zoi.\ \F{MCParam.t} \B q .zoi\ldots je cu co'e
+ni'o la'o zoi.\ \F{MCParam.F} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \F{MCParam.t} \B q .zoi\ldots je cu co'e
 
 \paragraph{la'oi .\F{MCParam.k}.}
 ni'o la'o zoi.\ \F{MCParam.k} \B q .zoi.\ me'oi .dimension.\ lo me'oi .code.\ pe la'oi .\B q.
@@ -525,7 +526,7 @@ ni'o la'o zoi.\ \F{MCParam.k} \B q .zoi.\ me'oi .dimension.\ lo me'oi .code.\ pe
 ni'o la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \F{MCParam.k} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.μ \B q} .zoi.
 
 \paragraph{la'oi .\F{MCParam.ν}.}
-ni'o la'o zoi.\ \F{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \F{MCParam.ν \B q} .zoi.\ je cu dubjavme'a lo vujnu be la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B q .zoi.
+ni'o la'o zoi.\ \F{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \F{MCParam.ν \B q} .zoi.\ je lo vujnu be la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B q .zoi.
 
 \subsubsection{le me'oi .\AgdaKeyword{field}.\ poi ke'a srana le mu'oi glibau.\ symmetric cryptography .glibau.}
 \paragraph{la'oi .\F{MCParam.ℓ}.}
@@ -699,7 +700,9 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
          → Op₁ $ flip Vec n $ Fin m × A
     jort = {!!}
     panci : vex → Maybe vex
-    panci = {!!}
+    panci v with Dec (nu,iork v) ∋ {!!}
+    ... | yes _ = just v
+    ... | _ = nothing
 \end{code}
 
 \section{la'oi .\F{FixedWeight}.}
@@ -771,7 +774,7 @@ Encap {p} = Encap' {p} IO.<$> FixedWeight {p}
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o \specimp{SeededKeyGen}
 
-.i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re lo Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
+.i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re lo mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
 ni'o \termineidyr{\F{SeededKeyGen}}
 
@@ -820,6 +823,7 @@ KeyGen p = SeededKeyGen p IO.<$> cunso
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
+ni'o ko'a goi la'au \chapsname\ li'u vasru le velcki be ko'e goi vu'oi le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ ku'o je le fancu poi tu'a ke'a filri'a lo nu me'oi .decode.\ ge'u je le pinka be ko'e  .i la .varik.\ cu na birti le du'u sarcu fa tu'a le me'oi .abstract.\ be ko'a
 
 \section{la'oi .\F{Hx}.}
 ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T .zoi.
