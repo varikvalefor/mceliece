@@ -720,11 +720,11 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
     d : Vec ℕ τ
-    d = mapᵥ {!!} $ upToᵥ τ
+    d = mapᵥ {!!} upToᵥ
       where
-      upToᵥ : (n : ℕ) → Vec ℕ n
-      upToᵥ 0 = []
-      upToᵥ s@(suc n) = s ∷ upToᵥ n
+      upToᵥ : {n : ℕ} → Vec ℕ n
+      upToᵥ {0} = []
+      upToᵥ {s@(suc n)} = s ∷ upToᵥ {n}
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = {!!}
     e' : (a : _)
