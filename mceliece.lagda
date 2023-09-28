@@ -445,9 +445,9 @@ b2f {m'} {n@(suc n')} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   indy : flip Vec n $ Fin $ suc _
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
   cond : flip Vec n $ Fin (suc _) × Fin (suc _) → Fin $ m ^ n
-  cond = kos ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ pilji
+  cond = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ pilji
     where
-    kos = coerce $ cong Fin $ proj₂ $ zerpaus m' n
+    k = cong Fin $ proj₂ $ zerpaus m' n
     pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * m ^ b
 \end{code}
 
