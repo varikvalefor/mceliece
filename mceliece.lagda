@@ -759,7 +759,7 @@ Encap {p} = Encap' {p} IO.<$> FixedWeight {p}
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o \specimp{SeededKeyGen}
 
-.i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re lo Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
+.i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re lo mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
 ni'o \termineidyr{\F{SeededKeyGen}}
 
