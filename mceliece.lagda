@@ -808,6 +808,7 @@ KeyGen p = SeededKeyGen p IO.<$> cunso
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
+ni'o ko'a goi la'au \chapsname\ li'u vasru le velcki be ko'e goi vu'oi le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ ku'o je le fancu poi tu'a ke'a filri'a lo nu me'oi .decode.\ ge'u je le pinka be ko'e  .i la .varik.\ cu na birti le du'u sarcu fa tu'a le me'oi .abstract.\ be ko'a
 
 \section{la'oi .\F{Hx}.}
 ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T .zoi.
