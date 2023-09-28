@@ -724,7 +724,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       where
       upToᵥ : {n : ℕ} → Vec ℕ n
       upToᵥ {0} = []
-      upToᵥ {s@(suc n)} = s ∷ upToᵥ {n}
+      upToᵥ {suc n} = suc n ∷ upToᵥ
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = {!!}
     e' : (a : _)
