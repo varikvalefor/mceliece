@@ -454,11 +454,8 @@ ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and
 
 \begin{code}
 _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin n
-_∧𝔹ℕ𝔽_ a b = toFin $ zipWithᵥ and𝔽 (nbits a) $ nbits $ toℕ b
+_∧𝔹ℕ𝔽_ a b = toFin $ zipWithᵥ (f𝔽 _*_) (nbits a) $ nbits $ toℕ b
   where
-  and𝔽 : Op₂ $ Fin 2
-  and𝔽 (suc zero) (suc zero) = suc zero
-  and𝔽 _ _ = zero
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
   toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
