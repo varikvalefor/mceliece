@@ -380,7 +380,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 \end{code}
 
 \section{la .\F{dist}.}
-ni'o la'o zoi.\ \F{dist} \Sym ⦃ \AgdaArgument Q \Sym = \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \F{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi. be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
+ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \F{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi. be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
 
 \begin{code}
 dist : ∀ {a} → {A : Set a}
@@ -388,7 +388,7 @@ dist : ∀ {a} → {A : Set a}
      → (x z : A)
      → LL.l Q x ≡ LL.l Q z
      → ℕ
-dist ⦃ Q = Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
+dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   where
   drata = uncurry _≟_
   x' = flip coerce (LL.vec Q x) $ cong (Vec $ LL.e Q) d
