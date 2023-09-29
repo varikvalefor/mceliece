@@ -747,7 +747,7 @@ FixedWeight : {p : MCParam}
             → (IO $ Σ
                 (Vec (Fin 2) $ MCParam.n p)
                 (λ e → hWV𝔽 e ≡ MCParam.t p))
-FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
+FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   where
   OT = Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
@@ -757,6 +757,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   restart? = maybe pure $ FixedWeight {p}
   τ : ℕ
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
+  cof = cunsof {MCParam.σ₁ p * τ}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
   FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a
     where
