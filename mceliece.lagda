@@ -150,7 +150,7 @@ open import Data.List
   )
 open import Data.Digit
   using (
-    toNatDigits
+    toDigits
   )
 open import Data.Maybe
   renaming (
@@ -404,7 +404,7 @@ ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke
 
 \begin{code}
 nbits : {n : ℕ} → ℕ → Vec (Fin 2) n
-nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ Data.Digit.toDigits 2
+nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 \end{code}
 
 \section{la'oi .\F{b2f}.}
