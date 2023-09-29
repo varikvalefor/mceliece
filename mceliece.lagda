@@ -400,7 +400,7 @@ dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 \section{la'oi .\F{nbits}.}
 ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
-.i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
+.i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.\ je ku'i cu me'oi .truncate.
 
 \begin{code}
 nbits : {n : ℕ} → ℕ → Vec (Fin 2) n
