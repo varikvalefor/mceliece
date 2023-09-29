@@ -93,7 +93,7 @@
 \tableofcontents
 
 \chap{le me'oi .disclaimer.}
-ni'o le velcki cu zabna jenai cu mulno
+ni'o le velcki cu zabna najenai cu mulno
 
 \chap{le terzu'e}
 ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a filri'a lo nu jimpe fi la'o glibau.\ Classic MCELIECE .glibau.
@@ -154,7 +154,7 @@ open import Data.List
   )
 open import Data.Digit
   using (
-    toNatDigits
+    toDigits
   )
 open import Data.Maybe
   renaming (
@@ -242,10 +242,10 @@ import Data.Vec.Properties as DVP
 \end{code}
 
 \chap{le vrici}
-ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo me'oi .chapter.\ poi ke'a xi re vasru ke'a xi pa po'o
+ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo ckupau poi ke'a xi re vasru ke'a xi pa po'o
 
 \section{la'oi .\F{hWV𝔽}.}
-ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.  .i sa'u nai ko'a nilzilcmi lo'i ro co'e ja cmima be la'o zoi.\ \B x .zoi.\ poi ke'a na du la'oi .\F{zero}.
+ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.  .i sa'u nai ko'a nilzilcmi lo'i ro co'e ja cmima be la'o zoi.\ \B x .zoi.\ be'o poi ke'a na du la'oi .\AgdaInductiveConstructor{zero}.
 
 \begin{code}
 hWV𝔽 : {a b : ℕ} → Vec (Fin b) a → ℕ
@@ -256,7 +256,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
   f zero = 0
 \end{code}
 
-\section{la'oi .\F{\_div2\_}.}
+\section{la'oi .\F{\AgdaUnderscore{}div2\AgdaUnderscore}.}
 ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
@@ -386,7 +386,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 \end{code}
 
 \section{la .\F{dist}.}
-ni'o la'o zoi.\ \F{dist} \Sym ⦃ \AgdaArgument Q \Sym = \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \F{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi. be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
+ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \F{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi. be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
 
 \begin{code}
 dist : ∀ {a} → {A : Set a}
@@ -394,9 +394,9 @@ dist : ∀ {a} → {A : Set a}
      → (x z : A)
      → LL.l Q x ≡ LL.l Q z
      → ℕ
-dist ⦃ Q = Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
+dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   where
-  drata = uncurry _≟_
+  drata = _≟_ false ∘ isYes ∘ uncurry _≟_
   x' = flip coerce (LL.vec Q x) $ cong (Vec $ LL.e Q) d
   z' = LL.vec Q z
 \end{code}
@@ -406,13 +406,11 @@ dist ⦃ Q = Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 \section{la'oi .\F{nbits}.}
 ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
-.i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
+.i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.\ je ku'i cu me'oi .truncate.
 
 \begin{code}
 nbits : {n : ℕ} → ℕ → Vec (Fin 2) n
-nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
-  where
-  n2f = λ f → if f ≡ᵇ 0 then zero else suc zero
+nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 \end{code}
 
 \section{la'oi .\F{b2f}.}
@@ -451,8 +449,11 @@ b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   cond : flip Vec n $ Fin (m ^ n) × Fin (m ^ n) → Fin $ m ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
     where
-    pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * m ^ b
+    pilji = uncurry $ f𝔽 $ λ a b → a * m ^ b
 \end{code}
+
+\subsection{le se zvati}
+ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la .\F{b2f}.\ lo drata be la'au \chapsname\ li'u  .i ko'a mapti lo na ctaipe be ko'e goi la'o zoi.\ \D{Fin} \AgdaNumber 2\ .zoi.\ je ku'i cu co'e ja selbi'o le mapti be lo ctaipe be ko'e be'o po'o  .i la .varik.\ cu na birti lo du'u ma kau ckupau je cu zmadu la'au \chapsname\ li'u le ka ko'a mapti ce'u
 
 \section{la .\F{cunsof}.}
 ni'o la .\F{cunsof}.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.
@@ -496,23 +497,20 @@ ni'o la .varik.\ cu djica lo nu la'oi .\F{cunsof}.\ cu ctaipe ko'a goi la'o zoi.
 
 .i ku'i ga je ko'e goi zoi zoi.\ \F{cunsof} \Sym = \F{pure} \OpF ∘ \F{zero} .zoi.\ sampu gi frili fa lo nu jimpe fi ko'e
 
-\section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
+\section{la'oi .\F{\AgdaUnderscore∧𝔹ℕ𝔽\AgdaUnderscore}.}
 ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin n
-_∧𝔹ℕ𝔽_ a b = toFin $ zipWithᵥ and𝔽 (nbits a) $ nbits $ toℕ b
+_∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
   where
-  and𝔽 : Op₂ $ Fin 2
-  and𝔽 (suc zero) (suc zero) = suc zero
-  and𝔽 _ _ = zero
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
   toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
-ni'o la'o zoi.\ \F{hw𝕄} \B t .zoi.\ sumji lo'i mu'oi glibau.\ HAMMING weight .glibau.\ be lo'i ro rajypau pe'a ja co'e be la'oi .\B t.
+ni'o la'o zoi.\ \F{hw𝕄} \B t .zoi.\ grisumji lo se cmima poi ro da zo'u ga jo da cmima ke'a gi su'o de poi ke'a xi re co'e ja rajypau la'o zoi.\ \B t\ .zoi.\ zo'u da mu'oi glibau.\ HAMMING weight .glibau.\ de
 
 \begin{code}
 hw𝕄 : {a m n : ℕ} → 𝕄 (Fin a) m n → ℕ
@@ -685,7 +683,7 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
 \chap{la'oi .\AgdaRecord{KP}.\ je zo'e}
 
 \section{la'oi .\AgdaRecord{KP}.}
-ni'o la'oi .\AgdaRecord{KP}.\ se ctaipe lo mu'oi glibau. Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
+ni'o la'oi .\AgdaRecord{KP}.\ se ctaipe lo mu'oi glibau.\ Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
 
 .i ga naja la'o zoi.\ \B t .zoi.\ ctaipe la'o zoi.\ \F{KP}\ \AgdaUnderscore\ .zoi.\ gi cadga fa lo nu la'o zoi.\ \F{proj₂} \B t .zoi.\ sivni termifckiku je cu mapti la'o zoi.\ \B t\ .zoi.\ je la'o zoi.\ \F{proj₁} \B t .zoi.
 
@@ -768,11 +766,11 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
     d : Vec ℕ τ
-    d = mapᵥ {!!} $ upToᵥ τ
+    d = mapᵥ {!!} upToᵥ
       where
-      upToᵥ : (n : ℕ) → Vec ℕ n
-      upToᵥ 0 = []
-      upToᵥ s@(suc n) = s ∷ upToᵥ n
+      upToᵥ : {n : ℕ} → Vec ℕ n
+      upToᵥ {0} = []
+      upToᵥ {suc n} = suc n ∷ upToᵥ
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = {!!}
     e' : (a : _)
