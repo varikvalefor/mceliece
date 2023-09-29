@@ -404,9 +404,7 @@ ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke
 
 \begin{code}
 nbits : {n : ℕ} → ℕ → Vec (Fin 2) n
-nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
-  where
-  n2f = λ f → if f ≡ᵇ 0 then zero else suc zero
+nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ Data.Digit.toDigits 2
 \end{code}
 
 \section{la'oi .\F{b2f}.}
