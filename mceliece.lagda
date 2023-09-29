@@ -443,7 +443,7 @@ b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   cond : flip Vec n $ Fin (m ^ n) × Fin (m ^ n) → Fin $ m ^ n
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
     where
-    pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * m ^ b
+    pilji = uncurry $ f𝔽 $ λ a b → a * m ^ b
 \end{code}
 
 \section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
