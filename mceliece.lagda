@@ -93,7 +93,7 @@
 \tableofcontents
 
 \chap{le me'oi .disclaimer.}
-ni'o le velcki cu zabna jenai cu mulno
+ni'o le velcki cu zabna najenai cu mulno
 
 \chap{le terzu'e}
 ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a filri'a lo nu jimpe fi la'o glibau.\ Classic MCELIECE .glibau.
