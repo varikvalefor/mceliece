@@ -516,7 +516,7 @@ ni'o la'o zoi.\ \F{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o
 ni'o la'o zoi.\ \F{MCParam.ℓ} \B q .zoi.\ ni clani fa lo me'oi .output.\ be la'o zoi.\ \F{MCParam.H} \B q .zoi.\
 
 \paragraph{la'oi .\F{MCParam.H}.}
-ni'o la'o zoi.\ \F{MCParam.H} \B q .zoi.\ me'oi .hash.\ fancu
+ni'o la'o zoi.\ \F{MCParam.H} \B q \B n .zoi.\ me'oi .hash.\ la'o zoi.\ \B n\ .zoi.
 
 \paragraph{la'oi .\F{MCParam.σ₁}.}
 ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
