@@ -153,6 +153,15 @@ open import Data.Digit
     toDigits
   )
 open import Data.Maybe
+  using (
+    decToMaybe;
+    fromMaybe;
+    nothing;
+    Maybe;
+    maybe;
+    just;
+    ap
+  )
   renaming (
     _>>=_ to _>>=ₘ_;
     map to mapₘ
