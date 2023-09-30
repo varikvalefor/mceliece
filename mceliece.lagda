@@ -869,10 +869,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
     where
     maptyctaipe = dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
       where
-      dus : Maybe _
-      dus with _ ≟ _
-      ... | yes t = just t
-      ... | _ = nothing
+      dus = decToMaybe $ _ ≟ _
       enk : (x : hWV𝔽 e ≡ MCParam.t p)
           → Maybe $ C₀ ≡ Encode p e bar x
       enk = {!!}
