@@ -663,7 +663,11 @@ ni'o \specimp{Irreducible}
 Irreducible : {p : MCParam}
             → Fin $ 2 ^ (MCParam.σ₁ p * MCParam.t p)
             → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.t p
-Irreducible = {!!}
+Irreducible {p} d = if proj₁ g ≡ᵇ t then just (proj₂ g) else nothing
+  where
+  t = MCParam.t p
+  g : ∃ $ Vec $ Fin $ MCParam.q p
+  g = {!!}
 \end{code}
 
 \section{la'oi .\F{FieldOrdering}.}
