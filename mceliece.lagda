@@ -157,9 +157,18 @@ open import Data.Digit
     toDigits
   )
 open import Data.Maybe
+  using (
+    decToMaybe;
+    fromMaybe;
+    nothing;
+    Maybe;
+    maybe;
+    just
+  )
   renaming (
     _>>=_ to _>>=ₘ_;
-    map to mapₘ
+    map to mapₘ;
+    ap to apₘ
   )
 open import Data.These
   using (
@@ -564,7 +573,7 @@ ni'o la'o zoi.\ \F{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o
 ni'o la'o zoi.\ \F{MCParam.ℓ} \B q .zoi.\ ni clani fa lo me'oi .output.\ be la'o zoi.\ \F{MCParam.H} \B q .zoi.\
 
 \paragraph{la'oi .\F{MCParam.H}.}
-ni'o la'o zoi.\ \F{MCParam.H} \B q .zoi.\ me'oi .hash.\ fancu
+ni'o la'o zoi.\ \F{MCParam.H} \B q \B n .zoi.\ me'oi .hash.\ la'o zoi.\ \B n\ .zoi.
 
 \paragraph{la'oi .\F{MCParam.σ₁}.}
 ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
@@ -755,6 +764,9 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   -- la'oi .restart?. rinka lo nu na me'oi .terminate.
   restart? : Maybe OT → IO OT
   restart? = maybe pure $ FixedWeight {p}
+  -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le velcki
+  -- be la'oi .τ. be'o poi ke'a na zabna  .i la .varik. cu
+  -- na birti
   τ : ℕ
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   cof = cunsof {MCParam.σ₁ p * τ}
@@ -831,7 +843,7 @@ SeededKeyGen p = SeededKeyGen'
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
     mapti? : Maybe $ KP p
-    mapti? = (ap ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
+    mapti? = (apₘ ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
       where
       sivni = g? >>=ₘ λ (j , lg , g) → just record {
         lg = lg;
@@ -913,10 +925,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
     where
     maptyctaipe = dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
       where
-      dus : Maybe _
-      dus with _ ≟ _
-      ... | yes t = just t
-      ... | _ = nothing
+      dus = decToMaybe $ _ ≟ _
       enk : (x : hWV𝔽 e ≡ MCParam.t p)
           → Maybe $ C₀ ≡ Encode p e bar x
       enk = {!!}
