@@ -878,13 +878,11 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   mapti : xv MCParam.n → Set
   mapti e = Σ (hWV𝔽 e ≡ MCParam.t p) $ _≡_ C₀ ∘ Encode p e bar
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
-  mapti? e = mapₘ (_,_ e) maptyctaipe
+  mapti? e = mapₘ (_,_ e) $ dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
     where
-    maptyctaipe = dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
-      where
-      dus = decToMaybe $ _ ≟ _
-      enk : (x : hWV𝔽 e ≡ MCParam.t p)
-          → Maybe $ C₀ ≡ Encode p e bar x
-      enk = {!!}
+    dus = decToMaybe $ _ ≟ _
+    enk : (x : hWV𝔽 e ≡ MCParam.t p)
+        → Maybe $ C₀ ≡ Encode p e bar x
+    enk = {!!}
 \end{code}
 \end{document}
