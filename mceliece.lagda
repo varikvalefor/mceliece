@@ -159,12 +159,12 @@ open import Data.Maybe
     nothing;
     Maybe;
     maybe;
-    just;
-    ap
+    just
   )
   renaming (
     _>>=_ to _>>=ₘ_;
-    map to mapₘ
+    map to mapₘ;
+    ap to apₘ
   )
 open import Data.These
   using (
@@ -794,7 +794,7 @@ SeededKeyGen p = SeededKeyGen'
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
     mapti? : Maybe $ KP p
-    mapti? = (ap ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
+    mapti? = (apₘ ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
       where
       sivni = g? >>=ₘ λ (j , lg , g) → just record {
         lg = lg;
