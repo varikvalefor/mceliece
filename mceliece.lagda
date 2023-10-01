@@ -404,17 +404,17 @@ dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   z' = LL.vec Q z
 \end{code}
 
-\section{la .\F{zerpaus}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciski la .\F{zerpaus}.\ bau la .lojban.
+\section{la .\F{pausyk}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciski la .\F{pausyk}.\ bau la .lojban.
 
 \begin{code}
-zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
-zerpaus _ 0 = 0 , refl
-zerpaus b' (ℕ.suc e) = _ , sym mips
+pausyk : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
+pausyk _ 0 = 0 , refl
+pausyk b' (ℕ.suc e) = _ , sym mips
   where
   mips = begin
     b ^ ℕ.suc e ≡⟨ refl ⟩
-    b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ zerpaus b' e ⟩
+    b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ pausyk b' e ⟩
     b * suc z₁ ≡⟨ refl ⟩
     b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
     b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
@@ -425,7 +425,7 @@ zerpaus b' (ℕ.suc e) = _ , sym mips
     b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
     suc (b * z₁ + b') ∎
     where
-    z₁ = proj₁ $ zerpaus b' e
+    z₁ = proj₁ $ pausyk b' e
     b = ℕ.suc b'
     bizpu = _+_ $ b * z₁
     open Relation.Binary.PropositionalEquality.≡-Reasoning
@@ -453,7 +453,7 @@ b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   m = suc m'
   indy : flip Vec n $ Fin $ m ^ n
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
-  zf = mink zero $ proj₂ $ zerpaus m' n
+  zf = mink zero $ proj₂ $ pausyk m' n
   cond : let X = Fin $ m ^ n in flip Vec n $ X × X → X
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
     where
