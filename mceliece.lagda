@@ -263,7 +263,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-_div2_ : ℕ → ℕ → ℕ
+_div2_ : Op₂ ℕ
 _ div2 0 = 0
 a div2 (suc b) = a div (suc b)
 \end{code}
