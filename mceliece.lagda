@@ -667,7 +667,7 @@ Irreducible {p} d = if proj₁ g ≡ᵇ t then just (proj₂ g) else nothing
   where
   t = MCParam.t p
   g : ∃ $ Vec $ Fin $ MCParam.q p
-  g = {!!}
+  g = {!!} , {!!}
 \end{code}
 
 \section{la'oi .\F{FieldOrdering}.}
