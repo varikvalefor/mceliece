@@ -739,7 +739,13 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
     d : Vec (Fin $ MCParam.n p) τ
-    d = mapᵥ {!!} $ allFin _
+    d = mapᵥ (λ j → sumᵥ' $ mapᵥ {!!} $ allFin $ m ∸ 1) $ allFin _
+      where
+      m = MCParam.m p
+      sumᵥ' = foldrᵥ _ (f𝔽 _+_) $ coerce (cong Fin z) zero
+        where
+        z : suc {!!} ≡ MCParam.n p
+        z = {!!}
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = {!!}
     e' : (a : _)
