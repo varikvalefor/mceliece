@@ -745,7 +745,13 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       sumᵥ' = foldrᵥ _ (f𝔽 _+_) $ coerce (cong Fin z) zero
         where
         z : suc {!!} ≡ MCParam.n p
-        z = {!!}
+        z = sym $ proj₂ $ lesuk $ MCParam.ctejau p
+          where
+          lesuk : {m n : ℕ} → m ℕ.< n → ∃ $ _≡_ n ∘ suc
+          lesuk {0} {n} (ℕ.s≤s _) = n ∸ 1 , refl
+          lesuk {suc m} (ℕ.s≤s t) = up $ lesuk t
+            where
+            up = Data.Product.dmap ℕ.suc $ cong ℕ.suc
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = {!!}
     e' : (a : _)
