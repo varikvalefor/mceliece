@@ -404,6 +404,33 @@ dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   z' = LL.vec Q z
 \end{code}
 
+\section{la .\F{zerpaus}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciski la .\F{zerpaus}.\ bau la .lojban.
+
+\begin{code}
+zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
+zerpaus _ 0 = 0 , refl
+zerpaus b' (ℕ.suc e) = _ , sym mips
+  where
+  mips = begin
+    b ^ ℕ.suc e ≡⟨ refl ⟩
+    b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ zerpaus b' e ⟩
+    b * suc z₁ ≡⟨ refl ⟩
+    b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
+    b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
+    b * z₁ + b * 1 ≡⟨ cong bizpu $ DNP.*-identityʳ b ⟩
+    b * z₁ + b ≡⟨ refl ⟩
+    b * z₁ + (1 + b') ≡⟨ cong bizpu $ DNP.+-comm 1 b' ⟩
+    b * z₁ + (b' + 1) ≡⟨ sym $ DNP.+-assoc (b * z₁) b' 1 ⟩
+    b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
+    suc (b * z₁ + b') ∎
+    where
+    z₁ = proj₁ $ zerpaus b' e
+    b = ℕ.suc b'
+    bizpu = _+_ $ b * z₁
+    open Relation.Binary.PropositionalEquality.≡-Reasoning
+\end{code}
+
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
@@ -427,28 +454,6 @@ b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   indy : flip Vec n $ Fin $ m ^ n
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
   zf = mink zero $ proj₂ $ zerpaus m' n
-    where
-    zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
-    zerpaus _ 0 = 0 , refl
-    zerpaus b' (ℕ.suc e) = _ , sym mips
-      where
-      mips = begin
-        b ^ ℕ.suc e ≡⟨ refl ⟩
-        b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ zerpaus b' e ⟩
-        b * suc z₁ ≡⟨ refl ⟩
-        b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
-        b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
-        b * z₁ + b * 1 ≡⟨ cong bizpu $ DNP.*-identityʳ b ⟩
-        b * z₁ + b ≡⟨ refl ⟩
-        b * z₁ + (1 + b') ≡⟨ cong bizpu $ DNP.+-comm 1 b' ⟩
-        b * z₁ + (b' + 1) ≡⟨ sym $ DNP.+-assoc (b * z₁) b' 1 ⟩
-        b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
-        suc (b * z₁ + b') ∎
-        where
-        z₁ = proj₁ $ zerpaus b' e
-        b = ℕ.suc b'
-        bizpu = _+_ $ b * z₁
-        open Relation.Binary.PropositionalEquality.≡-Reasoning
   cond : let X = Fin $ m ^ n in flip Vec n $ X × X → X
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
     where
