@@ -733,12 +733,8 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ (λ a' → B a' × C a')
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
-    d : Vec ℕ τ
-    d = mapᵥ {!!} upToᵥ
-      where
-      upToᵥ : {n : ℕ} → Vec ℕ n
-      upToᵥ {0} = []
-      upToᵥ {suc n} = suc n ∷ upToᵥ
+    d : Vec (Fin $ MCParam.n p) τ
+    d = mapᵥ {!!} $ allFin _
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = {!!}
     e' : (a : _)
