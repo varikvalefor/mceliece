@@ -449,7 +449,7 @@ b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
         b = ℕ.suc b'
         bizpu = _+_ $ b * z₁
         open Relation.Binary.PropositionalEquality.≡-Reasoning
-  cond : flip Vec n $ Fin (m ^ n) × Fin (m ^ n) → Fin $ m ^ n
+  cond : let X = Fin $ m ^ n in flip Vec n $ X × X → X
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
     where
     pilji = uncurry $ f𝔽 $ λ a b → a * m ^ b
