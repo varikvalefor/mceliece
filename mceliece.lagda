@@ -752,8 +752,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       mlen : List $ Fin $ MCParam.n p
       mlen = catMaybes $ map mlen? $ toList d
         where
-        catMaybes : ∀ {a} → {A : Set a}
-                  → List $ Maybe A → List A
+        catMaybes : ∀ {a} → {A : Set a} → List $ Maybe A → List A
         catMaybes (just x ∷ xs) = x ∷ catMaybes xs
         catMaybes (nothing ∷ xs) = catMaybes xs
         catMaybes [] = []
