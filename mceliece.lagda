@@ -739,7 +739,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
     d : Vec ℕ τ
-    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin m) $ allFin _
+    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin m) $ allFin τ
       where
       m = MCParam.m p
       uijis : Fin τ → Fin m → ℕ
