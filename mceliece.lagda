@@ -743,7 +743,11 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       where
       m = MCParam.m p
       uijis : Fin τ → Fin m → ℕ
-      uijis j i = 2 ^ toℕ i * {!!}
+      uijis j i = 2 ^ toℕ i * toℕ (lookup b' $ Data.Fin.fromℕ< mlen)
+        where
+        b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
+        mlen : MCParam.σ₁ p * toℕ j + toℕ i ℕ.< _
+        mlen = {!!}
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = toVec? (Data.List.take (MCParam.t p) mlen) >>=ₘ panci?
       where
