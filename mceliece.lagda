@@ -738,20 +738,10 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ (λ a' → B a' × C a')
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
-    d : Vec (Fin $ MCParam.n p) τ
-    d = mapᵥ (λ j → sumᵥ' $ mapᵥ {!!} $ allFin $ m ∸ 1) $ allFin _
+    d : Vec ℕ τ
+    d = mapᵥ (λ j → sumᵥ $ mapᵥ {!!} $ allFin $ m ∸ 1) $ allFin _
       where
       m = MCParam.m p
-      sumᵥ' = foldrᵥ _ (f𝔽 _+_) $ coerce (cong Fin z) zero
-        where
-        z : suc _ ≡ MCParam.n p
-        z = sym $ proj₂ $ lesuk $ MCParam.ctejau p
-          where
-          lesuk : {m n : ℕ} → m ℕ.< n → ∃ $ _≡_ n ∘ suc
-          lesuk {0} {n} (ℕ.s≤s _) = n ∸ 1 , refl
-          lesuk {suc m} (ℕ.s≤s t) = up $ lesuk t
-            where
-            up = Data.Product.dmap ℕ.suc $ cong ℕ.suc
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = toVec? (Data.List.take (MCParam.t p) {!!}) >>=ₘ panci?
       where
