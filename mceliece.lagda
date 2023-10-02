@@ -739,9 +739,11 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
     d : Vec ℕ τ
-    d = mapᵥ (λ j → sumᵥ $ mapᵥ {!!} $ allFin m) $ allFin _
+    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin m) $ allFin _
       where
       m = MCParam.m p
+      uijis : Fin τ → Fin m → ℕ
+      uijis j i = 2 ^ toℕ i * {!!}
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = toVec? (Data.List.take (MCParam.t p) mlen) >>=ₘ panci?
       where
