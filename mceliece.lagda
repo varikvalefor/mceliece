@@ -744,7 +744,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       m = MCParam.m p
       sumᵥ' = foldrᵥ _ (f𝔽 _+_) $ coerce (cong Fin z) zero
         where
-        z : suc {!!} ≡ MCParam.n p
+        z : suc _ ≡ MCParam.n p
         z = sym $ proj₂ $ lesuk $ MCParam.ctejau p
           where
           lesuk : {m n : ℕ} → m ℕ.< n → ∃ $ _≡_ n ∘ suc
