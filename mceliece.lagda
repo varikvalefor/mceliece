@@ -743,8 +743,22 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       where
       m = MCParam.m p
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a = toVec? (Data.List.take (MCParam.t p) {!!}) >>=ₘ panci?
+    a = toVec? (Data.List.take (MCParam.t p) ten) >>=ₘ panci?
       where
+      -- | ni'o zo .ten. cmavlaka'i
+      -- zoi glibau. t entries .glibau.
+      ten : List $ Fin $ MCParam.n p
+      ten = catMaybes $ map mlen? $ toList d
+        where
+        catMaybes : ∀ {a} → {A : Set a}
+                  → List $ Maybe A → List A
+        catMaybes (just x ∷ xs) = x ∷ catMaybes xs
+        catMaybes (nothing ∷ xs) = catMaybes xs
+        catMaybes [] = []
+        mlen? : (n : ℕ) → Maybe $ Fin $ MCParam.n p
+        mlen? n with n ℕ.<? MCParam.n p
+        ... | no _ = nothing
+        ... | yes m = just $ Data.Fin.fromℕ< m
       V = Vec (Fin $ MCParam.n p) $ MCParam.t p
       panci? : V → Maybe V
       panci? = {!!}
