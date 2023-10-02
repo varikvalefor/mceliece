@@ -753,7 +753,15 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             where
             up = Data.Product.dmap ℕ.suc $ cong ℕ.suc
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a = {!!}
+    a = toVec? (Data.List.take (MCParam.t p) {!!}) >>=ₘ panci?
+      where
+      V = Vec (Fin $ MCParam.n p) $ MCParam.t p
+      panci? : V → Maybe V
+      panci? = {!!}
+      toVec? : List $ Fin $ MCParam.n p → Maybe V
+      toVec? l with Data.List.length l ≟ MCParam.t p
+      ... | no _ = nothing
+      ... | yes d = just $ flip coerce (fromList l) $ cong (Vec _) d
     e' : (a : _)
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
