@@ -742,23 +742,35 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ (λ a' → B a' × C a')
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
-    d : Vec (Fin $ MCParam.n p) τ
-    d = mapᵥ (λ j → sumᵥ' $ mapᵥ {!!} $ allFin $ m ∸ 1) $ allFin _
+    d : Vec ℕ τ
+    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin m) $ allFin τ
       where
       m = MCParam.m p
-      sumᵥ' = coerce fiz ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ coerce fivz
-        where
-        lesuk : {m n : ℕ} → m ℕ.< n → ∃ $ _≡_ n ∘ suc
-        lesuk {0} {n} (ℕ.s≤s _) = n ∸ 1 , refl
-        lesuk {suc m} (ℕ.s≤s t) = up $ lesuk t
-          where
-          up = Data.Product.dmap ℕ.suc $ cong ℕ.suc
-        z : suc _ ≡ MCParam.n p
-        z = sym $ proj₂ $ lesuk $ MCParam.ctejau p
-        fiz = cong Fin z
-        fivz = sym $ cong (flip Vec _ ∘ Fin) z
+      uijis : Fin τ → Fin m → ℕ
+      uijis j i = 2 ^ toℕ i * {!!}
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a = {!!}
+    a = toVec? (Data.List.take (MCParam.t p) mlen) >>=ₘ panci?
+      where
+      -- | ni'o zo .mlen. cmavlaka'i
+      -- lu mleca la .n. li'u
+      mlen : List $ Fin $ MCParam.n p
+      mlen = catMaybes $ map mlen? $ toList d
+        where
+        catMaybes : ∀ {a} → {A : Set a} → List $ Maybe A → List A
+        catMaybes (just x ∷ xs) = x ∷ catMaybes xs
+        catMaybes (nothing ∷ xs) = catMaybes xs
+        catMaybes [] = []
+        mlen? : (n : ℕ) → Maybe $ Fin $ MCParam.n p
+        mlen? n with n ℕ.<? MCParam.n p
+        ... | no _ = nothing
+        ... | yes m = just $ Data.Fin.fromℕ< m
+      V = Vec (Fin $ MCParam.n p) $ MCParam.t p
+      panci? : V → Maybe V
+      panci? = {!!}
+      toVec? : List $ Fin $ MCParam.n p → Maybe V
+      toVec? l with Data.List.length l ≟ MCParam.t p
+      ... | no _ = nothing
+      ... | yes d = just $ flip coerce (fromList l) $ cong (Vec _) d
     e' : (a : _)
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
