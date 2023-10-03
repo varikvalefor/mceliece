@@ -694,8 +694,9 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   a : v
   a = {!!}
   α : vex → Vec (Fin q) q
-  α = mapᵥ $ λ (a , π) → toF $ sumᵥ $ mapᵥ {!!} $ allFin q
+  α = mapᵥ $ λ (a , π) → toF $ sumᵥ $ mapᵥ {!!} $ allFin m
     where
+    m = MCParam.m p
     toF : ℕ → Fin _
     toF = {!!}
   sartre : vex → Maybe vex
