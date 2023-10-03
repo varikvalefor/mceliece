@@ -38,6 +38,7 @@
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{ℓ}{\ensuremath{\mathnormal{\ell}}}
 \newunicodechar{σ}{\ensuremath{\mathnormal{\sigma}}}
+\newunicodechar{π}{\ensuremath{\mathnormal{\pi}}}
 \newunicodechar{α}{\ensuremath{\mathnormal{\alpha}}}
 \newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
@@ -693,7 +694,10 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   a : v
   a = {!!}
   α : vex → Vec (Fin q) q
-  α = mapᵥ ?
+  α = mapᵥ $ λ (a , π) → toF $ sumᵥ $ mapᵥ {!!} $ allFin q
+    where
+    toF : ℕ → Fin _
+    toF = {!!}
   sartre : vex → Maybe vex
   sartre = mapₘ jort ∘ panci
     where
