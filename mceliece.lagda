@@ -682,7 +682,7 @@ ni'o \specimp{FieldOrdering}
 FieldOrdering : {p : MCParam}
               → Fin $ MCParam.σ₂ p * MCParam.q p
               → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
-FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
+FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   where
   indice : ∀ {a} → {n : ℕ} → {A : Set a}
          → Vec A n → Vec (A × Fin n) n
@@ -692,6 +692,8 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
   vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
   a : v
   a = {!!}
+  α : vex → Vec (Fin q) q
+  α = mapᵥ ?
   sartre : vex → Maybe vex
   sartre = mapₘ jort ∘ panci
     where
