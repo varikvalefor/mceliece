@@ -115,6 +115,7 @@ open import IO
   )
 open import Data.Fin
   using (
+    opposite;
     fromℕ<;
     fromℕ;
     zero;
@@ -831,7 +832,7 @@ SeededKeyGen p = SeededKeyGen'
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
       rev : {n : ℕ} → Fin n → Fin n
-      rev = Data.Fin.opposite
+      rev = opposite
 
       module Veritas where
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
