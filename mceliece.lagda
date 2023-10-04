@@ -115,6 +115,7 @@ open import IO
   )
 open import Data.Fin
   using (
+    fromℕ<;
     fromℕ;
     zero;
     toℕ;
@@ -751,7 +752,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       where
       m = MCParam.m p
       uijis : Fin τ → Fin m → ℕ
-      uijis j i = 2 ^ toℕ i * toℕ (lookup b' $ Data.Fin.fromℕ< mlen)
+      uijis j i = 2 ^ toℕ i * toℕ (lookup b' $ fromℕ< mlen)
         where
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
         mlen : MCParam.σ₁ p * toℕ j + toℕ i ℕ.< _
@@ -771,7 +772,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
         mlen? : (n : ℕ) → Maybe $ Fin $ MCParam.n p
         mlen? n with n ℕ.<? MCParam.n p
         ... | no _ = nothing
-        ... | yes m = just $ Data.Fin.fromℕ< m
+        ... | yes m = just $ fromℕ< m
       V = Vec (Fin $ MCParam.n p) $ MCParam.t p
       panci? : V → Maybe V
       panci? = {!!}
