@@ -726,9 +726,7 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
          → Op₁ $ flip Vec n $ Fin m × A
     jort = {!!}
     panci : vex → Maybe vex
-    panci v with Dec (nu,iork v) ∋ {!!}
-    ... | yes _ = just v
-    ... | _ = nothing
+    panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
 \end{code}
 
 \section{la'oi .\F{FixedWeight}.}
