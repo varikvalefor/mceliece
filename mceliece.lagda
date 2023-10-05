@@ -127,6 +127,19 @@ open import Data.Fin
     _+_ to _+F_
   )
 open import Data.Vec
+  using (
+    replicate;
+    fromList;
+    allFin;
+    filter;
+    lookup;
+    toList;
+    drop;
+    take;
+    _∷_;
+    Vec;
+    []
+  )
   renaming (
     map to mapᵥ;
     sum to sumᵥ;
@@ -229,6 +242,8 @@ open import Truthbrary.Record.Eq
 open import Truthbrary.Record.LLC
   using (
     nu,iork;
+    length;
+    _++_;
     LL
   )
 open import Relation.Nullary.Decidable
@@ -778,7 +793,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       panci? : V → Maybe V
       panci? = {!!}
       toVec? : List $ Fin $ MCParam.n p → Maybe V
-      toVec? l with Data.List.length l ≟ MCParam.t p
+      toVec? l with length l ≟ MCParam.t p
       ... | no _ = nothing
       ... | yes d = just $ flip coerce (fromList l) $ cong (Vec _) d
     e' : (a : _)
