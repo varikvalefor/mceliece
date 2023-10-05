@@ -831,7 +831,7 @@ SeededKeyGen p = SeededKeyGen'
     δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
-      rev : {n : ℕ} → Fin n → Fin n
+      rev : {n : ℕ} → Op₁ $ Fin n
       rev = opposite
 
       module Veritas where
