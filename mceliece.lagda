@@ -35,25 +35,11 @@
 \newunicodechar{∧}{\ensuremath{\mathnormal{\wedge}}}
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
-<<<<<<< HEAD
-\newunicodechar{∀}{\ensuremath{\forall}}
-\newunicodechar{∃}{\ensuremath{\exists}}
-\newunicodechar{ℓ}{\ensuremath{\ell}}
-\newunicodechar{σ}{\ensuremath{\sigma}}
-\newunicodechar{α}{\ensuremath{\alpha}}
-\newunicodechar{₁}{\ensuremath{_1}}
-\newunicodechar{₂}{\ensuremath{_2}}
-\newunicodechar{ₗ}{\ensuremath{_\mathsf{l}}}
-\newunicodechar{ᵥ}{\ensuremath{_\mathsf{v}}}
-\newunicodechar{ₘ}{\ensuremath{_\mathsf{m}}}
-\newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
-\newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
-=======
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{ℓ}{\ensuremath{\mathnormal{\ell}}}
 \newunicodechar{σ}{\ensuremath{\mathnormal{\sigma}}}
+\newunicodechar{π}{\ensuremath{\mathnormal{\pi}}}
 \newunicodechar{α}{\ensuremath{\mathnormal{\alpha}}}
->>>>>>> master
 \newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
@@ -96,7 +82,7 @@
 	\chapter{#1}
 }
 
-\newcommand\termineidyr[1]{ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'o zoi.\ #1 .zoi.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.}
+\newcommand\termineidyr[1]{ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'o zoi.\ #1\ .zoi.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.}
 
 \title{le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.}
 \author{la .varik.\ .VALefor.}
@@ -108,7 +94,7 @@
 \tableofcontents
 
 \chap{le me'oi .disclaimer.}
-ni'o le velcki cu zabna jenai cu mulno
+ni'o le velcki cu zabna najenai cu mulno
 
 \chap{le terzu'e}
 ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e  .i tu'a ko'a filri'a lo nu jimpe fi la'o glibau.\ Classic MCELIECE .glibau.
@@ -129,6 +115,8 @@ open import IO
   )
 open import Data.Fin
   using (
+    opposite;
+    fromℕ<;
     fromℕ;
     zero;
     toℕ;
@@ -139,6 +127,19 @@ open import Data.Fin
     _+_ to _+F_
   )
 open import Data.Vec
+  using (
+    replicate;
+    fromList;
+    allFin;
+    filter;
+    lookup;
+    toList;
+    drop;
+    take;
+    _∷_;
+    Vec;
+    []
+  )
   renaming (
     map to mapᵥ;
     sum to sumᵥ;
@@ -165,12 +166,21 @@ open import Data.List
   )
 open import Data.Digit
   using (
-    toNatDigits
+    toDigits
   )
 open import Data.Maybe
+  using (
+    decToMaybe;
+    fromMaybe;
+    nothing;
+    Maybe;
+    maybe;
+    just
+  )
   renaming (
     _>>=_ to _>>=ₘ_;
-    map to mapₘ
+    map to mapₘ;
+    ap to apₘ
   )
 open import Data.These
   using (
@@ -232,6 +242,8 @@ open import Truthbrary.Record.Eq
 open import Truthbrary.Record.LLC
   using (
     nu,iork;
+    length;
+    _++_;
     LL
   )
 open import Relation.Nullary.Decidable
@@ -251,10 +263,10 @@ import Data.Vec.Properties as DVP
 \end{code}
 
 \chap{le vrici}
-ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo me'oi .chapter.\ poi ke'a xi re vasru ke'a xi pa po'o
+ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo ckupau poi ke'a xi re vasru ke'a xi pa po'o
 
 \section{la'oi .\F{hWV𝔽}.}
-ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.  .i sa'u nai ko'a nilzilcmi lo'i ro co'e ja cmima be la'o zoi.\ \B x .zoi.\ poi ke'a na du la'oi .\F{zero}.
+ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.  .i sa'u nai ko'a nilzilcmi lo'i ro co'e ja cmima be la'o zoi.\ \B x .zoi.\ be'o poi ke'a na du la'oi .\AgdaInductiveConstructor{zero}.
 
 \begin{code}
 hWV𝔽 : {a b : ℕ} → Vec (Fin b) a → ℕ
@@ -265,11 +277,11 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
   f zero = 0
 \end{code}
 
-\section{la'oi .\F{\_div2\_}.}
+\section{la'oi .\F{\AgdaUnderscore{}div2\AgdaUnderscore}.}
 ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-_div2_ : ℕ → ℕ → ℕ
+_div2_ : Op₂ ℕ
 _ div2 0 = 0
 a div2 (suc b) = a div (suc b)
 \end{code}
@@ -395,7 +407,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 \end{code}
 
 \section{la .\F{dist}.}
-ni'o la'o zoi.\ \F{dist} \Sym ⦃ \AgdaArgument Q \Sym = \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \F{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi. be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
+ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \F{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi. be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
 
 \begin{code}
 dist : ∀ {a} → {A : Set a}
@@ -403,11 +415,38 @@ dist : ∀ {a} → {A : Set a}
      → (x z : A)
      → LL.l Q x ≡ LL.l Q z
      → ℕ
-dist ⦃ Q = Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
+dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   where
-  drata = uncurry _≟_
+  drata = _≟_ false ∘ isYes ∘ uncurry _≟_
   x' = flip coerce (LL.vec Q x) $ cong (Vec $ LL.e Q) d
   z' = LL.vec Q z
+\end{code}
+
+\section{la .\F{pausyk}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciski la .\F{pausyk}.\ bau la .lojban.
+
+\begin{code}
+pausyk : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
+pausyk _ 0 = 0 , refl
+pausyk b' (ℕ.suc e) = _ , sym mips
+  where
+  mips = begin
+    b ^ ℕ.suc e ≡⟨ refl ⟩
+    b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ pausyk b' e ⟩
+    b * suc z₁ ≡⟨ refl ⟩
+    b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
+    b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
+    b * z₁ + b * 1 ≡⟨ cong bizpu $ DNP.*-identityʳ b ⟩
+    b * z₁ + b ≡⟨ refl ⟩
+    b * z₁ + (1 + b') ≡⟨ cong bizpu $ DNP.+-comm 1 b' ⟩
+    b * z₁ + (b' + 1) ≡⟨ sym $ DNP.+-assoc (b * z₁) b' 1 ⟩
+    b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
+    suc (b * z₁ + b') ∎
+    where
+    z₁ = proj₁ $ pausyk b' e
+    b = ℕ.suc b'
+    bizpu = _+_ $ b * z₁
+    open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
@@ -415,13 +454,11 @@ dist ⦃ Q = Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 \section{la'oi .\F{nbits}.}
 ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
-.i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.  .i ku'i la'oi .\F{nbits}.\ me'oi .truncate.
+.i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.\ je ku'i cu me'oi .truncate.
 
 \begin{code}
 nbits : {n : ℕ} → ℕ → Vec (Fin 2) n
-nbits = resize zero ∘ fromList ∘ Data.List.map n2f ∘ toNatDigits 2
-  where
-  n2f = λ f → if f ≡ᵇ 0 then zero else suc zero
+nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 \end{code}
 
 \section{la'oi .\F{b2f}.}
@@ -434,52 +471,30 @@ b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
   m = suc m'
   indy : flip Vec n $ Fin $ m ^ n
   indy = reverseᵥ $ mapᵥ f2f $ allFin n
-  zf = mink zero $ proj₂ $ zerpaus m' n
-    where
-    zerpaus : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
-    zerpaus _ 0 = 0 , refl
-    zerpaus b' (ℕ.suc e) = _ , sym mips
-      where
-      mips = begin
-        b ^ ℕ.suc e ≡⟨ refl ⟩
-        b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ zerpaus b' e ⟩
-        b * suc z₁ ≡⟨ refl ⟩
-        b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
-        b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
-        b * z₁ + b * 1 ≡⟨ cong bizpu $ DNP.*-identityʳ b ⟩
-        b * z₁ + b ≡⟨ refl ⟩
-        b * z₁ + (1 + b') ≡⟨ cong bizpu $ DNP.+-comm 1 b' ⟩
-        b * z₁ + (b' + 1) ≡⟨ sym $ DNP.+-assoc (b * z₁) b' 1 ⟩
-        b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
-        suc (b * z₁ + b') ∎
-        where
-        z₁ = proj₁ $ zerpaus b' e
-        b = ℕ.suc b'
-        bizpu = _+_ $ b * z₁
-        open Relation.Binary.PropositionalEquality.≡-Reasoning
-  cond : flip Vec n $ Fin (m ^ n) × Fin (m ^ n) → Fin $ m ^ n
+  zf = mink zero $ proj₂ $ pausyk m' n
+  cond : let X = Fin $ m ^ n in flip Vec n $ X × X → X
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
     where
-    pilji = uncurry $ f𝔽 $ curry $ λ (a , b) → a * m ^ b
+    pilji = uncurry $ f𝔽 $ λ a b → a * m ^ b
 \end{code}
 
-\section{la'oi .\F{\_∧𝔹ℕ𝔽\_}.}
+\subsection{le se zvati}
+ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la .\F{b2f}.\ lo drata be la'au \chapsname\ li'u  .i ko'a mapti lo na ctaipe be ko'e goi la'o zoi.\ \D{Fin} \AgdaNumber 2\ .zoi.\ je ku'i cu co'e ja selbi'o le mapti be lo ctaipe be ko'e be'o po'o  .i la .varik.\ cu na birti lo du'u ma kau ckupau je cu zmadu la'au \chapsname\ li'u le ka ko'a mapti ce'u
+
+\section{la'oi .\F{\AgdaUnderscore∧𝔹ℕ𝔽\AgdaUnderscore}.}
 ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin n
-_∧𝔹ℕ𝔽_ a b = toFin $ zipWithᵥ and𝔽 (nbits a) $ nbits $ toℕ b
+_∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
   where
-  and𝔽 : Op₂ $ Fin 2
-  and𝔽 (suc zero) (suc zero) = suc zero
-  and𝔽 _ _ = zero
   -- | ni'o narcu'i fa lo nu zmadu la'o zoi. a! .zoi.
   toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
-ni'o la'o zoi.\ \F{hw𝕄} \B t .zoi.\ sumji lo'i mu'oi glibau.\ HAMMING weight .glibau.\ be lo'i ro rajypau pe'a ja co'e be la'oi .\B t.
+ni'o la'o zoi.\ \F{hw𝕄} \B t .zoi.\ grisumji lo se cmima poi ro da zo'u ga jo da cmima ke'a gi su'o de poi ke'a xi re co'e ja rajypau la'o zoi.\ \B t\ .zoi.\ zo'u da mu'oi glibau.\ HAMMING weight .glibau.\ de
 
 \begin{code}
 hw𝕄 : {a m n : ℕ} → 𝕄 (Fin a) m n → ℕ
@@ -533,7 +548,7 @@ ni'o la'o zoi.\ \F{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o
 ni'o la'o zoi.\ \F{MCParam.ℓ} \B q .zoi.\ ni clani fa lo me'oi .output.\ be la'o zoi.\ \F{MCParam.H} \B q .zoi.\
 
 \paragraph{la'oi .\F{MCParam.H}.}
-ni'o la'o zoi.\ \F{MCParam.H} \B q .zoi.\ me'oi .hash.\ fancu
+ni'o la'o zoi.\ \F{MCParam.H} \B q \B n .zoi.\ me'oi .hash.\ la'o zoi.\ \B n\ .zoi.
 
 \paragraph{la'oi .\F{MCParam.σ₁}.}
 ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
@@ -652,7 +667,7 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
 \chap{la'oi .\AgdaRecord{KP}.\ je zo'e}
 
 \section{la'oi .\AgdaRecord{KP}.}
-ni'o la'oi .\AgdaRecord{KP}.\ se ctaipe lo mu'oi glibau. Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
+ni'o la'oi .\AgdaRecord{KP}.\ se ctaipe lo mu'oi glibau.\ Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
 
 .i ga naja la'o zoi.\ \B t .zoi.\ ctaipe la'o zoi.\ \F{KP}\ \AgdaUnderscore\ .zoi.\ gi cadga fa lo nu la'o zoi.\ \F{proj₂} \B t .zoi.\ sivni termifckiku je cu mapti la'o zoi.\ \B t\ .zoi.\ je la'o zoi.\ \F{proj₁} \B t .zoi.
 
@@ -671,7 +686,11 @@ ni'o \specimp{Irreducible}
 Irreducible : {p : MCParam}
             → Fin $ 2 ^ (MCParam.σ₁ p * MCParam.t p)
             → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.t p
-Irreducible = {!!}
+Irreducible {p} d = if proj₁ g ≡ᵇ t then just (proj₂ g) else nothing
+  where
+  t = MCParam.t p
+  g : ∃ $ Vec $ Fin $ MCParam.q p
+  g = {!!} , {!!}
 \end{code}
 
 \section{la'oi .\F{FieldOrdering}.}
@@ -681,7 +700,7 @@ ni'o \specimp{FieldOrdering}
 FieldOrdering : {p : MCParam}
               → Fin $ MCParam.σ₂ p * MCParam.q p
               → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
-FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
+FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   where
   indice : ∀ {a} → {n : ℕ} → {A : Set a}
          → Vec A n → Vec (A × Fin n) n
@@ -691,6 +710,13 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
   vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
   a : v
   a = {!!}
+  α : vex → Vec (Fin q) q
+  α = mapᵥ $ λ (a , π) → toF $ sumᵥ $ mapᵥ (prod a π) $ allFin m
+    where
+    m = MCParam.m p
+    toF : ℕ → Fin _
+    toF = {!!}
+    prod = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
   sartre : vex → Maybe vex
   sartre = mapₘ jort ∘ panci
     where
@@ -700,9 +726,7 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
          → Op₁ $ flip Vec n $ Fin m × A
     jort = {!!}
     panci : vex → Maybe vex
-    panci v with Dec (nu,iork v) ∋ {!!}
-    ... | yes _ = just v
-    ... | _ = nothing
+    panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
 \end{code}
 
 \section{la'oi .\F{FixedWeight}.}
@@ -724,6 +748,9 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   -- la'oi .restart?. rinka lo nu na me'oi .terminate.
   restart? : Maybe OT → IO OT
   restart? = maybe pure $ FixedWeight {p}
+  -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le velcki
+  -- be la'oi .τ. be'o poi ke'a na zabna  .i la .varik. cu
+  -- na birti
   τ : ℕ
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
@@ -735,13 +762,30 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ B
     proj₁,₂ (a , b , _) = a , b
     d : Vec ℕ τ
-    d = mapᵥ {!!} $ upToᵥ τ
+    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin m) $ allFin τ
       where
-      upToᵥ : (n : ℕ) → Vec ℕ n
-      upToᵥ 0 = []
-      upToᵥ s@(suc n) = s ∷ upToᵥ n
+      m = MCParam.m p
+      uijis : Fin τ → Fin m → ℕ
+      uijis j i = 2 ^ toℕ i * toℕ (lookup b' ?)
+        where
+        b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a = {!!}
+    a = toVec? (Data.List.take (MCParam.t p) mlen) >>=ₘ panci?
+      where
+      -- | ni'o zo .mlen. cmavlaka'i
+      -- lu mleca la .n. li'u
+      mlen : List $ Fin $ MCParam.n p
+      mlen = Data.List.mapMaybe id $ map mlen? $ toList d
+        where
+        mlen? : (n : ℕ) → Maybe $ Fin $ MCParam.n p
+        mlen? n = mapₘ fromℕ< $ decToMaybe $ n ℕ.<? MCParam.n p
+      V = Vec (Fin $ MCParam.n p) $ MCParam.t p
+      panci? : V → Maybe V
+      panci? = {!!}
+      toVec? : List $ Fin $ MCParam.n p → Maybe V
+      toVec? l with length l ≟ MCParam.t p
+      ... | no _ = nothing
+      ... | yes d = just $ flip coerce (fromList l) $ cong (Vec _) d
     e' : (a : _)
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
@@ -792,14 +836,14 @@ SeededKeyGen p = SeededKeyGen'
     δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
-      rev : {n : ℕ} → Fin n → Fin n
-      rev {suc _} = Data.Fin.opposite
+      rev : {n : ℕ} → Op₁ $ Fin n
+      rev = opposite
 
       module Veritas where
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
     mapti? : Maybe $ KP p
-    mapti? = (ap ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
+    mapti? = (apₘ ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
       where
       sivni = g? >>=ₘ λ (j , lg , g) → just record {
         lg = lg;
@@ -809,7 +853,7 @@ SeededKeyGen p = SeededKeyGen'
         where
         g? : let Vq = Vec $ Fin $ MCParam.q p in
              Maybe $ Vq (MCParam.n p) × ∃ Vq
-        g? = mapₘ (λ g → {!!} , length g , g) $ Irreducible {p} {!!}
+        g? = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} {!!}
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
@@ -880,14 +924,11 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   mapti e = Σ (hWV𝔽 e ≡ MCParam.t p) $ _≡_ C₀ ∘ Encode p e bar
   mapti? : (t : xv MCParam.n)
          → Maybe $ ∃ $ λ t' → mapti t' × t' ≡ t
-  mapti? e = mapₘ (λ m → e , m , refl) maptyctaipe
+  mapti? e = mapₘ (λ j → e , j , refl) maptyctaipe
     where
     maptyctaipe = dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
       where
-      dus : Maybe _
-      dus with _ ≟ _
-      ... | yes t = just t
-      ... | _ = nothing
+      dus = decToMaybe $ _ ≟ _
       enk : (x : hWV𝔽 e ≡ MCParam.t p)
           → Maybe $ C₀ ≡ Encode p e bar x
       enk = {!!}
