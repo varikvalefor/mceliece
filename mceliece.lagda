@@ -38,6 +38,7 @@
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{ℓ}{\ensuremath{\mathnormal{\ell}}}
 \newunicodechar{σ}{\ensuremath{\mathnormal{\sigma}}}
+\newunicodechar{π}{\ensuremath{\mathnormal{\pi}}}
 \newunicodechar{α}{\ensuremath{\mathnormal{\alpha}}}
 \newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
@@ -114,6 +115,8 @@ open import IO
   )
 open import Data.Fin
   using (
+    opposite;
+    fromℕ<;
     fromℕ;
     zero;
     toℕ;
@@ -124,6 +127,19 @@ open import Data.Fin
     _+_ to _+F_
   )
 open import Data.Vec
+  using (
+    replicate;
+    fromList;
+    allFin;
+    filter;
+    lookup;
+    toList;
+    drop;
+    take;
+    _∷_;
+    Vec;
+    []
+  )
   renaming (
     map to mapᵥ;
     sum to sumᵥ;
@@ -226,6 +242,8 @@ open import Truthbrary.Record.Eq
 open import Truthbrary.Record.LLC
   using (
     nu,iork;
+    length;
+    _++_;
     LL
   )
 open import Relation.Nullary.Decidable
@@ -686,7 +704,7 @@ ni'o \specimp{FieldOrdering}
 FieldOrdering : {p : MCParam}
               → Fin $ MCParam.σ₂ p * MCParam.q p
               → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
-FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
+FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   where
   indice : ∀ {a} → {n : ℕ} → {A : Set a}
          → Vec A n → Vec (A × Fin n) n
@@ -696,6 +714,13 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
   vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
   a : v
   a = {!!}
+  α : vex → Vec (Fin q) q
+  α = mapᵥ $ λ (a , π) → toF $ sumᵥ $ mapᵥ (prod a π) $ allFin m
+    where
+    m = MCParam.m p
+    toF : ℕ → Fin _
+    toF = {!!}
+    prod = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
   sartre : vex → Maybe vex
   sartre = mapₘ jort ∘ panci
     where
@@ -705,9 +730,7 @@ FieldOrdering {p} f = mapₘ {!!} $ sartre $ indice a
          → Op₁ $ flip Vec n $ Fin m × A
     jort = {!!}
     panci : vex → Maybe vex
-    panci v with Dec (nu,iork v) ∋ {!!}
-    ... | yes _ = just v
-    ... | _ = nothing
+    panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
 \end{code}
 
 \section{la'oi .\F{FixedWeight}.}
@@ -747,28 +770,24 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       where
       m = MCParam.m p
       uijis : Fin τ → Fin m → ℕ
-      uijis j i = 2 ^ toℕ i * {!!}
+      uijis j i = 2 ^ toℕ i * toℕ (lookup b' ?)
+        where
+        b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a = toVec? (Data.List.take (MCParam.t p) mlen) >>=ₘ panci?
       where
       -- | ni'o zo .mlen. cmavlaka'i
       -- lu mleca la .n. li'u
       mlen : List $ Fin $ MCParam.n p
-      mlen = catMaybes $ map mlen? $ toList d
+      mlen = Data.List.mapMaybe id $ map mlen? $ toList d
         where
-        catMaybes : ∀ {a} → {A : Set a} → List $ Maybe A → List A
-        catMaybes (just x ∷ xs) = x ∷ catMaybes xs
-        catMaybes (nothing ∷ xs) = catMaybes xs
-        catMaybes [] = []
         mlen? : (n : ℕ) → Maybe $ Fin $ MCParam.n p
-        mlen? n with n ℕ.<? MCParam.n p
-        ... | no _ = nothing
-        ... | yes m = just $ Data.Fin.fromℕ< m
+        mlen? n = mapₘ fromℕ< $ decToMaybe $ n ℕ.<? MCParam.n p
       V = Vec (Fin $ MCParam.n p) $ MCParam.t p
       panci? : V → Maybe V
       panci? = {!!}
       toVec? : List $ Fin $ MCParam.n p → Maybe V
-      toVec? l with Data.List.length l ≟ MCParam.t p
+      toVec? l with length l ≟ MCParam.t p
       ... | no _ = nothing
       ... | yes d = just $ flip coerce (fromList l) $ cong (Vec _) d
     e' : (a : _)
@@ -821,8 +840,8 @@ SeededKeyGen p = SeededKeyGen'
     δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
-      rev : {n : ℕ} → Fin n → Fin n
-      rev = Data.Fin.opposite
+      rev : {n : ℕ} → Op₁ $ Fin n
+      rev = opposite
 
       module Veritas where
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
