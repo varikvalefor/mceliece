@@ -766,7 +766,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       where
       m = MCParam.m p
       uijis : Fin τ → Fin m → ℕ
-      uijis j i = 2 ^ toℕ i * toℕ (lookup b' ?)
+      uijis j i = 2 ^ toℕ i * toℕ (lookup b' {!!})
         where
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
