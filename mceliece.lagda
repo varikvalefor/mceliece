@@ -99,7 +99,7 @@ ni'o le velcki cu zabna najenai cu mulno
 \chap{le terzu'e}
 ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e\sds  .i tu'a ko'a filri'a lo nu jimpe fi la'o glibau.\ Classic MCELIECE .glibau.
 
-.i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u xi re sutra\sds  .i ku'i la .varik.\ cu na tolnei lo nu da'i ko'a drani ba'e je cu sutra
+.i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u xi re skami sutra co'e\sds  .i ku'i la .varik.\ cu na tolnei lo nu da'i ko'a drani ba'e je cu skami sutra co'e
 
 \chap{le me'oi .preamble.}
 ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
