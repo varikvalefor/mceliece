@@ -910,10 +910,10 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
   v : xv MCParam.n
-  v = coerce k $ C₀ ++ replicate zero
+  v = coerce kos $ C₀ ++ replicate zero
     where
-    k : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv (MCParam.n)
-    k = {!!}
+    kos : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv (MCParam.n)
+    kos = {!!}
   c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
