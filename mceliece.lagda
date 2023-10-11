@@ -642,8 +642,17 @@ ni'o la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\F{nothing}.\ jonai cu me'oi .\F{j
 ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je la .varik.\ cu djica lo nu mapti lo ro broda cei co'e gi le mu'oi glibau.\ systematic form .glibau.\ cu na mapti lo su'o broda
 
 \begin{code}
-MatGen : {p : MCParam} → Private p → Maybe $ Public p
-MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
+MatGen : {p : MCParam}
+       → (pr : Private p)
+       → (Maybe
+           (_×_
+             (Public p)
+             (_×_
+               (Vec ℕ $ MCParam.μ p)
+               (_×_
+                 (typeOf $ Private.Γ pr)
+                 (∃ $ Vec $ Fin $ MCParam.q p)))))
+MatGen {p} _ = {!!}
   where
   t = MCParam.t p
   n = MCParam.n p
@@ -843,8 +852,9 @@ SeededKeyGen p = SeededKeyGen'
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
     mapti? : Maybe $ KP p
-    mapti? = (apₘ ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
+    mapti? = (apₘ ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen') sivni
       where
+      MatGen' = mapₘ proj₁ ∘ MatGen
       sivni = g? >>=ₘ λ (j , lg , g) → just record {
         lg = lg;
         Γ = g , j;
