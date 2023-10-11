@@ -827,7 +827,7 @@ ni'o \termineidyr{\F{SeededKeyGen}}
 SeededKeyGen : (p : MCParam) → Fin $ 2 ^ MCParam.ℓ p → KP p
 SeededKeyGen p = SeededKeyGen'
   where
-  -- | .i cumki fa lo nu cumki fa lo nu tu'a lo nu
+  -- | ni'o cumki fa lo nu cumki fa lo nu tu'a lo nu
   -- me'oi .recurse. cu rinka lo nu na me'oi .terminate.
   SeededKeyGen' : Fin $ 2 ^ MCParam.ℓ p → KP p
   SeededKeyGen' δ = fromMaybe (SeededKeyGen' δ') mapti?
