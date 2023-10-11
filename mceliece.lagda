@@ -671,20 +671,11 @@ ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je l
 \begin{code}
 MatGen : {p : MCParam}
        → (pr : Private p)
-       → let k = coerce $ cong Fin $ sym $ DNP.m∸n+n≡m (1 ℕ.≤ _ ∋ ?) in
-         (Maybe
+       → (Maybe
            (_×_
              (Public p)
              (_×_
-               (Σ
-                 (Vec ℕ $ MCParam.μ p)
-                 (λ c →
-                   (All
-                     (λ i →
-                       ((ℕ._<_ on (λ f → lookup c $ k $ f i))
-                         Fin.suc
-                         Data.Fin.inject₁))
-                     (Data.Vec.allFin $ MCParam.μ p ∸ 1))))
+               (Σ (Vec ℕ $ MCParam.μ p) zmaduse)
                (_×_
                  (typeOf $ Private.Γ pr)
                  (∃ $ Vec $ Fin $ MCParam.q p)))))
