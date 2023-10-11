@@ -863,7 +863,7 @@ ni'o \termineidyr{\F{SeededKeyGen}}
 SeededKeyGen : (p : MCParam) → Fin $ 2 ^ MCParam.ℓ p → KP p
 SeededKeyGen p = SeededKeyGen'
   where
-  -- | .i cumki fa lo nu cumki fa lo nu tu'a lo nu
+  -- | ni'o cumki fa lo nu cumki fa lo nu tu'a lo nu
   -- me'oi .recurse. cu rinka lo nu na me'oi .terminate.
   SeededKeyGen' : Fin $ 2 ^ MCParam.ℓ p → KP p
   SeededKeyGen' δ = fromMaybe (SeededKeyGen' δ') mapti?
@@ -947,12 +947,18 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
   v : xv MCParam.n
-  v = zenbyco'e tv C₀ $ replicate zero
+  v = coerce kos $ C₀ ++ replicate zero
     where
-    zenbyco'e : _ → xv MCParam.n-k → Op₁ $ xv MCParam.n
-    zenbyco'e = {!!}
-    tv : (λ t → These t t → t) $ Fin 2
-    tv = Data.These.fold id id const
+    kos : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv (MCParam.n)
+    kos = cong (Vec $ Fin 2) $ DNP.m∸n+n≡m k≤n
+      where
+      k≤n : MCParam.k p ℕ.≤ MCParam.n p
+      -- | ni'o la .varik. cu te cadga fi lo nu
+      -- le me'oi .Agda. co'e ka'e fanva pe'a
+      -- lo me'oi .underscore. fu la'o zoi.
+      -- MCParam.m p * MCParam.t p .zoi.  .i ku'i
+      -- narka'e ca le nu la .varik. cu cusku dei
+      k≤n = DNP.m∸n≤m (MCParam.n p) $ MCParam.m p * MCParam.t p
   c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
