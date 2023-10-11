@@ -910,12 +910,10 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
   v : xv MCParam.n
-  v = zenbyco'e tv C₀ $ replicate zero
+  v = coerce k $ C₀ ++ replicate zero
     where
-    zenbyco'e : _ → xv MCParam.n-k → Op₁ $ xv MCParam.n
-    zenbyco'e = {!!}
-    tv : (λ t → These t t → t) $ Fin 2
-    tv = Data.These.fold id id const
+    k : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv (MCParam.n)
+    k = {!!}
   c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
