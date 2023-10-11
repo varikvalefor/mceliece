@@ -36,6 +36,7 @@
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
+\newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{ℓ}{\ensuremath{\mathnormal{\ell}}}
 \newunicodechar{σ}{\ensuremath{\mathnormal{\sigma}}}
 \newunicodechar{π}{\ensuremath{\mathnormal{\pi}}}
@@ -239,6 +240,10 @@ open import Truthbrary.Record.Eq
     _≟_;
     Eq
   )
+open import Data.Unit.Polymorphic
+  using (
+   ⊤
+  )
 open import Truthbrary.Record.LLC
   using (
     nu,iork;
@@ -260,6 +265,7 @@ open import Relation.Binary.PropositionalEquality
 
 import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
+import Data.Vec.Relation.Unary.All as Gex
 \end{code}
 
 \chap{le vrici}
@@ -447,6 +453,27 @@ pausyk b' (ℕ.suc e) = _ , sym mips
     b = ℕ.suc b'
     bizpu = _+_ $ b * z₁
     open Relation.Binary.PropositionalEquality.≡-Reasoning
+\end{code}
+
+\section{la \F{zmaduse}}
+ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse ja cu co'e ja se nilzilcmi li no ja li pa
+
+\begin{code}
+zmaduse : {n : ℕ} → Vec ℕ n → Set
+zmaduse Vec.[] = ⊤
+zmaduse t@(_ ∷ _) = Gex.All mleca $ allFin $ length t ∸ 1
+  where
+  mleca : Fin $ length t ∸ 1 → Set
+  mleca n = lookup t n' ℕ.≤ lookup t sn'
+    where
+    k : Fin (suc $ length t ∸ 1) ≡ Fin (length t)
+    k = sym $ cong Fin $ k' $ length t ∸ 1
+      where
+      k' : (n : ℕ) → ℕ.suc n ≡ suc (suc n ∸ 1)
+      k' 0 = refl
+      k' (suc n) = cong suc $ k' n
+    n' = coerce k $ Data.Fin.inject₁ n
+    sn' = coerce k $ Fin.suc n
 \end{code}
 
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
@@ -644,11 +671,20 @@ ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je l
 \begin{code}
 MatGen : {p : MCParam}
        → (pr : Private p)
-       → (Maybe
+       → let k = coerce $ cong Fin $ sym $ DNP.m∸n+n≡m (1 ℕ.≤ _ ∋ ?) in
+         (Maybe
            (_×_
              (Public p)
              (_×_
-               (Vec ℕ $ MCParam.μ p)
+               (Σ
+                 (Vec ℕ $ MCParam.μ p)
+                 (λ c →
+                   (All
+                     (λ i →
+                       ((ℕ._<_ on (λ f → lookup c $ k $ f i))
+                         Fin.suc
+                         Data.Fin.inject₁))
+                     (Data.Vec.allFin $ MCParam.μ p ∸ 1))))
                (_×_
                  (typeOf $ Private.Γ pr)
                  (∃ $ Vec $ Fin $ MCParam.q p)))))
