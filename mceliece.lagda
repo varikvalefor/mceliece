@@ -256,12 +256,9 @@ open import Truthbrary.Data.Vec.Matrix
     I;
     𝕄
   )
-open import Data.List.Relation.Unary.All
-  using (
-    All
-  )
 open import Relation.Binary.PropositionalEquality
 
+import Data.List.Relation.Unary.All as Listal
 import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
 \end{code}
@@ -794,7 +791,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
          × let el = Data.List.allFin _ in
-           All (λ i → suc zero ≡ lookup e (lookup a i)) el
+           Listal.All (λ i → suc zero ≡ lookup e (lookup a i)) el
     e' = {!!}
 \end{code}
 
