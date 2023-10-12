@@ -240,6 +240,10 @@ open import Truthbrary.Record.Eq
     _≟_;
     Eq
   )
+open import Truthbrary.Record.SR
+  using (
+    show
+  )
 open import Truthbrary.Record.LLC
   using (
     nu,iork;
@@ -386,11 +390,11 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     xs ∎
     where
     pad = replicate x
-    k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g
+    k = cong (Vec A) $ DNP.m∸n+n≡m $ DNP.≰⇒≥ g
     konk : Vec A $ n ∸ m + m
-    konk = flip coerce (xt $ no g) $ sym $ cong (Vec A) k
+    konk = flip coerce (xt $ no g) $ sym k
     konkydus : konk ≡ pad ++ xs
-    konkydus = sym $ flipko (pad ++ xs) $ cong (Vec A) k
+    konkydus = sym $ flipko (pad ++ xs) k
     dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
             → (x : Vec A m)
             → (z : Vec A n)
@@ -428,12 +432,12 @@ dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciski la .\F{pausyk}.\ bau la .lojban.
 
 \begin{code}
-pausyk : (b e : ℕ) → ∃ $ λ n → suc n ≡ ℕ.suc b ^ e
+pausyk : (b e : ℕ) → ∃ $ λ n → suc n ≡ suc b ^ e
 pausyk _ 0 = 0 , refl
-pausyk b' (ℕ.suc e) = _ , sym mips
+pausyk b' (suc e) = _ , sym mips
   where
   mips = begin
-    b ^ ℕ.suc e ≡⟨ refl ⟩
+    b ^ suc e ≡⟨ refl ⟩
     b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ pausyk b' e ⟩
     b * suc z₁ ≡⟨ refl ⟩
     b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
@@ -446,7 +450,7 @@ pausyk b' (ℕ.suc e) = _ , sym mips
     suc (b * z₁ + b') ∎
     where
     z₁ = proj₁ $ pausyk b' e
-    b = ℕ.suc b'
+    b = suc b'
     bizpu = _+_ $ b * z₁
     open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
@@ -768,7 +772,10 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     -- porganzu
     jort : ∀ {a} → {A : Set a} → {m n : ℕ}
          → Op₁ $ flip Vec n $ Fin m × A
-    jort = {!!}
+    jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ (a , b) → show a , a , b)
+      where
+      jort' : Op₁ _
+      jort' = ?
     panci : vex → Maybe vex
     panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
 \end{code}
