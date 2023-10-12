@@ -239,6 +239,10 @@ open import Truthbrary.Record.Eq
     _≟_;
     Eq
   )
+open import Truthbrary.Record.SR
+  using (
+    show
+  )
 open import Truthbrary.Record.LLC
   using (
     nu,iork;
@@ -724,7 +728,10 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     -- porganzu
     jort : ∀ {a} → {A : Set a} → {m n : ℕ}
          → Op₁ $ flip Vec n $ Fin m × A
-    jort = {!!}
+    jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ (a , b) → show a , a , b)
+      where
+      jort' : Op₁ _
+      jort' = ?
     panci : vex → Maybe vex
     panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
 \end{code}
