@@ -481,6 +481,14 @@ module ZmaduseVeritas where
 
   afpas : (n : ℕ) → zmaduse $ n ∷ []
   afpas _ = Gex.[]
+
+  afres : {n : ℕ}
+        → (t : Vec ℕ $ suc n)
+        → zmaduse t
+        → (m : ℕ)
+        → ℕ._≤_ m $ lookup t zero
+        → zmaduse $ m ∷ t
+  afres = {!!}
 \end{code}
 
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
