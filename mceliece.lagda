@@ -384,11 +384,11 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
     xs ∎
     where
     pad = replicate x
-    k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g
+    k = cong (Vec A) $ DNP.m∸n+n≡m $ DNP.≰⇒≥ g
     konk : Vec A $ n ∸ m + m
-    konk = flip coerce (xt $ no g) $ sym $ cong (Vec A) k
+    konk = flip coerce (xt $ no g) $ sym k
     konkydus : konk ≡ pad ++ xs
-    konkydus = sym $ flipko (pad ++ xs) $ cong (Vec A) k
+    konkydus = sym $ flipko (pad ++ xs) k
     dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
             → (x : Vec A m)
             → (z : Vec A n)
