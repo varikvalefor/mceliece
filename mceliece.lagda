@@ -474,6 +474,13 @@ zmaduse t@(_ ∷ _) = Gex.All mleca $ allFin $ length t ∸ 1
       k' (suc n) = cong suc $ k' n
     n' = coerce k $ Data.Fin.inject₁ n
     sn' = coerce k $ Fin.suc n
+
+module ZmaduseVeritas where
+  afnos : zmaduse []
+  afnos = Data.Unit.Polymorphic.tt
+
+  afpas : (n : ℕ) → zmaduse $ n ∷ []
+  afpas _ = Gex.[]
 \end{code}
 
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
