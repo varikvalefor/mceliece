@@ -462,25 +462,31 @@ ni'o la'oi .\F{Zmaduse}.\ vasru le velcki be la .\F{zmaduse}.\ be'o je zo'e poi 
 module Zmaduse where
 \end{code}
 
+\subsection{la \F{mleca}}
+ni'o ga jo ctaipe la'o zoi.\ \F{mleca} \B t \B n\ .zoi.\ gi lo meirmoi be la .\B{n}.\ bei fo la .\B{t}.\ cu dubjavme'a lo meirmoi be la'o zoi.\ \AgdaInductiveConstructor{Fin.suc} \B n .zoi.\ bei fo la .\B{t}.
+
+\begin{code}
+  mleca : {n : ℕ}
+        → (t : Vec ℕ $ suc n) → Fin $ length t ∸ 1 → Set
+  mleca t n = lookup t n' ℕ.≤ lookup t sn'
+    where
+    k : Fin (suc $ length t ∸ 1) ≡ Fin (length t)
+    k = sym $ cong Fin $ k' $ length t ∸ 1
+      where
+      k' : (n : ℕ) → suc n ≡ suc (suc n ∸ 1)
+      k' 0 = refl
+      k' (suc n) = cong suc $ k' n
+    n' = coerce k $ Data.Fin.inject₁ n
+    sn' = coerce k $ Fin.suc n
+\end{code}
+
 \subsection{la \F{zmaduse}}
 ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse ja cu co'e ja se nilzilcmi li no ja li pa
 
 \begin{code}
   zmaduse : {n : ℕ} → Vec ℕ n → Set
   zmaduse Vec.[] = ⊤
-  zmaduse t@(_ ∷ _) = Gex.All mleca $ allFin $ length t ∸ 1
-    where
-    mleca : Fin $ length t ∸ 1 → Set
-    mleca n = lookup t n' ℕ.≤ lookup t sn'
-      where
-      k : Fin (suc $ length t ∸ 1) ≡ Fin (length t)
-      k = sym $ cong Fin $ k' $ length t ∸ 1
-        where
-        k' : (n : ℕ) → suc n ≡ suc (suc n ∸ 1)
-        k' 0 = refl
-        k' (suc n) = cong suc $ k' n
-      n' = coerce k $ Data.Fin.inject₁ n
-      sn' = coerce k $ Fin.suc n
+  zmaduse t@(_ ∷ _) = Gex.All (mleca t) $ allFin $ length t ∸ 1
 \end{code}
 
 \subsection{le me'oi .verify.\ co'e}
