@@ -499,7 +499,12 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → (m : ℕ)
         → ℕ._≤_ m $ lookup t zero
         → zmaduse $ m ∷ t
-  afres = {!!}
+  afres t z m l = l' Gex.∷ {!!}
+    where
+    l' = subst₂' $ subst₁ l
+      where
+      subst₁ = subst (flip ℕ._≤_ _) {!!}
+      subst₂' = subst (ℕ._≤_ _) {!!}
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
