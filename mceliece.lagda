@@ -459,23 +459,23 @@ pausyk b' (ℕ.suc e) = _ , sym mips
 ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse ja cu co'e ja se nilzilcmi li no ja li pa
 
 \begin{code}
-zmaduse : {n : ℕ} → Vec ℕ n → Set
-zmaduse Vec.[] = ⊤
-zmaduse t@(_ ∷ _) = Gex.All mleca $ allFin $ length t ∸ 1
-  where
-  mleca : Fin $ length t ∸ 1 → Set
-  mleca n = lookup t n' ℕ.≤ lookup t sn'
+module Zmaduse where
+  zmaduse : {n : ℕ} → Vec ℕ n → Set
+  zmaduse Vec.[] = ⊤
+  zmaduse t@(_ ∷ _) = Gex.All mleca $ allFin $ length t ∸ 1
     where
-    k : Fin (suc $ length t ∸ 1) ≡ Fin (length t)
-    k = sym $ cong Fin $ k' $ length t ∸ 1
+    mleca : Fin $ length t ∸ 1 → Set
+    mleca n = lookup t n' ℕ.≤ lookup t sn'
       where
-      k' : (n : ℕ) → suc n ≡ suc (suc n ∸ 1)
-      k' 0 = refl
-      k' (suc n) = cong suc $ k' n
-    n' = coerce k $ Data.Fin.inject₁ n
-    sn' = coerce k $ Fin.suc n
+      k : Fin (suc $ length t ∸ 1) ≡ Fin (length t)
+      k = sym $ cong Fin $ k' $ length t ∸ 1
+        where
+        k' : (n : ℕ) → suc n ≡ suc (suc n ∸ 1)
+        k' 0 = refl
+        k' (suc n) = cong suc $ k' n
+      n' = coerce k $ Data.Fin.inject₁ n
+      sn' = coerce k $ Fin.suc n
 
-module ZmaduseVeritas where
   afnos : zmaduse []
   afnos = Data.Unit.Polymorphic.tt
 
@@ -489,6 +489,11 @@ module ZmaduseVeritas where
         → ℕ._≤_ m $ lookup t zero
         → zmaduse $ m ∷ t
   afres = {!!}
+
+open Zmaduse
+  using (
+    zmaduse
+  )
 \end{code}
 
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
