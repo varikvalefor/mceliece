@@ -514,7 +514,20 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
     where
     l' = subst₂' $ subst₁ l
       where
-      subst₁ = subst (flip ℕ._≤_ _) {!!}
+      subst₁ = subst (flip ℕ._≤_ _) $ luzyr t m
+        where
+        luzyr : ∀ {a} → {A : Set a} → {n : ℕ}
+              → (t : Vec A $ suc n)
+              → (z : A)
+              → let kos = coerce $ sym $ cong Fin $ sukvudus $ length t in
+                z ≡ lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero)
+        luzyr t z = begin
+          z ≡⟨ refl ⟩
+          lookup (z ∷ t) zero ≡⟨ {!!} ⟩
+          lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero) ∎
+          where
+          open ≡-Reasoning
+          kos = coerce $ sym $ cong Fin $ sukvudus $ length t
       subst₂' = subst (ℕ._≤_ _) {!!}
 \end{code}
 
