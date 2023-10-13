@@ -455,11 +455,17 @@ pausyk b' (ℕ.suc e) = _ , sym mips
     open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 
-\section{la \F{zmaduse}}
-ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse ja cu co'e ja se nilzilcmi li no ja li pa
+\section{la'oi .\F{Zmaduse}.}
+ni'o la'oi .\F{Zmaduse}.\ vasru le velcki be la .\F{zmaduse}.\ be'o je zo'e poi tu'a ke'a filri'a tu'a la .\F{zmaduse}.
 
 \begin{code}
 module Zmaduse where
+\end{code}
+
+\subsection{la \F{zmaduse}}
+ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse ja cu co'e ja se nilzilcmi li no ja li pa
+
+\begin{code}
   zmaduse : {n : ℕ} → Vec ℕ n → Set
   zmaduse Vec.[] = ⊤
   zmaduse t@(_ ∷ _) = Gex.All mleca $ allFin $ length t ∸ 1
@@ -475,7 +481,12 @@ module Zmaduse where
         k' (suc n) = cong suc $ k' n
       n' = coerce k $ Data.Fin.inject₁ n
       sn' = coerce k $ Fin.suc n
+\end{code}
 
+\subsection{le me'oi .verify.\ co'e}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{afnos}.\ ja la .\F{afpas}.\ ja la .\F{afres}.\ bau la .lojban.
+
+\begin{code}
   afnos : zmaduse []
   afnos = Data.Unit.Polymorphic.tt
 
@@ -489,7 +500,11 @@ module Zmaduse where
         → ℕ._≤_ m $ lookup t zero
         → zmaduse $ m ∷ t
   afres = {!!}
+\end{code}
 
+\subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
+
+\begin{code}
 open Zmaduse
   using (
     zmaduse
