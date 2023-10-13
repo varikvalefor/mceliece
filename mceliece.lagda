@@ -469,7 +469,7 @@ zmaduse t@(_ ∷ _) = Gex.All mleca $ allFin $ length t ∸ 1
     k : Fin (suc $ length t ∸ 1) ≡ Fin (length t)
     k = sym $ cong Fin $ k' $ length t ∸ 1
       where
-      k' : (n : ℕ) → ℕ.suc n ≡ suc (suc n ∸ 1)
+      k' : (n : ℕ) → suc n ≡ suc (suc n ∸ 1)
       k' 0 = refl
       k' (suc n) = cong suc $ k' n
     n' = coerce k $ Data.Fin.inject₁ n
