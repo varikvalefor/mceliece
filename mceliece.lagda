@@ -471,13 +471,13 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
   sukvudus (suc n) = cong suc $ sukvudus n
 \end{code}
 
-\subsection{la \F{mleca}}
-ni'o ga jo ctaipe la'o zoi.\ \F{mleca} \B t \B n\ .zoi.\ gi lo meirmoi be la .\B{n}.\ bei fo la .\B{t}.\ cu dubjavme'a lo meirmoi be la'o zoi.\ \AgdaInductiveConstructor{Fin.suc} \B n .zoi.\ bei fo la .\B{t}.
+\subsection{la \F{dubjavme'a}}
+ni'o ga jo ctaipe la'o zoi.\ \F{dubjavme'a} \B t \B n\ .zoi.\ gi lo meirmoi be la .\B{n}.\ bei fo la .\B{t}.\ cu dubjavme'a lo meirmoi be la'o zoi.\ \AgdaInductiveConstructor{Fin.suc} \B n .zoi.\ bei fo la .\B{t}.
 
 \begin{code}
-  mleca : {n : ℕ}
-        → (t : Vec ℕ $ suc n) → Fin $ length t ∸ 1 → Set
-  mleca t n = lookup t n' ℕ.≤ lookup t sn'
+  dubjavme'a : {n : ℕ}
+             → (t : Vec ℕ $ suc n) → Fin $ length t ∸ 1 → Set
+  dubjavme'a t n = lookup t n' ℕ.≤ lookup t sn'
     where
     k : Fin (suc $ length t ∸ 1) ≡ Fin (length t)
     k = sym $ cong Fin $ sukvudus $ length t ∸ 1
@@ -491,7 +491,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse 
 \begin{code}
   zmaduse : {n : ℕ} → Vec ℕ n → Set
   zmaduse Vec.[] = ⊤
-  zmaduse t@(_ ∷ _) = Gex.All (mleca t) $ allFin $ length t ∸ 1
+  zmaduse t@(_ ∷ _) = Gex.All (dubjavme'a t) $ allFin $ length t ∸ 1
 \end{code}
 
 \subsection{le me'oi .verify.\ co'e}
