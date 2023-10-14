@@ -538,11 +538,11 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
       where
       pattern 1F = Fin.suc zero
       s = sym $ sukvudus $ length t
-      open ≡-Reasoning
       padus : {m n : ℕ}
             → (d : suc (suc m) ≡ suc (suc n))
             → 1F ≡ mink 1F d
       padus refl = refl
+      open ≡-Reasoning
 \end{code}
 
 \begin{code}
