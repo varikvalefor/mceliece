@@ -540,12 +540,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                          (mink
                            (Data.Fin.inject₁ zero)
                            (sym $ sukvudus $ length t)))
-          suklenymin t z = begin
-            zero ≡⟨ refl ⟩
-            Data.Fin.inject₁ zero ≡⟨ sym $ minzero s ⟩
-            mink (Data.Fin.inject₁ zero) s ∎
-            where
-            s = sym $ sukvudus $ length t
+          suklenymin t z = sym $ minzero $ sym $ sukvudus $ length t
       subst₂' = subst (ℕ._≤_ _) $ luzyr t m
         where
         luzyr : ∀ {a} → {A : Set a}
