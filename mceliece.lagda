@@ -523,7 +523,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                 z ≡ lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero)
         luzyr t z = begin
           z ≡⟨ refl ⟩
-          lookup (z ∷ t) zero ≡⟨ {!!} ⟩
+          lookup (z ∷ t) zero ≡⟨ cong (lookup $ z ∷ t) {!!} ⟩
           lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero) ∎
           where
           open ≡-Reasoning
