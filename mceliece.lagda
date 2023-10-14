@@ -553,7 +553,13 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
               → (z : A)
               → let kos = flip mink $ sym $ sukvudus $ length t in
                 lookup t zero  ≡ lookup (z ∷ t) (kos $ Fin.suc zero)
-        luzyr t z = {!!}
+        luzyr t z = begin
+          lookup t zero ≡⟨ refl ⟩
+          lookup (z ∷ t) (Fin.suc zero) ≡⟨ cong (lookup $ z ∷ t) {!!} ⟩
+          lookup (z ∷ t) (kos $ Fin.suc zero) ∎
+          where
+          open ≡-Reasoning
+          kos = flip mink $ sym $ sukvudus $ length t
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
