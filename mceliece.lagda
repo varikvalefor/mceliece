@@ -553,7 +553,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
               → (t : Vec A $ suc n)
               → (z : A)
               → let kos = flip mink $ sym $ sukvudus $ length t in
-                lookup t zero  ≡ lookup (z ∷ t) (kos $ Fin.suc zero)
+                lookup t zero ≡ lookup (z ∷ t) (kos $ Fin.suc zero)
         luzyr t z = begin
           lookup t zero ≡⟨ refl ⟩
           lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) $ padus s ⟩
