@@ -560,8 +560,8 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
           where
           1F : {n : ℕ} → Fin $ suc $ suc n
           1F = Fin.suc zero
-          open ≡-Reasoning
           kos = flip mink $ sym $ sukvudus $ length t
+          open ≡-Reasoning
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
