@@ -575,12 +575,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
     nadubjavme'as : ¬ (dubjavme'a (m ∷ t) zero)
     nadubjavme'as = nilensub (luzyr t m) (lusuk t m) $ DNP.<⇒≱ z
       where
-      nilensub : {m n o p : ℕ}
-               → m ≡ o
-               → n ≡ p
-               → ¬ (m ℕ.≤ n)
-               → ¬ (o ℕ.≤ p)
-      nilensub refl refl = id
+      nilensub = subst₂ $ ¬_ ∘₂ ℕ._≤_
       s = sym $ sukvudus $ length t
 
     uinlen : {n : ℕ}
