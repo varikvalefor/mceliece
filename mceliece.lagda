@@ -560,10 +560,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → zmaduse $ m ∷ t
   afres t z m l = l' Gex.∷ {!!}
     where
-    l' = subst₂' $ subst₁ l
-      where
-      subst₁ = subst (flip ℕ._≤_ _) $ luzyr t m
-      subst₂' = subst (ℕ._≤_ _) $ lusuk t m
+    l' = subst₂ ℕ._≤_ (luzyr t m) (lusuk t m) l
 
   afcis : {n : ℕ}
         → (t : Vec ℕ $ ℕ.suc $ suc n)
