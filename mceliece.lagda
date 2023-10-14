@@ -558,8 +558,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
           lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) {!!} ⟩
           lookup (z ∷ t) (kos 1F) ∎
           where
-          1F : {n : ℕ} → Fin $ suc $ suc n
-          1F = Fin.suc zero
+          pattern 1F = Fin.suc zero
           kos = flip mink $ sym $ sukvudus $ length t
           open ≡-Reasoning
 \end{code}
