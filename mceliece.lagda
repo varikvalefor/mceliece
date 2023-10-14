@@ -528,7 +528,6 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
           lookup (z ∷ t) zero ≡⟨ cong (lookup $ z ∷ t) $ suklenymin t z ⟩
           lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero) ∎
           where
-          open ≡-Reasoning
           kos : Fin _ → Fin $ length $ z ∷ t
           kos = flip mink $ sym $ sukvudus $ length t
           suklenymin : ∀ {a} → {A : Set a}
@@ -541,6 +540,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                            (Data.Fin.inject₁ zero)
                            (sym $ sukvudus $ length t)))
           suklenymin t z = sym $ minzero $ sym $ sukvudus $ length t
+          open ≡-Reasoning
       subst₂' = subst (ℕ._≤_ _) $ lusuk t m
         where
         lusuk : ∀ {a} → {A : Set a}
