@@ -456,7 +456,7 @@ pausyk b' (suc e) = _ , sym mips
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
-ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ vasru lo su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.\sds  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
+ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ porsi lo'i su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.\sds  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.
 
 .i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.\ je ku'i cu me'oi .truncate.
 
