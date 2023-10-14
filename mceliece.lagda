@@ -497,7 +497,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse 
 \end{code}
 
 \subsection{le me'oi .verify.\ co'e}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{afnos}.\ ja la .\F{afpas}.\ ja la .\F{afres}.\ bau la .lojban.
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{afnos}.\ ja la .\F{afpas}.\ ja la .\F{afres}.\ ja la .afcis.\ bau la .lojban.
 
 \begin{code}
   afnos : zmaduse []
@@ -561,6 +561,13 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                 → (d : suc (suc m) ≡ suc (suc n))
                 → 1F ≡ mink 1F d
           padus refl = refl
+
+  afcis : {n : ℕ}
+        → (t : Vec ℕ $ suc n)
+        → (m : ℕ)
+        → m ℕ.> lookup t zero
+        → ¬ (zmaduse $ m ∷ t)
+  afcis t m z = {!!}
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
