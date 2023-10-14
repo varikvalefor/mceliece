@@ -48,6 +48,7 @@
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\mathsf{v}}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_\mathsf{m}}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
+\newunicodechar{≱}{\ensuremath{\mathnormal{\ngeq}}}
 \newunicodechar{⍉}{\ensuremath{\mathnormal{∘\hspace{-0.455em}\backslash}}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{δ}{\ensuremath{\mathnormal{\delta}}}
