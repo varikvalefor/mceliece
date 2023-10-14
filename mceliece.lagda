@@ -500,6 +500,52 @@ ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse 
 ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{afnos}.\ ja la .\F{afpas}.\ ja la .\F{afres}.\ ja la .afcis.\ bau la .lojban.
 
 \begin{code}
+  private
+    luzyr : ∀ {a} → {A : Set a} → {n : ℕ}
+          → (t : Vec A $ suc n)
+          → (z : A)
+          → let kos = flip mink $ sym $ sukvudus $ length t in
+            z ≡ lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero)
+    luzyr t z = begin
+      z ≡⟨ refl ⟩
+      lookup (z ∷ t) zero ≡⟨ cong (lookup $ z ∷ t) $ suklenymin t z ⟩
+      lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero) ∎
+      where
+      kos : Fin _ → Fin $ length $ z ∷ t
+      kos = flip mink $ sym $ sukvudus $ length t
+      suklenymin : ∀ {a} → {A : Set a}
+                 → {n : ℕ}
+                 → (t : Vec A $ suc n)
+                 → (z : A)
+                 → (_≡_
+                     zero
+                     (mink
+                       (Data.Fin.inject₁ zero)
+                       (sym $ sukvudus $ length t)))
+      suklenymin t z = sym $ minzero $ sym $ sukvudus $ length t
+      open ≡-Reasoning
+
+    lusuk : ∀ {a} → {A : Set a}
+          → {n : ℕ}
+          → (t : Vec A $ suc n)
+          → (z : A)
+          → let kos = flip mink $ sym $ sukvudus $ length t in
+            lookup t zero ≡ lookup (z ∷ t) (kos $ Fin.suc zero)
+    lusuk t z = begin
+      lookup t zero ≡⟨ refl ⟩
+      lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) $ padus s ⟩
+      lookup (z ∷ t) (mink 1F s) ∎
+      where
+      pattern 1F = Fin.suc zero
+      s = sym $ sukvudus $ length t
+      open ≡-Reasoning
+      padus : {m n : ℕ}
+            → (d : suc (suc m) ≡ suc (suc n))
+            → 1F ≡ mink 1F d
+      padus refl = refl
+\end{code}
+
+\begin{code}
   afnos : zmaduse []
   afnos = Data.Unit.Polymorphic.tt
 
@@ -517,50 +563,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
     l' = subst₂' $ subst₁ l
       where
       subst₁ = subst (flip ℕ._≤_ _) $ luzyr t m
-        where
-        luzyr : ∀ {a} → {A : Set a} → {n : ℕ}
-              → (t : Vec A $ suc n)
-              → (z : A)
-              → let kos = flip mink $ sym $ sukvudus $ length t in
-                z ≡ lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero)
-        luzyr t z = begin
-          z ≡⟨ refl ⟩
-          lookup (z ∷ t) zero ≡⟨ cong (lookup $ z ∷ t) $ suklenymin t z ⟩
-          lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero) ∎
-          where
-          kos : Fin _ → Fin $ length $ z ∷ t
-          kos = flip mink $ sym $ sukvudus $ length t
-          suklenymin : ∀ {a} → {A : Set a}
-                     → {n : ℕ}
-                     → (t : Vec A $ suc n)
-                     → (z : A)
-                     → (_≡_
-                         zero
-                         (mink
-                           (Data.Fin.inject₁ zero)
-                           (sym $ sukvudus $ length t)))
-          suklenymin t z = sym $ minzero $ sym $ sukvudus $ length t
-          open ≡-Reasoning
       subst₂' = subst (ℕ._≤_ _) $ lusuk t m
-        where
-        lusuk : ∀ {a} → {A : Set a}
-              → {n : ℕ}
-              → (t : Vec A $ suc n)
-              → (z : A)
-              → let kos = flip mink $ sym $ sukvudus $ length t in
-                lookup t zero ≡ lookup (z ∷ t) (kos $ Fin.suc zero)
-        lusuk t z = begin
-          lookup t zero ≡⟨ refl ⟩
-          lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) $ padus s ⟩
-          lookup (z ∷ t) (mink 1F s) ∎
-          where
-          pattern 1F = Fin.suc zero
-          s = sym $ sukvudus $ length t
-          open ≡-Reasoning
-          padus : {m n : ℕ}
-                → (d : suc (suc m) ≡ suc (suc n))
-                → 1F ≡ mink 1F d
-          padus refl = refl
 
   afcis : {n : ℕ}
         → (t : Vec ℕ $ suc n)
@@ -570,7 +573,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
   afcis t m z = uinlen (m ∷ t) nadubjavme'as
     where
     nadubjavme'as : ¬ (dubjavme'a (m ∷ t) zero)
-    nadubjavme'as = nilensub luzyr lusuk $ DNP.<⇒≱ z
+    nadubjavme'as = nilensub (luzyr t m) (lusuk t m) $ DNP.<⇒≱ z
       where
       nilensub : {m n o p : ℕ}
                → m ≡ o
@@ -579,10 +582,6 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                → ¬ (o ℕ.≤ p)
       nilensub refl refl = id
       s = sym $ sukvudus $ length t
-      luzyr : m ≡ lookup (m ∷ t) (mink zero s)
-      luzyr = {!!}
-      lusuk : lookup t zero ≡ lookup (m ∷ t) (mink (Fin.suc zero) s)
-      lusuk = {!!}
 
     uinlen : {n : ℕ}
            → (t : Vec ℕ $ ℕ.suc $ suc n)
