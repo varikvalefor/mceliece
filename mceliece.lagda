@@ -508,7 +508,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
             z ≡ lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero)
     luzyr t z = begin
       z ≡⟨ refl ⟩
-      lookup (z ∷ t) zero ≡⟨ cong (lookup $ z ∷ t) $ suklenymin t z ⟩
+      lookup (z ∷ t) zero ≡⟨ cong (lookup $ z ∷ t) $ suklenymin t ⟩
       lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero) ∎
       where
       kos : Fin _ → Fin $ length $ z ∷ t
@@ -516,13 +516,12 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
       suklenymin : ∀ {a} → {A : Set a}
                  → {n : ℕ}
                  → (t : Vec A $ suc n)
-                 → (z : A)
                  → (_≡_
                      zero
                      (mink
                        (Data.Fin.inject₁ zero)
                        (sym $ sukvudus $ length t)))
-      suklenymin t z = sym $ minzero $ sym $ sukvudus $ length t
+      suklenymin t = sym $ minzero $ sym $ sukvudus $ length t
       open ≡-Reasoning
 
     lusuk : ∀ {a} → {A : Set a}
