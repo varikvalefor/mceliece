@@ -567,7 +567,22 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → (m : ℕ)
         → m ℕ.> lookup t zero
         → ¬ (zmaduse $ m ∷ t)
-  afcis t m z = {!!}
+  afcis t m z = uinlen (m ∷ t) nadubjavme'as
+    where
+    nadubjavme'as : ¬ (dubjavme'a (m ∷ t) zero)
+    nadubjavme'as = nilensub {!!} {!!} $ DNP.<⇒≱ z
+      where
+      nilensub : {m n o p : ℕ}
+               → m ≡ o
+               → n ≡ p
+               → ¬ (m ℕ.≤ n)
+               → ¬ (o ℕ.≤ p)
+      nilensub refl refl = id
+    uinlen : {n : ℕ}
+           → (t : Vec ℕ $ ℕ.suc $ suc n)
+           → ¬ (dubjavme'a t zero)
+           → ¬ (zmaduse t)
+    uinlen t n = {!!}
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
