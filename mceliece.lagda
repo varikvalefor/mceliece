@@ -556,19 +556,16 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                 lookup t zero  ≡ lookup (z ∷ t) (kos $ Fin.suc zero)
         luzyr t z = begin
           lookup t zero ≡⟨ refl ⟩
-          lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) pafdus ⟩
+          lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) $ padus s ⟩
           lookup (z ∷ t) (mink 1F s) ∎
           where
           pattern 1F = Fin.suc zero
           s = sym $ sukvudus $ length t
           open ≡-Reasoning
-          pafdus : 1F ≡ mink 1F s
-          pafdus = padus s
-            where
-            padus : {m n : ℕ}
-                  → (d : suc (suc m) ≡ suc (suc n))
-                  → 1F ≡ mink 1F d
-            padus refl = refl
+          padus : {m n : ℕ}
+                → (d : suc (suc m) ≡ suc (suc n))
+                → 1F ≡ mink 1F d
+          padus refl = refl
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
