@@ -232,6 +232,7 @@ open import Data.Vec.Bounded
   )
 open import Truthbrary.Data.Fin
   using (
+    tomindus;
     minzero;
     mink
   )
@@ -555,12 +556,21 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                 lookup t zero  ≡ lookup (z ∷ t) (kos $ Fin.suc zero)
         luzyr t z = begin
           lookup t zero ≡⟨ refl ⟩
-          lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) {!!} ⟩
+          lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) pafdus ⟩
           lookup (z ∷ t) (kos 1F) ∎
           where
           pattern 1F = Fin.suc zero
           kos = flip mink $ sym $ sukvudus $ length t
           open ≡-Reasoning
+          pafdus : 1F ≡ kos 1F
+          pafdus = tonydus _ _ $ tomindus 1F $ sym $ sukvudus $ length t
+            where
+            tonydus : {n : ℕ}
+                    → (f g : Fin n)
+                    → toℕ f ≡ toℕ g
+                    → f ≡ g
+            tonydus zero zero refl = refl
+            tonydus (Fin.suc f) (Fin.suc g) = {!!}
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
