@@ -555,9 +555,11 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                 lookup t zero  ≡ lookup (z ∷ t) (kos $ Fin.suc zero)
         luzyr t z = begin
           lookup t zero ≡⟨ refl ⟩
-          lookup (z ∷ t) (Fin.suc zero) ≡⟨ cong (lookup $ z ∷ t) {!!} ⟩
-          lookup (z ∷ t) (kos $ Fin.suc zero) ∎
+          lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) {!!} ⟩
+          lookup (z ∷ t) (kos 1F) ∎
           where
+          1F : {n : ℕ} → Fin $ suc $ suc n
+          1F = Fin.suc zero
           open ≡-Reasoning
           kos = flip mink $ sym $ sukvudus $ length t
 \end{code}
