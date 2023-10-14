@@ -563,14 +563,12 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
           kos = flip mink $ sym $ sukvudus $ length t
           open ≡-Reasoning
           pafdus : 1F ≡ kos 1F
-          pafdus = tonydus _ _ $ tomindus 1F $ sym $ sukvudus $ length t
+          pafdus = padus $ sym $ sukvudus $ length t
             where
-            tonydus : {n : ℕ}
-                    → (f g : Fin n)
-                    → toℕ f ≡ toℕ g
-                    → f ≡ g
-            tonydus zero zero refl = refl
-            tonydus (Fin.suc f) (Fin.suc g) = {!!}
+            padus : {m n : ℕ}
+                  → (d : suc (suc m) ≡ suc (suc n))
+                  → 1F ≡ mink 1F d
+            padus refl = refl
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
