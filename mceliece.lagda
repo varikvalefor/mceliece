@@ -468,7 +468,7 @@ module Zmaduse where
 ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{sukvudus}.\ bau la .lojban.
 
 \begin{code}
-  sukvudus : (n : ℕ) → _≡_ {A = ℕ} (suc n) (suc $ suc n ∸ 1)
+  sukvudus : (n : ℕ) → ℕ.suc n ≡ suc (suc n ∸ 1)
   sukvudus 0 = refl
   sukvudus (suc n) = cong suc $ sukvudus n
 \end{code}
