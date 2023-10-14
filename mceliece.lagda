@@ -566,23 +566,23 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
       subst₂' = subst (ℕ._≤_ _) $ lusuk t m
 
   afcis : {n : ℕ}
-        → (t : Vec ℕ $ suc n)
-        → (m : ℕ)
-        → m ℕ.> lookup t zero
-        → ¬ (zmaduse $ m ∷ t)
-  afcis t m z = uinlen (m ∷ t) nadubjavme'as
+        → (t : Vec ℕ $ ℕ.suc $ suc n)
+        → ¬ (dubjavme'a t zero)
+        → ¬ (zmaduse t)
+  afcis t n = {!!}
+
+  afyvos : {n : ℕ}
+         → (t : Vec ℕ $ suc n)
+         → (m : ℕ)
+         → m ℕ.> lookup t zero
+         → ¬ (zmaduse $ m ∷ t)
+  afyvos t m z = afcis (m ∷ t) nadubjavme'as
     where
     nadubjavme'as : ¬ (dubjavme'a (m ∷ t) zero)
     nadubjavme'as = nilensub (luzyr t m) (lusuk t m) $ DNP.<⇒≱ z
       where
       nilensub = subst₂ $ ¬_ ∘₂ ℕ._≤_
       s = sym $ sukvudus $ length t
-
-    uinlen : {n : ℕ}
-           → (t : Vec ℕ $ ℕ.suc $ suc n)
-           → ¬ (dubjavme'a t zero)
-           → ¬ (zmaduse t)
-    uinlen t n = {!!}
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
