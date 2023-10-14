@@ -557,13 +557,13 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         luzyr t z = begin
           lookup t zero ≡⟨ refl ⟩
           lookup (z ∷ t) 1F ≡⟨ cong (lookup $ z ∷ t) pafdus ⟩
-          lookup (z ∷ t) (kos 1F) ∎
+          lookup (z ∷ t) (mink 1F s) ∎
           where
           pattern 1F = Fin.suc zero
-          kos = flip mink $ sym $ sukvudus $ length t
+          s = sym $ sukvudus $ length t
           open ≡-Reasoning
-          pafdus : 1F ≡ kos 1F
-          pafdus = padus $ sym $ sukvudus $ length t
+          pafdus : 1F ≡ mink 1F s
+          pafdus = padus s
             where
             padus : {m n : ℕ}
                   → (d : suc (suc m) ≡ suc (suc n))
