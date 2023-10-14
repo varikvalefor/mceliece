@@ -479,10 +479,10 @@ ni'o ga jo ctaipe la'o zoi.\ \F{dubjavme'a} \B t \B n\ .zoi.\ gi lo meirmoi be l
              → (t : Vec ℕ $ suc n) → Fin $ length t ∸ 1 → Set
   dubjavme'a t n = lookup t n' ℕ.≤ lookup t sn'
     where
-    k : Fin (suc $ length t ∸ 1) ≡ Fin (length t)
-    k = sym $ cong Fin $ sukvudus $ length t ∸ 1
-    n' = coerce k $ Data.Fin.inject₁ n
-    sn' = coerce k $ Fin.suc n
+    k : suc (length t ∸ 1) ≡ length t
+    k = sym $ sukvudus $ length t ∸ 1
+    n' = flip mink k $ Data.Fin.inject₁ n
+    sn' = flip mink k $ Fin.suc n
 \end{code}
 
 \subsection{la \F{zmaduse}}
@@ -519,7 +519,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         luzyr : ∀ {a} → {A : Set a} → {n : ℕ}
               → (t : Vec A $ suc n)
               → (z : A)
-              → let kos = coerce $ sym $ cong Fin $ sukvudus $ length t in
+              → let kos = flip mink $ sym $ sukvudus $ length t in
                 z ≡ lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero)
         luzyr t z = begin
           z ≡⟨ refl ⟩
@@ -527,7 +527,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
           lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero) ∎
           where
           open ≡-Reasoning
-          kos = coerce $ sym $ cong Fin $ sukvudus $ length t
+          kos = flip mink $ sym $ sukvudus $ length t
       subst₂' = subst (ℕ._≤_ _) {!!}
 \end{code}
 
