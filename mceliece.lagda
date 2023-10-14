@@ -579,7 +579,6 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
     nadubjavme'as = nilensub (luzyr t m) (lusuk t m) $ DNP.<⇒≱ z
       where
       nilensub = subst₂ $ ¬_ ∘₂ ℕ._≤_
-      s = sym $ sukvudus $ length t
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
