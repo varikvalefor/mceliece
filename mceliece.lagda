@@ -523,11 +523,22 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                 z ≡ lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero)
         luzyr t z = begin
           z ≡⟨ refl ⟩
-          lookup (z ∷ t) zero ≡⟨ cong (lookup $ z ∷ t) {!!} ⟩
+          lookup (z ∷ t) zero ≡⟨ cong (lookup $ z ∷ t) $ suklenymin t z ⟩
           lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero) ∎
           where
           open ≡-Reasoning
+          kos : Fin _ → Fin $ length $ z ∷ t
           kos = flip mink $ sym $ sukvudus $ length t
+          suklenymin : ∀ {a} → {A : Set a}
+                     → {n : ℕ}
+                     → (t : Vec A $ suc n)
+                     → (z : A)
+                     → (_≡_
+                         zero
+                         (mink
+                           (Data.Fin.inject₁ zero)
+                           (sym $ sukvudus $ length t)))
+          suklenymin _ _ = {!!}
       subst₂' = subst (ℕ._≤_ _) {!!}
 \end{code}
 
