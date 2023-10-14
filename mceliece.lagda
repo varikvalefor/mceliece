@@ -570,7 +570,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
   afcis t m z = uinlen (m ∷ t) nadubjavme'as
     where
     nadubjavme'as : ¬ (dubjavme'a (m ∷ t) zero)
-    nadubjavme'as = nilensub {!!} {!!} $ DNP.<⇒≱ z
+    nadubjavme'as = nilensub luzyr lusuk $ DNP.<⇒≱ z
       where
       nilensub : {m n o p : ℕ}
                → m ≡ o
@@ -578,6 +578,12 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                → ¬ (m ℕ.≤ n)
                → ¬ (o ℕ.≤ p)
       nilensub refl refl = id
+      s = sym $ sukvudus $ length t
+      luzyr : m ≡ lookup (m ∷ t) (mink zero s)
+      luzyr = {!!}
+      lusuk : lookup t zero ≡ lookup (m ∷ t) (mink (Fin.suc zero) s)
+      lusuk = {!!}
+
     uinlen : {n : ℕ}
            → (t : Vec ℕ $ ℕ.suc $ suc n)
            → ¬ (dubjavme'a t zero)
