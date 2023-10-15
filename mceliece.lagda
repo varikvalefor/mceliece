@@ -575,7 +575,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
             → (m : Fin $ suc n)
             → zmaduse t
             → dubjavme'a t m
-    zmalkup {n} t@(_ ∷ _) m z = subst₂ ℕ._≤_ p1 p2 $ Gex.lookup m z
+    zmalkup {n} t@(_ ∷ _) m = subst₂ ℕ._≤_ p1 p2 ∘ Gex.lookup m
       where
       s = sym $ cong suc $ sukvudus n
       p1 = cong (lookup t ∘ flip mink s ∘ inject₁) $ DVP.lookup-allFin m
