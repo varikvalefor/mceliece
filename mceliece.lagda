@@ -581,11 +581,15 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
       p1 : ((_≡_ on lookup t ∘ flip mink s ∘ Data.Fin.inject₁)
              (lookup (allFin $ length t ∸ 1) m)
              m)
-      p1 = {!!}
+      p1 = cong k $ DVP.lookup-allFin m
+        where
+        k = lookup t ∘ flip mink s ∘ Data.Fin.inject₁
       p2 : ((_≡_ on lookup t ∘ flip mink s ∘ suc)
              (lookup (allFin $ length t ∸ 1) m)
              m)
-      p2 = {!!}
+      p2 = cong k $ DVP.lookup-allFin m
+        where
+        k = lookup t ∘ flip mink s ∘ suc
 
   afyvos : {n : ℕ}
          → (t : Vec ℕ $ suc n)
