@@ -501,6 +501,8 @@ ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse 
 \subsection{le me'oi .verify.\ co'e}
 ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{afnos}.\ ja la .\F{afpas}.\ ja la .\F{afres}.\ ja la .\F{afcis}.\ ja la .\F{afyvos}.\ bau la .lojban.
 
+\subsubsection{zo'e poi tu'a ke'a filri'a lo nu ciksi le ctaipe be le su'u mapti}
+
 \begin{code}
   private
     luzyr : ∀ {a} → {A : Set a} → {n : ℕ}
@@ -545,6 +547,8 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
       padus refl = refl
       open ≡-Reasoning
 \end{code}
+
+\subsubsection{le velcki be le ctaipe be le su'u mapti}
 
 \begin{code}
   afnos : zmaduse []
