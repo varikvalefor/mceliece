@@ -564,16 +564,17 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
 
   afcis : {n : ℕ}
         → (t : Vec ℕ $ ℕ.suc $ suc n)
-        → ¬ (dubjavme'a t zero)
+        → (f : Fin $ suc n)
+        → ¬ (dubjavme'a t f)
         → ¬ (zmaduse t)
-  afcis t n = {!!}
+  afcis t f n = {!!}
 
   afyvos : {n : ℕ}
          → (t : Vec ℕ $ suc n)
          → (m : ℕ)
          → m ℕ.> lookup t zero
          → ¬ (zmaduse $ m ∷ t)
-  afyvos t m z = afcis (m ∷ t) z'
+  afyvos t m z = afcis (m ∷ t) zero z'
     where
     z' : ¬ (dubjavme'a (m ∷ t) zero)
     z' = subst₂ (¬_ ∘₂ ℕ._≤_) (luzyr t m) (lusuk t m) $ DNP.<⇒≱ z
