@@ -118,6 +118,7 @@ open import IO
 open import Data.Fin
   using (
     opposite;
+    inject₁;
     fromℕ<;
     fromℕ;
     zero;
@@ -484,7 +485,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{dubjavme'a} \B t \B n\ .zoi.\ gi lo meirmoi be l
     where
     k : suc (length t ∸ 1) ≡ length t
     k = sym $ sukvudus $ length t ∸ 1
-    n' = flip mink k $ Data.Fin.inject₁ n
+    n' = flip mink k $ inject₁ n
     sn' = flip mink k $ Fin.suc n
 \end{code}
 
@@ -506,11 +507,11 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
           → (t : Vec A $ suc n)
           → (z : A)
           → let kos = flip mink $ sym $ sukvudus $ length t in
-            z ≡ lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero)
+            z ≡ lookup (z ∷ t) (kos $ inject₁ zero)
     luzyr t z = begin
       z ≡⟨ refl ⟩
       lookup (z ∷ t) zero ≡⟨ cong (lookup $ z ∷ t) $ suklenymin t ⟩
-      lookup (z ∷ t) (kos $ Data.Fin.inject₁ zero) ∎
+      lookup (z ∷ t) (kos $ inject₁ zero) ∎
       where
       kos : Fin _ → Fin $ length $ z ∷ t
       kos = flip mink $ sym $ sukvudus $ length t
@@ -520,7 +521,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                  → (_≡_
                      zero
                      (mink
-                       (Data.Fin.inject₁ zero)
+                       (inject₁ zero)
                        (sym $ sukvudus $ length t)))
       suklenymin t = sym $ minzero $ sym $ sukvudus $ length t
       open ≡-Reasoning
@@ -578,12 +579,12 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
     zmalkup {n} t@(_ ∷ _) z m = subst₂ ℕ._≤_ p1 p2 $ Gex.lookup m z
       where
       s = sym $ cong suc $ sukvudus n
-      p1 : ((_≡_ on lookup t ∘ flip mink s ∘ Data.Fin.inject₁)
+      p1 : ((_≡_ on lookup t ∘ flip mink s ∘ inject₁)
              (lookup (allFin $ length t ∸ 1) m)
              m)
       p1 = cong k $ DVP.lookup-allFin m
         where
-        k = lookup t ∘ flip mink s ∘ Data.Fin.inject₁
+        k = lookup t ∘ flip mink s ∘ inject₁
       p2 : ((_≡_ on lookup t ∘ flip mink s ∘ suc)
              (lookup (allFin $ length t ∸ 1) m)
              m)
