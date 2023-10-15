@@ -525,7 +525,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
                      (mink
                        (inject₁ zero)
                        (sym $ sukvudus $ length t)))
-      suklenymin t = sym $ minzero $ sym $ sukvudus $ length t
+      suklenymin = sym ∘ minzero ∘ sym ∘ sukvudus ∘ length
       open ≡-Reasoning
 
     lusuk : ∀ {a} → {A : Set a}
