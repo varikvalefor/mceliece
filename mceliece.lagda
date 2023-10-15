@@ -579,13 +579,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
     zmalkup {n} t@(_ ∷ _) z m = subst₂ ℕ._≤_ p1 p2 $ Gex.lookup m z
       where
       s = sym $ cong suc $ sukvudus n
-      p1 : ((_≡_ on lookup t ∘ flip mink s ∘ inject₁)
-             (lookup (allFin $ length t ∸ 1) m)
-             m)
       p1 = cong (lookup t ∘ flip mink s ∘ inject₁) $ DVP.lookup-allFin m
-      p2 : ((_≡_ on lookup t ∘ flip mink s ∘ suc)
-             (lookup (allFin $ length t ∸ 1) m)
-             m)
       p2 = cong (lookup t ∘ flip mink s ∘ suc) $ DVP.lookup-allFin m
 
   afyvos : {n : ℕ}
