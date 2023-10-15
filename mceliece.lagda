@@ -411,7 +411,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 \end{code}
 
 \section{la .\F{dist}.}
-ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi. be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
+ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
 
 \begin{code}
 dist : ∀ {a} → {A : Set a}
