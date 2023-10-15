@@ -567,8 +567,8 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → (f : Fin $ suc n)
         → ¬ (dubjavme'a t f)
         → ¬ (zmaduse t)
-  afcis (_ ∷ _) Fin.zero n = n ∘ Gex.head
-  afcis (x ∷ xs) (Fin.suc f) n = ?
+  afcis (_ ∷ _) zero n = n ∘ Gex.head
+  afcis (x ∷ xs) (suc f) n = ?
 
   afyvos : {n : ℕ}
          → (t : Vec ℕ $ suc n)
