@@ -568,7 +568,14 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → ¬ (dubjavme'a t f)
         → ¬ (zmaduse t)
   afcis (_ ∷ _) zero n = n ∘ Gex.head
-  afcis (x ∷ xs) (suc f) n = ?
+  afcis t@(_ ∷ _) (suc f) j = j ∘ (λ z → zmalkup t z $ suc f)
+    where
+    zmalkup : {n : ℕ}
+            → (t : Vec ℕ $ ℕ.suc $ suc n)
+            → zmaduse t
+            → (m : Fin $ suc n)
+            → dubjavme'a t m
+    zmalkup (_ ∷ _) z m = subst₂ ℕ._≤_ {!!} {!!} $ Gex.lookup m z
 
   afyvos : {n : ℕ}
          → (t : Vec ℕ $ suc n)
