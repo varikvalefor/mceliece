@@ -575,7 +575,17 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
             → zmaduse t
             → (m : Fin $ suc n)
             → dubjavme'a t m
-    zmalkup (_ ∷ _) z m = subst₂ ℕ._≤_ {!!} {!!} $ Gex.lookup m z
+    zmalkup {n} t@(_ ∷ _) z m = subst₂ ℕ._≤_ p1 p2 $ Gex.lookup m z
+      where
+      s = sym $ cong suc $ sukvudus n
+      p1 : ((_≡_ on lookup t ∘ flip mink s ∘ Data.Fin.inject₁)
+             (lookup (allFin $ length t ∸ 1) m)
+             m)
+      p1 = {!!}
+      p2 : ((_≡_ on lookup t ∘ flip mink s ∘ suc)
+             (lookup (allFin $ length t ∸ 1) m)
+             m)
+      p2 = {!!}
 
   afyvos : {n : ℕ}
          → (t : Vec ℕ $ suc n)
