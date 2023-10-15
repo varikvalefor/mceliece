@@ -568,14 +568,14 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → (f : Fin $ suc n)
         → ¬ (dubjavme'a t f)
         → ¬ (zmaduse t)
-  afcis t f j = j ∘ (λ z → zmalkup t z f)
+  afcis t f j = j ∘ (zmalkup t f)
     where
     zmalkup : {n : ℕ}
             → (t : Vec ℕ $ ℕ.suc $ suc n)
-            → zmaduse t
             → (m : Fin $ suc n)
+            → zmaduse t
             → dubjavme'a t m
-    zmalkup {n} t@(_ ∷ _) z m = subst₂ ℕ._≤_ p1 p2 $ Gex.lookup m z
+    zmalkup {n} t@(_ ∷ _) m z = subst₂ ℕ._≤_ p1 p2 $ Gex.lookup m z
       where
       s = sym $ cong suc $ sukvudus n
       p1 = cong (lookup t ∘ flip mink s ∘ inject₁) $ DVP.lookup-allFin m
