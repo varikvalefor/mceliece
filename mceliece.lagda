@@ -573,12 +573,10 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
          → (m : ℕ)
          → m ℕ.> lookup t zero
          → ¬ (zmaduse $ m ∷ t)
-  afyvos t m z = afcis (m ∷ t) nadubjavme'as
+  afyvos t m z = afcis (m ∷ t) z'
     where
-    nadubjavme'as : ¬ (dubjavme'a (m ∷ t) zero)
-    nadubjavme'as = nilensub (luzyr t m) (lusuk t m) $ DNP.<⇒≱ z
-      where
-      nilensub = subst₂ $ ¬_ ∘₂ ℕ._≤_
+    z' : ¬ (dubjavme'a (m ∷ t) zero)
+    z' = subst₂ (¬_ ∘₂ ℕ._≤_) (luzyr t m) (lusuk t m) $ DNP.<⇒≱ z
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
