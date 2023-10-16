@@ -523,17 +523,17 @@ ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'o
 \subsection{le me'oi .\AgdaKeyword{field}.}
 
 \subsubsection{le vrici je me'oi .\AgdaKeyword{field}.}
-\paragraph{la'oi .\F{MCParam.n}.}
-ni'o la'o zoi.\ \F{MCParam.n} \B q .zoi.\ ni clani fa lo me'oi .code.\ pe la'o zoi.\ \B q .zoi.
+\paragraph{la'oi .\AgdaField{MCParam.n}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.n} \B q .zoi.\ ni clani fa lo me'oi .code.\ pe la'o zoi.\ \B q .zoi.
 
-\paragraph{la'oi .\F{MCParam.m}.}
-ni'o la'o zoi.\ \F{MCParam.m} \B q .zoi.\ reldugri lo ni barda fa lo selvau be lo me'oi .\AgdaKeyword{field}.
+\paragraph{la'oi .\AgdaField{MCParam.m}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.m} \B q .zoi.\ reldugri lo ni barda fa lo selvau be lo me'oi .\AgdaKeyword{field}.
 
-\paragraph{la'oi .\F{MCParam.t}.}
-ni'o la'o zoi.\ \F{MCParam.t} \B q .zoi.\ ni cumki fa lo nu rinka ja gasnu ja co'e lo nu binxo lo drani
+\paragraph{la'oi .\AgdaField{MCParam.t}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.t} \B q .zoi.\ ni cumki fa lo nu rinka ja gasnu ja co'e lo nu binxo lo drani
 
-\paragraph{la'oi .\F{MCParam.f}.}
-ni'o la'o zoi.\ \F{MCParam.f} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \F{MCParam.m} \B q .zoi\ldots je cu co'e
+\paragraph{la'oi .\AgdaField{MCParam.f}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.f} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \AgdaField{MCParam.m} \B q .zoi\ldots je cu co'e
 
 \paragraph{la'oi .\F{MCParam.F}.}
 ni'o la'o zoi.\ \F{MCParam.F} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \F{MCParam.t} \B q .zoi\ldots je cu co'e
@@ -541,30 +541,30 @@ ni'o la'o zoi.\ \F{MCParam.F} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\
 \paragraph{la'oi .\F{MCParam.k}.}
 ni'o la'o zoi.\ \F{MCParam.k} \B q .zoi.\ me'oi .dimension.\ lo me'oi .code.\ pe la'oi .\B q.
 
-\paragraph{la'oi .\F{MCParam.ν}.}
-ni'o la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \F{MCParam.k} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.μ \B q} .zoi.
+\paragraph{la'oi .\AgdaField{MCParam.ν}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \AgdaField{MCParam.k} \B q .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.μ \B q} .zoi.
 
-\paragraph{la'oi .\F{MCParam.ν}.}
-ni'o la'o zoi.\ \F{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \F{MCParam.ν \B q} .zoi.\ je lo vujnu be la'o zoi.\ \F{MCParam.ν} \B q .zoi.\ bei la'o zoi.\ \F{MCParam.k} \B q .zoi.
+\paragraph{la'oi .\AgdaField{MCParam.ν}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \AgdaField{MCParam.ν \B q} .zoi.\ je lo vujnu be la'o zoi.\ \AgdaField{MCParam.ν} \B q .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.k} \B q .zoi.
 
 \subsubsection{le me'oi .\AgdaKeyword{field}.\ poi ke'a srana le mu'oi glibau.\ symmetric cryptography .glibau.}
-\paragraph{la'oi .\F{MCParam.ℓ}.}
-ni'o la'o zoi.\ \F{MCParam.ℓ} \B q .zoi.\ ni clani fa lo me'oi .output.\ be la'o zoi.\ \F{MCParam.H} \B q .zoi.\
+\paragraph{la'oi .\AgdaField{MCParam.ℓ}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.ℓ} \B q .zoi.\ ni clani fa lo me'oi .output.\ be la'o zoi.\ \AgdaField{MCParam.H} \B q .zoi.\
 
-\paragraph{la'oi .\F{MCParam.H}.}
-ni'o la'o zoi.\ \F{MCParam.H} \B q \B n .zoi.\ me'oi .hash.\ la'o zoi.\ \B n\ .zoi.
+\paragraph{la'oi .\AgdaField{MCParam.H}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.H} \B q \B n .zoi.\ me'oi .hash.\ la'o zoi.\ \B n\ .zoi.
 
-\paragraph{la'oi .\F{MCParam.σ₁}.}
-ni'o la'o zoi.\ \F{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
+\paragraph{la'oi .\AgdaField{MCParam.σ₁}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
 
-\paragraph{la'oi .\F{MCParam.σ₂}.}
-.i la'o zoi.\ \F{MCParam.σ₂} \B q .zoi.\ ji'a me'oi .arbitrary.
+\paragraph{la'oi .\AgdaField{MCParam.σ₂}.}
+.i la'o zoi.\ \AgdaField{MCParam.σ₂} \B q .zoi.\ ji'a me'oi .arbitrary.
 
-\paragraph{la'oi .\F{MCParam.G}.}
-ni'o la'o zoi.\ \F{MCParam.G} \B q \B x .zoi.\ me'oi .pseudorandom.
+\paragraph{la'oi .\AgdaField{MCParam.G}.}
+ni'o la'o zoi.\ \AgdaField{MCParam.G} \B q \B x .zoi.\ me'oi .pseudorandom.
 
 \paragraph{lo ctaipe be lo su'u dubjavme'a ja co'e}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{n≤q}.\ ja la'oi .\F{t≥2}.\ ja la'oi .\F{ν≥μ}.\ ja la'oi .\F{ν≤μ+k}.\ ja la'oi .\F{σ₁≥m}.\ ja la'oi .\F{σ₂≥2*m}.\ ja la \F{ctejau}\ bau la .lojban.
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\AgdaField{n≤q}.\ ja la'oi .\AgdaField{t≥2}.\ ja la'oi .\AgdaField{ν≥μ}.\ ja la'oi .\AgdaField{ν≤μ+k}.\ ja la'oi .\AgdaField{σ₁≥m}.\ ja la'oi .\AgdaField{σ₂≥2*m}.\ ja la \AgdaField{ctejau}\ bau la .lojban.
 
 \begin{code}
 record MCParam : Set
@@ -618,14 +618,14 @@ ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau
 
 \subsection{le me'oi .\AgdaKeyword{field}.}
 
-\paragraph{la'oi .\F{Private.lg}.}
-ni'o la'o zoi.\ \F{Private.lg} \B p .zoi.\ nilzilcmi ja co'e la'o zoi.\ \F{Private.g} \B p .zoi.
+\paragraph{la'oi .\AgdaField{Private.lg}.}
+ni'o la'o zoi.\ \AgdaField{Private.lg} \B p .zoi.\ nilzilcmi ja co'e la'o zoi.\ \AgdaField{Private.g} \B p .zoi.
 
-\paragraph{la'oi .\F{Private.Γ}.}
-ni'o la'o zoi.\ \F{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \F{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \D{Fin} \F \$ \F{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \F{Private.n} \B p .zoi.\ nilzilcmi ke'a
+\paragraph{la'oi .\AgdaField{Private.Γ}.}
+ni'o la'o zoi.\ \AgdaField{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \AgdaField{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \D{Fin} \F \$ \AgdaField{Private.q} \B .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \AgdaField{Private.n} \B p .zoi.\ nilzilcmi ke'a
 
-\paragraph{la'oi .\F{Private.s}.}
-ni'o la'o zoi.\ \F{Private.s} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \F{MCParam.n} \B p .zoi.
+\paragraph{la'oi .\AgdaField{Private.s}.}
+ni'o la'o zoi.\ \AgdaField{Private.s} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \AgdaField{MCParam.n} \B p .zoi.
 
 \begin{code}
 record Private (p : MCParam) : Set
