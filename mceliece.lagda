@@ -535,7 +535,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
       pattern 1F = Fin.suc zero
       s = sym $ sukvudus $ length t
       padus : {m n : ℕ}
-            → (d : suc (suc m) ≡ suc (suc n))
+            → (d : (_≡_ on ℕ.suc ∘ suc) m n)
             → 1F ≡ mink 1F d
       padus refl = refl
 \end{code}
