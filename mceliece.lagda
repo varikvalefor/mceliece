@@ -530,10 +530,9 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
           → (z : A)
           → let kos = flip mink $ sym $ sukvudus $ length t in
             lookup t zero ≡ lookup (z ∷ t) (kos $ Fin.suc zero)
-    lusuk t z = cong (lookup $ z ∷ t) $ padus s
+    lusuk t z = cong (lookup $ z ∷ t) $ padus $ sym $ sukvudus $ length t
       where
       pattern 1F = Fin.suc zero
-      s = sym $ sukvudus $ length t
       padus : {m n : ℕ}
             → (d : (_≡_ on ℕ.suc ∘ suc) m n)
             → 1F ≡ mink 1F d
