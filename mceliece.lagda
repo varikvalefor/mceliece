@@ -671,7 +671,7 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
 \chap{la'oi .\AgdaRecord{KP}.\ je zo'e}
 
 \section{la'oi .\AgdaRecord{KP}.}
-ni'o la'oi .\AgdaRecord{KP}.\ se ctaipe lo mu'oi glibau.\ Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.
+ni'o la'o zoi.\ \AgdaRecord{KP} \B p .zoi.\ se ctaipe lo mu'oi glibau.\ Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.\ poi ke'a mapti la'oi .\B{p}.
 
 .i ga naja la'o zoi.\ \B t .zoi.\ ctaipe la'o zoi.\ \AgdaRecord{KP}\ \AgdaUnderscore\ .zoi.\ gi cadga fa lo nu la'o zoi.\ \AgdaField{proj₂} \B t .zoi.\ sivni termifckiku je cu mapti la'o zoi.\ \B t\ .zoi.\ je la'o zoi.\ \AgdaField{proj₁} \B t .zoi.
 
