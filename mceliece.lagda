@@ -749,8 +749,7 @@ FixedWeight : {p : MCParam}
                 (λ e → hWV𝔽 e ≡ MCParam.t p))
 FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   where
-  OT = Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
-         → hWV𝔽 e ≡ MCParam.t p
+  OT = ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
   -- | ni'o cumki fa lo nu cumki fa lo nu tu'a
   -- la'oi .restart?. rinka lo nu na me'oi .terminate.
   restart? : Maybe OT → IO OT
