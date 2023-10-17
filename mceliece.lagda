@@ -512,8 +512,6 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
             z ≡ lookup (z ∷ t) (kos $ inject₁ zero)
     luzyr t z = cong (lookup $ z ∷ t) $ suklenymin t
       where
-      kos : Fin _ → Fin $ length $ z ∷ t
-      kos = flip mink $ sym $ sukvudus $ length t
       suklenymin : ∀ {a} → {A : Set a}
                  → {n : ℕ}
                  → (t : Vec A $ suc n)
