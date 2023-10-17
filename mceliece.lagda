@@ -730,7 +730,7 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ (a , b) → show a , a , b)
       where
       jort' : Op₁ _
-      jort' = ?
+      jort' = {!!}
     panci : vex → Maybe vex
     panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
 \end{code}
