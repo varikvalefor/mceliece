@@ -470,11 +470,13 @@ ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\
 
 \begin{code}
 b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
-b2f {m'} {n} = cond ∘ flip zipᵥ indy ∘ mapᵥ f2f
+b2f {m'} {n} = cond ∘ indice ∘ mapᵥ f2f
   where
   m = suc m'
-  indy : flip Vec n $ Fin $ m ^ n
-  indy = reverseᵥ $ mapᵥ f2f $ allFin n
+  indice : ∀ {a} → {A : Set a}
+         → Vec A n
+         → flip Vec n $ _×_ A $ Fin $ m ^ n
+  indice = flip zipᵥ $ reverseᵥ $ mapᵥ f2f $ allFin n
   zf = mink zero $ proj₂ $ pausyk m' n
   cond : let X = Fin $ m ^ n in flip Vec n $ X × X → X
   cond = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
