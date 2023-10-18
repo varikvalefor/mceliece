@@ -586,7 +586,19 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → zmaduse $ m ∷ t
         → zmaduse t
   afmus Vec.[] _ _ = Data.Unit.Polymorphic.tt
-  afmus (t ∷ ts) _ z = {!!}
+  afmus (t ∷ ts) m = roid dubjavme'a (t ∷ ts) m ∘ Gex.tail
+    where
+    roid : ∀ {a b} → {A : Set a}
+         → (P : {n : ℕ}
+              → (t : Vec A $ suc n)
+              → Fin $ length t ∸ 1
+              → Set b)
+         → {n : ℕ}
+         → (t : Vec A $ suc n)
+         → (x : A)
+         → Gex.All (P $ x ∷ t) $ Data.Vec.tabulate suc
+         → Gex.All (P t) $ allFin $ length t ∸ 1
+    roid P t x r = {!!}
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
