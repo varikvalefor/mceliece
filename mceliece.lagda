@@ -586,7 +586,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → zmaduse (m ∷ t)
         → zmaduse t
   afmus Vec.[] _ _ = Data.Unit.Polymorphic.tt
-  afmus (t ∷ ts) m z = {!!}
+  afmus (t ∷ ts) _ z = {!!}
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
