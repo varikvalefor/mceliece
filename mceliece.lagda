@@ -579,6 +579,14 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
     where
     z' : ¬ (dubjavme'a (m ∷ t) zero)
     z' = subst₂ (¬_ ∘₂ ℕ._≤_) (luzyr t m) (lusuk t m) $ DNP.<⇒≱ z
+
+  afmus : {n : ℕ}
+        → (t : Vec ℕ n)
+        → (m : ℕ)
+        → zmaduse (m ∷ t)
+        → zmaduse t
+  afmus Vec.[] _ _ = Data.Unit.Polymorphic.tt
+  afmus (t ∷ ts) m z = {!!}
 \end{code}
 
 \subsection{le zo'oi .\AgdaKeyword{open}.\ co'e}
