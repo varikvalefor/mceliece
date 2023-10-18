@@ -583,7 +583,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
   afmus : {n : ℕ}
         → (t : Vec ℕ n)
         → (m : ℕ)
-        → zmaduse (m ∷ t)
+        → zmaduse $ m ∷ t
         → zmaduse t
   afmus Vec.[] _ _ = Data.Unit.Polymorphic.tt
   afmus (t ∷ ts) _ z = {!!}
