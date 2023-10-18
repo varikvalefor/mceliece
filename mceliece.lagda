@@ -586,7 +586,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → (m : ℕ)
         → zmaduse $ m ∷ t
         → zmaduse t
-  afmus Vec.[] _ _ = Data.Unit.Polymorphic.tt
+  afmus [] _ _ = Data.Unit.Polymorphic.tt
   afmus t@(_ ∷ _) m = roid dubjavme'a t m ∘ Gex.tail
     where
     roid : ∀ {a b} → {A : Set a}
