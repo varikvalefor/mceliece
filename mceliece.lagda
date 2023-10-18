@@ -552,7 +552,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{
         → (m : ℕ)
         → ℕ._≤_ m $ lookup t zero
         → zmaduse $ m ∷ t
-  afres t@(_ ∷ []) z m l = l' Gex.∷ Gex.[]
+  afres t@(_ ∷ []) _ m l = l' Gex.∷ Gex.[]
     where
     l' = subst₂ ℕ._≤_ (luzyr t m) (lusuk t m) l
   afres t@(_ ∷ _) z m l = l' Gex.∷ {!!}
