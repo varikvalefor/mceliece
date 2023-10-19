@@ -768,10 +768,9 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → ∃ B
     proj₁,₂ = dmap id proj₁
     d : Vec ℕ τ
-    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin m) $ allFin τ
+    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
       where
-      m = MCParam.m p
-      uijis : Fin τ → Fin m → ℕ
+      uijis : Fin τ → Fin $ MCParam.m p → ℕ
       uijis j i = 2 ^ toℕ i * toℕ (lookup b' {!!})
         where
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
