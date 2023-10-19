@@ -643,7 +643,7 @@ record Private (p : MCParam) : Set
 \section{la'oi .\F{MatGen}.}
 ni'o la'o zoi.\ \F{MatGen} \B x .zoi.\ me'oi .\AgdaInductiveConstructor{nothing}.\ jonai cu me'oi .\AgdaInductiveConstructor{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.
 
-ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je la .varik.\ cu djica lo nu mapti lo ro broda cei co'e gi le mu'oi glibau.\ systematic form .glibau.\ cu na mapti lo su'o broda
+ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je la .varik.\ cu djica lo nu mapti lo ro broda cei co'e gi su'o da poi ke'a broda zo'u le mu'oi glibau.\ systematic form .glibau.\ cu na mapti da
 
 \begin{code}
 MatGen : {p : MCParam} → Private p → Maybe $ Public p
