@@ -787,7 +787,9 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
         mlen? n = mapₘ fromℕ< $ decToMaybe $ n ℕ.<? MCParam.n p
       V = Vec (Fin $ MCParam.n p) $ MCParam.t p
       panci? : V → Maybe V
-      panci? t = mapₘ (λ _ → t) $ decToMaybe $ Dec (nu,iork t) ∋ _ ≟ _
+      panci? t = mapₘ (λ _ → t) $ decToMaybe g
+        where
+        g = Dec (nu,iork t) ∋ _ ≟ _
       toVec? : List $ Fin $ MCParam.n p → Maybe V
       toVec? l = mapₘ f $ decToMaybe $ length l ≟ MCParam.t p
         where
