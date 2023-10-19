@@ -197,6 +197,7 @@ open import Data.Product
     proj₁;
     proj₂;
     curry;
+    dmap;
     _×_;
     _,_;
     Σ;
@@ -765,7 +766,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
             → {A : Set a} → {B : A → Set b} → {C : A → Set c}
             → ∃ (λ a' → B a' × C a')
             → ∃ B
-    proj₁,₂ (a , b , _) = a , b
+    proj₁,₂ = dmap id proj₁
     d : Vec ℕ τ
     d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin m) $ allFin τ
       where
