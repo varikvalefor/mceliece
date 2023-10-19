@@ -926,7 +926,9 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
       -- lo me'oi .underscore. fu la'o zoi.
       -- MCParam.m p * MCParam.t p .zoi.  .i ku'i
       -- narka'e ca le nu la .varik. cu cusku dei
-      k≤n = DNP.m∸n≤m (MCParam.n p) $ MCParam.m p * MCParam.t p
+      k≤n = DNP.m∸n≤m n $ MCParam.m p * MCParam.t p
+        where
+        n = MCParam.n p
   c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
