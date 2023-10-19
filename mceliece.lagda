@@ -451,6 +451,16 @@ pausyk b' (suc e) = _ , sym mips
     open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 
+\section{la \F{panci}.}
+ni'o ga jonai ga je ctaipe la'o zoi.\ \F{nu,iork} \B k .zoi.\ gi ko'a goi la'o zoi.\ \F{panci} \B k .zoi.\ me'oi .\AgdaInductiveConstructor{just}.\ la .\F{k}. gi ko'a du la'oi .\AgdaInductiveConstructor{nothing}.
+
+\begin{code}
+panci : ∀ {a} → {A : Set a}
+      → ⦃ L : LL A ⦄ → ⦃ Eq $ LL.e L ⦄
+      → A → Maybe A
+panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
+\end{code}
+
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
@@ -732,8 +742,6 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
       where
       jort' : Op₁ _
       jort' = {!!}
-    panci : vex → Maybe vex
-    panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
 \end{code}
 
 \section{la'oi .\F{FixedWeight}.}
@@ -775,7 +783,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
         where
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a = toVec? (Data.List.take (MCParam.t p) mlen) >>=ₘ panci?
+    a = toVec? (Data.List.take (MCParam.t p) mlen) >>=ₘ panci
       where
       -- | ni'o zo .mlen. cmavlaka'i
       -- lu mleca la .n. li'u
@@ -785,10 +793,6 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
         mlen? : (n : ℕ) → Maybe $ Fin $ MCParam.n p
         mlen? n = mapₘ fromℕ< $ decToMaybe $ n ℕ.<? MCParam.n p
       V = Vec (Fin $ MCParam.n p) $ MCParam.t p
-      panci? : V → Maybe V
-      panci? t = mapₘ (λ _ → t) $ decToMaybe g
-        where
-        g = Dec (nu,iork t) ∋ _ ≟ _
       toVec? : List $ Fin $ MCParam.n p → Maybe V
       toVec? l = mapₘ f $ decToMaybe $ length l ≟ MCParam.t p
         where
