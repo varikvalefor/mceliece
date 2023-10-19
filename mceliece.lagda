@@ -789,9 +789,9 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       panci? : V → Maybe V
       panci? = {!!}
       toVec? : List $ Fin $ MCParam.n p → Maybe V
-      toVec? l with length l ≟ MCParam.t p
-      ... | no _ = nothing
-      ... | yes d = just $ flip coerce (fromList l) $ cong (Vec _) d
+      toVec? l = mapₘ f $ decToMaybe $ length l ≟ MCParam.t p
+        where
+        f = flip coerce (fromList l) ∘ cong (Vec _)
     e' : (a : _)
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
