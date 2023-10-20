@@ -438,16 +438,16 @@ pausyk b' (suc e) = _ , sym mips
     b * suc z₁ ≡⟨ refl ⟩
     b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
     b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
-    b * z₁ + b * 1 ≡⟨ cong bizpu $ DNP.*-identityʳ b ⟩
+    b * z₁ + b * 1 ≡⟨ cong bizum $ DNP.*-identityʳ b ⟩
     b * z₁ + b ≡⟨ refl ⟩
-    b * z₁ + (1 + b') ≡⟨ cong bizpu $ DNP.+-comm 1 b' ⟩
+    b * z₁ + (1 + b') ≡⟨ cong bizum $ DNP.+-comm 1 b' ⟩
     b * z₁ + (b' + 1) ≡⟨ sym $ DNP.+-assoc (b * z₁) b' 1 ⟩
     b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
     suc (b * z₁ + b') ∎
     where
     z₁ = proj₁ $ pausyk b' e
     b = suc b'
-    bizpu = _+_ $ b * z₁
+    bizum = _+_ $ b * z₁
     open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 
