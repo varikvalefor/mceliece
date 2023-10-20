@@ -482,12 +482,10 @@ ni'o ga jo ctaipe la'o zoi.\ \F{dubjavme'a} \B t \B n\ .zoi.\ gi lo meirmoi be l
 \begin{code}
   dubjavme'a : {n : ℕ}
              → (t : Vec ℕ $ suc n) → Fin $ length t ∸ 1 → Set
-  dubjavme'a t n = lookup t n' ℕ.≤ lookup t sn'
+  dubjavme'a t n = lookup t (k $ inject₁ n) ℕ.≤ lookup t (k $ suc n)
     where
-    k : suc (length t ∸ 1) ≡ length t
-    k = sym $ sukvudus $ length t ∸ 1
-    n' = flip mink k $ inject₁ n
-    sn' = flip mink k $ suc n
+    k : Fin $ suc $ length t ∸ 1 → Fin $ length t
+    k = flip mink $ sym $ sukvudus $ length t ∸ 1
 \end{code}
 
 \subsection{la \F{zmaduse}}
