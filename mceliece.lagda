@@ -425,7 +425,7 @@ dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 \end{code}
 
 \section{la .\F{pausyk}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciski la .\F{pausyk}.\ bau la .lojban.
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{pausyk}.\ bau la .lojban.
 
 \begin{code}
 pausyk : (b e : ℕ) → ∃ $ λ n → suc n ≡ suc b ^ e
