@@ -514,9 +514,7 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi le me'o
       suklenymin : ∀ {a} → {A : Set a}
                  → {n : ℕ}
                  → (t : Vec A $ suc n)
-                 → (_≡_
-                     zero
-                     (mink (inject₁ zero) $ sym $ sukvudus $ length t))
+                 → zero ≡ mink (inject₁ zero) (sym $ sukvudus $ length t)
       suklenymin = sym ∘ minzero ∘ sym ∘ sukvudus ∘ length
 
     lusuk : ∀ {a} → {A : Set a}
