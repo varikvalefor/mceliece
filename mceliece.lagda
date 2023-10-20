@@ -487,7 +487,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{dubjavme'a} \B t \B n\ .zoi.\ gi lo meirmoi be l
     k : suc (length t ∸ 1) ≡ length t
     k = sym $ sukvudus $ length t ∸ 1
     n' = flip mink k $ inject₁ n
-    sn' = flip mink k $ Fin.suc n
+    sn' = flip mink k $ suc n
 \end{code}
 
 \subsection{la \F{zmaduse}}
