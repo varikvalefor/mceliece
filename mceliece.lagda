@@ -552,7 +552,7 @@ ni'o la'o zoi.\ \F{MCParam.F} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\
 ni'o la'o zoi.\ \F{MCParam.k} \B q .zoi.\ me'oi .dimension.\ lo me'oi .code.\ pe la'oi .\B q.
 
 \paragraph{la'oi .\AgdaField{MCParam.ν}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \AgdaField{MCParam.k} \B q .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.μ \B q} .zoi.
+ni'o la'o zoi.\ \AgdaField{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \AgdaField{MCParam.k} \B q .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.μ} \B q .zoi.
 
 \paragraph{la'oi .\AgdaField{MCParam.ν}.}
 ni'o la'o zoi.\ \AgdaField{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \AgdaField{MCParam.ν \B q} .zoi.\ je lo vujnu be la'o zoi.\ \AgdaField{MCParam.ν} \B q .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.k} \B q .zoi.
