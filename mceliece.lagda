@@ -498,7 +498,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{zmaduse} \B x\ .zoi.\ gi la'oi .\B{x}.\ zmaduse 
 \end{code}
 
 \subsection{le me'oi .verify.\ co'e}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi le me'oi .\AgdaKeyword{private}.\ ja la .\F{afnos}.\ ja la .\F{afpas}.\ ja la .\F{afres}.\ ja la .\F{afcis}.\ ja la .\F{afyvos}.\ bau la .lojban.
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi le me'oi .\AgdaKeyword{private}.\ ja la .\F{afnos}.\ ja la .\F{afpas}.\ ja la .\F{afres}.\ ja la .\F{afcis}.\ ja la .\F{afyvos}.\ bau la .lojban.\sds  .i la'e di'u pluka la .varik.\ ki'u le su'u la .varik.\ cu toldji lo nu lo zo'oi .\texttt{paragraph}.\ co'e cu vasru zo'e joi lo zo'oi .\texttt{code}.\ co'e
 
 \subsubsection{zo'e poi tu'a ke'a filri'a lo nu ciksi le ctaipe be le su'u mapti}
 
