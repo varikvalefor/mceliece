@@ -458,7 +458,7 @@ ni'o ga jonai ga je ctaipe la'o zoi.\ \F{nu,iork} \B k .zoi.\ gi ko'a goi la'o z
 panci : ∀ {a} → {A : Set a}
       → ⦃ L : LL A ⦄ → ⦃ Eq $ LL.e L ⦄
       → A → Maybe A
-panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
+panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ _ ≟ _
 \end{code}
 
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
