@@ -143,8 +143,7 @@ open import Data.Vec
     foldr to foldrᵥ;
     zipWith to zipWithᵥ;
     zip to zipᵥ;
-    reverse to reverseᵥ;
-    transpose to ⍉
+    reverse to reverseᵥ
   )
 open import Function
 open import Data.Bool
