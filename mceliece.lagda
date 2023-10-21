@@ -486,9 +486,9 @@ b2f {m'} {n} = portenfa ∘ indice ∘ mapᵥ f2f
          → flip Vec n $ _×_ A $ Fin $ m ^ n
   indice = flip zipᵥ $ reverseᵥ $ mapᵥ f2f $ allFin n
   portenfa : let X = Fin $ m ^ n in flip Vec n $ X × X → X
-  portenfa = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
+  portenfa = foldrᵥ _ (f𝔽 _+_) zero' ∘ mapᵥ pilji
     where
-    zf = mink zero $ proj₂ $ pausyk m' n
+    zero' = mink zero $ proj₂ $ pausyk m' n
     pilji = uncurry $ f𝔽 $ λ a b → a * m ^ b
 \end{code}
 
