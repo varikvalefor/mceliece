@@ -417,7 +417,7 @@ ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu 
 .i la .varik. cu cusku dei ba le nu la .varik.\ cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo nu tcidu dei cu .indika le du'u fliba
 
 \subsubsection{le se zvati}
-ni'o xu cadga fa lo nu me'oi .Agda. pinka cu vasru dei\sds  .i dei srana zo'e poi la'oi .\F{resize}.\ du lo ro se srana be ke'a
+ni'o xu cadga fa lo nu lo me'oi .Agda. pinka cu vasru dei\sds  .i dei srana zo'e poi la'oi .\F{resize}.\ du lo ro se srana be ke'a
 
 \section{la .\F{dist}.}
 ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
