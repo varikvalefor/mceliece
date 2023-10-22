@@ -319,6 +319,22 @@ resize : ∀ {a} → {m n : ℕ} → {A : Set a}
        → A → Vec A m → Vec A n
 resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   where
+  -- | ni'o lo nu basti ko'a goi le zo'oi .xt. co'e cu
+  -- rinka lo nu nandu fa lo nu ciksi la'oi .flipko. je
+  -- zo'e
+  --
+  -- .i ga je ko'a milxe le ka ce'u fegli la .varik. gi
+  -- ku'i la .varik. cu na birti lo du'u ma kau mleca ko'a
+  -- le ka ce'u fegli kei je cu mapti la'oi .flipko. je zo'e
+  --
+  -- .i ranji fa le nu la .varik. cu djica curmi lo nu stidi
+  --
+  -- .i la .varik. cu cusku dei ba le nu la .varik. cu troci
+  -- lo nu basygau le zo'oi .with. co'e ko'a  .i lo nu tcidu
+  -- dei cu .indika le du'u fliba
+  --
+  -- ni'o xu cadga fa lo nu lo zo'oi .subsection. co'e cu
+  -- vasru dei  .i dei barda
   xt : Dec $ n ℕ.≤ m → Vec A n
   xt (yes z) = drop (m ∸ n) $ coc xs
     where
