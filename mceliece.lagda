@@ -821,7 +821,7 @@ MatGen : {p : MCParam}
                (_×_
                  (typeOf $ Private.Γ pr)
                  (∃ $ Vec $ Fin $ MCParam.q p)))))
-MatGen {p} _ = {!!}
+MatGen {p} _ = {!!} $ cyst $ repl $ H~
   where
   t = MCParam.t p
   n = MCParam.n p
