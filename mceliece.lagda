@@ -955,8 +955,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   mapti? e = mapₘ (_,_ e) $ dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
     where
     dus = decToMaybe $ _ ≟ _
-    enk : (x : hWV𝔽 e ≡ MCParam.t p)
-        → Maybe $ C₀ ≡ Encode p e bar x
+    enk : (x : _ ≡ _) → Maybe $ C₀ ≡ Encode p e bar x
     enk = {!!}
 \end{code}
 \end{document}
