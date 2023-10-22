@@ -146,8 +146,7 @@ open import Data.Vec
     foldr to foldrᵥ;
     zipWith to zipWithᵥ;
     zip to zipᵥ;
-    reverse to reverseᵥ;
-    transpose to ⍉
+    reverse to reverseᵥ
   )
 open import Function
 open import Data.Bool
@@ -468,7 +467,7 @@ ni'o ga jonai ga je ctaipe la'o zoi.\ \F{nu,iork} \B k .zoi.\ gi ko'a goi la'o z
 panci : ∀ {a} → {A : Set a}
       → ⦃ L : LL A ⦄ → ⦃ Eq $ LL.e L ⦄
       → A → Maybe A
-panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
+panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ _ ≟ _
 \end{code}
 
 \section{la'oi .\F{Zmaduse}.}
@@ -641,10 +640,10 @@ b2f {m'} {n} = portenfa ∘ indice ∘ mapᵥ f2f
          → flip Vec n $ _×_ A $ Fin $ m ^ n
   indice = flip zipᵥ $ reverseᵥ $ mapᵥ f2f $ allFin n
   portenfa : let X = Fin $ m ^ n in flip Vec n $ X × X → X
-  portenfa = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
+  portenfa = foldrᵥ _ (f𝔽 _+_) zero' ∘ mapᵥ tefpi'i
     where
-    zf = mink zero $ proj₂ $ pausyk m' n
-    pilji = uncurry $ f𝔽 $ λ a b → a * m ^ b
+    zero' = mink zero $ proj₂ $ pausyk m' n
+    tefpi'i = uncurry $ f𝔽 $ λ a b → a * m ^ b
 \end{code}
 
 \subsection{le se zvati}
@@ -658,6 +657,11 @@ _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin n
 _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
   where
   -- | ni'o narcu'i fa lo nu zmadu
+  --
+  -- .i le su'u la .varik. cu na basygau le pa
+  -- lerpinsle le'i ci lerpinsle cu se krinu le
+  -- su'u la .varik. cu djica lo nu lo pinka be
+  -- le su'u narcu'i cu zvati lo zabna mapti
   toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
 \end{code}
@@ -1008,7 +1012,6 @@ SeededKeyGen p = SeededKeyGen'
   SeededKeyGen' δ = fromMaybe (SeededKeyGen' δ') mapti?
     where
     E = MCParam.G p δ
-    δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
       rev : {n : ℕ} → Op₁ $ Fin n
@@ -1063,6 +1066,8 @@ Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
 \section{la'oi .\F{Encode}.}
 ni'o \specimp{Encode}
 
+ni'o vo'e le dunli ctaipe ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunlu cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf} .zoi.\ be'o pe la'oi .\algoritma{Decode}.
+
 \begin{code}
 Encode : (p : MCParam)
        → (e : Vec (Fin 2) $ MCParam.n p)
@@ -1092,14 +1097,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
     kos = cong (Vec $ Fin 2) $ DNP.m∸n+n≡m k≤n
       where
       k≤n : MCParam.k p ℕ.≤ MCParam.n p
-      -- | ni'o la .varik. cu te cadga fi lo nu
-      -- le me'oi .Agda. co'e ka'e fanva pe'a
-      -- lo me'oi .underscore. fu la'o zoi.
-      -- MCParam.m p * MCParam.t p .zoi.  .i ku'i
-      -- narka'e ca le nu la .varik. cu cusku dei
-      k≤n = DNP.m∸n≤m n $ MCParam.m p * MCParam.t p
-        where
-        n = MCParam.n p
+      k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
   c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
