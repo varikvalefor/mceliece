@@ -319,22 +319,6 @@ resize : ∀ {a} → {m n : ℕ} → {A : Set a}
        → A → Vec A m → Vec A n
 resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   where
-  -- | ni'o lo nu basti ko'a goi le zo'oi .xt. co'e cu
-  -- rinka lo nu nandu fa lo nu ciksi la'oi .flipko. je
-  -- zo'e
-  --
-  -- .i ga je ko'a milxe le ka ce'u fegli la .varik. gi
-  -- ku'i la .varik. cu na birti lo du'u ma kau mleca ko'a
-  -- le ka ce'u fegli kei je cu mapti la'oi .flipko. je zo'e
-  --
-  -- .i ranji fa le nu la .varik. cu djica curmi lo nu stidi
-  --
-  -- .i la .varik. cu cusku dei ba le nu la .varik. cu troci
-  -- lo nu basygau le zo'oi .with. co'e ko'a  .i lo nu tcidu
-  -- dei cu .indika le du'u fliba
-  --
-  -- ni'o xu cadga fa lo nu lo zo'oi .subsection. co'e cu
-  -- vasru dei  .i dei barda
   xt : Dec $ n ℕ.≤ m → Vec A n
   xt (yes z) = drop (m ∸ n) $ coc xs
     where
@@ -422,6 +406,18 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
             (drop (length $ e ∷ x) $ e ∷ x ++ z))
       d x {z} e = sym $ DVP.unfold-drop (length x) e $ x ++ z
 \end{code}
+
+\subsection{le su'u pilno le la'oi .\F{xt}.\ co'e jenai lo zo'oi .\AgdaKeyword{with}.\ co'e}
+ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu ciksi la'oi .\F{flipko}.\ je zo'e
+
+.i ga je ko'a milxe le ka ce'u fegli la .varik.\ gi ku'i la .varik.\ cu na birti lo du'u ma kau mleca ko'a le ka ce'u fegli kei je cu mapti la'oi .\F{flipko}.\ je zo'e
+
+.i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
+
+.i la .varik. cu cusku dei ba le nu la .varik.\ cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo nu tcidu dei cu .indika le du'u fliba
+
+\subsubsection{le se zvati}
+ni'o xu cadga fa lo nu me'oi .Agda. pinka cu vasru dei\sds  .i dei srana zo'e poi la'oi .\F{resize}.\ du lo ro se srana be ke'a
 
 \section{la .\F{dist}.}
 ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
