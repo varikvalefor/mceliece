@@ -930,14 +930,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
     kos = cong (Vec $ Fin 2) $ DNP.m∸n+n≡m k≤n
       where
       k≤n : MCParam.k p ℕ.≤ MCParam.n p
-      -- | ni'o la .varik. cu te cadga fi lo nu
-      -- le me'oi .Agda. co'e ka'e fanva pe'a
-      -- lo me'oi .underscore. fu la'o zoi.
-      -- MCParam.m p * MCParam.t p .zoi.  .i ku'i
-      -- narka'e ca le nu la .varik. cu cusku dei
-      k≤n = DNP.m∸n≤m n $ MCParam.m p * MCParam.t p
-        where
-        n = MCParam.n p
+      k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
   c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
