@@ -517,8 +517,8 @@ _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ to
   --
   -- .i le su'u la .varik. cu na basygau le pa
   -- lerpinsle le'i ci lerpinsle cu se krinu le
-  -- su'u la .varik. cu djica lo nu lo pinka be
-  -- le su'u narcu'i cu zvati lo zabna mapti
+  -- su'u la .varik. cu djica lo nu zvati lo
+  -- zabna mapti fa lo pinka be le su'u narcu'i
   toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
 \end{code}
