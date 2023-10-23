@@ -143,8 +143,7 @@ open import Data.Vec
     foldr to foldrᵥ;
     zipWith to zipWithᵥ;
     zip to zipᵥ;
-    reverse to reverseᵥ;
-    transpose to ⍉
+    reverse to reverseᵥ
   )
 open import Function
 open import Data.Bool
@@ -410,6 +409,18 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
       d x {z} e = sym $ DVP.unfold-drop (length x) e $ x ++ z
 \end{code}
 
+\subsection{le su'u pilno le la'oi .\F{xt}.\ co'e jenai lo zo'oi .\AgdaKeyword{with}.\ co'e}
+ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu ciksi la'oi .\F{flipko}.\ je zo'e
+
+.i ga je ko'a milxe le ka ce'u fegli la .varik.\ gi ku'i la .varik.\ cu na birti lo du'u ma kau mleca ko'a le ka ce'u fegli kei je cu mapti la'oi .\F{flipko}.\ je zo'e
+
+.i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
+
+.i la .varik. cu cusku dei ba le nu la .varik.\ cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo nu tcidu dei cu .indika le du'u fliba
+
+\subsubsection{le se zvati}
+ni'o xu cadga fa lo nu dei me'oi .Agda. pinka\sds  .i dei srana zo'e poi la'oi .\F{resize}.\ du lo ro se srana be ke'a
+
 \section{la .\F{dist}.}
 ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
 
@@ -460,7 +471,7 @@ ni'o ga jonai ga je ctaipe la'o zoi.\ \F{nu,iork} \B k .zoi.\ gi ko'a goi la'o z
 panci : ∀ {a} → {A : Set a}
       → ⦃ L : LL A ⦄ → ⦃ Eq $ LL.e L ⦄
       → A → Maybe A
-panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ {!!}
+panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ _ ≟ _
 \end{code}
 
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
@@ -488,10 +499,10 @@ b2f {m'} {n} = portenfa ∘ indice ∘ mapᵥ f2f
          → flip Vec n $ _×_ A $ Fin $ m ^ n
   indice = flip zipᵥ $ reverseᵥ $ mapᵥ f2f $ allFin n
   portenfa : let X = Fin $ m ^ n in flip Vec n $ X × X → X
-  portenfa = foldrᵥ _ (f𝔽 _+_) zf ∘ mapᵥ pilji
+  portenfa = foldrᵥ _ (f𝔽 _+_) zero' ∘ mapᵥ tefpi'i
     where
-    zf = mink zero $ proj₂ $ pausyk m' n
-    pilji = uncurry $ f𝔽 $ λ a b → a * m ^ b
+    zero' = mink zero $ proj₂ $ pausyk m' n
+    tefpi'i = uncurry $ f𝔽 $ λ a b → a * m ^ b
 \end{code}
 
 \subsection{le se zvati}
@@ -547,6 +558,11 @@ _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin n
 _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
   where
   -- | ni'o narcu'i fa lo nu zmadu
+  --
+  -- .i le su'u la .varik. cu na basygau le pa
+  -- lerpinsle le'i ci lerpinsle cu se krinu le
+  -- su'u la .varik. cu djica lo nu zvati lo
+  -- zabna mapti fa lo pinka be le su'u narcu'i
   toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
 \end{code}
@@ -769,12 +785,12 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   a : v
   a = {!!}
   α : vex → Vec (Fin q) q
-  α = mapᵥ $ λ (a , π) → toF $ sumᵥ $ mapᵥ (prod a π) $ allFin m
+  α = mapᵥ $ λ (a , π) → toF $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
     where
     m = MCParam.m p
     toF : ℕ → Fin _
     toF = {!!}
-    prod = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
+    tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
   sartre : vex → Maybe vex
   sartre = mapₘ jort ∘ panci
     where
@@ -889,7 +905,6 @@ SeededKeyGen p = SeededKeyGen'
   SeededKeyGen' δ = fromMaybe (SeededKeyGen' δ') mapti?
     where
     E = MCParam.G p δ
-    δ' : Fin $ 2 ^ MCParam.ℓ p
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
       rev : {n : ℕ} → Op₁ $ Fin n
@@ -941,6 +956,8 @@ Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
 \section{la'oi .\F{Encode}.}
 ni'o \specimp{Encode}
 
+ni'o vo'e le dunli ctaipe ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunlu cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf} .zoi.\ be'o pe la'oi .\algoritma{Decode}.
+
 \begin{code}
 Encode : (p : MCParam)
        → (e : Vec (Fin 2) $ MCParam.n p)
@@ -970,14 +987,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
     kos = cong (Vec $ Fin 2) $ DNP.m∸n+n≡m k≤n
       where
       k≤n : MCParam.k p ℕ.≤ MCParam.n p
-      -- | ni'o la .varik. cu te cadga fi lo nu
-      -- le me'oi .Agda. co'e ka'e fanva pe'a
-      -- lo me'oi .underscore. fu la'o zoi.
-      -- MCParam.m p * MCParam.t p .zoi.  .i ku'i
-      -- narka'e ca le nu la .varik. cu cusku dei
-      k≤n = DNP.m∸n≤m n $ MCParam.m p * MCParam.t p
-        where
-        n = MCParam.n p
+      k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
   c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
   c' = {!!}
   c = mapₘ proj₁ c'
@@ -988,8 +998,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   mapti? e = mapₘ (_,_ e) $ dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
     where
     dus = decToMaybe $ _ ≟ _
-    enk : (x : hWV𝔽 e ≡ MCParam.t p)
-        → Maybe $ C₀ ≡ Encode p e bar x
+    enk : (x : _ ≡ _) → Maybe $ C₀ ≡ Encode p e bar x
     enk = {!!}
 \end{code}
 \end{document}
