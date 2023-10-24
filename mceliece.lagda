@@ -268,6 +268,7 @@ open import Truthbrary.Data.Vec.Matrix
   )
 open import Relation.Binary.PropositionalEquality
 
+import Data.List.Relation.Unary.All as Listal
 import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
 import Data.Vec.Relation.Unary.All as Gex
@@ -289,7 +290,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore{}div2\AgdaUnderscore}.}
-ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
+ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} \B b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _div2_ : Op₂ ℕ
@@ -416,6 +417,18 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
             (drop (length $ e ∷ x) $ e ∷ x ++ z))
       d x {z} e = sym $ DVP.unfold-drop (length x) e $ x ++ z
 \end{code}
+
+\subsection{le su'u pilno le la'oi .\F{xt}.\ co'e jenai lo zo'oi .\AgdaKeyword{with}.\ co'e}
+ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu ciksi la'oi .\F{flipko}.\ je zo'e
+
+.i ga je ko'a milxe le ka ce'u fegli la .varik.\ gi ku'i la .varik.\ cu na birti lo du'u ma kau mleca ko'a le ka ce'u fegli kei je cu mapti la'oi .\F{flipko}.\ je zo'e
+
+.i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
+
+.i la .varik. cu cusku dei ba le nu la .varik.\ cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo nu tcidu dei cu .indika le du'u fliba
+
+\subsubsection{le se zvati}
+ni'o xu cadga fa lo nu dei me'oi .Agda. pinka\sds  .i dei srana zo'e poi la'oi .\F{resize}.\ du lo ro se srana be ke'a
 
 \section{la .\F{dist}.}
 ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
@@ -660,8 +673,8 @@ _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ to
   --
   -- .i le su'u la .varik. cu na basygau le pa
   -- lerpinsle le'i ci lerpinsle cu se krinu le
-  -- su'u la .varik. cu djica lo nu lo pinka be
-  -- le su'u narcu'i cu zvati lo zabna mapti
+  -- su'u la .varik. cu djica lo nu zvati lo
+  -- zabna mapti fa lo pinka be le su'u narcu'i
   toFin : {n : ℕ} → Vec (Fin 2) n → Fin n
   toFin = f2f ∘ b2f
 \end{code}
@@ -893,12 +906,12 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   a : v
   a = {!!}
   α : vex → Vec (Fin q) q
-  α = mapᵥ $ λ (a , π) → toF $ sumᵥ $ mapᵥ (prod a π) $ allFin m
+  α = mapᵥ $ λ (a , π) → toF $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
     where
     m = MCParam.m p
     toF : ℕ → Fin _
     toF = {!!}
-    prod = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
+    tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
   sartre : vex → Maybe vex
   sartre = mapₘ jort ∘ panci
     where
@@ -969,11 +982,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
          × let el = Data.List.allFin _ in
-           (_≡_
-             el
-             (flip Data.List.filter
-               el
-               (λ i → suc zero ≟ lookup e (lookup a i))))
+           Listal.All (λ i → suc zero ≡ lookup e (lookup a i)) el
     e' = {!!}
 \end{code}
 
@@ -1108,8 +1117,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   mapti? e = mapₘ (_,_ e) $ dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
     where
     dus = decToMaybe $ _ ≟ _
-    enk : (x : hWV𝔽 e ≡ MCParam.t p)
-        → Maybe $ C₀ ≡ Encode p e bar x
+    enk : (x : _ ≡ _) → Maybe $ C₀ ≡ Encode p e bar x
     enk = {!!}
 \end{code}
 \end{document}
