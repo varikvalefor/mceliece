@@ -268,10 +268,10 @@ open import Truthbrary.Data.Vec.Matrix
   )
 open import Relation.Binary.PropositionalEquality
 
-import Data.List.Relation.Unary.All as Listal
 import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
 import Data.Vec.Relation.Unary.All as Gex
+import Data.List.Relation.Unary.All as Listal
 \end{code}
 
 \chap{le vrici}
