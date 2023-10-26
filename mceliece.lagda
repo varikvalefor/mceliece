@@ -595,7 +595,6 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi le me'o
          → ¬ (zmaduse $ m ∷ t)
   afyvos t m z = afcis (m ∷ t) zero z'
     where
-    z' : ¬ (dubjavme'a (m ∷ t) zero)
     z' = subst₂ (¬_ ∘₂ ℕ._≤_) (luzyr t m) (lusuk t m) $ DNP.<⇒≱ z
 
   afmus : {n : ℕ}
