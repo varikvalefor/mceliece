@@ -570,10 +570,10 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi le me'o
         → (m : ℕ)
         → ℕ._≤_ m $ lookup t zero
         → zmaduse $ m ∷ t
-  afres {n} t@(_ ∷ _) _ m l = l' Gex.∷ f t
+  afres t@(_ ∷ _) _ m l = l' Gex.∷ f t
     where
     l' = subst₂ ℕ._≤_ (luzyr t m) (lusuk t m) l
-    f : Vec _ $ suc n → Gex.All _ _
+    f : Vec _ _ → Gex.All _ _
     f (_ ∷ []) = Gex.[]
     f t@(_ ∷ _ ∷ _) = {!!}
 
