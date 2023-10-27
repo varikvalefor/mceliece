@@ -910,8 +910,6 @@ Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
 \section{la'oi .\F{Encode}.}
 ni'o \specimp{Encode}
 
-ni'o co'e le dunli ctaipe ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunlu cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf} .zoi.\ be'o pe la'oi .\algoritma{Decode}.
-
 \begin{code}
 Encode : (p : MCParam)
        → (e : Vec (Fin 2) $ MCParam.n p)
@@ -920,6 +918,9 @@ Encode : (p : MCParam)
        → Vec (Fin 2) $ MCParam.n-k p
 Encode p e T refl = flip moult e $ Hx p T
 \end{code}
+
+\subsection{le krinu be tu'a le dunli ctaipe}
+ni'o co'e le dunli ctaipe ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunlu cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf} .zoi.\ be'o pe la'oi .\algoritma{Decode}.
 
 \section{la'oi .\F{Decode}.}
 ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fanva ko'a
