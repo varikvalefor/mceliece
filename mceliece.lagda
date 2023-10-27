@@ -920,7 +920,7 @@ Encode p e T refl = flip moult e $ Hx p T
 \end{code}
 
 \subsection{le krinu be tu'a lo dunli ctaipe}
-ni'o co'e lo dunli ctaipe ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunli cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf} .zoi.\ be'o pe la'oi .\algoritma{Decode}.
+ni'o co'e lo ctaipe be lo su'u dunli kei ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunli cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf} .zoi.\ be'o pe la'oi .\algoritma{Decode}.
 
 \section{la'oi .\F{Decode}.}
 ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fanva ko'a
