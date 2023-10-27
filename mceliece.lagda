@@ -910,7 +910,7 @@ Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
 \section{la'oi .\F{Encode}.}
 ni'o \specimp{Encode}
 
-ni'o vo'e le dunli ctaipe ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunlu cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf} .zoi.\ be'o pe la'oi .\algoritma{Decode}.
+ni'o co'e le dunli ctaipe ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunlu cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf} .zoi.\ be'o pe la'oi .\algoritma{Decode}.
 
 \begin{code}
 Encode : (p : MCParam)
