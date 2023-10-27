@@ -876,7 +876,13 @@ SeededKeyGen p = SeededKeyGen'
         where
         g? : let Vq = Vec $ Fin $ MCParam.q p in
              Maybe $ Vq (MCParam.n p) × ∃ Vq
-        g? = mapₘ (λ g → _ , _ , g) $ Irreducible {p} {!!}
+        g? = mapₘ (λ g → _ , _ , g) $ Irreducible {p} Eₚ
+          where
+          σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
+          Eₚ : Fin $ 2 ^_ $ σ₁*t p
+          Eₚ = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
+            where
+            n = MCParam.n p
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
