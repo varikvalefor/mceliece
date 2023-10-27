@@ -454,7 +454,7 @@ pausyk b' (suc e) = _ , sym mips
     b * z₁ + b ≡⟨ refl ⟩
     b * z₁ + (1 + b') ≡⟨ cong bizum $ DNP.+-comm 1 b' ⟩
     b * z₁ + (b' + 1) ≡⟨ sym $ DNP.+-assoc (b * z₁) b' 1 ⟩
-    b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ b * z₁ + b' ⟩
+    b * z₁ + b' + 1 ≡⟨ flip DNP.+-comm 1 $ bizum b' ⟩
     suc (b * z₁ + b') ∎
     where
     z₁ = proj₁ $ pausyk b' e
