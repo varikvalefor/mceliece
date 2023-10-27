@@ -504,7 +504,8 @@ ni'o ga jo ctaipe la'o zoi.\ \F{dubjavme'a} \B t \B n\ .zoi.\ gi lo meirmoi be l
 
 \begin{code}
   dubjavme'a : {n : ℕ}
-             → (t : Vec ℕ $ suc n) → Fin $ length t ∸ 1 → Set
+             → (t : Vec ℕ $ suc n)
+             → Fin $ length t ∸ 1 → Set
   dubjavme'a t n = lookup t (k $ inject₁ n) ℕ.≤ lookup t (k $ suc n)
     where
     k : Fin $ suc $ length t ∸ 1 → Fin $ length t
