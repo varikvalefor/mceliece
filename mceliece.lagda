@@ -717,11 +717,15 @@ ni'o \specimp{Irreducible}
 Irreducible : {p : MCParam}
             → Fin $ 2 ^ (MCParam.σ₁ p * MCParam.t p)
             → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.t p
-Irreducible {p} d = if proj₁ g ≡ᵇ t then just (proj₂ g) else nothing
+Irreducible {p} d = konv g
   where
   t = MCParam.t p
   g : ∃ $ Vec $ Fin $ MCParam.q p
   g = {!!} , {!!}
+  konv : _
+  konv (n , v) with n ≟ MCParam.t p
+  ... | yes c = just $ coerce (cong (Vec $ Fin $ MCParam.q p) c) v
+  ... | no _ = nothing
 \end{code}
 
 \section{la'oi .\F{FieldOrdering}.}
