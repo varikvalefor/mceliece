@@ -268,7 +268,7 @@ import Data.Vec.Properties as DVP
 ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo ckupau poi ke'a xi re vasru ke'a xi pa po'o
 
 \section{la'oi .\F{hWV𝔽}.}
-ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.\sds  .i sa'u nai ko'a nilzilcmi lo'i ro co'e poi la'oi .\AgdaInductiveConstructor{zero}.\ na meirmoi ke'a fo la'oi .\B x.
+ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x\ .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.\sds  .i sa'u nai ko'a nilzilcmi lo'i ro co'e poi la'oi .\AgdaInductiveConstructor{zero}.\ na meirmoi ke'a fo la'oi .\B x.
 
 \begin{code}
 hWV𝔽 : {a b : ℕ} → Vec (Fin b) a → ℕ
@@ -280,7 +280,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore{}div2\AgdaUnderscore}.}
-ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} \B b .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
+ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \F{div2} \B b\ .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _div2_ : Op₂ ℕ
@@ -289,7 +289,7 @@ a div2 (suc b) = a div (suc b)
 \end{code}
 
 \section{la'oi .\F{f2f}.}
-ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n .zoi.\ gi ga jonai ga je lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B m\Sym\} \B a .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
+ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n\ .zoi.\ gi ga jonai ga je lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B m\Sym\} \B a\ .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin n
@@ -297,7 +297,7 @@ f2f = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
-ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1 .zoi.
+ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q\ .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b\ .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b\ .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1\ .zoi.
 
 \begin{code}
 f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin n
@@ -464,7 +464,7 @@ pausyk b' (suc e) = _ , sym mips
 \end{code}
 
 \section{la \F{panci}.}
-ni'o ga jonai ga je ctaipe la'o zoi.\ \F{nu,iork} \B k .zoi.\ gi ko'a goi la'o zoi.\ \F{panci} \B k .zoi.\ me'oi .\AgdaInductiveConstructor{just}.\ la .\F{k}. gi ko'a du la'oi .\AgdaInductiveConstructor{nothing}.
+ni'o ga jonai ga je ctaipe la'o zoi.\ \F{nu,iork} \B k\ .zoi.\ gi ko'a goi la'o zoi.\ \F{panci} \B k\ .zoi.\ me'oi .\AgdaInductiveConstructor{just}.\ la .\F{k}. gi ko'a du la'oi .\AgdaInductiveConstructor{nothing}.
 
 \begin{code}
 panci : ∀ {a} → {A : Set a}
@@ -476,9 +476,9 @@ panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ _ ≟ _
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
-ni'o ko'a goi la'o zoi.\ \F{nbits} \B q .zoi.\ porsi lo'i su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.\sds  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca
+ni'o ko'a goi la'o zoi.\ \F{nbits} \B q\ .zoi.\ porsi lo'i su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.\sds  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca
 
-.i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits} .zoi.\ je ku'i cu me'oi .truncate.
+.i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits}\ .zoi.\ je ku'i cu me'oi .truncate.
 
 \begin{code}
 nbits : {n : ℕ} → ℕ → Vec (Fin 2) n
@@ -486,7 +486,7 @@ nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 \end{code}
 
 \section{la'oi .\F{b2f}.}
-ni'o la'o zoi.\ \F{b2f} \B x .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .big.
+ni'o la'o zoi.\ \F{b2f} \B x\ .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .big.
 
 \begin{code}
 b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
@@ -508,7 +508,7 @@ b2f {m'} {n} = portenfa ∘ indice ∘ mapᵥ f2f
 ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la .\F{b2f}.\ lo drata be la'au \chapsname\ li'u\sds  .i ko'a mapti lo na ctaipe be ko'e goi la'o zoi.\ \D{Fin} \AgdaNumber 2\ .zoi.\ je ku'i cu co'e ja selbi'o zo'e poi ctaipe ko'e fa lo ro mapti be ke'a\sds  .i la .varik.\ cu na birti lo du'u ma kau ckupau je cu zmadu la'au \chapsname\ li'u le ka ko'a mapti ce'u
 
 \section{la'oi .\F{\AgdaUnderscore∧𝔹ℕ𝔽\AgdaUnderscore}.}
-ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
+ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b\ .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin n
@@ -525,7 +525,7 @@ _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ to
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
-ni'o la'o zoi.\ \F{hw𝕄} \B t .zoi.\ grisumji lo se cmima poi ro da zo'u ga jo da cmima ke'a gi su'o de poi ke'a xi re co'e ja rajypau la'o zoi.\ \B t\ .zoi.\ zo'u da mu'oi glibau.\ HAMMING weight .glibau.\ de
+ni'o la'o zoi.\ \F{hw𝕄} \B t\ .zoi.\ grisumji lo se cmima poi ro da zo'u ga jo da cmima ke'a gi su'o de poi ke'a xi re co'e ja rajypau la'o zoi.\ \B t\ .zoi.\ zo'u da mu'oi glibau.\ HAMMING weight .glibau.\ de
 
 \begin{code}
 hw𝕄 : {a m n : ℕ} → 𝕄 (Fin a) m n → ℕ
@@ -551,44 +551,44 @@ ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'o
 
 \subsubsection{le vrici je me'oi .\AgdaKeyword{field}.}
 \paragraph{la'oi .\AgdaField{MCParam.n}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.n} \B q .zoi.\ ni clani fa lo me'oi .code.\ pe la'o zoi.\ \B q .zoi.
+ni'o la'o zoi.\ \AgdaField{MCParam.n} \B q\ .zoi.\ ni clani fa lo me'oi .code.\ pe la'o zoi.\ \B q\ .zoi.
 
 \paragraph{la'oi .\AgdaField{MCParam.m}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.m} \B q .zoi.\ reldugri lo ni barda fa lo selvau be lo me'oi .\AgdaKeyword{field}.
+ni'o la'o zoi.\ \AgdaField{MCParam.m} \B q\ .zoi.\ reldugri lo ni barda fa lo selvau be lo me'oi .\AgdaKeyword{field}.
 
 \paragraph{la'oi .\AgdaField{MCParam.t}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.t} \B q .zoi.\ ni cumki fa lo nu rinka ja gasnu ja co'e lo nu binxo lo drani
+ni'o la'o zoi.\ \AgdaField{MCParam.t} \B q\ .zoi.\ ni cumki fa lo nu rinka ja gasnu ja co'e lo nu binxo lo drani
 
 \paragraph{la'oi .\AgdaField{MCParam.f}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.f} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \AgdaField{MCParam.m} \B q .zoi\ldots je cu co'e
+ni'o la'o zoi.\ \AgdaField{MCParam.f} \B q\ .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \AgdaField{MCParam.m} \B q\ .zoi\ldots je cu co'e
 
 \paragraph{la'oi .\F{MCParam.F}.}
-ni'o la'o zoi.\ \F{MCParam.F} \B q .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \F{MCParam.t} \B q .zoi\ldots je cu co'e
+ni'o la'o zoi.\ \F{MCParam.F} \B q\ .zoi.\ me'oi .monic.\ je me'oi .irreducible.\ cpolynomi'a fi la'o zoi.\ \F{MCParam.t} \B q\ .zoi\ldots je cu co'e
 
 \paragraph{la'oi .\F{MCParam.k}.}
-ni'o la'o zoi.\ \F{MCParam.k} \B q .zoi.\ me'oi .dimension.\ lo me'oi .code.\ pe la'oi .\B q.
+ni'o la'o zoi.\ \F{MCParam.k} \B q\ .zoi.\ me'oi .dimension.\ lo me'oi .code.\ pe la'oi .\B q.
 
 \paragraph{la'oi .\AgdaField{MCParam.ν}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.ν} \B q .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \AgdaField{MCParam.k} \B q .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.μ} \B q .zoi.
+ni'o la'o zoi.\ \AgdaField{MCParam.ν} \B q\ .zoi.\ dubjavmau li no je cu dubjavme'a lo sumji be la'o zoi.\ \AgdaField{MCParam.k} \B q\ .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.μ} \B q\ .zoi.
 
 \paragraph{la'oi .\AgdaField{MCParam.ν}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.μ} \B q .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \AgdaField{MCParam.ν} \B q .zoi.\ je lo vujnu be la'o zoi.\ \AgdaField{MCParam.ν} \B q .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.k} \B q .zoi.
+ni'o la'o zoi.\ \AgdaField{MCParam.μ} \B q\ .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \AgdaField{MCParam.ν} \B q\ .zoi.\ je lo vujnu be la'o zoi.\ \AgdaField{MCParam.ν} \B q\ .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.k} \B q\ .zoi.
 
 \subsubsection{le me'oi .\AgdaKeyword{field}.\ poi ke'a srana le mu'oi glibau.\ symmetric cryptography .glibau.}
 \paragraph{la'oi .\AgdaField{MCParam.ℓ}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.ℓ} \B q .zoi.\ ni clani fa la'o zoi.\ \AgdaField{MCParam.H} \B q \AgdaUnderscore .zoi.\
+ni'o la'o zoi.\ \AgdaField{MCParam.ℓ} \B q\ .zoi.\ ni clani fa la'o zoi.\ \AgdaField{MCParam.H} \B q \AgdaUnderscore\ .zoi.\
 
 \paragraph{la'oi .\AgdaField{MCParam.H}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.H} \B q \B n .zoi.\ me'oi .hash.\ la'o zoi.\ \B n\ .zoi.
+ni'o la'o zoi.\ \AgdaField{MCParam.H} \B q \B n\ .zoi.\ me'oi .hash.\ la'o zoi.\ \B n\ .zoi.
 
 \paragraph{la'oi .\AgdaField{MCParam.σ₁}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.σ₁} \B q .zoi.\ me'oi .arbitrary.
+ni'o la'o zoi.\ \AgdaField{MCParam.σ₁} \B q\ .zoi.\ me'oi .arbitrary.
 
 \paragraph{la'oi .\AgdaField{MCParam.σ₂}.}
-.i la'o zoi.\ \AgdaField{MCParam.σ₂} \B q .zoi.\ ji'a me'oi .arbitrary.
+.i la'o zoi.\ \AgdaField{MCParam.σ₂} \B q\ .zoi.\ ji'a me'oi .arbitrary.
 
 \paragraph{la'oi .\AgdaField{MCParam.G}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.G} \B q \B x .zoi.\ me'oi .pseudorandom.
+ni'o la'o zoi.\ \AgdaField{MCParam.G} \B q \B x\ .zoi.\ me'oi .pseudorandom.
 
 \paragraph{lo ctaipe be lo su'u dubjavme'a ja co'e}
 ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\AgdaField{n≤q}.\ ja la'oi .\AgdaField{t≥2}.\ ja la'oi .\AgdaField{ν≥μ}.\ ja la'oi .\AgdaField{ν≤μ+k}.\ ja la'oi .\AgdaField{σ₁≥m}.\ ja la'oi .\AgdaField{σ₂≥2*m}.\ ja la \AgdaField{ctejau}\ bau la .lojban.
@@ -630,7 +630,7 @@ record MCParam : Set
 ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\F{Public}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\F{Public}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\F{Public}.}
-ni'o la'o zoi.\ \F{Public} \B q .zoi.\ se ctaipe lo gubni termifckiku pe la'oi .\B q.
+ni'o la'o zoi.\ \F{Public} \B q\ .zoi.\ se ctaipe lo gubni termifckiku pe la'oi .\B q.
 
 \begin{code}
 Public : MCParam → Set
@@ -646,13 +646,13 @@ ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau
 \subsection{le me'oi .\AgdaKeyword{field}.}
 
 \paragraph{la'oi .\AgdaField{Private.lg}.}
-ni'o la'o zoi.\ \AgdaField{Private.lg} \B p .zoi.\ nilzilcmi ja co'e la'o zoi.\ \AgdaField{Private.g} \B p .zoi.
+ni'o la'o zoi.\ \AgdaField{Private.lg} \B p\ .zoi.\ nilzilcmi ja co'e la'o zoi.\ \AgdaField{Private.g} \B p\ .zoi.
 
 \paragraph{la'oi .\AgdaField{Private.Γ}.}
-ni'o la'o zoi.\ \AgdaField{Private.Γ} \B p .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \AgdaField{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \D{Fin} \OpF \$ \AgdaField{Private.q} \B p .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \AgdaField{Private.n} \B p .zoi.\ nilzilcmi ke'a
+ni'o la'o zoi.\ \AgdaField{Private.Γ} \B p\ .zoi.\ lo'i ro cpolinomi'a be fi la'o zoi.\ \AgdaField{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \D{Fin} \OpF \$ \AgdaField{Private.q} \B p\ .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \AgdaField{Private.n} \B p\ .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\AgdaField{Private.s}.}
-ni'o la'o zoi.\ \AgdaField{Private.s} \B p .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \AgdaField{MCParam.n} \B p .zoi.
+ni'o la'o zoi.\ \AgdaField{Private.s} \B p\ .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \AgdaField{MCParam.n} \B p\ .zoi.
 
 \begin{code}
 record Private (p : MCParam) : Set
@@ -668,7 +668,7 @@ record Private (p : MCParam) : Set
 \end{code}
 
 \section{la'oi .\F{MatGen}.}
-ni'o la'o zoi.\ \F{MatGen} \B x .zoi.\ du la'oi .\AgdaInductiveConstructor{nothing}.\ jonai cu me'oi .\AgdaInductiveConstructor{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.
+ni'o la'o zoi.\ \F{MatGen} \B x\ .zoi.\ du la'oi .\AgdaInductiveConstructor{nothing}.\ jonai cu me'oi .\AgdaInductiveConstructor{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.
 
 ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je la .varik.\ cu djica lo nu mapti lo ro broda cei co'e gi su'o da poi ke'a broda zo'u le mu'oi glibau.\ systematic form .glibau.\ cu na mapti da
 
@@ -698,9 +698,9 @@ MatGen {p} _ = mapₘ toPus $ cyst $ repl H~
 \chap{la'oi .\F{KP}.\ je zo'e}
 
 \section{la'oi .\F{KP}.}
-ni'o la'o zoi.\ \F{KP} \B p .zoi.\ se ctaipe lo mu'oi glibau.\ Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.\ poi ke'a mapti la'oi .\B{p}.
+ni'o la'o zoi.\ \F{KP} \B p\ .zoi.\ se ctaipe lo mu'oi glibau.\ Classic MCELIECE .glibau.\ mu'oi glibau.\ key pair .glibau.\ poi ke'a mapti la'oi .\B{p}.
 
-.i ga naja la'o zoi.\ \B t .zoi.\ ctaipe la'o zoi.\ \F{KP}\ \AgdaUnderscore\ .zoi.\ gi cadga fa lo nu la'o zoi.\ \AgdaField{proj₂} \B t .zoi.\ sivni termifckiku je cu mapti la'o zoi.\ \B t\ .zoi.\ je la'o zoi.\ \AgdaField{proj₁} \B t .zoi.
+.i ga naja la'o zoi.\ \B t\ .zoi.\ ctaipe la'o zoi.\ \F{KP}\ \AgdaUnderscore\ .zoi.\ gi cadga fa lo nu la'o zoi.\ \AgdaField{proj₂} \B t\ .zoi.\ sivni termifckiku je cu mapti la'o zoi.\ \B t\ .zoi.\ je la'o zoi.\ \AgdaField{proj₁} \B t\ .zoi.
 
 \begin{code}
 KP : MCParam → Set
@@ -899,7 +899,7 @@ KeyGen p = SeededKeyGen p IO.<$> cunso
 ni'o ko'a goi la'au \chapsname\ li'u vasru le velcki be ko'e goi vu'oi le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ ku'o je le fancu poi tu'a ke'a filri'a lo nu me'oi .decode.\ ge'u je le pinka be ko'e\sds  .i la .varik.\ cu na birti le du'u sarcu fa tu'a le me'oi .abstract.\ be ko'a
 
 \section{la'oi .\F{Hx}.}
-ni'o la'o zoi.\ \F{Hx} \B p \B T .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T .zoi.
+ni'o la'o zoi.\ \F{Hx} \B p \B T\ .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T\ .zoi.
 
 \begin{code}
 Hx : (p : MCParam)
@@ -926,7 +926,7 @@ Encode p e T refl = flip moult e $ Hx p T
 \end{code}
 
 \subsection{le krinu be tu'a lo dunli ctaipe}
-ni'o co'e lo ctaipe be lo su'u dunli kei ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunli cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf} .zoi.\ be'o pe la'oi .\algoritma{Decode}.
+ni'o co'e lo ctaipe be lo su'u dunli kei ki'u le su'u ga je co'e gi le du'u sarcu fa lo nu dunli cu se .indika tu'a le pagbu be la'o zoi.\ \texttt{mceliece.pdf}\ .zoi.\ be'o pe la'oi .\algoritma{Decode}.
 
 \section{la'oi .\F{Decode}.}
 ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fanva ko'a
