@@ -717,14 +717,14 @@ ni'o \specimp{Irreducible}
 Irreducible : {p : MCParam}
             → Fin $ 2 ^ (MCParam.σ₁ p * MCParam.t p)
             → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.t p
-Irreducible {p} d = konv g
+Irreducible {p} d = fromList? g
   where
   t = MCParam.t p
-  g : ∃ $ Vec $ Fin $ MCParam.q p
-  g = {!!} , {!!}
-  konv : _
-  konv (n , v) with n ≟ MCParam.t p
-  ... | yes c = just $ coerce (cong (Vec $ Fin $ MCParam.q p) c) v
+  g : List $ Fin $ MCParam.q p
+  g = {!!}
+  fromList? : _ → _
+  fromList? v with length v ≟ MCParam.t p
+  ... | yes c = just $ coerce (cong (Vec _) c) $ fromList v
   ... | no _ = nothing
 \end{code}
 
