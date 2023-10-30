@@ -420,8 +420,8 @@ ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu 
 \subsubsection{le se zvati}
 ni'o xu cadga fa lo nu dei me'oi .Agda. pinka\sds  .i dei srana zo'e poi la'oi .\F{resize}.\ du lo ro se srana be ke'a
 
-\section{la .\F{dist}.}
-ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei la'o zoi.\ \B z\ .zoi.
+\section{la .\F{dist}.
+ni'o la'o zoi.\ \F{dist} \Sym ⦃ \B Q \Sym ⦄ \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} OpF \$ \F{LL.l} \B Q \AgdaUnderscore \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei fo la'o zoi.\ \B x\ .zoi.\ cu drata lo meirmoi be ke'a bei fo la'o zoi.\ \B z\ .zoi.
 
 \begin{code}
 dist : ∀ {a} → {A : Set a}
