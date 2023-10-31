@@ -574,7 +574,7 @@ ni'o la'o zoi.\ \AgdaField{MCParam.ν} \B q\ .zoi.\ dubjavmau li no je cu dubjav
 \paragraph{la'oi .\AgdaField{MCParam.ν}.}
 ni'o la'o zoi.\ \AgdaField{MCParam.μ} \B q\ .zoi.\ dubjavmau li no je cu dubjavme'a la'o zoi.\ \AgdaField{MCParam.ν} \B q\ .zoi.\ je lo vujnu be la'o zoi.\ \AgdaField{MCParam.ν} \B q\ .zoi.\ bei la'o zoi.\ \AgdaField{MCParam.k} \B q\ .zoi.
 
-\subsubsection{le me'oi .\AgdaKeyword{field}.\ poi ke'a srana le mu'oi glibau.\ symmetric cryptography .glibau.}
+\subsubsection{le me'oi .\AgdaKeyword{field}.\ pe le mu'oi glibau.\ symmetric cryptography .glibau.}
 \paragraph{la'oi .\AgdaField{MCParam.ℓ}.}
 ni'o la'o zoi.\ \AgdaField{MCParam.ℓ} \B q\ .zoi.\ ni clani fa la'o zoi.\ \AgdaField{MCParam.H} \B q \AgdaUnderscore\ .zoi.\
 
