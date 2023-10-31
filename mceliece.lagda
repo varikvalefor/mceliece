@@ -46,6 +46,7 @@
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_\mathsf{l}}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\mathsf{v}}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_\mathsf{m}}}}
+\newunicodechar{ₚ}{\ensuremath{\mathnormal{_\mathsf{p}}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{⍉}{\ensuremath{\mathnormal{∘\hspace{-0.455em}\backslash}}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
