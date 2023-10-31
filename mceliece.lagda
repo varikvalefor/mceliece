@@ -43,10 +43,10 @@
 \newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
-\newunicodechar{ₗ}{\ensuremath{\mathnormal{_\mathsf{l}}}}
-\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\mathsf{v}}}}
-\newunicodechar{ₘ}{\ensuremath{\mathnormal{_\mathsf{m}}}}
-\newunicodechar{ₚ}{\ensuremath{\mathnormal{_\mathsf{p}}}}
+\newunicodechar{ₗ}{\ensuremath{\mathnormal{_\AgdaFontStyle{l}}}}
+\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
+\newunicodechar{ₘ}{\ensuremath{\mathnormal{_\AgdaFontStyle{m}}}}
+\newunicodechar{ₚ}{\ensuremath{\mathnormal{_\AgdaFontStyle{p}}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{⍉}{\ensuremath{\mathnormal{∘\hspace{-0.455em}\backslash}}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
