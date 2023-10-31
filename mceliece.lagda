@@ -649,7 +649,7 @@ ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau
 ni'o la'o zoi.\ \AgdaField{Private.lg} \B p\ .zoi.\ nilzilcmi ja co'e la'o zoi.\ \AgdaField{Private.g} \B p\ .zoi.
 
 \paragraph{la'oi .\AgdaField{Private.Γ}.}
-ni'o la'o zoi.\ \AgdaField{Private.Γ} \B p\ .zoi.\ cmima lo'i ro cpolinomi'a be fi la'o zoi.\ \AgdaField{Private.lg} \B p bei fo ko'a goi la'o zoi.\ \D{Fin} \OpF \$ \AgdaField{Private.q} \B p\ .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \AgdaField{Private.n} \B p\ .zoi.\ nilzilcmi ke'a
+ni'o la'o zoi.\ \AgdaField{Private.Γ} \B p\ .zoi.\ cmima lo'i ro cpolinomi'a be fi la'o zoi.\ \AgdaField{Private.lg} \B p .zoi.\ bei fo ko'a goi la'o zoi.\ \D{Fin} \OpF \$ \AgdaField{Private.q} \B p\ .zoi.\ be'o ku pi'u lo'i ro porsi be fi ko'a be'o poi la'o zoi.\ \AgdaField{Private.n} \B p\ .zoi.\ nilzilcmi ke'a
 
 \paragraph{la'oi .\AgdaField{Private.s}.}
 ni'o la'o zoi.\ \AgdaField{Private.s} \B p\ .zoi.\ porsi fi lo'i samsle je cu se nilzilcmi la'o zoi.\ \AgdaField{MCParam.n} \B p\ .zoi.
