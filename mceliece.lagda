@@ -290,7 +290,7 @@ a div2 (suc b) = a div (suc b)
 \end{code}
 
 \section{la'oi .\F{f2f}.}
-ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n\ .zoi.\ gi ga jonai ga je lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B m\Sym\} \B a\ .zoi.\ sinxa la'oi .\B m.\ gi ko'a sinxa lo selsni be la'oi .\B a.
+ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B n\ .zoi.\ gi ga jonai ga je lo selsni be la'oi .\B a.\ cu dubjavmau la'oi .\B m.\ gi ko'a goi la'o zoi.\ \F{toℕ} \OpF \$ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B m\Sym\} \B a\ .zoi.\ du la'oi .\B m.\ gi la'o zoi.\ \F{toℕ}\ \B a\ .zoi.\ du ko'a
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin n
