@@ -489,7 +489,7 @@ nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 \end{code}
 
 \section{la'oi .\F{b2f}.}
-ni'o la'o zoi.\ \F{b2f} \B x\ .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .big.
+ni'o la'o zoi.\ \F{toℕ} \OpF \$ \F{b2f} \B x\ .zoi.\ selsni la'oi .\B x.\ noi .endi le me'oi .big.
 
 \begin{code}
 b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
