@@ -498,9 +498,7 @@ b2f {m'} {n@(suc n')} = portenfa ∘ indice ∘ mapᵥ f2f
   where
   m = suc m'
   F = Fin $ suc _
-  indice : ∀ {a} → {A : Set a}
-         → Vec A n
-         → flip Vec n $ A × F
+  indice : ∀ {a} → {A : Set a} → Vec A n → flip Vec n $ A × F
   indice = flip zipᵥ $ reverseᵥ $ mapᵥ f2f $ allFin n
   portenfa : flip Vec n $ F × F → Fin $ m ^ n
   portenfa = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
