@@ -809,7 +809,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
         where
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a = toVec? (Data.List.take (MCParam.t p) mlen) >>=ₘ panci
+    a = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
       where
       -- | ni'o zo .mlen. cmavlaka'i
       -- lu mleca la .n. li'u
