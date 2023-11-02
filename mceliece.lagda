@@ -630,7 +630,7 @@ record MCParam : Set
 \end{code}
 
 \chap{la'oi .\F{Public}.}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\F{Public}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi la'oi .\F{Public}.\ du lo ro se srana be ke'a ku'o je le pinka be ko'a
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\F{Public}.\ be'o je le pinka be ko'a be'o je le velcki be ko'a goi le fancu poi la'oi .\F{Public}.\ du lo ro se srana be ke'a ku'o be'o je le pinka be ko'a
 
 \section{la'oi .\F{Public}.}
 ni'o la'o zoi.\ \F{Public} \B q\ .zoi.\ se ctaipe lo gubni termifckiku pe la'oi .\B q.
@@ -641,7 +641,7 @@ Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 \end{code}
 
 \chap{la'oi .\AgdaRecord{Private}.\ je zo'e}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ ja zo'e be'o je le pinka be ko'a be'o je ko'e goi le fancu poi ke'a srana vu'oi ko'a ja zo'e vu'o po'o ku'o je le pinka be ko'e
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ ja zo'e be'o je le pinka be ko'a be'o je le velcki be ko'e goi le fancu poi ke'a srana vu'oi ko'a ja zo'e vu'o po'o ku'o be'o je le pinka be ko'e
 
 \section{la'oi .\AgdaRecord{Private}.}
 ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
