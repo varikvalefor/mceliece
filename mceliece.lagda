@@ -854,7 +854,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
         where
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
     a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a = toVec? (Data.List.take (MCParam.t p) mlen) >>=ₘ panci
+    a = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
       where
       -- | ni'o zo .mlen. cmavlaka'i
       -- lu mleca la .n. li'u
@@ -1006,7 +1006,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   c = mapₘ proj₁ c'
   e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
   mapti : xv MCParam.n → Set
-  mapti e = Σ (hWV𝔽 e ≡ MCParam.t p) $ _≡_ C₀ ∘ Encode p e bar
+  mapti e = ∃ $ _≡_ C₀ ∘ Encode p e bar
   mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
   mapti? e = mapₘ (_,_ e) $ dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
     where
