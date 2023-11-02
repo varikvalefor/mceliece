@@ -27,7 +27,7 @@
 \newunicodechar{μ}{\ensuremath{\mathnormal{\mu}}}
 \newunicodechar{τ}{\ensuremath{\mathnormal{\tau}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
-\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\mathrm{b}}}}
+\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
 \newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
 \newunicodechar{ʳ}{\ensuremath{\mathnormal{^r}}}
 \newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
