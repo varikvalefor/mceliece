@@ -297,6 +297,23 @@ f2f : {m n : ℕ} → Fin m → Fin $ suc n
 f2f {m} {n} f with toℕ f ℕ.<? suc n
 ... | yes t = Data.Fin.fromℕ< t
 ... | no _ = Data.Fin.fromℕ< $ DNP.n<1+n n
+
+module FitufyVeritas where
+  import Data.Fin.Properties as DFP
+
+  me'adus : {m n : ℕ}
+          → (f : Fin m)
+          → toℕ f ℕ.< suc n
+          → toℕ f ≡ toℕ (f2f {m} {n} f)
+  me'adus _ = subst (_≡_ _) {!!} ∘ sym ∘ DFP.toℕ-fromℕ<
+
+  maurme'a : {m n : ℕ}
+           → (f : Fin m)
+           → ¬ (toℕ f ℕ.< suc n)
+           → n ≡ toℕ (f2f f)
+  maurme'a {n = n} f j = subst (_≡_ _) {!!} $ sym foton
+    where
+    foton = DFP.toℕ-fromℕ n
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
