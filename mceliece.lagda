@@ -305,7 +305,13 @@ module FitufyVeritas where
           → (f : Fin m)
           → toℕ f ℕ.< suc n
           → toℕ f ≡ toℕ (f2f {m} {n} f)
-  me'adus _ = subst (_≡_ _) {!!} ∘ sym ∘ DFP.toℕ-fromℕ<
+  me'adus _ = subst (_≡_ _) (cong toℕ j) ∘ sym ∘ DFP.toℕ-fromℕ<
+    where
+    j : {m n : ℕ}
+      → {f : Fin m}
+      → {ml : toℕ f ℕ.< suc n}
+      → Data.Fin.fromℕ< ml ≡ f2f {m} {n} f
+    j {f = f} {ml = ml} = {!!}
 
   maurme'a : {m n : ℕ}
            → (f : Fin m)
