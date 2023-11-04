@@ -294,7 +294,7 @@ ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B m\ .zoi.\ gi ga jonai ko
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin $ suc n
-f2f {m} {n} f with toℕ f ℕ.<? suc n
+f2f {n = n} f with toℕ f ℕ.<? suc n
 ... | yes t = Data.Fin.fromℕ< t
 ... | no _ = Data.Fin.fromℕ< $ DNP.n<1+n n
 \end{code}
