@@ -548,7 +548,7 @@ moult = {!!}
 ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{MCParam}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{MCParam}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\AgdaRecord{MCParam}.}
-ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
+ni'o la'oi .\AgdaRecord{MCParam}.\ se ctaipe lo me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
 
 \subsection{le me'oi .\AgdaKeyword{field}.}
 
