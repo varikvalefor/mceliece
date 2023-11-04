@@ -281,7 +281,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore{}div2\AgdaUnderscore}.}
-ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \OpF{div2} \B b\ .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
+ni'o ga jonai ga je li no du la'oi .\B b.\ gi ko'a goi la'o zoi.\ \B a \OpF{div2} \B b\ .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _div2_ : Op₂ ℕ
@@ -294,7 +294,7 @@ ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B m\ .zoi.\ gi ga jonai ko
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin $ suc n
-f2f {m} {n} f with toℕ f ℕ.<? suc n
+f2f {n = n} f with toℕ f ℕ.<? suc n
 ... | yes t = Data.Fin.fromℕ< t
 ... | no _ = Data.Fin.fromℕ< $ DNP.n<1+n n
 \end{code}
@@ -584,7 +584,7 @@ moult = {!!}
 ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{MCParam}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{MCParam}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\AgdaRecord{MCParam}.}
-ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
+ni'o la'oi .\AgdaRecord{MCParam}.\ se ctaipe lo me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
 
 \subsection{le me'oi .\AgdaKeyword{field}.}
 
