@@ -297,7 +297,11 @@ f2f : {m n : ℕ} → Fin m → Fin $ suc n
 f2f {m} {n} f with toℕ f ℕ.<? suc n
 ... | yes t = Data.Fin.fromℕ< t
 ... | no _ = Data.Fin.fromℕ< $ DNP.n<1+n n
+\end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{f2f}.\ mapti}
+
+\begin{code}
 module FitufyVeritas where
   import Data.Fin.Properties as DFP
 
