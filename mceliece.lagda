@@ -325,14 +325,14 @@ module FitufyVeritas where
            → (f : Fin m)
            → ¬ (toℕ f ℕ.< suc n)
            → n ≡ toℕ (f2f {m} {n} f)
-  maurme'a {n = n} f j = subst (_≡_ _) (cong toℕ $ k f j) $ sym foton
+  maurme'a f j = subst (_≡_ _) (cong toℕ $ k f j) $ sym foton
     where
     k : {m n : ℕ}
       → (f : Fin m)
       → (dm : ¬ (toℕ f ℕ.< suc n))
       → Data.Fin.fromℕ< (DNP.n<1+n n) ≡ f2f {m} {n} f
     k f dm = {!!}
-    foton = DFP.toℕ-fromℕ< $ DNP.n<1+n n
+    foton = DFP.toℕ-fromℕ< $ DNP.n<1+n _
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
