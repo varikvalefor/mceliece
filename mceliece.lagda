@@ -27,7 +27,7 @@
 \newunicodechar{μ}{\ensuremath{\mathnormal{\mu}}}
 \newunicodechar{τ}{\ensuremath{\mathnormal{\tau}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
-\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\mathrm{b}}}}
+\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
 \newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
 \newunicodechar{ʳ}{\ensuremath{\mathnormal{^r}}}
 \newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
@@ -53,8 +53,8 @@
 \newunicodechar{δ}{\ensuremath{\mathnormal{\delta}}}
 \newunicodechar{⇒}{\ensuremath{\mathnormal{\Rightarrow}}}
 \newunicodechar{≰}{\ensuremath{\mathnormal{\nleq}}}
-\newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
-\newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
+\newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\hspace{-0.3em}|}}}
+\newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
 
 \newcommand\hashish{cbf1 42fe 1ebd b0b2 87a4 4018 340b 8159 7ef1 3a63 6f5d 76f4 6f48 a080 b2bc d3f1 3922 f0f1 5219 94cc 5e71 fb1f b2d9 d9f8 dd3b ffe6 be32 0056 5cca 21c4 28eb 9de1}
 
@@ -283,7 +283,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore{}div2\AgdaUnderscore}.}
-ni'o ga jonai ga je la'oi .\B b.\ du li no gi ko'a goi la'o zoi.\ \B a \OpF{div2} \B b\ .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
+ni'o ga jonai ga je li no du la'oi .\B b.\ gi ko'a goi la'o zoi.\ \B a \OpF{div2} \B b\ .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _div2_ : Op₂ ℕ
@@ -296,9 +296,9 @@ ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B m\ .zoi.\ gi ga jonai ko
 
 \begin{code}
 f2f : {m n : ℕ} → Fin m → Fin $ suc n
-f2f {m} {n} f with toℕ f ℕ.<? suc n
+f2f {n = n} f with toℕ f ℕ.<? suc n
 ... | yes t = Data.Fin.fromℕ< t
-... | no _ = Data.Fin.opposite zero
+... | no _ = Data.Fin.fromℕ< $ DNP.n<1+n n
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
@@ -491,7 +491,7 @@ nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 \end{code}
 
 \section{la'oi .\F{b2f}.}
-ni'o la'o zoi.\ \F{b2f} \B x\ .zoi.\ sinxa lo namcu poi ke'a selsni la'oi .\B x.\ noi .endi le me'oi .big.
+ni'o la'o zoi.\ \F{toℕ} \OpF \$ \F{b2f} \B x\ .zoi.\ selsni la'oi .\B x.\ noi .endi le me'oi .big.
 
 \begin{code}
 b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
@@ -500,9 +500,7 @@ b2f {m'} {n@(suc n')} = portenfa ∘ indice ∘ mapᵥ f2f
   where
   m = suc m'
   F = Fin $ suc _
-  indice : ∀ {a} → {A : Set a}
-         → Vec A n
-         → flip Vec n $ A × F
+  indice : ∀ {a} → {A : Set a} → Vec A n → flip Vec n $ A × F
   indice = flip zipᵥ $ reverseᵥ $ mapᵥ f2f $ allFin n
   portenfa : flip Vec n $ F × F → Fin $ m ^ n
   portenfa = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
@@ -594,7 +592,7 @@ moult = {!!}
 ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{MCParam}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{MCParam}.\ po'o ku'o je le pinka be ko'a
 
 \section{la'oi .\AgdaRecord{MCParam}.}
-ni'o lo ro ctaipe be la'oi .\AgdaRecord{MCParam}.\ cu me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
+ni'o la'oi .\AgdaRecord{MCParam}.\ se ctaipe lo me'oi .parameter.\ lo mu'oi glibau.\ Classic MCELIECE .glibau.\ co'e
 
 \subsection{le me'oi .\AgdaKeyword{field}.}
 
@@ -625,7 +623,7 @@ ni'o la'o zoi.\ \AgdaField{MCParam.μ} \B q\ .zoi.\ dubjavmau li no je cu dubjav
 
 \subsubsection{le me'oi .\AgdaKeyword{field}.\ pe le mu'oi glibau.\ symmetric cryptography .glibau.}
 \paragraph{la'oi .\AgdaField{MCParam.ℓ}.}
-ni'o la'o zoi.\ \AgdaField{MCParam.ℓ} \B q\ .zoi.\ ni clani fa la'o zoi.\ \AgdaField{MCParam.H} \B q \AgdaUnderscore\ .zoi.\
+ni'o la'o zoi.\ \AgdaField{MCParam.ℓ} \B q\ .zoi.\ ni clani pe'a fa la'o zoi.\ \AgdaField{MCParam.H} \B q \AgdaUnderscore\ .zoi.\
 
 \paragraph{la'oi .\AgdaField{MCParam.H}.}
 ni'o la'o zoi.\ \AgdaField{MCParam.H} \B q \B n\ .zoi.\ me'oi .hash.\ la'o zoi.\ \B n\ .zoi.
@@ -676,7 +674,7 @@ record MCParam : Set
 \end{code}
 
 \chap{la'oi .\F{Public}.}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\F{Public}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi la'oi .\F{Public}.\ du lo ro se srana be ke'a ku'o je le pinka be ko'a
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\F{Public}.\ be'o je le pinka be ko'a be'o je le velcki be ko'a goi le fancu poi la'oi .\F{Public}.\ du lo ro se srana be ke'a ku'o be'o je le pinka be ko'a
 
 \section{la'oi .\F{Public}.}
 ni'o la'o zoi.\ \F{Public} \B q\ .zoi.\ se ctaipe lo gubni termifckiku pe la'oi .\B q.
@@ -687,7 +685,7 @@ Public p = 𝕄 (Fin 2) (MCParam.k p) $ MCParam.n-k p
 \end{code}
 
 \chap{la'oi .\AgdaRecord{Private}.\ je zo'e}
-ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ ja zo'e be'o je le pinka be ko'a be'o je ko'e goi le fancu poi ke'a srana vu'oi ko'a ja zo'e vu'o po'o ku'o je le pinka be ko'e
+ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{Private}.\ ja zo'e be'o je le pinka be ko'a be'o je le velcki be ko'e goi le fancu poi ke'a srana vu'oi ko'a ja zo'e vu'o po'o ku'o be'o je le pinka be ko'e
 
 \section{la'oi .\AgdaRecord{Private}.}
 ni'o la'oi .\AgdaRecord{Private}.\ se ctaipe lo sivni termifckiku pe la'o glibau.\ Classic MCELIECE .glibau.
