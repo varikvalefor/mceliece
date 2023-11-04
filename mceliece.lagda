@@ -327,7 +327,7 @@ module FitufyVeritas where
            → n ≡ toℕ (f2f {m} {n} f)
   maurme'a {n = n} f j = subst (_≡_ _) {!!} $ sym foton
     where
-    foton = DFP.toℕ-fromℕ n
+    foton = DFP.toℕ-fromℕ< $ DNP.n<1+n n
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
