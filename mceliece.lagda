@@ -311,6 +311,10 @@ module FitufyVeritas where
           → toℕ f ≡ toℕ (f2f {m} {n} f)
   me'adus _ = subst (_≡_ _) (cong toℕ j) ∘ sym ∘ DFP.toℕ-fromℕ<
     where
+    -- | ni'o ga je na sarcu fa lo nu me'oi .explicit.
+    -- co'e gi lo nu me'oi .implicit. co'e cu filri'a
+    -- lo nu na mutce le ka ce'u barda kei fa le
+    -- lerpinsle poi ke'a vasru zo'oi .subst.
     j : {m n : ℕ}
       → {f : Fin m}
       → {ml : toℕ f ℕ.< suc n}
