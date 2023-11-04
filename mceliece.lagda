@@ -310,7 +310,7 @@ module FitufyVeritas where
   maurme'a : {m n : ℕ}
            → (f : Fin m)
            → ¬ (toℕ f ℕ.< suc n)
-           → n ≡ toℕ (f2f f)
+           → n ≡ toℕ (f2f {m} {n} f)
   maurme'a {n = n} f j = subst (_≡_ _) {!!} $ sym foton
     where
     foton = DFP.toℕ-fromℕ n
