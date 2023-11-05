@@ -331,7 +331,7 @@ module FitufyVeritas where
       → (f : Fin m)
       → (dm : ¬ (toℕ f ℕ.< suc n))
       → Data.Fin.fromℕ< (DNP.n<1+n n) ≡ f2f {m} {n} f
-    k f dm = {!!}
+    k mf dm = {!!}
     foton = DFP.toℕ-fromℕ< $ DNP.n<1+n _
 \end{code}
 
