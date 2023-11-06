@@ -300,7 +300,7 @@ f2f {n = n} f with toℕ f ℕ.<? suc n
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
-ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q\ .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b\ .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b\ .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1\ .zoi.
+ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q\ .zoi.\ gi la'o zoi.\ \F{toℕ} \OpF \$ \F{f𝔽} \B f \B a \B b\ .zoi.\ nacmecrai la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b\ .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1\ .zoi.
 
 \begin{code}
 f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin $ suc n
