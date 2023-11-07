@@ -792,7 +792,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   τ : ℕ
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
-  FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a
+  FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a?
     where
     proj₁,₂ : ∀ {a b c}
             → {A : Set a} → {B : A → Set b} → {C : A → Set c}
@@ -806,8 +806,8 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       uijis j i = 2 ^ toℕ i * toℕ (lookup b' {!!})
         where
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
-    a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
+    a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
+    a? = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
       where
       -- | ni'o zo .mlen. cmavlaka'i
       -- lu mleca la .n. li'u
