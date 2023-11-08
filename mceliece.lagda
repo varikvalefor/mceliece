@@ -962,7 +962,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
   mapti : xv MCParam.n → Set
   mapti e = ∃ $ _≡_ C₀ ∘ Encode p e bar
-  mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
+  mapti? : xv MCParam.n → Maybe $ ∃ mapti
   mapti? e = mapₘ (_,_ e) $ dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
     where
     dus = decToMaybe $ _ ≟ _
