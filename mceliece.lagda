@@ -967,6 +967,6 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
     where
     dus = decToMaybe $ _ ≟ _
     enk : (x : _ ≡ _) → Maybe $ C₀ ≡ Encode p e bar x
-    enk = {!!}
+    enk _ = decToMaybe $ _ ≟ _
 \end{code}
 \end{document}
