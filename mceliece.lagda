@@ -283,7 +283,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore{}div2\AgdaUnderscore}.}
-ni'o ga jonai ga je li no du la'oi .\B b.\ gi ko'a goi la'o zoi.\ \B a \OpF{div2} \B b\ .zoi.\ du li no gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
+ni'o ga jonai li no du la'oi .\B b.\ je ko'a goi la'o zoi.\ \B a \OpF{div2} \B b\ .zoi.\ gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _div2_ : Op₂ ℕ
@@ -302,7 +302,7 @@ f2f {n = n} f with toℕ f ℕ.<? suc n
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
-ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q\ .zoi.\ gi la'o zoi.\ \F{f𝔽} \B f \B a \B b\ .zoi.\ sinxa lo nacmecrai be la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b\ .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1\ .zoi.
+ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q\ .zoi.\ gi la'o zoi.\ \F{toℕ} \OpF \$ \F{f𝔽} \B f \B a \B b\ .zoi.\ nacmecrai la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b\ .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1\ .zoi.
 
 \begin{code}
 f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin $ suc n
@@ -318,7 +318,7 @@ coerce refl = id
 \end{code}
 
 \section{la'oi .\F{resize}.}
-ni'o ga jonai ga je ctaipe la'o zoi.\ \B n\ \OpF{ℕ.≤}\ \B m\ .zoi.\ gi ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\}\ \Sym\{\B m\Sym\}\ \Sym\{\B n\Sym\}\ \B t\ .zoi.\ du la'o zoi.\ \F{drop}\ \OpF \$\ \B m\ \OpF ∸\ \B n\ .zoi.\ gi ko'a du la'o zoi.\ \F{\AgdaUnderscore++\AgdaUnderscore}\ \OpF \$\ \F{replicate}\ \B t\ .zoi.
+ni'o ga jonai la'o zoi.\ \F{\AgdaUnderscore++\AgdaUnderscore}\ \OpF \$\ \F{replicate} \B t\ .zoi.\ du ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B m\Sym\} \Sym\{\B n\Sym\}\ \B t\ .zoi.\ gi ga je ctaipe la'o zoi.\ \B n\ \OpF{ℕ.≤}\ \B m\ .zoi.\ gi ko'a du la'o zoi.\ \F{drop}\ \OpF \$\ \B m\ \OpF ∸\ \B n\ .zoi.
 
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
@@ -837,7 +837,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   cof = cunsof {MCParam.σ₁ p * τ}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
-  FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a
+  FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a?
     where
     proj₁,₂ : ∀ {a b c}
             → {A : Set a} → {B : A → Set b} → {C : A → Set c}
@@ -851,8 +851,8 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
       uijis j i = 2 ^ toℕ i * toℕ (lookup b' {!!})
         where
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
-    a : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
+    a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
+    a? = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
       where
       -- | ni'o zo .mlen. cmavlaka'i
       -- lu mleca la .n. li'u
@@ -946,7 +946,7 @@ KeyGen p = SeededKeyGen p IO.<$> cunsof {n = MCParam.ℓ p}
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
-ni'o ko'a goi la'au \chapsname\ li'u vasru le velcki be ko'e goi vu'oi le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ ku'o je le fancu poi tu'a ke'a filri'a lo nu me'oi .decode.\ ge'u je le pinka be ko'e\sds  .i la .varik.\ cu na birti le du'u sarcu fa tu'a le me'oi .abstract.\ be ko'a
+ni'o ko'a goi la'au \chapsname\ li'u vasru le velcki be ko'e goi vu'oi le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ ku'o je le fancu poi tu'a ke'a filri'a lo nu me'oi .decode.\ ge'u je le pinka be ko'e\sds  .i la .varik.\ cu na birti lo du'u xu kau sarcu fa tu'a le me'oi .abstract.\ be ko'a
 
 \section{la'oi .\F{Hx}.}
 ni'o la'o zoi.\ \F{Hx} \B p \B T\ .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'o zoi.\ \B T\ .zoi.
@@ -995,7 +995,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   v = coerce kos $ C₀ ++ replicate zero
     where
     kos : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv (MCParam.n)
-    kos = cong (Vec $ Fin 2) $ DNP.m∸n+n≡m k≤n
+    kos = cong (Vec _) $ DNP.m∸n+n≡m k≤n
       where
       k≤n : MCParam.k p ℕ.≤ MCParam.n p
       k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
@@ -1005,11 +1005,12 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
   mapti : xv MCParam.n → Set
   mapti e = ∃ $ _≡_ C₀ ∘ Encode p e bar
-  mapti? : xv MCParam.n → Maybe $ Σ (xv MCParam.n) mapti
-  mapti? e = mapₘ (_,_ e) $ dus >>=ₘ λ x → mapₘ (_,_ x) $ enk x
+  mapti? : xv MCParam.n → Maybe $ ∃ mapti
+  mapti? e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
     where
-    dus = decToMaybe $ _ ≟ _
-    enk : (x : _ ≡ _) → Maybe $ C₀ ≡ Encode p e bar x
-    enk = {!!}
+    dun? : ∀ {a} → {A : Set a} → {B C : A}
+         → ⦃ Eq A ⦄
+         → Maybe $ B ≡ C
+    dun? = decToMaybe $ _ ≟ _
 \end{code}
 \end{document}
