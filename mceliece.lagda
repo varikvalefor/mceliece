@@ -963,11 +963,11 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   mapti : xv MCParam.n → Set
   mapti e = ∃ $ _≡_ C₀ ∘ Encode p e bar
   mapti? : xv MCParam.n → Maybe $ ∃ mapti
-  mapti? e = mapₘ (e ,_) $ ek? >>=ₘ λ x → mapₘ (x ,_) ek?
+  mapti? e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
     where
-    ek? : ∀ {a} → {A : Set a} → {B C : A}
-        → ⦃ Eq A ⦄
-        → Maybe $ B ≡ C
-    ek? = decToMaybe $ _ ≟ _
+    dun? : ∀ {a} → {A : Set a} → {B C : A}
+         → ⦃ Eq A ⦄
+         → Maybe $ B ≡ C
+    dun? = decToMaybe $ _ ≟ _
 \end{code}
 \end{document}
