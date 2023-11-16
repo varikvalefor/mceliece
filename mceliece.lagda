@@ -814,7 +814,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
       mlen : List $ Fin $ MCParam.n p
       mlen = Data.List.mapMaybe id $ map mlen? $ toList d
         where
-        mlen? : (n : ℕ) → Maybe $ Fin $ MCParam.n p
+        mlen? : ℕ → Maybe $ Fin $ MCParam.n p
         mlen? n = mapₘ fromℕ< $ decToMaybe $ n ℕ.<? MCParam.n p
       V = Vec (Fin $ MCParam.n p) $ MCParam.t p
       toVec? : List $ Fin $ MCParam.n p → Maybe V
