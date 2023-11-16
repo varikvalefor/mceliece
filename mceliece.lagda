@@ -825,7 +825,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
          × let el = Data.List.allFin _ in
-           Listal.All (λ i → suc zero ≡ lookup e (lookup a i)) el
+           flip Listal.All el $ λ i → suc zero ≡ lookup e (lookup a i)
     e' = {!!}
 \end{code}
 
