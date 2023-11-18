@@ -158,7 +158,6 @@ open import Data.List
   using (
     _∷_;
     List;
-    map;
     reverse;
     []
   )
@@ -247,6 +246,7 @@ open import Truthbrary.Record.LLC
     nu,iork;
     length;
     _++_;
+    map;
     LL
   )
 open import Relation.Nullary.Decidable
@@ -830,8 +830,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   restart? = maybe pure $ FixedWeight {p}
   -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le velcki
   -- be la'oi .τ. be'o poi ke'a na zabna  .i la .varik. cu
-  -- na birti
-  τ : ℕ
+  -- na birti lo du'u pilji ji kau cu tenfa
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   cof = cunsof {MCParam.σ₁ p * τ}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
