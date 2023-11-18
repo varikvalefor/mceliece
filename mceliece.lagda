@@ -139,12 +139,12 @@ open import Data.Vec
     []
   )
   renaming (
+    zipWith to zipWithᵥ;
+    reverse to reverseᵥ;
+    foldr to foldrᵥ;
     map to mapᵥ;
     sum to sumᵥ;
-    foldr to foldrᵥ;
-    zipWith to zipWithᵥ;
-    zip to zipᵥ;
-    reverse to reverseᵥ
+    zip to zipᵥ
   )
 open import Function
 open import Data.Bool
@@ -155,9 +155,9 @@ open import Data.Bool
   )
 open import Data.List
   using (
-    _∷_;
-    List;
     reverse;
+    List;
+    _∷_;
     []
   )
 open import Data.Digit
