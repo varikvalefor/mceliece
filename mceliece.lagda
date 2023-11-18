@@ -522,7 +522,7 @@ cunsof {n} = b2f {n = n} ∘ mapᵥ sb2f <$> cunvek
   cunvek {n} = resize false ∘ fromList <$> IO.List.sequence (cunste n)
     where
     cunste : ℕ → List $ IO Bool
-    cunste = map (const $ IO.lift cunsob) ∘ Data.List.upTo
+    cunste = flip _∘_ Data.List.upTo $ map $ const $ IO.lift cunsob
       where
       -- | ni'o cadga fa lo nu la'o zoi. cunsob n .zoi.
       -- me'oi .pure. lo me'oi .pseudorandom.
