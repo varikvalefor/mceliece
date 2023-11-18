@@ -519,9 +519,9 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = b2f {n = n} ∘ mapᵥ b2f2 <$> cunvek
+cunsof {n} = b2f {n = n} ∘ mapᵥ sb2f <$> cunvek
   where
-  b2f2 = λ n → if n then suc zero else zero
+  sb2f = λ n → if n then suc zero else zero
   cunvek : {n : ℕ} → IO $ Vec Bool n
   cunvek {n} = resize false ∘ fromList <$> IO.List.sequence (cunste n)
     where
