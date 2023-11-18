@@ -525,12 +525,11 @@ cunsof {n} = b2f {n = n} ∘ mapᵥ sb2f <$> cunvek
   cunvek : {n : ℕ} → IO $ Vec Bool n
   cunvek {n} = resize false ∘ fromList <$> IO.List.sequence (cunste n)
     where
-    -- | ni'o cadga fa lo nu la'o zoi. cunste n .zoi.
-    -- me'oi .pure. lo me'oi .pseudorandom. poi la .n.
-    -- cu nilzilcmi ke'a
     cunste : ℕ → List $ IO Bool
     cunste = map (const $ IO.lift cunso) ∘ Data.List.upTo ∘ ℕ.suc
       where
+      -- | ni'o cadga fa lo nu la'o zoi. cunso n .zoi.
+      -- me'oi .pure. lo me'oi .pseudorandom.
       postulate cunso : ABIO.IO Bool
       {-#
         FOREIGN GHC
