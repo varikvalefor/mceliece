@@ -157,7 +157,6 @@ open import Data.List
   using (
     _∷_;
     List;
-    map;
     reverse;
     []
   )
@@ -246,6 +245,7 @@ open import Truthbrary.Record.LLC
     nu,iork;
     length;
     _++_;
+    map;
     LL
   )
 open import Relation.Nullary.Decidable
