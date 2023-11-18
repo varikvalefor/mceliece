@@ -521,6 +521,7 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
 cunsof {n} = b2f {n = n} ∘ mapᵥ b2f2 <$> cunvek
   where
+  b2f2 = λ n → if n then suc zero else zero
   -- | ni'o cadga fa lo nu la'o zoi. cunste n .zoi.
   -- me'oi .pure. lo me'oi .pseudorandom. poi la .n.
   -- cu nilzilcmi ke'a
@@ -540,7 +541,6 @@ cunsof {n} = b2f {n = n} ∘ mapᵥ b2f2 <$> cunvek
     #-}
   cunvek : {n : ℕ} → IO $ Vec Bool n
   cunvek {n} = resize false ∘ fromList <$> IO.List.sequence (cunste n)
-  b2f2 = λ n → if n then suc zero else zero
 \end{code}
 
 \subsection{tu'a le se ctaipe be la .\F{cunsof}.}
