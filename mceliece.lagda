@@ -789,7 +789,6 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le velcki
   -- be la'oi .τ. be'o poi ke'a na zabna  .i la .varik. cu
   -- na birti
-  τ : ℕ
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
   FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a?
