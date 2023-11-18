@@ -526,18 +526,18 @@ cunsof {n} = b2f {n = n} ∘ mapᵥ sb2f <$> cunvek
   cunvek {n} = resize false ∘ fromList <$> IO.List.sequence (cunste n)
     where
     cunste : ℕ → List $ IO Bool
-    cunste = map (const $ IO.lift cunso) ∘ Data.List.upTo ∘ ℕ.suc
+    cunste = map (const $ IO.lift cunsob) ∘ Data.List.upTo ∘ ℕ.suc
       where
-      -- | ni'o cadga fa lo nu la'o zoi. cunso n .zoi.
+      -- | ni'o cadga fa lo nu la'o zoi. cunsob n .zoi.
       -- me'oi .pure. lo me'oi .pseudorandom.
-      postulate cunso : ABIO.IO Bool
+      postulate cunsob : ABIO.IO Bool
       {-#
         FOREIGN GHC
         import qualified Data.ByteString.Lazy as BSL
       #-}
       {-#
         COMPILE GHC
-        cunso = head . map (== 1) . filter (< 2) <$> cunsol
+        cunsob = head . map (== 1) . filter (< 2) <$> cunsol
           where
           cunsol = BSL.unpack <$> BSL.readFile "/dev/random"
       #-}
