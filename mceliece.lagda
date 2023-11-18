@@ -522,25 +522,26 @@ cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
 cunsof {n} = b2f {n = n} ∘ mapᵥ b2f2 <$> cunvek
   where
   b2f2 = λ n → if n then suc zero else zero
-  -- | ni'o cadga fa lo nu la'o zoi. cunste n .zoi.
-  -- me'oi .pure. lo me'oi .pseudorandom. poi la .n.
-  -- cu nilzilcmi ke'a
-  cunste : ℕ → List $ IO Bool
-  cunste = map (const $ IO.lift cunso) ∘ Data.List.upTo ∘ ℕ.suc
-    where
-    postulate cunso : ABIO.IO Bool
-    {-#
-      FOREIGN GHC
-      import qualified Data.ByteString.Lazy as BSL
-    #-}
-    {-#
-      COMPILE GHC
-      cunso = head . map (== 1) . filter (< 2) <$> cunsol
-        where
-        cunsol = BSL.unpack <$> BSL.readFile "/dev/random"
-    #-}
   cunvek : {n : ℕ} → IO $ Vec Bool n
   cunvek {n} = resize false ∘ fromList <$> IO.List.sequence (cunste n)
+    where
+    -- | ni'o cadga fa lo nu la'o zoi. cunste n .zoi.
+    -- me'oi .pure. lo me'oi .pseudorandom. poi la .n.
+    -- cu nilzilcmi ke'a
+    cunste : ℕ → List $ IO Bool
+    cunste = map (const $ IO.lift cunso) ∘ Data.List.upTo ∘ ℕ.suc
+      where
+      postulate cunso : ABIO.IO Bool
+      {-#
+        FOREIGN GHC
+        import qualified Data.ByteString.Lazy as BSL
+      #-}
+      {-#
+        COMPILE GHC
+        cunso = head . map (== 1) . filter (< 2) <$> cunsol
+          where
+          cunsol = BSL.unpack <$> BSL.readFile "/dev/random"
+      #-}
 \end{code}
 
 \subsection{tu'a le se ctaipe be la .\F{cunsof}.}
