@@ -248,10 +248,6 @@ open import Truthbrary.Record.LLC
     map;
     LL
   )
-open import Relation.Nullary.Decidable
-  using (
-    isYes
-  )
 open import Truthbrary.Data.Vec.Matrix
   using (
     _∣_;
