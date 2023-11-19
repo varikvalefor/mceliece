@@ -515,7 +515,7 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = b2f {n = n} ∘ mapᵥ sb2f <$> cunvek n
+cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
   where
   sb2f = λ n → if n then suc zero else zero
   cunvek : (n : ℕ) → IO $ Vec Bool n
