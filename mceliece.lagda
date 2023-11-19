@@ -833,7 +833,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   -- na birti lo du'u pilji ji kau cu tenfa
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   cof = cunsof {MCParam.σ₁ p * τ}
-  FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
+  FixedWeight' : Fin $ 2 ^_ $ MCParam.σ₁ p * τ → Maybe OT
   FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a?
     where
     proj₁,₂ : ∀ {a b c}
