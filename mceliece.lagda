@@ -519,7 +519,7 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = b2f {n = n} ∘ mapᵥ b2f2 <$> cunvek
+cunsof {n} = b2f ∘ mapᵥ b2f2 <$> cunvek {n}
   where
   -- | ni'o cadga fa lo nu la'o zoi. cunste n .zoi.
   -- me'oi .pure. lo me'oi .pseudorandom. poi la .n.
