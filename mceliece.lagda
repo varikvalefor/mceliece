@@ -139,12 +139,12 @@ open import Data.Vec
     []
   )
   renaming (
+    zipWith to zipWithᵥ;
+    reverse to reverseᵥ;
+    foldr to foldrᵥ;
     map to mapᵥ;
     sum to sumᵥ;
-    foldr to foldrᵥ;
-    zipWith to zipWithᵥ;
-    zip to zipᵥ;
-    reverse to reverseᵥ
+    zip to zipᵥ
   )
 open import Function
 open import Data.Bool
@@ -156,10 +156,9 @@ open import Data.Bool
   )
 open import Data.List
   using (
-    _∷_;
-    List;
-    map;
     reverse;
+    List;
+    _∷_;
     []
   )
 open import Data.Digit
@@ -247,11 +246,8 @@ open import Truthbrary.Record.LLC
     nu,iork;
     length;
     _++_;
+    map;
     LL
-  )
-open import Relation.Nullary.Decidable
-  using (
-    isYes
   )
 open import Truthbrary.Data.Vec.Matrix
   using (
@@ -436,7 +432,7 @@ dist : ∀ {a} → {A : Set a}
      → ℕ
 dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   where
-  drata = _≟_ false ∘ isYes ∘ uncurry _≟_
+  drata = uncurry _≟_
   x' = flip coerce (LL.vec Q x) $ cong (Vec _) d
   z' = LL.vec Q z
 \end{code}
@@ -832,11 +828,10 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   restart? = maybe pure $ FixedWeight {p}
   -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le velcki
   -- be la'oi .τ. be'o poi ke'a na zabna  .i la .varik. cu
-  -- na birti
-  τ : ℕ
+  -- na birti lo du'u pilji ji kau cu tenfa
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   cof = cunsof {MCParam.σ₁ p * τ}
-  FixedWeight' : Fin $ 2 ^ (MCParam.σ₁ p * τ) → Maybe OT
+  FixedWeight' : Fin $ 2 ^_ $ MCParam.σ₁ p * τ → Maybe OT
   FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a?
     where
     proj₁,₂ : ∀ {a b c}
