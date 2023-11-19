@@ -515,11 +515,11 @@ ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = b2f {n = n} ∘ mapᵥ sb2f <$> cunvek
+cunsof {n} = b2f {n = n} ∘ mapᵥ sb2f <$> cunvek n
   where
   sb2f = λ n → if n then suc zero else zero
-  cunvek : {n : ℕ} → IO $ Vec Bool n
-  cunvek {n} = resize false ∘ fromList <$> IO.List.sequence (cunste n)
+  cunvek : (n : ℕ) → IO $ Vec Bool n
+  cunvek n = resize false ∘ fromList <$> IO.List.sequence (cunste n)
     where
     cunste : ℕ → List $ IO Bool
     cunste = flip _∘_ Data.List.upTo $ map $ const $ IO.lift cunsob
