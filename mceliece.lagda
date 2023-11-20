@@ -835,11 +835,11 @@ ni'o \specimp{Encap}
 Encap : {p : MCParam}
       → let F = Fin $ 2 ^ MCParam.ℓ p in
         IO $ Vec (Fin 2) (MCParam.n-k p) × F × F
-Encap {p} = Encap' {p} IO.<$> FixedWeight {p}
+Encap {p} = uncurry (Encap' {p}) IO.<$> FixedWeight {p}
   where
   Encap' : {p : MCParam}
-         → (Σ (Vec (Fin 2) $ MCParam.n p) $ λ e
-              → hWV𝔽 e ≡ MCParam.t p)
+         → (e : Vec (Fin 2) $ MCParam.n p)
+         → hWV𝔽 e ≡ MCParam.t p
          → let F = Fin $ 2 ^ MCParam.ℓ p in
            Vec (Fin 2) (MCParam.n-k p) × F × F
   Encap' = {!!}
