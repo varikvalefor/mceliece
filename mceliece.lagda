@@ -248,6 +248,10 @@ open import Truthbrary.Record.LLC
     map;
     LL
   )
+open import Relation.Nullary.Decidable
+  using (
+    isYes
+  )
 open import Truthbrary.Data.Vec.Matrix
   using (
     _∣_;
@@ -430,7 +434,7 @@ dist : ∀ {a} → {A : Set a}
      → ℕ
 dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   where
-  drata = uncurry _≟_
+  drata = _≟_ false ∘ isYes ∘ uncurry _≟_
   x' = flip coerce (LL.vec Q x) $ cong (Vec _) d
   z' = LL.vec Q z
 \end{code}
