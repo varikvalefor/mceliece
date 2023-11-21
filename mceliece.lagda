@@ -151,6 +151,7 @@ open import Data.Bool
   using (
     if_then_else_;
     false;
+    Bool;
     true
   )
 open import Data.List
@@ -260,9 +261,10 @@ open import Truthbrary.Data.Vec.Matrix
   )
 open import Relation.Binary.PropositionalEquality
 
-import Data.List.Relation.Unary.All as Listal
+import Agda.Builtin.IO as ABIO
 import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
+import Data.List.Relation.Unary.All as Listal
 \end{code}
 
 \chap{le vrici}
@@ -509,6 +511,50 @@ b2f {m'} {n@(suc _)} = portenfa ∘ indice ∘ mapᵥ f2f
 
 \subsection{le se zvati}
 ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la .\F{b2f}.\ lo drata be la'au \chapsname\ li'u\sds  .i ko'a mapti lo na ctaipe be ko'e goi la'o zoi.\ \D{Fin} \AgdaNumber 2\ .zoi.\ je ku'i cu co'e ja selbi'o zo'e poi ctaipe ko'e fa lo ro mapti be ke'a\sds  .i la .varik.\ cu na birti lo du'u ma kau ckupau je cu zmadu la'au \chapsname\ li'u le ka ko'a mapti ce'u
+
+\section{la .\F{cunsof}.}
+ni'o la .\F{cunsof}.\ cu me'oi .\F{pure}.\ lo me'oi .pseudorandom.
+
+ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
+
+\begin{code}
+cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
+cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
+  where
+  sb2f = λ n → if n then suc zero else zero
+  cunvek : (n : ℕ) → IO $ Vec Bool n
+  cunvek n = resize false ∘ fromList <$> IO.List.sequence (cunste n)
+    where
+    cunste : ℕ → List $ IO Bool
+    cunste = flip _∘_ Data.List.upTo $ map $ const $ IO.lift cunsob
+      where
+      -- | ni'o cadga fa lo nu la'o zoi. cunsob n .zoi.
+      -- me'oi .pure. lo me'oi .pseudorandom.
+      postulate cunsob : ABIO.IO Bool
+      {-#
+        FOREIGN GHC
+        import qualified Data.ByteString.Lazy as BSL
+      #-}
+      {-#
+        COMPILE GHC
+        cunsob = head . map (== 1) . filter (< 2) <$> cunsol
+          -- ni'o le me'oi .filter. co'e cu masno je
+          -- ku'i cu filri'a lo nu na mutce le ka ce'u
+          -- cafne kei fa lo nu li no zmadu li pa le ka
+          -- cmima fa lo so'i du be ce'u
+          where
+          cunsol = BSL.unpack <$> BSL.readFile "/dev/random"
+      #-}
+\end{code}
+
+\subsection{tu'a le se ctaipe be la .\F{cunsof}.}
+ni'o la .varik.\ cu djica lo nu la'oi .\F{cunsof}.\ cu ctaipe ko'a goi la'o zoi.\ \Sym\{\B n \Sym : \D ℕ\Sym\} \Sym → \D{IO} \OpF \$ \D{Fin} \OpF \$ \AgdaInductiveConstructor{suc} \B n\ .zoi.\ldots kei jenai ku'i cu birti lo du'u ma kau zabna je cu me'oi .Agda.\ velcki lo versiio be la .\F{cunsof}.\ poi ke'a ctaipe ko'a
+
+.i la .varik.\ cu na djuno lo du'u ma kau filri'a lo nu lo me'oi .Haskell.\ co'e cu benji lo ctaipe be lo mapti be la'o zoi.\ \D{Fin} \B x\ .zoi.\ la'oi .Agda.  .i tu'a la'oi .\texttt{Bool}.\ sampu\ldots je ku'i cu mapti la'o zoi.\ \D{Fin} \AgdaNumber 2 .zoi.\ jenai zo'e
+
+.i ji'a ga naja la .\F{cunsof}.\ cu co'e ja binxo lo ctaipe be ko'a gi cadga fa lo nu muvgau lo velcki be la .\F{cunsof}.
+
+.i ku'i ga je ko'e goi zoi zoi.\ \F{cunsof} \Sym = \F{pure} \AgdaInductiveConstructor{zero} .zoi.\ sampu je cu mapti ko'a gi frili fa lo nu jimpe fi ko'e
 
 \section{la'oi .\F{\AgdaUnderscore∧𝔹ℕ𝔽\AgdaUnderscore}.}
 ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b\ .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
@@ -779,7 +825,7 @@ FixedWeight : {p : MCParam}
             → (IO $ Σ
                 (Vec (Fin 2) $ MCParam.n p)
                 (λ e → hWV𝔽 e ≡ MCParam.t p))
-FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
+FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   where
   OT = ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
   -- | ni'o cumki fa lo nu cumki fa lo nu tu'a
@@ -790,6 +836,7 @@ FixedWeight {p} = {!!} IO.>>= restart? ∘ FixedWeight'
   -- be la'oi .τ. be'o poi ke'a na zabna  .i la .varik. cu
   -- na birti lo du'u pilji ji kau cu tenfa
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
+  cof = cunsof {MCParam.σ₁ p * τ}
   FixedWeight' : Fin $ 2 ^_ $ MCParam.σ₁ p * τ → Maybe OT
   FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a?
     where
@@ -895,9 +942,7 @@ ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
-KeyGen p = SeededKeyGen p IO.<$> cunso
-  where
-  cunso = b2f {n = MCParam.ℓ p} IO.<$> {!!}
+KeyGen p = SeededKeyGen p IO.<$> cunsof {n = MCParam.ℓ p}
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
