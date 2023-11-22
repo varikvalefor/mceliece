@@ -958,9 +958,7 @@ Hx : (p : MCParam)
 Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
   where
   matmid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
-  n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m _ m*t
-    where
-    m*t = MCParam.m p * MCParam.t p
+  n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m _ $ MCParam.m p * _
 \end{code}
 
 \section{la'oi .\F{Encode}.}
