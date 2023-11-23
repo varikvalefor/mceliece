@@ -811,7 +811,7 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
          → Op₁ $ flip Vec n $ Fin m × A
     jort = mapᵥ proj₂ ∘_ $ jort' ∘_ $ mapᵥ $ λ (a , b) → show a , (a , b)
       where
-      jort' : Op₁ _
+      jort' : ∀ {a} → {A : Set a} → {n : ℕ} → Op₁ $ Vec (_ × A) n
       jort' = {!!}
 \end{code}
 
