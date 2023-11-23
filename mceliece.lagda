@@ -800,6 +800,7 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     m = MCParam.m p
     toFin : ℕ → Fin _
     toFin = {!!}
+    -- | ni'o mo la .z.
     tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
   sartre : vex → Maybe vex
   sartre = mapₘ jort ∘ panci
