@@ -901,8 +901,8 @@ ni'o \termineidyr{\F{SeededKeyGen}}
 
 \begin{code}
 {-# NON_TERMINATING #-}
-SeededKeyGen : (p : MCParam) → Fin $ 2 ^ MCParam.ℓ p → KP p
-SeededKeyGen p = SeededKeyGen'
+SeededKeyGen : {p : MCParam} → Fin $ 2 ^ MCParam.ℓ p → KP p
+SeededKeyGen {p} = SeededKeyGen'
   where
   -- | ni'o cumki fa lo nu cumki fa lo nu tu'a lo nu
   -- me'oi .recurse. cu rinka lo nu na me'oi .terminate.
@@ -942,7 +942,7 @@ ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
-KeyGen p = SeededKeyGen p IO.<$> cunsof {n = MCParam.ℓ p}
+KeyGen p = SeededKeyGen IO.<$> cunsof {n = MCParam.ℓ p}
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
