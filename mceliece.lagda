@@ -787,7 +787,7 @@ FieldOrdering : {p : MCParam}
 FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   where
   indice : ∀ {a} → {n : ℕ} → {A : Set a}
-         → Vec A n → Vec (A × Fin n) n
+         → Vec A n → flip Vec n $ A × Fin n
   indice = flip zipᵥ $ allFin _
   q = MCParam.q p
   v = flip Vec q $ Fin $ MCParam.σ₂ p
