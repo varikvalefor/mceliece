@@ -849,7 +849,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
     d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
       where
       uijis : Fin τ → Fin $ MCParam.m p → ℕ
-      uijis j i = 2 ^ toℕ i * toℕ (lookup b' {!!})
+      uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' {!!}
         where
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
     a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
