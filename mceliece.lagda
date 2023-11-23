@@ -772,7 +772,7 @@ Irreducible {p} d = fromList? g
   g : List $ Fin $ MCParam.q p
   g = {!!}
   fromList? : _ → _
-  fromList? v with length v ≟ MCParam.t p
+  fromList? v with length v ≟ t
   ... | yes c = just $ coerce (cong (Vec _) c) $ fromList v
   ... | no _ = nothing
 \end{code}
