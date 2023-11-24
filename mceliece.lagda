@@ -850,7 +850,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
             → {A : Set a} → {B : A → Set b} → {C : A → Set c}
             → ∃ (λ a' → B a' × C a')
             → ∃ B
-    proj₁,₂ = dmap id proj₁
+    proj₁,₂ = map₂ proj₁
     d : Vec ℕ τ
     d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
       where
