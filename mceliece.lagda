@@ -468,7 +468,7 @@ pausyk b' (suc e) = _ , sym mips
     open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 
-\section{la \F{panci}.}
+\section{la \F{panci}}
 ni'o ga jonai ga je ctaipe la'o zoi.\ \F{nu,iork} \B k\ .zoi.\ gi ko'a goi la'o zoi.\ \F{panci} \B k\ .zoi.\ me'oi .\AgdaInductiveConstructor{just}.\ la .\F{k}.\ gi ko'a du la'oi .\AgdaInductiveConstructor{nothing}.
 
 \begin{code}
