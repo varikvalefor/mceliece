@@ -850,8 +850,16 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
     d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
       where
       uijis : Fin τ → Fin $ MCParam.m p → ℕ
-      uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' {!!}
+      uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
         where
+        ind = coerce {!!} $ f2f mind
+          where
+          -- | ni'o zo .mind. cmavlaka'i lu mabla
+          -- .indice li'u
+          --
+          -- ni'o ma zmadu le me'oi .fromℕ. co'e le ka
+          -- ce'u zabna  .i fegli fi la .varik.
+          mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
     a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a? = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
