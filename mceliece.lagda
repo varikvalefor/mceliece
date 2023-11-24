@@ -506,15 +506,15 @@ ni'o la'o zoi.\ \F{toℕ} \OpF \$ \F{b2f} \B x\ .zoi.\ selsni la'oi .\B x.\ noi 
 \begin{code}
 b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
 b2f {_} {0} _ = zero
-b2f {m'} {n@(suc _)} = portenfa ∘ mapᵥ (map₂ f2f) ∘ indice ∘ mapᵥ f2f
+b2f {m'} {n@(suc _)} = portenfa ∘ indice ∘ mapᵥ f2f
   where
   m = suc m'
   F = Fin $ suc _
-  portenfa : flip Vec n $ F × F → Fin $ m ^ n
+  portenfa : flip Vec n $ F × Fin _ → Fin $ m ^ n
   portenfa = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
     where
     k = cong Fin $ proj₂ $ pausyk m' n
-    tefpi'i = uncurry $ f𝔽 $ λ a b → a * m ^ b
+    tefpi'i = uncurry (f𝔽 $ λ a b → a * m ^ b) ∘ map₂ f2f
 \end{code}
 
 \subsection{le se zvati}
