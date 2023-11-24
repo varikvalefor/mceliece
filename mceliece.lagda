@@ -844,13 +844,8 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   cof = cunsof {MCParam.σ₁ p * τ}
   FixedWeight' : Fin $ 2 ^_ $ MCParam.σ₁ p * τ → Maybe OT
-  FixedWeight' b = mapₘ (proj₁,₂ ∘ e') a?
+  FixedWeight' b = mapₘ (map₂ proj₁ ∘ e') a?
     where
-    proj₁,₂ : ∀ {a b c}
-            → {A : Set a} → {B : A → Set b} → {C : A → Set c}
-            → ∃ (λ a' → B a' × C a')
-            → ∃ B
-    proj₁,₂ = map₂ proj₁
     d : Vec ℕ τ
     d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
       where
