@@ -197,6 +197,7 @@ open import Data.Product
     proj₁;
     proj₂;
     curry;
+    map₂;
     dmap;
     _×_;
     _,_;
@@ -478,6 +479,15 @@ panci : ∀ {a} → {A : Set a}
 panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ _ ≟ _
 \end{code}
 
+\section{la .\F{indice}.}
+ni'o ro da poi ke'a ctaipe la'o zoi.\ \D{Fin} \AgdaUnderscore{}\ .zoi.\ zo'u lo meirmoi be da bei fo la'o zoi.\ \F{indice} \B x\ .zoi.\ .orsi li re fo da fi lo meirmoi be da bei fo la'oi .\B{x}.
+
+\begin{code}
+indice : ∀ {a} → {A : Set a} → {n : ℕ}
+       → Vec A n → flip Vec n $ A × Fin n
+indice = flip zipᵥ $ allFin _
+\end{code}
+
 \chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
 
 \section{la'oi .\F{nbits}.}
@@ -496,12 +506,10 @@ ni'o la'o zoi.\ \F{toℕ} \OpF \$ \F{b2f} \B x\ .zoi.\ selsni la'oi .\B x.\ noi 
 \begin{code}
 b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
 b2f {_} {0} _ = zero
-b2f {m'} {n@(suc _)} = portenfa ∘ indice ∘ mapᵥ f2f
+b2f {m'} {n@(suc _)} = portenfa ∘ mapᵥ (map₂ f2f) ∘ indice ∘ mapᵥ f2f
   where
   m = suc m'
   F = Fin $ suc _
-  indice : ∀ {a} → {A : Set a} → Vec A n → flip Vec n $ A × F
-  indice = flip zipᵥ $ reverseᵥ $ mapᵥ f2f $ allFin n
   portenfa : flip Vec n $ F × F → Fin $ m ^ n
   portenfa = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
     where
@@ -786,9 +794,6 @@ FieldOrdering : {p : MCParam}
               → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
 FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   where
-  indice : ∀ {a} → {A : Set a} → {n : ℕ}
-         → Vec A n → flip Vec n $ A × Fin n
-  indice = flip zipᵥ $ allFin _
   q = MCParam.q p
   v = flip Vec q $ Fin $ MCParam.σ₂ p
   vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
