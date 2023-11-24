@@ -786,7 +786,7 @@ FieldOrdering : {p : MCParam}
               → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
 FieldOrdering {p} f = mapₘ α $ sartre $ indice a
   where
-  indice : ∀ {a} → {n : ℕ} → {A : Set a}
+  indice : ∀ {a} → {A : Set a} → {n : ℕ}
          → Vec A n → flip Vec n $ A × Fin n
   indice = flip zipᵥ $ allFin _
   q = MCParam.q p
