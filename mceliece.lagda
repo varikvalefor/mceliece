@@ -858,7 +858,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
           -- .indice li'u
           --
           -- ni'o ma zmadu le me'oi .fromℕ. co'e le ka
-          -- ce'u zabna  .i fegli fi la .varik.
+          -- ce'u zabna  .i pluja je cu fegli fi la .varik.
           mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
         b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
     a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
