@@ -421,7 +421,7 @@ ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu 
 
 .i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
 
-.i la .varik.\ cu cusku dei ba le nu la .varik.\ cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo nu tcidu dei cu .indika le du'u fliba
+.i la .varik.\ cu cusku dei ba le nu la .varik.\ cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo du'u tcidu dei cu .indika le du'u fliba
 
 \subsubsection{le se zvati}
 ni'o xu cadga fa lo nu dei me'oi .Agda.\ pinka\sds  .i la'oi .\F{resize}.\ du lo ro se srana be ke'a
