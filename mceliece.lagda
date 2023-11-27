@@ -80,7 +80,7 @@
 	\chapter{#1}
 }
 
-\newcommand\termineidyr[1]{ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'o zoi.\ #1\ .zoi.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.}
+\newcommand\termineidyr[1]{ga naja la .varik.\ cu djuno lo du'u ma kau ctaipe lo su'u narcu'i fa lo nu la'o zoi.\ \F{#1}\ .zoi.\ na me'oi .terminate.\ gi lakne fa lo nu la .varik.\ cu co'e ja cu basygau zo'oi .TERMINATING.\ zoi glibau.\ NON\_TERMINATING .glibau.}
 
 \title{le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.}
 \author{la .varik.\ .VALefor.}
@@ -488,7 +488,7 @@ indice : ∀ {a} → {A : Set a} → {n : ℕ}
 indice = flip zipᵥ $ allFin _
 \end{code}
 
-\chap{le fancu poi ke'a srana lo porsi be lo'i me'oi .bit.}
+\chap{le fancu co ke porsi be lo'i me'oi .bit.\ ke'e}
 
 \section{la'oi .\F{nbits}.}
 ni'o ko'a goi la'o zoi.\ \F{nbits} \B q\ .zoi.\ porsi lo'i su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.\sds  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca
@@ -823,7 +823,7 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
 \section{la'oi .\F{FixedWeight}.}
 ni'o \specimp{FixedWeight}
 
-ni'o \termineidyr{\F{FixedWeight}}
+ni'o \termineidyr{FixedWeight}
 
 \begin{code}
 {-# NON_TERMINATING #-}
@@ -909,7 +909,7 @@ ni'o \specimp{SeededKeyGen}
 
 .i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re lo mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
-ni'o \termineidyr{\F{SeededKeyGen}}
+ni'o \termineidyr{SeededKeyGen}
 
 \begin{code}
 {-# NON_TERMINATING #-}
