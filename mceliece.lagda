@@ -343,7 +343,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   -- zoi zoi. resize x xs .zoi. ja zo'e je zo'e cu basti
   -- zoi zoi. xt (yes g) .zoi. je zo'e
   -- .i tu'a la'o zoi. resize x xs .zoi. ja zo'e cu
-  -- zmadu tu'a la'o zoi. xt (yes g) .zoi. je zo'e le
+  -- zmadu tu'a la'o zoi. xt $ yes g .zoi. je zo'e le
   -- ka la .varik. cu jinvi le du'u ce'u sampu kei kei je
   -- le ka la .varik. cu se frili fa lo nu jimpe fi ce'u
   --
@@ -351,7 +351,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   -- nu ciksi lo ctaipe be le su'u ga naja ctaipe
   -- lo su'u la'o zoi. m .zoi. dubjavme'a
   -- la'o zoi. n .zoi. gi la'o zoi. resize x xs .zoi.
-  -- du la'o zoi. xt (yes g) .zoi. ja zo'e
+  -- du la'o zoi. xt $ yes g .zoi. ja zo'e
 
   flipko : ∀ {a} → {A B : Set a}
          → (x : A)
