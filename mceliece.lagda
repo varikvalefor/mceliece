@@ -327,9 +327,9 @@ resize : ∀ {a} → {m n : ℕ} → {A : Set a}
 resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   where
   xt : Dec $ n ℕ.≤ m → Vec A n
-  xt (yes z) = drop (m ∸ n) $ coc xs
+  xt (yes z) = drop (m ∸ n) $ coerce coc xs
     where
-    coc = coerce $ sym $ cong (Vec A) $ DNP.m∸n+n≡m z
+    coc = sym $ cong (Vec A) $ DNP.m∸n+n≡m z
   xt (no z) = flip coerce padin $ cong (Vec A) bitc
     where
     padin : Vec A $ n ∸ m + m
