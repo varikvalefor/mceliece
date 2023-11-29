@@ -847,7 +847,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
       uijis : Fin τ → Fin $ MCParam.m p → ℕ
       uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
         where
-        ind = coerce {!!} $ f2f mind
+        ind = coerce (cong Fin ?) $ f2f mind
           where
           -- | ni'o zo .mind. cmavlaka'i lu mabla
           -- .indice li'u
