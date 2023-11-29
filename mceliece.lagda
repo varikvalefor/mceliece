@@ -402,16 +402,9 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
             → (z : Vec A n)
             → z ≡ drop (length x) (x ++ z)
     dropdus [] _ = refl
-    dropdus (x ∷ xs) = subst (_≡_ _) (d xs x) ∘ dropdus xs
+    dropdus (x ∷ xs) z = subst (_≡_ _) (d xs z x) $ dropdus xs z
       where
-      d : ∀ {a} → {A : Set a} → {m n : ℕ}
-        → (x : Vec A m)
-        → {z : Vec A n}
-        → (e : A)
-        → (_≡_
-            (drop (length x) $ x ++ z)
-            (drop (length $ e ∷ x) $ e ∷ x ++ z))
-      d x {z} e = sym $ DVP.unfold-drop (length x) e $ x ++ z
+      d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
 \end{code}
 
 \subsection{le su'u pilno le la'oi .\F{xt}.\ co'e jenai lo zo'oi .\AgdaKeyword{with}.\ co'e}
