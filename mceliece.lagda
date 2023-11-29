@@ -841,8 +841,8 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le velcki
   -- be la'oi .τ. be'o poi ke'a na zabna  .i la .varik. cu
   -- na birti lo du'u pilji ji kau cu tenfa  .i ku'i la
-  -- .varik. cu djuno le du'u na mapti fa le se xamsku co
-  -- me zo joi
+  -- .varik. cu djuno le du'u na mapti fa le me zo joi se
+  -- xamsku
   τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
   cof = cunsof {MCParam.σ₁ p * τ}
   FixedWeight' : Fin $ 2 ^_ $ MCParam.σ₁ p * τ → Maybe OT
