@@ -869,8 +869,8 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
         where
         mlen? : ℕ → Maybe $ Fin $ MCParam.n p
         mlen? m = mapₘ fromℕ< $ decToMaybe $ m ℕ.<? _
-      V = Vec (Fin $ MCParam.n p) $ MCParam.t p
-      toVec? : List $ Fin $ MCParam.n p → Maybe V
+      toVec? : let V = Vec (Fin $ MCParam.n p) $ MCParam.t p in
+               List $ Fin $ MCParam.n p → Maybe V
       toVec? l = flip mapₘ dun? $ flip coerce (fromList l) ∘ cong (Vec _)
         where
         dun? = decToMaybe $ _ ≟ _
