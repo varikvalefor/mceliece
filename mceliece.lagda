@@ -935,7 +935,6 @@ SeededKeyGen {p} δ = fromMaybe (SeededKeyGen δ') mapti?
         g? = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} Eₚ
           where
           σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
-          Eₚ : Fin $ 2 ^_ $ σ₁*t p
           Eₚ = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
 \end{code}
 
