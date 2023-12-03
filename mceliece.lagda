@@ -904,17 +904,12 @@ ni'o \specimp{SeededKeyGen}
 
 .i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re lo mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
-ni'o \termineidyr{SeededKeyGen}
+ni'o me'oi .recurse.  .i \termineidyr{SeededKeyGen}
 
 \begin{code}
 {-# NON_TERMINATING #-}
 SeededKeyGen : {p : MCParam} → Fin $ 2 ^ MCParam.ℓ p → KP p
-SeededKeyGen {p} = SeededKeyGen'
-  where
-  -- | ni'o cumki fa lo nu cumki fa lo nu tu'a lo nu
-  -- me'oi .recurse. cu rinka lo nu na me'oi .terminate.
-  SeededKeyGen' : Fin $ 2 ^ MCParam.ℓ p → KP p
-  SeededKeyGen' δ = fromMaybe (SeededKeyGen' δ') mapti?
+SeededKeyGen {p} δ = fromMaybe (SeededKeyGen δ') mapti?
     where
     E = MCParam.G p δ
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
