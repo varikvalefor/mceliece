@@ -542,7 +542,7 @@ cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
           -- ni'o le me'oi .filter. co'e cu masno je
           -- ku'i cu filri'a lo nu na mutce le ka ce'u
           -- cafne kei fa lo nu li no zmadu li pa le ka
-          -- cmima fa lo so'i du be ce'u
+          -- me'oi .pure. ce'u
           where
           cunsol = BSL.unpack <$> BSL.readFile "/dev/random"
       #-}
