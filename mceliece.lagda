@@ -799,6 +799,10 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     toFin : ℕ → Fin _
     toFin = {!!}
     -- | ni'o mo la .z.
+    -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
+    -- pilji .i nibli la'e di'u fa le su'u pilno la'oi .Vec.
+    -- tu'a lo cpolinomi'a  .i ku'i la .varik. cu na birti
+    -- le du'u cpolinomi'a co'e  .i ku'i cumki fa lo nu binxo
     tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
   sartre : vex → Maybe vex
   sartre = mapₘ jort ∘ panci
