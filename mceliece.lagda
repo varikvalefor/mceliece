@@ -802,7 +802,9 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
     -- pilji .i nibli la'e di'u fa le su'u pilno la'oi .Vec.
     -- tu'a lo cpolinomi'a  .i ku'i la .varik. cu na birti
-    -- le du'u cpolinomi'a co'e  .i ku'i cumki fa lo nu binxo
+    -- ko'a goi le du'u cpolinomi'a co'e  .i ku'i cumki fa
+    -- lo nu binxo .i le su'u sampu cu krinu le su'u
+    -- la .varik. cu milxe le ka ce'u senpi ko'a
     tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
   sartre : vex → Maybe vex
   sartre = mapₘ jort ∘ panci
