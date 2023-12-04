@@ -484,7 +484,7 @@ indice = flip zipᵥ $ allFin _
 \chap{le fancu co ke porsi be lo'i me'oi .bit.\ ke'e}
 
 \section{la'oi .\F{nbits}.}
-ni'o ko'a goi la'o zoi.\ \F{nbits} \B q\ .zoi.\ porsi lo'i su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.\sds  .i ga je le pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi le romoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca
+ni'o ko'a goi la'o zoi.\ \F{nbits} \B q\ .zoi.\ porsi lo'i su'o me'oi .bit.\ poi ke'a pagbu la'oi .\B q.\sds  .i ga je lo pamoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u zenba gi lo romoi be ko'a cu traji le ka ce'u me'oi .significant.\ kei le ka ce'u mleca
 
 .i la'oi .\F{nbits}.\ simsa la'o zoi.\ \F{Data.Bin.toBits}\ .zoi.\ je ku'i cu me'oi .truncate.
 
