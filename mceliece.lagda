@@ -97,7 +97,7 @@ ni'o le velcki cu zabna najenai cu mulno
 \chap{le terzu'e}
 ni'o ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u me'oi .Agda.\ co'e\sds  .i tu'a ko'a filri'a lo nu jimpe fi la'o glibau.\ Classic MCELIECE .glibau.
 
-.i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u xi re skami sutra co'e\sds  .i ku'i la .varik.\ cu na tolnei lo nu da'i ko'a drani ba'e je cu skami sutra co'e
+.i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei je nai lo nu ko'a mutce le ka ce'u xi re skami sutra co'e\sds  .i ku'i la .varik.\ na tolnei lo nu da'i ko'a drani ba'e je cu skami sutra co'e
 
 \chap{le me'oi .preamble.}
 ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
@@ -311,7 +311,7 @@ f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
 \end{code}
 
 \section{la'oi .\F{coerce}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{coerce}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{coerce}.\ bau la .lojban.
 
 \begin{code}
 coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
@@ -410,7 +410,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 \subsection{le su'u pilno le la'oi .\F{xt}.\ co'e jenai lo zo'oi .\AgdaKeyword{with}.\ co'e}
 ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu ciksi la'oi .\F{flipko}.\ je zo'e
 
-.i ga je ko'a milxe le ka ce'u fegli la .varik.\ gi ku'i la .varik.\ cu na birti lo du'u ma kau mapti la'oi .\F{flipko}.\ je zo'e je cu mleca ko'a le ka ce'u fegli
+.i ga je ko'a milxe le ka ce'u fegli la .varik.\ gi ku'i la .varik.\ na birti lo du'u ma kau mapti la'oi .\F{flipko}.\ je zo'e je cu mleca ko'a le ka ce'u fegli
 
 .i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
 
@@ -436,7 +436,7 @@ dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 \end{code}
 
 \section{la .\F{pausyk}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{pausyk}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{pausyk}.\ bau la .lojban.
 
 \begin{code}
 pausyk : (b e : ℕ) → ∃ $ λ n → suc n ≡ suc b ^ e
@@ -511,7 +511,7 @@ b2f {m'} {n@(suc _)} = portenfa ∘ indice ∘ mapᵥ f2f
 \end{code}
 
 \subsection{le se zvati}
-ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be la'au \chapsname\ li'u\sds  .i ko'a mapti lo na ctaipe be ko'e goi la'o zoi.\ \D{Fin} \AgdaNumber 2\ .zoi.\ je ku'i cu co'e ja selbi'o zo'e poi ctaipe ko'e fa lo ro mapti be ke'a\sds  .i la .varik.\ cu na birti lo du'u ma kau ckupau je cu zmadu la'au \chapsname\ li'u le ka ko'a mapti ce'u
+ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be la'au \chapsname\ li'u\sds  .i ko'a mapti lo na ctaipe be ko'e goi la'o zoi.\ \D{Fin} \AgdaNumber 2\ .zoi.\ je ku'i cu co'e ja selbi'o zo'e poi ctaipe ko'e fa lo ro mapti be ke'a\sds  .i la .varik.\ na birti lo du'u ma kau ckupau je cu zmadu la'au \chapsname\ li'u le ka ko'a mapti ce'u
 
 \section{la .\F{cunsof}.}
 ni'o la .\F{cunsof}.\ cu me'oi .\F{pure}.\ lo me'oi .pseudorandom.
@@ -551,7 +551,7 @@ cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
 \subsection{tu'a le se ctaipe be la .\F{cunsof}.}
 ni'o la .varik.\ cu djica lo nu la'oi .\F{cunsof}.\ cu ctaipe ko'a goi la'o zoi.\ \Sym\{\B n \Sym : \D ℕ\Sym\} \Sym → \D{IO} \OpF \$ \D{Fin} \OpF \$ \AgdaInductiveConstructor{suc} \B n\ .zoi.\ldots kei jenai ku'i cu birti lo du'u ma kau zabna je cu me'oi .Agda.\ velcki lo versiio be la .\F{cunsof}.\ poi ke'a ctaipe ko'a
 
-.i la .varik.\ cu na djuno lo du'u ma kau filri'a lo nu lo me'oi .Haskell.\ co'e cu benji lo ctaipe be lo mapti be la'o zoi.\ \D{Fin} \B x\ .zoi.\ la'oi .Agda.  .i tu'a la'oi .\texttt{Bool}.\ sampu\ldots je ku'i cu mapti la'o zoi.\ \D{Fin} \AgdaNumber 2 .zoi.\ jenai zo'e
+.i la .varik.\ na djuno lo du'u ma kau filri'a lo nu lo me'oi .Haskell.\ co'e cu benji lo ctaipe be lo mapti be la'o zoi.\ \D{Fin} \B x\ .zoi.\ la'oi .Agda.  .i tu'a la'oi .\texttt{Bool}.\ sampu\ldots je ku'i cu mapti la'o zoi.\ \D{Fin} \AgdaNumber 2 .zoi.\ jenai zo'e
 
 .i ji'a ga naja la .\F{cunsof}.\ cu co'e ja binxo lo ctaipe be ko'a gi cadga fa lo nu muvgau lo velcki be la .\F{cunsof}.
 
@@ -566,7 +566,7 @@ _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ to
   where
   -- | ni'o narcu'i fa lo nu zmadu
   --
-  -- .i le su'u la .varik. cu na basygau le pa
+  -- .i le su'u la .varik. na basygau le pa
   -- lerpinsle le'i ci lerpinsle cu se krinu le
   -- su'u la .varik. cu djica lo nu zvati lo
   -- zabna mapti fa lo pinka be le su'u narcu'i
@@ -641,7 +641,7 @@ ni'o la'o zoi.\ \AgdaField{MCParam.σ₁} \B q\ .zoi.\ me'oi .arbitrary.
 ni'o la'o zoi.\ \AgdaField{MCParam.G} \B q \B x\ .zoi.\ me'oi .pseudorandom.
 
 \paragraph{lo ctaipe be lo su'u dubjavme'a ja co'e}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\AgdaField{n≤q}.\ ja la'oi .\AgdaField{t≥2}.\ ja la'oi .\AgdaField{ν≥μ}.\ ja la'oi .\AgdaField{ν≤μ+k}.\ ja la'oi .\AgdaField{σ₁≥m}.\ ja la'oi .\AgdaField{σ₂≥2*m}.\ ja la \AgdaField{ctejau}\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\AgdaField{n≤q}.\ ja la'oi .\AgdaField{t≥2}.\ ja la'oi .\AgdaField{ν≥μ}.\ ja la'oi .\AgdaField{ν≤μ+k}.\ ja la'oi .\AgdaField{σ₁≥m}.\ ja la'oi .\AgdaField{σ₂≥2*m}.\ ja la \AgdaField{ctejau}\ bau la .lojban.
 
 \begin{code}
 record MCParam : Set
@@ -720,7 +720,7 @@ record Private (p : MCParam) : Set
 \section{la'oi .\F{MatGen}.}
 ni'o la'o zoi.\ \F{MatGen} \B x\ .zoi.\ du la'oi .\AgdaInductiveConstructor{nothing}.\ jonai cu me'oi .\AgdaInductiveConstructor{just}.\ lo gubni termifckiku poi ke'a mapti la'oi .\B x.
 
-ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je la .varik.\ cu djica lo nu mapti lo ro broda cei co'e gi su'o da poi ke'a broda zo'u le mu'oi glibau.\ systematic form .glibau.\ cu na mapti da
+ni'o pilno le mu'oi glibau.\ semi-systematic form .glibau.\ ki'u le su'u ga je la .varik.\ cu djica lo nu mapti lo ro broda cei co'e gi su'o da poi ke'a broda zo'u le mu'oi glibau.\ systematic form .glibau.\ na mapti da
 
 \begin{code}
 MatGen : {p : MCParam} → Private p → Maybe $ Public p
@@ -801,7 +801,7 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     -- | ni'o mo la .z.
     -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
     -- pilji .i nibli la'e di'u fa le su'u pilno la'oi .Vec.
-    -- tu'a lo cpolinomi'a  .i ku'i la .varik. cu na birti
+    -- tu'a lo cpolinomi'a  .i ku'i la .varik. na birti
     -- ko'a goi le du'u cpolinomi'a co'e  .i ku'i cumki fa
     -- lo nu binxo .i le su'u sampu cu krinu le su'u
     -- la .varik. cu milxe le ka ce'u senpi ko'a
@@ -952,7 +952,7 @@ KeyGen p = SeededKeyGen IO.<$> cunsof {n = MCParam.ℓ p}
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
-ni'o ko'a goi la'au \chapsname\ li'u vasru le velcki be ko'e goi vu'oi le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ ku'o je le fancu poi tu'a ke'a filri'a lo nu me'oi .decode.\ ge'u je le pinka be ko'e\sds  .i la .varik.\ cu na birti lo du'u xu kau sarcu fa lo nu me'oi .abstract.\ ko'a
+ni'o ko'a goi la'au \chapsname\ li'u vasru le velcki be ko'e goi vu'oi le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ ku'o je le fancu poi tu'a ke'a filri'a lo nu me'oi .decode.\ ge'u je le pinka be ko'e\sds  .i la .varik.\ na birti lo du'u xu kau sarcu fa lo nu me'oi .abstract.\ ko'a
 
 \section{la'oi .\F{Hx}.}
 ni'o la'o zoi.\ \F{Hx} \B p \B T\ .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'oi .\B{T}.
