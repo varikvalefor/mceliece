@@ -998,7 +998,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   v : xv MCParam.n
   v = coerce kos $ C₀ ++ replicate zero
     where
-    kos : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv (MCParam.n)
+    kos : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv MCParam.n
     kos = cong (Vec _) $ DNP.m∸n+n≡m k≤n
       where
       k≤n : MCParam.k p ℕ.≤ MCParam.n p
