@@ -813,7 +813,7 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     -- porganzu
     jort : ∀ {a} → {A : Set a} → {m n : ℕ}
          → Op₁ $ flip Vec n $ Fin m × A
-    jort = mapᵥ proj₂ ∘_ $ jort' ∘_ $ mapᵥ $ λ a → proj₁ a , a
+    jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
       where
       jort' : ∀ {a} → {A : Set a} → {n : ℕ} → Op₁ $ Vec (_ × A) n
       jort' = {!!}
