@@ -864,7 +864,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
           mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
           sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ
           sukdiz = {!!}
-        b' = nbits {MCParam.σ₁ p * τ} $ toℕ b
+        b' = nbits $ toℕ b
     a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
     a? = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
       where
