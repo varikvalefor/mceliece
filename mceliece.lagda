@@ -776,7 +776,6 @@ Irreducible : {p : MCParam}
 Irreducible {p} d = fromList? g
   where
   t = MCParam.t p
-  g : List $ Fin $ MCParam.q p
   g = {!!}
   fromList? : _ → _
   fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
