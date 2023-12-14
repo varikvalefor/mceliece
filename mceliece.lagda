@@ -779,9 +779,9 @@ Irreducible {p} d = fromList? g
   g : List $ Fin $ MCParam.q p
   g = {!!}
   fromList? : _ → _
-  fromList? v = mapₘ (λ c → coerce (cong (Vec _) c) $ fromList v) m
+  fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
     where
-    m = decToMaybe $ _ ≟ _
+    kofrol = λ c → coerce (cong (Vec _) c) $ fromList v
 \end{code}
 
 \section{la'oi .\F{FieldOrdering}.}
