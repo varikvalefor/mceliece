@@ -667,7 +667,7 @@ record MCParam : Set
     H : ℕ → Fin $ 2 ^ ℓ
     σ₁ : ℕ
     σ₂ : ℕ
-    G : Fin $ 2 ^ ℓ → Fin $ 2 ^ (n + σ₂ * q + σ₁ * t + ℓ)
+    G : Fin $ 2 ^ ℓ → Fin $ 2 ^_ $ n + σ₂ * q + σ₁ * t + ℓ
   k : ℕ
   k = n ∸ m * t
   n-k : ℕ
