@@ -55,6 +55,7 @@
 \newunicodechar{≰}{\ensuremath{\mathnormal{\nleq}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\hspace{-0.3em}|}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
+\newunicodechar{▹}{\ensuremath{\mathnormal{\triangleright}}}
 
 \newcommand\hashish{cbf1 42fe 1ebd b0b2 87a4 4018 340b 8159 7ef1 3a63 6f5d 76f4 6f48 a080 b2bc d3f1 3922 f0f1 5219 94cc 5e71 fb1f b2d9 d9f8 dd3b ffe6 be32 0056 5cca 21c4 28eb 9de1}
 
@@ -147,6 +148,11 @@ open import Data.Vec
     zip to zipᵥ
   )
 open import Function
+  renaming (
+    -- | ni'o smimlu le .asycy'i'is. co'e...
+    -- je ku'i cu mleca fi le ka ce'u fegli la .varik.
+    _|>_ to _▹_
+  )
 open import Data.Bool
   using (
     if_then_else_;
@@ -387,7 +393,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
           let sink = sym $ cong (Vec A) k in
           xs ≡ drop (n ∸ m) (coerce sink $ xt $ no g)
   takis g = sym $ begin
-    drop (n ∸ m) konk ≡⟨ cong (drop $ n ∸ m) konkydus ⟩
+    drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop $ n ∸ m) ⟩
     drop (n ∸ m) (pad ++ xs) ≡⟨ sym $ dropdus pad xs ⟩
     xs ∎
     where
@@ -402,7 +408,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
             → (z : Vec A n)
             → z ≡ drop (length x) (x ++ z)
     dropdus [] _ = refl
-    dropdus (x ∷ xs) z = subst (_≡_ _) (d xs z x) $ dropdus xs z
+    dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_≡_ _) (d xs z x)
       where
       d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
 \end{code}
