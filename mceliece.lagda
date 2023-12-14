@@ -307,7 +307,7 @@ ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q\ .zoi.\ gi la'o zoi.\ 
 
 \begin{code}
 f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin $ suc n
-f𝔽 f a b = f2f $ fromℕ $ f (toℕ a) $ toℕ b
+f𝔽 f = f2f ∘₂ fromℕ ∘₂ f on toℕ
 \end{code}
 
 \section{la'oi .\F{coerce}.}
