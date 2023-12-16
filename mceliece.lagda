@@ -336,10 +336,10 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   xt (yes z) = drop (m ∸ n) $ coerce coc xs
     where
     coc = sym $ cong (Vec A) $ DNP.m∸n+n≡m z
-  xt (no z) = flip coerce padin $ cong (Vec A) bitc
+  xt (no z) = flip coerce (padin ++ xs) $ cong (Vec A) bitc
     where
-    padin : Vec A $ n ∸ m + m
-    padin = replicate x ++ xs
+    padin : Vec A $ n ∸ m
+    padin = replicate x
     bitc : n ∸ m + m ≡ n
     bitc = DNP.m∸n+n≡m $ DNP.≰⇒≥ z
 
