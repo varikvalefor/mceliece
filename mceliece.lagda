@@ -842,8 +842,8 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
   -- la'oi .restart?. rinka lo nu na me'oi .terminate.
   restart? : Maybe OT → IO OT
   restart? = maybe pure $ FixedWeight {p}
-  -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le velcki
-  -- be la'oi .τ. be'o poi ke'a na zabna  .i la .varik. cu
+  -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le na'e
+  -- zabna je velcki be la'oi .τ.  .i la .varik. cu
   -- na birti lo du'u pilji ji kau cu tenfa  .i ku'i la
   -- .varik. cu djuno le du'u na mapti fa le me zo joi se
   -- xamsku
