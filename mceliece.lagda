@@ -188,9 +188,9 @@ open import Data.Maybe
 open import Data.These
   using (
     These;
+    these;
     this;
-    that;
-    these
+    that
   )
 open import Algebra.Core
   using (
