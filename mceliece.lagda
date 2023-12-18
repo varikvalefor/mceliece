@@ -70,7 +70,7 @@
 
 \newcommand\sds{\spacefactor\sfcode`.\ \space}
 
-\newcommand\algoritma[1]{\textsc{#1}}
+\newcommand\algoritma\textsc
 
 \newcommand\specimp[1]{ni'o la'oi .\F{#1}.\ velcki ja co'e ko'a goi la'oi .\algoritma{#1}.\ poi ke'a se velcki le selvau be la'o cmene.\ mceliece-20201010.pdf .cmene.\ poi ke'a xi re se me'oi .SHA512.\ zoi zoi.\ \hashish\ .zoi.}
 
