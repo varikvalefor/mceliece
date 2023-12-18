@@ -28,8 +28,8 @@
 \newunicodechar{τ}{\ensuremath{\mathnormal{\tau}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
-\newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
-\newunicodechar{ʳ}{\ensuremath{\mathnormal{^r}}}
+\newunicodechar{ˡ}{\ensuremath{\mathnormal{^\AgdaFontStyle{l}}}}
+\newunicodechar{ʳ}{\ensuremath{\mathnormal{^\AgdaFontStyle{r}}}}
 \newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
 \newunicodechar{ϕ}{\ensuremath{\mathnormal{\phi}}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\wedge}}}
