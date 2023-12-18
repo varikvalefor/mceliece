@@ -396,7 +396,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   takis : (g : ¬ (n ℕ.≤ m))
         → let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
           let sink = sym $ cong (Vec A) k in
-          xs ≡ drop (n ∸ m) (coerce sink $ xt $ no g)
+          xs ≡_ $ drop (n ∸ m) $ xt (no g) ▹ coerce sink
   takis g = sym $ begin
     drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop $ n ∸ m) ⟩
     drop (n ∸ m) (pad ++ xs) ≡⟨ sym $ dropdus pad xs ⟩
