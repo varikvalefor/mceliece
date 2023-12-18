@@ -456,9 +456,9 @@ pausyk b' (suc e) = _ , sym mips
   where
   mips = begin
     b ^ suc e ≡⟨ refl ⟩
-    b * (b ^ e) ≡⟨ sym $ cong (_*_ b) $ proj₂ $ pausyk b' e ⟩
+    b * (b ^ e) ≡⟨ sym $ cong (b *_) $ proj₂ $ pausyk b' e ⟩
     b * suc z₁ ≡⟨ refl ⟩
-    b * (1 + z₁) ≡⟨ cong (_*_ b) $ DNP.+-comm 1 z₁ ⟩
+    b * (1 + z₁) ≡⟨ cong (b *_) $ DNP.+-comm 1 z₁ ⟩
     b * (z₁ + 1) ≡⟨ DNP.*-distribˡ-+ b z₁ 1 ⟩
     b * z₁ + b * 1 ≡⟨ cong bizum $ DNP.*-identityʳ b ⟩
     b * z₁ + b ≡⟨ refl ⟩
