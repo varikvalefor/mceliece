@@ -57,6 +57,9 @@
 \newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
 \newunicodechar{▹}{\ensuremath{\mathnormal{\triangleright}}}
 
+% | ni'o tu'a le canlu lerfu cu milxe le ka ce'u fegli kei je ku'i cu mutce le ka ce'u filri'a lo nu na me'oi .overfull.
+%
+% ni'o ki'u le smimlu la .varik. cu nelci le su'u so'i da poi ke'a jufra fi la .lojban. zo'u cmalu je cmavo fa lo so'e valsi pe da
 \newcommand\hashish{cbf1 42fe 1ebd b0b2 87a4 4018 340b 8159 7ef1 3a63 6f5d 76f4 6f48 a080 b2bc d3f1 3922 f0f1 5219 94cc 5e71 fb1f b2d9 d9f8 dd3b ffe6 be32 0056 5cca 21c4 28eb 9de1}
 
 \newcommand\Sym\AgdaSymbol
