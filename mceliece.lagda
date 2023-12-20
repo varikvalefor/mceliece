@@ -314,7 +314,7 @@ f2f f with toℕ f ℕ.<? _
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
-ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q\ .zoi.\ gi la'o zoi.\ \F{toℕ} \OpF \$ \F{f𝔽} \B f \B a \B b\ .zoi.\ nacmecrai la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b\ .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore∸\AgdaUnderscore} \B q \AgdaNumber 1\ .zoi.
+ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q\ .zoi.\ gi la'o zoi.\ \F{toℕ} \OpF \$ \F{f𝔽} \B f \B a \B b\ .zoi.\ nacmecrai la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b\ .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore{}∸\AgdaUnderscore} \B q \AgdaNumber 1\ .zoi.
 
 \begin{code}
 f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin $ suc n
@@ -330,7 +330,7 @@ coerce refl = id
 \end{code}
 
 \section{la'oi .\F{resize}.}
-ni'o ga jonai la'o zoi.\ \F{\AgdaUnderscore++\AgdaUnderscore}\ \OpF \$\ \F{replicate} \B t\ .zoi.\ du ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B m\Sym\} \Sym\{\B n\Sym\}\ \B t\ .zoi.\ gi ga je ctaipe la'o zoi.\ \B n\ \OpF{ℕ.≤}\ \B m\ .zoi.\ gi ko'a du la'o zoi.\ \F{drop}\ \OpF \$\ \B m\ \OpF ∸\ \B n\ .zoi.
+ni'o ga jonai la'o zoi.\ \F{\AgdaUnderscore{}++\AgdaUnderscore}\ \OpF \$\ \F{replicate} \B t\ .zoi.\ du ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B m\Sym\} \Sym\{\B n\Sym\}\ \B t\ .zoi.\ gi ga je ctaipe la'o zoi.\ \B n\ \OpF{ℕ.≤}\ \B m\ .zoi.\ gi ko'a du la'o zoi.\ \F{drop}\ \OpF \$\ \B m\ \OpF ∸\ \B n\ .zoi.
 
 \begin{code}
 resize : ∀ {a} → {m n : ℕ} → {A : Set a}
@@ -568,7 +568,7 @@ ni'o la .varik.\ cu djica lo nu la'oi .\F{cunsof}.\ cu ctaipe ko'a goi la'o zoi.
 
 .i ku'i ga je ko'e goi zoi zoi.\ \F{cunsof} \Sym = \F{pure} \AgdaInductiveConstructor{zero} .zoi.\ sampu je cu mapti ko'a gi frili fa lo nu jimpe fi ko'e
 
-\section{la'oi .\F{\AgdaUnderscore∧𝔹ℕ𝔽\AgdaUnderscore}.}
+\section{la'oi .\F{\AgdaUnderscore{}∧𝔹ℕ𝔽\AgdaUnderscore}.}
 ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b\ .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
