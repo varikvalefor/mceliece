@@ -588,7 +588,7 @@ _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ to
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
-ni'o la'o zoi.\ \F{hw𝕄} \B t\ .zoi.\ grisumji lo se cmima poi ro da zo'u ga jo da cmima ke'a gi su'o de poi ke'a xi re co'e ja rajypau la'oi .\B{t}.\ zo'u da mu'oi glibau.\ HAMMING weight .glibau.\ de
+ni'o la'o zoi.\ \F{hw𝕄} \B t\ .zoi.\ grisumji lo'i ro co'e poi su'o da poi ke'a xi re co'e ja rajypau la'oi .\B{t}.\ zo'u ke'a mu'oi glibau.\ HAMMING weight .glibau.\ da
 
 \begin{code}
 hw𝕄 : {a m n : ℕ} → 𝕄 (Fin a) m n → ℕ
