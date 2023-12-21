@@ -127,9 +127,6 @@ open import Data.Fin
     Fin;
     suc
   )
-  renaming (
-    _+_ to _+F_
-  )
 open import Data.Vec
   using (
     replicate;
