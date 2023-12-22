@@ -868,8 +868,9 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
           -- | ni'o zo .mind. cmavlaka'i lu mabla
           -- .indice li'u
           --
-          -- ni'o ma zmadu le me'oi .fromℕ. co'e le ka
-          -- ce'u zabna  .i pluja je cu fegli la .varik.
+          -- ni'o ma zmadu fi le ka ce'u zabna kei fe
+          -- le me'oi .fromℕ. co'e noi ke'a pluja je cu
+          -- fegli la .varik.
           -- .i xu mleca la'o zoi. MCParam.σ₁ * τ .zoi.
           mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
           sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ
