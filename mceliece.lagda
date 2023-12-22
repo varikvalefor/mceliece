@@ -867,7 +867,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
       uijis : Fin τ → Fin $ MCParam.m p → ℕ
       uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
         where
-        ind = coerce (cong Fin $ proj₂ sukdiz) mind
+        ind = mind ▹ coerce (cong Fin $ proj₂ sukdiz)
           where
           -- | ni'o zo .mind. cmavlaka'i lu mabla
           -- .indice li'u
@@ -1011,7 +1011,7 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   where
   xv = λ f → Vec (Fin 2) $ f p
   v : xv MCParam.n
-  v = coerce kos $ C₀ ++ replicate zero
+  v = C₀ ++ replicate zero ▹ coerce kos
     where
     kos : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv MCParam.n
     kos = cong (Vec _) $ DNP.m∸n+n≡m k≤n
