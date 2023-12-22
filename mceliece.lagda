@@ -767,7 +767,7 @@ KP : MCParam → Set
 KP p = Public p × Private p
 \end{code}
 
-\chap{le fancu poi tu'a ke'a filri'a lo nu zbasu lo termifckiku}
+\chap{le fancu poi tu'a ke'a filri'a tu'a lo termifckiku}
 ni'o la'au \chapsname\ li'u vasru le velcki be vu'oi le fancu je zo'e vu'o poi tu'a ke'a filri'a lo nu zbasu lo termifckiku
 
 \section{la'oi .\F{Irreducible}.}
