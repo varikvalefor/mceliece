@@ -353,7 +353,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   -- .i tu'a la'o zoi. resize x xs .zoi. ja zo'e cu
   -- zmadu tu'a la'o zoi. xt $ yes g .zoi. je zo'e le
   -- ka la .varik. cu jinvi le du'u ce'u sampu kei kei je
-  -- le ka la .varik. cu se frili fa lo nu jimpe fi ce'u
+  -- le ka frili la .varik. fa lo nu jimpe fi ce'u
   --
   -- .i la .varik. cu jinvi le du'u ko'a se sarcu lo
   -- nu ciksi lo ctaipe be le su'u ga naja ctaipe
