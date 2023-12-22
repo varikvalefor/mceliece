@@ -364,7 +364,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   flipko : ∀ {a} → {A B : Set a}
          → (x : A)
          → (d : A ≡ B)
-         → x ≡ coerce (sym d) (coerce d x)
+         → x ≡_ $ coerce d x ▹ coerce (sym d)
   flipko _ refl = refl
 
   dropis : (g : n ℕ.≤ m)
