@@ -357,9 +357,13 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   --
   -- .i la .varik. cu jinvi le du'u ko'a se sarcu lo
   -- nu ciksi lo ctaipe be le su'u ga naja ctaipe
-  -- lo su'u la'o zoi. m .zoi. dubjavme'a
+  -- lo su'u la'o zoi. m .zoi.* dubjavme'a
   -- la'o zoi. n .zoi. gi la'o zoi. resize x xs .zoi.
   -- du la'o zoi. xt $ yes g .zoi. ja zo'e
+  --
+  -- * .i pilno le co'e co me zo la'o jenai ke zo la
+  -- ja zo'e ki'u le su'u vlaba'u fi zoi glibau.
+  -- LATIN MAJUSCULE MIKE .glibau.
 
   flipko : ∀ {a} → {A B : Set a}
          → (x : A)
