@@ -809,10 +809,10 @@ FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     toFin = {!!}
     -- | ni'o mo la .z.
     -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
-    -- pilji .i nibli la'e di'u fa le su'u ga je co'e gi
+    -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
     -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
     -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
-    -- .i ku'i cumki fa lo nu binxo .i le su'u sampu cu
+    -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
     -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
     -- ko'a
     tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
