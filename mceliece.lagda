@@ -976,9 +976,9 @@ ni'o la'o zoi.\ \F{Hx} \B p \B T\ .zoi.\ konkatena lo me'oi .identity.\ nacmeime
 Hx : (p : MCParam)
    → Public p
    → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
-Hx p = coerce (cong matmid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
+Hx p = coerce (cong nacmeimid n∸k+k≡n) ∘ _∣_ (I zero $ suc zero)
   where
-  matmid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
+  nacmeimid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
   n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m _ $ MCParam.m p * _
 \end{code}
 
