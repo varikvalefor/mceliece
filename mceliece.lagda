@@ -867,7 +867,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
       uijis : Fin τ → Fin $ MCParam.m p → ℕ
       uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
         where
-        ind = mind ▹ coerce (cong Fin $ proj₂ sukdiz)
+        ind = f2f mind ▹ coerce (cong Fin $ proj₂ sukdiz)
           where
           -- | ni'o zo .mind. cmavlaka'i lu mabla
           -- .indice li'u
@@ -876,7 +876,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
           -- le me'oi .fromℕ. co'e noi ke'a pluja je cu
           -- fegli la .varik.
           -- .i xu mleca la'o zoi. MCParam.σ₁ * τ .zoi.
-          mind = f2f $ fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
+          mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
           sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ
           sukdiz = {!!}
         b' = nbits $ toℕ b
