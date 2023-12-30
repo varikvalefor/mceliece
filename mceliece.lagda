@@ -150,6 +150,16 @@ open import Data.Vec
     zip to zipᵥ
   )
 open import Function
+  using (
+    const;
+    _∘₂_;
+    _on_;
+    flip;
+    _∋_;
+    _$_;
+    _∘_;
+    id
+  )
   renaming (
     -- | ni'o smimlu ko'a goi le .asycy'i'is. co'e...
     -- je ku'i cu mleca ko'a le ka ce'u fegli la .varik.
