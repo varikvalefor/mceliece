@@ -151,8 +151,8 @@ open import Data.Vec
   )
 open import Function
   renaming (
-    -- | ni'o smimlu le .asycy'i'is. co'e...
-    -- je ku'i cu mleca fi le ka ce'u fegli la .varik.
+    -- | ni'o smimlu ko'a goi le .asycy'i'is. co'e...
+    -- je ku'i cu mleca ko'a le ka ce'u fegli la .varik.
     _|>_ to _▹_
   )
 open import Data.Bool
