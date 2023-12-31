@@ -439,7 +439,7 @@ ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu 
 .i la .varik.\ cu cusku dei ba le nu la .varik.\ cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo du'u tcidu dei cu .indika le du'u fliba
 
 \subsubsection{le se zvati}
-ni'o xu cadga fa lo nu dei me'oi .Agda.\ pinka\sds  .i la'oi .\F{resize}.\ du lo ro se srana be ke'a
+ni'o xu cadga fa lo nu la'au le se zvati li'u me'oi .Agda.\ pinka\sds  .i la'oi .\F{resize}.\ du lo ro se srana be ke'a
 
 \section{la .\F{dist}.}
 ni'o la'o zoi.\ \F{dist} \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} \OpF \$ \F{length} \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei fo la'oi .\B{x}.\ cu drata lo meirmoi be ke'a bei fo la'oi .\B{x}.
