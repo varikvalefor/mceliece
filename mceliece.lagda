@@ -12,7 +12,7 @@
 
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
-\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
 \newunicodechar{∃}{\ensuremath{\mathnormal\exists}}
 \newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
@@ -20,26 +20,26 @@
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
-\newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb{F}}}}
-\newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb{M}}}}
-\newunicodechar{𝔹}{\ensuremath{\mathnormal{\mathbb{B}}}}
-\newunicodechar{ν}{\ensuremath{\mathnormal{\nu}}}
-\newunicodechar{μ}{\ensuremath{\mathnormal{\mu}}}
-\newunicodechar{τ}{\ensuremath{\mathnormal{\tau}}}
+\newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
+\newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb M}}}
+\newunicodechar{𝔹}{\ensuremath{\mathnormal{\mathbb B}}}
+\newunicodechar{ν}{\ensuremath{\mathnormal\nu}}
+\newunicodechar{μ}{\ensuremath{\mathnormal\mu}}
+\newunicodechar{τ}{\ensuremath{\mathnormal\tau}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
 \newunicodechar{ˡ}{\ensuremath{\mathnormal{^\AgdaFontStyle{l}}}}
 \newunicodechar{ʳ}{\ensuremath{\mathnormal{^\AgdaFontStyle{r}}}}
-\newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
-\newunicodechar{ϕ}{\ensuremath{\mathnormal{\phi}}}
-\newunicodechar{∧}{\ensuremath{\mathnormal{\wedge}}}
-\newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
-\newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
-\newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
-\newunicodechar{ℓ}{\ensuremath{\mathnormal{\ell}}}
-\newunicodechar{σ}{\ensuremath{\mathnormal{\sigma}}}
-\newunicodechar{π}{\ensuremath{\mathnormal{\pi}}}
-\newunicodechar{α}{\ensuremath{\mathnormal{\alpha}}}
+\newunicodechar{≥}{\ensuremath{\mathnormal\geq}}
+\newunicodechar{ϕ}{\ensuremath{\mathnormal\phi}}
+\newunicodechar{∧}{\ensuremath{\mathnormal\wedge}}
+\newunicodechar{∣}{\ensuremath{\mathnormal |}}
+\newunicodechar{∘}{\ensuremath{\mathnormal\circ}}
+\newunicodechar{∀}{\ensuremath{\mathnormal\forall}}
+\newunicodechar{ℓ}{\ensuremath{\mathnormal\ell}}
+\newunicodechar{σ}{\ensuremath{\mathnormal\sigma}}
+\newunicodechar{π}{\ensuremath{\mathnormal\pi}}
+\newunicodechar{α}{\ensuremath{\mathnormal\alpha}}
 \newunicodechar{₀}{\ensuremath{\mathnormal{_0}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
@@ -47,15 +47,15 @@
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_\AgdaFontStyle{m}}}}
 \newunicodechar{ₚ}{\ensuremath{\mathnormal{_\AgdaFontStyle{p}}}}
-\newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
+\newunicodechar{≤}{\ensuremath{\mathnormal\leq}}
 \newunicodechar{⍉}{\ensuremath{\mathnormal{∘\hspace{-0.455em}\backslash}}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
-\newunicodechar{δ}{\ensuremath{\mathnormal{\delta}}}
-\newunicodechar{⇒}{\ensuremath{\mathnormal{\Rightarrow}}}
-\newunicodechar{≰}{\ensuremath{\mathnormal{\nleq}}}
+\newunicodechar{δ}{\ensuremath{\mathnormal\delta}}
+\newunicodechar{⇒}{\ensuremath{\mathnormal\Rightarrow}}
+\newunicodechar{≰}{\ensuremath{\mathnormal\nleq}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\hspace{-0.3em}|}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
-\newunicodechar{▹}{\ensuremath{\mathnormal{\triangleright}}}
+\newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 
 % | ni'o tu'a le canlu lerfu cu milxe le ka ce'u fegli kei je ku'i cu mutce le ka ce'u filri'a lo nu na me'oi .overfull.
 %
