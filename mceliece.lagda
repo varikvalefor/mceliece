@@ -432,7 +432,7 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
 \subsection{le su'u pilno le la'oi .\F{xt}.\ co'e jenai lo zo'oi .\AgdaKeyword{with}.\ co'e}
 ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu ciksi la'oi .\F{flipko}.\ je zo'e
 
-.i ga je ko'a milxe le ka ce'u fegli la .varik.\ gi ku'i la .varik.\ na birti lo du'u ma kau mapti la'oi .\F{flipko}.\ je zo'e je cu mleca ko'a le ka ce'u fegli  .i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
+.i la .varik.\ cu milxe le ka ce'u se fegli ko'a\ldots kei jenai ku'i cu birti lo du'u ma kau mapti la'oi .\F{flipko}.\ je zo'e je cu mleca ko'a le ka ce'u fegli  .i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
 
 .i la .varik.\ cu cusku dei ba le nu la .varik.\ cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo du'u tcidu dei cu .indika le du'u fliba
 
