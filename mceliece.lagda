@@ -492,7 +492,7 @@ panci : ∀ {a} → {A : Set a}
 panci v = mapₘ (λ _ → v) $ decToMaybe $ Dec (nu,iork v) ∋ _ ≟ _
 \end{code}
 
-\section{la .\F{indice}.}
+\section{la .\F{indice}}
 ni'o ro da poi ke'a ctaipe la'o zoi.\ \D{Fin} \AgdaUnderscore{}\ .zoi.\ zo'u lo meirmoi be da bei fo la'o zoi.\ \F{indice} \B x\ .zoi.\ .orsi li re fo da fi lo meirmoi be da bei fo la'oi .\B{x}.
 
 \begin{code}
