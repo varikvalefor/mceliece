@@ -962,8 +962,9 @@ SeededKeyGen {p} δ = fromMaybe (SeededKeyGen δ') mapti?
            Maybe $ Vq n × ∃ Vq
       g? = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} Eₚ
         where
-        σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
         Eₚ = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
+          where
+          σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
