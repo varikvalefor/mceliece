@@ -452,7 +452,7 @@ dist : ∀ {a} → {A : Set a}
 dist x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
-  x' = vec x ▹ coerce (cong (Vec _) d)
+  x' = vec x ▹_ $ coerce $ cong (Vec _) d
   z' = vec z
 \end{code}
 
