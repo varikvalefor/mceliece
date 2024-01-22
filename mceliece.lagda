@@ -103,7 +103,7 @@ ni'o le velcki cu zabna najenai cu mulno
 \chap{le terzu'e}
 ni'o me'oi .Agda,\ co'e fa ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u\sds  .i tu'a ko'a filri'a lo nu jimpe fi la'o glibau.\ Classic MCELIECE .glibau.
 
-.i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi la .varik.\ldots kei kei je nai le ka ce'u troci lo nu ko'a mutce le ka ce'u xi re skami sutra co'e\sds  .i ku'i la .varik.\ na toldji lo da'i nu ko'a drani ba'e je cu skami sutra co'e
+.i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi vo'a\ldots kei kei je nai le ka ce'u troci lo nu ko'a mutce le ka ce'u xi re skami sutra co'e\sds  .i ku'i la .varik.\ na toldji lo da'i nu ko'a drani ba'e je cu skami sutra co'e
 
 \chap{le me'oi .preamble.}
 ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
@@ -434,7 +434,7 @@ ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu 
 
 .i la .varik.\ cu milxe le ka ce'u se fegli ko'a\ldots kei jenai ku'i cu birti lo du'u ma kau mapti la'oi .\F{flipko}.\ je zo'e je cu mleca ko'a le ka ce'u fegli  .i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
 
-.i la .varik.\ cu cusku dei ba le nu la .varik.\ cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo du'u tcidu dei cu .indika le du'u fliba
+.i la .varik.\ cu cusku dei ba le nu vo'a cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo du'u tcidu dei cu .indika le du'u fliba
 
 \subsubsection{le se zvati}
 ni'o xu cadga fa lo nu ko'a goi la'au le se zvati li'u me'oi .Agda.\ pinka\sds  .i la'oi .\F{resize}.\ du lo ro se srana be ko'a
@@ -456,7 +456,7 @@ dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 \end{code}
 
 \section{la .\F{pausyk}.}
-ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu la .varik.\ cu ciksi la .\F{pausyk}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a cu ciksi la .\F{pausyk}.\ bau la .lojban.
 
 \begin{code}
 pausyk : (b e : ℕ) → ∃ $ λ n → suc n ≡ suc b ^ e
