@@ -434,7 +434,7 @@ ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu 
 
 .i la .varik.\ cu milxe le ka ce'u se fegli ko'a\ldots kei jenai ku'i cu birti lo du'u ma kau mapti la'oi .\F{flipko}.\ je zo'e je cu mleca ko'a le ka ce'u fegli  .i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
 
-.i la .varik.\ cu cusku dei ba le nu vo'a cu troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo du'u tcidu dei cu .indika le du'u fliba
+.i la .varik.\ cu cusku dei ba le nu vo'a troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo du'u tcidu dei cu .indika le du'u fliba
 
 \subsubsection{le se zvati}
 ni'o xu cadga fa lo nu ko'a goi la'au le se zvati li'u me'oi .Agda.\ pinka\sds  .i la'oi .\F{resize}.\ du lo ro se srana be ko'a
@@ -456,7 +456,7 @@ dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
 \end{code}
 
 \section{la .\F{pausyk}.}
-ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a cu ciksi la .\F{pausyk}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi la .\F{pausyk}.\ bau la .lojban.
 
 \begin{code}
 pausyk : (b e : ℕ) → ∃ $ λ n → suc n ≡ suc b ^ e
