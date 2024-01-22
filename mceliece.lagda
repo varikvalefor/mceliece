@@ -266,6 +266,7 @@ open import Truthbrary.Record.LLC
     length;
     _++_;
     map;
+    vec;
     LL
   )
 open import Relation.Nullary.Decidable
@@ -448,11 +449,11 @@ dist : ∀ {a} → {A : Set a}
      → (x z : A)
      → LL.l Q x ≡ LL.l Q z
      → ℕ
-dist ⦃ Q ⦄ x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
+dist x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
-  x' = LL.vec Q x ▹ coerce (cong (Vec _) d)
-  z' = LL.vec Q z
+  x' = vec x ▹ coerce (cong (Vec _) d)
+  z' = vec z
 \end{code}
 
 \section{la .\F{pausyk}.}
