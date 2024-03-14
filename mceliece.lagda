@@ -380,7 +380,7 @@ module Resize where
 
   resize : ∀ {a} → {m n : ℕ} → {A : Set a}
          → A → Vec A m → Vec A n
-  resize {_} {m} {n} {A} x xs = xt x xs $ n ℕ.≤? m
+  resize x xs = xt x xs $ _ ℕ.≤? _
 
 open Resize
   using (
