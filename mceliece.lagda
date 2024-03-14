@@ -527,11 +527,10 @@ b2f {_} {0} _ = zero
 b2f {m'} {n@(suc _)} = portenfa ∘ indice' ∘ mapᵥ f2f
   where
   m = suc m'
-  F = Fin $ suc _
   indice' : ∀ {a} → {A : Set a} → {n : ℕ}
           → Vec A n → Vec (A × Fin n) n
   indice' = flip zipᵥ $ reverseᵥ $ allFin _
-  portenfa : flip Vec n $ F × Fin _ → Fin $ m ^ n
+  portenfa : flip Vec n $ _ × Fin _ → Fin $ m ^ n
   portenfa = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
     where
     k = cong Fin $ proj₂ $ pausyk m' n
