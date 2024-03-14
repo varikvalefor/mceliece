@@ -373,7 +373,8 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   -- nu ciksi lo ctaipe be le su'u ga naja ctaipe
   -- lo su'u la'o zoi. m .zoi.* dubjavme'a
   -- la'o zoi. n .zoi. gi la'o zoi. resize x xs .zoi.
-  -- du la'o zoi. xt $ yes g .zoi. ja zo'e
+  -- du la'o zoi. xt $ yes g .zoi. ja zo'e... kei kei
+  -- noi to'e filri'a ke'a fa tu'a le me'oi .with. co'e
   --
   -- * .i pilno le co'e co me zo la'o jenai ke zo la
   -- ja zo'e ki'u le su'u vlaba'u fi zoi glibau.
