@@ -317,6 +317,17 @@ f2f {n = n} f = maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n
   d = F $ DNP.n<1+n _
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{f2f}.\ mapti}
+
+\begin{code}
+module F2fVeritas where
+  zmadu : {m n : ℕ}
+        → (f : Fin m)
+        → ¬ (toℕ f ℕ.< suc n)
+        → n ≡_ $ toℕ $ f2f {n = n} f
+  zmadu = {!!}
+\end{code}
+
 \section{la'oi .\F{f𝔽}.}
 ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B q\ .zoi.\ gi la'o zoi.\ \F{toℕ} \OpF \$ \F{f𝔽} \B f \B a \B b\ .zoi.\ nacmecrai la'o zoi.\ \F{fromℕ} \OpF \$ \B f \Sym(\F{toℕ} \B a\Sym) \OpF \$ \F{toℕ} \B b\ .zoi.\ ce la'o zoi.\ \F{\AgdaUnderscore{}∸\AgdaUnderscore} \B q \AgdaNumber 1\ .zoi.
 
