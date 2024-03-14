@@ -326,6 +326,12 @@ module F2fVeritas where
             → ¬ (toℕ f ℕ.< suc n)
             → n ≡_ $ toℕ $ f2f {n = n} f
   dubjavmau = {!!}
+
+  mleca : {m n : ℕ}
+        → (f : Fin m)
+        → toℕ f ℕ.< suc n
+        → toℕ f ≡_ $ toℕ $ f2f {n = n} f
+  mleca = ?
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
