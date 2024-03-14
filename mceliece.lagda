@@ -365,93 +365,100 @@ module CoerceVeritas where
 ni'o ga jonai la'o zoi.\ \F{\AgdaUnderscore{}++\AgdaUnderscore}\ \OpF \$\ \F{replicate} \B t\ .zoi.\ du ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B m\Sym\} \Sym\{\B n\Sym\}\ \B t\ .zoi.\ gi ga je ctaipe la'o zoi.\ \B n\ \OpF{ℕ.≤}\ \B m\ .zoi.\ gi ko'a du la'o zoi.\ \F{drop}\ \OpF \$\ \B m\ \OpF ∸\ \B n\ .zoi.
 
 \begin{code}
-resize : ∀ {a} → {m n : ℕ} → {A : Set a}
-       → A → Vec A m → Vec A n
-resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
-  where
-  xt : Dec $ n ℕ.≤ m → Vec A n
-  xt (yes z) = drop (m ∸ n) $ coerce coc xs
+module Resize where
+  xt : ∀ {a} → {m n : ℕ} → {A : Set a}
+     → A → Vec A m → Dec (n ℕ.≤ m) → Vec A n
+  xt {_} {m} {n} {A} x xs (yes z) = drop (m ∸ n) $ coerce coc xs
     where
     coc = sym $ cong (Vec A) $ DNP.m∸n+n≡m z
-  xt (no z) = padin ++ xs ▹ coerce (cong (Vec A) bitc)
+  xt {_} {m} {n} {A} x xs (no z) = padin ++ xs ▹ coerce (cong (Vec A) bitc)
     where
     padin : Vec A $ n ∸ m
     padin = replicate x
     bitc : n ∸ m + m ≡ n
     bitc = DNP.m∸n+n≡m $ DNP.≰⇒≥ z
 
-  open ≡-Reasoning
-
-  -- ni'o la .varik. cu djica ko'a goi lo nu
-  -- zoi zoi. resize x xs .zoi. ja zo'e je zo'e cu basti
-  -- zoi zoi. xt (yes g) .zoi. je zo'e
-  -- .i tu'a la'o zoi. resize x xs .zoi. ja zo'e cu
-  -- zmadu tu'a la'o zoi. xt $ yes g .zoi. je zo'e le
-  -- ka la .varik. cu jinvi le du'u ce'u sampu kei kei je
-  -- le ka frili la .varik. fa lo nu jimpe fi ce'u
-  --
-  -- .i la .varik. cu jinvi le du'u ko'a se sarcu lo
-  -- nu ciksi lo ctaipe be le su'u ga naja ctaipe
-  -- lo su'u la'o zoi. m .zoi.* dubjavme'a
-  -- la'o zoi. n .zoi. gi la'o zoi. resize x xs .zoi.
-  -- du la'o zoi. xt $ yes g .zoi. ja zo'e... kei kei
-  -- noi to'e filri'a ke'a fa tu'a le me'oi .with. co'e
-  --
-  -- * .i pilno le co'e co me zo la'o jenai ke zo la
-  -- ja zo'e ki'u le su'u vlaba'u fi zoi glibau.
-  -- LATIN MAJUSCULE MIKE .glibau.
-
-  open CoerceVeritas
-    using (
-      flipko
-    )
-
-  dropis : (g : n ℕ.≤ m)
-         → let v≡v = sym $ cong (Vec A) $ DNP.m∸n+n≡m g in
-           let xs' = coerce v≡v xs in
-           (_≡_
-             xs
-             (coerce
-               (cong (Vec A) $ DNP.m∸n+n≡m g)
-               (take (m ∸ n) xs' ++ xt (yes g))))
-  dropis g = sym $ begin
-    coerce k konk ≡⟨ cong (coerce k) $ DVP.take-drop-id (m ∸ n) xs' ⟩
-    coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
-    coerce (sym $ sym k) xs' ≡⟨ sym $ flipko xs $ sym k ⟩
-    xs ∎
+  resize : ∀ {a} → {m n : ℕ} → {A : Set a}
+         → A → Vec A m → Vec A n
+  resize {_} {m} {n} {A} x xs = xt x xs $ n ℕ.≤? m
     where
-    k = cong (Vec A) $ DNP.m∸n+n≡m g
-    xs' = coerce (sym k) xs
-    konk : Vec A $ m ∸ n + n
-    konk = take (m ∸ n) xs' ++ xt (yes g)
-    symref : ∀ {a} → {A B : Set a}
-           → (t : A ≡ B)
-           → t ≡ sym (sym t)
-    symref refl = refl
+    open ≡-Reasoning
 
-  takis : (g : ¬ (n ℕ.≤ m))
-        → let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
-          let sink = sym $ cong (Vec A) k in
-          xs ≡_ $ drop (n ∸ m) $ xt (no g) ▹ coerce sink
-  takis g = sym $ begin
-    drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop $ n ∸ m) ⟩
-    drop (n ∸ m) (pad ++ xs) ≡⟨ sym $ dropdus pad xs ⟩
-    xs ∎
-    where
-    pad = replicate x
-    k = cong (Vec A) $ DNP.m∸n+n≡m $ DNP.≰⇒≥ g
-    konk : Vec A $ n ∸ m + m
-    konk = flip coerce (xt $ no g) $ sym k
-    konkydus : konk ≡ pad ++ xs
-    konkydus = sym $ flipko (pad ++ xs) k
-    dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
-            → (x : Vec A m)
-            → (z : Vec A n)
-            → z ≡ drop (length x) (x ++ z)
-    dropdus [] _ = refl
-    dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_≡_ _) (d xs z x)
+    -- ni'o la .varik. cu djica ko'a goi lo nu
+    -- zoi zoi. resize x xs .zoi. ja zo'e je zo'e cu basti
+    -- zoi zoi. xt (yes g) .zoi. je zo'e
+    -- .i tu'a la'o zoi. resize x xs .zoi. ja zo'e cu
+    -- zmadu tu'a la'o zoi. xt $ yes g .zoi. je zo'e le
+    -- ka la .varik. cu jinvi le du'u ce'u sampu kei kei je
+    -- le ka frili la .varik. fa lo nu jimpe fi ce'u
+    --
+    -- .i la .varik. cu jinvi le du'u ko'a se sarcu lo
+    -- nu ciksi lo ctaipe be le su'u ga naja ctaipe
+    -- lo su'u la'o zoi. m .zoi.* dubjavme'a
+    -- la'o zoi. n .zoi. gi la'o zoi. resize x xs .zoi.
+    -- du la'o zoi. xt $ yes g .zoi. ja zo'e... kei kei
+    -- noi to'e filri'a ke'a fa tu'a le me'oi .with. co'e
+    --
+    -- * .i pilno le co'e co me zo la'o jenai ke zo la
+    -- ja zo'e ki'u le su'u vlaba'u fi zoi glibau.
+    -- LATIN MAJUSCULE MIKE .glibau.
+
+    open CoerceVeritas
+      using (
+        flipko
+      )
+
+    dropis : (g : n ℕ.≤ m)
+           → let v≡v = sym $ cong (Vec A) $ DNP.m∸n+n≡m g in
+             let xs' = coerce v≡v xs in
+             (_≡_
+               xs
+               (coerce
+                 (cong (Vec A) $ DNP.m∸n+n≡m g)
+                 (take (m ∸ n) xs' ++ xt x xs (yes g))))
+    dropis g = sym $ begin
+      coerce k konk ≡⟨ cong (coerce k) $ DVP.take-drop-id (m ∸ n) xs' ⟩
+      coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
+      coerce (sym $ sym k) xs' ≡⟨ sym $ flipko xs $ sym k ⟩
+      xs ∎
       where
-      d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
+      k = cong (Vec A) $ DNP.m∸n+n≡m g
+      xs' = coerce (sym k) xs
+      konk : Vec A $ m ∸ n + n
+      konk = take (m ∸ n) xs' ++ xt x xs (yes g)
+      symref : ∀ {a} → {A B : Set a}
+             → (t : A ≡ B)
+             → t ≡ sym (sym t)
+      symref refl = refl
+
+    takis : (g : ¬ (n ℕ.≤ m))
+          → let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
+            let sink = sym $ cong (Vec A) k in
+            xs ≡_ $ drop (n ∸ m) $ xt x xs (no g) ▹ coerce sink
+    takis g = sym $ begin
+      drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop $ n ∸ m) ⟩
+      drop (n ∸ m) (pad ++ xs) ≡⟨ sym $ dropdus pad xs ⟩
+      xs ∎
+      where
+      pad = replicate x
+      k = cong (Vec A) $ DNP.m∸n+n≡m $ DNP.≰⇒≥ g
+      konk : Vec A $ n ∸ m + m
+      konk = flip coerce (xt x xs $ no g) $ sym k
+      konkydus : konk ≡ pad ++ xs
+      konkydus = sym $ flipko (pad ++ xs) k
+      dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
+              → (x : Vec A m)
+              → (z : Vec A n)
+              → z ≡ drop (length x) (x ++ z)
+      dropdus [] _ = refl
+      dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_≡_ _) (d xs z x)
+        where
+        d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
+
+open Resize
+  using (
+    resize
+  )
 \end{code}
 
 \subsection{le su'u pilno le la'oi .\F{xt}.\ co'e jenai lo zo'oi .\AgdaKeyword{with}.\ co'e}
