@@ -402,25 +402,6 @@ ni'o xu cadga fa lo nu ko'a goi la'au le se zvati li'u me'oi .Agda.\ pinka\sds  
 
 \begin{code}
 module ResizeVeritas where
-    -- ni'o la .varik. cu djica ko'a goi lo nu
-    -- zoi zoi. resize x xs .zoi. ja zo'e je zo'e cu basti
-    -- zoi zoi. xt (yes g) .zoi. je zo'e
-    -- .i tu'a la'o zoi. resize x xs .zoi. ja zo'e cu
-    -- zmadu tu'a la'o zoi. xt $ yes g .zoi. je zo'e le
-    -- ka la .varik. cu jinvi le du'u ce'u sampu kei kei je
-    -- le ka frili la .varik. fa lo nu jimpe fi ce'u
-    --
-    -- .i la .varik. cu jinvi le du'u ko'a se sarcu lo
-    -- nu ciksi lo ctaipe be le su'u ga naja ctaipe
-    -- lo su'u la'o zoi. m .zoi.* dubjavme'a
-    -- la'o zoi. n .zoi. gi la'o zoi. resize x xs .zoi.
-    -- du la'o zoi. xt $ yes g .zoi. ja zo'e... kei kei
-    -- noi to'e filri'a ke'a fa tu'a le me'oi .with. co'e
-    --
-    -- * .i pilno le co'e co me zo la'o jenai ke zo la
-    -- ja zo'e ki'u le su'u vlaba'u fi zoi glibau.
-    -- LATIN MAJUSCULE MIKE .glibau.
-
     open Resize
 
     open CoerceVeritas
@@ -440,8 +421,9 @@ module ResizeVeritas where
                xs
                (coerce
                  (cong (Vec A) $ DNP.m∸n+n≡m g)
-                 (take (m ∸ n) xs' ++ xt x xs (yes g))))
+                 (take (m ∸ n) xs' ++ resize x xs)))
     dropis {_} {m} {n} {A} x xs g = sym $ begin
+      coerce k konk₁ ≡⟨ {!!} ⟩
       coerce k konk ≡⟨ cong (coerce k) $ DVP.take-drop-id (m ∸ n) xs' ⟩
       coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
       coerce (sym $ sym k) xs' ≡⟨ sym $ flipko xs $ sym k ⟩
@@ -451,6 +433,8 @@ module ResizeVeritas where
       xs' = coerce (sym k) xs
       konk : Vec A $ m ∸ n + n
       konk = take (m ∸ n) xs' ++ xt x xs (yes g)
+      konk₁ : Vec A $ m ∸ n + n
+      konk₁ = take (m ∸ n) xs' ++ resize x xs
       symref : ∀ {a} → {A B : Set a}
              → (t : A ≡ B)
              → t ≡ sym (sym t)
@@ -462,8 +446,9 @@ module ResizeVeritas where
           → (g : ¬ (n ℕ.≤ m))
           → let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
             let sink = sym $ cong (Vec A) k in
-            xs ≡_ $ drop (n ∸ m) $ xt x xs (no g) ▹ coerce sink
+            xs ≡_ $ drop (n ∸ m) $ resize x xs ▹ coerce sink
     takis {_} {m} {n} {A} x xs g = sym $ begin
+      drop (n ∸ m) konk₁ ≡⟨ {!!} ⟩
       drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop $ n ∸ m) ⟩
       drop (n ∸ m) (pad ++ xs) ≡⟨ sym $ dropdus pad xs ⟩
       xs ∎
@@ -472,6 +457,8 @@ module ResizeVeritas where
       k = cong (Vec A) $ DNP.m∸n+n≡m $ DNP.≰⇒≥ g
       konk : Vec A $ n ∸ m + m
       konk = flip coerce (xt x xs $ no g) $ sym k
+      konk₁ : Vec A $ n ∸ m + m
+      konk₁ = flip coerce (resize x xs) $ sym k
       konkydus : konk ≡ pad ++ xs
       konkydus = sym $ flipko (pad ++ xs) k
       dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
