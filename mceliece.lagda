@@ -429,8 +429,8 @@ module ResizeVeritas where
       coerce (sym $ sym k) xs' ≡⟨ flipko xs (sym k) ▹ sym ⟩
       xs ∎
       where
-      k = cong (Vec A) $ DNP.m∸n+n≡m g
-      xs' = coerce (sym k) xs
+      k = DNP.m∸n+n≡m g ▹ cong (Vec A)
+      xs' = xs ▹ coerce (sym k)
       konk : Vec A $ m ∸ n + n
       konk = take (m ∸ n) xs' ++ xt x xs (yes g)
       konk₁ : Vec A $ m ∸ n + n
@@ -456,11 +456,11 @@ module ResizeVeritas where
       pad = replicate x
       k = cong (Vec A) $ DNP.m∸n+n≡m $ DNP.≰⇒≥ g
       konk : Vec A $ n ∸ m + m
-      konk = flip coerce (xt x xs $ no g) $ sym k
+      konk = xt x xs (no g) ▹ coerce (sym k)
       konk₁ : Vec A $ n ∸ m + m
-      konk₁ = flip coerce (resize x xs) $ sym k
+      konk₁ = resize x xs ▹ coerce (sym k)
       konkydus : konk ≡ pad ++ xs
-      konkydus = sym $ flipko (pad ++ xs) k
+      konkydus = flipko (pad ++ xs) k ▹ sym
       dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
               → (x : Vec A m)
               → (z : Vec A n)
