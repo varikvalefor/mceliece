@@ -424,9 +424,9 @@ module ResizeVeritas where
                  (take (m ∸ n) xs' ++ resize x xs)))
     dropis {_} {m} {n} {A} x xs g = sym $ begin
       coerce k konk₁ ≡⟨ {!!} ⟩
-      coerce k konk ≡⟨ cong (coerce k) $ DVP.take-drop-id (m ∸ n) xs' ⟩
-      coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
-      coerce (sym $ sym k) xs' ≡⟨ sym $ flipko xs $ sym k ⟩
+      coerce k konk ≡⟨ DVP.take-drop-id (m ∸ n) xs' ▹ cong (coerce k) ⟩
+      coerce k xs' ≡⟨ symref k ▹ cong (flip coerce xs') ⟩
+      coerce (sym $ sym k) xs' ≡⟨ flipko xs (sym k) ▹ sym ⟩
       xs ∎
       where
       k = cong (Vec A) $ DNP.m∸n+n≡m g
@@ -450,7 +450,7 @@ module ResizeVeritas where
     takis {_} {m} {n} {A} x xs g = sym $ begin
       drop (n ∸ m) konk₁ ≡⟨ {!!} ⟩
       drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop $ n ∸ m) ⟩
-      drop (n ∸ m) (pad ++ xs) ≡⟨ sym $ dropdus pad xs ⟩
+      drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ▹ sym ⟩
       xs ∎
       where
       pad = replicate x
