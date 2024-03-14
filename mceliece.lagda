@@ -333,6 +333,17 @@ coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
 coerce refl = id
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{coerce}.\ mapti}
+
+\begin{code}
+module CoerceVeritas where
+  flipko : ∀ {a} → {A B : Set a}
+         → (x : A)
+         → (d : A ≡ B)
+         → x ≡_ $ coerce d x ▹ coerce (sym d)
+  flipko _ refl = refl
+\end{code}
+
 \section{la'oi .\F{resize}.}
 ni'o ga jonai la'o zoi.\ \F{\AgdaUnderscore{}++\AgdaUnderscore}\ \OpF \$\ \F{replicate} \B t\ .zoi.\ du ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B m\Sym\} \Sym\{\B n\Sym\}\ \B t\ .zoi.\ gi ga je ctaipe la'o zoi.\ \B n\ \OpF{ℕ.≤}\ \B m\ .zoi.\ gi ko'a du la'o zoi.\ \F{drop}\ \OpF \$\ \B m\ \OpF ∸\ \B n\ .zoi.
 
@@ -373,11 +384,10 @@ resize {_} {m} {n} {A} x xs = xt $ n ℕ.≤? m
   -- ja zo'e ki'u le su'u vlaba'u fi zoi glibau.
   -- LATIN MAJUSCULE MIKE .glibau.
 
-  flipko : ∀ {a} → {A B : Set a}
-         → (x : A)
-         → (d : A ≡ B)
-         → x ≡_ $ coerce d x ▹ coerce (sym d)
-  flipko _ refl = refl
+  open CoerceVeritas
+    using (
+      flipko
+    )
 
   dropis : (g : n ℕ.≤ m)
          → let v≡v = sym $ cong (Vec A) $ DNP.m∸n+n≡m g in
