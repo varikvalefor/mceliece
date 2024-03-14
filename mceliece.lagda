@@ -381,9 +381,27 @@ module Resize where
   resize : ∀ {a} → {m n : ℕ} → {A : Set a}
          → A → Vec A m → Vec A n
   resize {_} {m} {n} {A} x xs = xt x xs $ n ℕ.≤? m
-    where
-    open ≡-Reasoning
 
+open Resize
+  using (
+    resize
+  )
+\end{code}
+
+\subsection{le su'u pilno le la'oi .\F{xt}.\ co'e jenai lo zo'oi .\AgdaKeyword{with}.\ co'e}
+ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu ciksi la'oi .\F{flipko}.\ je zo'e
+
+.i la .varik.\ cu milxe le ka ce'u se fegli ko'a\ldots kei jenai ku'i cu birti lo du'u ma kau mapti la'oi .\F{flipko}.\ je zo'e je cu mleca ko'a le ka ce'u fegli  .i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
+
+.i la .varik.\ cu cusku dei ba le nu vo'a troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo du'u tcidu dei cu .indika le du'u fliba
+
+\subsubsection{le se zvati}
+ni'o xu cadga fa lo nu ko'a goi la'au le se zvati li'u me'oi .Agda.\ pinka\sds  .i la'oi .\F{resize}.\ du lo ro se srana be ko'a
+
+\subsection{le ctaipe be le su'u la'oi .\F{resize}.\ mapti}
+
+\begin{code}
+module ResizeVeritas where
     -- ni'o la .varik. cu djica ko'a goi lo nu
     -- zoi zoi. resize x xs .zoi. ja zo'e je zo'e cu basti
     -- zoi zoi. xt (yes g) .zoi. je zo'e
@@ -403,12 +421,19 @@ module Resize where
     -- ja zo'e ki'u le su'u vlaba'u fi zoi glibau.
     -- LATIN MAJUSCULE MIKE .glibau.
 
+    open Resize
+
     open CoerceVeritas
       using (
         flipko
       )
 
-    dropis : (g : n ℕ.≤ m)
+    open ≡-Reasoning
+
+    dropis : ∀ {a} → {m n : ℕ} → {A : Set a}
+           → (x : A)
+           → (xs : Vec A m)
+           → (g : n ℕ.≤ m)
            → let v≡v = sym $ cong (Vec A) $ DNP.m∸n+n≡m g in
              let xs' = coerce v≡v xs in
              (_≡_
@@ -416,7 +441,7 @@ module Resize where
                (coerce
                  (cong (Vec A) $ DNP.m∸n+n≡m g)
                  (take (m ∸ n) xs' ++ xt x xs (yes g))))
-    dropis g = sym $ begin
+    dropis {_} {m} {n} {A} x xs g = sym $ begin
       coerce k konk ≡⟨ cong (coerce k) $ DVP.take-drop-id (m ∸ n) xs' ⟩
       coerce k xs' ≡⟨ cong (flip coerce xs') $ symref k ⟩
       coerce (sym $ sym k) xs' ≡⟨ sym $ flipko xs $ sym k ⟩
@@ -431,11 +456,14 @@ module Resize where
              → t ≡ sym (sym t)
       symref refl = refl
 
-    takis : (g : ¬ (n ℕ.≤ m))
+    takis : ∀ {a} → {m n : ℕ} → {A : Set a}
+          → (x : A)
+          → (xs : Vec A m)
+          → (g : ¬ (n ℕ.≤ m))
           → let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
             let sink = sym $ cong (Vec A) k in
             xs ≡_ $ drop (n ∸ m) $ xt x xs (no g) ▹ coerce sink
-    takis g = sym $ begin
+    takis {_} {m} {n} {A} x xs g = sym $ begin
       drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop $ n ∸ m) ⟩
       drop (n ∸ m) (pad ++ xs) ≡⟨ sym $ dropdus pad xs ⟩
       xs ∎
@@ -454,22 +482,7 @@ module Resize where
       dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_≡_ _) (d xs z x)
         where
         d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
-
-open Resize
-  using (
-    resize
-  )
 \end{code}
-
-\subsection{le su'u pilno le la'oi .\F{xt}.\ co'e jenai lo zo'oi .\AgdaKeyword{with}.\ co'e}
-ni'o lo nu basti ko'a goi le la'oi .\F{xt}.\ co'e cu rinka lo nu nandu fa lo nu ciksi la'oi .\F{flipko}.\ je zo'e
-
-.i la .varik.\ cu milxe le ka ce'u se fegli ko'a\ldots kei jenai ku'i cu birti lo du'u ma kau mapti la'oi .\F{flipko}.\ je zo'e je cu mleca ko'a le ka ce'u fegli  .i ranji fa le nu la .varik.\ cu djica curmi lo nu stidi
-
-.i la .varik.\ cu cusku dei ba le nu vo'a troci lo nu basygau le zo'oi .\AgdaKeyword{with}.\ co'e ko'a\sds  .i lo du'u tcidu dei cu .indika le du'u fliba
-
-\subsubsection{le se zvati}
-ni'o xu cadga fa lo nu ko'a goi la'au le se zvati li'u me'oi .Agda.\ pinka\sds  .i la'oi .\F{resize}.\ du lo ro se srana be ko'a
 
 \section{la .\F{dist}.}
 ni'o la'o zoi.\ \F{dist} \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} \OpF \$ \F{length} \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei fo la'oi .\B{x}.\ cu drata lo meirmoi be ke'a bei fo la'oi .\B{x}.
