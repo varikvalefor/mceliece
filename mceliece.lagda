@@ -56,6 +56,7 @@
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\hspace{-0.3em}|}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
 \newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
+\newunicodechar{⊔}{\ensuremath{\mathnormal\sqcup}}
 
 % | ni'o tu'a le canlu lerfu cu milxe le ka ce'u fegli kei je ku'i cu mutce le ka ce'u filri'a lo nu na me'oi .overfull.
 %
@@ -538,6 +539,18 @@ b2f {m'} {n} = portenfa ∘ indice' ∘ mapᵥ f2f
 
 \subsection{le se zvati}
 ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be la'au \chapsname\ li'u\sds  .i ko'a mapti lo na ctaipe be ko'e goi la'o zoi.\ \D{Fin} \AgdaNumber 2\ .zoi.\ je ku'i cu co'e ja selbi'o zo'e poi ctaipe ko'e fa lo ro mapti be ke'a\sds  .i la .varik.\ na birti lo du'u ma kau ckupau je cu zmadu la'au \chapsname\ li'u le ka ko'a mapti ce'u
+
+\section{le su'u la'oi .\F{nbits}.\ srana la'oi .\F{b2f}.\ldots je la'oi .\F{toℕ}.}
+ni'o la .varik.\ cu stidi lo nu lo na jimpe cu tcidu lo lojbo je velcki be le fancu poi ke'a srana
+
+\begin{code}
+toℕ∘b2f∘nbits : {n : ℕ}
+              → (x : ℕ)
+              → (_≡_
+                  (x ℕ.⊔_ $ 2 ^ n ∸ 1)
+                  (toℕ $ b2f {n = n} $ nbits n))
+toℕ∘b2f∘nbits = {!!}
+\end{code}
 
 \section{la .\F{cunsof}.}
 ni'o la .\F{cunsof}.\ cu me'oi .\F{pure}.\ lo me'oi .pseudorandom.
