@@ -524,10 +524,13 @@ ni'o la'o zoi.\ \F{toℕ} \OpF \$ \F{b2f} \B x\ .zoi.\ selsni la'oi .\B x.\ noi 
 \begin{code}
 b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
 b2f {_} {0} _ = zero
-b2f {m'} {n@(suc _)} = portenfa ∘ indice ∘ mapᵥ f2f
+b2f {m'} {n@(suc _)} = portenfa ∘ indice' ∘ mapᵥ f2f
   where
   m = suc m'
   F = Fin $ suc _
+  indice' : ∀ {a} → {A : Set a} → {n : ℕ}
+          → Vec A n → Vec (A × Fin n) n
+  indice' = flip zipᵥ $ reverseᵥ $ allFin _
   portenfa : flip Vec n $ F × Fin _ → Fin $ m ^ n
   portenfa = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
     where
