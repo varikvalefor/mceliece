@@ -504,7 +504,7 @@ pausyk b' (suc e) = _ , sym mips
     z₁ = proj₁ $ pausyk b' e
     b = suc b'
     bizum = _+_ $ b * z₁
-    open Relation.Binary.PropositionalEquality.≡-Reasoning
+    open ≡-Reasoning
 \end{code}
 
 \section{la \F{panci}}
