@@ -542,7 +542,7 @@ ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be
 \section{la .\F{cunsof}.}
 ni'o la .\F{cunsof}.\ cu me'oi .\F{pure}.\ lo me'oi .pseudorandom.
 
-ni'o zo .cunsof. cmavlaka'i lu cunso .fin. li'u
+ni'o zo .cunsof.\ cmavlaka'i lu cunso .fin.\ li'u
 
 \begin{code}
 cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
