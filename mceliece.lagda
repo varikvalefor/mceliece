@@ -548,7 +548,7 @@ toℕ∘b2f∘nbits : {n : ℕ}
               → (x : ℕ)
               → (_≡_
                   (x ℕ.⊔_ $ 2 ^ n ∸ 1)
-                  (toℕ $ b2f {n = n} $ nbits n))
+                  (toℕ $ b2f {n = n} $ nbits x))
 toℕ∘b2f∘nbits = {!!}
 \end{code}
 
