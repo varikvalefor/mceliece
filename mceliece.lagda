@@ -179,6 +179,9 @@ open import Data.List
     _∷_;
     []
   )
+  renaming (
+    map to mapₗ
+  )
 open import Data.Digit
   using (
     toDigits
@@ -548,7 +551,7 @@ cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
   cunvek n = resize false ∘ fromList <$> IO.List.sequence (cunste n)
     where
     cunste : ℕ → List $ IO Bool
-    cunste = flip _∘_ Data.List.upTo $ map $ const $ IO.lift cunsob
+    cunste = flip _∘_ Data.List.upTo $ mapₗ $ const $ IO.lift cunsob
       where
       -- | ni'o cadga fa lo nu la'o zoi. cunsob n .zoi.
       -- me'oi .pure. lo me'oi .pseudorandom.
@@ -897,7 +900,7 @@ FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
       -- | ni'o zo .mlen. cmavlaka'i
       -- lu mleca la .n. li'u
       mlen : List $ Fin $ MCParam.n p
-      mlen = Data.List.mapMaybe id $ map mlen? $ toList d
+      mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList d
         where
         mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
       toVec? : List $ Fin $ MCParam.n p
