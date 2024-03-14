@@ -306,15 +306,6 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
   f zero = 0
 \end{code}
 
-\section{la'oi .\F{\AgdaUnderscore{}div2\AgdaUnderscore}.}
-ni'o ga jonai li no du la'oi .\B b.\ je ko'a goi la'o zoi.\ \B a \OpF{div2} \B b\ .zoi.\ gi ko'a dilcu la'oi .\B a.\ la'oi .\B b.
-
-\begin{code}
-_div2_ : Op₂ ℕ
-_ div2 0 = 0
-a div2 (suc b) = a div (suc b)
-\end{code}
-
 \section{la'oi .\F{f2f}.}
 ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B m\ .zoi.\ gi ga jonai ko'a goi la'o zoi.\ \F{toℕ}\ \B a\ .zoi.\ du ko'e goi la'o zoi.\ \F{toℕ} \OpF \$ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B n\Sym\} \B a\ .zoi.\ gi ga je ko'a dubjavmau la'oi .\B m.\ gi ko'e du la'oi .\B n.
 
