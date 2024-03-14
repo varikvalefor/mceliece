@@ -321,11 +321,11 @@ f2f {n = n} f = maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n
 
 \begin{code}
 module F2fVeritas where
-  zmadu : {m n : ℕ}
-        → (f : Fin m)
-        → ¬ (toℕ f ℕ.< suc n)
-        → n ≡_ $ toℕ $ f2f {n = n} f
-  zmadu = {!!}
+  dubjavmau : {m n : ℕ}
+            → (f : Fin m)
+            → ¬ (toℕ f ℕ.< suc n)
+            → n ≡_ $ toℕ $ f2f {n = n} f
+  dubjavmau = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
