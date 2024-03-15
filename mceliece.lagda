@@ -419,7 +419,7 @@ module ResizeVeritas where
              let xs' = xs ▹ coerce (sym v≡v) in
              xs ≡ (coerce v≡v $ take (m ∸ n) xs' ++ resize x xs)
     dropis {_} {m} {n} {A} x xs g = sym $ begin
-      coerce k konk₁ ≡⟨ {!!} ⟩
+      coerce k konk₁ ≡⟨ resize≡xt ▹ cong (coerce k ∘ _++_ _) ⟩
       coerce k konk ≡⟨ DVP.take-drop-id (m ∸ n) xs' ▹ cong (coerce k) ⟩
       coerce k xs' ≡⟨ symref k ▹ cong (flip coerce xs') ⟩
       coerce (sym $ sym k) xs' ≡⟨ flipko xs (sym k) ▹ sym ⟩
@@ -435,6 +435,8 @@ module ResizeVeritas where
              → (t : A ≡ B)
              → t ≡ sym (sym t)
       symref refl = refl
+      resize≡xt : resize x xs ≡ xt x xs (yes g)
+      resize≡xt = {!!}
 
     takis : ∀ {a} → {m n : ℕ} → {A : Set a}
           → (x : A)
