@@ -288,6 +288,7 @@ open import Relation.Binary.PropositionalEquality
 import Agda.Builtin.IO as ABIO
 import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
+import Data.Product.Properties as DPP
 import Data.List.Relation.Unary.All as Listal
 \end{code}
 
@@ -542,7 +543,7 @@ module IndiceVeritas where
         → (x : Vec A n)
         → (i : Fin n)
         → (lookup x i , i) ≡_ $ lookup (indice x) i
-  ordun = {!!}
+  ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ {!!}
 \end{code}
 
 \chap{le fancu co ke porsi be lo'i me'oi .bit.\ ke'e}
