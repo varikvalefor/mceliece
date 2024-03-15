@@ -548,6 +548,7 @@ module IndiceVeritas where
     open ≡-Reasoning
     R = begin
       lookup x i ≡⟨ {!!} ⟩
+      proj₁ (lookup (zipᵥ x $ allFin _) i) ≡⟨ refl ⟩
       proj₁ (lookup (indice x) i) ∎
 \end{code}
 
