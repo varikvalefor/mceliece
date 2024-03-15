@@ -546,10 +546,10 @@ module IndiceVeritas where
   ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ $ R , {!!}
     where
     open ≡-Reasoning
-    R = begin
-      lookup x i ≡⟨ {!!} ⟩
-      proj₁ (lookup (zipᵥ x $ allFin _) i) ≡⟨ refl ⟩
-      proj₁ (lookup (indice x) i) ∎
+    R = sym $ begin
+      proj₁ (lookup (indice x) i) ≡⟨ refl ⟩
+      proj₁ (lookup (zipᵥ x $ allFin _) i) ≡⟨ {!!} ⟩
+      lookup x i ∎
 \end{code}
 
 \chap{le fancu co ke porsi be lo'i me'oi .bit.\ ke'e}
