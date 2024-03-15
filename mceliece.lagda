@@ -52,11 +52,12 @@
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{δ}{\ensuremath{\mathnormal\delta}}
 \newunicodechar{⇒}{\ensuremath{\mathnormal\Rightarrow}}
+\newunicodechar{↔}{\ensuremath{\mathnormal\leftrightarrow}}
 \newunicodechar{≰}{\ensuremath{\mathnormal\nleq}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\hspace{-0.3em}|}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
 \newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
-\newunicodechar{⊔}{\ensuremath{\mathnormal\sqcup}}
+\newunicodechar{⊓}{\ensuremath{\mathnormal\sqcap}}
 
 % | ni'o tu'a le canlu lerfu cu milxe le ka ce'u fegli kei je ku'i cu mutce le ka ce'u filri'a lo nu na me'oi .overfull.
 %
