@@ -549,6 +549,7 @@ module IndiceVeritas where
     R = sym $ begin
       proj₁ (lookup (indice x) i) ≡⟨ refl ⟩
       proj₁ (lookup (zipᵥ x $ allFin _) i) ≡⟨ {!!} ⟩
+      proj₁ (lookup x i , lookup (allFin _) i) ≡⟨ refl ⟩
       lookup x i ∎
 \end{code}
 
