@@ -357,7 +357,7 @@ module CoerceVeritas where
   flipko : ∀ {a} → {A B : Set a}
          → (x : A)
          → (d : A ≡ B)
-         → x ≡_ $ coerce d x ▹ coerce (sym d)
+         → x ≡_ $ x ▹ coerce d ▹ coerce (sym d)
   flipko _ refl = refl
 \end{code}
 
