@@ -543,7 +543,7 @@ module IndiceVeritas where
         → (x : Vec A n)
         → (i : Fin n)
         → (lookup x i , i) ≡_ $ lookup (indice x) i
-  ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ $ R , {!!}
+  ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ $ R , P
     where
     open ≡-Reasoning
     R = sym $ begin
@@ -552,6 +552,11 @@ module IndiceVeritas where
       _ ≡⟨ DVP.lookup-zip i x _ ▹ cong proj₁ ⟩
       proj₁ (lookup x i , lookup (allFin _) i) ≡⟨ refl ⟩
       lookup x i ∎
+    P = sym $ begin
+      proj₂ (lookup (indice x) i) ≡⟨ refl ⟩
+      _ ≡⟨ DVP.lookup-zip i x _ ▹ cong proj₂ ⟩
+      lookup (allFin _) i ≡⟨ DVP.lookup-allFin i ⟩
+      i ∎
 \end{code}
 
 \chap{le fancu co ke porsi be lo'i me'oi .bit.\ ke'e}
