@@ -571,7 +571,7 @@ ni'o la .varik.\ cu stidi lo nu lo na jimpe cu tcidu lo lojbo je velcki be le fa
 toℕ∘b2f∘nbits : {n : ℕ}
               → (x : ℕ)
               → (_≡_
-                  (x ℕ.⊓_ $ 2 ^ n ∸ 1)
+                  (x ℕ.⊓_ $ {!!})
                   (toℕ $ b2f {n = n} $ nbits x))
 toℕ∘b2f∘nbits = {!!}
 \end{code}
