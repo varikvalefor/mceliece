@@ -447,7 +447,7 @@ module ResizeVeritas where
             let sink = sym $ cong (Vec A) k in
             xs ≡_ $ drop (n ∸ m) $ resize x xs ▹ coerce sink
     takis {_} {m} {n} {A} x xs g = sym $ begin
-      drop (n ∸ m) konk₁ ≡⟨ {!!} ⟩
+      drop (n ∸ m) konk₁ ≡⟨ resize≡xt ▹ cong (drop _ ∘ coerce (sym k)) ⟩
       drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop $ n ∸ m) ⟩
       drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ▹ sym ⟩
       xs ∎
@@ -468,6 +468,8 @@ module ResizeVeritas where
       dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_≡_ _) (d xs z x)
         where
         d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
+      resize≡xt : resize x xs ≡ xt x xs (no g)
+      resize≡xt = {!!}
 \end{code}
 
 \section{la .\F{dist}.}
