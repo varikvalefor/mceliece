@@ -417,9 +417,7 @@ module ResizeVeritas where
            → (g : n ℕ.≤ m)
            → let v≡v = DNP.m∸n+n≡m g ▹ cong (Vec A) in
              let xs' = xs ▹ coerce (sym v≡v) in
-             (_≡_
-               xs
-               (coerce v≡v $ take (m ∸ n) xs' ++ resize x xs))
+             xs ≡ (coerce v≡v $ take (m ∸ n) xs' ++ resize x xs)
     dropis {_} {m} {n} {A} x xs g = sym $ begin
       coerce k konk₁ ≡⟨ {!!} ⟩
       coerce k konk ≡⟨ DVP.take-drop-id (m ∸ n) xs' ▹ cong (coerce k) ⟩
