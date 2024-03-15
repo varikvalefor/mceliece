@@ -543,7 +543,7 @@ module IndiceVeritas where
         → (x : Vec A n)
         → (i : Fin n)
         → (lookup x i , i) ≡_ $ lookup (indice x) i
-  ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ {!!}
+  ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ $ {!!} , {!!}
 \end{code}
 
 \chap{le fancu co ke porsi be lo'i me'oi .bit.\ ke'e}
