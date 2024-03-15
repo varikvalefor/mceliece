@@ -548,7 +548,7 @@ module IndiceVeritas where
     open ≡-Reasoning
     R = sym $ begin
       proj₁ (lookup (indice x) i) ≡⟨ refl ⟩
-      proj₁ (lookup (zipᵥ x $ allFin _) i) ≡⟨ {!!} ⟩
+      proj₁ (lookup (zipᵥ x $ allFin _) i) ≡⟨ DVP.lookup-zip i x _ ▹ cong proj₁ ⟩
       proj₁ (lookup x i , lookup (allFin _) i) ≡⟨ refl ⟩
       lookup x i ∎
 \end{code}
