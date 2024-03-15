@@ -370,7 +370,7 @@ module Resize where
      → A → Vec A m → Dec (n ℕ.≤ m) → Vec A n
   xt {_} {m} {n} x xs (yes z) = drop (m ∸ n) $ coerce coc xs
     where
-    coc = sym $ cong (Vec _) $ DNP.m∸n+n≡m z
+    coc = DNP.m∸n+n≡m z ▹ cong (Vec _) ▹ sym
   xt {_} {m} {n} x xs (no z) = padin ++ xs ▹ coerce bitc
     where
     padin : Vec _ $ n ∸ m
