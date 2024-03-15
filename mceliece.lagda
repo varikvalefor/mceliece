@@ -534,6 +534,17 @@ indice : ∀ {a} → {A : Set a} → {n : ℕ}
 indice = flip zipᵥ $ allFin _
 \end{code}
 
+\subsection{le ctaipe be le su'u la .\F{indice}\ cu mapti}
+
+\begin{code}
+module IndiceVeritas where
+  ordun : ∀ {a} → {A : Set a} → {n : ℕ}
+        → (x : Vec A n)
+        → (i : Fin n)
+        → (lookup x i , i) ≡_ $ lookup (indice x) i
+  ordun = {!!}
+\end{code}
+
 \chap{le fancu co ke porsi be lo'i me'oi .bit.\ ke'e}
 
 \section{la'oi .\F{nbits}.}
