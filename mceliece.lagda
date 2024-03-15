@@ -431,13 +431,13 @@ module ResizeVeritas where
       konk = take (m ∸ n) xs' ++ xt x xs (yes g)
       konk₁ : Vec A $ m ∸ n + n
       konk₁ = take (m ∸ n) xs' ++ resize x xs
+      resize≡xt : resize x xs ≡ xt x xs (yes g)
+      resize≡xt = {!!}
       symref : ∀ {a} → {A : Set a}
              → {x z : A}
              → (t : x ≡ z)
              → t ≡ sym (sym t)
       symref refl = refl
-      resize≡xt : resize x xs ≡ xt x xs (yes g)
-      resize≡xt = {!!}
 
     takis : ∀ {a} → {m n : ℕ} → {A : Set a}
           → (x : A)
@@ -460,6 +460,8 @@ module ResizeVeritas where
       konk₁ = resize x xs ▹ coerce (sym k)
       konkydus : konk ≡ pad ++ xs
       konkydus = flipko (pad ++ xs) k ▹ sym
+      resize≡xt : resize x xs ≡ xt x xs (no g)
+      resize≡xt = {!!}
       dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
               → (x : Vec A m)
               → (z : Vec A n)
@@ -468,8 +470,6 @@ module ResizeVeritas where
       dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_≡_ _) (d xs z x)
         where
         d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
-      resize≡xt : resize x xs ≡ xt x xs (no g)
-      resize≡xt = {!!}
 \end{code}
 
 \section{la .\F{dist}.}
