@@ -546,6 +546,13 @@ module PanciVertias where
                → nu,iork x
                → panci x ≡ just x
   nu,iork→just = {!!}
+
+  just→nu,iork : ∀ {a} → {A : Set a}
+               → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
+               → (x : A)
+               → panci x ≡ just x
+               → nu,iork x
+  just→nu,iork = {!!}
 \end{code}
 
 \section{la .\F{indice}}
