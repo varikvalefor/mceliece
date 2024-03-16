@@ -327,7 +327,11 @@ module F2fVeritas where
             → (f : Fin m)
             → ¬ (toℕ f ℕ.< suc n)
             → n ≡_ $ toℕ $ f2f {n = n} f
-  dubjavmau = {!!}
+  dubjavmau {n = n} f j = sym $ begin
+    toℕ (f2f f) ≡⟨ {!!} ⟩
+    n ∎
+    where
+    open ≡-Reasoning
 
   mleca : {m n : ℕ}
         → (f : Fin m)
