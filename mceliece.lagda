@@ -329,10 +329,13 @@ module F2fVeritas where
             → ¬ (toℕ f ℕ.< suc n)
             → n ≡_ $ toℕ $ f2f {n = n} f
   dubjavmau {n = n} f j = sym $ begin
-    toℕ (f2f f) ≡⟨ {!!} ⟩
+    toℕ (f2f f) ≡⟨ refl ⟩
+    toℕ (maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ {!!} ⟩
     toℕ (fromℕ< $ DNP.n<1+n n) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     n ∎
     where
+    F = fromℕ<
+    d = F $ DNP.n<1+n _
     open ≡-Reasoning
 
   mleca : {m n : ℕ}
