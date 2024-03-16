@@ -668,6 +668,13 @@ _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ to
   toFin = f2f ∘ b2f
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{\AgdaUnderscore{}∧𝔹ℕ𝔽\AgdaUnderscore}.\ mapti}
+
+\begin{code}
+module ∧𝔹ℕ𝔽Veritas where
+  nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
+  nada = {!!}
+
 \section{la'oi .\F{hw𝕄}.}
 ni'o la'o zoi.\ \F{hw𝕄} \B t\ .zoi.\ grisumji lo'i ro co'e poi su'o da poi ke'a xi re co'e ja rajypau la'oi .\B{t}.\ zo'u ke'a mu'oi glibau.\ HAMMING weight .glibau.\ da
 
