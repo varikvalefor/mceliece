@@ -329,6 +329,7 @@ module F2fVeritas where
             → n ≡_ $ toℕ $ f2f {n = n} f
   dubjavmau {n = n} f j = sym $ begin
     toℕ (f2f f) ≡⟨ {!!} ⟩
+    toℕ (fromℕ< $ DNP.n<1+n n) ≡⟨ {!!} ⟩
     n ∎
     where
     open ≡-Reasoning
