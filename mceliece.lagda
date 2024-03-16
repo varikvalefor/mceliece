@@ -287,6 +287,7 @@ open import Truthbrary.Data.Vec.Matrix
 open import Relation.Binary.PropositionalEquality
 
 import Agda.Builtin.IO as ABIO
+import Data.Fin.Properties as DFP
 import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
 import Data.Product.Properties as DPP
@@ -329,7 +330,7 @@ module F2fVeritas where
             → n ≡_ $ toℕ $ f2f {n = n} f
   dubjavmau {n = n} f j = sym $ begin
     toℕ (f2f f) ≡⟨ {!!} ⟩
-    toℕ (fromℕ< $ DNP.n<1+n n) ≡⟨ {!!} ⟩
+    toℕ (fromℕ< $ DNP.n<1+n n) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     n ∎
     where
     open ≡-Reasoning
