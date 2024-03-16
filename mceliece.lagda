@@ -1119,7 +1119,7 @@ Decode : {p : MCParam}
        → Maybe $ Vec (Fin 2) $ MCParam.n p
 Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
   where
-  xv = λ f → Vec (Fin 2) $ f p
+  xv = Vec (Fin 2) ∘_ $ _$ p
   v : xv MCParam.n
   v = C₀ ++ replicate zero ▹ coerce kos
     where
