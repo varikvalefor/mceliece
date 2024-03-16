@@ -675,6 +675,17 @@ module ∧𝔹ℕ𝔽Veritas where
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
   nada = {!!}
 
+  dunli : {m : ℕ}
+        → (n : ℕ)
+        → (_≡_
+            (_∧𝔹ℕ𝔽_
+              {2 ^ m}
+              n
+              (fromℕ< {2 ^ m} {!!}))
+            (fromℕ< {n ℕ.⊓_ $ 2 ^ m} {!!}))
+  dunli = {!!}
+\end{code}
+
 \section{la'oi .\F{hw𝕄}.}
 ni'o la'o zoi.\ \F{hw𝕄} \B t\ .zoi.\ grisumji lo'i ro co'e poi su'o da poi ke'a xi re co'e ja rajypau la'oi .\B{t}.\ zo'u ke'a mu'oi glibau.\ HAMMING weight .glibau.\ da
 
