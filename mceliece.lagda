@@ -309,6 +309,17 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
   f zero = 0
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{hWV𝔽}.\ mapti}
+
+\begin{code}
+module HWV𝔽Veritas where
+  cykas : {a b : ℕ}
+        → (x : Vec (Fin $ suc b) a)
+        → (z : Fin _)
+        → hWV𝔽 (suc z ∷ x) ≡ ℕ.suc (hWV𝔽 x)
+  cykas = {!!}
+\end{code}
+
 \section{la'oi .\F{f2f}.}
 ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B m\ .zoi.\ gi ga jonai ko'a goi la'o zoi.\ \F{toℕ}\ \B a\ .zoi.\ du ko'e goi la'o zoi.\ \F{toℕ} \OpF \$ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B n\Sym\} \B a\ .zoi.\ gi ga je ko'a dubjavmau la'oi .\B m.\ gi ko'e du la'oi .\B n.
 
