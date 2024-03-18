@@ -384,7 +384,7 @@ module F𝔽Veritas where
   mleca {n} f x z m = begin
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
     toℕ (f2f $ fromℕ $ (f on toℕ) x z) ≡⟨ {!!} ⟩
-    toℕ {n} (fromℕ< {(f on toℕ) x z} {!!}) ≡⟨ {!!} ⟩
+    toℕ {n} (fromℕ< {(f on toℕ) x z} {!!}) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     f (toℕ x) (toℕ z) ∎
     where
     open ≡-Reasoning
