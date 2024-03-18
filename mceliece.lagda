@@ -432,74 +432,74 @@ ni'o xu cadga fa lo nu ko'a goi la'au le se zvati li'u me'oi .Agda.\ pinka\sds  
 
 \begin{code}
 module ResizeVeritas where
-    open Resize
+  open Resize
 
-    open CoerceVeritas
-      using (
-        flipko
-      )
+  open CoerceVeritas
+    using (
+      flipko
+    )
 
-    open ≡-Reasoning
+  open ≡-Reasoning
 
-    dropis : ∀ {a} → {m n : ℕ} → {A : Set a}
-           → (x : A)
-           → (xs : Vec A m)
-           → (g : n ℕ.≤ m)
-           → let v≡v = DNP.m∸n+n≡m g ▹ cong (Vec A) in
-             let xs' = xs ▹ coerce (sym v≡v) in
-             xs ≡ (take (m ∸ n) xs' ++ resize x xs ▹ coerce v≡v)
-    dropis {_} {m} {n} {A} x xs g = sym $ begin
-      coerce k konk₁ ≡⟨ resize≡xt ▹ cong (coerce k ∘ _++_ _) ⟩
-      coerce k konk ≡⟨ DVP.take-drop-id (m ∸ n) xs' ▹ cong (coerce k) ⟩
-      coerce k xs' ≡⟨ symref k ▹ cong (flip coerce xs') ⟩
-      coerce (sym $ sym k) xs' ≡⟨ flipko xs (sym k) ▹ sym ⟩
-      xs ∎
+  dropis : ∀ {a} → {m n : ℕ} → {A : Set a}
+         → (x : A)
+         → (xs : Vec A m)
+         → (g : n ℕ.≤ m)
+         → let v≡v = DNP.m∸n+n≡m g ▹ cong (Vec A) in
+           let xs' = xs ▹ coerce (sym v≡v) in
+           xs ≡ (take (m ∸ n) xs' ++ resize x xs ▹ coerce v≡v)
+  dropis {_} {m} {n} {A} x xs g = sym $ begin
+    coerce k konk₁ ≡⟨ resize≡xt ▹ cong (coerce k ∘ _++_ _) ⟩
+    coerce k konk ≡⟨ DVP.take-drop-id (m ∸ n) xs' ▹ cong (coerce k) ⟩
+    coerce k xs' ≡⟨ symref k ▹ cong (flip coerce xs') ⟩
+    coerce (sym $ sym k) xs' ≡⟨ flipko xs (sym k) ▹ sym ⟩
+    xs ∎
+    where
+    k = DNP.m∸n+n≡m g ▹ cong (Vec A)
+    xs' = xs ▹ coerce (sym k)
+    konk : Vec A $ m ∸ n + n
+    konk = take (m ∸ n) xs' ++ xt x xs (yes g)
+    konk₁ : Vec A $ m ∸ n + n
+    konk₁ = take (m ∸ n) xs' ++ resize x xs
+    resize≡xt : resize x xs ≡ xt x xs (yes g)
+    resize≡xt = {!!}
+    symref : ∀ {a} → {A : Set a}
+           → {x z : A}
+           → (t : x ≡ z)
+           → t ≡ sym (sym t)
+    symref refl = refl
+
+  takis : ∀ {a} → {m n : ℕ} → {A : Set a}
+        → (x : A)
+        → (xs : Vec A m)
+        → (g : ¬ (n ℕ.≤ m))
+        → let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
+          let sink = sym $ cong (Vec A) k in
+          xs ≡_ $ drop (n ∸ m) $ resize x xs ▹ coerce sink
+  takis {_} {m} {n} {A} x xs g = sym $ begin
+    drop (n ∸ m) konk₁ ≡⟨ resize≡xt ▹ cong (drop _ ∘ coerce (sym k)) ⟩
+    drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop _) ⟩
+    drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ▹ sym ⟩
+    xs ∎
+    where
+    pad = replicate x
+    k = DNP.m∸n+n≡m (DNP.≰⇒≥ g) ▹ cong (Vec A)
+    konk : Vec A $ n ∸ m + m
+    konk = xt x xs (no g) ▹ coerce (sym k)
+    konk₁ : Vec A $ n ∸ m + m
+    konk₁ = resize x xs ▹ coerce (sym k)
+    konkydus : konk ≡ pad ++ xs
+    konkydus = flipko (pad ++ xs) k ▹ sym
+    resize≡xt : resize x xs ≡ xt x xs (no g)
+    resize≡xt = {!!}
+    dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
+            → (x : Vec A m)
+            → (z : Vec A n)
+            → z ≡ drop (length x) (x ++ z)
+    dropdus [] _ = refl
+    dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_≡_ _) (d xs z x)
       where
-      k = DNP.m∸n+n≡m g ▹ cong (Vec A)
-      xs' = xs ▹ coerce (sym k)
-      konk : Vec A $ m ∸ n + n
-      konk = take (m ∸ n) xs' ++ xt x xs (yes g)
-      konk₁ : Vec A $ m ∸ n + n
-      konk₁ = take (m ∸ n) xs' ++ resize x xs
-      resize≡xt : resize x xs ≡ xt x xs (yes g)
-      resize≡xt = {!!}
-      symref : ∀ {a} → {A : Set a}
-             → {x z : A}
-             → (t : x ≡ z)
-             → t ≡ sym (sym t)
-      symref refl = refl
-
-    takis : ∀ {a} → {m n : ℕ} → {A : Set a}
-          → (x : A)
-          → (xs : Vec A m)
-          → (g : ¬ (n ℕ.≤ m))
-          → let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
-            let sink = sym $ cong (Vec A) k in
-            xs ≡_ $ drop (n ∸ m) $ resize x xs ▹ coerce sink
-    takis {_} {m} {n} {A} x xs g = sym $ begin
-      drop (n ∸ m) konk₁ ≡⟨ resize≡xt ▹ cong (drop _ ∘ coerce (sym k)) ⟩
-      drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop _) ⟩
-      drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ▹ sym ⟩
-      xs ∎
-      where
-      pad = replicate x
-      k = cong (Vec A) $ DNP.m∸n+n≡m $ DNP.≰⇒≥ g
-      konk : Vec A $ n ∸ m + m
-      konk = xt x xs (no g) ▹ coerce (sym k)
-      konk₁ : Vec A $ n ∸ m + m
-      konk₁ = resize x xs ▹ coerce (sym k)
-      konkydus : konk ≡ pad ++ xs
-      konkydus = flipko (pad ++ xs) k ▹ sym
-      resize≡xt : resize x xs ≡ xt x xs (no g)
-      resize≡xt = {!!}
-      dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
-              → (x : Vec A m)
-              → (z : Vec A n)
-              → z ≡ drop (length x) (x ++ z)
-      dropdus [] _ = refl
-      dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_≡_ _) (d xs z x)
-        where
-        d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
+      d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
 \end{code}
 
 \section{la .\F{dist}.}
