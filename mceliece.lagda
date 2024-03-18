@@ -530,6 +530,19 @@ dist x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
   z' = vec z
 \end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module DistVeritas where
+  dunliv : ∀ {a} → {A : Set a} → {n : ℕ}
+         → ⦃ E : Eq A ⦄
+         → (x z : Vec A n)
+         → (e₁ e₂ : A)
+         → e₁ ≡ e₂
+         → dist x z refl ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
+  dunliv = {!!}
+\end{code}
+
 \section{la .\F{pausyk}.}
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi la .\F{pausyk}.\ bau la .lojban.
 
