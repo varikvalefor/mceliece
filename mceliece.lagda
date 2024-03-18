@@ -372,6 +372,18 @@ f𝔽 : {n : ℕ} → Op₂ ℕ → Op₂ $ Fin $ suc n
 f𝔽 f = f2f ∘₂ fromℕ ∘₂ f on toℕ
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{f𝔽}.\ mapti}
+
+\begin{code}
+module F𝔽Veritas where
+  mleca : {n : ℕ}
+        → (f : Op₂ ℕ)
+        → (x z : Fin $ suc n)
+        → f (toℕ x) (toℕ z) ℕ.< suc n
+        → toℕ (f𝔽 f x z) ≡ f (toℕ x) (toℕ z)
+  mleca = {!!}
+\end{code}
+
 \section{la'oi .\F{coerce}.}
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{coerce}.\ bau la .lojban.
 
