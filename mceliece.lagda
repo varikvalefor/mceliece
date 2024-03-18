@@ -388,9 +388,8 @@ module F𝔽Veritas where
     f (toℕ x) (toℕ z) ∎
     where
     open import Relation.Binary.PropositionalEquality
-    tondus = fm F m' ▹ sym
+    tondus = F2fVeritas.mleca F m' ▹ sym
       where
-      fm = F2fVeritas.mleca
       F = fromℕ $ f (toℕ x) $ toℕ z
       m' = m ▹ subst (ℕ._< _) (DFP.toℕ-fromℕ _ ▹ sym)
     open ≡-Reasoning
