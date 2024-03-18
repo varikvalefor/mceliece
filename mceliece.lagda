@@ -382,6 +382,13 @@ module F𝔽Veritas where
         → f (toℕ x) (toℕ z) ℕ.< suc n
         → toℕ (f𝔽 f x z) ≡ f (toℕ x) (toℕ z)
   mleca = {!!}
+
+  dubjavmau : {n : ℕ}
+            → (f : Op₂ ℕ)
+            → (x z : Fin $ suc n)
+            → ¬_ $ (f on toℕ) x z ℕ.< suc n
+            → toℕ (f𝔽 f x z) ≡ n
+  dubjavmau = {!!}
 \end{code}
 
 \section{la'oi .\F{coerce}.}
