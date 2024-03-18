@@ -381,7 +381,7 @@ module F𝔽Veritas where
         → (x z : Fin $ suc n)
         → f (toℕ x) (toℕ z) ℕ.< suc n
         → toℕ (f𝔽 f x z) ≡ f (toℕ x) (toℕ z)
-  mleca {n} f x z m = begin
+  mleca f x z m = begin
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
     toℕ (f2f $ fromℕ $ f (toℕ x) $ toℕ z) ≡⟨ tondus ⟩
     toℕ (fromℕ $ f (toℕ x) $ toℕ z) ≡⟨ DFP.toℕ-fromℕ _ ⟩
