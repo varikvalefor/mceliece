@@ -547,7 +547,7 @@ module DistVeritas where
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi la .\F{pausyk}.\ bau la .lojban.
 
 \begin{code}
-pausyk : (b e : ℕ) → ∃ $ λ n → suc n ≡ suc b ^ e
+pausyk : (b e : ℕ) → ∃ $ (_≡ suc b ^ e) ∘ suc
 pausyk _ 0 = 0 , refl
 pausyk b' (suc e) = _ , sym mips
   where
