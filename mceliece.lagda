@@ -379,18 +379,18 @@ module F𝔽Veritas where
   mleca : {n : ℕ}
         → (f : Op₂ ℕ)
         → (x z : Fin $ suc n)
-        → f (toℕ x) (toℕ z) ℕ.< suc n
-        → toℕ (f𝔽 f x z) ≡ f (toℕ x) (toℕ z)
+        → (f on toℕ) x z ℕ.< suc n
+        → toℕ (f𝔽 f x z) ≡ (f on toℕ) x z
   mleca f x z m = begin
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
-    toℕ (f2f $ fromℕ $ f (toℕ x) $ toℕ z) ≡⟨ tondus ⟩
-    toℕ (fromℕ $ f (toℕ x) $ toℕ z) ≡⟨ DFP.toℕ-fromℕ _ ⟩
-    f (toℕ x) (toℕ z) ∎
+    toℕ (f2f $ fromℕ $ (f on toℕ) x z) ≡⟨ tondus ⟩
+    toℕ (fromℕ $ (f on toℕ) x z) ≡⟨ DFP.toℕ-fromℕ _ ⟩
+    (f on toℕ) x z ∎
     where
     tondus = F2fVeritas.mleca F m' ▹ sym
       where
-      F = fromℕ $ f (toℕ x) $ toℕ z
-      m' = m ▹ subst (ℕ._< _) (DFP.toℕ-fromℕ _ ▹ sym)
+      F = fromℕ $ (f on toℕ) x z
+      m' = m ▹_ $ subst (ℕ._< _) $ DFP.toℕ-fromℕ _ ▹ sym
     open ≡-Reasoning
 
   dubjavmau : {n : ℕ}
