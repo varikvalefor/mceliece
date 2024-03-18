@@ -383,12 +383,17 @@ module F𝔽Veritas where
         → toℕ (f𝔽 f x z) ≡ f (toℕ x) (toℕ z)
   mleca {n} f x z m = begin
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
-    toℕ (f2f $ fromℕ $ (f on toℕ) x z) ≡⟨ {!!} ⟩
-    toℕ {suc n} (fromℕ< $ proj₁ DY) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
+    toℕ (f2f $ fromℕ $ f (toℕ x) $ toℕ z) ≡⟨ tondus ⟩
+    toℕ (fromℕ $ f (toℕ x) $ toℕ z) ≡⟨ {!!} ⟩
     f (toℕ x) (toℕ z) ∎
     where
+    open import Relation.Binary.PropositionalEquality
+    tondus = fm F m' ▹ sym
+      where
+      fm = F2fVeritas.mleca
+      F = fromℕ $ f (toℕ x) $ toℕ z
+      m' = m ▹ subst (ℕ._< _) (DFP.toℕ-fromℕ _ ▹ sym)
     open ≡-Reasoning
-    DY = Relation.Nullary.Decidable.dec-yes(_ ℕ.<? _) m
 
   dubjavmau : {n : ℕ}
             → (f : Op₂ ℕ)
