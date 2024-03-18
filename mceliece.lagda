@@ -383,13 +383,14 @@ module F𝔽Veritas where
         → toℕ (f𝔽 f x z) ≡ (f on toℕ) x z
   mleca f x z m = begin
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
-    toℕ (f2f $ fromℕ $ (f on toℕ) x z) ≡⟨ tondus ⟩
-    toℕ (fromℕ $ (f on toℕ) x z) ≡⟨ DFP.toℕ-fromℕ _ ⟩
-    (f on toℕ) x z ∎
+    toℕ (f2f $ fromℕ $ f' x z) ≡⟨ tondus ⟩
+    toℕ (fromℕ $ f' x z) ≡⟨ DFP.toℕ-fromℕ _ ⟩
+    f' x z ∎
     where
+    f' = f on toℕ
     tondus = F2fVeritas.mleca F m' ▹ sym
       where
-      F = fromℕ $ (f on toℕ) x z
+      F = fromℕ $ f' x z
       m' = m ▹_ $ subst (ℕ._< _) $ DFP.toℕ-fromℕ _ ▹ sym
     open ≡-Reasoning
 
