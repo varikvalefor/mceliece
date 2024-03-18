@@ -384,7 +384,7 @@ module F𝔽Veritas where
   mleca {n} f x z m = begin
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
     toℕ (f2f $ fromℕ $ f (toℕ x) $ toℕ z) ≡⟨ tondus ⟩
-    toℕ (fromℕ $ f (toℕ x) $ toℕ z) ≡⟨ {!!} ⟩
+    toℕ (fromℕ $ f (toℕ x) $ toℕ z) ≡⟨ DFP.toℕ-fromℕ _ ⟩
     f (toℕ x) (toℕ z) ∎
     where
     open import Relation.Binary.PropositionalEquality
