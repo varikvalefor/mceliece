@@ -341,7 +341,8 @@ module F2fVeritas where
             → n ≡_ $ toℕ $ f2f {n = n} f
   dubjavmau {n = n} f j = sym $ begin
     toℕ (f2f f) ≡⟨ refl ⟩
-    toℕ (maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ DN ▹ proj₂ ▹ cong (toℕ {suc n} ∘ maybe F d ∘ decToMaybe) ⟩
+    toℕ (maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ refl ⟩
+    _ ≡⟨ DN ▹ proj₂ ▹ cong (toℕ {suc n} ∘ maybe F d ∘ decToMaybe) ⟩
     toℕ d ≡⟨ refl ⟩
     toℕ (fromℕ< $ DNP.n<1+n n) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     n ∎
