@@ -406,7 +406,11 @@ module F𝔽Veritas where
             → (x z : Fin $ suc n)
             → ¬_ $ (f on toℕ) x z ℕ.< suc n
             → toℕ (f𝔽 f x z) ≡ n
-  dubjavmau = {!!}
+  dubjavmau {n} f x z j = begin
+    toℕ (f𝔽 f x z) ≡⟨ {!!} ⟩
+    n ∎
+    where
+    open ≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{coerce}.}
