@@ -341,13 +341,14 @@ module F2fVeritas where
             → n ≡_ $ toℕ $ f2f {n = n} f
   dubjavmau {n = n} f j = sym $ begin
     toℕ (f2f f) ≡⟨ refl ⟩
-    toℕ (maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ {!!} ⟩
+    toℕ (maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ DN ▹ proj₂ ▹ cong (toℕ {suc n} ∘ maybe F d ∘ decToMaybe) ⟩
     toℕ d ≡⟨ refl ⟩
     toℕ (fromℕ< $ DNP.n<1+n n) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     n ∎
     where
     F = fromℕ<
     d = F $ DNP.n<1+n _
+    DN = Relation.Nullary.Decidable.dec-no (_ ℕ.<? _) j
     open ≡-Reasoning
 
   mleca : {m n : ℕ}
