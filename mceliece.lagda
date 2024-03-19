@@ -313,6 +313,11 @@ hWV𝔽 = sumᵥ ∘ mapᵥ f
 
 \begin{code}
 module HWV𝔽Veritas where
+  dunlis : {a b : ℕ}
+         → (x : Vec (Fin $ suc b) a)
+         → hWV𝔽 (zero ∷ x) ≡ hWV𝔽 x
+  dunlis = {!!}
+
   cykas : {a b : ℕ}
         → (x : Vec (Fin $ suc b) a)
         → (z : Fin _)
