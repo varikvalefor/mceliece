@@ -635,7 +635,10 @@ module PanciVertias where
                      → (x : A)
                      → ¬_ $ nu,iork x
                      → panci x ≡ nothing
-  ¬[nu,iork]→nothing = {!!}
+  ¬[nu,iork]→nothing x j = dec-no (_ ≟ _) j ▹ proj₂ ▹ cong K
+    where
+    K = mapₘ (λ _ → x) ∘ decToMaybe
+    dec-no = Relation.Nullary.Decidable.dec-no
 
   nothing→¬[nu,iork] : ∀ {a} → {A : Set a}
                      → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
