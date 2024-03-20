@@ -815,6 +815,14 @@ hw𝕄 : {a m n : ℕ} → 𝕄 (Fin a) m n → ℕ
 hw𝕄 = sumᵥ ∘ mapᵥ hWV𝔽
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{hw𝕄}.\ mapti}
+
+\begin{code}
+module Hw𝕄Veritas where
+  kunti : {a : ℕ} → (x : 𝕄 (Fin a) 0 0) → hw𝕄 x ≡ 0
+  kunti = {!!}
+\end{code}
+
 \section{la'oi .\F{moult}.}
 ni'o la'o zoi.\ \F{moult}\ \B a\ \B b\ .zoi.\ pilji la'oi .\B{a}.\ la'oi .\B{b}.
 
