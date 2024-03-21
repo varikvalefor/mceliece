@@ -365,7 +365,8 @@ module F2fVeritas where
     toℕ (f2f f) ≡⟨ refl ⟩
     toℕ (mFd $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ refl ⟩
     _ ≡⟨ DY ▹ proj₂ ▹ cong (toℕ ∘ mFd ∘ decToMaybe) ⟩
-    toℕ (mFd $ decToMaybe $ yes $ proj₁ DY) ≡⟨ {!!} ⟩
+    toℕ (mFd $ decToMaybe $ yes $ proj₁ DY) ≡⟨ refl ⟩
+    toℕ (F $ proj₁ DY) ≡⟨ {!!} ⟩
     toℕ f ∎
     where
     F = fromℕ<
