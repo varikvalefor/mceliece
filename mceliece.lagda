@@ -364,11 +364,13 @@ module F2fVeritas where
   mleca {n = n} f m = sym $ begin
     toℕ (f2f f) ≡⟨ refl ⟩
     toℕ (mFd $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ {!!} ⟩
+    toℕ (mFd $ decToMaybe $ yes $ proj₁ DY) ≡⟨ {!!} ⟩
     toℕ f ∎
     where
     F = fromℕ<
     d = F $ DNP.n<1+n _
     mFd = maybe F d
+    DY = Relation.Nullary.Decidable.dec-yes (toℕ f ℕ.<? suc n) m
     open ≡-Reasoning
 \end{code}
 
