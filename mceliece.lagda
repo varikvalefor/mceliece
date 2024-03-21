@@ -366,12 +366,10 @@ module F2fVeritas where
     toℕ (mFd $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ refl ⟩
     _ ≡⟨ DY ▹ proj₂ ▹ cong (toℕ ∘ mFd ∘ decToMaybe) ⟩
     toℕ (mFd $ decToMaybe $ yes $ proj₁ DY) ≡⟨ refl ⟩
-    toℕ (F $ proj₁ DY) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
+    toℕ (fromℕ< $ proj₁ DY) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     toℕ f ∎
     where
-    F = fromℕ<
-    d = F $ DNP.n<1+n _
-    mFd = maybe F d
+    mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n _
     DY = Relation.Nullary.Decidable.dec-yes (toℕ f ℕ.<? suc n) m
     open ≡-Reasoning
 \end{code}
