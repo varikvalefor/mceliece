@@ -363,11 +363,12 @@ module F2fVeritas where
         → toℕ f ≡_ $ toℕ $ f2f {n = n} f
   mleca {n = n} f m = sym $ begin
     toℕ (f2f f) ≡⟨ refl ⟩
-    toℕ (maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ {!!} ⟩
+    toℕ (mFd $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ {!!} ⟩
     toℕ f ∎
     where
     F = fromℕ<
     d = F $ DNP.n<1+n _
+    mFd = maybe F d
     open ≡-Reasoning
 \end{code}
 
