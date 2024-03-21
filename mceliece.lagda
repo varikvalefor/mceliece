@@ -408,9 +408,11 @@ module F𝔽Veritas where
             → ¬_ $ (f on toℕ) x z ℕ.< suc n
             → toℕ (f𝔽 f x z) ≡ n
   dubjavmau {n} f x z j = begin
-    toℕ (f𝔽 f x z) ≡⟨ {!!} ⟩
+    toℕ (f𝔽 f x z) ≡⟨ refl ⟩
+    toℕ (f2f $ fromℕ $ f' x z) ≡⟨ {!!} ⟩
     n ∎
     where
+    f' = f on toℕ
     open ≡-Reasoning
 \end{code}
 
