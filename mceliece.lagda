@@ -1265,4 +1265,23 @@ Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
          → Maybe $ B ≡ C
     dun? = decToMaybe $ _ ≟ _
 \end{code}
+
+\section{le su'u la'oi .\F{Decode}.\ srana la'oi .\F{Encode}.}
+
+\begin{code}
+module DecodeEncode where
+  Decode∘Encode : {p : MCParam}
+                → (e : Vec (Fin 2) $ MCParam.n p)
+                → (g : Public p)
+                → (dun : hWV𝔽 e ≡ MCParam.t p)
+                → (_≡_
+                    (just e)
+                    (Decode
+                      {p}
+                      (Encode p e g dun)
+                      g
+                      {!!}
+                      {!!}))
+  Decode∘Encode = {!!}
+\end{code}
 \end{document}
