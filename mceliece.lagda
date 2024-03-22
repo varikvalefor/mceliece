@@ -795,8 +795,12 @@ module ∧𝔹ℕ𝔽Veritas where
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
   nada {m} n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ {!!} ⟩
+    toFin (zipWithᵥ (f𝔽 _*_) (nbits n) Z) ≡⟨ {!!} ⟩
     zero ∎
     where
+    toFin : {n : ℕ} → Vec (Fin 2) $ suc n → Fin $ suc n
+    toFin = f2f ∘ b2f
+    Z = replicate zero
     open ≡-Reasoning
 
   dunli : {m : ℕ}
