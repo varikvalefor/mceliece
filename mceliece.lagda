@@ -797,6 +797,7 @@ module ∧𝔹ℕ𝔽Veritas where
   nada {m} n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ {!!} ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) Z) ≡⟨ {!!} ⟩
+    toFin Z ≡⟨ {!!} ⟩
     zero ∎
     where
     toFin : {n : ℕ} → Vec (Fin 2) $ suc n → Fin $ suc n
