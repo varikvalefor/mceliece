@@ -829,6 +829,12 @@ hw𝕄 = sumᵥ ∘ mapᵥ hWV𝔽
 module Hw𝕄Veritas where
   kunti : {a : ℕ} → (x : 𝕄 (Fin a) 0 0) → hw𝕄 x ≡ 0
   kunti = {!!}
+
+  jminas : {a m n : ℕ}
+         → (x : 𝕄 (Fin a) m n)
+         → (e : Vec (Fin a) m)
+         → hw𝕄 (e ∷ x) ≡ hWV𝔽 e + hw𝕄 x
+  jminas = {!!}
 \end{code}
 
 \section{la'oi .\F{moult}.}
