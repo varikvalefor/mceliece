@@ -834,7 +834,7 @@ module Hw𝕄Veritas where
          → (x : 𝕄 (Fin a) m n)
          → (e : Vec (Fin a) m)
          → hw𝕄 (e ∷ x) ≡ hWV𝔽 e + hw𝕄 x
-  jminas = {!!}
+  jminas _ _ = refl
 \end{code}
 
 \section{la'oi .\F{moult}.}
