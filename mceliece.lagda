@@ -318,7 +318,7 @@ module HWV𝔽Veritas where
         → (x : Vec (Fin $ suc b) a)
         → (z : Fin _)
         → hWV𝔽 (suc z ∷ x) ≡ ℕ.suc (hWV𝔽 x)
-  cykas = {!!}
+  cykas _ _ = refl
 \end{code}
 
 \section{la'oi .\F{f2f}.}
