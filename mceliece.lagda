@@ -406,6 +406,7 @@ module F𝔽Veritas where
   dubjavmau {n} f x z j = begin
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
     toℕ (f2f $ fromℕ $ f' x z) ≡⟨ {!!} ⟩
+    toℕ (fromℕ n) ≡⟨ DFP.toℕ-fromℕ _ ⟩
     n ∎
     where
     f' = f on toℕ
