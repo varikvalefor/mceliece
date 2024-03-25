@@ -804,13 +804,15 @@ module ∧𝔹ℕ𝔽Veritas where
   nada n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ {!!} ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) $ nbits 0) ≡⟨ {!!} ⟩
-    toFin (zipWithᵥ (f𝔽 _*_) (nbits n) Z) ≡⟨ {!!} ⟩
+    toFin (zipWithᵥ (f𝔽 _*_) (nbits n) Z) ≡⟨ zipdun ▹ cong toFin ⟩
     toFin Z ≡⟨ {!!} ⟩
     zero ∎
     where
     toFin : {n : ℕ} → Vec (Fin 2) $ suc n → Fin $ suc n
     toFin = f2f ∘ b2f
     Z = replicate zero
+    zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
+    zipdun = {!!}
     open ≡-Reasoning
 
   dunli : {m : ℕ}
