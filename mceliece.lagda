@@ -843,7 +843,7 @@ module ∧𝔹ℕ𝔽Veritas where
             (_∧𝔹ℕ𝔽_
               {2 ^ m}
               n
-              (fromℕ< $ DNP.n<1+n $ 2 ^ m))
+              (opposite zero))
             (fromℕ< {n ℕ.⊓_ $ 2 ^ m} $ DNP.m⊓n≤n _ _))
   dunli = {!!}
 \end{code}
