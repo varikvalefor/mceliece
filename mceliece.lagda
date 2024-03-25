@@ -801,7 +801,7 @@ _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ to
 \begin{code}
 module ∧𝔹ℕ𝔽Veritas where
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
-  nada {m} n = begin
+  nada n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ {!!} ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) Z) ≡⟨ {!!} ⟩
     toFin Z ≡⟨ {!!} ⟩
