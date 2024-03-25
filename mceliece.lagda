@@ -726,6 +726,15 @@ b2f {m'} {n} = portenfa ∘ indice' ∘ mapᵥ f2f
 \subsection{le se zvati}
 ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be la'au \chapsname\ li'u\sds  .i ko'a mapti lo na ctaipe be ko'e goi la'o zoi.\ \D{Fin} \AgdaNumber 2\ .zoi.\ je ku'i cu co'e ja selbi'o zo'e poi ctaipe ko'e fa lo ro mapti be ke'a\sds  .i la .varik.\ na birti lo du'u ma kau ckupau je cu zmadu la'au \chapsname\ li'u le ka ko'a mapti ce'u
 
+\subsection{le ctaipe be le su'u la'oi .\F{b2f}.\ mapti}
+
+\begin{code}
+module B2fVeritas where
+  non : (m n : ℕ)
+      → toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡ 0
+  non = {!!}
+\end{code}
+
 \section{le su'u la'oi .\F{nbits}.\ srana la'oi .\F{b2f}.\ldots je la'oi .\F{toℕ}.}
 ni'o la .varik.\ cu stidi lo nu lo na jimpe cu tcidu lo lojbo je velcki be le fancu poi ke'a srana
 
