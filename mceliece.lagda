@@ -698,6 +698,11 @@ nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 module NbitsVeritas where
   zeros : {n : ℕ} → nbits {n} 0 ≡ replicate zero
   zeros = {!!}
+
+  nth : {n x : ℕ}
+      → (f : Fin n)
+      → lookup (nbits {n} x) ≡ {!!}
+  nth = {!!}
 \end{code}
 
 \section{la'oi .\F{b2f}.}
