@@ -860,8 +860,11 @@ hw𝕄 = sumᵥ ∘ mapᵥ hWV𝔽
 
 \begin{code}
 module Hw𝕄Veritas where
-  kunti : {a : ℕ} → (x : 𝕄 (Fin a) 0 0) → hw𝕄 x ≡ 0
-  kunti = {!!}
+  kunti₁ : {a m : ℕ} → (x : 𝕄 (Fin a) m 0) → hw𝕄 x ≡ 0
+  kunti₁ = {!!}
+
+  kunti₂ : {a m : ℕ} → (x : 𝕄 (Fin a) 0 m) → hw𝕄 x ≡ 0
+  kunti₂ = {!!}
 
   jminas : {a m n : ℕ}
          → (x : 𝕄 (Fin a) m n)
