@@ -752,7 +752,11 @@ toℕ∘b2f∘nbits-≮ : {n : ℕ}
                 → (_≡_
                     (toℕ $ Data.Fin.opposite $ zero {n})
                     (toℕ $ b2f {n = suc n} $ nbits x))
-toℕ∘b2f∘nbits-≮ = {!!}
+toℕ∘b2f∘nbits-≮ {n} x j = sym $ begin
+  toℕ (b2f {n = suc n} $ nbits x) ≡⟨ {!!} ⟩
+  toℕ (Data.Fin.opposite zero) ∎
+  where
+  open ≡-Reasoning
 \end{code}
 
 \section{la .\F{cunsof}.}
