@@ -1040,7 +1040,7 @@ Irreducible {p} d = fromList? g
   fromList? : _ → _
   fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
     where
-    kofrol = λ c → fromList v ▹ coerce (cong (Vec _) c)
+    kofrol = λ c → fromList v ▹ coerce (c ▹ cong (Vec _))
 \end{code}
 
 \section{la'oi .\F{FieldOrdering}.}
