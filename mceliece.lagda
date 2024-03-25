@@ -566,9 +566,8 @@ module DistVeritas where
   dunliv : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
          → (x z : Vec A n)
-         → (e₁ e₂ : A)
-         → e₁ ≡ e₂
-         → dist x z refl ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
+         → (e : A)
+         → dist x z refl ≡ dist (e ∷ x) (e ∷ z) refl
   dunliv = {!!}
 \end{code}
 
