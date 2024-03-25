@@ -692,6 +692,14 @@ nbits : {n : ℕ} → ℕ → Vec (Fin 2) n
 nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{nbits}.\ mapti}
+
+\begin{code}
+module NbitsVeritas where
+  zeros : {n : ℕ} → nbits {n} 0 ≡ replicate zero
+  zeros = {!!}
+\end{code}
+
 \section{la'oi .\F{b2f}.}
 ni'o la'o zoi.\ \F{toℕ} \OpF \$ \F{b2f} \B x\ .zoi.\ selsni la'oi .\B x.\ noi .endi le me'oi .big.
 
