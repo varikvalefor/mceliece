@@ -857,6 +857,11 @@ module Hw𝕄Veritas where
   kunti₂ : {a m : ℕ} → (x : 𝕄 (Fin a) 0 m) → hw𝕄 x ≡ 0
   kunti₂ = {!!}
 
+  pav : {a m : ℕ}
+      → (e : Vec (Fin a) m)
+      → hw𝕄 (e ∷ []) ≡ hWV𝔽 e
+  pav = {!!}
+
   jminas : {a m n : ℕ}
          → (x : 𝕄 (Fin a) m n)
          → (e : Vec (Fin a) m)
