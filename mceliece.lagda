@@ -31,6 +31,7 @@
 \newunicodechar{ˡ}{\ensuremath{\mathnormal{^\AgdaFontStyle{l}}}}
 \newunicodechar{ʳ}{\ensuremath{\mathnormal{^\AgdaFontStyle{r}}}}
 \newunicodechar{≥}{\ensuremath{\mathnormal\geq}}
+\newunicodechar{≮}{\ensuremath{\mathnormal\nless}}
 \newunicodechar{ϕ}{\ensuremath{\mathnormal\phi}}
 \newunicodechar{∧}{\ensuremath{\mathnormal\wedge}}
 \newunicodechar{∣}{\ensuremath{\mathnormal |}}
@@ -739,12 +740,19 @@ module B2fVeritas where
 ni'o la .varik.\ cu stidi lo nu lo na jimpe cu tcidu lo lojbo je velcki be le fancu poi ke'a srana
 
 \begin{code}
-toℕ∘b2f∘nbits : {n : ℕ}
-              → (x : ℕ)
-              → (_≡_
-                  (x ℕ.⊓_ $ toℕ $ Data.Fin.opposite $ zero {n})
-                  (toℕ $ b2f {n = n} $ nbits x))
-toℕ∘b2f∘nbits = {!!}
+toℕ∘b2f∘nbits-< : {n : ℕ}
+                → (x : ℕ)
+                → x ℕ.< suc n
+                → x ≡_ $ toℕ $ b2f {n = suc n} $ nbits x
+toℕ∘b2f∘nbits-< = {!!}
+
+toℕ∘b2f∘nbits-≮ : {n : ℕ}
+                → (x : ℕ)
+                → ¬_ $ x ℕ.< suc n
+                → (_≡_
+                    (toℕ $ Data.Fin.opposite $ zero {n})
+                    (toℕ $ b2f {n = suc n} $ nbits x))
+toℕ∘b2f∘nbits-≮ = {!!}
 \end{code}
 
 \section{la .\F{cunsof}.}
