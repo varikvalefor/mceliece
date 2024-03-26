@@ -824,9 +824,11 @@ module ∧𝔹ℕ𝔽Veritas where
     toFin : {n : ℕ} → Vec (Fin 2) $ suc n → Fin $ suc n
     toFin = f2f ∘ b2f
     Z = replicate zero
-    zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
-    zipdun = {!!}
     open ≡-Reasoning
+    zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
+    zipdun = begin
+      zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ {!!} ⟩
+      Z ∎
 
   dunli : {m : ℕ}
         → (n : ℕ)
