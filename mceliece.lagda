@@ -324,6 +324,11 @@ module HWV𝔽Veritas where
         → (z : Fin _)
         → hWV𝔽 (suc z ∷ x) ≡ ℕ.suc (hWV𝔽 x)
   cykas _ _ = refl
+
+  dubjavme'a : {a b : ℕ}
+             → (x : Vec (Fin $ suc a) b)
+             → hWV𝔽 x ℕ.≤ b
+  dubjavme'a = {!!}
 \end{code}
 
 \section{la'oi .\F{f2f}.}
