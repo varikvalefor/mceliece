@@ -755,10 +755,11 @@ module B2fVeritas where
 ni'o la .varik.\ cu stidi lo nu lo na jimpe cu tcidu lo lojbo je velcki be le fancu poi ke'a srana
 
 \begin{code}
-toℕ∘b2f∘nbits : {n : ℕ}
-              → (x : ℕ)
-              → x ≡_ $ toℕ $ b2f {n = suc n} $ nbits x
-toℕ∘b2f∘nbits = {!!}
+module B2f-toℕ where
+  toℕ∘b2f∘nbits : {n : ℕ}
+                → (x : ℕ)
+                → x ≡_ $ toℕ $ b2f {n = suc n} $ nbits x
+  toℕ∘b2f∘nbits = {!!}
 \end{code}
 
 \section{la .\F{cunsof}.}
