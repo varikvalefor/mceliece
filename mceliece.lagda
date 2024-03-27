@@ -857,7 +857,15 @@ module ∧𝔹ℕ𝔽Veritas where
               n
               (opposite zero))
             (fromℕ< {n ℕ.⊓_ $ 2 ^ m} $ DNP.m⊓n≤n _ _))
-  dunli = {!!}
+  dunli {m} n = begin
+    n ∧𝔹ℕ𝔽 opposite zero ≡⟨ {!!} ⟩
+    toFin (zipWithᵥ (f𝔽 _*_) (nbits n) $ nbits toz) ≡⟨ {!!} ⟩
+    fromℕ< (DNP.m⊓n≤n _ _) ∎
+    where
+    toz = toℕ $ opposite $ zero {2 ^ m}
+    toFin : {n : ℕ} → Vec (Fin 2) $ suc n → Fin $ suc n
+    toFin = f2f ∘ b2f
+    open ≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
