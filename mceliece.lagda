@@ -743,6 +743,12 @@ module B2fVeritas where
   non : (m n : ℕ)
       → toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡ 0
   non = {!!}
+
+  mulj : (m n : ℕ)
+       → (x : Fin $ suc m)
+       → (xs : Vec (Fin $ suc m) n)
+       → toℕ (b2f $ x ∷ xs) ≡ toℕ (b2f xs) + toℕ x * suc m ^ n
+  mulj = {!!}
 \end{code}
 
 \section{le su'u la'oi .\F{nbits}.\ srana la'oi .\F{b2f}.\ldots je la'oi .\F{toℕ}.}
