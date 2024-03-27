@@ -827,7 +827,8 @@ module ∧𝔹ℕ𝔽Veritas where
     n ∧𝔹ℕ𝔽 zero ≡⟨ {!!} ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) $ nbits 0) ≡⟨ {!!} ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) Z) ≡⟨ zipdun ▹ cong toFin ⟩
-    toFin Z ≡⟨ {!!} ⟩
+    toFin Z ≡⟨ refl ⟩
+    f2f (b2f Z) ≡⟨ {!!} ⟩
     zero ∎
     where
     toFin : {n : ℕ} → Vec (Fin 2) $ suc n → Fin $ suc n
