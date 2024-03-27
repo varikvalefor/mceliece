@@ -881,7 +881,14 @@ module Hw𝕄Veritas where
   pav : {a m : ℕ}
       → (e : Vec (Fin a) m)
       → hw𝕄 (e ∷ []) ≡ hWV𝔽 e
-  pav = {!!}
+  pav e = begin
+    hw𝕄 (e ∷ []) ≡⟨ refl ⟩
+    sumᵥ (mapᵥ hWV𝔽 $ e ∷ []) ≡⟨ refl ⟩
+    sumᵥ (hWV𝔽 e ∷ []) ≡⟨ refl ⟩
+    hWV𝔽 e + 0 ≡⟨ DNP.+-identityʳ _ ⟩
+    hWV𝔽 e ∎
+    where
+    open ≡-Reasoning
 
   jminas : {a m n : ℕ}
          → (x : 𝕄 (Fin a) m n)
