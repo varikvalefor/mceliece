@@ -825,7 +825,8 @@ module ∧𝔹ℕ𝔽Veritas where
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
   nada n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ {!!} ⟩
-    toFin (zipWithᵥ (f𝔽 _*_) (nbits n) $ nbits 0) ≡⟨ NbitsVeritas.zeros ▹ cong (toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits n)) ⟩
+    toFin (zipWithᵥ (f𝔽 _*_) (nbits n) $ nbits 0) ≡⟨ refl ⟩
+    _ ≡⟨ NbitsVeritas.zeros ▹ cong (toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits n)) ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) Z) ≡⟨ zipdun ▹ cong toFin ⟩
     toFin Z ≡⟨ refl ⟩
     f2f (b2f Z) ≡⟨ {!!} ⟩
