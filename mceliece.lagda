@@ -1241,7 +1241,7 @@ Encap {p} = uncurry (Encap' {p}) IO.<$> FixedWeight {p}
 \section{la'oi .\F{SeededKeyGen}.}
 ni'o \specimp{SeededKeyGen}
 
-.i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re lo mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
+.i la'o zoi.\ \F{SeededKeyGen} \B p \B δ\ .zoi.\ .orsi li re ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
 ni'o me'oi .recurse.  .i \termineidyr{SeededKeyGen}
 
