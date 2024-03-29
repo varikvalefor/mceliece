@@ -835,7 +835,7 @@ module ∧𝔹ℕ𝔽Veritas where
     toFin (zW $ nbits 0) ≡⟨ NbitsVeritas.zeros ▹ cong (toFin ∘ zW) ⟩
     toFin (zW Z) ≡⟨ zipdun ▹ cong toFin ⟩
     toFin Z ≡⟨ refl ⟩
-    f2f (b2f Z) ≡⟨ {!!} ⟩
+    f2f (b2f Z) ≡⟨ f2f-zero (b2f Z) $ B2fVeritas.non 0 $ length Z ⟩
     zero ∎
     where
     zW = zipWithᵥ (f𝔽 _*_) $ nbits n
@@ -843,6 +843,11 @@ module ∧𝔹ℕ𝔽Veritas where
     toFin = f2f ∘ b2f
     Z = replicate zero
     open ≡-Reasoning
+    f2f-zero : {n m : ℕ}
+             → (x : Fin n)
+             → toℕ x ≡ 0
+             → f2f {n = m} x ≡ zero
+    f2f-zero = {!!}
     zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
     zipdun = begin
       zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ {!!} ⟩
