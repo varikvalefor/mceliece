@@ -847,7 +847,9 @@ module ∧𝔹ℕ𝔽Veritas where
              → (x : Fin n)
              → toℕ x ≡ 0
              → f2f {n = m} x ≡ zero
-    f2f-zero = {!!}
+    f2f-zero x d = begin
+      f2f x ≡⟨ {!!} ⟩
+      zero ∎
     zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
     zipdun = begin
       zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ {!!} ⟩
