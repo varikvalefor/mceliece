@@ -515,7 +515,19 @@ module ResizeVeritas where
     konk₁ : Vec A $ m ∸ n + n
     konk₁ = take (m ∸ n) xs' ++ resize x xs
     resize≡xt : resize x xs ≡ xt x xs (yes g)
-    resize≡xt = {!!}
+    resize≡xt = begin
+      resize x xs ≡⟨ refl ⟩
+      xt x xs (_ ℕ.≤? _) ≡⟨ DY ▹ proj₂ ▹ cong (xt x xs) ⟩
+      xt x xs (yes $ proj₁ DY) ≡⟨ refl ⟩
+      _ ≡⟨ zmadekydu'i (proj₁ DY) g ▹ cong (xt x xs ∘ yes) ⟩
+      xt x xs (yes g) ∎
+      where
+      DY = Relation.Nullary.Decidable.dec-yes (_ ℕ.≤? _) g
+      zmadekydu'i : {m n : ℕ}
+                  → (x z : m ℕ.≤ n)
+                  → x ≡ z
+      zmadekydu'i ℕ.z≤n ℕ.z≤n = refl
+      zmadekydu'i (ℕ.s≤s x) (ℕ.s≤s z) = zmadekydu'i x z ▹ cong ℕ.s≤s
     symref : ∀ {a} → {A : Set a}
            → {x z : A}
            → (t : x ≡ z)
