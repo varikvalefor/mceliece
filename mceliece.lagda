@@ -580,7 +580,11 @@ module DistVeritas where
          → (x z : Vec A n)
          → (e : A)
          → dist x z refl ≡ dist (e ∷ x) (e ∷ z) refl
-  dunliv = {!!}
+  dunliv x z e = sym $ begin
+    dist (e ∷ x) (e ∷ z) refl ≡⟨ {!!} ⟩
+    dist x z refl ∎
+    where
+    open ≡-Reasoning
 \end{code}
 
 \section{la .\F{pausyk}.}
