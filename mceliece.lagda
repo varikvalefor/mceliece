@@ -328,7 +328,8 @@ module HWV𝔽Veritas where
   dubjavme'a : {a b : ℕ}
              → (x : Vec (Fin $ suc a) b)
              → hWV𝔽 x ℕ.≤ b
-  dubjavme'a = {!!}
+  dubjavme'a [] = {!!}
+  dubjavme'a (x ∷ xs) = {!!}
 \end{code}
 
 \section{la'oi .\F{f2f}.}
