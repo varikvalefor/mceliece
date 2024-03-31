@@ -538,7 +538,9 @@ module ResizeVeritas where
         → (x : A)
         → (xs : Vec A m)
         → (g : ¬ (n ℕ.≤ m))
-        → let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
+        → let k = DNP.m∸n+n≡m $
+                  DNP.≰⇒≥ $ proj₁ $
+                  Relation.Nullary.Decidable.dec-no (_ ℕ.≤? _) g in
           let sink = sym $ cong (Vec A) k in
           xs ≡_ $ drop (n ∸ m) $ resize x xs ▹ coerce sink
   takis {_} {m} {n} {A} x xs g = sym $ begin
@@ -547,15 +549,16 @@ module ResizeVeritas where
     drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ▹ sym ⟩
     xs ∎
     where
+    DN = Relation.Nullary.Decidable.dec-no (n ℕ.≤? m) g
     pad = replicate x
-    k = DNP.m∸n+n≡m (DNP.≰⇒≥ g) ▹ cong (Vec A)
+    k = DNP.m∸n+n≡m (DNP.≰⇒≥ $ proj₁ DN) ▹ cong (Vec A)
     konk : Vec A $ n ∸ m + m
-    konk = xt x xs (no g) ▹ coerce (sym k)
+    konk = xt x xs (no $ proj₁ DN) ▹ coerce (sym k)
     konk₁ : Vec A $ n ∸ m + m
     konk₁ = resize x xs ▹ coerce (sym k)
     konkydus : konk ≡ pad ++ xs
     konkydus = flipko (pad ++ xs) k ▹ sym
-    resize≡xt : resize x xs ≡ xt x xs (no g)
+    resize≡xt : resize x xs ≡ xt x xs (no $ proj₁ DN)
     resize≡xt = {!!}
     dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
             → (x : Vec A m)
