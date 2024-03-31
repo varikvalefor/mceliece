@@ -559,7 +559,7 @@ module ResizeVeritas where
     konkydus : konk ≡ pad ++ xs
     konkydus = flipko (pad ++ xs) k ▹ sym
     resize≡xt : resize x xs ≡ xt x xs (no $ proj₁ DN)
-    resize≡xt = {!!}
+    resize≡xt = DN ▹ proj₂ ▹ cong (xt x xs)
     dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
             → (x : Vec A m)
             → (z : Vec A n)
