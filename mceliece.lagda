@@ -329,7 +329,8 @@ module HWV𝔽Veritas where
              → (x : Vec (Fin $ suc a) b)
              → hWV𝔽 x ℕ.≤ b
   dubjavme'a [] = ℕ.z≤n
-  dubjavme'a (x ∷ xs) = {!!}
+  dubjavme'a (zero ∷ xs) = {!!}
+  dubjavme'a (suc n ∷ xs) = {!!}
 \end{code}
 
 \section{la'oi .\F{f2f}.}
