@@ -581,9 +581,11 @@ module DistVeritas where
          → (e : A)
          → dist x z refl ≡ dist (e ∷ x) (e ∷ z) refl
   dunliv x z e = sym $ begin
-    dist (e ∷ x) (e ∷ z) refl ≡⟨ {!!} ⟩
+    dist (e ∷ x) (e ∷ z) refl ≡⟨ refl ⟩
+    Vec≤.length (filter drata $ zipᵥ (e ∷ x) (e ∷ z)) ≡⟨ {!!} ⟩
     dist x z refl ∎
     where
+    drata = _≟_ false ∘ isYes ∘ uncurry _≟_
     open ≡-Reasoning
 \end{code}
 
