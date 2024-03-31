@@ -538,9 +538,10 @@ module ResizeVeritas where
         → (x : A)
         → (xs : Vec A m)
         → (g : ¬ (n ℕ.≤ m))
-        → let k = DNP.m∸n+n≡m $
+        → let DN = Relation.Nullary.Decidable.dec-no (_ ℕ.≤? _) g in
+          let k = DNP.m∸n+n≡m $
                   DNP.≰⇒≥ $ proj₁ $
-                  Relation.Nullary.Decidable.dec-no (_ ℕ.≤? _) g in
+                  DN in
           let sink = sym $ cong (Vec A) k in
           xs ≡_ $ drop (n ∸ m) $ resize x xs ▹ coerce sink
   takis {_} {m} {n} {A} x xs g = sym $ begin
