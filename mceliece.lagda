@@ -311,7 +311,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ (λ {(suc _) → 1; zero → 0})
 \begin{code}
 module HWV𝔽Veritas where
   kunti : {a : ℕ}
-        → hWV𝔽 (zero {a} ∷ []) ≡ 0
+        → hWV𝔽 (Vec (Fin a) 0 ∋ []) ≡ 0
   kunti = refl
 
   dunlis : {a b : ℕ}
