@@ -418,12 +418,13 @@ module F𝔽Veritas where
   dubjavmau {n} f x z j = begin
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
     toℕ (f2f $ fromℕ $ f' x z) ≡⟨ refl ⟩
-    toℕ (mFd $ decToMaybe $ f' x z ℕ.<? _ ) ≡⟨ {!!} ⟩
-    toℕ (fromℕ n) ≡⟨ DFP.toℕ-fromℕ _ ⟩
+    toℕ (mFd $ decToMaybe $ f'' x z ℕ.<? _ ) ≡⟨ {!!} ⟩
+    toℕ (fromℕ< $ DNP.n<1+n _ ) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     n ∎
     where
     mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n _
     f' = f on toℕ
+    f'' = toℕ ∘₂ fromℕ ∘₂ f'
     open ≡-Reasoning
 \end{code}
 
