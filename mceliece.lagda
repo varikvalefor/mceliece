@@ -418,7 +418,8 @@ module F𝔽Veritas where
   dubjavmau {n} f x z j = begin
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
     toℕ (f2f $ fromℕ $ f' x z) ≡⟨ refl ⟩
-    toℕ (mFd $ decToMaybe $ f'' x z ℕ.<? _ ) ≡⟨ DN ▹ proj₂ ▹  cong (toℕ ∘ mFd ∘ decToMaybe) ⟩
+    toℕ (mFd $ decToMaybe $ f'' x z ℕ.<? _ ) ≡⟨ refl ⟩
+    _ ≡⟨ DN ▹ proj₂ ▹  cong (toℕ ∘ mFd ∘ decToMaybe) ⟩
     toℕ (fromℕ< $ DNP.n<1+n _ ) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     n ∎
     where
