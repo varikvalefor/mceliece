@@ -618,6 +618,12 @@ module DistVeritas where
          → ¬_ $ e₁ ≡ e₂
          → ℕ.suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
   dratav = {!!}
+
+  mlecav : ∀ {a} → {A : Set a} → {n : ℕ}
+         → ⦃ E : Eq A ⦄
+         → (x z : Vec A n)
+         → dist x z refl ℕ.≤ n
+  mlecav = {!!}
 \end{code}
 
 \section{la .\F{pausyk}.}
