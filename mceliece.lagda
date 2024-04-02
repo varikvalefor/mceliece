@@ -423,6 +423,7 @@ module F𝔽Veritas where
     toℕ (fromℕ< $ DNP.n<1+n _ ) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     n ∎
     where
+    mFd : _ → Fin $ suc n
     mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n _
     f' = f on toℕ
     f'' = toℕ ∘₂ fromℕ ∘₂ f'
