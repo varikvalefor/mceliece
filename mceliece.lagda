@@ -427,7 +427,9 @@ module F𝔽Veritas where
     mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n _
     f' = f on toℕ
     f'' = toℕ ∘₂ fromℕ ∘₂ f'
-    DN = Relation.Nullary.Decidable.dec-no (f'' x z ℕ.<? _) {!!}
+    DN = Relation.Nullary.Decidable.dec-no (f'' x z ℕ.<? _) j'
+      where
+      j' = j ▹ subst (λ t → ¬ (t ℕ.< suc n)) {!!}
     open ≡-Reasoning
 \end{code}
 
