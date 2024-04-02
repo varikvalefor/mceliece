@@ -607,6 +607,14 @@ module DistVeritas where
     where
     drata = _≟_ false ∘ isYes ∘ uncurry _≟_
     open ≡-Reasoning
+
+  dratav : ∀ {a} → {A : Set a} → {n : ℕ}
+         → ⦃ E : Eq A ⦄
+         → (x z : Vec A n)
+         → (e₁ e₂ : A)
+         → ¬_ $ e₁ ≡ e₂
+         → ℕ.suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
+  dratav = {!!}
 \end{code}
 
 \section{la .\F{pausyk}.}
