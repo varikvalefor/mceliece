@@ -429,7 +429,7 @@ module F𝔽Veritas where
     f'' = toℕ ∘₂ fromℕ ∘₂ f'
     DN = Relation.Nullary.Decidable.dec-no (f'' x z ℕ.<? _) j'
       where
-      j' = j ▹ subst (λ t → ¬ (t ℕ.< suc n)) {!!}
+      j' = j ▹ subst (λ t → ¬ (t ℕ.< suc n)) (DFP.toℕ-fromℕ _ ▹ sym)
     open ≡-Reasoning
 \end{code}
 
