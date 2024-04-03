@@ -737,7 +737,9 @@ module PanciVertias where
       → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
       → (x : A)
       → ∃ $ λ n → panci x ≡ lookup (just x ∷ nothing ∷ []) n
-  xor = {!!}
+  xor x with (Dec (nu,iork x) ∋ _ ≟ _)
+  ... | yes n = zero , {!!}
+  ... | no _ = suc zero , {!!}
 \end{code}
 
 \section{la .\F{indice}}
