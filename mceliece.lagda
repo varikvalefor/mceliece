@@ -271,6 +271,7 @@ open import Truthbrary.Record.LLC
     nu,iork;
     length;
     _++_;
+    _∈_;
     map;
     vec;
     LL
@@ -700,6 +701,12 @@ module PanciVertias where
                      → panci x ≡ nothing
                      → ¬_ $ nu,iork x
   nothing→¬[nu,iork] = {!!}
+
+  xor : ∀ {a} → {A : Set a}
+      → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
+      → (x : A)
+      → ∃ $ λ n → panci x ≡ lookup (just x ∷ nothing ∷ []) n
+  xor = {!!}
 \end{code}
 
 \section{la .\F{indice}}
