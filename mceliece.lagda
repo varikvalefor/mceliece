@@ -804,27 +804,27 @@ module NbitsVeritas where
 ni'o la'o zoi.\ \F{toℕ} \OpF \$ \F{b2f} \B x\ .zoi.\ selsni la'oi .\B x.\ noi .endi le me'oi .big.
 
 \begin{code}
-module B2f {m' n : ℕ} (V : Vec (Fin $ suc m') n) where
-  m : ℕ
-  m = suc m'
-
+module B2f where
   indice' : ∀ {a} → {A : Set a} → {n : ℕ}
           → Vec A n → Vec (A × Fin n) n
   indice' = flip zipᵥ $ reverseᵥ $ allFin _
 
-  portenfa : (flip Vec
+  portenfa : {m' n : ℕ}
+           → let m = suc m' in
+             (flip Vec
                n
                (_×_
                  (Fin $ suc $ proj₁ $ pausyk m' n)
                  (Fin n)))
            → Fin $ m ^ n
-  portenfa = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
+  portenfa {m'} {n} = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
     where
+    m = suc m'
     k = cong Fin $ proj₂ $ pausyk m' n
     tefpi'i = uncurry (f𝔽 $ λ a b → a * m ^ b) ∘ map₂ f2f
 
-  b2f : Fin $ m ^ n
-  b2f = portenfa $ indice' $ mapᵥ f2f V
+  b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
+  b2f = portenfa ∘ indice' ∘ mapᵥ f2f
 
 open B2f
   using (
