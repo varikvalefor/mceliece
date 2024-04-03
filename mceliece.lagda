@@ -828,9 +828,12 @@ module B2fVeritas where
   non : (m n : ℕ)
       → toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡ 0
   non m n = begin
-    toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡⟨ {!!} ⟩
+    toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡⟨ refl ⟩
+    toℕ (b2f $ rep z) ≡⟨ {!!} ⟩
     0 ∎
     where
+    rep = replicate {n = n}
+    z = zero {suc m}
     open ≡-Reasoning
 
   mulj : (m n : ℕ)
