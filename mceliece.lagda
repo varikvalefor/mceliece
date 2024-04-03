@@ -845,7 +845,12 @@ module B2fVeritas where
   sumᵥ'du : ∀ {m n : ℕ}
           → (v : Vec (Fin $ suc m) n)
           → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
-  sumᵥ'du = {!!}
+  sumᵥ'du {m} {n} v = begin
+    toℕ (sumᵥ' v) ≡⟨ {!!} ⟩
+    m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
+    where
+    sumᵥ' = B2f.sumᵥ'
+    open ≡-Reasoning
 
   indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
            → (v : Vec A n)
