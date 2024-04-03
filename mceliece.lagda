@@ -738,8 +738,8 @@ module PanciVertias where
       → (x : A)
       → ∃ $ λ n → panci x ≡ lookup (just x ∷ nothing ∷ []) n
   xor x with (Dec (nu,iork x) ∋ _ ≟ _)
-  ... | yes n = zero , {!!}
-  ... | no _ = suc zero , {!!}
+  ... | yes n = zero , refl
+  ... | no _ = suc zero , refl
 \end{code}
 
 \section{la .\F{indice}}
