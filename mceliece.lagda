@@ -827,7 +827,11 @@ ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be
 module B2fVeritas where
   non : (m n : ℕ)
       → toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡ 0
-  non = {!!}
+  non m n = begin
+    toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡⟨ {!!} ⟩
+    0 ∎
+    where
+    open ≡-Reasoning
 
   mulj : (m n : ℕ)
        → (x : Fin $ suc m)
