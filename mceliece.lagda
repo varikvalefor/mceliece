@@ -812,14 +812,19 @@ module B2f {m' n : ℕ} (V : Vec (Fin $ suc m') n) where
           → Vec A n → Vec (A × Fin n) n
   indice' = flip zipᵥ $ reverseᵥ $ allFin _
 
+  portenfa : (flip Vec
+               n
+               (_×_
+                 (Fin $ suc $ proj₁ $ pausyk m' n)
+                 (Fin n)))
+           → Fin $ m ^ n
+  portenfa = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
+    where
+    k = cong Fin $ proj₂ $ pausyk m' n
+    tefpi'i = uncurry (f𝔽 $ λ a b → a * m ^ b) ∘ map₂ f2f
+
   b2f : Fin $ m ^ n
   b2f = portenfa $ indice' $ mapᵥ f2f V
-    where
-    portenfa : flip Vec n $ _ × Fin _ → Fin $ m ^ n
-    portenfa = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
-      where
-      k = cong Fin $ proj₂ $ pausyk m' n
-      tefpi'i = uncurry (f𝔽 $ λ a b → a * m ^ b) ∘ map₂ f2f
 
 open B2f
   using (
