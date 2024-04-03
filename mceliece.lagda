@@ -817,8 +817,9 @@ module B2f where
                  (Fin $ suc $ proj₁ $ pausyk m' n)
                  (Fin n)))
            → Fin $ m ^ n
-  portenfa {m'} {n} = coerce k ∘ foldrᵥ _ (f𝔽 _+_) zero ∘ mapᵥ tefpi'i
+  portenfa {m'} {n} = coerce k ∘ sumᵥ' ∘ mapᵥ tefpi'i
     where
+    sumᵥ' = foldrᵥ _ (f𝔽 _+_) zero
     m = suc m'
     k = cong Fin $ proj₂ $ pausyk m' n
     tefpi'i = uncurry (f𝔽 $ λ a b → a * m ^ b) ∘ map₂ f2f
