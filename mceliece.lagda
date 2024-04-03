@@ -864,9 +864,11 @@ module B2fVeritas where
       → toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡ 0
   non m n = begin
     toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡⟨ refl ⟩
-    toℕ (b2f $ rep z) ≡⟨ {!!} ⟩
+    toℕ (b2f $ rep z) ≡⟨ refl ⟩
+    toℕ (portenfa $ indice' $ map f2f $ rep z) ≡⟨ {!!} ⟩
     0 ∎
     where
+    open B2f
     rep = replicate {n = n}
     z = zero {suc m}
     open ≡-Reasoning
