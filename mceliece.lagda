@@ -839,6 +839,14 @@ ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be
 
 \begin{code}
 module B2fVeritas where
+  indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
+           → (v : Vec A n)
+           → (i : Fin n)
+           → (_≡_
+               (lookup (B2f.indice' v) i)
+               (lookup v i , Data.Fin.opposite i))
+  indice'v = {!!}
+
   non : (m n : ℕ)
       → toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡ 0
   non m n = begin
