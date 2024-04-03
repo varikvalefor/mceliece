@@ -237,6 +237,10 @@ open import Data.Nat as ℕ
     suc;
     ℕ
   )
+open import Relation.Unary
+  using (
+    Decidable
+  )
 open import Data.Nat.DivMod
   using (
     _div_
@@ -624,7 +628,17 @@ module DistVeritas where
          → ⦃ E : Eq A ⦄
          → (x z : Vec A n)
          → dist x z refl ℕ.≤ n
-  mlecav = {!!}
+  mlecav {n = n} x z = filterlen drata $ n , zipᵥ x z
+    where
+    drata = _≟_ false ∘ isYes ∘ uncurry _≟_
+    filterlen : ∀ {a p} → {A : Set a}
+              → {P : _}
+              → (P? : Decidable {ℓ = p} P)
+              → (V : ∃ $ Vec A)
+              → (ℕ._≤_
+                  (Vec≤.length $ filter P? $ proj₂ V)
+                  (proj₁ V))
+    filterlen = {!!}
 \end{code}
 
 \section{la .\F{pausyk}.}
