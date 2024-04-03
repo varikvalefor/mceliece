@@ -943,7 +943,11 @@ module Hw𝕄Veritas where
   kunti₁ [] = refl
 
   kunti₂ : {a m : ℕ} → (x : 𝕄 (Fin a) 0 m) → hw𝕄 x ≡ 0
-  kunti₂ = {!!}
+  kunti₂ []ᵥ = begin
+    hw𝕄 []ᵥ ≡⟨ {!!} ⟩
+    0 ∎
+    where
+    open ≡-Reasoning
 
   pav : {a m : ℕ}
       → (e : Vec (Fin a) m)
