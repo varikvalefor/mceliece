@@ -609,23 +609,28 @@ module DistVeritas where
          → dist x z refl ≡ dist (e ∷ x) (e ∷ z) refl
   dunliv x z e = sym $ begin
     dist (e ∷ x) (e ∷ z) refl ≡⟨ refl ⟩
-    Vec≤.length (filter drata $ zipᵥ (e ∷ x) (e ∷ z)) ≡⟨ refl ⟩
-    Vec≤.length (filter drata $ (e , e) ∷ zipᵥ x z) ≡⟨ fildradus e $ zipᵥ x z ⟩
-    Vec≤.length (filter drata $ zipᵥ x z) ≡⟨ refl ⟩
+    vfd (zipᵥ (e ∷ x) (e ∷ z)) ≡⟨ refl ⟩
+    vfd ((e , e) ∷ zipᵥ x z) ≡⟨ fildradus e $ zipᵥ x z ⟩
+    vfd (zipᵥ x z) ≡⟨ refl ⟩
     dist x z refl ∎
     where
     drata : ∀ {a} → {A : Set a}
           → ⦃ _ : Eq A ⦄
           → (x : A × A) → Dec _
     drata = _≟_ false ∘ isYes ∘ uncurry _≟_
+    vfd : ∀ {a} → {A : Set a} → {n : ℕ}
+        → ⦃ Eq A ⦄
+        → Vec (A × A) n
+        → ℕ
+    vfd = Vec≤.length ∘ filter drata
     open ≡-Reasoning
     fildradus : ∀ {a} → {A : Set a} → {n : ℕ}
               → ⦃ _ : Eq A ⦄
               → (x : A)
               → (z : Vec (A × A) n)
               → (_≡_
-                  (Vec≤.length $ filter drata $ (x , x) ∷ z)
-                  (Vec≤.length $ filter drata z))
+                  (vfd $ (x , x) ∷ z)
+                  (vfd z))
     fildradus = {!!}
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
