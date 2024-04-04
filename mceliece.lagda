@@ -655,11 +655,11 @@ module DistVeritas where
     where
     open ≡-Reasoning
 
-  mlecav : ∀ {a} → {A : Set a} → {n : ℕ}
-         → ⦃ E : Eq A ⦄
-         → (x z : Vec A n)
-         → dist x z refl ℕ.≤ n
-  mlecav {n = n} x z = filterlen drata $ n , zipᵥ x z
+  dubjavme'av : ∀ {a} → {A : Set a} → {n : ℕ}
+              → ⦃ E : Eq A ⦄
+              → (x z : Vec A n)
+              → dist x z refl ℕ.≤ n
+  dubjavme'av {n = n} x z = filterlen drata $ n , zipᵥ x z
     where
     drata = _≟_ false ∘ isYes ∘ uncurry _≟_
     filterlen : ∀ {a p} → {A : Set a}
