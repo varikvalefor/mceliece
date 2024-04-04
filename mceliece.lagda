@@ -294,6 +294,14 @@ open import Truthbrary.Data.Vec.Matrix
     𝕄
   )
 open import Relation.Binary.PropositionalEquality
+  using (
+    module ≡-Reasoning;
+    subst;
+    cong;
+    refl;
+    _≡_;
+    sym
+  )
 
 import Agda.Builtin.IO as ABIO
 import Data.Fin.Properties as DFP
