@@ -256,6 +256,9 @@ open import Data.Vec.Bounded
   using (
     Vec≤
   )
+  renaming (
+    _,_ to _,ᵥ_
+  )
 open import Truthbrary.Data.Fin
   using (
     mink
@@ -655,7 +658,16 @@ module DistVeritas where
               → (ℕ._≤_
                   (Vec≤.length $ filter P? $ proj₂ V)
                   (proj₁ V))
-    filterlen = {!!}
+    filterlen P? = G ∘ filter P? ∘ proj₂
+      where
+      G : ∀ {a} → {A : Set a} → {n : ℕ}
+        → (x : Vec≤ A n)
+        → Vec≤.length x ℕ.≤ n
+      G record {length = 0; vec = []ᵥ} = ℕ.z≤n
+      G {n = ℕ.suc n} X@((_ ∷ xs) ,ᵥ s) = ℕ.s≤s $ G $ xs ,ᵥ prek s
+        where
+        prek : {m n : ℕ} → ℕ.suc m ℕ.≤ ℕ.suc n → m ℕ.≤ n
+        prek (ℕ.s≤s s) = s
 \end{code}
 
 \section{la .\F{pausyk}.}
