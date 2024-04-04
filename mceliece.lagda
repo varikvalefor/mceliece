@@ -527,6 +527,11 @@ module ResizeVeritas where
     konk = take (m ∸ n) xs' ++ xt x xs (yes g)
     konk₁ : Vec A $ m ∸ n + n
     konk₁ = take (m ∸ n) xs' ++ resize x xs
+    symref : ∀ {a} → {A : Set a}
+           → {x z : A}
+           → (t : x ≡ z)
+           → t ≡ sym (sym t)
+    symref refl = refl
     resize≡xt : resize x xs ≡ xt x xs (yes g)
     resize≡xt = begin
       resize x xs ≡⟨ refl ⟩
@@ -541,11 +546,6 @@ module ResizeVeritas where
                   → x ≡ z
       zmadekydu'i ℕ.z≤n ℕ.z≤n = refl
       zmadekydu'i (ℕ.s≤s x) (ℕ.s≤s z) = zmadekydu'i x z ▹ cong ℕ.s≤s
-    symref : ∀ {a} → {A : Set a}
-           → {x z : A}
-           → (t : x ≡ z)
-           → t ≡ sym (sym t)
-    symref refl = refl
 
   takis : ∀ {a} → {m n : ℕ} → {A : Set a}
         → (x : A)
