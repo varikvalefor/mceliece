@@ -392,7 +392,9 @@ module F2fVeritas where
   dunli : {m n : ℕ}
         → (f : Fin m)
         → toℕ (f2f {n = n} f) ≡ n ℕ.⊓ toℕ f
-  dunli = {!!}
+  dunli {m} {n} f with toℕ f ℕ.<? suc n
+  ... | yes x = {!!}
+  ... | no x = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
