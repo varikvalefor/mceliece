@@ -650,9 +650,19 @@ module DistVeritas where
          → ¬_ $ e₁ ≡ e₂
          → ℕ.suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
   dratav x z e₁ e₂ j = sym $ begin
-    dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ {!!} ⟩
+    dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ refl ⟩
+    vfd ((e₁ , e₂) ∷ zipᵥ x z) ≡⟨ {!!} ⟩
     ℕ.suc (dist x z refl) ∎
     where
+    drata : ∀ {a} → {A : Set a}
+          → ⦃ _ : Eq A ⦄
+          → (x : A × A) → Dec _
+    drata = _≟_ false ∘ isYes ∘ uncurry _≟_
+    vfd : ∀ {a} → {A : Set a} → {n : ℕ}
+        → ⦃ Eq A ⦄
+        → Vec (A × A) n
+        → ℕ
+    vfd = Vec≤.length ∘ filter drata
     open ≡-Reasoning
 
   dubjavme'av : ∀ {a} → {A : Set a} → {n : ℕ}
