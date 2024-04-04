@@ -875,6 +875,12 @@ ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be
 
 \begin{code}
 module B2fVeritas where
+  sumᵥ'inc : ∀ {m n : ℕ}
+           → (e : Fin $ suc m)
+           → (v : Vec (Fin $ suc m) n)
+           → B2f.sumᵥ' (e ∷ v) ≡ (f𝔽 _+_) e (B2f.sumᵥ' v)
+  sumᵥ'inc = {!!}
+
   sumᵥ'du : ∀ {m n : ℕ}
           → (v : Vec (Fin $ suc m) n)
           → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
