@@ -388,6 +388,11 @@ module F2fVeritas where
     mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n _
     DY = Relation.Nullary.Decidable.dec-yes (toℕ f ℕ.<? suc n) m
     open ≡-Reasoning
+
+  dunli : {m n : ℕ}
+        → (f : Fin m)
+        → toℕ (f2f {n = n} f) ≡ n ℕ.⊓ toℕ f
+  dunli = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
