@@ -879,7 +879,7 @@ module B2fVeritas where
     kunti : ∀ {n : ℕ}
           → (v : Vec (Fin $ suc n) 0)
           → B2f.sumᵥ' v ≡ zero
-    kunti = {!!}
+    kunti Data.Vec.[] = refl
 
     inc : ∀ {m n : ℕ}
         → (e : Fin $ suc m)
