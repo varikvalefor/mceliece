@@ -875,27 +875,28 @@ ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be
 
 \begin{code}
 module B2fVeritas where
-  sumᵥ'kunti : ∀ {n : ℕ}
-             → (v : Vec (Fin $ suc n) 0)
-             → B2f.sumᵥ' v ≡ zero
-  sumᵥ'kunti = {!!}
+  module Sumᵥ'Veritas where
+    kunti : ∀ {n : ℕ}
+          → (v : Vec (Fin $ suc n) 0)
+          → B2f.sumᵥ' v ≡ zero
+    kunti = {!!}
 
-  sumᵥ'inc : ∀ {m n : ℕ}
-           → (e : Fin $ suc m)
-           → (v : Vec (Fin $ suc m) n)
-           → B2f.sumᵥ' (e ∷ v) ≡ (f𝔽 _+_) e (B2f.sumᵥ' v)
-  sumᵥ'inc _ _ = refl
+    inc : ∀ {m n : ℕ}
+        → (e : Fin $ suc m)
+        → (v : Vec (Fin $ suc m) n)
+        → B2f.sumᵥ' (e ∷ v) ≡ (f𝔽 _+_) e (B2f.sumᵥ' v)
+    inc _ _ = refl
 
-  sumᵥ'du : ∀ {m n : ℕ}
-          → (v : Vec (Fin $ suc m) n)
-          → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
-  sumᵥ'du {m} {n} v = begin
-    toℕ (sumᵥ' v) ≡⟨ refl ⟩
-    toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ≡⟨ {!!} ⟩
-    m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
-    where
-    sumᵥ' = B2f.sumᵥ'
-    open ≡-Reasoning
+    du : ∀ {m n : ℕ}
+       → (v : Vec (Fin $ suc m) n)
+       → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
+    du {m} {n} v = begin
+      toℕ (sumᵥ' v) ≡⟨ refl ⟩
+      toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ≡⟨ {!!} ⟩
+      m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
+      where
+      sumᵥ' = B2f.sumᵥ'
+      open ≡-Reasoning
 
   indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
            → (v : Vec A n)
