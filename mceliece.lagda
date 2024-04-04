@@ -649,7 +649,11 @@ module DistVeritas where
          → (e₁ e₂ : A)
          → ¬_ $ e₁ ≡ e₂
          → ℕ.suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
-  dratav = {!!}
+  dratav x z e₁ e₂ j = sym $ begin
+    dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ {!!} ⟩
+    ℕ.suc (dist x z refl) ∎
+    where
+    open ≡-Reasoning
 
   mlecav : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
