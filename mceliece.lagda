@@ -879,7 +879,8 @@ module B2fVeritas where
           → (v : Vec (Fin $ suc m) n)
           → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
   sumᵥ'du {m} {n} v = begin
-    toℕ (sumᵥ' v) ≡⟨ {!!} ⟩
+    toℕ (sumᵥ' v) ≡⟨ refl ⟩
+    toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ≡⟨ {!!} ⟩
     m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
     where
     sumᵥ' = B2f.sumᵥ'
