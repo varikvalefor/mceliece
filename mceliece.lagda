@@ -879,7 +879,7 @@ module B2fVeritas where
            → (e : Fin $ suc m)
            → (v : Vec (Fin $ suc m) n)
            → B2f.sumᵥ' (e ∷ v) ≡ (f𝔽 _+_) e (B2f.sumᵥ' v)
-  sumᵥ'inc = {!!}
+  sumᵥ'inc _ _ = refl
 
   sumᵥ'du : ∀ {m n : ℕ}
           → (v : Vec (Fin $ suc m) n)
