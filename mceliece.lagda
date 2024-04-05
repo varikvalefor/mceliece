@@ -1525,16 +1525,16 @@ module Decode where
   xv p = Vec (Fin 2) ∘_ $ _$ p
 
   mapti : {p : MCParam}
-        → Vec (Fin 2) $ MCParam.n-k p
+        → xv p MCParam.n-k
         → Public p
-        → Vec (Fin 2) $ MCParam.n p
+        → xv p MCParam.n
         → Set
   mapti {p} C₀ bar e = ∃ $ _≡_ C₀ ∘ Encode p e bar
 
   mapti? : {p : MCParam}
-         → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
+         → (C₀ : xv p MCParam.n-k)
          → (bar : Public p)
-         → Vec (Fin 2) $ MCParam.n p
+         → xv p MCParam.n
          → Maybe $ ∃ $ mapti {p} C₀ bar
   mapti? {p} C₀ bar e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
     where
