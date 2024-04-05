@@ -1568,6 +1568,20 @@ open Decode
   )
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{Decode}.\ mapti}
+
+\begin{code}
+module DecodeVeritas where
+  mapti?-xor : {p : MCParam}
+             → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
+             → (bar : Public p)
+             → (e : Vec (Fin 2) $ MCParam.n p)
+             → (_∈_ {A = List _}
+                 (mapₘ proj₁ $ Decode.mapti? {p} C₀ bar e)
+                 (just e ∷ nothing ∷ []))
+  mapti?-xor = {!!}
+\end{code}
+
 \section{le su'u la'oi .\F{Decode}.\ srana la'oi .\F{Encode}.}
 
 \begin{code}
