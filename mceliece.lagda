@@ -1636,7 +1636,8 @@ module DecodeVeritas where
               → (x : Vec A m)
               → (z : Vec A n)
               → drop m (x ++ z) ≡ z
-      dropdun = {!!}
+      dropdun [] _ = refl
+      dropdun (x ∷ xs) z = {!!}
       open ≡-Reasoning
 \end{code}
 
