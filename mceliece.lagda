@@ -1625,7 +1625,7 @@ module DecodeVeritas where
                (replicate zero))
     romois {p} C₀ = begin
       drop (length C₀) vc ≡⟨ {!!} ⟩
-      drop (length C₀) (C₀ ++ replicate {n = k} zero) ≡⟨ dropdun C₀ _ ⟩
+      drop (length C₀) (C₀ ++ replicate zero) ≡⟨ dropdun C₀ _ ⟩
       replicate zero ∎
       where
       k = MCParam.k p
