@@ -1521,6 +1521,13 @@ ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fa
 
 \begin{code}
 module Decode where
+  mapti : {p : MCParam}
+        → Vec (Fin 2) $ MCParam.n-k p
+        → Public p
+        → Vec (Fin 2) $ MCParam.n p
+        → Set
+  mapti {p} C₀ bar e = ∃ $ _≡_ C₀ ∘ Encode p e bar
+
   Decode : {p : MCParam}
          → Vec (Fin 2) $ MCParam.n-k p
          → Public p
@@ -1542,9 +1549,7 @@ module Decode where
     c' = {!!}
     c = mapₘ proj₁ c'
     e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
-    mapti : xv MCParam.n → Set
-    mapti e = ∃ $ _≡_ C₀ ∘ Encode p e bar
-    mapti? : xv MCParam.n → Maybe $ ∃ mapti
+    mapti? : xv MCParam.n → Maybe $ ∃ $ mapti {p} C₀ bar
     mapti? e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
       where
       dun? : ∀ {a} → {A : Set a} → {B C : A}
