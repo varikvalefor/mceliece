@@ -1623,7 +1623,12 @@ module DecodeVeritas where
              (_≡_
                (drop (length C₀) vc)
                (replicate zero))
-    romois = {!!}
+    romois {p} C₀ = begin
+      drop (length C₀) vc ≡⟨ {!!} ⟩
+      replicate zero ∎
+      where
+      vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym)
+      open ≡-Reasoning
 \end{code}
 
 \section{le su'u la'oi .\F{Decode}.\ srana la'oi .\F{Encode}.}
