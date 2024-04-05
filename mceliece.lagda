@@ -1544,14 +1544,15 @@ module Decode where
     dun? = decToMaybe $ _ ≟ _
 
   module V' where
-    v' : {p : MCParam} → xv p MCParam.n-k → xv p MCParam.n
-    v' {p} C₀ = C₀ ++ replicate zero ▹ coerce kos
+    kos : (p : MCParam)
+        → xv p (λ p → MCParam.n-k p + MCParam.k p) ≡ xv p MCParam.n
+    kos p = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
       where
-      kos : xv p (λ p → MCParam.n-k p + MCParam.k p) ≡ xv p MCParam.n
-      kos = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
-        where
-        k≤n : MCParam.k p ℕ.≤ MCParam.n p
-        k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
+      k≤n : MCParam.k p ℕ.≤ MCParam.n p
+      k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
+
+    v' : {p : MCParam} → xv p MCParam.n-k → xv p MCParam.n
+    v' {p} C₀ = C₀ ++ replicate zero ▹ coerce (kos p)
 
   open V'
     using (
