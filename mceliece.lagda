@@ -1521,6 +1521,9 @@ ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fa
 
 \begin{code}
 module Decode where
+  xv : MCParam → (MCParam → ℕ) → Set
+  xv p = Vec (Fin 2) ∘_ $ _$ p
+
   mapti : {p : MCParam}
         → Vec (Fin 2) $ MCParam.n-k p
         → Public p
@@ -1548,11 +1551,10 @@ module Decode where
          → Maybe $ Vec (Fin 2) $ MCParam.n p
   Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti? {p} C₀ bar
     where
-    xv = Vec (Fin 2) ∘_ $ _$ p
-    v : xv MCParam.n
+    v : xv p MCParam.n
     v = C₀ ++ replicate zero ▹ coerce kos
       where
-      kos : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv MCParam.n
+      kos : xv p (λ p → MCParam.n-k p + MCParam.k p) ≡ xv p MCParam.n
       kos = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
         where
         k≤n : MCParam.k p ℕ.≤ MCParam.n p
