@@ -1573,6 +1573,14 @@ open Decode
 \begin{code}
 module DecodeVeritas where
   module Mapti? where
+    jus : {p : MCParam}
+        → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
+        → (bar : Public p)
+        → (e : Vec (Fin 2) $ MCParam.n p)
+        → Decode.mapti C₀ bar e
+        → ∃ $ λ m → Decode.mapti? C₀ bar e ≡ just m
+    jus = {!!}
+
     xor : {p : MCParam}
         → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
         → (bar : Public p)
