@@ -1543,6 +1543,15 @@ module Decode where
          → Maybe $ B ≡ C
     dun? = decToMaybe $ _ ≟ _
 
+  v' : {p : MCParam} → xv p MCParam.n-k → xv p MCParam.n
+  v' {p} C₀ = C₀ ++ replicate zero ▹ coerce kos
+    where
+    kos : xv p (λ p → MCParam.n-k p + MCParam.k p) ≡ xv p MCParam.n
+    kos = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
+      where
+      k≤n : MCParam.k p ℕ.≤ MCParam.n p
+      k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
+
   Decode : {p : MCParam}
          → Vec (Fin 2) $ MCParam.n-k p
          → Public p
@@ -1551,14 +1560,7 @@ module Decode where
          → Maybe $ Vec (Fin 2) $ MCParam.n p
   Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti? {p} C₀ bar
     where
-    v : xv p MCParam.n
-    v = C₀ ++ replicate zero ▹ coerce kos
-      where
-      kos : xv p (λ p → MCParam.n-k p + MCParam.k p) ≡ xv p MCParam.n
-      kos = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
-        where
-        k≤n : MCParam.k p ℕ.≤ MCParam.n p
-        k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
+    v = v' {p} C₀
     c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
     c' = {!!}
     c = mapₘ proj₁ c'
