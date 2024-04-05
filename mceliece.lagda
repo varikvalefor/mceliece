@@ -1619,9 +1619,10 @@ module DecodeVeritas where
 
     romois : {p : MCParam}
            → (C₀ : xv p MCParam.n-k)
-           → (_≡_
-               (Data.List.drop (length C₀) (toList $ v' {p} C₀))
-               (Data.List.replicate (MCParam.k p) zero))
+           → let vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym) in
+             (_≡_
+               (drop (length C₀) vc)
+               (replicate zero))
     romois = {!!}
 \end{code}
 
