@@ -1543,14 +1543,20 @@ module Decode where
          → Maybe $ B ≡ C
     dun? = decToMaybe $ _ ≟ _
 
-  v' : {p : MCParam} → xv p MCParam.n-k → xv p MCParam.n
-  v' {p} C₀ = C₀ ++ replicate zero ▹ coerce kos
-    where
-    kos : xv p (λ p → MCParam.n-k p + MCParam.k p) ≡ xv p MCParam.n
-    kos = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
+  module V' where
+    v' : {p : MCParam} → xv p MCParam.n-k → xv p MCParam.n
+    v' {p} C₀ = C₀ ++ replicate zero ▹ coerce kos
       where
-      k≤n : MCParam.k p ℕ.≤ MCParam.n p
-      k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
+      kos : xv p (λ p → MCParam.n-k p + MCParam.k p) ≡ xv p MCParam.n
+      kos = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
+        where
+        k≤n : MCParam.k p ℕ.≤ MCParam.n p
+        k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
+
+  open V'
+    using (
+      v'
+    )
 
   Decode : {p : MCParam}
          → Vec (Fin 2) $ MCParam.n-k p
@@ -1577,6 +1583,12 @@ open Decode
 \begin{code}
 module DecodeVeritas where
   open Decode
+    hiding (
+      module V'
+    )
+
+  v' = Decode.V'.v'
+
   module Mapti? where
     jus : {p : MCParam}
         → (C₀ : xv p MCParam.n-k)
