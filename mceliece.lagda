@@ -1581,6 +1581,14 @@ module DecodeVeritas where
         → ∃ $ λ m → Decode.mapti? C₀ bar e ≡ just m
     jus = {!!}
 
+    nada : {p : MCParam}
+         → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
+         → (bar : Public p)
+         → (e : Vec (Fin 2) $ MCParam.n p)
+         → ¬_ $ Decode.mapti C₀ bar e
+         → Decode.mapti? C₀ bar e ≡ nothing
+    nada = {!!}
+
     xor : {p : MCParam}
         → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
         → (bar : Public p)
