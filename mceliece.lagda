@@ -1628,7 +1628,6 @@ module DecodeVeritas where
       drop (length C₀) (C₀ ++ replicate zero) ≡⟨ dropdun C₀ _ ⟩
       replicate zero ∎
       where
-      k = MCParam.k p
       vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym)
       vc≡C₀++rz : vc ≡ C₀ ++ replicate zero
       vc≡C₀++rz = CoerceVeritas.flipko _ (n∸k+k≡n p) ▹ sym
