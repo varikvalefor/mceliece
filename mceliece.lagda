@@ -1520,36 +1520,42 @@ ni'o co'e lo ctaipe be lo su'u dunli kei ki'u le su'u ga je co'e gi .indika le d
 ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fanva ko'a
 
 \begin{code}
-Decode : {p : MCParam}
-       → Vec (Fin 2) $ MCParam.n-k p
-       → Public p
-       → ∃ $ Vec $ Fin $ MCParam.q p
-       → Vec (Fin $ MCParam.q p) $ MCParam.n p
-       → Maybe $ Vec (Fin 2) $ MCParam.n p
-Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
-  where
-  xv = Vec (Fin 2) ∘_ $ _$ p
-  v : xv MCParam.n
-  v = C₀ ++ replicate zero ▹ coerce kos
+module Decode where
+  Decode : {p : MCParam}
+         → Vec (Fin 2) $ MCParam.n-k p
+         → Public p
+         → ∃ $ Vec $ Fin $ MCParam.q p
+         → Vec (Fin $ MCParam.q p) $ MCParam.n p
+         → Maybe $ Vec (Fin 2) $ MCParam.n p
+  Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
     where
-    kos : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv MCParam.n
-    kos = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
+    xv = Vec (Fin 2) ∘_ $ _$ p
+    v : xv MCParam.n
+    v = C₀ ++ replicate zero ▹ coerce kos
       where
-      k≤n : MCParam.k p ℕ.≤ MCParam.n p
-      k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
-  c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
-  c' = {!!}
-  c = mapₘ proj₁ c'
-  e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
-  mapti : xv MCParam.n → Set
-  mapti e = ∃ $ _≡_ C₀ ∘ Encode p e bar
-  mapti? : xv MCParam.n → Maybe $ ∃ mapti
-  mapti? e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
-    where
-    dun? : ∀ {a} → {A : Set a} → {B C : A}
-         → ⦃ Eq A ⦄
-         → Maybe $ B ≡ C
-    dun? = decToMaybe $ _ ≟ _
+      kos : xv (λ p → MCParam.n-k p + MCParam.k p) ≡ xv MCParam.n
+      kos = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
+        where
+        k≤n : MCParam.k p ℕ.≤ MCParam.n p
+        k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
+    c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
+    c' = {!!}
+    c = mapₘ proj₁ c'
+    e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
+    mapti : xv MCParam.n → Set
+    mapti e = ∃ $ _≡_ C₀ ∘ Encode p e bar
+    mapti? : xv MCParam.n → Maybe $ ∃ mapti
+    mapti? e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
+      where
+      dun? : ∀ {a} → {A : Set a} → {B C : A}
+           → ⦃ Eq A ⦄
+           → Maybe $ B ≡ C
+      dun? = decToMaybe $ _ ≟ _
+
+open Decode
+  using (
+    Decode
+  )
 \end{code}
 
 \section{le su'u la'oi .\F{Decode}.\ srana la'oi .\F{Encode}.}
