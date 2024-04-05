@@ -1528,13 +1528,25 @@ module Decode where
         → Set
   mapti {p} C₀ bar e = ∃ $ _≡_ C₀ ∘ Encode p e bar
 
+  mapti? : {p : MCParam}
+         → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
+         → (bar : Public p)
+         → Vec (Fin 2) $ MCParam.n p
+         → Maybe $ ∃ $ mapti {p} C₀ bar
+  mapti? {p} C₀ bar e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
+    where
+    dun? : ∀ {a} → {A : Set a} → {B C : A}
+         → ⦃ Eq A ⦄
+         → Maybe $ B ≡ C
+    dun? = decToMaybe $ _ ≟ _
+
   Decode : {p : MCParam}
          → Vec (Fin 2) $ MCParam.n-k p
          → Public p
          → ∃ $ Vec $ Fin $ MCParam.q p
          → Vec (Fin $ MCParam.q p) $ MCParam.n p
          → Maybe $ Vec (Fin 2) $ MCParam.n p
-  Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?
+  Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti? {p} C₀ bar
     where
     xv = Vec (Fin 2) ∘_ $ _$ p
     v : xv MCParam.n
@@ -1549,13 +1561,6 @@ module Decode where
     c' = {!!}
     c = mapₘ proj₁ c'
     e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
-    mapti? : xv MCParam.n → Maybe $ ∃ $ mapti {p} C₀ bar
-    mapti? e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
-      where
-      dun? : ∀ {a} → {A : Set a} → {B C : A}
-           → ⦃ Eq A ⦄
-           → Maybe $ B ≡ C
-      dun? = decToMaybe $ _ ≟ _
 
 open Decode
   using (
