@@ -1602,6 +1602,14 @@ module DecodeVeritas where
             (mapₘ proj₁ $ mapti? {p} C₀ bar e)
             (just e ∷ nothing ∷ []))
     xor = {!!}
+
+  module V' where
+    romois : {p : MCParam}
+           → (C₀ : xv p MCParam.n-k)
+           → (_≡_
+               (Data.List.drop (length C₀) (toList $ v' {p} C₀))
+               (Data.List.replicate (MCParam.k p) zero))
+    romois = {!!}
 \end{code}
 
 \section{le su'u la'oi .\F{Decode}.\ srana la'oi .\F{Encode}.}
