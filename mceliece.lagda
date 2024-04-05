@@ -1625,11 +1625,11 @@ module DecodeVeritas where
                (drop (length C₀) vc)
                (replicate zero))
     romois {p} C₀ = begin
-      drop (length C₀) vc ≡⟨ vc≡C₀++rz ▹ cong (drop $ length C₀) ⟩
+      drop (length C₀) vc ≡⟨ vc≡C₀++rz ▹_ $ cong $ drop $ length C₀ ⟩
       drop (length C₀) (C₀ ++ replicate zero) ≡⟨ dropdun C₀ _ ⟩
       replicate zero ∎
       where
-      vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym)
+      vc = v' {p} C₀ ▹_ $ coerce $ n∸k+k≡n p ▹ sym
       vc≡C₀++rz : vc ≡ C₀ ++ replicate zero
       vc≡C₀++rz = CoerceVeritas.flipko _ (n∸k+k≡n p) ▹ sym
       dropdun : ∀ {a} → {A : Set a} → {m n : ℕ}
