@@ -1625,8 +1625,10 @@ module DecodeVeritas where
                (replicate zero))
     romois {p} C₀ = begin
       drop (length C₀) vc ≡⟨ {!!} ⟩
+      drop (length C₀) (C₀ ++ replicate {n = k} zero) ≡⟨ {!!} ⟩
       replicate zero ∎
       where
+      k = MCParam.k p
       vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym)
       open ≡-Reasoning
 \end{code}
