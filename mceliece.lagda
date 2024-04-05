@@ -1576,21 +1576,22 @@ open Decode
 
 \begin{code}
 module DecodeVeritas where
+  open Decode
   module Mapti? where
     jus : {p : MCParam}
         → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
         → (bar : Public p)
         → (e : Vec (Fin 2) $ MCParam.n p)
-        → Decode.mapti {p} C₀ bar e
-        → ∃ $ λ m → Decode.mapti? {p} C₀ bar e ≡ just m
+        → mapti {p} C₀ bar e
+        → ∃ $ λ m → mapti? {p} C₀ bar e ≡ just m
     jus = {!!}
 
     nada : {p : MCParam}
          → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
          → (bar : Public p)
          → (e : Vec (Fin 2) $ MCParam.n p)
-         → ¬_ $ Decode.mapti {p} C₀ bar e
-         → Decode.mapti? {p} C₀ bar e ≡ nothing
+         → ¬_ $ mapti {p} C₀ bar e
+         → mapti? {p} C₀ bar e ≡ nothing
     nada = {!!}
 
     xor : {p : MCParam}
@@ -1598,7 +1599,7 @@ module DecodeVeritas where
         → (bar : Public p)
         → (e : Vec (Fin 2) $ MCParam.n p)
         → (_∈_ {A = List _}
-            (mapₘ proj₁ $ Decode.mapti? {p} C₀ bar e)
+            (mapₘ proj₁ $ mapti? {p} C₀ bar e)
             (just e ∷ nothing ∷ []))
     xor = {!!}
 \end{code}
