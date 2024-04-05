@@ -1579,25 +1579,25 @@ module DecodeVeritas where
   open Decode
   module Mapti? where
     jus : {p : MCParam}
-        → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
+        → (C₀ : xv p MCParam.n-k)
         → (bar : Public p)
-        → (e : Vec (Fin 2) $ MCParam.n p)
+        → (e : xv p MCParam.n)
         → mapti {p} C₀ bar e
         → ∃ $ λ m → mapti? {p} C₀ bar e ≡ just m
     jus = {!!}
 
     nada : {p : MCParam}
-         → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
+         → (C₀ : xv p MCParam.n-k)
          → (bar : Public p)
-         → (e : Vec (Fin 2) $ MCParam.n p)
+         → (e : xv p MCParam.n)
          → ¬_ $ mapti {p} C₀ bar e
          → mapti? {p} C₀ bar e ≡ nothing
     nada = {!!}
 
     xor : {p : MCParam}
-        → (C₀ : Vec (Fin 2) $ MCParam.n-k p)
+        → (C₀ : xv p MCParam.n-k)
         → (bar : Public p)
-        → (e : Vec (Fin 2) $ MCParam.n p)
+        → (e : xv p MCParam.n)
         → (_∈_ {A = List _}
             (mapₘ proj₁ $ mapti? {p} C₀ bar e)
             (just e ∷ nothing ∷ []))
