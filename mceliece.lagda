@@ -1588,8 +1588,6 @@ module DecodeVeritas where
       module V'
     )
 
-  v' = Decode.V'.v'
-
   module Mapti? where
     jus : {p : MCParam}
         → (C₀ : xv p MCParam.n-k)
@@ -1617,6 +1615,8 @@ module DecodeVeritas where
     xor = {!!}
 
   module V' where
+    open Decode.V'
+
     romois : {p : MCParam}
            → (C₀ : xv p MCParam.n-k)
            → (_≡_
