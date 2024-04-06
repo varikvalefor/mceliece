@@ -1626,7 +1626,15 @@ module DecodeVeritas where
            → (C₀ : xv p MCParam.n-k)
            → let vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym) in
              take (length C₀) vc ≡ C₀
-    pamois {p} C₀ = {!!}
+    pamois {p} C₀ = begin
+      take (length C₀) vc ≡⟨ vc≡C₀++rz ▹_ $ cong $ take $ length C₀ ⟩
+      take (length C₀) (C₀ ++ replicate zero) ≡⟨ {!!} ⟩
+      C₀ ∎
+      where
+      vc = v' {p} C₀ ▹_ $ coerce $ n∸k+k≡n p ▹ sym
+      vc≡C₀++rz : vc ≡ C₀ ++ replicate zero
+      vc≡C₀++rz = CoerceVeritas.flipko _ (n∸k+k≡n p) ▹ sym
+      open ≡-Reasoning
 
     romois : {p : MCParam}
            → (C₀ : xv p MCParam.n-k)
