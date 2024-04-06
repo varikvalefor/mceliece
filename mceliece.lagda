@@ -1605,8 +1605,14 @@ module DecodeVeritas where
       m' = {!!}
       open ≡-Reasoning
       dunlyctaipe = begin
-        mapti? {p} C₀ bar e ≡⟨ {!!} ⟩
+        mapti? {p} C₀ bar e ≡⟨ refl ⟩
+        mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
         just m' ∎
+        where
+        dun? : ∀ {a} → {A : Set a} → {B C : A}
+             → ⦃ _ : Eq A ⦄
+             → Maybe $ B ≡ C
+        dun? = decToMaybe $ _ ≟ _
 
     nada : {p : MCParam}
          → (C₀ : xv p MCParam.n-k)
