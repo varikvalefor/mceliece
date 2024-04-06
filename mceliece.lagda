@@ -650,7 +650,9 @@ module DistVeritas where
               → (_≡_
                   (vfd $ (x , x) ∷ z)
                   (vfd z))
-    fildradus = {!!}
+    fildradus x z = begin
+      vfd ((x , x) ∷ z) ≡⟨ {!!} ⟩
+      vfd z ∎
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
