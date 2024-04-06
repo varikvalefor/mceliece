@@ -1622,34 +1622,41 @@ module DecodeVeritas where
   module V' where
     open Decode.V'
 
+    vc' : {p : MCParam}
+       → xv p MCParam.n-k
+       → xv p $ λ p → MCParam.n-k p + MCParam.k p
+    vc' {p} C₀ = v' {p} C₀ ▹_ $ coerce $ n∸k+k≡n p ▹ sym
+
+    vc≡C₀++rz : {p : MCParam}
+              → (C₀ : xv p MCParam.n-k)
+              → vc' {p} C₀ ≡ C₀ ++ replicate zero
+    vc≡C₀++rz {p} C₀ = CoerceVeritas.flipko _ (n∸k+k≡n p) ▹ sym
+
+
     pamois : {p : MCParam}
            → (C₀ : xv p MCParam.n-k)
-           → let vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym) in
+           → let vc = vc' {p} C₀ in
              take (length C₀) vc ≡ C₀
     pamois {p} C₀ = begin
-      take (length C₀) vc ≡⟨ vc≡C₀++rz ▹_ $ cong $ take $ length C₀ ⟩
+      take (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹_ $ cong $ take $ length C₀ ⟩
       take (length C₀) (C₀ ++ replicate zero) ≡⟨ {!!} ⟩
       C₀ ∎
       where
-      vc = v' {p} C₀ ▹_ $ coerce $ n∸k+k≡n p ▹ sym
-      vc≡C₀++rz : vc ≡ C₀ ++ replicate zero
-      vc≡C₀++rz = CoerceVeritas.flipko _ (n∸k+k≡n p) ▹ sym
+      vc = vc' {p} C₀
       open ≡-Reasoning
 
     romois : {p : MCParam}
            → (C₀ : xv p MCParam.n-k)
-           → let vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym) in
+           → let vc = vc' {p} C₀ in
              (_≡_
                (drop (length C₀) vc)
                (replicate zero))
     romois {p} C₀ = begin
-      drop (length C₀) vc ≡⟨ vc≡C₀++rz ▹_ $ cong $ drop $ length C₀ ⟩
+      drop (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹_ $ cong $ drop $ length C₀ ⟩
       drop (length C₀) (C₀ ++ replicate zero) ≡⟨ dropdun C₀ _ ⟩
       replicate zero ∎
       where
-      vc = v' {p} C₀ ▹_ $ coerce $ n∸k+k≡n p ▹ sym
-      vc≡C₀++rz : vc ≡ C₀ ++ replicate zero
-      vc≡C₀++rz = CoerceVeritas.flipko _ (n∸k+k≡n p) ▹ sym
+      vc = vc' {p} C₀
       dropdun : ∀ {a} → {A : Set a} → {m n : ℕ}
               → (x : Vec A m)
               → (z : Vec A n)
