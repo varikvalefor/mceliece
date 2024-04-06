@@ -1645,10 +1645,15 @@ module DecodeVeritas where
              take (length C₀) vc ≡ C₀
     pamois {p} C₀ = begin
       take (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹_ $ cong $ take $ length C₀ ⟩
-      take (length C₀) (C₀ ++ replicate zero) ≡⟨ {!!} ⟩
+      take (length C₀) (C₀ ++ replicate zero) ≡⟨ takedun C₀ _ ⟩
       C₀ ∎
       where
       vc = vc' {p} C₀
+      takedun : ∀ {a} → {A : Set a} → {m n : ℕ}
+              → (x : Vec A m)
+              → (z : Vec A n)
+              → take m (x ++ z) ≡ x
+      takedun = {!!}
       open ≡-Reasoning
 
     romois : {p : MCParam}
