@@ -1548,7 +1548,9 @@ module Decode where
 
   module V' where
     n∸k+k≡n : (p : MCParam)
-            → xv p (λ p → MCParam.n-k p + MCParam.k p) ≡ xv p MCParam.n
+            → (_≡_
+                (xv p (λ p → MCParam.n-k p + MCParam.k p))
+                (xv p MCParam.n))
     n∸k+k≡n p = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
       where
       k≤n : MCParam.k p ℕ.≤ MCParam.n p
