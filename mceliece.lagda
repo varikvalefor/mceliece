@@ -1622,6 +1622,12 @@ module DecodeVeritas where
   module V' where
     open Decode.V'
 
+    pamois : {p : MCParam}
+           → (C₀ : xv p MCParam.n-k)
+           → let vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym) in
+             take (length C₀) vc ≡ C₀
+    pamois {p} C₀ = {!!}
+
     romois : {p : MCParam}
            → (C₀ : xv p MCParam.n-k)
            → let vc = v' {p} C₀ ▹ coerce (n∸k+k≡n p ▹ sym) in
