@@ -1600,7 +1600,13 @@ module DecodeVeritas where
         → (e : xv p MCParam.n)
         → mapti {p} C₀ bar e
         → ∃ $ λ m → mapti? {p} C₀ bar e ≡ just m
-    jus = {!!}
+    jus {p} C₀ bar e m = m' , dunlyctaipe
+      where
+      m' = {!!}
+      open ≡-Reasoning
+      dunlyctaipe = begin
+        mapti? {p} C₀ bar e ≡⟨ {!!} ⟩
+        just m' ∎
 
     nada : {p : MCParam}
          → (C₀ : xv p MCParam.n-k)
