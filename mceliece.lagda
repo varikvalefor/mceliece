@@ -1555,6 +1555,18 @@ Hx p T = I zero (suc zero) ∣ T ▹_ $ coerce $ cong nacmeimid n∸k+k≡n
   n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m _ $ MCParam.m p * _
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{Hx}.\ mapti}
+
+\begin{code}
+module HxVeritas where
+  kunti₁ : (p : MCParam)
+         → (T : Public p)
+         → (d : MCParam.n p ≡ 0)
+         → let []' = [] ▹_ $ coerce $ d ▹ sym ▹ cong (Vec _) in
+           Hx p T ≡ replicate []'
+  kunti₁ = {!!}
+\end{code}
+
 \section{la'oi .\F{Encode}.}
 ni'o \specimp{Encode}
 
