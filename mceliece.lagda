@@ -1564,6 +1564,18 @@ module Decode where
       v'
     )
 
+  module C' where
+    c' : {p : MCParam}
+       → (C₀ : xv p MCParam.n-k)
+       → let v = v' {p} C₀ in
+         Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
+    c' = {!!}
+
+  open C'
+    using (
+      c'
+    )
+
   Decode : {p : MCParam}
          → Vec (Fin 2) $ MCParam.n-k p
          → Public p
@@ -1573,9 +1585,7 @@ module Decode where
   Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti? {p} C₀ bar
     where
     v = v' {p} C₀
-    c' : Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
-    c' = {!!}
-    c = mapₘ proj₁ c'
+    c = mapₘ proj₁ $ c' {p} C₀
     e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
 
 open Decode
