@@ -1449,36 +1449,45 @@ ni'o me'oi .recurse.  .i \termineidyr{SeededKeyGen}
 
 \begin{code}
 module SeededKeyGen where
+  mapti? : {p : MCParam}
+         → Fin $ 2 ^ MCParam.ℓ p
+         → (Fin
+             (_^_
+               2
+               (MCParam.n p + MCParam.σ₂ p * (2 ^ MCParam.m p) +
+                MCParam.σ₁ p * MCParam.t p
+                + MCParam.ℓ p)))
+         → Maybe $ KP p
+  mapti? {p} E δ = (apₘ ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
+    where
+    sivni = g? >>=ₘ λ (j , lg , g) → just record {
+      lg = lg;
+      Γ = g , j;
+      s = nbits $ toℕ $ b2f $ nbits {n} $ toℕ E
+      }
+      where
+      n = MCParam.n p
+      g? : let Vq = Vec $ Fin $ MCParam.q p in
+           Maybe $ Vq n × ∃ Vq
+      g? = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} Eₚ
+        where
+        Eₚ = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
+          where
+          σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
+
   {-# NON_TERMINATING #-}
   SeededKeyGen : {p : MCParam} → Fin $ 2 ^ MCParam.ℓ p → KP p
-  SeededKeyGen {p} δ = fromMaybe (SeededKeyGen δ') mapti?
+  SeededKeyGen {p} δ = fromMaybe (SeededKeyGen δ') $ mapti? δ E
     where
     E = MCParam.G p δ
     δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
       where
       rev : {n : ℕ} → Op₁ $ Fin n
       rev = opposite
-
+  
       module Veritas where
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
-    mapti? : Maybe $ KP p
-    mapti? = (apₘ ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
-      where
-      sivni = g? >>=ₘ λ (j , lg , g) → just record {
-        lg = lg;
-        Γ = g , j;
-        s = nbits $ toℕ $ b2f $ nbits {n} $ toℕ E
-        }
-        where
-        n = MCParam.n p
-        g? : let Vq = Vec $ Fin $ MCParam.q p in
-             Maybe $ Vq n × ∃ Vq
-        g? = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} Eₚ
-          where
-          Eₚ = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
-            where
-            σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
 
 open SeededKeyGen
   using (
