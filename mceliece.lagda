@@ -1521,6 +1521,14 @@ module SeededKeyGenVeritas where
     ir₃ {p} E with Irreducible {p} $ Eₚ' {p} E
     ... | just _ = refl
     ... | nothing = refl
+
+  module Mapti? where
+    nog : {p : MCParam}
+        → (E : Fin $ 2 ^ MCParam.ℓ p)
+        → (δ : _)
+        → g? {p} E ≡ nothing
+        → mapti? {p} E δ ≡ nothing
+    nog = {!!}
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
