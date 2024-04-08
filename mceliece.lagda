@@ -1518,7 +1518,9 @@ module SeededKeyGenVeritas where
           (_≡_
             (mapₘ (_ ,_) $ Irreducible {p} Eₚ)
             (mapₘ proj₂ $ g? {p} E))
-    ir₃ = {!!}
+    ir₃ {p} E with Irreducible {p} $ Eₚ' {p} E
+    ... | just _ = refl
+    ... | nothing = refl
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
