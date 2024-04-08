@@ -1660,7 +1660,7 @@ module DecodeVeritas where
            → let vc = vc' {p} C₀ in
              take (length C₀) vc ≡ C₀
     pamois {p} C₀ = begin
-      take (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹_ $ cong $ take $ length C₀ ⟩
+      take (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹_ $ cong $ take _ ⟩
       take (length C₀) (C₀ ++ replicate zero) ≡⟨ takedun C₀ _ ⟩
       C₀ ∎
       where
