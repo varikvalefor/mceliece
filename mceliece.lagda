@@ -1453,7 +1453,7 @@ module SeededKeyGen where
       → Fin $ 2 ^ MCParam.ℓ p
       → let σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p in
         Fin $ 2 ^ σ₁*t p
-  Eₚ' {p} E = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
+  Eₚ' {p} = b2f ∘ drop n ∘ nbits {n + σ₁*t p} ∘ toℕ
     where
     n = MCParam.n p
     σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
