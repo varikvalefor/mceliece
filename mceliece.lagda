@@ -1458,7 +1458,7 @@ module SeededKeyGen where
       where
       rev : {n : ℕ} → Op₁ $ Fin n
       rev = opposite
-  
+
       module Veritas where
         zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
         zivle = {!!}
