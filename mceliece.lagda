@@ -1458,8 +1458,9 @@ module SeededKeyGen where
                 MCParam.σ₁ p * MCParam.t p
                 + MCParam.ℓ p)))
          → Maybe $ KP p
-  mapti? {p} E δ = (apₘ ∘₂ mapₘ) _,_ (sivni >>=ₘ MatGen) sivni
+  mapti? {p} E δ = _,ₘ_ (sivni >>=ₘ MatGen) sivni
     where
+    _,ₘ_ = (apₘ ∘₂ mapₘ) _,_
     sivni = g? >>=ₘ λ (j , lg , g) → just record {
       lg = lg;
       Γ = g , j;
