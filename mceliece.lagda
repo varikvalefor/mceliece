@@ -1505,6 +1505,22 @@ open SeededKeyGen
   )
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{SeededKeyGen}.\ mapti}
+
+\begin{code}
+module SeededKeyGenVeritas where
+  open SeededKeyGen
+
+  module G? where
+    ir₃ : {p : MCParam}
+        → (E : Fin $ 2 ^ MCParam.ℓ p)
+        → let Eₚ = Eₚ' {p} E in
+          (_≡_
+            (mapₘ (_ ,_) $ Irreducible {p} Eₚ)
+            (mapₘ proj₂ $ g? {p} E))
+    ir₃ = {!!}
+\end{code}
+
 \section{la'oi .\F{KeyGen}.}
 ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom.\ poi ke'a .orsi li re ko'a goi lo mu'oi glibau.\ Classic MCELIECE .glibau.\ ke sivni termifckiku lo mapti be ko'a
 
