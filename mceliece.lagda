@@ -1449,17 +1449,21 @@ ni'o me'oi .recurse.  .i \termineidyr{SeededKeyGen}
 
 \begin{code}
 module SeededKeyGen where
+  Eₚ : {p : MCParam}
+     → Fin $ 2 ^ MCParam.ℓ p
+     → let σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p in
+       Fin $ 2 ^ σ₁*t p
+  Eₚ {p} E = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
+    where
+    n = MCParam.n p
+    σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
+
   g? : {p : MCParam}
      → Fin $ 2 ^ MCParam.ℓ p
      → let n = MCParam.n p in
        let Vq = Vec $ Fin $ MCParam.q p in
        Maybe $ Vq n × ∃ Vq
-  g? {p} E = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} Eₚ
-    where
-    n = MCParam.n p
-    Eₚ = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
-      where
-      σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
+  g? {p} E = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} $ Eₚ {p} E
 
   mapti? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
