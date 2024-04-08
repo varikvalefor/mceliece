@@ -1565,6 +1565,14 @@ module HxVeritas where
          → let []' = [] ▹_ $ coerce $ d ▹ sym ▹ cong (Vec _) in
            Hx p T ≡ replicate []'
   kunti₁ = {!!}
+
+  pavind : (p : MCParam)
+         → (T : Public p)
+         → (m : Fin _)
+         → (n : Fin _)
+         → toℕ m ≡ toℕ n
+         → lookup (lookup (Hx p T) m) n ≡ suc zero
+  pavind = {!!}
 \end{code}
 
 \section{la'oi .\F{Encode}.}
