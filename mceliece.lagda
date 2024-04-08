@@ -1449,6 +1449,18 @@ ni'o me'oi .recurse.  .i \termineidyr{SeededKeyGen}
 
 \begin{code}
 module SeededKeyGen where
+  g? : {p : MCParam}
+     → Fin $ 2 ^ MCParam.ℓ p
+     → let n = MCParam.n p in
+       let Vq = Vec $ Fin $ MCParam.q p in
+       Maybe $ Vq n × ∃ Vq
+  g? {p} E = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} Eₚ
+    where
+    n = MCParam.n p
+    Eₚ = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
+      where
+      σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
+
   mapti? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
          → (Fin
@@ -1461,20 +1473,13 @@ module SeededKeyGen where
   mapti? {p} E δ = _,ₘ_ (sivni >>=ₘ MatGen) sivni
     where
     _,ₘ_ = (apₘ ∘₂ mapₘ) _,_
-    sivni = g? >>=ₘ λ (j , lg , g) → just record {
+    sivni = g? {p} E >>=ₘ λ (j , lg , g) → just record {
       lg = lg;
       Γ = g , j;
       s = nbits $ toℕ $ b2f $ nbits {n} $ toℕ E
       }
       where
       n = MCParam.n p
-      g? : let Vq = Vec $ Fin $ MCParam.q p in
-           Maybe $ Vq n × ∃ Vq
-      g? = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} Eₚ
-        where
-        Eₚ = b2f $ drop n $ nbits {n + σ₁*t p} $ toℕ E
-          where
-          σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
 
   {-# NON_TERMINATING #-}
   SeededKeyGen : {p : MCParam} → Fin $ 2 ^ MCParam.ℓ p → KP p
