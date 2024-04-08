@@ -1539,12 +1539,13 @@ module Decode where
          → (bar : Public p)
          → xv p MCParam.n
          → Maybe $ ∃ $ mapti {p} C₀ bar
-  mapti? {p} C₀ bar e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
+  mapti? {p} C₀ bar e = mapₘ (e ,_) ctaiporsis
     where
     dun? : ∀ {a} → {A : Set a} → {B C : A}
          → ⦃ Eq A ⦄
          → Maybe $ B ≡ C
     dun? = decToMaybe $ _ ≟ _
+    ctaiporsis = dun? >>=ₘ λ x → mapₘ (x ,_) dun?
 
   module V' where
     n∸k+k≡n : (p : MCParam)
