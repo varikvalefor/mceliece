@@ -1370,6 +1370,20 @@ open FieldOrdering
   )
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{FieldOrdering}.\ mapti}
+
+\begin{code}
+module FieldOrderingVeritas where
+  module Sartre where
+    nada : (p : MCParam)
+         → (x : _)
+         → (n₁ n₂ : Fin _)
+         → lookup x n₁ ≡ lookup x n₂
+         → ¬_ $ n₁ ≡ n₂
+         → FieldOrdering.sartre p x ≡ nothing
+    nada = {!!}
+\end{code}
+
 \section{la'oi .\F{FixedWeight}.}
 ni'o \specimp{FixedWeight}
 
