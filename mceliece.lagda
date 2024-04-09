@@ -139,6 +139,7 @@ open import Data.Vec
     filter;
     lookup;
     toList;
+    unzip;
     drop;
     take;
     _∷_;
@@ -1343,8 +1344,13 @@ module FieldOrdering where
            let vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q in
            vex
          → Maybe vex
-  sartre _ = mapₘ jort ∘ panci
+  sartre _ = mapₘ jort ∘ panci₂
     where
+    panci₂ : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
+           → ⦃ Eq A ⦄
+           → Vec (A × B) n
+           → Maybe $ Vec (A × B) n
+    panci₂ x = unzip x ▹ λ (x₁ , x₂) → mapₘ (flip zipᵥ x₂) $ panci x₁
     -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
     -- porganzu
     jort : ∀ {a} → {A : Set a} → {m n : ℕ}
