@@ -1469,12 +1469,10 @@ ni'o me'oi .recurse.  .i \termineidyr{SeededKeyGen}
 module SeededKeyGen where
   Eₚ' : {p : MCParam}
       → Fin $ 2 ^ MCParam.ℓ p
-      → let σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p in
-        Fin $ 2 ^ σ₁*t p
-  Eₚ' {p} = b2f ∘ drop n ∘ nbits {n + σ₁*t p} ∘ toℕ
+      → Fin $ 2 ^ MCParam.σ₁*t p
+  Eₚ' {p} = b2f ∘ drop n ∘ nbits {n + MCParam.σ₁*t p} ∘ toℕ
     where
     n = MCParam.n p
-    σ₁*t = λ p → MCParam.σ₁ p * MCParam.t p
 
   g? : {p : MCParam}
      → Fin $ 2 ^ MCParam.ℓ p
@@ -1498,8 +1496,8 @@ module SeededKeyGen where
              (_^_
                2
                (MCParam.n p +
-                MCParam.σ₂ p * MCParam.q p +
-                MCParam.σ₁ p * MCParam.t p +
+                MCParam.σ₂*q p +
+                MCParam.σ₁*t p +
                 MCParam.ℓ p)))
          → Maybe $ KP p
   mapti? {p} δ E = _,ₘ_ (sivni >>=ₘ MatGen) sivni
