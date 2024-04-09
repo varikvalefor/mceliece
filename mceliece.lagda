@@ -1386,7 +1386,7 @@ module FixedWeight where
           -- le me'oi .fromℕ. co'e noi ke'a pluja je cu
           -- fegli la .varik.
           -- .i ga naja mleca ko'a goi
-          -- la'o zoi. MCParam.σ₁ * τ .zoi. gi frili cumki
+          -- la'o zoi. MCParam.σ₁ * τ p .zoi. gi frili cumki
           -- fa tu'a la'oi .fromℕ.  .i ku'i xu mleca ko'a
           mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
           sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ p
