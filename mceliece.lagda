@@ -1202,7 +1202,7 @@ record MCParam : Set
   σ₂*q : ℕ
   σ₂*q = σ₂ * q
   σ₁*t : ℕ
-  σ₁*t = σ₁ * q
+  σ₁*t = σ₁ * t
   field
     n≤q : n ℕ.≤ q
     t≥2 : t ℕ.≥ 2
