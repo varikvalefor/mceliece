@@ -1545,13 +1545,16 @@ ni'o la'o zoi.\ \F{Hx} \B p \B T\ .zoi.\ konkatena lo me'oi .identity.\ nacmeime
 
 \begin{code}
 module Hx where
+  n∸k+k≡n : (p : MCParam)
+          → MCParam.n-k p + MCParam.k p ≡ MCParam.n p
+  n∸k+k≡n p = DNP.m∸n+n≡m $ DNP.m∸n≤m _ $ MCParam.m p * _
+
   Hx : (p : MCParam)
      → Public p
      → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
-  Hx p T = I zero (suc zero) ∣ T ▹_ $ coerce $ cong nacmeimid n∸k+k≡n
+  Hx p T = I zero (suc zero) ∣ T ▹_ $ coerce $ cong nacmeimid $ n∸k+k≡n p
     where
     nacmeimid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
-    n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m _ $ MCParam.m p * _
 
 open Hx
   using (
