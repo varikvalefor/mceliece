@@ -1480,7 +1480,7 @@ module SeededKeyGen where
              (_^_
                2
                (MCParam.n p +
-                MCParam.σ₂ p * (2 ^ MCParam.m p) +
+                MCParam.σ₂ p * MCParam.q p +
                 MCParam.σ₁ p * MCParam.t p +
                 MCParam.ℓ p)))
          → Maybe $ KP p
