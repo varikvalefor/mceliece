@@ -1319,31 +1319,36 @@ ni'o \specimp{FieldOrdering}
 
 \begin{code}
 module FieldOrdering where
+  α' : (p : MCParam)
+     → let q = MCParam.q p in
+       let vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q in
+       vex → Vec (Fin q) q
+  α' p = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
+    where
+    m = MCParam.m p
+    toFin : ℕ → Fin _
+    toFin = {!!}
+    -- | ni'o mo la .z.
+    -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
+    -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
+    -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
+    -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
+    -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
+    -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
+    -- ko'a
+    tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
+
   FieldOrdering : {p : MCParam}
                 → Fin $ MCParam.σ₂ p * MCParam.q p
                 → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
   FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     where
     q = MCParam.q p
+    α = α' p
     v = flip Vec q $ Fin $ MCParam.σ₂ p
     vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
     a : v
     a = {!!}
-    α : vex → Vec (Fin q) q
-    α = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
-      where
-      m = MCParam.m p
-      toFin : ℕ → Fin _
-      toFin = {!!}
-      -- | ni'o mo la .z.
-      -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
-      -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
-      -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
-      -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
-      -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
-      -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
-      -- ko'a
-      tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
     sartre : vex → Maybe vex
     sartre = mapₘ jort ∘ panci
       where
