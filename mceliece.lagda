@@ -1465,10 +1465,10 @@ module SeededKeyGen where
        Maybe $ Vq n × ∃ Vq
   g? {p} = mapₘ (λ g → {!!} , _ , g) ∘ Irreducible {p} ∘ Eₚ' {p}
 
-  sivni' : {p : MCParam}
+  sivni? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
          → Maybe $ Private p
-  sivni' {p} E = g? {p} E >>=ₘ λ (j , lg , g) → just record {
+  sivni? {p} E = g? {p} E >>=ₘ λ (j , lg , g) → just record {
     lg = lg;
     Γ = g , j;
     s = nbits $ toℕ $ b2f $ nbits {MCParam.n p} $ toℕ E
@@ -1485,7 +1485,7 @@ module SeededKeyGen where
          → Maybe $ KP p
   mapti? {p} E δ = _,ₘ_ (sivni >>=ₘ MatGen) sivni
     where
-    sivni = sivni' {p} E
+    sivni = sivni? {p} E
     _,ₘ_ = (apₘ ∘₂ mapₘ) _,_
 
   {-# NON_TERMINATING #-}
