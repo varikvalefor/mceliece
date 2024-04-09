@@ -1318,42 +1318,48 @@ Irreducible {p} d = fromList? g
 ni'o \specimp{FieldOrdering}
 
 \begin{code}
-FieldOrdering : {p : MCParam}
-              → Fin $ MCParam.σ₂ p * MCParam.q p
-              → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
-FieldOrdering {p} f = mapₘ α $ sartre $ indice a
-  where
-  q = MCParam.q p
-  v = flip Vec q $ Fin $ MCParam.σ₂ p
-  vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
-  a : v
-  a = {!!}
-  α : vex → Vec (Fin q) q
-  α = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
+module FieldOrdering where
+  FieldOrdering : {p : MCParam}
+                → Fin $ MCParam.σ₂ p * MCParam.q p
+                → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
+  FieldOrdering {p} f = mapₘ α $ sartre $ indice a
     where
-    m = MCParam.m p
-    toFin : ℕ → Fin _
-    toFin = {!!}
-    -- | ni'o mo la .z.
-    -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
-    -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
-    -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
-    -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
-    -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
-    -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
-    -- ko'a
-    tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
-  sartre : vex → Maybe vex
-  sartre = mapₘ jort ∘ panci
-    where
-    -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
-    -- porganzu
-    jort : ∀ {a} → {A : Set a} → {m n : ℕ}
-         → Op₁ $ flip Vec n $ Fin m × A
-    jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
+    q = MCParam.q p
+    v = flip Vec q $ Fin $ MCParam.σ₂ p
+    vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
+    a : v
+    a = {!!}
+    α : vex → Vec (Fin q) q
+    α = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
       where
-      jort' : ∀ {a} → {A : Set a} → {n : ℕ} → Op₁ $ Vec (_ × A) n
-      jort' = {!!}
+      m = MCParam.m p
+      toFin : ℕ → Fin _
+      toFin = {!!}
+      -- | ni'o mo la .z.
+      -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
+      -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
+      -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
+      -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
+      -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
+      -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
+      -- ko'a
+      tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
+    sartre : vex → Maybe vex
+    sartre = mapₘ jort ∘ panci
+      where
+      -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
+      -- porganzu
+      jort : ∀ {a} → {A : Set a} → {m n : ℕ}
+           → Op₁ $ flip Vec n $ Fin m × A
+      jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
+        where
+        jort' : ∀ {a} → {A : Set a} → {n : ℕ} → Op₁ $ Vec (_ × A) n
+        jort' = {!!}
+
+open FieldOrdering
+  using (
+    FieldOrdering
+  )
 \end{code}
 
 \section{la'oi .\F{FixedWeight}.}
