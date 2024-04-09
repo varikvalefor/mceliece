@@ -1480,10 +1480,8 @@ module SeededKeyGen where
     sivni = g? {p} E >>=ₘ λ (j , lg , g) → just record {
       lg = lg;
       Γ = g , j;
-      s = nbits $ toℕ $ b2f $ nbits {n} $ toℕ E
+      s = nbits $ toℕ $ b2f $ nbits {MCParam.n p} $ toℕ E
       }
-      where
-      n = MCParam.n p
 
   {-# NON_TERMINATING #-}
   SeededKeyGen : {p : MCParam} → Fin $ 2 ^ MCParam.ℓ p → KP p
