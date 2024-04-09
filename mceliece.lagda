@@ -1357,10 +1357,9 @@ module FieldOrdering where
   FieldOrdering : {p : MCParam}
                 → Fin $ MCParam.σ₂ p * MCParam.q p
                 → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
-  FieldOrdering {p} f = mapₘ α $ sartre p $ indice a
+  FieldOrdering {p} f = mapₘ (α' p) $ sartre p $ indice a
     where
     q = MCParam.q p
-    α = α' p
     vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
     a : flip Vec q $ Fin $ MCParam.σ₂ p
     a = {!!}
