@@ -1362,69 +1362,75 @@ ni'o \specimp{FixedWeight}
 ni'o \termineidyr{FixedWeight}
 
 \begin{code}
-{-# NON_TERMINATING #-}
-FixedWeight : {p : MCParam}
-            → (IO $ Σ
-                (Vec (Fin 2) $ MCParam.n p)
-                (λ e → hWV𝔽 e ≡ MCParam.t p))
-FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
-  where
-  OT = ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
-  -- | ni'o cumki fa lo nu cumki fa lo nu tu'a
-  -- la'oi .restart?. rinka lo nu na me'oi .terminate.
-  restart? : Maybe OT → IO OT
-  restart? = maybe pure $ FixedWeight {p}
-  -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le na'e
-  -- zabna je velcki be la'oi .τ.  .i la .varik. cu
-  -- na birti lo du'u pilji ji kau cu tenfa  .i ku'i la
-  -- .varik. cu djuno le du'u na mapti fa le me zo joi se
-  -- xamsku
-  τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
-  cof = cunsof {MCParam.σ₁ p * τ}
-  FixedWeight' : Fin $ 2 ^_ $ MCParam.σ₁ p * τ → Maybe OT
-  FixedWeight' b = mapₘ (map₂ proj₁ ∘ e') a?
+module FixedWeight where
+  {-# NON_TERMINATING #-}
+  FixedWeight : {p : MCParam}
+              → (IO $ Σ
+                  (Vec (Fin 2) $ MCParam.n p)
+                  (λ e → hWV𝔽 e ≡ MCParam.t p))
+  FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
     where
-    d : Vec ℕ τ
-    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
+    OT = ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
+    -- | ni'o cumki fa lo nu cumki fa lo nu tu'a
+    -- la'oi .restart?. rinka lo nu na me'oi .terminate.
+    restart? : Maybe OT → IO OT
+    restart? = maybe pure $ FixedWeight {p}
+    -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le na'e
+    -- zabna je velcki be la'oi .τ.  .i la .varik. cu
+    -- na birti lo du'u pilji ji kau cu tenfa  .i ku'i la
+    -- .varik. cu djuno le du'u na mapti fa le me zo joi se
+    -- xamsku
+    τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
+    cof = cunsof {MCParam.σ₁ p * τ}
+    FixedWeight' : Fin $ 2 ^_ $ MCParam.σ₁ p * τ → Maybe OT
+    FixedWeight' b = mapₘ (map₂ proj₁ ∘ e') a?
       where
-      uijis : Fin τ → Fin $ MCParam.m p → ℕ
-      uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
+      d : Vec ℕ τ
+      d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
         where
-        ind = f2f mind ▹ coerce (cong Fin $ proj₂ sukdiz)
+        uijis : Fin τ → Fin $ MCParam.m p → ℕ
+        uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
           where
-          -- | ni'o zo .mind. cmavlaka'i lu mabla
-          -- .indice li'u
-          --
-          -- ni'o ma zmadu fi le ka ce'u zabna kei fe
-          -- le me'oi .fromℕ. co'e noi ke'a pluja je cu
-          -- fegli la .varik.
-          -- .i ga naja mleca ko'a goi
-          -- la'o zoi. MCParam.σ₁ * τ .zoi. gi frili cumki
-          -- fa tu'a la'oi .fromℕ.  .i ku'i xu mleca ko'a
-          mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
-          sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ
-          sukdiz = {!!}
-        b' = nbits $ toℕ b
-    a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a? = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
-      where
-      -- | ni'o zo .mlen. cmavlaka'i
-      -- lu mleca la .n. li'u
-      mlen : List $ Fin $ MCParam.n p
-      mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList d
+          ind = f2f mind ▹ coerce (cong Fin $ proj₂ sukdiz)
+            where
+            -- | ni'o zo .mind. cmavlaka'i lu mabla
+            -- .indice li'u
+            --
+            -- ni'o ma zmadu fi le ka ce'u zabna kei fe
+            -- le me'oi .fromℕ. co'e noi ke'a pluja je cu
+            -- fegli la .varik.
+            -- .i ga naja mleca ko'a goi
+            -- la'o zoi. MCParam.σ₁ * τ .zoi. gi frili cumki
+            -- fa tu'a la'oi .fromℕ.  .i ku'i xu mleca ko'a
+            mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
+            sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ
+            sukdiz = {!!}
+          b' = nbits $ toℕ b
+      a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
+      a? = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
         where
-        mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
-      toVec? : List $ Fin $ MCParam.n p
-             → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-      toVec? l = flip mapₘ dun? $ flip coerce (fromList l) ∘ cong (Vec _)
-        where
-        dun? = decToMaybe $ _ ≟ _
-    e' : (a : _)
-       → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
-         → hWV𝔽 e ≡ MCParam.t p
-         × let el = Data.List.allFin _ in
-           flip Listal.All el $ _≡_ (suc zero) ∘ lookup e ∘ lookup a
-    e' = {!!}
+        -- | ni'o zo .mlen. cmavlaka'i
+        -- lu mleca la .n. li'u
+        mlen : List $ Fin $ MCParam.n p
+        mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList d
+          where
+          mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
+        toVec? : List $ Fin $ MCParam.n p
+               → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
+        toVec? l = flip mapₘ dun? $ flip coerce (fromList l) ∘ cong (Vec _)
+          where
+          dun? = decToMaybe $ _ ≟ _
+      e' : (a : _)
+         → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
+           → hWV𝔽 e ≡ MCParam.t p
+           × let el = Data.List.allFin _ in
+             flip Listal.All el $ _≡_ (suc zero) ∘ lookup e ∘ lookup a
+      e' = {!!}
+
+open FixedWeight
+  using (
+    FixedWeight
+  )
 \end{code}
 
 \section{la'oi .\F{Encap}.}
