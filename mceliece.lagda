@@ -1363,12 +1363,60 @@ ni'o \termineidyr{FixedWeight}
 
 \begin{code}
 module FixedWeight where
+  FixedWeight' : {p : MCParam}
+               → (τ : ℕ)
+               → Fin $ 2 ^_ $ MCParam.σ₁ p * τ
+               → Maybe $ ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
+  FixedWeight' {p} τ b = mapₘ (map₂ proj₁ ∘ e') a?
+    where
+    d : Vec ℕ τ
+    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
+      where
+      uijis : Fin τ → Fin $ MCParam.m p → ℕ
+      uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
+        where
+        ind = f2f mind ▹ coerce (cong Fin $ proj₂ sukdiz)
+          where
+          -- | ni'o zo .mind. cmavlaka'i lu mabla
+          -- .indice li'u
+          --
+          -- ni'o ma zmadu fi le ka ce'u zabna kei fe
+          -- le me'oi .fromℕ. co'e noi ke'a pluja je cu
+          -- fegli la .varik.
+          -- .i ga naja mleca ko'a goi
+          -- la'o zoi. MCParam.σ₁ * τ .zoi. gi frili cumki
+          -- fa tu'a la'oi .fromℕ.  .i ku'i xu mleca ko'a
+          mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
+          sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ
+          sukdiz = {!!}
+        b' = nbits $ toℕ b
+    a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
+    a? = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
+      where
+      -- | ni'o zo .mlen. cmavlaka'i
+      -- lu mleca la .n. li'u
+      mlen : List $ Fin $ MCParam.n p
+      mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList d
+        where
+        mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
+      toVec? : List $ Fin $ MCParam.n p
+             → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
+      toVec? l = flip mapₘ dun? $ flip coerce (fromList l) ∘ cong (Vec _)
+        where
+        dun? = decToMaybe $ _ ≟ _
+    e' : (a : _)
+       → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
+         → hWV𝔽 e ≡ MCParam.t p
+         × let el = Data.List.allFin _ in
+           flip Listal.All el $ _≡_ (suc zero) ∘ lookup e ∘ lookup a
+    e' = {!!}
+
   {-# NON_TERMINATING #-}
   FixedWeight : {p : MCParam}
               → (IO $ Σ
                   (Vec (Fin 2) $ MCParam.n p)
                   (λ e → hWV𝔽 e ≡ MCParam.t p))
-  FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight'
+  FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight' {p} τ
     where
     OT = ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
     -- | ni'o cumki fa lo nu cumki fa lo nu tu'a
@@ -1382,50 +1430,6 @@ module FixedWeight where
     -- xamsku
     τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
     cof = cunsof {MCParam.σ₁ p * τ}
-    FixedWeight' : Fin $ 2 ^_ $ MCParam.σ₁ p * τ → Maybe OT
-    FixedWeight' b = mapₘ (map₂ proj₁ ∘ e') a?
-      where
-      d : Vec ℕ τ
-      d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
-        where
-        uijis : Fin τ → Fin $ MCParam.m p → ℕ
-        uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
-          where
-          ind = f2f mind ▹ coerce (cong Fin $ proj₂ sukdiz)
-            where
-            -- | ni'o zo .mind. cmavlaka'i lu mabla
-            -- .indice li'u
-            --
-            -- ni'o ma zmadu fi le ka ce'u zabna kei fe
-            -- le me'oi .fromℕ. co'e noi ke'a pluja je cu
-            -- fegli la .varik.
-            -- .i ga naja mleca ko'a goi
-            -- la'o zoi. MCParam.σ₁ * τ .zoi. gi frili cumki
-            -- fa tu'a la'oi .fromℕ.  .i ku'i xu mleca ko'a
-            mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
-            sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ
-            sukdiz = {!!}
-          b' = nbits $ toℕ b
-      a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-      a? = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
-        where
-        -- | ni'o zo .mlen. cmavlaka'i
-        -- lu mleca la .n. li'u
-        mlen : List $ Fin $ MCParam.n p
-        mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList d
-          where
-          mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
-        toVec? : List $ Fin $ MCParam.n p
-               → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-        toVec? l = flip mapₘ dun? $ flip coerce (fromList l) ∘ cong (Vec _)
-          where
-          dun? = decToMaybe $ _ ≟ _
-      e' : (a : _)
-         → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
-           → hWV𝔽 e ≡ MCParam.t p
-           × let el = Data.List.allFin _ in
-             flip Listal.All el $ _≡_ (suc zero) ∘ lookup e ∘ lookup a
-      e' = {!!}
 
 open FixedWeight
   using (
