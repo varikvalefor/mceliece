@@ -1363,16 +1363,18 @@ ni'o \termineidyr{FixedWeight}
 
 \begin{code}
 module FixedWeight where
+  τ : MCParam → ℕ
+  τ p = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
+
   FixedWeight' : {p : MCParam}
-               → (τ : ℕ)
-               → Fin $ 2 ^_ $ MCParam.σ₁ p * τ
+               → Fin $ 2 ^_ $ MCParam.σ₁ p * τ p
                → Maybe $ ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
-  FixedWeight' {p} τ b = mapₘ (map₂ proj₁ ∘ e') a?
+  FixedWeight' {p} b = mapₘ (map₂ proj₁ ∘ e') a?
     where
-    d : Vec ℕ τ
-    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin τ
+    d : Vec ℕ $ τ p
+    d = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin $ τ p
       where
-      uijis : Fin τ → Fin $ MCParam.m p → ℕ
+      uijis : Fin $ τ p → Fin $ MCParam.m p → ℕ
       uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
         where
         ind = f2f mind ▹ coerce (cong Fin $ proj₂ sukdiz)
@@ -1387,7 +1389,7 @@ module FixedWeight where
           -- la'o zoi. MCParam.σ₁ * τ .zoi. gi frili cumki
           -- fa tu'a la'oi .fromℕ.  .i ku'i xu mleca ko'a
           mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
-          sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ
+          sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ p
           sukdiz = {!!}
         b' = nbits $ toℕ b
     a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
@@ -1416,7 +1418,7 @@ module FixedWeight where
               → (IO $ Σ
                   (Vec (Fin 2) $ MCParam.n p)
                   (λ e → hWV𝔽 e ≡ MCParam.t p))
-  FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight' {p} τ
+  FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight' {p}
     where
     OT = ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
     -- | ni'o cumki fa lo nu cumki fa lo nu tu'a
@@ -1428,8 +1430,7 @@ module FixedWeight where
     -- na birti lo du'u pilji ji kau cu tenfa  .i ku'i la
     -- .varik. cu djuno le du'u na mapti fa le me zo joi se
     -- xamsku
-    τ = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
-    cof = cunsof {MCParam.σ₁ p * τ}
+    cof = cunsof {MCParam.σ₁ p * τ p}
 
 open FixedWeight
   using (
