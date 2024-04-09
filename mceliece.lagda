@@ -1199,6 +1199,10 @@ record MCParam : Set
   k = n ∸ m * t
   n-k : ℕ
   n-k = n ∸ k
+  σ₂*q : ℕ
+  σ₂*q = σ₂ * q
+  σ₁*t : ℕ
+  σ₁*t = σ₁ * q
   field
     n≤q : n ℕ.≤ q
     t≥2 : t ℕ.≥ 2
