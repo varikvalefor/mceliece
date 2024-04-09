@@ -1345,9 +1345,8 @@ module FieldOrdering where
     where
     q = MCParam.q p
     α = α' p
-    v = flip Vec q $ Fin $ MCParam.σ₂ p
     vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
-    a : v
+    a : flip Vec q $ Fin $ MCParam.σ₂ p
     a = {!!}
     sartre : vex → Maybe vex
     sartre = mapₘ jort ∘ panci
