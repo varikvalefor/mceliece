@@ -1544,13 +1544,19 @@ ni'o ko'a goi la'au \chapsname\ li'u vasru le velcki be ko'e goi vu'oi le fancu 
 ni'o la'o zoi.\ \F{Hx} \B p \B T\ .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'oi .\B{T}.
 
 \begin{code}
-Hx : (p : MCParam)
-   → Public p
-   → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
-Hx p T = I zero (suc zero) ∣ T ▹_ $ coerce $ cong nacmeimid n∸k+k≡n
-  where
-  nacmeimid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
-  n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m _ $ MCParam.m p * _
+module Hx where
+  Hx : (p : MCParam)
+     → Public p
+     → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
+  Hx p T = I zero (suc zero) ∣ T ▹_ $ coerce $ cong nacmeimid n∸k+k≡n
+    where
+    nacmeimid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
+    n∸k+k≡n = DNP.m∸n+n≡m $ DNP.m∸n≤m _ $ MCParam.m p * _
+
+open Hx
+  using (
+    Hx
+  )
 \end{code}
 
 \subsection{le ctaipe be le su'u la'oi .\F{Hx}.\ mapti}
