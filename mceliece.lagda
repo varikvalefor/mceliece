@@ -1322,8 +1322,7 @@ ni'o \specimp{FieldOrdering}
 module FieldOrdering where
   α' : (p : MCParam)
      → let q = MCParam.q p in
-       let vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q in
-       vex
+       flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
      → Vec (Fin q) q
   α' p = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
     where
