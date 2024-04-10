@@ -1400,7 +1400,6 @@ module FieldOrderingVeritas where
       dubjavme'a = {!!}
 
       cmimajos : ∀ {a} → {A : Set a} → {m n : ℕ}
-               → ⦃ _ : Eq A ⦄
                → (v : Vec (Fin m × A) n)
                → (i : Fin n)
                → let v' = FieldOrdering.Sartre.jort v in
