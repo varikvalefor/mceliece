@@ -1339,26 +1339,32 @@ module FieldOrdering where
     -- ko'a
     tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
 
-  sartre : (p : MCParam)
-         → let q = MCParam.q p in
-           let vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q in
-           vex
-         → Maybe vex
-  sartre _ = mapₘ jort ∘ panci₂
-    where
-    panci₂ : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
-           → ⦃ Eq A ⦄
-           → Vec (A × B) n
-           → Maybe $ Vec (A × B) n
-    panci₂ x = unzip x ▹ λ (x₁ , x₂) → mapₘ (flip zipᵥ x₂) $ panci x₁
-    -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
-    -- porganzu
-    jort : ∀ {a} → {A : Set a} → {m n : ℕ}
-         → Op₁ $ flip Vec n $ Fin m × A
-    jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
+  module Sartre where
+    sartre : (p : MCParam)
+           → let q = MCParam.q p in
+             let vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q in
+             vex
+           → Maybe vex
+    sartre _ = mapₘ jort ∘ panci₂
       where
-      jort' : ∀ {a} → {A : Set a} → {n : ℕ} → Op₁ $ Vec (_ × A) n
-      jort' = {!!}
+      panci₂ : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
+             → ⦃ Eq A ⦄
+             → Vec (A × B) n
+             → Maybe $ Vec (A × B) n
+      panci₂ x = unzip x ▹ λ (x₁ , x₂) → mapₘ (flip zipᵥ x₂) $ panci x₁
+      -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
+      -- porganzu
+      jort : ∀ {a} → {A : Set a} → {m n : ℕ}
+           → Op₁ $ flip Vec n $ Fin m × A
+      jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
+        where
+        jort' : ∀ {a} → {A : Set a} → {n : ℕ} → Op₁ $ Vec (_ × A) n
+        jort' = {!!}
+
+  open Sartre
+    using (
+      sartre
+    )
 
   FieldOrdering : {p : MCParam}
                 → Fin $ MCParam.σ₂ p * MCParam.q p
@@ -1386,7 +1392,7 @@ module FieldOrderingVeritas where
          → (n₁ n₂ : Fin _)
          → lookup x n₁ ≡ lookup x n₂
          → ¬_ $ n₁ ≡ n₂
-         → FieldOrdering.sartre p x ≡ nothing
+         → FieldOrdering.Sartre.sartre p x ≡ nothing
     nada = {!!}
 \end{code}
 
