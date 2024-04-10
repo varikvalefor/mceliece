@@ -1399,6 +1399,14 @@ module FieldOrderingVeritas where
                      (lookup v' $ suc i))
       dubjavme'a = {!!}
 
+      cmimajos : ∀ {a} → {A : Set a} → {m n : ℕ}
+               → ⦃ _ : Eq A ⦄
+               → (v : Vec (Fin m × A) n)
+               → (i : Fin n)
+               → let v' = FieldOrdering.Sartre.jort v in
+                 ∃ $ λ i' → lookup v i ≡ lookup v' i'
+      cmimajos = {!!}
+
     module Panci₂ where
       nada : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
            → ⦃ _ : Eq A ⦄
