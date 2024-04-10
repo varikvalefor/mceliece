@@ -1388,6 +1388,17 @@ open FieldOrdering
 \begin{code}
 module FieldOrderingVeritas where
   module Sartre where
+    module Jort where
+      dubjavme'a : ∀ {a} → {A : Set a} → {m n : ℕ}
+                 → (v : Vec (Fin m × A) $ suc n)
+                 → (i : Fin n)
+                 → let v' = FieldOrdering.Sartre.jort v in
+                   let i' = Data.Fin.inject₁ i in
+                   ((Data.Fin._≤_ on proj₁)
+                     (lookup v' i')
+                     (lookup v' $ suc i))
+      dubjavme'a = {!!}
+
     module Panci₂ where
       nada : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
            → ⦃ _ : Eq A ⦄
