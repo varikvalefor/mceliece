@@ -1388,6 +1388,16 @@ open FieldOrdering
 \begin{code}
 module FieldOrderingVeritas where
   module Sartre where
+    module Panci₂ where
+      nada : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
+           → ⦃ _ : Eq A ⦄
+           → (x : Vec (A × B) n)
+           → (n₁ n₂ : Fin n)
+           → lookup x n₁ ≡ lookup x n₂
+           → ¬_ $ n₁ ≡ n₂
+           → FieldOrdering.Sartre.panci₂ x ≡ nothing
+      nada = {!!}
+
     nada : (p : MCParam)
          → (x : _)
          → (n₁ n₂ : Fin _)
