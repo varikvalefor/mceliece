@@ -1476,7 +1476,7 @@ module FixedWeight where
       mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
     toVec? : List $ Fin $ MCParam.n p
            → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    toVec? l = flip mapₘ dun? $ flip coerce (fromList l) ∘ cong (Vec _)
+    toVec? l = mapₘ (λ n → fromList l ▹_ $ coerce $ cong (Vec _) n) dun?
       where
       dun? = decToMaybe $ _ ≟ _
 
