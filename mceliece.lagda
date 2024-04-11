@@ -1474,8 +1474,9 @@ module FixedWeight where
     mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList $ d p b
       where
       mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
-    toVec? : List $ Fin $ MCParam.n p
-           → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
+    toVec? : ∀ {a} → {A : Set a} → {n : ℕ}
+           → List A
+           → Maybe $ Vec A n
     toVec? l = mapₘ (λ n → fromList l ▹_ $ coerce $ cong (Vec _) n) dun?
       where
       dun? = decToMaybe $ _ ≟ _
