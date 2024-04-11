@@ -1463,7 +1463,7 @@ module SeededKeyGen where
      → let n = MCParam.n p in
        let Vq = Vec $ Fin $ MCParam.q p in
        Maybe $ Vq n × ∃ Vq
-  g? {p} E = mapₘ (λ g → {!!} , _ , g) $ Irreducible {p} $ Eₚ' {p} E
+  g? {p} = mapₘ (λ g → {!!} , _ , g) ∘ Irreducible {p} ∘ Eₚ' {p}
 
   mapti? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
