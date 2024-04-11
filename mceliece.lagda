@@ -1086,7 +1086,8 @@ module Hw𝕄Veritas where
   kunti₂ : {a m : ℕ} → (x : 𝕄 (Fin a) 0 m) → hw𝕄 x ≡ 0
   kunti₂ {m = m} x = begin
     hw𝕄 x ≡⟨ {!!} ⟩
-    hw𝕄 (replicate {n = m} []) ≡⟨ {!!} ⟩
+    hw𝕄 (replicate {n = m} []) ≡⟨ refl ⟩
+    sumᵥ (mapᵥ hWV𝔽 $ replicate {n = m} []) ≡⟨ {!!} ⟩
     0 ∎
     where
     open ≡-Reasoning
