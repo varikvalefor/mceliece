@@ -1460,25 +1460,28 @@ module FixedWeight where
         sukdiz = {!!}
       b' = nbits $ toℕ b
 
+  a? : (p : MCParam)
+     → Fin $ 2 ^_ $ MCParam.σ₁ p * τ p
+     → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
+  a? p b = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
+    where
+    -- | ni'o zo .mlen. cmavlaka'i
+    -- lu mleca la .n. li'u
+    mlen : List $ Fin $ MCParam.n p
+    mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList $ d p b
+      where
+      mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
+    toVec? : List $ Fin $ MCParam.n p
+           → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
+    toVec? l = flip mapₘ dun? $ flip coerce (fromList l) ∘ cong (Vec _)
+      where
+      dun? = decToMaybe $ _ ≟ _
+
   FixedWeight' : (p : MCParam)
                → Fin $ 2 ^_ $ MCParam.σ₁ p * τ p
                → Maybe $ ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
-  FixedWeight' p b = mapₘ (map₂ proj₁ ∘ e') a?
+  FixedWeight' p b = mapₘ (map₂ proj₁ ∘ e') $ a? p b
     where
-    a? : Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-    a? = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
-      where
-      -- | ni'o zo .mlen. cmavlaka'i
-      -- lu mleca la .n. li'u
-      mlen : List $ Fin $ MCParam.n p
-      mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList $ d p b
-        where
-        mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
-      toVec? : List $ Fin $ MCParam.n p
-             → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-      toVec? l = flip mapₘ dun? $ flip coerce (fromList l) ∘ cong (Vec _)
-        where
-        dun? = decToMaybe $ _ ≟ _
     e' : (a : _)
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
