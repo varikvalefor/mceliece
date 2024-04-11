@@ -821,6 +821,18 @@ module IndiceVeritas where
       i ∎
 \end{code}
 
+\section{la'o zoi.\ \F{toVec?}\ .zoi.}
+ni'o la .varik.\ na birti lo du'u ma kau zabna je cu lojbo je cu velcki la'o zoi.\ \F{toVec?}\ .zoi.
+
+\begin{code}
+toVec? : ∀ {a} → {A : Set a} → {n : ℕ}
+       → List A
+       → Maybe $ Vec A n
+toVec? l = mapₘ (λ n → fromList l ▹_ $ coerce $ cong (Vec _) n) dun?
+  where
+  dun? = decToMaybe $ _ ≟ _
+\end{code}
+
 \chap{le fancu co ke porsi be lo'i me'oi .bit.\ ke'e}
 
 \section{la'oi .\F{nbits}.}
@@ -1473,12 +1485,6 @@ module FixedWeight where
     mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList $ d p b
       where
       mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
-    toVec? : ∀ {a} → {A : Set a} → {n : ℕ}
-           → List A
-           → Maybe $ Vec A n
-    toVec? l = mapₘ (λ n → fromList l ▹_ $ coerce $ cong (Vec _) n) dun?
-      where
-      dun? = decToMaybe $ _ ≟ _
 
   FixedWeight' : (p : MCParam)
                → Fin $ 2 ^_ $ MCParam.σ₁ p * τ p
