@@ -1088,6 +1088,7 @@ module Hw𝕄Veritas where
     hw𝕄 x ≡⟨ {!!} ⟩
     hw𝕄 (replicate {n = m} []) ≡⟨ refl ⟩
     sumᵥ (mapᵥ hWV𝔽 $ replicate {n = m} []) ≡⟨ {!!} ⟩
+    sumᵥ (replicate {n = m} 0) ≡⟨ {!!} ⟩
     0 ∎
     where
     open ≡-Reasoning
