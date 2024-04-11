@@ -1468,8 +1468,7 @@ module FixedWeight where
      → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
   a? p b = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
     where
-    -- | ni'o zo .mlen. cmavlaka'i
-    -- lu mleca la .n. li'u
+    -- | ni'o zo .mlen. cmavlaka'i lu mleca la .n. li'u
     mlen : List $ Fin $ MCParam.n p
     mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList $ d p b
       where
