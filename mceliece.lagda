@@ -406,6 +406,16 @@ module F2fVeritas where
   dunli {m} {n} f with toℕ f ℕ.<? suc n
   ... | yes x = {!!}
   ... | no x = {!!}
+
+  zeron : {n m : ℕ}
+        → (x : Fin n)
+        → toℕ x ≡ 0
+        → f2f {n = m} x ≡ zero
+  zeron x d = begin
+    f2f x ≡⟨ {!!} ⟩
+    zero ∎
+    where
+    open ≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
@@ -1048,13 +1058,7 @@ module ∧𝔹ℕ𝔽Veritas where
     toFin = f2f ∘ b2f
     Z = replicate zero
     open ≡-Reasoning
-    f2f-zero : {n m : ℕ}
-             → (x : Fin n)
-             → toℕ x ≡ 0
-             → f2f {n = m} x ≡ zero
-    f2f-zero x d = begin
-      f2f x ≡⟨ {!!} ⟩
-      zero ∎
+    f2f-zero = F2fVeritas.zeron
     zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
     zipdun = begin
       zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ {!!} ⟩
