@@ -1358,7 +1358,7 @@ module FieldOrdering where
   α' p = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
     where
     m = MCParam.m p
-    toFin : ℕ → Fin $ 2 ^ MCParam.m p
+    toFin : {n : ℕ} → ℕ → Fin n
     toFin = {!!}
     -- | ni'o mo la .z.
     -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
