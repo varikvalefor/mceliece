@@ -1424,6 +1424,11 @@ module FieldOrderingVeritas where
           → m ℕ.< suc n
           → toℕ (FieldOrdering.toFin {suc n} m) ≡ n
     mleca = {!!}
+
+    dubjavmau : (m n : ℕ)
+              → ¬_ $ m ℕ.< suc n
+              → toℕ (FieldOrdering.toFin {suc n} m) ≡ {!!}
+    dubjavmau = {!!}
     
   module Sartre where
     module Jort where
