@@ -1376,9 +1376,9 @@ module FieldOrdering where
     -- porganzu
     jort : ∀ {a} → {A : Set a} → {m n : ℕ}
          → Op₁ $ flip Vec n $ Fin m × A
-    jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
+    jort {m = m} = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
       where
-      jort' : ∀ {a} → {A : Set a} → {n : ℕ} → Op₁ $ Vec (_ × A) n
+      jort' : ∀ {a} → {A : Set a} → {n : ℕ} → Op₁ $ Vec (Fin m × A) n
       jort' = {!!}
 
     panci₂ : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
