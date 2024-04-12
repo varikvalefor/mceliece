@@ -670,7 +670,12 @@ module DistVeritas where
                   (vfd z))
     fildradus x z = begin
       vfd ((x , x) ∷ z) ≡⟨ {!!} ⟩
+      length (filterₗ drata $ (x , x) ∷ z') ≡⟨ {!!} ⟩
+      length (filterₗ drata z') ≡⟨ {!!} ⟩
       vfd z ∎
+      where
+      z' = toList z
+      filterₗ = Data.List.filter
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
