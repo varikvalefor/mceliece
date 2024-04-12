@@ -1351,6 +1351,9 @@ ni'o \specimp{FieldOrdering}
 
 \begin{code}
 module FieldOrdering where
+  toFin : {n : ℕ} → ℕ → Fin n
+  toFin = {!!}
+
   α' : (p : MCParam)
      → let q = MCParam.q p in
        flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
@@ -1358,8 +1361,6 @@ module FieldOrdering where
   α' p = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
     where
     m = MCParam.m p
-    toFin : {n : ℕ} → ℕ → Fin n
-    toFin = {!!}
     -- | ni'o mo la .z.
     -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
     -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
