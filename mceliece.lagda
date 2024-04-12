@@ -1419,6 +1419,12 @@ open FieldOrdering
 
 \begin{code}
 module FieldOrderingVeritas where
+  module ToFin where
+    mleca : (m n : ℕ)
+          → m ℕ.< suc n
+          → toℕ (FieldOrdering.toFin {suc n} m) ≡ n
+    mleca = {!!}
+    
   module Sartre where
     module Jort where
       dubjavme'a : ∀ {a} → {A : Set a} → {m n : ℕ}
