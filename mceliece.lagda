@@ -22,6 +22,7 @@
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb M}}}
+\newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb S}}}
 \newunicodechar{𝔹}{\ensuremath{\mathnormal{\mathbb B}}}
 \newunicodechar{ν}{\ensuremath{\mathnormal\nu}}
 \newunicodechar{μ}{\ensuremath{\mathnormal\mu}}
@@ -212,6 +213,11 @@ open import Data.These
     these;
     this;
     that
+  )
+open import Data.String
+  as 𝕊
+  using (
+    String
   )
 open import Algebra.Core
   using (
@@ -1414,7 +1420,7 @@ module FieldOrderingVeritas where
                  → (i : Fin n)
                  → let v' = FieldOrdering.Sartre.jort v in
                    let i' = Data.Fin.inject₁ i in
-                   ((Data.Fin._≤_ on proj₁)
+                   ((𝕊._≤_ on (show ∘ proj₁))
                      (lookup v' i')
                      (lookup v' $ suc i))
       dubjavme'a = {!!}
