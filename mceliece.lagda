@@ -870,7 +870,7 @@ module NbitsVeritas where
 
   nth : {n x : ℕ}
       → (f : Fin n)
-      → lookup (nbits {n} x) ≡ {!!}
+      → lookup (nbits {n} x) f ≡ {!!}
   nth = {!!}
 \end{code}
 
