@@ -1706,7 +1706,7 @@ module Hx where
   Hx p T = I zero (suc zero) ∣ T ▹_ $ coerce n∸k+k≡n'
     where
     nacmeimid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
-    n∸k+k≡n' = cong nacmeimid $ n∸k+k≡n p
+    n∸k+k≡n' = n∸k+k≡n p ▹ cong nacmeimid
 
 open Hx
   using (
