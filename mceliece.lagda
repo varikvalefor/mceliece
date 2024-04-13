@@ -1676,7 +1676,11 @@ module SeededKeyGenVeritas where
         → (δ : _)
         → g? {p} E ≡ nothing
         → mapti? {p} E δ ≡ nothing
-    nog = {!!}
+    nog {p} E δ N = begin
+      mapti? {p} E δ ≡⟨ {!!} ⟩
+      nothing ∎
+      where
+      open ≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
