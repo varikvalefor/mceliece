@@ -849,8 +849,9 @@ ni'o la .varik.\ na birti lo du'u ma kau zabna je cu lojbo je cu velcki la'o zoi
 toVec? : ∀ {a} → {A : Set a} → {n : ℕ}
        → List A
        → Maybe $ Vec A n
-toVec? l = mapₘ (λ n → fromList l ▹_ $ coerce $ cong (Vec _) n) dun?
+toVec? l = mapₘ (λ n → fromList l ▹_ $ coerce $ vk n) dun?
   where
+  vk = cong $ Vec _
   dun? = decToMaybe $ _ ≟ _
 \end{code}
 
