@@ -1677,9 +1677,12 @@ module SeededKeyGenVeritas where
         → g? {p} δ ≡ nothing
         → mapti? {p} δ E ≡ nothing
     nog {p} δ E N = begin
-      mapti? {p} δ E ≡⟨ {!!} ⟩
+      mapti? {p} δ E ≡⟨ refl ⟩
+      _,ₘ_ (sivni >>=ₘ MatGen) sivni ≡⟨ {!!} ⟩
       nothing ∎
       where
+      _,ₘ_ = (Data.Maybe.ap ∘₂ mapₘ) _,_
+      sivni = sivni? {p} δ
       open ≡-Reasoning
 \end{code}
 
