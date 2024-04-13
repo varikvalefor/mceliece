@@ -1665,6 +1665,7 @@ module SeededKeyGenVeritas where
   module Sivni? where
     sles : {p : MCParam}
          → (δ : Fin $ 2 ^ MCParam.ℓ p)
+         → toℕ δ ℕ.< 2 ^ MCParam.n p
          → (_∈_ {A = List $ Maybe ℕ}
              (mapₘ (toℕ ∘ b2f ∘ Private.s) $ sivni? {p} δ)
              (nothing ∷ just (toℕ δ) ∷ []))
