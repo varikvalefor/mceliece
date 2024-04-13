@@ -1789,7 +1789,7 @@ module Decode where
       k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
 
     v' : {p : MCParam} → xv p MCParam.n-k → xv p MCParam.n
-    v' {p} C₀ = C₀ ++ replicate zero ▹ coerce (n∸k+k≡n p)
+    v' {p} C₀ = C₀ ++ replicate zero ▹_ $ coerce $ n∸k+k≡n p
 
   open V'
     using (
