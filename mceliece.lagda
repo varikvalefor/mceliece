@@ -1679,6 +1679,7 @@ module SeededKeyGenVeritas where
     nog {p} δ E N = begin
       mapti? {p} δ E ≡⟨ refl ⟩
       _,ₘ_ (sivni >>=ₘ MatGen) sivni ≡⟨ {!!} ⟩
+      _,ₘ_ (nothing >>=ₘ MatGen {p}) nothing ≡⟨ refl ⟩
       nothing ∎
       where
       _,ₘ_ = (Data.Maybe.ap ∘₂ mapₘ) _,_
