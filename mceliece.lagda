@@ -1653,31 +1653,31 @@ module SeededKeyGenVeritas where
 
   module G? where
     ir₃ : {p : MCParam}
-        → (E : Fin $ 2 ^ MCParam.ℓ p)
-        → let Eₚ = Eₚ' {p} E in
+        → (δ : Fin $ 2 ^ MCParam.ℓ p)
+        → let Eₚ = Eₚ' {p} δ in
           (_≡_
             (mapₘ (_ ,_) $ Irreducible {p} Eₚ)
-            (mapₘ proj₂ $ g? {p} E))
-    ir₃ {p} E with Irreducible {p} $ Eₚ' {p} E
+            (mapₘ proj₂ $ g? {p} δ))
+    ir₃ {p} δ with Irreducible {p} $ Eₚ' {p} δ
     ... | just _ = refl
     ... | nothing = refl
 
   module Sivni? where
     sles : {p : MCParam}
-         → (E : Fin $ 2 ^ MCParam.ℓ p)
+         → (δ : Fin $ 2 ^ MCParam.ℓ p)
          → (_∈_ {A = List $ Maybe ℕ}
-             (mapₘ (toℕ ∘ b2f ∘ Private.s) $ sivni? {p} E)
-             (nothing ∷ just (toℕ E) ∷ []))
+             (mapₘ (toℕ ∘ b2f ∘ Private.s) $ sivni? {p} δ)
+             (nothing ∷ just (toℕ δ) ∷ []))
     sles = {!!}
 
   module Mapti? where
     nog : {p : MCParam}
-        → (E : Fin $ 2 ^ MCParam.ℓ p)
-        → (δ : _)
-        → g? {p} E ≡ nothing
-        → mapti? {p} E δ ≡ nothing
-    nog {p} E δ N = begin
-      mapti? {p} E δ ≡⟨ {!!} ⟩
+        → (δ : Fin $ 2 ^ MCParam.ℓ p)
+        → (E : _)
+        → g? {p} δ ≡ nothing
+        → mapti? {p} δ E ≡ nothing
+    nog {p} δ E N = begin
+      mapti? {p} δ E ≡⟨ {!!} ⟩
       nothing ∎
       where
       open ≡-Reasoning
