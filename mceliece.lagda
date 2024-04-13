@@ -1816,10 +1816,11 @@ module Decode where
          → Maybe $ Vec (Fin 2) $ MCParam.n p
   Decode {p} C₀ bar (_ , g) α' = e >>=ₘ mapₘ proj₁ ∘ mapti?' C₀ bar
     where
-    v = v' {p} C₀
     mapti?' = mapti? {p}
-    c = mapₘ proj₁ $ c' {p} C₀
     e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
+      where
+      v = v' {p} C₀
+      c = mapₘ proj₁ $ c' {p} C₀
 
 open Decode
   using (
