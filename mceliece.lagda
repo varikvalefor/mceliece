@@ -1703,9 +1703,10 @@ module Hx where
   Hx : (p : MCParam)
      → Public p
      → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
-  Hx p T = I zero (suc zero) ∣ T ▹_ $ coerce $ cong nacmeimid $ n∸k+k≡n p
+  Hx p T = I zero (suc zero) ∣ T ▹_ $ coerce n∸k+k≡n'
     where
     nacmeimid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
+    n∸k+k≡n' = cong nacmeimid $ n∸k+k≡n p
 
 open Hx
   using (
