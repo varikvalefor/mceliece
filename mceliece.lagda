@@ -958,9 +958,8 @@ module B2fVeritas where
         → (_≡_
             (toℕ $ foldrᵥ _ (f𝔽 _+_) zero v)
             (m ℕ.⊓_ $ sumᵥ $ mapᵥ toℕ v))
-      F v with toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ℕ.<? suc m
-      ... | yes z = {!!}
-      ... | no d = {!!}
+      F [] = {!!}
+      F (x ∷ xs) = {!!}
 
   indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
            → (v : Vec A n)
