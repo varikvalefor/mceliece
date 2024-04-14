@@ -960,7 +960,7 @@ module B2fVeritas where
             (m ℕ.⊓_ $ sumᵥ $ mapᵥ toℕ v))
       F {m} {n} v@[] = begin
         toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ≡⟨ refl ⟩
-        0 ≡⟨ {!!} ⟩
+        0 ≡⟨ DNP.⊓-zeroʳ m ▹ sym ⟩
         m ℕ.⊓ 0 ≡⟨ refl ⟩
         m ℕ.⊓ (sumᵥ $ mapᵥ toℕ v) ∎
       F (x ∷ xs) = {!!}
