@@ -653,7 +653,8 @@ module DistVeritas where
     where
     drata : ∀ {a} → {A : Set a}
           → ⦃ _ : Eq A ⦄
-          → (x : A × A) → Dec _
+          → (x : A × A)
+          → Dec _
     drata = _≟_ false ∘ isYes ∘ uncurry _≟_
     vfd : ∀ {a} → {A : Set a} → {n : ℕ}
         → ⦃ Eq A ⦄
