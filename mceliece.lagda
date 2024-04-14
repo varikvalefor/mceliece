@@ -943,6 +943,12 @@ module B2fVeritas where
           → B2f.sumᵥ' v ≡ fromℕ< ml
     mleca = {!!}
 
+    dubjavmau : {m n : ℕ}
+              → (v : Vec (Fin $ suc m) n)
+              → ¬_ $ sumᵥ (mapᵥ toℕ v) ℕ.< suc m
+              → B2f.sumᵥ' v ≡ fromℕ< (DNP.n<1+n m)
+    dubjavmau = {!!}
+
     du : ∀ {m n : ℕ}
        → (v : Vec (Fin $ suc m) n)
        → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
