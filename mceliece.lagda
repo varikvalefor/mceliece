@@ -963,7 +963,8 @@ module B2fVeritas where
         0 ≡⟨ DNP.⊓-zeroʳ m ▹ sym ⟩
         m ℕ.⊓ 0 ≡⟨ refl ⟩
         m ℕ.⊓ (sumᵥ $ mapᵥ toℕ v) ∎
-      F (x ∷ xs) = {!!}
+      F {m} {n} v@(x ∷ []) = {!!}
+      F {m} {n} v@(x ∷ z ∷ xs) = {!!}
 
   indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
            → (v : Vec A n)
