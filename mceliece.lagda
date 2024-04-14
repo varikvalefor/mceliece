@@ -948,11 +948,19 @@ module B2fVeritas where
        → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
     du {m} {n} v = begin
       toℕ (sumᵥ' v) ≡⟨ refl ⟩
-      toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ≡⟨ {!!} ⟩
+      toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ≡⟨ F v ⟩
       m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
       where
       sumᵥ' = B2f.sumᵥ'
       open ≡-Reasoning
+      F : {m n : ℕ}
+        → (v : Vec (Fin $ suc m) n)
+        → (_≡_
+            (toℕ $ foldrᵥ _ (f𝔽 _+_) zero v)
+            (m ℕ.⊓_ $ sumᵥ $ mapᵥ toℕ v))
+      F v with toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ℕ.<? suc m
+      ... | yes z = {!!}
+      ... | no d = {!!}
 
   indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
            → (v : Vec A n)
