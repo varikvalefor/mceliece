@@ -116,6 +116,7 @@ ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 
 \begin{code}
 {-# OPTIONS --guardedness #-}
+{-# OPTIONS --allow-unsolved-metas #-}
 
 open import IO
   using (
@@ -953,8 +954,16 @@ module B2fVeritas where
        → (v : Vec (Fin $ suc m) n)
        → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
     du {m} {n} v with sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
-    ... | yes M = {!!}
-    ... | no d = {!!}
+    ... | yes M = begin
+      toℕ (B2f.sumᵥ' v) ≡⟨ {!!} ⟩
+      m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
+      where
+      open ≡-Reasoning
+    ... | no d = begin
+      toℕ (B2f.sumᵥ' v) ≡⟨ {!!} ⟩
+      m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
+      where
+      open ≡-Reasoning
 
   indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
            → (v : Vec A n)
