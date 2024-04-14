@@ -958,7 +958,9 @@ module B2fVeritas where
         → (_≡_
             (toℕ $ foldrᵥ _ (f𝔽 _+_) zero v)
             (m ℕ.⊓_ $ sumᵥ $ mapᵥ toℕ v))
-      F [] = {!!}
+      F {m} {n} v@[] = begin
+        toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ≡⟨ {!!} ⟩
+        m ℕ.⊓ (sumᵥ $ mapᵥ toℕ v) ∎
       F (x ∷ xs) = {!!}
 
   indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
