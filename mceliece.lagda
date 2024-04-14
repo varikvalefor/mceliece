@@ -957,7 +957,7 @@ module B2fVeritas where
     ... | yes M = begin
       toℕ (B2f.sumᵥ' v) ≡⟨ mleca v M ▹ cong toℕ ⟩
       toℕ (fromℕ< M) ≡⟨ DFP.toℕ-fromℕ< M ⟩
-      sumᵥ (mapᵥ toℕ v) ≡⟨ {!!} ⟩
+      sumᵥ (mapᵥ toℕ v) ≡⟨ DNP.m≥n⇒m⊓n≡n {!!} ▹ sym ⟩
       m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
       where
       open ≡-Reasoning
