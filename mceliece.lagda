@@ -955,7 +955,8 @@ module B2fVeritas where
        → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
     du {m} {n} v with sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
     ... | yes M = begin
-      toℕ (B2f.sumᵥ' v) ≡⟨ {!!} ⟩
+      toℕ (B2f.sumᵥ' v) ≡⟨ mleca v M ▹ cong toℕ ⟩
+      toℕ (fromℕ< M) ≡⟨ {!!} ⟩
       m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
       where
       open ≡-Reasoning
