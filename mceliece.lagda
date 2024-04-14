@@ -965,7 +965,7 @@ module B2fVeritas where
         m ℕ.⊓ (sumᵥ $ mapᵥ toℕ v) ∎
       F {m} {n} v@(x ∷ []) = begin
         toℕ (foldrᵥ _ (f𝔽 _+_) zero v) ≡⟨ {!!} ⟩
-        toℕ (f2f {n = m} x) ≡⟨ {!!} ⟩
+        toℕ (f2f {n = m} x) ≡⟨ F2fVeritas.dunli x ⟩
         m ℕ.⊓ toℕ x ≡⟨ {!!} ⟩
         m ℕ.⊓ (sumᵥ $ mapᵥ toℕ v) ∎
       F {m} {n} v@(x ∷ z ∷ xs) = {!!}
