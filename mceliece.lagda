@@ -673,6 +673,7 @@ module DistVeritas where
       vfd ((x , x) ∷ z) ≡⟨ {!!} ⟩
       length (filterₗ drata $ (x , x) ∷ z') ≡⟨ {!!} ⟩
       length (filterₗ drata z') ≡⟨ {!!} ⟩
+      length (fromList $ filterₗ drata z') ≡⟨ {!!} ⟩
       vfd z ∎
       where
       z' = toList z
