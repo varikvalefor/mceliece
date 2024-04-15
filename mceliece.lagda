@@ -941,6 +941,7 @@ module B2fVeritas where
     sumᵥ'≡sumᵥ'₂ [] = refl
     sumᵥ'≡sumᵥ'₂ (x ∷ []) = begin
       B2f.sumᵥ' (x ∷ []) ≡⟨ {!!} ⟩
+      f2f x ≡⟨ {!!} ⟩
       sumᵥ'₂ (x ∷ []) ∎
     sumᵥ'≡sumᵥ'₂ (x ∷ xs) = begin
       B2f.sumᵥ' (x ∷ xs) ≡⟨ {!!} ⟩
