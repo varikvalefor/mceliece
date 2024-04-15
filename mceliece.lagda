@@ -967,7 +967,7 @@ module B2fVeritas where
     ... | no d = begin
       toℕ (B2f.sumᵥ' v) ≡⟨ dubjavmau v d ▹ cong toℕ ⟩
       toℕ (fromℕ< $ DNP.n<1+n m) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
-      m ≡⟨ {!!} ⟩
+      m ≡⟨ DNP.m≤n⇒m⊓n≡m {!!} ▹ sym ⟩
       m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
       where
       open ≡-Reasoning
