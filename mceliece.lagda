@@ -936,7 +936,11 @@ module B2fVeritas where
                  → (x : Vec (Fin $ suc m) n)
                  → B2f.sumᵥ' x ≡ sumᵥ'₂ x
     sumᵥ'≡sumᵥ'₂ [] = refl
-    sumᵥ'≡sumᵥ'₂ (x ∷ xs) = {!!}
+    sumᵥ'≡sumᵥ'₂ (x ∷ xs) = begin
+      B2f.sumᵥ' (x ∷ xs) ≡⟨ {!!} ⟩
+      sumᵥ'₂ (x ∷ xs) ∎
+      where
+      open ≡-Reasoning
 
     kunti : ∀ {n : ℕ}
           → (v : Vec (Fin $ suc n) 0)
@@ -954,13 +958,21 @@ module B2fVeritas where
           → (v : Vec (Fin $ suc m) n)
           → (ml : sumᵥ (mapᵥ toℕ v) ℕ.< suc m)
           → B2f.sumᵥ' v ≡ fromℕ< ml
-    mleca = {!!}
+    mleca {m} {n} v ml = begin
+      B2f.sumᵥ' v ≡⟨ {!!} ⟩
+      fromℕ< ml ∎
+      where
+      open ≡-Reasoning
 
     dubjavmau : {m n : ℕ}
               → (v : Vec (Fin $ suc m) n)
               → ¬_ $ sumᵥ (mapᵥ toℕ v) ℕ.< suc m
               → B2f.sumᵥ' v ≡ fromℕ< (DNP.n<1+n m)
-    dubjavmau = {!!}
+    dubjavmau {m} {n} v J = begin
+      B2f.sumᵥ' v ≡⟨ {!!} ⟩
+      fromℕ< (DNP.n<1+n m) ∎
+      where
+      open ≡-Reasoning
 
     du : ∀ {m n : ℕ}
        → (v : Vec (Fin $ suc m) n)
