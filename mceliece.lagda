@@ -926,6 +926,8 @@ ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be
 
 \begin{code}
 module B2fVeritas where
+  open ≡-Reasoning
+
   module Sumᵥ'Veritas where
     sumᵥ'₂ : {m n : ℕ} → (Vec (Fin $ suc m) n) → Fin $ suc m
     sumᵥ'₂ {m} x = maybe fromℕ< (fromℕ m) mleca?
@@ -939,8 +941,6 @@ module B2fVeritas where
     sumᵥ'≡sumᵥ'₂ (x ∷ xs) = begin
       B2f.sumᵥ' (x ∷ xs) ≡⟨ {!!} ⟩
       sumᵥ'₂ (x ∷ xs) ∎
-      where
-      open ≡-Reasoning
 
     kunti : ∀ {n : ℕ}
           → (v : Vec (Fin $ suc n) 0)
@@ -961,8 +961,6 @@ module B2fVeritas where
     mleca {m} {n} v ml = begin
       B2f.sumᵥ' v ≡⟨ {!!} ⟩
       fromℕ< ml ∎
-      where
-      open ≡-Reasoning
 
     dubjavmau : {m n : ℕ}
               → (v : Vec (Fin $ suc m) n)
@@ -971,8 +969,6 @@ module B2fVeritas where
     dubjavmau {m} {n} v J = begin
       B2f.sumᵥ' v ≡⟨ {!!} ⟩
       fromℕ< (DNP.n<1+n m) ∎
-      where
-      open ≡-Reasoning
 
     du : ∀ {m n : ℕ}
        → (v : Vec (Fin $ suc m) n)
@@ -984,7 +980,6 @@ module B2fVeritas where
       sumᵥ (mapᵥ toℕ v) ≡⟨ DNP.m≥n⇒m⊓n≡n (<⇒≤ M) ▹ sym ⟩
       m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
       where
-      open ≡-Reasoning
       <⇒≤ : {m n : ℕ} → m ℕ.< suc n → m ℕ.≤ n
       <⇒≤ (ℕ.s≤s x) = x
     ... | no d = begin
@@ -996,7 +991,6 @@ module B2fVeritas where
       s≤⇒≤ : {m n : ℕ} → suc m ℕ.≤ n → m ℕ.≤ n
       s≤⇒≤ {0} (ℕ.s≤s x) = ℕ.z≤n
       s≤⇒≤ {suc _} (ℕ.s≤s x) = ℕ.s≤s $ s≤⇒≤ x
-      open ≡-Reasoning
 
   indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
            → (v : Vec A n)
@@ -1016,7 +1010,6 @@ module B2fVeritas where
     open B2f
     rep = replicate {n = n}
     z = zero {suc m}
-    open ≡-Reasoning
 
   mulj : (m n : ℕ)
        → (x : Fin $ suc m)
