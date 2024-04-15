@@ -199,6 +199,7 @@ open import Data.Maybe
     decToMaybe;
     fromMaybe;
     nothing;
+    maybe′;
     Maybe;
     maybe;
     just
@@ -961,8 +962,8 @@ module B2fVeritas where
     mleca {m} {n} v ml = begin
       B2f.sumᵥ' v ≡⟨ sumᵥ'≡sumᵥ'₂ v ⟩
       sumᵥ'₂ v ≡⟨ refl ⟩
-      maybe fromℕ< (fromℕ m) mleca? ≡⟨ {!!} ⟩
-      maybe fromℕ< (fromℕ m) (just ml) ≡⟨ refl ⟩
+      maybe′ fromℕ< (fromℕ m) mleca? ≡⟨ {!!} ⟩
+      maybe′ fromℕ< (fromℕ m) (just ml) ≡⟨ refl ⟩
       fromℕ< ml ∎
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
@@ -974,8 +975,8 @@ module B2fVeritas where
     dubjavmau {m} {n} v J = begin
       B2f.sumᵥ' v ≡⟨ sumᵥ'≡sumᵥ'₂ v ⟩
       sumᵥ'₂ v ≡⟨ refl ⟩
-      maybe fromℕ< (fromℕ m) mleca? ≡⟨ {!!} ⟩
-      maybe fromℕ< (fromℕ m) nothing ≡⟨ {!!} ⟩
+      maybe′ fromℕ< (fromℕ m) mleca? ≡⟨ {!!} ⟩
+      maybe′ (fromℕ< {m = suc m}) (fromℕ m) nothing ≡⟨ {!!} ⟩
       fromℕ< (DNP.n<1+n m) ∎
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
