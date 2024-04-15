@@ -935,7 +935,7 @@ module B2fVeritas where
     sumᵥ'≡sumᵥ'₂ : {m n : ℕ}
                  → (x : Vec (Fin $ suc m) n)
                  → B2f.sumᵥ' x ≡ sumᵥ'₂ x
-    sumᵥ'≡sumᵥ'₂ [] = {!!}
+    sumᵥ'≡sumᵥ'₂ [] = refl
     sumᵥ'≡sumᵥ'₂ (x ∷ xs) = {!!}
 
     kunti : ∀ {n : ℕ}
