@@ -935,7 +935,8 @@ module B2fVeritas where
     inc : ∀ {m n : ℕ}
         → (e : Fin $ suc m)
         → (v : Vec (Fin $ suc m) n)
-        → B2f.sumᵥ' (e ∷ v) ≡ (f𝔽 _+_) e (B2f.sumᵥ' v)
+        → let _+'_ = f𝔽 _+_ in
+          B2f.sumᵥ' (e ∷ v) ≡ e +' B2f.sumᵥ' v
     inc _ _ = refl
 
     mleca : {m n : ℕ}
