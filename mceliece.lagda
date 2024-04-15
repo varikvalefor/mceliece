@@ -927,6 +927,11 @@ ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be
 \begin{code}
 module B2fVeritas where
   module Sumᵥ'Veritas where
+    sumᵥ'₂ : {m n : ℕ} → (Vec (Fin $ suc m) n) → Fin $ suc m
+    sumᵥ'₂ {m} x = maybe fromℕ< (fromℕ m) mleca?
+      where
+      mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ x) ℕ.<? suc m
+
     kunti : ∀ {n : ℕ}
           → (v : Vec (Fin $ suc n) 0)
           → B2f.sumᵥ' v ≡ zero
