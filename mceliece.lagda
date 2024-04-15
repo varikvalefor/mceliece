@@ -932,6 +932,11 @@ module B2fVeritas where
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ x) ℕ.<? suc m
 
+    sumᵥ'≡sumᵥ'₂ : {m n : ℕ}
+                 → (x : Vec (Fin $ suc m) n)
+                 → B2f.sumᵥ' x ≡ sumᵥ'₂ x
+    sumᵥ'≡sumᵥ'₂ = {!!}
+
     kunti : ∀ {n : ℕ}
           → (v : Vec (Fin $ suc n) 0)
           → B2f.sumᵥ' v ≡ zero
