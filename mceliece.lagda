@@ -939,7 +939,9 @@ module B2fVeritas where
                  → (x : Vec (Fin $ suc m) n)
                  → B2f.sumᵥ' x ≡ sumᵥ'₂ x
     sumᵥ'≡sumᵥ'₂ [] = refl
-    sumᵥ'≡sumᵥ'₂ (x ∷ []) = {!!}
+    sumᵥ'≡sumᵥ'₂ (x ∷ []) = begin
+      B2f.sumᵥ' (x ∷ []) ≡⟨ {!!} ⟩
+      sumᵥ'₂ (x ∷ []) ∎
     sumᵥ'≡sumᵥ'₂ (x ∷ xs) = begin
       B2f.sumᵥ' (x ∷ xs) ≡⟨ {!!} ⟩
       sumᵥ'₂ (x ∷ xs) ∎
