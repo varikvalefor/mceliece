@@ -971,7 +971,8 @@ module B2fVeritas where
       m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
       where
       s≤⇒≤ : {m n : ℕ} → suc m ℕ.≤ n → m ℕ.≤ n
-      s≤⇒≤ (ℕ.s≤s x) = {!!}
+      s≤⇒≤ {0} (ℕ.s≤s x) = ℕ.z≤n
+      s≤⇒≤ {suc _} (ℕ.s≤s x) = ℕ.s≤s $ s≤⇒≤ x
       open ≡-Reasoning
 
   indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
