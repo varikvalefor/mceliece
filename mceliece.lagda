@@ -1743,9 +1743,9 @@ module SeededKeyGenVeritas where
     sles : {p : MCParam}
          → (δ : Fin $ 2 ^ MCParam.ℓ p)
          → toℕ δ ℕ.< 2 ^ MCParam.n p
-         → (_∈_ {A = List $ Maybe ℕ}
+         → (_∈_
              (mapₘ (toℕ ∘ b2f ∘ Private.s) $ sivni? {p} δ)
-             (nothing ∷ just (toℕ δ) ∷ []))
+             (nothing ∷ just (toℕ δ) ∷ List.[]))
     sles = {!!}
 
   module Mapti? where
@@ -1956,9 +1956,9 @@ module DecodeVeritas where
         → (C₀ : xv p MCParam.n-k)
         → (bar : Public p)
         → (e : xv p MCParam.n)
-        → (_∈_ {A = List _}
+        → (_∈_
             (mapₘ proj₁ $ mapti? {p} C₀ bar e)
-            (just e ∷ nothing ∷ []))
+            (just e ∷ nothing ∷ List.[]))
     xor = {!!}
 
   module V' where
