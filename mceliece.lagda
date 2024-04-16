@@ -1443,7 +1443,8 @@ module FieldOrdering where
          → Op₁ $ flip Vec n $ Fin m × A
     jort {m = m} = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
       where
-      jort' : ∀ {a} → {A : Set a} → {n : ℕ} → Op₁ $ Vec (Fin m × A) n
+      jort' : ∀ {a} → {A : Set a} → {n : ℕ}
+            → Op₁ $ Vec (Fin m × A) n
       jort' = {!!}
 
     panci₂ : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
