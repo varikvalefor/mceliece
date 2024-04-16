@@ -944,8 +944,13 @@ module B2fVeritas where
       f𝔽 _+_ f zero ≡⟨ refl ⟩
       f2f (fromℕ $ toℕ f + 0) ≡⟨ refl ⟩
       _ ≡⟨ DNP.+-identityʳ (toℕ f) ▹ cong (f2f ∘ fromℕ) ⟩
-      f2f (fromℕ $ toℕ f) ≡⟨ {!!} ⟩
+      f2f (fromℕ $ toℕ f) ≡⟨ f2f-fromℕ-toℕ f ⟩
       f2f f ∎
+      where
+      f2f-fromℕ-toℕ : {m n : ℕ}
+                    → (f : Fin m)
+                    → f2f {n = n} (fromℕ $ toℕ f) ≡ f2f f
+      f2f-fromℕ-toℕ = {!!}
 
     pav₂ : {m : ℕ}
           → (f : Fin $ suc m)
