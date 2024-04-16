@@ -1997,7 +1997,7 @@ module DecodeVeritas where
               → (z : Vec A n)
               → drop m (x ++ z) ≡ z
       dropdun [] _ = refl
-      dropdun (x ∷ xs) z = dropdun xs z ▹ {!!}
+      dropdun (x ∷ xs) z = dropdun xs z ▹ coerce {!!}
       open ≡-Reasoning
 \end{code}
 
