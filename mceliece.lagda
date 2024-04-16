@@ -968,6 +968,7 @@ module B2fVeritas where
     sumᵥ'≡sumᵥ'₂ (x ∷ xs) = begin
       B2f.sumᵥ' (x ∷ xs) ≡⟨ refl ⟩
       f𝔽 _+_ x (B2f.sumᵥ' xs) ≡⟨ {!!} ⟩
+      f𝔽 _+_ x (sumᵥ'₂ xs) ≡⟨ {!!} ⟩
       sumᵥ'₂ (x ∷ xs) ∎
 
     kunti : ∀ {n : ℕ}
