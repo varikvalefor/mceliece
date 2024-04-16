@@ -940,6 +940,11 @@ module B2fVeritas where
         → B2f.sumᵥ' (f ∷ []) ≡ f2f f
     pav = {!!}
 
+    pav₂ : {m : ℕ}
+          → (f : Fin $ suc m)
+          → sumᵥ'₂ (f ∷ []) ≡ f2f f
+    pav₂ = {!!}
+
     sumᵥ'≡sumᵥ'₂ : {m n : ℕ}
                  → (x : Vec (Fin $ suc m) n)
                  → B2f.sumᵥ' x ≡ sumᵥ'₂ x
