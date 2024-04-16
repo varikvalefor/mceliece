@@ -940,8 +940,8 @@ module B2fVeritas where
         → B2f.sumᵥ' (f ∷ []) ≡ f2f f
     pav f = begin
       B2f.sumᵥ' (f ∷ []) ≡⟨ refl ⟩
-      foldrᵥ _ (f𝔽 _+_) zero (f ∷ []) ≡⟨ {!!} ⟩
-      f𝔽 _+_ zero f ≡⟨ refl ⟩
+      foldrᵥ _ (f𝔽 _+_) zero (f ∷ []) ≡⟨ refl ⟩
+      f𝔽 _+_ f zero ≡⟨ {!!} ⟩
       f2f (fromℕ $ 0 + toℕ f) ≡⟨ refl ⟩
       _ ≡⟨ DNP.+-identityˡ (toℕ f) ▹ cong (f2f ∘ fromℕ) ⟩
       f2f (fromℕ $ toℕ f) ≡⟨ {!!} ⟩
