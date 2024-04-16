@@ -941,6 +941,7 @@ module B2fVeritas where
     pav f = begin
       B2f.sumᵥ' (f ∷ []) ≡⟨ refl ⟩
       foldrᵥ _ (f𝔽 _+_) zero (f ∷ []) ≡⟨ {!!} ⟩
+      f𝔽 _+_ zero f ≡⟨ {!!} ⟩
       f2f f ∎
 
     pav₂ : {m : ℕ}
