@@ -967,9 +967,11 @@ module B2fVeritas where
       sumᵥ'₂ (x ∷ []) ∎
     sumᵥ'≡sumᵥ'₂ (x ∷ xs) = begin
       B2f.sumᵥ' (x ∷ xs) ≡⟨ refl ⟩
-      f𝔽 _+_ x (B2f.sumᵥ' xs) ≡⟨ sumᵥ'≡sumᵥ'₂ xs ▹ cong (f𝔽 _+_ x) ⟩
-      f𝔽 _+_ x (sumᵥ'₂ xs) ≡⟨ {!!} ⟩
+      x +' (B2f.sumᵥ' xs) ≡⟨ sumᵥ'≡sumᵥ'₂ xs ▹ cong (x +'_) ⟩
+      x +' (sumᵥ'₂ xs) ≡⟨ {!!} ⟩
       sumᵥ'₂ (x ∷ xs) ∎
+      where
+      _+'_ = f𝔽 _+_
 
     kunti : ∀ {n : ℕ}
           → (v : Vec (Fin $ suc n) 0)
