@@ -432,10 +432,14 @@ module F2fVeritas where
   fromℕ-toℕ zero = refl
   fromℕ-toℕ {n = 0} (suc f) = refl
   fromℕ-toℕ {n = suc n} (suc f) = begin
-    f2f (fromℕ $ toℕ $ suc f) ≡⟨ {!!} ⟩
+    f2f (fromℕ $ toℕ $ suc f) ≡⟨ refl ⟩
+    mFd (toℕ (fromℕ $ toℕ $ suc f) <?ₘ (2 + n)) ≡⟨ {!!} ⟩
     f2f (suc f) ∎
     where
     open ≡-Reasoning
+    F = fromℕ<
+    mFd = maybe F _
+    _<?ₘ_ = decToMaybe ∘₂ ℕ._<?_
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
