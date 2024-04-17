@@ -1160,10 +1160,19 @@ module ∧𝔹ℕ𝔽Veritas where
     f2f-zero = F2fVeritas.zeron
     zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
     zipdun = begin
-      zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ {!!} ⟩
+      zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ ziprep _ (nbits n) zero ⟩
       mapᵥ (flip (f𝔽 _*_) zero) (nbits n) ≡⟨ {!!} ⟩
       mapᵥ (f𝔽 _*_ zero) (nbits n) ≡⟨ {!!} ⟩
       Z ∎
+      where
+      ziprep : ∀ {a b c}
+             → {A : Set a} → {B : Set b} → {C : Set c}
+             → {n : ℕ}
+             → (f : A → B → C)
+             → (x : Vec A n)
+             → (z : B)
+             → zipWithᵥ f x (replicate z) ≡ mapᵥ (flip f z) x
+      ziprep = {!!}
 
   dunli : {m : ℕ}
         → (n : ℕ)
