@@ -1050,6 +1050,7 @@ module B2fVeritas where
   non m n = begin
     toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡⟨ refl ⟩
     toℕ (b2f $ rep z) ≡⟨ {!!} ⟩
+    toℕ (mink zero $ pausyk m n ▹ proj₂ ) ≡⟨ {!!} ⟩
     0 ∎
     where
     open B2f
