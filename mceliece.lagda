@@ -437,8 +437,9 @@ module F2fVeritas where
     f2f (suc f) ∎
     where
     open ≡-Reasoning
-    F = fromℕ<
-    mFd = maybe F _
+    mFd : {m : ℕ} → Maybe $ m ℕ.< 2 + n → Fin $ 2 + n
+    mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n (suc n)
+    _<?ₘ_ : (m n : ℕ) → Maybe $ m ℕ.< n
     _<?ₘ_ = decToMaybe ∘₂ ℕ._<?_
 \end{code}
 
