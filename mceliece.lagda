@@ -365,11 +365,17 @@ module HWV𝔽Veritas where
 ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B m\ .zoi.\ gi ga jonai ko'a goi la'o zoi.\ \F{toℕ}\ \B a\ .zoi.\ du ko'e goi la'o zoi.\ \F{toℕ} \OpF \$ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B n\Sym\} \B a\ .zoi.\ gi ga je ko'a dubjavmau la'oi .\B m.\ gi ko'e du la'oi .\B n.
 
 \begin{code}
-f2f : {m n : ℕ} → Fin m → Fin $ suc n
-f2f {n = n} f = maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n
-  where
-  F = fromℕ<
-  d = F $ DNP.n<1+n _
+module F2F where
+  f2f : {m n : ℕ} → Fin m → Fin $ suc n
+  f2f {n = n} f = maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n
+    where
+    F = fromℕ<
+    d = F $ DNP.n<1+n _
+
+open F2F
+  using (
+    f2f
+  )
 \end{code}
 
 \subsection{le ctaipe be le su'u la'oi .\F{f2f}.\ mapti}
