@@ -434,6 +434,7 @@ module F2fVeritas where
   fromℕ-toℕ {n = suc n} (suc f) = begin
     f2f (fromℕ $ toℕ $ suc f) ≡⟨ refl ⟩
     mFd (toℕ (fromℕ $ toℕ $ suc f) <?ₘ (2 + n)) ≡⟨ {!!} ⟩
+    mFd (toℕ (suc f) <?ₘ (2 + n)) ≡⟨ {!!} ⟩
     f2f (suc f) ∎
     where
     open ≡-Reasoning
