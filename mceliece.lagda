@@ -366,11 +366,14 @@ ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B m\ .zoi.\ gi ga jonai ko
 
 \begin{code}
 module F2F where
+  _<?ₘ_ : (m n : ℕ) → Maybe $ m ℕ.< n
+  _<?ₘ_ = decToMaybe ∘₂ ℕ._<?_
+
+  mFd : {m : ℕ} → ℕ → Fin $ suc m
+  mFd {m} = maybe′ fromℕ< (fromℕ< $ DNP.n<1+n m) ∘ (_<?ₘ _)
+
   f2f : {m n : ℕ} → Fin m → Fin $ suc n
-  f2f {n = n} f = maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n
-    where
-    F = fromℕ<
-    d = F $ DNP.n<1+n _
+  f2f = mFd ∘ toℕ
 
 open F2F
   using (
