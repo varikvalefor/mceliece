@@ -1046,7 +1046,7 @@ module B2fVeritas where
   indice'v = {!!}
 
   non : (m n : ℕ)
-      → toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡ 0
+      → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {suc m}
   non m n = begin
     toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡⟨ refl ⟩
     toℕ (b2f $ rep z) ≡⟨ {!!} ⟩
