@@ -433,16 +433,17 @@ module F2fVeritas where
   fromℕ-toℕ {n = 0} (suc f) = refl
   fromℕ-toℕ {n = suc n} f = begin
     f2f (fromℕ $ toℕ f) ≡⟨ refl ⟩
-    mFd (toℕ (fromℕ $ toℕ f) <?ₘ (2 + n)) ≡⟨ refl ⟩
-    _ ≡⟨ DFP.toℕ-fromℕ (toℕ f) ▹ cong (mFd ∘ (_<?ₘ _)) ⟩
-    mFd (toℕ f <?ₘ (2 + n)) ≡⟨ refl ⟩
+    mFd (toℕ $ fromℕ $ toℕ f) ≡⟨ refl ⟩
+    _ ≡⟨ DFP.toℕ-fromℕ (toℕ f) ▹ cong mFd ⟩
+    mFd (toℕ f) ≡⟨ refl ⟩
     f2f f ∎
     where
     open ≡-Reasoning
-    mFd : {m : ℕ} → Maybe $ m ℕ.< 2 + n → Fin $ 2 + n
-    mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n (suc n)
-    _<?ₘ_ : (m n : ℕ) → Maybe $ m ℕ.< n
-    _<?ₘ_ = decToMaybe ∘₂ ℕ._<?_
+    mFd : {m : ℕ} → ℕ → Fin $ suc m
+    mFd {m} = maybe′ fromℕ< (fromℕ< $ DNP.n<1+n m) ∘ (_<?ₘ _)
+      where
+      _<?ₘ_ : (m n : ℕ) → Maybe $ m ℕ.< n
+      _<?ₘ_ = decToMaybe ∘₂ ℕ._<?_
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
