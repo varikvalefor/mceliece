@@ -951,7 +951,8 @@ module B2fVeritas where
       f2f-fromℕ-toℕ : {m n : ℕ}
                     → (f : Fin m)
                     → f2f {n = n} (fromℕ $ toℕ f) ≡ f2f f
-      f2f-fromℕ-toℕ = {!!}
+      f2f-fromℕ-toℕ zero = {!!}
+      f2f-fromℕ-toℕ (suc n) = {!!}
 
     pav₂ : {m : ℕ}
           → (f : Fin $ suc m)
