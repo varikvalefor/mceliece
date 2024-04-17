@@ -425,6 +425,17 @@ module F2fVeritas where
     zero ∎
     where
     open ≡-Reasoning
+
+  fromℕ-toℕ : {m n : ℕ}
+            → (f : Fin m)
+            → f2f {n = n} (fromℕ $ toℕ f) ≡ f2f f
+  fromℕ-toℕ zero = refl
+  fromℕ-toℕ {n = 0} (suc f) = refl
+  fromℕ-toℕ {n = suc n} (suc f) = begin
+    f2f (fromℕ $ toℕ $ suc f) ≡⟨ {!!} ⟩
+    f2f (suc f) ∎
+    where
+    open ≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
@@ -945,17 +956,8 @@ module B2fVeritas where
       f𝔽 _+_ f zero ≡⟨ refl ⟩
       f2f (fromℕ $ toℕ f + 0) ≡⟨ refl ⟩
       _ ≡⟨ DNP.+-identityʳ (toℕ f) ▹ cong (f2f ∘ fromℕ) ⟩
-      f2f (fromℕ $ toℕ f) ≡⟨ f2f-fromℕ-toℕ f ⟩
+      f2f (fromℕ $ toℕ f) ≡⟨ F2fVeritas.fromℕ-toℕ f ⟩
       f2f f ∎
-      where
-      f2f-fromℕ-toℕ : {m n : ℕ}
-                    → (f : Fin m)
-                    → f2f {n = n} (fromℕ $ toℕ f) ≡ f2f f
-      f2f-fromℕ-toℕ zero = refl
-      f2f-fromℕ-toℕ {n = 0} (suc f) = refl
-      f2f-fromℕ-toℕ {n = suc n} (suc f) = begin
-        f2f (fromℕ $ toℕ $ suc f) ≡⟨ {!!} ⟩
-        f2f (suc f) ∎
 
     pav₂ : {m : ℕ}
           → (f : Fin $ suc m)
