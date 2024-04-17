@@ -429,16 +429,8 @@ module F2fVeritas where
   fromℕ-toℕ : {m n : ℕ}
             → (f : Fin m)
             → f2f {n = n} (fromℕ $ toℕ f) ≡ f2f f
-  fromℕ-toℕ zero = refl
-  fromℕ-toℕ {n = 0} (suc f) = refl
-  fromℕ-toℕ {n = suc n} f = begin
-    f2f (fromℕ $ toℕ f) ≡⟨ refl ⟩
-    mFd (toℕ $ fromℕ $ toℕ f) ≡⟨ refl ⟩
-    _ ≡⟨ DFP.toℕ-fromℕ (toℕ f) ▹ cong mFd ⟩
-    mFd (toℕ f) ≡⟨ refl ⟩
-    f2f f ∎
+  fromℕ-toℕ f = DFP.toℕ-fromℕ (toℕ f) ▹ cong mFd
     where
-    open ≡-Reasoning
     mFd : {m : ℕ} → ℕ → Fin $ suc m
     mFd {m} = maybe′ fromℕ< (fromℕ< $ DNP.n<1+n m) ∘ (_<?ₘ _)
       where
