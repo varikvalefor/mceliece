@@ -1172,7 +1172,7 @@ module ∧𝔹ℕ𝔽Veritas where
              → (x : Vec A n)
              → (z : B)
              → zipWithᵥ f x (replicate z) ≡ mapᵥ (flip f z) x
-      ziprep f [] z = {!!}
+      ziprep f [] z = refl
       ziprep f (x ∷ xs) z = {!!}
 
   dunli : {m : ℕ}
