@@ -272,6 +272,7 @@ open import Data.Vec.Bounded
   )
 open import Truthbrary.Data.Fin
   using (
+    tomindus;
     mink
   )
 open import Truthbrary.Record.Eq
@@ -1050,7 +1051,7 @@ module B2fVeritas where
   non m n = begin
     toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡⟨ refl ⟩
     toℕ (b2f $ rep z) ≡⟨ {!!} ⟩
-    toℕ (mink zero $ pausyk m n ▹ proj₂ ) ≡⟨ {!!} ⟩
+    toℕ (mink zero $ pausyk m n ▹ proj₂ ) ≡⟨ tomindus _ _ ▹ sym ⟩
     0 ∎
     where
     open B2f
