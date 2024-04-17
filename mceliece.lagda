@@ -973,12 +973,12 @@ module B2fVeritas where
       where
       _+'_ = f𝔽 _+_
 
-    kunti : ∀ {n : ℕ}
+    kunti : {n : ℕ}
           → (v : Vec (Fin $ suc n) 0)
           → B2f.sumᵥ' v ≡ zero
     kunti [] = refl
 
-    inc : ∀ {m n : ℕ}
+    inc : {m n : ℕ}
         → (e : Fin $ suc m)
         → (v : Vec (Fin $ suc m) n)
         → let _+'_ = f𝔽 _+_ in
@@ -1015,7 +1015,7 @@ module B2fVeritas where
       K : mleca? ≡ nothing
       K = {!!}
 
-    du : ∀ {m n : ℕ}
+    du : {m n : ℕ}
        → (v : Vec (Fin $ suc m) n)
        → toℕ (B2f.sumᵥ' v) ≡ m ℕ.⊓ sumᵥ (mapᵥ toℕ v)
     du {m} {n} v with sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
