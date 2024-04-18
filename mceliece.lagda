@@ -431,7 +431,8 @@ module F2fVeritas where
         → f2f {n = m} x ≡ zero
   zeron x d = begin
     f2f x ≡⟨ refl ⟩
-    F2F.mFd (toℕ x) ≡⟨ {!!} ⟩
+    F2F.mFd (toℕ x) ≡⟨ d ▹ cong F2F.mFd ⟩
+    F2F.mFd 0 ≡⟨ {!!} ⟩
     zero ∎
 
   fromℕ-toℕ : {m n : ℕ}
