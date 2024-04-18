@@ -971,7 +971,9 @@ module B2fVeritas where
     pav₂ : {m : ℕ}
           → (f : Fin $ suc m)
           → sumᵥ'₂ (f ∷ []) ≡ f2f f
-    pav₂ = {!!}
+    pav₂ f = begin
+      sumᵥ'₂ (f ∷ []) ≡⟨ {!!} ⟩
+      f2f f ∎
 
     sumᵥ'≡sumᵥ'₂ : {m n : ℕ}
                  → (x : Vec (Fin $ suc m) n)
