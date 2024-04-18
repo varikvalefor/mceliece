@@ -370,7 +370,7 @@ module F2F where
   _<?ₘ_ = decToMaybe ∘₂ ℕ._<?_
 
   mFdᵢ : {m n : ℕ} → Maybe $ n ℕ.< suc m → Fin $ suc m
-  mFdᵢ {m} = maybe′ fromℕ< (fromℕ< $ DNP.n<1+n m)
+  mFdᵢ {m} = maybe′ fromℕ< $ fromℕ< $ DNP.n<1+n m
 
   mFd : {m : ℕ} → ℕ → Fin $ suc m
   mFd = mFdᵢ ∘ (_<?ₘ _)
