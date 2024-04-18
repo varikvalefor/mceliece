@@ -1105,15 +1105,15 @@ cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
   where
   sb2f = λ n → if n then suc zero else zero
   cunvek : (n : ℕ) → IO $ Vec Bool n
-  cunvek n = sequenceᵥ (cunste n)
+  cunvek n = sequenceᵥ cunste
     where
     sequenceᵥ : ∀ {a} → {A : Set a} → {n : ℕ}
               → Vec (IO A) n
               → IO $ Vec A n
     sequenceᵥ [] = pure []
     sequenceᵥ (x ∷ xs) = x IO.>>= λ x' → (x' ∷_) IO.<$> sequenceᵥ xs
-    cunste : {n : ℕ} → ℕ → Vec (IO Bool) n
-    cunste = mapᵥ (const $ IO.lift cunsob) ∘ replicate
+    cunste : {n : ℕ} → Vec (IO Bool) n
+    cunste = replicate $ IO.lift cunsob
       where
       -- | ni'o cadga fa lo nu la'o zoi. cunsob n .zoi.
       -- me'oi .pure. lo me'oi .pseudorandom.
