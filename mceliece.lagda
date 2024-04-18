@@ -1112,7 +1112,7 @@ cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
               → IO $ Vec A n
     sequenceᵥ [] = pure []
     sequenceᵥ (x ∷ xs) = x IO.>>= λ x' → (x' ∷_) IO.<$> sequenceᵥ xs
-    cunste : ℕ → Vec (IO Bool) n
+    cunste : {n : ℕ} → ℕ → Vec (IO Bool) n
     cunste = mapᵥ (const $ IO.lift cunsob) ∘ replicate
       where
       -- | ni'o cadga fa lo nu la'o zoi. cunsob n .zoi.
