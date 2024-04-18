@@ -1089,7 +1089,8 @@ ni'o la .varik.\ cu stidi lo nu lo na jimpe cu tcidu lo lojbo je velcki be le fa
 module B2f-toℕ where
   toℕ∘b2f∘nbits : {n : ℕ}
                 → (x : ℕ)
-                → x ≡_ $ toℕ $ b2f {n = suc n} $ nbits x
+                → 2 ^ n ℕ.> x
+                → x ≡_ $ toℕ $ b2f {n = n} $ nbits x
   toℕ∘b2f∘nbits = {!!}
 \end{code}
 
