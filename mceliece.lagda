@@ -438,13 +438,7 @@ module F2fVeritas where
   fromℕ-toℕ : {m n : ℕ}
             → (f : Fin m)
             → f2f {n = n} (fromℕ $ toℕ f) ≡ f2f f
-  fromℕ-toℕ f = DFP.toℕ-fromℕ (toℕ f) ▹ cong mFd
-    where
-    mFd : {m : ℕ} → ℕ → Fin $ suc m
-    mFd {m} = maybe′ fromℕ< (fromℕ< $ DNP.n<1+n m) ∘ (_<?ₘ _)
-      where
-      _<?ₘ_ : (m n : ℕ) → Maybe $ m ℕ.< n
-      _<?ₘ_ = decToMaybe ∘₂ ℕ._<?_
+  fromℕ-toℕ f = DFP.toℕ-fromℕ (toℕ f) ▹ cong F2F.mFd
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
