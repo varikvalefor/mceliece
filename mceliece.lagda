@@ -385,6 +385,8 @@ open F2F
 
 \begin{code}
 module F2fVeritas where
+  open ≡-Reasoning
+
   dubjavmau : {m n : ℕ}
             → (f : Fin m)
             → ¬ (toℕ f ℕ.< suc n)
@@ -400,7 +402,6 @@ module F2fVeritas where
     F = fromℕ<
     d = F $ DNP.n<1+n _
     DN = Relation.Nullary.Decidable.dec-no (_ ℕ.<? _) j
-    open ≡-Reasoning
 
   mleca : {m n : ℕ}
         → (f : Fin m)
@@ -416,7 +417,6 @@ module F2fVeritas where
     where
     mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n _
     DY = Relation.Nullary.Decidable.dec-yes (toℕ f ℕ.<? suc n) m
-    open ≡-Reasoning
 
   dunli : {m n : ℕ}
         → (f : Fin m)
@@ -432,8 +432,6 @@ module F2fVeritas where
   zeron x d = begin
     f2f x ≡⟨ {!!} ⟩
     zero ∎
-    where
-    open ≡-Reasoning
 
   fromℕ-toℕ : {m n : ℕ}
             → (f : Fin m)
