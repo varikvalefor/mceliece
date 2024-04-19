@@ -419,6 +419,9 @@ module F2fVeritas where
         → m ≡_ $ toℕ $ mFdᵢ $ just j
     jus = {!!}
 
+    nada : {m n : ℕ} → n ≡_ $ toℕ $ mFdᵢ {n} {m} nothing
+    nada = {!!}
+
   dubjavmau : {m n : ℕ}
             → (f : Fin m)
             → ¬_ $ toℕ f ℕ.< suc n
