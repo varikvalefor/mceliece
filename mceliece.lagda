@@ -403,12 +403,12 @@ module F2fVeritas where
   open F2F
 
   module _<?ₘ_ where
-    go'is : (m n : ℕ)
+    go'is : {m n : ℕ}
           → (x : m ℕ.< n)
           → m <?ₘ n ≡ just x
     go'is = {!!}
 
-    nago'is : (m n : ℕ)
+    nago'is : {m n : ℕ}
             → ¬_ $ m ℕ.< n
             → m <?ₘ n ≡ nothing
     nago'is = {!!}
