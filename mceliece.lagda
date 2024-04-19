@@ -408,6 +408,11 @@ module F2fVeritas where
           → m <?ₘ n ≡ just x
     go'is = {!!}
 
+    nago'is : (m n : ℕ)
+            → ¬_ $ m ℕ.< n
+            → m <?ₘ n ≡ nothing
+    nago'is = {!!}
+
   dubjavmau : {m n : ℕ}
             → (f : Fin m)
             → ¬ (toℕ f ℕ.< suc n)
