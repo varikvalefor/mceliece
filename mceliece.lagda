@@ -402,7 +402,7 @@ module F2fVeritas where
   open ≡-Reasoning
   open F2F
 
-  module _<?ₘ_Veritas where
+  module _<?ₘ_ where
     go'is : (m n : ℕ)
           → (x : m ℕ.< n)
           → m <?ₘ n ≡ just x
