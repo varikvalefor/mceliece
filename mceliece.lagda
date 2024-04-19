@@ -413,6 +413,12 @@ module F2fVeritas where
             → m <?ₘ n ≡ nothing
     nago'is = {!!}
 
+  module MFdᵢ where
+    jus : {m n : ℕ}
+        → (j : m ℕ.< suc n)
+        → m ≡_ $ toℕ $ mFdᵢ $ just j
+    jus = {!!}
+
   dubjavmau : {m n : ℕ}
             → (f : Fin m)
             → ¬_ $ toℕ f ℕ.< suc n
