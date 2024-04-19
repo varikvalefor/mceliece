@@ -1019,7 +1019,9 @@ module B2fVeritas where
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
       J : mleca? ≡ just ml
-      J = {!!}
+      J = begin
+        mleca? ≡⟨ {!!} ⟩
+        just ml ∎
 
     dubjavmau : {m n : ℕ}
               → (v : Vec (Fin $ suc m) n)
