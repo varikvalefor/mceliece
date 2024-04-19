@@ -326,6 +326,17 @@ import Data.List.Relation.Unary.All as Listal
 \chap{le vrici}
 ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo ckupau poi srana ke'a xi pa fa lo ro selvau be ke'a xi re
 
+\section{la \F{zmadekydu'i}}
+ni'o la .varik.\ cu pacna lo nu na sarcu fa lo nu ciksi bau la .lojban.
+
+\begin{code}
+zmadekydu'i : {m n : ℕ}
+            → (x z : m ℕ.≤ n)
+            → x ≡ z
+zmadekydu'i ℕ.z≤n ℕ.z≤n = refl
+zmadekydu'i (ℕ.s≤s x) (ℕ.s≤s z) = zmadekydu'i x z ▹ cong ℕ.s≤s
+\end{code}
+
 \section{la'oi .\F{hWV𝔽}.}
 ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x\ .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.\sds  .i sa'u nai ko'a nilzilcmi lo'i ro co'e poi la'oi .\AgdaInductiveConstructor{zero}.\ na meirmoi ke'a fo la'oi .\B x.
 
@@ -598,11 +609,6 @@ module ResizeVeritas where
       xt x xs (yes g) ∎
       where
       DY = Relation.Nullary.Decidable.dec-yes (_ ℕ.≤? _) g
-      zmadekydu'i : {m n : ℕ}
-                  → (x z : m ℕ.≤ n)
-                  → x ≡ z
-      zmadekydu'i ℕ.z≤n ℕ.z≤n = refl
-      zmadekydu'i (ℕ.s≤s x) (ℕ.s≤s z) = zmadekydu'i x z ▹ cong ℕ.s≤s
 
   takis : ∀ {a} → {m n : ℕ} → {A : Set a}
         → (x : A)
