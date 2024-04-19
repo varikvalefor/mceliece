@@ -401,6 +401,12 @@ open F2F
 module F2fVeritas where
   open ≡-Reasoning
 
+  module _<?ₘ_Veritas where
+    go'is : (m n : ℕ)
+          → (x : m ℕ.< n)
+          → m F2F.<?ₘ n ≡ just x
+    go'is = {!!}
+
   dubjavmau : {m n : ℕ}
             → (f : Fin m)
             → ¬ (toℕ f ℕ.< suc n)
