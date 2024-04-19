@@ -400,11 +400,12 @@ open F2F
 \begin{code}
 module F2fVeritas where
   open ≡-Reasoning
+  open F2F
 
   module _<?ₘ_Veritas where
     go'is : (m n : ℕ)
           → (x : m ℕ.< n)
-          → m F2F.<?ₘ n ≡ just x
+          → m <?ₘ n ≡ just x
     go'is = {!!}
 
   dubjavmau : {m n : ℕ}
@@ -429,13 +430,12 @@ module F2fVeritas where
         → toℕ f ≡_ $ toℕ $ f2f {n = n} f
   mleca {n = n} f m = sym $ begin
     toℕ (f2f f) ≡⟨ refl ⟩
-    toℕ (mFd $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ refl ⟩
-    _ ≡⟨ DY ▹ proj₂ ▹ cong (toℕ ∘ mFd ∘ decToMaybe) ⟩
-    toℕ (mFd $ decToMaybe $ yes $ proj₁ DY) ≡⟨ refl ⟩
+    toℕ (mFdᵢ $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ refl ⟩
+    _ ≡⟨ DY ▹ proj₂ ▹ cong (toℕ ∘ mFdᵢ ∘ decToMaybe) ⟩
+    toℕ (mFdᵢ $ decToMaybe $ yes $ proj₁ DY) ≡⟨ refl ⟩
     toℕ (fromℕ< $ proj₁ DY) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
     toℕ f ∎
     where
-    mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n _
     DY = Relation.Nullary.Decidable.dec-yes (toℕ f ℕ.<? suc n) m
 
   dunli : {m n : ℕ}
@@ -451,14 +451,14 @@ module F2fVeritas where
         → f2f {n = m} x ≡ zero
   zeron x d = begin
     f2f x ≡⟨ refl ⟩
-    F2F.mFd (toℕ x) ≡⟨ d ▹ cong F2F.mFd ⟩
-    F2F.mFd 0 ≡⟨ refl ⟩
+    mFd (toℕ x) ≡⟨ d ▹ cong mFd ⟩
+    mFd 0 ≡⟨ refl ⟩
     zero ∎
 
   fromℕ-toℕ : {m n : ℕ}
             → (f : Fin m)
             → f2f {n = n} (fromℕ $ toℕ f) ≡ f2f f
-  fromℕ-toℕ f = DFP.toℕ-fromℕ (toℕ f) ▹ cong F2F.mFd
+  fromℕ-toℕ f = DFP.toℕ-fromℕ (toℕ f) ▹ cong mFd
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
