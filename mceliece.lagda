@@ -418,7 +418,9 @@ module F2fVeritas where
     nago'is : {m n : ℕ}
             → ¬_ $ m ℕ.< n
             → m <?ₘ n ≡ nothing
-    nago'is = {!!}
+    nago'is {m} {n} J = DN (m ℕ.<? n) J ▹ proj₂ ▹ cong decToMaybe
+      where
+      DN = Relation.Nullary.Decidable.dec-no
 
   module MFdᵢ where
     jus : {m n : ℕ}
