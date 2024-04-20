@@ -428,6 +428,11 @@ module F2fVeritas where
           → m ≡_ $ toℕ $ mFd {n} m
     mleca = {!!}
 
+    dubjavmau : {m n : ℕ}
+              → ¬_ $ m ℕ.< suc n
+              → n ≡_ $ toℕ $ mFd {n} m
+    dubjavmau = {!!}
+
   dubjavmau : {m n : ℕ}
             → (f : Fin m)
             → ¬_ $ toℕ f ℕ.< suc n
