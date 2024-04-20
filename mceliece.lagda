@@ -406,7 +406,9 @@ module F2fVeritas where
     go'is : {m n : ℕ}
           → (x : m ℕ.< n)
           → m <?ₘ n ≡ just x
-    go'is = {!!}
+    go'is {m} {n} x = begin
+      m <?ₘ n ≡⟨ {!!} ⟩
+      just x ∎
 
     nago'is : {m n : ℕ}
             → ¬_ $ m ℕ.< n
