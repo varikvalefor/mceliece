@@ -376,7 +376,7 @@ module HWV𝔽Veritas where
 ni'o ga naja la'oi .\B a.\ ctaipe la'o zoi.\ \D{Fin} \B m\ .zoi.\ gi ga jonai ko'a goi la'o zoi.\ \F{toℕ}\ \B a\ .zoi.\ du ko'e goi la'o zoi.\ \F{toℕ} \OpF \$ \F{f2f} \Sym\{\B n\Sym\} \Sym\{\B n\Sym\} \B a\ .zoi.\ gi ga je ko'a dubjavmau la'oi .\B m.\ gi ko'e du la'oi .\B n.
 
 \begin{code}
-module F2F where
+module F2f where
   _<?ₘ_ : (m n : ℕ) → Maybe $ m ℕ.< n
   _<?ₘ_ = decToMaybe ∘₂ ℕ._<?_
 
@@ -389,7 +389,7 @@ module F2F where
   f2f : {m n : ℕ} → Fin m → Fin $ suc n
   f2f = mFd ∘ toℕ
 
-open F2F
+open F2f
   using (
     f2f
   )
@@ -400,7 +400,7 @@ open F2F
 \begin{code}
 module F2fVeritas where
   open ≡-Reasoning
-  open F2F
+  open F2f
 
   module _<?ₘ_ where
     go'is : {m n : ℕ}
