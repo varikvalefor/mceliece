@@ -408,8 +408,11 @@ module F2fVeritas where
           → m <?ₘ n ≡ just x
     go'is {m} {n} x = begin
       m <?ₘ n ≡⟨ refl ⟩
-      decToMaybe (m ℕ.<? n) ≡⟨ {!!} ⟩
+      decToMaybe (m ℕ.<? n) ≡⟨ proj₂ DY ▹ cong decToMaybe ⟩
+      decToMaybe (yes $ proj₁ DY) ≡⟨ {!!} ⟩
       just x ∎
+      where
+      DY = Relation.Nullary.Decidable.dec-yes (m ℕ.<? n) x
 
     nago'is : {m n : ℕ}
             → ¬_ $ m ℕ.< n
