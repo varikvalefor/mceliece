@@ -410,7 +410,7 @@ module F2fVeritas where
       m <?ₘ n ≡⟨ refl ⟩
       decToMaybe (m ℕ.<? n) ≡⟨ proj₂ DY ▹ cong decToMaybe ⟩
       decToMaybe (yes $ proj₁ DY) ≡⟨ refl ⟩
-      just (proj₁ DY) ≡⟨ {!!} ⟩
+      just (proj₁ DY) ≡⟨ zmadekydu'i _ _ ▹ cong just ⟩
       just x ∎
       where
       DY = Relation.Nullary.Decidable.dec-yes (m ℕ.<? n) x
