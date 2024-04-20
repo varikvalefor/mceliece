@@ -369,7 +369,7 @@ module HWV𝔽Veritas where
              → (x : Vec (Fin $ suc a) b)
              → hWV𝔽 x ℕ.≤ b
   dubjavme'a [] = ℕ.z≤n
-  dubjavme'a (zero ∷ xs) = DNP.≤-trans (dubjavme'a xs) $ DNP.n≤1+n _
+  dubjavme'a (zero ∷ x) = DNP.≤-trans (dubjavme'a x) $ DNP.n≤1+n _
   dubjavme'a (suc _ ∷ xs) = dubjavme'a xs ▹ ℕ.s≤s
 \end{code}
 
