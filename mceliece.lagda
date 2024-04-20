@@ -436,7 +436,9 @@ module F2fVeritas where
     mleca : {m n : ℕ}
           → m ℕ.< suc n
           → m ≡_ $ toℕ $ mFd {n} m
-    mleca = {!!}
+    mleca {m} {n} x = sym $ begin
+      toℕ (mFd m) ≡⟨ {!!} ⟩
+      m ∎
 
     dubjavmau : {m n : ℕ}
               → ¬_ $ m ℕ.< suc n
