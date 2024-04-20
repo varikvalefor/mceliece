@@ -420,7 +420,7 @@ module F2fVeritas where
     jus = {!!}
 
     nada : {m n : ℕ} → n ≡_ $ toℕ $ mFdᵢ {n} {m} nothing
-    nada = {!!}
+    nada = DFP.toℕ-fromℕ< _ ▹ sym
 
   dubjavmau : {m n : ℕ}
             → (f : Fin m)
