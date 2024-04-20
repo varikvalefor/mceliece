@@ -407,7 +407,8 @@ module F2fVeritas where
           → (x : m ℕ.< n)
           → m <?ₘ n ≡ just x
     go'is {m} {n} x = begin
-      m <?ₘ n ≡⟨ {!!} ⟩
+      m <?ₘ n ≡⟨ refl ⟩
+      decToMaybe (m ℕ.<? n) ≡⟨ {!!} ⟩
       just x ∎
 
     nago'is : {m n : ℕ}
