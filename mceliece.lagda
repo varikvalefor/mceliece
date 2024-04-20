@@ -47,6 +47,7 @@
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
+\newunicodechar{ᵢ}{\ensuremath{\mathnormal{_\AgdaFontStyle{i}}}}
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_\AgdaFontStyle{l}}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_\AgdaFontStyle{m}}}}
