@@ -422,6 +422,12 @@ module F2fVeritas where
     nada : {m n : ℕ} → n ≡_ $ toℕ $ mFdᵢ {n} {m} nothing
     nada = DFP.toℕ-fromℕ< _ ▹ sym
 
+  module MFd where
+    mleca : {m n : ℕ}
+          → m ℕ.< suc n
+          → m ≡_ $ toℕ $ mFd {n} m
+    mleca = {!!}
+
   dubjavmau : {m n : ℕ}
             → (f : Fin m)
             → ¬_ $ toℕ f ℕ.< suc n
