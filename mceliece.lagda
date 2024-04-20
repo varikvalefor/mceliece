@@ -417,7 +417,7 @@ module F2fVeritas where
     jus : {m n : ℕ}
         → (j : m ℕ.< suc n)
         → m ≡_ $ toℕ $ mFdᵢ $ just j
-    jus = {!!}
+    jus = sym ∘ DFP.toℕ-fromℕ<
 
     nada : {m n : ℕ} → n ≡_ $ toℕ $ mFdᵢ {n} {m} nothing
     nada = DFP.toℕ-fromℕ< _ ▹ sym
