@@ -701,16 +701,22 @@ module ResizeVeritas where
 ni'o la'o zoi.\ \F{dist} \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} \OpF \$ \F{length} \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei fo la'oi .\B{x}.\ cu drata lo meirmoi be ke'a bei fo la'oi .\B{x}.
 
 \begin{code}
-dist : ∀ {a} → {A : Set a}
-     → ⦃ Q : LL A ⦄ → ⦃ Eq $ LL.e Q ⦄
-     → (x z : A)
-     → LL.l Q x ≡ LL.l Q z
-     → ℕ
-dist x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
-  where
-  drata = _≟_ false ∘ isYes ∘ uncurry _≟_
-  x' = vec x ▹_ $ coerce $ d ▹ cong (Vec _)
-  z' = vec z
+module Dist where
+  dist : ∀ {a} → {A : Set a}
+       → ⦃ Q : LL A ⦄ → ⦃ Eq $ LL.e Q ⦄
+       → (x z : A)
+       → LL.l Q x ≡ LL.l Q z
+       → ℕ
+  dist x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
+    where
+    drata = _≟_ false ∘ isYes ∘ uncurry _≟_
+    x' = vec x ▹_ $ coerce $ d ▹ cong (Vec _)
+    z' = vec z
+
+open Dist
+  using (
+    dist
+  )
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
