@@ -1076,7 +1076,8 @@ module B2fVeritas where
         mleca? ≡⟨ refl ⟩
         decToMaybe (sumᵥ (mapᵥ toℕ v) ℕ.<? suc m) ≡⟨ refl ⟩
         _ ≡⟨ dec-yes _ ml ▹ proj₂ ▹ cong decToMaybe ⟩
-        decToMaybe (yes $ dec-yes (_ ℕ.<? _) ml ▹ proj₁) ≡⟨ zmadekydu'i _ _ ▹ cong (decToMaybe ∘ yes) ⟩
+        decToMaybe (yes $ dec-yes (_ ℕ.<? _) ml ▹ proj₁) ≡⟨ refl ⟩
+        _ ≡⟨ zmadekydu'i _ _ ▹ cong (decToMaybe ∘ yes) ⟩
         decToMaybe (yes ml) ≡⟨ refl ⟩
         just ml ∎
         where
