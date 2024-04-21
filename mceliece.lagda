@@ -1141,8 +1141,8 @@ module B2fVeritas where
     non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
     non = refl
 
-  nada : (m : ℕ) → b2f {m} [] ≡ zero
-  nada = {!!}
+  kunti : (m : ℕ) → b2f {m} [] ≡ zero
+  kunti = {!!}
 
   non : (m n : ℕ)
       → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {suc m}
