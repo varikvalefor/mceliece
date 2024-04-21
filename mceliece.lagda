@@ -1916,7 +1916,9 @@ ni'o la'o zoi.\ \F{Hx} \B p \B T\ .zoi.\ konkatena lo me'oi .identity.\ nacmeime
 module Hx where
   n∸k+k≡n : (p : MCParam)
           → MCParam.n-k p + MCParam.k p ≡ MCParam.n p
-  n∸k+k≡n p = DNP.m∸n+n≡m $ DNP.m∸n≤m _ $ MCParam.m p * _
+  n∸k+k≡n p = DNP.m∸n+n≡m $ DNP.m∸n≤m _ $ m * _
+    where
+    m = MCParam.m p
 
   Hx : (p : MCParam)
      → Public p
