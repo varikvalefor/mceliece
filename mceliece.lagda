@@ -1074,7 +1074,8 @@ module B2fVeritas where
       J : mleca? ≡ just ml
       J = begin
         mleca? ≡⟨ refl ⟩
-        decToMaybe (sumᵥ (mapᵥ toℕ v) ℕ.<? suc m) ≡⟨ dec-yes _ ml ▹ proj₂ ▹ cong decToMaybe ⟩
+        decToMaybe (sumᵥ (mapᵥ toℕ v) ℕ.<? suc m) ≡⟨ refl ⟩
+        _ ≡⟨ dec-yes _ ml ▹ proj₂ ▹ cong decToMaybe ⟩
         decToMaybe (yes $ dec-yes (_ ℕ.<? _) ml ▹ proj₁) ≡⟨ {!!} ⟩
         just ml ∎
         where
