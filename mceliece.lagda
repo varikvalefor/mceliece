@@ -1077,7 +1077,7 @@ module B2fVeritas where
         decToMaybe (sumᵥ (mapᵥ toℕ v) ℕ.<? suc m) ≡⟨ refl ⟩
         _ ≡⟨ dec-yes _ ml ▹ proj₂ ▹ cong decToMaybe ⟩
         decToMaybe (yes $ dec-yes (_ ℕ.<? _) ml ▹ proj₁) ≡⟨ zmadekydu'i _ _ ▹ cong (decToMaybe ∘ yes) ⟩
-        decToMaybe (yes ml) ≡⟨ {!!} ⟩
+        decToMaybe (yes ml) ≡⟨ refl ⟩
         just ml ∎
         where
         open Relation.Nullary.Decidable using (dec-yes)
