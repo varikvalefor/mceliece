@@ -1142,7 +1142,7 @@ module B2fVeritas where
     non = refl
 
   kunti : (m : ℕ) → b2f {m} [] ≡ zero
-  kunti = {!!}
+  kunti _ = refl
 
   non : (m n : ℕ)
       → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {suc m}
