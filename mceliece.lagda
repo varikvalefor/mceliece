@@ -702,6 +702,12 @@ ni'o la'o zoi.\ \F{dist} \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o
 
 \begin{code}
 module Dist where
+  drata : ∀ {a} → {A : Set a}
+        → ⦃ _ : Eq A ⦄
+        → (x : A × A)
+        → Dec _
+  drata = _≟_ false ∘ isYes ∘ uncurry _≟_
+
   dist : ∀ {a} → {A : Set a}
        → ⦃ Q : LL A ⦄ → ⦃ Eq $ LL.e Q ⦄
        → (x z : A)
@@ -709,7 +715,6 @@ module Dist where
        → ℕ
   dist x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
     where
-    drata = _≟_ false ∘ isYes ∘ uncurry _≟_
     x' = vec x ▹_ $ coerce $ d ▹ cong (Vec _)
     z' = vec z
 
