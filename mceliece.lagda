@@ -676,8 +676,8 @@ module ResizeVeritas where
     drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ▹ sym ⟩
     xs ∎
     where
-    DN = Relation.Nullary.Decidable.dec-no (n ℕ.≤? m) g
     pad = replicate x
+    DN = Relation.Nullary.Decidable.dec-no (n ℕ.≤? m) g
     k = DNP.m∸n+n≡m (DNP.≰⇒≥ $ proj₁ DN) ▹ cong (Vec A)
     konk : Vec A $ n ∸ m + m
     konk = xt x xs (no $ proj₁ DN) ▹ coerce (sym k)
