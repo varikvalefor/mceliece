@@ -1091,7 +1091,9 @@ module B2fVeritas where
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
       K : mleca? ≡ nothing
-      K = {!!}
+      K = dec-no _ J ▹ proj₂ ▹ cong decToMaybe
+        where
+        open Relation.Nullary.Decidable using (dec-no)
 
     du : {m n : ℕ}
        → (v : Vec (Fin $ suc m) n)
