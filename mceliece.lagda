@@ -1005,7 +1005,7 @@ ni'o xu cadga fa lo nu muvgau le velcki be ko'a goi la'oi .\F{b2f}.\ lo drata be
 module B2fVeritas where
   open ≡-Reasoning
 
-  module Sumᵥ'Veritas where
+  module Sumᵥ' where
     sumᵥ'₂ : {m n : ℕ} → (Vec (Fin $ suc m) n) → Fin $ suc m
     sumᵥ'₂ {m} x = maybe fromℕ< (fromℕ m) mleca?
       where
