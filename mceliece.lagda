@@ -1123,13 +1123,14 @@ module B2fVeritas where
       s≤⇒≤ {0} (ℕ.s≤s x) = ℕ.z≤n
       s≤⇒≤ {suc _} (ℕ.s≤s x) = ℕ.s≤s $ s≤⇒≤ x
 
-  indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
-           → (v : Vec A n)
-           → (i : Fin n)
-           → (_≡_
-               (lookup (B2f.indice' v) i)
-               (lookup v i , Data.Fin.opposite i))
-  indice'v = {!!}
+  module Indice' where
+    indice'v : ∀ {a} → {A : Set a} → {n : ℕ}
+             → (v : Vec A n)
+             → (i : Fin n)
+             → (_≡_
+                 (lookup (B2f.indice' v) i)
+                 (lookup v i , Data.Fin.opposite i))
+    indice'v = {!!}
 
   non : (m n : ℕ)
       → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {suc m}
