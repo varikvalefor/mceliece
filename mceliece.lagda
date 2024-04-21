@@ -1229,19 +1229,19 @@ ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b\ .zoi.\ mu'oi glibau.\ bitwise an
 
 \begin{code}
 module ∧𝔹ℕ𝔽 where
+  -- | ni'o narcu'i fa lo nu zmadu
+  -- .i cumki fa lo nu la'e di'u krinu lo nu cadga fa
+  -- lo nu basti lo mu'oi zoi. Data.Fin.fromℕ≤ .zoi. co'e
+  --
+  -- .i le su'u la .varik. na basygau le pa
+  -- lerpinsle le'i ci lerpinsle cu se krinu le
+  -- su'u la .varik. cu djica lo nu zvati lo
+  -- zabna mapti fa lo pinka be le su'u narcu'i
+  toFin : {m n : ℕ} → Vec (Fin $ suc m) $ suc n → Fin $ suc n
+  toFin = f2f ∘ b2f
+
   _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin $ suc n
   _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
-    where
-    -- | ni'o narcu'i fa lo nu zmadu
-    -- .i cumki fa lo nu la'e di'u krinu lo nu cadga fa
-    -- lo nu basti lo mu'oi zoi. Data.Fin.fromℕ≤ .zoi. co'e
-    --
-    -- .i le su'u la .varik. na basygau le pa
-    -- lerpinsle le'i ci lerpinsle cu se krinu le
-    -- su'u la .varik. cu djica lo nu zvati lo
-    -- zabna mapti fa lo pinka be le su'u narcu'i
-    toFin : {m n : ℕ} → Vec (Fin $ suc m) $ suc n → Fin $ suc n
-    toFin = f2f ∘ b2f
 
 open ∧𝔹ℕ𝔽
   using (
