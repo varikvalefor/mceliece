@@ -728,6 +728,8 @@ open Dist
 
 \begin{code}
 module DistVeritas where
+  open Dist
+
   dunliv : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
          → (x z : Vec A n)
@@ -740,11 +742,6 @@ module DistVeritas where
     vfd (zipᵥ x z) ≡⟨ refl ⟩
     dist x z refl ∎
     where
-    drata : ∀ {a} → {A : Set a}
-          → ⦃ _ : Eq A ⦄
-          → (x : A × A)
-          → Dec _
-    drata = _≟_ false ∘ isYes ∘ uncurry _≟_
     vfd : ∀ {a} → {A : Set a} → {n : ℕ}
         → ⦃ Eq A ⦄
         → Vec (A × A) n
@@ -779,11 +776,6 @@ module DistVeritas where
     vfd ((e₁ , e₂) ∷ zipᵥ x z) ≡⟨ {!!} ⟩
     ℕ.suc (dist x z refl) ∎
     where
-    drata : ∀ {a} → {A : Set a}
-          → ⦃ _ : Eq A ⦄
-          → (x : A × A)
-          → Dec _
-    drata = _≟_ false ∘ isYes ∘ uncurry _≟_
     vfd : ∀ {a} → {A : Set a} → {n : ℕ}
         → ⦃ Eq A ⦄
         → Vec (A × A) n
@@ -797,7 +789,6 @@ module DistVeritas where
               → dist x z refl ℕ.≤ n
   dubjavme'av {n = n} x z = filterlen drata $ n , zipᵥ x z
     where
-    drata = _≟_ false ∘ isYes ∘ uncurry _≟_
     filterlen : ∀ {a p} → {A : Set a}
               → {P : _}
               → (P? : Decidable {ℓ = p} P)
