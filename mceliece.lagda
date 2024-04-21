@@ -1228,19 +1228,25 @@ ni'o la .varik.\ cu djica lo nu la .\F{cunsof}.\ cu ctaipe ko'a goi la'o zoi.\ \
 ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b\ .zoi.\ mu'oi glibau.\ bitwise and .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-_∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin $ suc n
-_∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
-  where
-  -- | ni'o narcu'i fa lo nu zmadu
-  -- .i cumki fa lo nu la'e di'u krinu lo nu cadga fa
-  -- lo nu basti lo mu'oi zoi. Data.Fin.fromℕ≤ .zoi. co'e
-  --
-  -- .i le su'u la .varik. na basygau le pa
-  -- lerpinsle le'i ci lerpinsle cu se krinu le
-  -- su'u la .varik. cu djica lo nu zvati lo
-  -- zabna mapti fa lo pinka be le su'u narcu'i
-  toFin : {m n : ℕ} → Vec (Fin $ suc m) $ suc n → Fin $ suc n
-  toFin = f2f ∘ b2f
+module ∧𝔹ℕ𝔽 where
+  _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin $ suc n
+  _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
+    where
+    -- | ni'o narcu'i fa lo nu zmadu
+    -- .i cumki fa lo nu la'e di'u krinu lo nu cadga fa
+    -- lo nu basti lo mu'oi zoi. Data.Fin.fromℕ≤ .zoi. co'e
+    --
+    -- .i le su'u la .varik. na basygau le pa
+    -- lerpinsle le'i ci lerpinsle cu se krinu le
+    -- su'u la .varik. cu djica lo nu zvati lo
+    -- zabna mapti fa lo pinka be le su'u narcu'i
+    toFin : {m n : ℕ} → Vec (Fin $ suc m) $ suc n → Fin $ suc n
+    toFin = f2f ∘ b2f
+
+open ∧𝔹ℕ𝔽
+  using (
+    _∧𝔹ℕ𝔽_
+  )
 \end{code}
 
 \subsection{le ctaipe be le su'u la'oi .\F{\AgdaUnderscore{}∧𝔹ℕ𝔽\AgdaUnderscore}.\ mapti}
