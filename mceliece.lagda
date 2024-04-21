@@ -1253,6 +1253,8 @@ open ∧𝔹ℕ𝔽
 
 \begin{code}
 module ∧𝔹ℕ𝔽Veritas where
+  open ∧𝔹ℕ𝔽
+
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
   nada n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ refl ⟩
@@ -1263,8 +1265,6 @@ module ∧𝔹ℕ𝔽Veritas where
     zero ∎
     where
     zW = zipWithᵥ (f𝔽 _*_) $ nbits n
-    toFin : {n : ℕ} → Vec (Fin 2) $ suc n → Fin $ suc n
-    toFin = f2f ∘ b2f
     Z = replicate zero
     open ≡-Reasoning
     f2f-zero = F2fVeritas.zeron
@@ -1299,8 +1299,6 @@ module ∧𝔹ℕ𝔽Veritas where
     fromℕ< (DNP.m⊓n≤n _ _) ∎
     where
     toz = toℕ $ opposite $ zero {2 ^ m}
-    toFin : {n : ℕ} → Vec (Fin 2) $ suc n → Fin $ suc n
-    toFin = f2f ∘ b2f
     open ≡-Reasoning
 \end{code}
 
