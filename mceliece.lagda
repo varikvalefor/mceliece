@@ -973,22 +973,27 @@ module B2f where
   sumᵥ' : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m
   sumᵥ' = foldrᵥ _ (f𝔽 _+_) zero
 
-  portenfa : {m' n : ℕ}
-           → let m = suc m' in
-             (flip Vec
-               n
-               (_×_
-                 (Fin $ suc $ proj₁ $ pausyk m' n)
-                 (Fin n)))
-           → Fin $ m ^ n
-  portenfa {m'} {n} = coerce k ∘ sumᵥ' ∘ mapᵥ tefpi'i
+  portenfa₁ : {m' n : ℕ}
+            → let m = suc m' in
+              (flip Vec
+                n
+                (_×_
+                  (Fin $ suc $ proj₁ $ pausyk m' n)
+                  (Fin n)))
+            → Fin $ m ^ n
+  portenfa₁ {m'} {n} = coerce k ∘ sumᵥ' ∘ mapᵥ tefpi'i
     where
     m = suc m'
     k = cong Fin $ proj₂ $ pausyk m' n
     tefpi'i = uncurry (f𝔽 $ λ a b → a * m ^ b) ∘ map₂ f2f
 
+  portenfa : {m n : ℕ}
+           → flip Vec n $ Fin $ suc $ proj₁ $ pausyk m n
+           → Fin $ suc m ^ n
+  portenfa = portenfa₁ ∘ indice'
+
   b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
-  b2f = portenfa ∘ indice' ∘ mapᵥ f2f
+  b2f = portenfa ∘ mapᵥ f2f
 
 open B2f
   using (
