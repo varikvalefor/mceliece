@@ -1132,6 +1132,10 @@ module B2fVeritas where
                  (lookup v i , Data.Fin.opposite i))
     indice'v = {!!}
 
+  module Portenfa where
+    non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
+    non = {!!}
+
   non : (m n : ℕ)
       → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {suc m}
   non m n = begin
