@@ -447,7 +447,8 @@ module F2fVeritas where
               → n ≡_ $ toℕ $ mFd {n} m
     dubjavmau {m} {n} J = sym $ begin
       toℕ (mFd m) ≡⟨ refl ⟩
-      toℕ (mFdᵢ $ m <?ₘ _) ≡⟨ {!!} ⟩
+      toℕ (mFdᵢ $ m <?ₘ _) ≡⟨ _<?ₘ_.nago'is J ▹ cong (toℕ ∘ mFdᵢ) ⟩
+      toℕ (mFdᵢ nothing) ≡⟨ {!!} ⟩
       n ∎
 
   dubjavmau : {m n : ℕ}
