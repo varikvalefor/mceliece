@@ -439,7 +439,7 @@ module F2fVeritas where
     mleca {m} {n} x = sym $ begin
       toℕ (mFd m) ≡⟨ refl ⟩
       toℕ (mFdᵢ $ m <?ₘ _) ≡⟨ _<?ₘ_.go'is x ▹ cong (toℕ ∘ mFdᵢ) ⟩
-      toℕ (mFdᵢ $ just x) ≡⟨ MFdᵢ.jus x ▹ sym ⟩
+      toℕ (mFdᵢ $ just x) ≡⟨ MFdᵢ.jus {m} {n} x ▹ sym ⟩
       m ∎
 
     dubjavmau : {m n : ℕ}
@@ -448,7 +448,7 @@ module F2fVeritas where
     dubjavmau {m} {n} J = sym $ begin
       toℕ (mFd m) ≡⟨ refl ⟩
       toℕ (mFdᵢ $ m <?ₘ _) ≡⟨ _<?ₘ_.nago'is J ▹ cong (toℕ ∘ mFdᵢ) ⟩
-      toℕ (mFdᵢ nothing) ≡⟨ MFdᵢ.nada ▹ sym ⟩
+      toℕ (mFdᵢ {n = n} nothing) ≡⟨ MFdᵢ.nada {m} {n} ▹ sym ⟩
       n ∎
 
   dubjavmau : {m n : ℕ}
