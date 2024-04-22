@@ -1872,13 +1872,20 @@ module SeededKeyGenVeritas where
     ... | nothing = refl
 
   module Sivni? where
+    -- | ni'o le proga co me la'o zoi. Agda 2.6.4.3 .zoi.
+    -- cu masno tu'a le me'oi .with. co'e po la .sles...
+    -- ge'u noi ku'i ke'a filri'a lo nu ciksi lo ctaipe...
+    -- je noi la .varik. na birti lo du'u ma kau zmadu
+    -- ke'a
     sles : {p : MCParam}
          → (δ : Fin $ 2 ^ MCParam.ℓ p)
          → toℕ δ ℕ.< 2 ^ MCParam.n p
          → (_∈_
              (mapₘ (toℕ ∘ b2f ∘ Private.s) $ sivni? {p} δ)
              (nothing ∷ just (toℕ δ) ∷ List.[]))
-    sles = {!!}
+    sles {p} δ m with sivni? {p} δ
+    ... | nothing = {!!}
+    ... | just S = {!!}
 
   module Mapti? where
     nog : {p : MCParam}
