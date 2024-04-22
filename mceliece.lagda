@@ -457,15 +457,8 @@ module F2fVeritas where
             → n ≡_ $ toℕ $ f2f {n = n} f
   dubjavmau {n = n} f j = sym $ begin
     toℕ (f2f f) ≡⟨ refl ⟩
-    toℕ (maybe F d $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ refl ⟩
-    _ ≡⟨ DN ▹ proj₂ ▹ cong (toℕ {suc n} ∘ maybe F d ∘ decToMaybe) ⟩
-    toℕ d ≡⟨ refl ⟩
-    toℕ (fromℕ< $ DNP.n<1+n n) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
+    toℕ (mFd $ toℕ f) ≡⟨ MFd.dubjavmau j ▹ sym ⟩
     n ∎
-    where
-    F = fromℕ<
-    d = F $ DNP.n<1+n _
-    DN = Relation.Nullary.Decidable.dec-no (_ ℕ.<? _) j
 
   mleca : {m n : ℕ}
         → (f : Fin m)
@@ -473,13 +466,8 @@ module F2fVeritas where
         → toℕ f ≡_ $ toℕ $ f2f {n = n} f
   mleca {n = n} f m = sym $ begin
     toℕ (f2f f) ≡⟨ refl ⟩
-    toℕ (mFdᵢ $ decToMaybe $ toℕ f ℕ.<? suc n) ≡⟨ refl ⟩
-    _ ≡⟨ DY ▹ proj₂ ▹ cong (toℕ ∘ mFdᵢ ∘ decToMaybe) ⟩
-    toℕ (mFdᵢ $ decToMaybe $ yes $ proj₁ DY) ≡⟨ refl ⟩
-    toℕ (fromℕ< $ proj₁ DY) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
+    toℕ (mFd $ toℕ f) ≡⟨ MFd.mleca m ▹ sym ⟩
     toℕ f ∎
-    where
-    DY = Relation.Nullary.Decidable.dec-yes (toℕ f ℕ.<? suc n) m
 
   dunli : {m n : ℕ}
         → (f : Fin m)
