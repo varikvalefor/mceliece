@@ -1874,7 +1874,7 @@ module SeededKeyGenVeritas where
              (mapₘ (toℕ ∘ b2f ∘ Private.s) $ sivni? {p} δ)
              (nothing ∷ just (toℕ δ) ∷ List.[]))
     sles {p} δ m with sivni? {p} δ
-    ... | nothing = {!!}
+    ... | nothing = refl
     ... | just S = {!!}
 
   module Mapti? where
