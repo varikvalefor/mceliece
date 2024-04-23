@@ -1887,8 +1887,7 @@ module SeededKeyGenVeritas where
       mapti? {p} δ E ≡⟨ refl ⟩
       _,ₘ_ (sivni >>=ₘ MatGen) sivni ≡⟨ {!!} ⟩
       _,ₘ_ (nothing >>=ₘ MatGen {p} ) sivni ≡⟨ refl ⟩
-      _,ₘ_ nothing sivni ≡⟨ {!!} ⟩
-      _,ₘ_ (nothing >>=ₘ MatGen {p}) nothing ≡⟨ refl ⟩
+      _,ₘ_ nothing sivni ≡⟨ refl ⟩
       nothing ∎
       where
       _,ₘ_ = (Data.Maybe.ap ∘₂ mapₘ) _,_
