@@ -1877,6 +1877,12 @@ module SeededKeyGenVeritas where
     ... | nothing = refl
     ... | just S = {!!}
 
+    nog : {p : MCParam}
+        → (δ : Fin $ 2 ^ MCParam.ℓ p)
+        → g? {p} δ ≡ nothing
+        → sivni? {p} δ ≡ nothing
+    nog = {!!}
+
   module Mapti? where
     nog : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
