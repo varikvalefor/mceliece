@@ -1996,6 +1996,7 @@ module Decode where
          → Maybe $ ∃ $ mapti {p} C₀ bar
   mapti? C₀ bar e = mapₘ (e ,_) ctaiporsis
     where
+    ctaiporsis : Maybe $ mapti C₀ bar e
     ctaiporsis = dun? >>=ₘ λ x → mapₘ (x ,_) dun?
       where
       dun? : ∀ {a} → {A : Set a} → {B C : A}
