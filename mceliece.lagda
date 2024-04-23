@@ -474,11 +474,11 @@ module F2fVeritas where
   dunli {m} {n} f with toℕ f ℕ.<? suc n
   ... | yes x = begin
     toℕ (mFdᵢ $ just x) ≡⟨ MFdᵢ.jus x ▹ sym ⟩
-    toℕ f ≡⟨ DNP.m≥n⇒m⊓n≡n tf≤sn ▹ sym ⟩
+    toℕ f ≡⟨ DNP.m≥n⇒m⊓n≡n (<⇒≤ x) ▹ sym ⟩
     n ℕ.⊓ toℕ f ∎
     where
-    tf≤sn : toℕ f ℕ.≤ n
-    tf≤sn = {!!}
+    <⇒≤ : {m n : ℕ} → m ℕ.< suc n → m ℕ.≤ n
+    <⇒≤ = {!!}
   ... | no x = {!!}
 
   zeron : {n m : ℕ}
