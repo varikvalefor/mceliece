@@ -481,7 +481,7 @@ module F2fVeritas where
     <⇒≤ (ℕ.s≤s s) = s
   ... | no x = begin
     toℕ (mFdᵢ nothing) ≡⟨ MFdᵢ.nada ▹ sym ⟩
-    n ≡⟨ {!!} ⟩
+    n ≡⟨ DNP.m≤n⇒m⊓n≡m {!!} ▹ sym ⟩
     n ℕ.⊓ toℕ f ∎
 
   zeron : {n m : ℕ}
