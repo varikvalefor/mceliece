@@ -1915,7 +1915,7 @@ KeyGen p = SeededKeyGen IO.<$> cunsof {n = MCParam.ℓ p}
 ni'o ko'a goi la'au \chapsname\ li'u vasru le velcki be ko'e goi vu'oi le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ ku'o je le fancu poi tu'a ke'a filri'a lo nu me'oi .decode.\ ge'u je le pinka be ko'e\sds  .i la .varik.\ na birti lo du'u xu kau sarcu fa lo nu me'oi .abstract.\ ko'a
 
 \section{la'oi .\F{Hx}.}
-ni'o la'o zoi.\ \F{Hx} \B p \B T\ .zoi.\ konkatena lo me'oi .identity.\ nacmeimei la'oi .\B{T}.
+ni'o la'o zoi.\ \F{Hx} \B p \B T\ .zoi.\ konkatena lo dunli nacmeimei la'oi .\B{T}.
 
 \begin{code}
 module Hx where
