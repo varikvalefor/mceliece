@@ -1899,7 +1899,7 @@ module SeededKeyGenVeritas where
       _,ₘ_ = (Data.Maybe.ap ∘₂ mapₘ) _,_
       sivni = sivni? {p} δ
       s≡n : sivni ≡ nothing
-      s≡n = {!!}
+      s≡n = Sivni?.nog {p} δ N
       open ≡-Reasoning
 \end{code}
 
