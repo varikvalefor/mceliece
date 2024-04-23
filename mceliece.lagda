@@ -1808,10 +1808,10 @@ module SeededKeyGen where
   sivni? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
          → Maybe $ Private p
-  sivni? {p} E = g? {p} E >>=ₘ λ (j , lg , g) → just record {
+  sivni? {p} δ = g? {p} δ >>=ₘ λ (j , lg , g) → just record {
     lg = lg;
     Γ = g , j;
-    s = nbits $ toℕ $ b2f $ nbits {MCParam.n p} $ toℕ E
+    s = nbits $ toℕ $ b2f $ nbits {MCParam.n p} $ toℕ δ
     }
 
   mapti? : {p : MCParam}
