@@ -472,7 +472,9 @@ module F2fVeritas where
         → (f : Fin m)
         → toℕ (f2f {n = n} f) ≡ n ℕ.⊓ toℕ f
   dunli {m} {n} f with toℕ f ℕ.<? suc n
-  ... | yes x = {!!}
+  ... | yes x = begin
+    toℕ (mFdᵢ $ just x) ≡⟨ {!!} ⟩
+    n ℕ.⊓ toℕ f ∎
   ... | no x = {!!}
 
   zeron : {n m : ℕ}
