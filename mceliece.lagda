@@ -1994,7 +1994,7 @@ module Decode where
          → (bar : Public p)
          → xv p MCParam.n
          → Maybe $ ∃ $ mapti {p} C₀ bar
-  mapti? {p} C₀ bar e = mapₘ (e ,_) ctaiporsis
+  mapti? C₀ bar e = mapₘ (e ,_) ctaiporsis
     where
     ctaiporsis = dun? >>=ₘ λ x → mapₘ (x ,_) dun?
       where
