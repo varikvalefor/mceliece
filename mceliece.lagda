@@ -2013,8 +2013,8 @@ module Decode where
       k≤n : MCParam.k p ℕ.≤ MCParam.n p
       k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
 
-    v' : {p : MCParam} → xv p MCParam.n-k → xv p MCParam.n
-    v' {p} C₀ = C₀ ++ replicate zero ▹_ $ coerce $ n∸k+k≡n p
+    v' : (p : MCParam) → xv p MCParam.n-k → xv p MCParam.n
+    v' p C₀ = C₀ ++ replicate zero ▹_ $ coerce $ n∸k+k≡n p
 
   open V'
     using (
@@ -2024,7 +2024,7 @@ module Decode where
   module C' where
     c' : {p : MCParam}
        → (C₀ : xv p MCParam.n-k)
-       → let v = v' {p} C₀ in
+       → let v = v' p C₀ in
          Maybe $ ∃ $ λ c → dist c v refl ℕ.≤ MCParam.t p
     c' = {!!}
 
@@ -2044,7 +2044,7 @@ module Decode where
     mapti?' = mapti? {p}
     e = flip mapₘ c $ zipWithᵥ (f𝔽 _+_) v
       where
-      v = v' {p} C₀
+      v = v' p C₀
       c = mapₘ proj₁ $ c' {p} C₀
 
 open Decode
@@ -2106,7 +2106,7 @@ module DecodeVeritas where
     vc' : {p : MCParam}
        → xv p MCParam.n-k
        → xv p $ λ p → MCParam.n-k p + MCParam.k p
-    vc' {p} C₀ = v' {p} C₀ ▹_ $ coerce $ n∸k+k≡n p ▹ sym
+    vc' {p} C₀ = v' p C₀ ▹_ $ coerce $ n∸k+k≡n p ▹ sym
 
     vc≡C₀++rz : {p : MCParam}
               → (C₀ : xv p MCParam.n-k)
