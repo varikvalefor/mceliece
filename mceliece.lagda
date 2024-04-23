@@ -1885,7 +1885,8 @@ module SeededKeyGenVeritas where
         → mapti? {p} δ E ≡ nothing
     nog {p} δ E N = begin
       mapti? {p} δ E ≡⟨ refl ⟩
-      _,ₘ_ (sivni >>=ₘ MatGen) sivni ≡⟨ s≡n ▹ cong (_,ₘ_ $ sivni >>=ₘ MatGen) ⟩
+      _,ₘ_ (sivni >>=ₘ MatGen) sivni ≡⟨ refl ⟩
+      _ ≡⟨ s≡n ▹ cong (_,ₘ_ $ sivni >>=ₘ MatGen) ⟩
       _,ₘ_ (sivni >>=ₘ MatGen {p}) nothing ≡⟨ refl ⟩
       nothing ∎
       where
