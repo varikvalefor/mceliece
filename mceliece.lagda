@@ -769,7 +769,8 @@ module DistVeritas where
                   (vfd $ (x , x) ∷ z)
                   (vfd z))
     fildradus x z = begin
-      vfd ((x , x) ∷ z) ≡⟨ {!!} ⟩
+      vfd ((x , x) ∷ z) ≡⟨ refl ⟩
+      Vec≤.length (filter drata $ (x , x) ∷ z) ≡⟨ {!!} ⟩
       length (filterₗ drata $ (x , x) ∷ z') ≡⟨ fildradun x z' ⟩
       length (filterₗ drata z') ≡⟨ {!!} ⟩
       length (fromList $ filterₗ drata z') ≡⟨ {!!} ⟩
