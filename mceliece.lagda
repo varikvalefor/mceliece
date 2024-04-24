@@ -790,7 +790,7 @@ module DistVeritas where
   dubjavme'av [] [] = ℕ.z≤n
   dubjavme'av {n = n} (x ∷ xs) (z ∷ zs) with x ≟ z
   ... | yes d = dubjavme'av xs zs ▹ DNP.≤-step
-  ... | no d = {!!}
+  ... | no d = dubjavme'av xs zs ▹ ℕ.s≤s
 \end{code}
 
 \section{la .\F{pausyk}.}
