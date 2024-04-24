@@ -776,10 +776,10 @@ module DistVeritas where
          → (x z : Vec A n)
          → (e₁ e₂ : A)
          → ¬_ $ e₁ ≡ e₂
-         → ℕ.suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
+         → suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
   dratav x z e₁ e₂ j = sym $ begin
     dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ {!!} ⟩
-    ℕ.suc (dist x z refl) ∎
+    suc (dist x z refl) ∎
     where
     open ≡-Reasoning
 
