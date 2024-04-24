@@ -488,7 +488,7 @@ module F2fVeritas where
     ≰⇒≤⍨ : {m n : ℕ}
         → ¬_ $ suc m ℕ.≤ suc n
         → n ℕ.≤ m
-    ≰⇒≤⍨ = {!!}
+    ≰⇒≤⍨ = {!!} ∘ DNP.≮⇒≥
 
   zeron : {n m : ℕ}
         → (x : Fin n)
