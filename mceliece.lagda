@@ -488,8 +488,12 @@ module F2fVeritas where
     ≰⇒≤⍨ : {m n : ℕ}
         → ¬_ $ suc m ℕ.≤ suc n
         → n ℕ.≤ m
-    ≰⇒≤⍨ = {!!} ∘ ≥⇒≤⍨ ∘ DNP.≮⇒≥
+    ≰⇒≤⍨ = sykles ∘ ≥⇒≤⍨ ∘ DNP.≮⇒≥
       where
+      sykles : {m n : ℕ}
+             → suc m ℕ.≤ n
+             → m ℕ.≤ n
+      sykles = {!!}
       ≥⇒≤⍨ : {m n : ℕ}
            → (m ℕ.≥ n)
            → n ℕ.≤ m
