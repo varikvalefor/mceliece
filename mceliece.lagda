@@ -1111,7 +1111,7 @@ module B2fVeritas where
       sumᵥ'₂ v ≡⟨ refl ⟩
       maybe′ fromℕ< (fromℕ m) mleca? ≡⟨ refl ⟩
       _ ≡⟨ K ▹_ $ cong $ maybe′ fromℕ< $ fromℕ m ⟩
-      maybe′ (fromℕ< {m = suc m}) (fromℕ m) nothing ≡⟨ refl ⟩
+      maybe′ (fromℕ< {suc m}) (fromℕ m) nothing ≡⟨ refl ⟩
       fromℕ m ∎
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
