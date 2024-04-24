@@ -322,6 +322,7 @@ import Agda.Builtin.IO as ABIO
 import Data.Fin.Properties as DFP
 import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
+import Data.List.Properties as DLP
 import Data.Product.Properties as DPP
 import Data.List.Relation.Unary.All as Listal
 \end{code}
@@ -778,7 +779,10 @@ module DistVeritas where
               → ⦃ E : Eq A ⦄
               → (x z : Vec A n)
               → dist x z refl ℕ.≤ n
-  dubjavme'av {n = n} x z = {!!}
+  dubjavme'av {n = n} x z = subst (D ℕ.≤_) {!!} lenfil 
+    where
+    D = dist x z refl
+    lenfil = DLP.length-filter drata $ zipₓ x z refl
 \end{code}
 
 \section{la .\F{pausyk}.}
