@@ -726,8 +726,8 @@ module Dist where
        → ⦃ Q : LL A ⦄ → ⦃ Eq $ LL.e Q ⦄
        → (x z : A)
        → LL.l Q x ≡ LL.l Q z
-       → Vec (LL.e Q × LL.e Q) $ LL.l Q z
-  zipₓ x z d = zipᵥ x' z'
+       → List $ LL.e Q × LL.e Q
+  zipₓ x z d = toList $ zipᵥ x' z'
     where
     x' = vec x ▹_ $ coerce $ d ▹ cong (Vec _)
     z' = vec z
@@ -737,7 +737,7 @@ module Dist where
        → (x z : A)
        → LL.l Q x ≡ LL.l Q z
        → ℕ
-  dist x z d = Vec≤.length $ filter drata $ zipₓ x z d
+  dist x z d = length $ Data.List.filter drata $ zipₓ x z d
 
 open Dist
   using (
@@ -757,43 +757,10 @@ module DistVeritas where
          → (e : A)
          → dist x z refl ≡ dist (e ∷ x) (e ∷ z) refl
   dunliv x z e = sym $ begin
-    dist (e ∷ x) (e ∷ z) refl ≡⟨ refl ⟩
-    vfd (zipᵥ (e ∷ x) (e ∷ z)) ≡⟨ refl ⟩
-    vfd ((e , e) ∷ zipᵥ x z) ≡⟨ fildradus e $ zipᵥ x z ⟩
-    vfd (zipᵥ x z) ≡⟨ refl ⟩
+    dist (e ∷ x) (e ∷ z) refl ≡⟨ {!!} ⟩
     dist x z refl ∎
     where
-    vfd : ∀ {a} → {A : Set a} → {n : ℕ}
-        → ⦃ Eq A ⦄
-        → Vec (A × A) n
-        → ℕ
-    vfd = Vec≤.length ∘ filter drata
     open ≡-Reasoning
-    fildradus : ∀ {a} → {A : Set a} → {n : ℕ}
-              → ⦃ _ : Eq A ⦄
-              → (x : A)
-              → (z : Vec (A × A) n)
-              → (_≡_
-                  (vfd $ (x , x) ∷ z)
-                  (vfd z))
-    fildradus x z = begin
-      vfd ((x , x) ∷ z) ≡⟨ refl ⟩
-      Vec≤.length (filter drata $ (x , x) ∷ z) ≡⟨ {!!} ⟩
-      length (filterₗ drata $ (x , x) ∷ z') ≡⟨ fildradun x z' ⟩
-      length (filterₗ drata z') ≡⟨ {!!} ⟩
-      length (fromList $ filterₗ drata z') ≡⟨ {!!} ⟩
-      vfd z ∎
-      where
-      z' = toList z
-      filterₗ = Data.List.filter
-      fildradun : ∀ {a} → {A : Set a}
-                → ⦃ _ : Eq A ⦄
-                → (x : A)
-                → (L : List $ A × A)
-                → ((_≡_ on length)
-                    (filterₗ drata $ (x , x) ∷ L)
-                    (filterₗ drata L))
-      fildradun = {!!}
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
@@ -802,40 +769,16 @@ module DistVeritas where
          → ¬_ $ e₁ ≡ e₂
          → ℕ.suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
   dratav x z e₁ e₂ j = sym $ begin
-    dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ refl ⟩
-    vfd ((e₁ , e₂) ∷ zipᵥ x z) ≡⟨ {!!} ⟩
+    dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ {!!} ⟩
     ℕ.suc (dist x z refl) ∎
     where
-    vfd : ∀ {a} → {A : Set a} → {n : ℕ}
-        → ⦃ Eq A ⦄
-        → Vec (A × A) n
-        → ℕ
-    vfd = Vec≤.length ∘ filter drata
     open ≡-Reasoning
 
   dubjavme'av : ∀ {a} → {A : Set a} → {n : ℕ}
               → ⦃ E : Eq A ⦄
               → (x z : Vec A n)
               → dist x z refl ℕ.≤ n
-  dubjavme'av {n = n} x z = filterlen drata $ n , zipᵥ x z
-    where
-    filterlen : ∀ {a p} → {A : Set a}
-              → {P : _}
-              → (P? : Decidable {ℓ = p} P)
-              → (V : ∃ $ Vec A)
-              → (ℕ._≤_
-                  (Vec≤.length $ filter P? $ proj₂ V)
-                  (proj₁ V))
-    filterlen P? = G ∘ filter P? ∘ proj₂
-      where
-      G : ∀ {a} → {A : Set a} → {n : ℕ}
-        → (x : Vec≤ A n)
-        → Vec≤.length x ℕ.≤ n
-      G record {length = 0; vec = []ᵥ} = ℕ.z≤n
-      G {n = ℕ.suc n} X@((_ ∷ xs) ,ᵥ s) = ℕ.s≤s $ G $ xs ,ᵥ prek s
-        where
-        prek : {m n : ℕ} → ℕ.suc m ℕ.≤ ℕ.suc n → m ℕ.≤ n
-        prek (ℕ.s≤s s) = s
+  dubjavme'av {n = n} x z = {!!}
 \end{code}
 
 \section{la .\F{pausyk}.}
