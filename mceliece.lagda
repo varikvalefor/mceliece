@@ -49,6 +49,7 @@
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
 \newunicodechar{ᵢ}{\ensuremath{\mathnormal{_\AgdaFontStyle{i}}}}
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_\AgdaFontStyle{l}}}}
+\newunicodechar{ₓ}{\ensuremath{\mathnormal{_\AgdaFontStyle{x}}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_\AgdaFontStyle{m}}}}
 \newunicodechar{ₚ}{\ensuremath{\mathnormal{_\AgdaFontStyle{p}}}}
@@ -721,15 +722,22 @@ module Dist where
         → Dec _
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
 
+  zipₓ : ∀ {a} → {A : Set a}
+       → ⦃ Q : LL A ⦄ → ⦃ Eq $ LL.e Q ⦄
+       → (x z : A)
+       → LL.l Q x ≡ LL.l Q z
+       → Vec (LL.e Q × LL.e Q) $ LL.l Q z
+  zipₓ x z d = zipᵥ x' z'
+    where
+    x' = vec x ▹_ $ coerce $ d ▹ cong (Vec _)
+    z' = vec z
+
   dist : ∀ {a} → {A : Set a}
        → ⦃ Q : LL A ⦄ → ⦃ Eq $ LL.e Q ⦄
        → (x z : A)
        → LL.l Q x ≡ LL.l Q z
        → ℕ
-  dist x z d = Vec≤.length $ filter drata $ zipᵥ x' z'
-    where
-    x' = vec x ▹_ $ coerce $ d ▹ cong (Vec _)
-    z' = vec z
+  dist x z d = Vec≤.length $ filter drata $ zipₓ x z d
 
 open Dist
   using (
