@@ -707,7 +707,7 @@ module ResizeVeritas where
             → (z : Vec A n)
             → z ≡ drop (length x) (x ++ z)
     dropdus [] _ = refl
-    dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_≡_ _) (d xs z x)
+    dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_ ≡_) (d xs z x)
       where
       d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
 \end{code}
