@@ -779,10 +779,8 @@ module DistVeritas where
               → ⦃ E : Eq A ⦄
               → (x z : Vec A n)
               → dist x z refl ℕ.≤ n
-  dubjavme'av {n = n} x z = subst (D ℕ.≤_) {!!} lenfil 
-    where
-    D = dist x z refl
-    lenfil = DLP.length-filter drata $ zipₓ x z refl
+  dubjavme'av [] [] = {!!}
+  dubjavme'av {n = n} (x ∷ xs) (z ∷ zs) = {!!}
 \end{code}
 
 \section{la .\F{pausyk}.}
