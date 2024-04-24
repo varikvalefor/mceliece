@@ -761,13 +761,21 @@ module DistVeritas where
                   (vfd z))
     fildradus x z = begin
       vfd ((x , x) ∷ z) ≡⟨ {!!} ⟩
-      length (filterₗ drata $ (x , x) ∷ z') ≡⟨ {!!} ⟩
+      length (filterₗ drata $ (x , x) ∷ z') ≡⟨ fildradun x z' ⟩
       length (filterₗ drata z') ≡⟨ {!!} ⟩
       length (fromList $ filterₗ drata z') ≡⟨ {!!} ⟩
       vfd z ∎
       where
       z' = toList z
       filterₗ = Data.List.filter
+      fildradun : ∀ {a} → {A : Set a}
+                → ⦃ _ : Eq A ⦄
+                → (x : A)
+                → (L : List $ A × A)
+                → ((_≡_ on length)
+                    (filterₗ drata $ (x , x) ∷ L)
+                    (filterₗ drata L))
+      fildradun = {!!}
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
