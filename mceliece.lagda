@@ -720,7 +720,7 @@ module Dist where
   drata : ∀ {a} → {A : Set a}
         → ⦃ _ : Eq A ⦄
         → (x : A × A)
-        → Dec _
+        → Dec $ false ≡_ $ isYes $ uncurry _≟_ x
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
 
   zipₓ : ∀ {a} → {A : Set a}
