@@ -779,7 +779,7 @@ module DistVeritas where
               → ⦃ E : Eq A ⦄
               → (x z : Vec A n)
               → dist x z refl ℕ.≤ n
-  dubjavme'av [] [] = {!!}
+  dubjavme'av [] [] = ℕ.z≤n
   dubjavme'av {n = n} (x ∷ xs) (z ∷ zs) = {!!}
 \end{code}
 
