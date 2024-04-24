@@ -493,7 +493,7 @@ module F2fVeritas where
       sykles : {m n : ℕ}
              → suc m ℕ.≤ n
              → m ℕ.≤ n
-      sykles = {!!}
+      sykles (ℕ.s≤s s) = DNP.≤-step s
       ≥⇒≤⍨ : {m n : ℕ}
            → (m ℕ.≥ n)
            → n ℕ.≤ m
