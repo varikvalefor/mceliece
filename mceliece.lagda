@@ -789,7 +789,7 @@ module DistVeritas where
               → dist x z refl ℕ.≤ n
   dubjavme'av [] [] = ℕ.z≤n
   dubjavme'av {n = n} (x ∷ xs) (z ∷ zs) with x ≟ z
-  ... | yes d = {!!}
+  ... | yes d = dubjavme'av xs zs ▹ DNP.≤-step
   ... | no d = {!!}
 \end{code}
 
