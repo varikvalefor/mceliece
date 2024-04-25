@@ -2109,9 +2109,7 @@ module DecodeVeritas where
       open ≡-Reasoning
       dunlyctaipe = begin
         mapti? {p} C₀ bar e ≡⟨ refl ⟩
-        mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
-        mapₘ (e ,_) (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
-        mapₘ (e ,_) (mapₘ (d₁ ,_) (just d₂)) ≡⟨ refl ⟩
+        mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ bindus ▹ cong (mapₘ $ e ,_) ⟩
         just (e , d₁ , d₂) ∎
         where
         d₁ = proj₁ m
@@ -2120,6 +2118,11 @@ module DecodeVeritas where
              → ⦃ _ : Eq A ⦄
              → Maybe $ B ≡ C
         dun? = decToMaybe $ _ ≟ _
+        bindus = begin
+          (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
+          (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
+          mapₘ (d₁ ,_) (just d₂) ≡⟨ refl ⟩
+          just (d₁ , d₂) ∎
 
     nada : {p : MCParam}
          → (C₀ : xv p MCParam.n-k)
