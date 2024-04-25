@@ -1854,6 +1854,13 @@ module SeededKeyGenVeritas where
     nos = {!!}
 
   module G? where
+    nada : {p : MCParam}
+         → (δ : Fin $ 2 ^ MCParam.ℓ p)
+         → let Eₚ = Eₚ' {p} δ in
+           Irreducible {p} Eₚ ≡ nothing
+         → g? {p} δ ≡ nothing
+    nada = {!!}
+
     ir₃ : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
         → let Eₚ = Eₚ' {p} δ in
