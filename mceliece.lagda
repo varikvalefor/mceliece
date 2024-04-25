@@ -604,6 +604,18 @@ fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
   kofrol = λ c → fromList v ▹ coerce (c ▹ cong (Vec _))
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{fromList?}.\ mapti}
+
+\begin{code}
+module FromList?Veritas where
+  mapdus : ∀ {a} → {A : Set a} → {n : ℕ}
+         → (x : List A)
+         → (∃ $ λ i → _≡_
+             (mapₘ toList $ fromList? {n = n} x)
+             (i ▹_ $ lookup $ nothing ∷ just x ∷ []))
+  mapdus = {!!}
+\end{code}
+
 \section{la'oi .\F{resize}.}
 ni'o ga jonai la'o zoi.\ \F{\AgdaUnderscore{}++\AgdaUnderscore}\ \OpF \$\ \F{replicate} \B t\ .zoi.\ du ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B m\Sym\} \Sym\{\B n\Sym\}\ \B t\ .zoi.\ gi ga je ctaipe la'o zoi.\ \B n\ \OpF{ℕ.≤}\ \B m\ .zoi.\ gi ko'a du la'o zoi.\ \F{drop}\ \OpF \$\ \B m\ \OpF ∸\ \B n\ .zoi.
 
