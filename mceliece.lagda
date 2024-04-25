@@ -1534,7 +1534,9 @@ Irreducible {p} d = fromList? g
   where
   t = MCParam.t p
   g = {!!}
-  fromList? : _ → _
+  fromList? : ∀ {a} → {A : Set a} → {n : ℕ}
+            → List A
+            → Maybe $ Vec A n
   fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
     where
     kofrol = λ c → fromList v ▹ coerce (c ▹ cong (Vec _))
