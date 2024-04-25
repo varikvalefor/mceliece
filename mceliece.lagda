@@ -2122,9 +2122,12 @@ module DecodeVeritas where
         bindus = begin
           (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
           (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
-          mapₘ (d₁ ,_) dun? ≡⟨ {!!} ⟩
+          mapₘ (d₁ ,_) dun? ≡⟨ dun?≡justd₂ ▹ cong (mapₘ $ d₁ ,_) ⟩
           mapₘ (d₁ ,_) (just d₂) ≡⟨ refl ⟩
           just (d₁ , d₂) ∎
+          where
+          dun?≡justd₂ : dun? ≡ just d₂
+          dun?≡justd₂ = {!!}
 
     nada : {p : MCParam}
          → (C₀ : xv p MCParam.n-k)
