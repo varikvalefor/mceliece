@@ -2110,7 +2110,7 @@ module DecodeVeritas where
       dunlyctaipe = begin
         mapti? {p} C₀ bar e ≡⟨ refl ⟩
         mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
-        mapₘ (e ,_) (mapₘ (d₁ ,_) (just d₂)) ≡⟨ {!!} ⟩
+        mapₘ (e ,_) (mapₘ (d₁ ,_) (just d₂)) ≡⟨ refl ⟩
         just (e , d₁ , d₂) ∎
         where
         d₁ = {!!}
