@@ -1845,6 +1845,14 @@ open SeededKeyGen
 module SeededKeyGenVeritas where
   open SeededKeyGen
 
+  module Eₚ' where
+    nos : {p : MCParam}
+        → let M = mink zero ∘ proj₂ ∘ pausyk 1 in
+          (_≡_
+            (Eₚ' {p} $ M $ MCParam.ℓ p)
+            (M $ MCParam.σ₁*t p))
+    nos = {!!}
+
   module G? where
     ir₃ : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
