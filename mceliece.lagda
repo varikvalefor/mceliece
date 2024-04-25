@@ -2104,15 +2104,14 @@ module DecodeVeritas where
         → (e : xv p MCParam.n)
         → mapti {p} C₀ bar e
         → ∃ $ λ m → mapti? {p} C₀ bar e ≡ just m
-    jus {p} C₀ bar e m = m' , dunlyctaipe
+    jus {p} C₀ bar e m = _ , dunlyctaipe
       where
-      m' = {!!}
       open ≡-Reasoning
       dunlyctaipe = begin
         mapti? {p} C₀ bar e ≡⟨ refl ⟩
         mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
         mapₘ (e ,_) (mapₘ (d₁ ,_) (just d₂)) ≡⟨ {!!} ⟩
-        just m' ∎
+        just (e , d₁ , d₂) ∎
         where
         d₁ = {!!}
         d₂ = {!!}
