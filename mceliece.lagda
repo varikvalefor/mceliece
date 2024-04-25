@@ -2114,7 +2114,7 @@ module DecodeVeritas where
         mapₘ (e ,_) (mapₘ (d₁ ,_) (just d₂)) ≡⟨ refl ⟩
         just (e , d₁ , d₂) ∎
         where
-        d₁ = {!!}
+        d₁ = proj₁ m
         d₂ = {!!}
         dun? : ∀ {a} → {A : Set a} → {B C : A}
              → ⦃ _ : Eq A ⦄
