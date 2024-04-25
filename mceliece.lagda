@@ -2121,7 +2121,8 @@ module DecodeVeritas where
         dun? = decToMaybe $ _ ≟ _
         bindus = begin
           (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
-          (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
+          (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
+          mapₘ (d₁ ,_) dun? ≡⟨ {!!} ⟩
           mapₘ (d₁ ,_) (just d₂) ≡⟨ refl ⟩
           just (d₁ , d₂) ∎
 
