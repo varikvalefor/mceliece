@@ -592,6 +592,18 @@ module CoerceVeritas where
   flipko _ refl = refl
 \end{code}
 
+\section{la'oi .\f{fromList?}.
+ni'o ga jo la'oi .\IC{nothing}.\ jonai la'o zoi.\ \IC{just} \B x\ .zoi.\ cu du la'o zoi.\ \F{mapₘ} \F{toList} \OpF \$ \F{fromList?} \B x\ .zoi.
+
+\begin{code}
+fromList? : ∀ {a} → {A : Set a} → {n : ℕ}
+          → List A
+          → Maybe $ Vec A n
+fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
+  where
+  kofrol = λ c → fromList v ▹ coerce (c ▹ cong (Vec _))
+\end{code}
+
 \section{la'oi .\F{resize}.}
 ni'o ga jonai la'o zoi.\ \F{\AgdaUnderscore{}++\AgdaUnderscore}\ \OpF \$\ \F{replicate} \B t\ .zoi.\ du ko'a goi la'o zoi.\ \F{resize}\ \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B m\Sym\} \Sym\{\B n\Sym\}\ \B t\ .zoi.\ gi ga je ctaipe la'o zoi.\ \B n\ \OpF{ℕ.≤}\ \B m\ .zoi.\ gi ko'a du la'o zoi.\ \F{drop}\ \OpF \$\ \B m\ \OpF ∸\ \B n\ .zoi.
 
@@ -1534,12 +1546,6 @@ Irreducible {p} d = fromList? g
   where
   t = MCParam.t p
   g = {!!}
-  fromList? : ∀ {a} → {A : Set a} → {n : ℕ}
-            → List A
-            → Maybe $ Vec A n
-  fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
-    where
-    kofrol = λ c → fromList v ▹ coerce (c ▹ cong (Vec _))
 \end{code}
 
 \section{la'oi .\F{FieldOrdering}.}
