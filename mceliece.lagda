@@ -964,7 +964,11 @@ nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 \begin{code}
 module NbitsVeritas where
   zeros : {n : ℕ} → nbits {n} 0 ≡ replicate zero
-  zeros = {!!}
+  zeros {n} = begin
+    nbits {n} 0 ≡⟨ {!!} ⟩
+    replicate zero ∎
+    where
+    open ≡-Reasoning
 
   nth : {n x : ℕ}
       → (f : Fin n)
