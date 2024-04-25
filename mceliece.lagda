@@ -2111,8 +2111,11 @@ module DecodeVeritas where
       dunlyctaipe = begin
         mapti? {p} C₀ bar e ≡⟨ refl ⟩
         mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
+        mapₘ (e ,_) (mapₘ (d₁ ,_) (just d₂)) ≡⟨ {!!} ⟩
         just m' ∎
         where
+        d₁ = {!!}
+        d₂ = {!!}
         dun? : ∀ {a} → {A : Set a} → {B C : A}
              → ⦃ _ : Eq A ⦄
              → Maybe $ B ≡ C
