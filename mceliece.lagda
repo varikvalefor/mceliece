@@ -2115,7 +2115,7 @@ module DecodeVeritas where
         just (e , d₁ , d₂) ∎
         where
         d₁ = proj₁ m
-        d₂ = {!!}
+        d₂ = proj₂ m
         dun? : ∀ {a} → {A : Set a} → {B C : A}
              → ⦃ _ : Eq A ⦄
              → Maybe $ B ≡ C
