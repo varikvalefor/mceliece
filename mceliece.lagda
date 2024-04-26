@@ -1072,6 +1072,7 @@ module B2fVeritas where
       sumᵥ'₂ (f ∷ []) ≡⟨ refl ⟩
       maybe fromℕ< (fromℕ _) mleca? ≡⟨ {!!} ⟩
       maybe fromℕ< (fromℕ _) mleca?₂ ≡⟨ {!!} ⟩
+      F2f.mFd (toℕ f) ≡⟨ refl ⟩
       f2f f ∎
       where
       [f] = f ∷ []
