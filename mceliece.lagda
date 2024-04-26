@@ -777,13 +777,6 @@ module DistVeritas where
   open Dist
 
   module Zipₓ where
-    len₁ : ∀ {a} → {A : Set a}
-         → ⦃ Q : LL A ⦄ → ⦃ _ : Eq $ LL.e Q ⦄
-         → (x z : A)
-         → (d : LL.l Q x ≡ LL.l Q z)
-         → length (zipₓ x z d) ≡ LL.l Q x
-    len₁ = {!!}
-
     len₂ : ∀ {a} → {A : Set a}
          → ⦃ Q : LL A ⦄ → ⦃ _ : Eq $ LL.e Q ⦄
          → (x z : A)
@@ -794,6 +787,13 @@ module DistVeritas where
       LL.l Q z ∎
       where
       open ≡-Reasoning
+
+    len₁ : ∀ {a} → {A : Set a}
+         → ⦃ Q : LL A ⦄ → ⦃ _ : Eq $ LL.e Q ⦄
+         → (x z : A)
+         → (d : LL.l Q x ≡ LL.l Q z)
+         → length (zipₓ x z d) ≡ LL.l Q x
+    len₁ = {!!}
 
   dunliv : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
