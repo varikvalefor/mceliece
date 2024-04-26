@@ -2120,7 +2120,7 @@ module DecodeVeritas where
              → Maybe $ B ≡ C
         dun? = decToMaybe $ _ ≟ _
         bindus = begin
-          (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
+          (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ dun?≡justd₁ ▹ cong (_>>=ₘ λ x → mapₘ (x ,_) dun?) ⟩
           (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
           mapₘ (d₁ ,_) dun? ≡⟨ dun?≡justd₂ ▹ cong (mapₘ $ d₁ ,_) ⟩
           mapₘ (d₁ ,_) (just d₂) ≡⟨ refl ⟩
@@ -2128,6 +2128,8 @@ module DecodeVeritas where
           where
           dun?≡justd₂ : dun? ≡ just d₂
           dun?≡justd₂ = {!!}
+          dun?≡justd₁ : dun? ≡ just d₁
+          dun?≡justd₁ = {!!}
 
     nada : {p : MCParam}
          → (C₀ : xv p MCParam.n-k)
