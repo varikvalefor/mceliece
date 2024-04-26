@@ -1072,7 +1072,7 @@ module B2fVeritas where
       sumᵥ'₂ (f ∷ []) ≡⟨ refl ⟩
       maybe fromℕ< (fromℕ _) mleca? ≡⟨ {!!} ⟩
       maybe fromℕ< (fromℕ _) mleca?₂ ≡⟨ DFP.fromℕ-def _ ▹ cong (λ n → maybe fromℕ< n mleca?₂) ⟩
-      maybe fromℕ< (fromℕ< _) mleca?₂ ≡⟨ {!!} ⟩
+      maybe fromℕ< (fromℕ< _) mleca?₂ ≡⟨ refl ⟩
       F2f.mFd (toℕ f) ≡⟨ refl ⟩
       f2f f ∎
       where
