@@ -797,9 +797,11 @@ module DistVeritas where
          → (e : A)
          → dist x z refl ≡ dist (e ∷ x) (e ∷ z) refl
   dunliv x z e = sym $ begin
-    dist (e ∷ x) (e ∷ z) refl ≡⟨ {!!} ⟩
+    dist (e ∷ x) (e ∷ z) refl ≡⟨ refl ⟩
+    length (filterₗ drata $ zipₓ (e ∷ x) (e ∷ z) refl) ≡⟨ {!!} ⟩
     dist x z refl ∎
     where
+    filterₗ = Data.List.filter
     open ≡-Reasoning
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
