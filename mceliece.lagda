@@ -785,6 +785,7 @@ module DistVeritas where
     len₂ ⦃ Q ⦄ x z d = begin
       length (zipₓ x z d) ≡⟨ refl ⟩
       length (toList $ zipᵥ x' $ vec z) ≡⟨ {!!} ⟩
+      length (vec z) ≡⟨ {!!} ⟩
       LL.l Q z ∎
       where
       x' = vec x ▹_ $ coerce $ d ▹ cong (Vec _)
