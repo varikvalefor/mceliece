@@ -822,9 +822,11 @@ module DistVeritas where
          → ¬_ $ e₁ ≡ e₂
          → suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
   dratav x z e₁ e₂ j = sym $ begin
-    dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ {!!} ⟩
+    dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ refl ⟩
+    length (filterₗ drata $ zipₓ (e₁ ∷ x) (e₂ ∷ z) refl) ≡⟨ {!!} ⟩
     suc (dist x z refl) ∎
     where
+    filterₗ = Data.List.filter
     open ≡-Reasoning
 
   dubjavme'av : ∀ {a} → {A : Set a} → {n : ℕ}
