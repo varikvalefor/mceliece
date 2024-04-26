@@ -1069,8 +1069,12 @@ module B2fVeritas where
           → (f : Fin $ suc m)
           → sumᵥ'₂ (f ∷ []) ≡ f2f f
     pav₂ f = begin
-      sumᵥ'₂ (f ∷ []) ≡⟨ {!!} ⟩
+      sumᵥ'₂ (f ∷ []) ≡⟨ refl ⟩
+      maybe fromℕ< (fromℕ _) mleca? ≡⟨ {!!} ⟩
       f2f f ∎
+      where
+      [f] = f ∷ []
+      mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ [f]) ℕ.<? suc _
 
     sumᵥ'≡sumᵥ'₂ : {m n : ℕ}
                  → (x : Vec (Fin $ suc m) n)
