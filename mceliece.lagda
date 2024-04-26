@@ -789,7 +789,11 @@ module DistVeritas where
          → (x z : A)
          → (d : LL.l Q x ≡ LL.l Q z)
          → length (zipₓ x z d) ≡ LL.l Q z
-    len₂ = {!!}
+    len₂ ⦃ Q ⦄ x z d = begin
+      length (zipₓ x z d) ≡⟨ {!!} ⟩
+      LL.l Q z ∎
+      where
+      open ≡-Reasoning
 
   dunliv : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
