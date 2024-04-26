@@ -793,7 +793,9 @@ module DistVeritas where
          → (x z : A)
          → (d : LL.l Q x ≡ LL.l Q z)
          → length (zipₓ x z d) ≡ LL.l Q x
-    len₁ = {!!}
+    len₁ x z d = subst (L ≡_) (sym d) $ len₂ x z d
+      where
+      L = length $ zipₓ x z d
 
   dunliv : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
