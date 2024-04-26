@@ -1100,6 +1100,13 @@ module B2fVeritas where
           B2f.sumᵥ' (e ∷ v) ≡ e +' B2f.sumᵥ' v
     inc _ _ = refl
 
+    inc₂ : {m n : ℕ}
+         → (e : Fin $ suc m)
+         → (v : Vec (Fin $ suc m) n)
+         → let _+'_ = f𝔽 _+_ in
+           sumᵥ'₂ (e ∷ v) ≡ e +' sumᵥ'₂ v
+    inc₂ = {!!}
+
     mleca : {m n : ℕ}
           → (v : Vec (Fin $ suc m) n)
           → (ml : sumᵥ (mapᵥ toℕ v) ℕ.< suc m)
