@@ -1149,11 +1149,12 @@ module B2fVeritas where
     dubjavmau {m} {n} v J = begin
       B2f.sumᵥ' v ≡⟨ sumᵥ'≡sumᵥ'₂ v ⟩
       sumᵥ'₂ v ≡⟨ refl ⟩
-      maybe′ fromℕ< (fromℕ m) mleca? ≡⟨ refl ⟩
-      _ ≡⟨ K ▹_ $ cong $ maybe′ fromℕ< $ fromℕ m ⟩
-      maybe′ (fromℕ< {suc m}) (fromℕ m) nothing ≡⟨ refl ⟩
+      maybe′ F (fromℕ m) mleca? ≡⟨ refl ⟩
+      _ ≡⟨ K ▹_ $ cong $ maybe′ F $ fromℕ m ⟩
+      maybe′ F (fromℕ m) nothing ≡⟨ refl ⟩
       fromℕ m ∎
       where
+      F = fromℕ< {_}
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
       K : mleca? ≡ nothing
       K = dec-no _ J ▹ proj₂ ▹ cong decToMaybe
