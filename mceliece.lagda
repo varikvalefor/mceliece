@@ -1295,8 +1295,11 @@ module ∧𝔹ℕ𝔽 where
   toFin : {m n : ℕ} → Vec (Fin $ suc m) $ suc n → Fin $ suc n
   toFin = f2f ∘ b2f
 
+  _∧𝔹ℕ𝔽₁_ : {n : ℕ} → ℕ → Fin $ suc n → Vec (Fin _) $ suc n
+  _∧𝔹ℕ𝔽₁_ a = zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
+
   _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin $ suc n
-  _∧𝔹ℕ𝔽_ a = toFin ∘ zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
+  _∧𝔹ℕ𝔽_ = toFin ∘₂ _∧𝔹ℕ𝔽₁_
 
 open ∧𝔹ℕ𝔽
   using (
