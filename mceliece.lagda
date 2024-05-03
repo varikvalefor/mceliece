@@ -1320,6 +1320,7 @@ module ∧𝔹ℕ𝔽Veritas where
   nada {m} n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ refl ⟩
     fromℕ< (_∧𝔹ℕ𝔽₁_mleca n zero) ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
+    f2f (b2f $ zW $ nbits 0) ≡⟨ refl ⟩
     toFin (zW $ nbits 0) ≡⟨ NbitsVeritas.zeros ▹ cong (toFin ∘ zW) ⟩
     toFin (zW Z) ≡⟨ zipdun ▹ cong toFin ⟩
     toFin Z ≡⟨ refl ⟩
