@@ -1317,7 +1317,7 @@ module ∧𝔹ℕ𝔽Veritas where
     dubjavme'a : {m : ℕ}
                → (n : ℕ)
                → (f : Fin $ suc n)
-               → toℕ (b2f $ n ∧𝔹ℕ𝔽₁ f) ℕ.≤ n
+               → toℕ (b2f $ n ∧𝔹ℕ𝔽₁ f) ℕ.< suc n
     dubjavme'a = {!!}
 
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
