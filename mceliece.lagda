@@ -1364,6 +1364,7 @@ module ∧𝔹ℕ𝔽Veritas where
     n ∧𝔹ℕ𝔽 opposite zero ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) $ nbits toz) ≡⟨ {!!} ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) pav) ≡⟨ {!!} ⟩
+    toFin (nbits n) ≡⟨ {!!} ⟩
     fromℕ< (DNP.m⊓n≤n _ _) ∎
     where
     pav = replicate $ suc zero
