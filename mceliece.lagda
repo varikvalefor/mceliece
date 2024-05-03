@@ -1284,7 +1284,6 @@ ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b\ .zoi.\ mu'oi glibau.\ bitwise an
 
 \begin{code}
 module ∧𝔹ℕ𝔽 where
-
   _∧𝔹ℕ𝔽₁_ : {n : ℕ} → ℕ → Fin $ suc n → Vec (Fin _) $ suc n
   _∧𝔹ℕ𝔽₁_ a = zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
 
