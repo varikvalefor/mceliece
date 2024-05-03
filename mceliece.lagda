@@ -1313,6 +1313,13 @@ open ∧𝔹ℕ𝔽
 module ∧𝔹ℕ𝔽Veritas where
   open ∧𝔹ℕ𝔽
 
+  module _∧𝔹ℕ𝔽₁_ where
+    dubjavme'a : {m : ℕ}
+               → (n : ℕ)
+               → (f : Fin $ suc n)
+               → toℕ (b2f $ n ∧𝔹ℕ𝔽₁ f) ℕ.≤ n
+    dubjavme'a = {!!}
+
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
   nada n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ refl ⟩
