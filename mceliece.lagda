@@ -1774,15 +1774,15 @@ ni'o \termineidyr{FixedWeight}
 
 \begin{code}
 module FixedWeight where
-  τ : MCParam → ℕ
-  τ p = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
+  τ' : MCParam → ℕ
+  τ' p = if MCParam.n p ≡ᵇ MCParam.q p then MCParam.t p else {!!}
 
   d : (p : MCParam)
-    → Fin $ 2 ^_ $ MCParam.σ₁ p * τ p
-    → Vec ℕ $ τ p
-  d p b = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin $ τ p
+    → Fin $ 2 ^_ $ MCParam.σ₁ p * τ' p
+    → Vec ℕ $ τ' p
+  d p b = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin $ τ' p
     where
-    uijis : Fin $ τ p → Fin $ MCParam.m p → ℕ
+    uijis : Fin $ τ' p → Fin $ MCParam.m p → ℕ
     uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
       where
       ind = f2f mind ▹_ $ coerce $ cong Fin $ proj₂ sukdiz
@@ -1794,15 +1794,15 @@ module FixedWeight where
         -- le me'oi .fromℕ. co'e noi ke'a pluja je cu
         -- fegli la .varik.
         -- .i ga naja mleca ko'a goi
-        -- la'o zoi. MCParam.σ₁ * τ p .zoi. gi frili cumki
+        -- la'o zoi. MCParam.σ₁ * τ' p .zoi. gi frili cumki
         -- fa tu'a la'oi .fromℕ.  .i ku'i xu mleca ko'a
         mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
-        sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ p
+        sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ' p
         sukdiz = {!!}
       b' = nbits $ toℕ b
 
   a? : (p : MCParam)
-     → Fin $ 2 ^_ $ MCParam.σ₁ p * τ p
+     → Fin $ 2 ^_ $ MCParam.σ₁ p * τ' p
      → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
   a? p b = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
     where
@@ -1813,7 +1813,7 @@ module FixedWeight where
       mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
 
   FixedWeight' : (p : MCParam)
-               → Fin $ 2 ^_ $ MCParam.σ₁ p * τ p
+               → Fin $ 2 ^_ $ MCParam.σ₁ p * τ' p
                → Maybe $ ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
   FixedWeight' p b = mapₘ (map₂ proj₁ ∘ e') $ a? p b
     where
@@ -1837,11 +1837,11 @@ module FixedWeight where
     restart? : Maybe OT → IO OT
     restart? = maybe pure $ FixedWeight {p}
     -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le na'e
-    -- zabna je velcki be la'oi .τ.  .i la .varik. cu
+    -- zabna je velcki be la'oi .τ'.  .i la .varik. cu
     -- na birti lo du'u pilji ji kau cu tenfa  .i ku'i la
     -- .varik. cu djuno le du'u na mapti fa le me zo joi se
     -- xamsku
-    cof = cunsof {MCParam.σ₁ p * τ p}
+    cof = cunsof {MCParam.σ₁ p * τ' p}
 
 open FixedWeight
   using (
