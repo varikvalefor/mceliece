@@ -1391,7 +1391,7 @@ module Hw𝕄Veritas where
 
   kunti₂ : {a m : ℕ} → (x : 𝕄 (Fin a) 0 m) → hw𝕄 x ≡ 0
   kunti₂ {a} {m} x = begin
-    hw𝕄 x ≡⟨ {!!} ⟩
+    hw𝕄 x ≡⟨ 𝕄0≡replicate[] x ▹ cong hw𝕄 ⟩
     hw𝕄 {a} (replicate {n = m} []) ≡⟨ refl ⟩
     sumᵥ (mapᵥ hWV𝔽 $ replicate {n = m} []) ≡⟨ refl ⟩
     _ ≡⟨ mapᵥ-replicate {n = m} hWV𝔽 [] ▹ cong sumᵥ ⟩
@@ -1407,6 +1407,10 @@ module Hw𝕄Veritas where
                        (mapᵥ f $ replicate {n = n}  x)
                        (replicate {n = n} $ f x))
     mapᵥ-replicate = {!!}
+    𝕄0≡replicate[] : ∀ {a} → {A : Set a} → {m : ℕ}
+                   → (x : 𝕄 A 0 m)
+                   → x ≡ replicate {n = m} []
+    𝕄0≡replicate[] = {!!}
 
   pav : {a m : ℕ}
       → (e : Vec (Fin a) m)
