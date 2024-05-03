@@ -1363,7 +1363,7 @@ module ∧𝔹ℕ𝔽Veritas where
               (opposite zero))
             (fromℕ< {n ℕ.⊓_ $ 2 ^ m} $ DNP.m⊓n≤n _ _))
   dunli {m} n = begin
-    n ∧𝔹ℕ𝔽 opposite zero ≡⟨ {!!} ⟩
+    n ∧𝔹ℕ𝔽 opposite zero ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) $ nbits toz) ≡⟨ {!!} ⟩
     fromℕ< (DNP.m⊓n≤n _ _) ∎
     where
