@@ -1286,7 +1286,7 @@ ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b\ .zoi.\ mu'oi glibau.\ bitwise an
 module ∧𝔹ℕ𝔽 where
   -- | ni'o narcu'i fa lo nu zmadu
   -- .i cumki fa lo nu la'e di'u krinu lo nu cadga fa
-  -- lo nu basti lo mu'oi zoi. Data.Fin.fromℕ≤ .zoi. co'e
+  -- lo nu basti pe'a fa lo mu'oi zoi. Data.Fin.fromℕ≤ .zoi. co'e
   --
   -- .i le su'u la .varik. na basygau le pa
   -- lerpinsle le'i ci lerpinsle cu se krinu le
