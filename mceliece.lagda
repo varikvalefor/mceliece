@@ -598,8 +598,8 @@ module CoerceVeritas where
   flipko _ refl = refl
 \end{code}
 
-\section{la'oi .\f{fromList?}.
-ni'o ga jo la'oi .\IC{nothing}.\ jonai la'o zoi.\ \IC{just} \B x\ .zoi.\ cu du la'o zoi.\ \F{mapₘ} \F{toList} \OpF \$ \F{fromList?} \B x\ .zoi.
+\section{la'oi .\F{fromList?}.}
+ni'o ga jo la'oi .\AgdaInductiveConstructor{nothing}.\ jonai la'o zoi.\ \AgdaInductiveConstructor{just} \B x\ .zoi.\ cu du la'o zoi.\ \F{mapₘ} \F{toList} \OpF \$ \F{fromList?} \B x\ .zoi.
 
 \begin{code}
 fromList? : ∀ {a} → {A : Set a} → {n : ℕ}
