@@ -1393,7 +1393,8 @@ module Hw𝕄Veritas where
   kunti₂ {a} {m} x = begin
     hw𝕄 x ≡⟨ {!!} ⟩
     hw𝕄 {a} (replicate {n = m} []) ≡⟨ refl ⟩
-    sumᵥ (mapᵥ hWV𝔽 $ replicate {n = m} []) ≡⟨ mapᵥ-replicate {n = m} hWV𝔽 [] ▹ cong sumᵥ ⟩
+    sumᵥ (mapᵥ hWV𝔽 $ replicate {n = m} []) ≡⟨ refl ⟩
+    _ ≡⟨ mapᵥ-replicate {n = m} hWV𝔽 [] ▹ cong sumᵥ ⟩
     sumᵥ (replicate {n = m} 0) ≡⟨ {!!} ⟩
     0 ∎
     where
