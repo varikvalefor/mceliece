@@ -1284,16 +1284,6 @@ ni'o la'o zoi.\ \B a \OpF{∧𝔹ℕ𝔽} \B b\ .zoi.\ mu'oi glibau.\ bitwise an
 
 \begin{code}
 module ∧𝔹ℕ𝔽 where
-  -- | ni'o narcu'i fa lo nu zmadu
-  -- .i cumki fa lo nu la'e di'u krinu lo nu cadga fa
-  -- lo nu basti pe'a fa lo mu'oi zoi. Data.Fin.fromℕ≤ .zoi. co'e
-  --
-  -- .i le su'u la .varik. na basygau le pa
-  -- lerpinsle le'i ci lerpinsle cu se krinu le
-  -- su'u la .varik. cu djica lo nu zvati lo
-  -- zabna mapti fa lo pinka be le su'u narcu'i
-  toFin : {m n : ℕ} → Vec (Fin $ suc m) $ suc n → Fin $ suc n
-  toFin = f2f ∘ b2f
 
   _∧𝔹ℕ𝔽₁_ : {n : ℕ} → ℕ → Fin $ suc n → Vec (Fin _) $ suc n
   _∧𝔹ℕ𝔽₁_ a = zipWithᵥ (f𝔽 _*_) (nbits a) ∘ nbits ∘ toℕ
@@ -1305,7 +1295,7 @@ module ∧𝔹ℕ𝔽 where
   _∧𝔹ℕ𝔽₁_mleca = {!!}
 
   _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin $ suc n
-  _∧𝔹ℕ𝔽_ = toFin ∘₂ _∧𝔹ℕ𝔽₁_
+  _∧𝔹ℕ𝔽_ = fromℕ< ∘₂ _∧𝔹ℕ𝔽₁_mleca
 
 open ∧𝔹ℕ𝔽
   using (
@@ -1322,14 +1312,16 @@ module ∧𝔹ℕ𝔽Veritas where
   module _∧𝔹ℕ𝔽₁_ where
 
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
-  nada n = begin
-    n ∧𝔹ℕ𝔽 zero ≡⟨ refl ⟩
+  nada {m} n = begin
+    n ∧𝔹ℕ𝔽 zero ≡⟨ {!!} ⟩
     toFin (zW $ nbits 0) ≡⟨ NbitsVeritas.zeros ▹ cong (toFin ∘ zW) ⟩
     toFin (zW Z) ≡⟨ zipdun ▹ cong toFin ⟩
     toFin Z ≡⟨ refl ⟩
     f2f (b2f Z) ≡⟨ f2f-zero (b2f Z) $ B2fVeritas.non 0 $ length Z ⟩
     zero ∎
     where
+    toFin : Vec (Fin 2) $ suc m → Fin $ suc m
+    toFin = f2f ∘ b2f
     zW = zipWithᵥ (f𝔽 _*_) $ nbits n
     Z = replicate zero
     open ≡-Reasoning
@@ -1359,10 +1351,12 @@ module ∧𝔹ℕ𝔽Veritas where
               (opposite zero))
             (fromℕ< {n ℕ.⊓_ $ 2 ^ m} $ DNP.m⊓n≤n _ _))
   dunli {m} n = begin
-    n ∧𝔹ℕ𝔽 opposite zero ≡⟨ refl ⟩
+    n ∧𝔹ℕ𝔽 opposite zero ≡⟨ {!!} ⟩
     toFin (zipWithᵥ (f𝔽 _*_) (nbits n) $ nbits toz) ≡⟨ {!!} ⟩
     fromℕ< (DNP.m⊓n≤n _ _) ∎
     where
+    toFin : {m : ℕ} → Vec (Fin 2) $ suc m → Fin $ suc m
+    toFin = f2f ∘ b2f
     toz = toℕ $ opposite $ zero {2 ^ m}
     open ≡-Reasoning
 \end{code}
