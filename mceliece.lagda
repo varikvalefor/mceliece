@@ -776,7 +776,7 @@ open Dist
   )
 \end{code}
 
-\subsection{le ctaipe be le su'u mapti}
+\subsection{le ctaipe be le su'u la .\F{dist}.\ cu mapti}
 
 \begin{code}
 module DistVeritas where
