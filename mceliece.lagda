@@ -1393,11 +1393,19 @@ module Hw𝕄Veritas where
   kunti₂ {a} {m} x = begin
     hw𝕄 x ≡⟨ {!!} ⟩
     hw𝕄 {a} (replicate {n = m} []) ≡⟨ refl ⟩
-    sumᵥ (mapᵥ hWV𝔽 $ replicate {n = m} []) ≡⟨ {!!} ⟩
+    sumᵥ (mapᵥ hWV𝔽 $ replicate {n = m} []) ≡⟨ mapᵥ-replicate {n = m} hWV𝔽 [] ▹ cong sumᵥ ⟩
     sumᵥ (replicate {n = m} 0) ≡⟨ {!!} ⟩
     0 ∎
     where
     open ≡-Reasoning
+    mapᵥ-replicate : ∀ {a b} → {A : Set a} → {B : Set b}
+                   → {n : ℕ}
+                   → (f : A → B)
+                   → (x : A)
+                   → (_≡_
+                       (mapᵥ f $ replicate {n = n}  x)
+                       (replicate {n = n} $ f x))
+    mapᵥ-replicate = {!!}
 
   pav : {a m : ℕ}
       → (e : Vec (Fin a) m)
