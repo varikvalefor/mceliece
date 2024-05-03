@@ -1358,9 +1358,7 @@ module ∧𝔹ℕ𝔽Veritas where
   dunli : {m : ℕ}
         → (n : ℕ)
         → (_≡_
-            (_∧𝔹ℕ𝔽_
-              n
-              (opposite zero))
+            (n ∧𝔹ℕ𝔽 opposite zero)
             (fromℕ< {n ℕ.⊓_ $ 2 ^ m} $ DNP.m⊓n≤n _ _))
   dunli {m} n = begin
     n ∧𝔹ℕ𝔽 opposite zero ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
