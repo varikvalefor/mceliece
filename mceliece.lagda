@@ -1860,6 +1860,19 @@ open FixedWeight
   )
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{FixedWeight}.\ mapti}
+
+\begin{code}
+module FixedWeightVeritas where
+  open FixedWeight
+
+  module τ' where
+    dun : (p : MCParam)
+        → MCParam.n p ≡ MCParam.q p
+        → τ' p ≡ MCParam.t p
+    dun = {!!}
+\end{code}
+
 \section{la'oi .\F{Encap}.}
 ni'o \specimp{Encap}
 
