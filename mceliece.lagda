@@ -1887,6 +1887,16 @@ module FixedWeightVeritas where
         → n ℕ.≤ q div 2
         → τ' p ≡ 4 * MCParam.t p
     von = {!!}
+
+    nth : (p : MCParam)
+        → (i : ℕ)
+        → let q = MCParam.q p in
+          let n = MCParam.n p in
+          let 2^i = ℕ.suc $ proj₁ $ pausyk 2 i in
+          q div 2^i ℕ.≤ n
+        → n ℕ.≤ q div 2^i
+        → τ' p ≡ (2 ^ i) * MCParam.t p
+    nth = {!!}
 \end{code}
 
 \section{la'oi .\F{Encap}.}
