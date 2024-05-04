@@ -839,7 +839,8 @@ module DistVeritas where
   dratav x z e₁ e₂ j = sym $ begin
     dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ refl ⟩
     length (filterₗ drata $ zipₓ (e₁ ∷ x) (e₂ ∷ z) refl) ≡⟨ {!!} ⟩
-    length ((e₁ , e₂) Data.List.∷_ $ filterₗ drata $ zipₓ x z refl) ≡⟨ {!!} ⟩
+    length ((e₁ , e₂) Data.List.∷_ $ filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
+    suc (length $ filterₗ drata $ zipₓ x z refl) ≡⟨ {!!} ⟩
     suc (dist x z refl) ∎
     where
     filterₗ = Data.List.filter
