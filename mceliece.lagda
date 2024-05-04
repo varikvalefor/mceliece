@@ -810,7 +810,7 @@ module DistVeritas where
                → (x : Vec A n)
                → (z : Vec B n)
                → length (zipᵥ x z) ≡ length z
-      zipᵥlen₂ = {!!}
+      zipᵥlen₂ _ _ = refl
 
     len₁ : ∀ {a} → {A : Set a}
          → ⦃ Q : LL A ⦄ → ⦃ _ : Eq $ LL.e Q ⦄
