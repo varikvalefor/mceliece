@@ -805,7 +805,7 @@ module DistVeritas where
                         (length $ toList $ zipᵥ x z)
                         (length $ zipᵥ x z))
       length-toList [] [] = refl
-      length-toList (x ∷ xs) (z ∷ zs) = length-toList xs zs ▹ cong suc
+      length-toList (_ ∷ xs) (_ ∷ zs) = length-toList xs zs ▹ cong suc
       zipᵥlen₂ : ∀ {a b} → {A : Set a} → {B : Set b}
                → {n : ℕ}
                → (x : Vec A n)
