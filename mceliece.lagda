@@ -781,6 +781,7 @@ open Dist
 \begin{code}
 module DistVeritas where
   open Dist
+  open ≡-Reasoning
 
   module Zipₓ where
     len₂ : ∀ {a} → {A : Set a}
@@ -796,7 +797,6 @@ module DistVeritas where
       LL.l Q z ∎
       where
       x' = vec x ▹_ $ coerce $ d ▹ cong (Vec _)
-      open ≡-Reasoning
       zipᵥlen₂ : ∀ {a b} → {A : Set a} → {B : Set b}
                → {n : ℕ}
                → (x : Vec A n)
@@ -826,7 +826,6 @@ module DistVeritas where
     dist x z refl ∎
     where
     filterₗ = Data.List.filter
-    open ≡-Reasoning
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
