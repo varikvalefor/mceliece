@@ -791,12 +791,20 @@ module DistVeritas where
          → length (zipₓ x z d) ≡ LL.l Q z
     len₂ ⦃ Q ⦄ x z d = begin
       length (zipₓ x z d) ≡⟨ refl ⟩
-      length (toList $ zipᵥ x' $ vec z) ≡⟨ {!!} ⟩
+      length (toList $ zipᵥ x' $ vec z) ≡⟨ length-toList x' $ vec z ⟩
       length (zipᵥ x' $ vec z) ≡⟨ zipᵥlen₂ x' $ vec z ⟩
       length (vec z) ≡⟨ refl ⟩
       LL.l Q z ∎
       where
       x' = vec x ▹_ $ coerce $ d ▹ cong (Vec _)
+      length-toList : ∀ {a b} → {A : Set a} → {B : Set b}
+                    → {n : ℕ}
+                    → (x : Vec A n)
+                    → (z : Vec B n)
+                    → (_≡_
+                        (length $ toList $ zipᵥ x z)
+                        (length $ zipᵥ x z))
+      length-toList = {!!}
       zipᵥlen₂ : ∀ {a b} → {A : Set a} → {B : Set b}
                → {n : ℕ}
                → (x : Vec A n)
