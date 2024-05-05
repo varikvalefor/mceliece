@@ -1870,7 +1870,11 @@ module FixedWeightVeritas where
     dun : (p : MCParam)
         → MCParam.n p ≡ MCParam.q p
         → τ' p ≡ MCParam.t p
-    dun = {!!}
+    dun p d = begin
+      τ' p ≡⟨ {!!} ⟩
+      MCParam.t p ∎
+      where
+      open ≡-Reasoning
 
     rel : (p : MCParam)
         → let q = MCParam.q p in
