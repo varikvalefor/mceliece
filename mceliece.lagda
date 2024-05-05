@@ -1996,6 +1996,7 @@ module SeededKeyGenVeritas where
     nos {p} = begin
       Eₚ' {p} (M $ MCParam.ℓ p) ≡⟨ refl ⟩
       b2f (drop n $ nb $ toℕ $ M $ MCParam.ℓ p) ≡⟨ {!!} ⟩
+      b2f (drop n $ nb 0) ≡⟨ {!!} ⟩
       M (MCParam.σ₁*t p) ∎
       where
       M = mink zero ∘ proj₂ ∘ pausyk 1
