@@ -1983,7 +1983,12 @@ module SeededKeyGenVeritas where
           (_≡_
             (Eₚ' {p} $ M $ MCParam.ℓ p)
             (M $ MCParam.σ₁*t p))
-    nos = {!!}
+    nos {p} = begin
+      Eₚ' {p} (M $ MCParam.ℓ p) ≡⟨ {!!} ⟩
+      M (MCParam.σ₁*t p) ∎
+      where
+      M = mink zero ∘ proj₂ ∘ pausyk 1
+      open ≡-Reasoning
 
   module G? where
     nada : {p : MCParam}
