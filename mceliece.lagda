@@ -1999,6 +1999,7 @@ module SeededKeyGenVeritas where
       _ ≡⟨ tomindus _ (P ℓ) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
       b2f (drop n $ nb 0) ≡⟨ {!!} ⟩
       b2f (drop n $ replicate {n = n + MCParam.σ₁*t p} $ zero {1}) ≡⟨ {!!} ⟩
+      b2f (replicate {n = MCParam.σ₁*t p} $ zero {1}) ≡⟨ {!!} ⟩
       M (MCParam.σ₁*t p) ∎
       where
       ℓ = MCParam.ℓ p
