@@ -1996,11 +1996,12 @@ module SeededKeyGenVeritas where
     nos {p} = begin
       Eₚ' {p} (M $ MCParam.ℓ p) ≡⟨ refl ⟩
       b2f (drop n $ nb $ toℕ $ M $ MCParam.ℓ p) ≡⟨ refl ⟩
-      _ ≡⟨ tomindus zero (proj₂ $ pausyk 1 $ MCParam.ℓ p) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
+      _ ≡⟨ tomindus zero (P $ MCParam.ℓ p) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
       b2f (drop n $ nb 0) ≡⟨ {!!} ⟩
       M (MCParam.σ₁*t p) ∎
       where
-      M = mink zero ∘ proj₂ ∘ pausyk 1
+      P = proj₂ ∘ pausyk 1
+      M = mink zero ∘ P
       n = MCParam.n p
       nb = nbits {n + MCParam.σ₁*t p}
       open ≡-Reasoning
