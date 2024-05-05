@@ -1951,19 +1951,23 @@ module SeededKeyGen where
     sivni = sivni? {p} δ
     _,ₘ_ = (apₘ ∘₂ mapₘ) _,_
 
+  δ'f : (p : MCParam) → Op₁ $ Fin $ 2 ^ MCParam.ℓ p
+  δ'f p δ = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
+    where
+    E = MCParam.G p δ
+    rev : {n : ℕ} → Op₁ $ Fin n
+    rev = opposite
+
+    module Veritas where
+      zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
+      zivle = {!!}
+
   {-# NON_TERMINATING #-}
   SeededKeyGen : {p : MCParam} → Fin $ 2 ^ MCParam.ℓ p → KP p
   SeededKeyGen {p} δ = fromMaybe (SeededKeyGen δ') $ mapti? δ E
     where
     E = MCParam.G p δ
-    δ' = b2f $ reverseᵥ $ nbits {MCParam.ℓ p} $ toℕ $ rev E
-      where
-      rev : {n : ℕ} → Op₁ $ Fin n
-      rev = opposite
-  
-      module Veritas where
-        zivle : {n : ℕ} → (t : Fin n) → t ≡ rev (rev t)
-        zivle = {!!}
+    δ' = δ'f p δ
 
 open SeededKeyGen
   using (
