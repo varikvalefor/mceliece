@@ -1876,22 +1876,6 @@ module FixedWeightVeritas where
       where
       open ≡-Reasoning
 
-    rel : (p : MCParam)
-        → let q = MCParam.q p in
-          let n = MCParam.n p in
-          q div 2 ℕ.≤ n
-        → n ℕ.≤ q
-        → τ' p ≡ 2 * MCParam.t p
-    rel = {!!}
-
-    von : (p : MCParam)
-        → let q = MCParam.q p in
-          let n = MCParam.n p in
-          q div 4 ℕ.≤ n
-        → n ℕ.≤ q div 2
-        → τ' p ≡ 4 * MCParam.t p
-    von = {!!}
-
     nth : (p : MCParam)
         → (i : ℕ)
         → let q = MCParam.q p in
