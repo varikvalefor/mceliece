@@ -2007,7 +2007,7 @@ module SeededKeyGenVeritas where
            Irreducible {p} Eₚ ≡ nothing
          → g? {p} δ ≡ nothing
     nada {p} δ d = begin
-      g? {p} δ ≡⟨ {!!} ⟩
+      g? {p} δ ≡⟨ refl ⟩
       mapₘ (frir p) (Irreducible {p} $ Eₚ' {p} δ) ≡⟨ {!!} ⟩
       nothing ∎
       where
