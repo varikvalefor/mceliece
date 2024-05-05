@@ -1994,10 +1994,13 @@ module SeededKeyGenVeritas where
             (Eₚ' {p} $ M $ MCParam.ℓ p)
             (M $ MCParam.σ₁*t p))
     nos {p} = begin
-      Eₚ' {p} (M $ MCParam.ℓ p) ≡⟨ {!!} ⟩
+      Eₚ' {p} (M $ MCParam.ℓ p) ≡⟨ refl ⟩
+      b2f (drop n $ nb $ toℕ $ M $ MCParam.ℓ p) ≡⟨ {!!} ⟩
       M (MCParam.σ₁*t p) ∎
       where
       M = mink zero ∘ proj₂ ∘ pausyk 1
+      n = MCParam.n p
+      nb = nbits {n + MCParam.σ₁*t p}
       open ≡-Reasoning
 
   module G? where
