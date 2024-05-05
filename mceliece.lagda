@@ -2000,7 +2000,11 @@ module SeededKeyGenVeritas where
          → let Eₚ = Eₚ' {p} δ in
            Irreducible {p} Eₚ ≡ nothing
          → g? {p} δ ≡ nothing
-    nada = {!!}
+    nada {p} δ d = begin
+      g? {p} δ ≡⟨ {!!} ⟩
+      nothing ∎
+      where
+      open ≡-Reasoning
 
     ir₃ : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
