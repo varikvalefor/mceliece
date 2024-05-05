@@ -1996,7 +1996,7 @@ module SeededKeyGenVeritas where
     nos {p} = begin
       Eₚ' {p} (M $ MCParam.ℓ p) ≡⟨ refl ⟩
       b2f (drop n $ nb $ toℕ $ M $ MCParam.ℓ p) ≡⟨ refl ⟩
-      _ ≡⟨ tomindus zero (P $ MCParam.ℓ p) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
+      _ ≡⟨ tomindus _ (P $ MCParam.ℓ p) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
       b2f (drop n $ nb 0) ≡⟨ {!!} ⟩
       M (MCParam.σ₁*t p) ∎
       where
