@@ -1920,12 +1920,18 @@ module SeededKeyGen where
     where
     n = MCParam.n p
 
+  frir : (p : MCParam)
+       → Vec (Fin $ MCParam.q p) $ MCParam.t p
+       → let Vq = Vec $ Fin $ MCParam.q p in
+         Vq (MCParam.n p) × ∃ Vq
+  frir _ g = {!!} , _ , g
+
   g? : {p : MCParam}
      → Fin $ 2 ^ MCParam.ℓ p
      → let n = MCParam.n p in
        let Vq = Vec $ Fin $ MCParam.q p in
        Maybe $ Vq n × ∃ Vq
-  g? {p} = mapₘ (λ g → {!!} , _ , g) ∘ Irreducible {p} ∘ Eₚ' {p}
+  g? {p} = mapₘ (frir p) ∘ Irreducible {p} ∘ Eₚ' {p}
 
   sivni? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
