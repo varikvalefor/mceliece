@@ -2008,6 +2008,7 @@ module SeededKeyGenVeritas where
          → g? {p} δ ≡ nothing
     nada {p} δ d = begin
       g? {p} δ ≡⟨ {!!} ⟩
+      mapₘ (frir p) (Irreducible {p} $ Eₚ' {p} δ) ≡⟨ {!!} ⟩
       nothing ∎
       where
       open ≡-Reasoning
