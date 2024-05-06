@@ -2005,7 +2005,8 @@ module SeededKeyGenVeritas where
       _ ≡⟨ tomindus _ (P ℓ) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
       b2f (drop n $ nb 0) ≡⟨ refl ⟩
       _ ≡⟨ NbitsVeritas.zeros {n + MCParam.σ₁*t p} ▹ cong (b2f ∘ drop n) ⟩
-      b2f (drop n $ replicate {n = n + MCParam.σ₁*t p} $ zero {1}) ≡⟨ replidrop {m = n} {n = MCParam.σ₁*t p} (zero {1}) ▹ cong b2f ⟩
+      b2f (drop n $ replicate {n = n + MCParam.σ₁*t p} $ zero {1}) ≡⟨ refl ⟩
+      _ ≡⟨ replidrop {m = n} {n = MCParam.σ₁*t p} (zero {1}) ▹ cong b2f ⟩
       b2f (replicate {n = MCParam.σ₁*t p} $ zero {1}) ≡⟨ {!!} ⟩
       M (MCParam.σ₁*t p) ∎
       where
