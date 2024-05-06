@@ -1229,10 +1229,6 @@ module B2fVeritas where
     toℕ (b2f $ replicate {n = n} $ zero {m}) ≡⟨ non' m n ▹ cong toℕ ⟩
     toℕ (mink zero $ pausyk m n ▹ proj₂ ) ≡⟨ tomindus _ _ ▹ sym ⟩
     0 ∎
-    where
-    open B2f
-    rep = replicate {n = n}
-    z = zero {m}
 
   mulj : (m n : ℕ)
        → (x : Fin $ suc m)
