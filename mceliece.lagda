@@ -1220,15 +1220,13 @@ module B2fVeritas where
        → (flip _≡_
            (mink zero $ proj₂ $ pausyk m n)
            (b2f $ replicate {n = n} $ zero {m}))
-  non' m n = begin
-    b2f (replicate {n = n} $ zero {m}) ≡⟨ {!!} ⟩
-    mink zero (proj₂ $ pausyk m n) ∎
+  non' _ 0 = refl
+  non' x (suc n) = non' x n ▹ cong {!!}
 
   non : (m n : ℕ)
       → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {m}
   non m n = begin
-    toℕ (b2f $ replicate {n = n} $ zero {m}) ≡⟨ refl ⟩
-    toℕ (b2f $ rep z) ≡⟨ non' m n ▹ cong toℕ ⟩
+    toℕ (b2f $ replicate {n = n} $ zero {m}) ≡⟨ non' m n ▹ cong toℕ ⟩
     toℕ (mink zero $ pausyk m n ▹ proj₂ ) ≡⟨ tomindus _ _ ▹ sym ⟩
     0 ∎
     where
