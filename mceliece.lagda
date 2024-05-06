@@ -2005,7 +2005,7 @@ module SeededKeyGenVeritas where
       _ ≡⟨ tomindus _ (P ℓ) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
       b2f (drop n $ nb 0) ≡⟨ refl ⟩
       _ ≡⟨ NbitsVeritas.zeros {n + MCParam.σ₁*t p} ▹ cong (b2f ∘ drop n) ⟩
-      b2f (drop n $ replicate {n = n + MCParam.σ₁*t p} $ zero {1}) ≡⟨ {!!} ⟩
+      b2f (drop n $ replicate {n = n + MCParam.σ₁*t p} $ zero {1}) ≡⟨ replidrop {m = n} {n = MCParam.σ₁*t p} (zero {1}) ▹ cong b2f ⟩
       b2f (replicate {n = MCParam.σ₁*t p} $ zero {1}) ≡⟨ {!!} ⟩
       M (MCParam.σ₁*t p) ∎
       where
@@ -2015,6 +2015,10 @@ module SeededKeyGenVeritas where
       n = MCParam.n p
       nb = nbits {n + MCParam.σ₁*t p}
       open ≡-Reasoning
+      replidrop : ∀ {a} → {A : Set a} → {m n : ℕ}
+                → (x : A)
+                → drop m (replicate {n = m + n} x) ≡ replicate x
+      replidrop = {!!}
 
   module G?V where
     open SeededKeyGen.G?
