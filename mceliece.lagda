@@ -2019,7 +2019,8 @@ module SeededKeyGenVeritas where
       replidrop : ∀ {a} → {A : Set a} → {m n : ℕ}
                 → (x : A)
                 → drop m (replicate {n = m + n} x) ≡ replicate x
-      replidrop = {!!}
+      replidrop {n = 0} x = {!!}
+      replidrop {n = suc n} x = {!!}
 
   module G?V where
     open SeededKeyGen.G?
