@@ -1920,18 +1920,24 @@ module SeededKeyGen where
     where
     n = MCParam.n p
 
-  frir : (p : MCParam)
-       → Vec (Fin $ MCParam.q p) $ MCParam.t p
-       → let Vq = Vec $ Fin $ MCParam.q p in
-         Vq (MCParam.n p) × ∃ Vq
-  frir _ g = {!!} , _ , g
+  module G? where
+    frir : (p : MCParam)
+         → Vec (Fin $ MCParam.q p) $ MCParam.t p
+         → let Vq = Vec $ Fin $ MCParam.q p in
+           Vq (MCParam.n p) × ∃ Vq
+    frir _ g = {!!} , _ , g
 
-  g? : {p : MCParam}
-     → Fin $ 2 ^ MCParam.ℓ p
-     → let n = MCParam.n p in
-       let Vq = Vec $ Fin $ MCParam.q p in
-       Maybe $ Vq n × ∃ Vq
-  g? {p} = mapₘ (frir p) ∘ Irreducible {p} ∘ Eₚ' {p}
+    g? : {p : MCParam}
+       → Fin $ 2 ^ MCParam.ℓ p
+       → let n = MCParam.n p in
+         let Vq = Vec $ Fin $ MCParam.q p in
+         Maybe $ Vq n × ∃ Vq
+    g? {p} = mapₘ (frir p) ∘ Irreducible {p} ∘ Eₚ' {p}
+
+  open G?
+    using (
+      g?
+    )
 
   sivni? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
@@ -2009,14 +2015,16 @@ module SeededKeyGenVeritas where
       nb = nbits {n + MCParam.σ₁*t p}
       open ≡-Reasoning
 
-  module G? where
+  module G?V where
+    open SeededKeyGen.G?
+
     nada : {p : MCParam}
          → (δ : Fin $ 2 ^ MCParam.ℓ p)
          → let Eₚ = Eₚ' {p} δ in
            Irreducible {p} Eₚ ≡ nothing
-         → g? {p} δ ≡ nothing
+         → G?.g? {p} δ ≡ nothing
     nada {p} δ d = begin
-      g? {p} δ ≡⟨ refl ⟩
+      G?.g? {p} δ ≡⟨ refl ⟩
       mapₘ (frir p) (Irreducible {p} $ Eₚ' {p} δ) ≡⟨ refl ⟩
       mapₘ (frir p) irep ≡⟨ d ▹ cong (mapₘ $ frir p) ⟩
       mapₘ (frir p) nothing ≡⟨ refl ⟩
@@ -2053,7 +2061,7 @@ module SeededKeyGenVeritas where
 
     nog : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
-        → g? {p} δ ≡ nothing
+        → G?.g? {p} δ ≡ nothing
         → sivni? {p} δ ≡ nothing
     nog _ refl = refl
 
@@ -2061,7 +2069,7 @@ module SeededKeyGenVeritas where
     nog : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
         → (E : _)
-        → g? {p} δ ≡ nothing
+        → G?.g? {p} δ ≡ nothing
         → mapti? {p} δ E ≡ nothing
     nog {p} δ E N = begin
       mapti? {p} δ E ≡⟨ refl ⟩
