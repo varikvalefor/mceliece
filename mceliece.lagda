@@ -1217,16 +1217,16 @@ module B2fVeritas where
   kunti _ = refl
 
   non : (m n : ℕ)
-      → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {suc m}
+      → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {m}
   non m n = begin
-    toℕ (b2f $ replicate {n = n} $ zero {suc m}) ≡⟨ refl ⟩
+    toℕ (b2f $ replicate {n = n} $ zero {m}) ≡⟨ refl ⟩
     toℕ (b2f $ rep z) ≡⟨ {!!} ⟩
     toℕ (mink zero $ pausyk m n ▹ proj₂ ) ≡⟨ tomindus _ _ ▹ sym ⟩
     0 ∎
     where
     open B2f
     rep = replicate {n = n}
-    z = zero {suc m}
+    z = zero {m}
 
   mulj : (m n : ℕ)
        → (x : Fin $ suc m)
@@ -1335,7 +1335,7 @@ module ∧𝔹ℕ𝔽Veritas where
     toFin (zW $ nbits 0) ≡⟨ NbitsVeritas.zeros ▹ cong (toFin ∘ zW) ⟩
     toFin (zW Z) ≡⟨ zipdun ▹ cong toFin ⟩
     toFin Z ≡⟨ refl ⟩
-    f2f (b2f Z) ≡⟨ f2f-zero (b2f Z) $ B2fVeritas.non 0 $ length Z ⟩
+    f2f (b2f Z) ≡⟨ f2f-zero (b2f Z) $ B2fVeritas.non 1 $ length Z ⟩
     zero ∎
     where
     toFin : Vec (Fin 2) $ suc m → Fin $ suc m
