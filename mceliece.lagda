@@ -1216,6 +1216,12 @@ module B2fVeritas where
   kunti : (m : ℕ) → b2f {m} [] ≡ zero
   kunti _ = refl
 
+  non' : (m n : ℕ)
+       → (flip _≡_
+           (mink zero $ proj₂ $ pausyk m n)
+           (b2f $ replicate {n = n} $ zero {m}))
+  non' = {!!}
+
   non : (m n : ℕ)
       → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {m}
   non m n = begin
