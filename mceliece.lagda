@@ -1236,8 +1236,8 @@ module B2fVeritas where
        → (x : Fin $ suc m)
        → (xs : Vec (Fin $ suc m) n)
        → toℕ (b2f $ x ∷ xs) ≡ toℕ (b2f xs) + toℕ x * suc m ^ n
-  mulj m n x [] = {!!}
-  mulj m n x (z ∷ zs) = {!!}
+  mulj m 0 x [] = {!!}
+  mulj m (suc n) x (z ∷ zs) = {!!}
 \end{code}
 
 \section{le su'u la'oi .\F{nbits}.\ srana la'oi .\F{b2f}.\ldots je la'oi .\F{toℕ}.}
