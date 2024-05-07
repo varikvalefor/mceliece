@@ -1214,7 +1214,8 @@ module B2fVeritas where
       L (zipᵥ v $ reverseᵥ $ allFin _) ≡⟨ DVP.lookup-zip i v _ ⟩
       L v , L (reverseᵥ $ allFin _) ≡⟨ oppositevec _ ▹ cong (λ x → L v , L x) ⟩
       L v , L (mapᵥ Data.Fin.opposite $ allFin _) ≡⟨ DVP.lookup-map i Data.Fin.opposite (allFin _) ▹ cong (L v ,_) ⟩
-      L v , Data.Fin.opposite (L $ allFin _) ≡⟨ DVP.lookup-allFin i ▹ cong (λ x → L v , Data.Fin.opposite x) ⟩
+      L v , Data.Fin.opposite (L $ allFin _) ≡⟨ refl ⟩
+      _ ≡⟨ DVP.lookup-allFin i ▹ cong (λ x → L v , Data.Fin.opposite x) ⟩
       lookup v i , Data.Fin.opposite i ∎
       where
       L : ∀ {a} → {A : Set a} → Vec A n → A
