@@ -1213,7 +1213,7 @@ module B2fVeritas where
       L (flip zipᵥ (reverseᵥ $ allFin _) v) ≡⟨ refl ⟩
       L (zipᵥ v $ reverseᵥ $ allFin _) ≡⟨ DVP.lookup-zip i v _ ⟩
       L v , L (reverseᵥ $ allFin _) ≡⟨ oppositevec _ ▹ cong (λ x → L v , L x) ⟩
-      L v , L (mapᵥ Data.Fin.opposite $ allFin _) ≡⟨ {!!} ⟩
+      L v , L (mapᵥ Data.Fin.opposite $ allFin _) ≡⟨ DVP.lookup-map i Data.Fin.opposite (allFin _) ▹ cong (L v ,_) ⟩
       L v , Data.Fin.opposite (L $ allFin _) ≡⟨ {!!} ⟩
       lookup v i , Data.Fin.opposite i ∎
       where
