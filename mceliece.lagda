@@ -1212,13 +1212,18 @@ module B2fVeritas where
       L (B2f.indice' v) ≡⟨ refl ⟩
       L (flip zipᵥ (reverseᵥ $ allFin _) v) ≡⟨ refl ⟩
       L (zipᵥ v $ reverseᵥ $ allFin _) ≡⟨ {!!} ⟩
-      L v , L (reverseᵥ $ allFin _) ≡⟨ {!!} ⟩
+      L v , L (reverseᵥ $ allFin _) ≡⟨ oppositevec _ ▹ cong (λ x → L v , L x) ⟩
       L v , L (mapᵥ Data.Fin.opposite $ allFin _) ≡⟨ {!!} ⟩
       L v , Data.Fin.opposite (L $ allFin _) ≡⟨ {!!} ⟩
       lookup v i , Data.Fin.opposite i ∎
       where
       L : ∀ {a} → {A : Set a} → Vec A n → A
       L = flip lookup i
+      oppositevec : (n : ℕ)
+                  → (_≡_
+                      (reverseᵥ $ allFin n)
+                      (mapᵥ Data.Fin.opposite $ allFin n))
+      oppositevec = {!!}
 
   module Portenfa where
     non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
