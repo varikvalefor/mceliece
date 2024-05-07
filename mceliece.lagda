@@ -1215,7 +1215,8 @@ module B2fVeritas where
       _ ≡⟨ DVP.lookup-zip i v _ ⟩
       L v , L (reverseᵥ $ allFin _) ≡⟨ refl ⟩
       _ ≡⟨ oppositevec _ ▹ cong (λ x → L v , L x) ⟩
-      L v , L (mapᵥ o $ allFin _) ≡⟨ DVP.lookup-map i o (allFin _) ▹ cong (L v ,_) ⟩
+      L v , L (mapᵥ o $ allFin _) ≡⟨ refl ⟩
+      _ ≡⟨ DVP.lookup-map i o (allFin _) ▹ cong (L v ,_) ⟩
       L v , o (L $ allFin _) ≡⟨ refl ⟩
       _ ≡⟨ DVP.lookup-allFin i ▹ cong (λ x → L v , o x) ⟩
       lookup v i , o i ∎
