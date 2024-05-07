@@ -1213,17 +1213,18 @@ module B2fVeritas where
       L (flip zipᵥ (reverseᵥ $ allFin _) v) ≡⟨ refl ⟩
       L (zipᵥ v $ reverseᵥ $ allFin _) ≡⟨ DVP.lookup-zip i v _ ⟩
       L v , L (reverseᵥ $ allFin _) ≡⟨ oppositevec _ ▹ cong (λ x → L v , L x) ⟩
-      L v , L (mapᵥ Data.Fin.opposite $ allFin _) ≡⟨ DVP.lookup-map i Data.Fin.opposite (allFin _) ▹ cong (L v ,_) ⟩
-      L v , Data.Fin.opposite (L $ allFin _) ≡⟨ refl ⟩
-      _ ≡⟨ DVP.lookup-allFin i ▹ cong (λ x → L v , Data.Fin.opposite x) ⟩
-      lookup v i , Data.Fin.opposite i ∎
+      L v , L (mapᵥ o $ allFin _) ≡⟨ DVP.lookup-map i o (allFin _) ▹ cong (L v ,_) ⟩
+      L v , o (L $ allFin _) ≡⟨ refl ⟩
+      _ ≡⟨ DVP.lookup-allFin i ▹ cong (λ x → L v , o x) ⟩
+      lookup v i , o i ∎
       where
       L : ∀ {a} → {A : Set a} → Vec A n → A
       L = flip lookup i
+      o = Data.Fin.opposite
       oppositevec : (n : ℕ)
                   → (_≡_
                       (reverseᵥ $ allFin n)
-                      (mapᵥ Data.Fin.opposite $ allFin n))
+                      (mapᵥ o $ allFin n))
       oppositevec = {!!}
 
   module Portenfa where
