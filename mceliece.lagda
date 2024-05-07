@@ -1208,7 +1208,8 @@ module B2fVeritas where
                  (lookup (B2f.indice' v) i)
                  (lookup v i , Data.Fin.opposite i))
     indice'v v i = begin
-      lookup (B2f.indice' v) i ≡⟨ {!!} ⟩
+      lookup (B2f.indice' v) i ≡⟨ refl ⟩
+      lookup (flip zipᵥ (reverseᵥ $ allFin _) v) i ≡⟨ {!!} ⟩
       lookup v i , Data.Fin.opposite i ∎
 
   module Portenfa where
