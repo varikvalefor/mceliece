@@ -1212,6 +1212,7 @@ module B2fVeritas where
       lookup (flip zipᵥ (reverseᵥ $ allFin _) v) i ≡⟨ refl ⟩
       lookup (zipᵥ v $ reverseᵥ $ allFin _) i ≡⟨ {!!} ⟩
       lookup v i , lookup (reverseᵥ $ allFin _) i ≡⟨ {!!} ⟩
+      lookup v i , lookup (mapᵥ Data.Fin.opposite $ allFin _) i ≡⟨ {!!} ⟩
       lookup v i , Data.Fin.opposite i ∎
 
   module Portenfa where
