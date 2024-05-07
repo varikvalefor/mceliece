@@ -1211,7 +1211,8 @@ module B2fVeritas where
       lookup (B2f.indice' v) i ≡⟨ refl ⟩
       L (B2f.indice' v) ≡⟨ refl ⟩
       L (flip zipᵥ (reverseᵥ $ allFin _) v) ≡⟨ refl ⟩
-      L (zipᵥ v $ reverseᵥ $ allFin _) ≡⟨ DVP.lookup-zip i v _ ⟩
+      L (zipᵥ v $ reverseᵥ $ allFin _) ≡⟨ refl ⟩
+      _ ≡⟨ DVP.lookup-zip i v _ ⟩
       L v , L (reverseᵥ $ allFin _) ≡⟨ refl ⟩
       _ ≡⟨ oppositevec _ ▹ cong (λ x → L v , L x) ⟩
       L v , L (mapᵥ o $ allFin _) ≡⟨ DVP.lookup-map i o (allFin _) ▹ cong (L v ,_) ⟩
