@@ -1237,7 +1237,8 @@ module B2fVeritas where
        → (xs : Vec (Fin $ suc m) n)
        → toℕ (b2f $ x ∷ xs) ≡ toℕ (b2f xs) + toℕ x * suc m ^ n
   mulj m 0 x [] = begin
-    toℕ (b2f $ x ∷ []) ≡⟨ {!!} ⟩
+    toℕ (b2f $ x ∷ []) ≡⟨ refl ⟩
+    toℕ (B2f.portenfa {m} $ mapᵥ f2f $ x ∷ []) ≡⟨ {!!} ⟩
     toℕ (b2f {m} []) + toℕ x * suc m ^ 0 ∎
   mulj m (suc n) x (z ∷ zs) = {!!}
 \end{code}
