@@ -1226,7 +1226,7 @@ module B2fVeritas where
   non : (m n : ℕ)
       → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {m}
   non m n = begin
-    toℕ (b2f $ replicate {n = n} $ zero {m}) ≡⟨ non' m n ▹ cong toℕ ⟩
+    toℕ (b2f $ replicate {n = n} $ zero) ≡⟨ non' m n ▹ cong toℕ ⟩
     toℕ (mink zero $ pausyk m n ▹ proj₂ ) ≡⟨ tomindus _ _ ▹ sym ⟩
     0 ∎
 
