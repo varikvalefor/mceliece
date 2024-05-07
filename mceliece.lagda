@@ -1207,7 +1207,9 @@ module B2fVeritas where
              → (_≡_
                  (lookup (B2f.indice' v) i)
                  (lookup v i , Data.Fin.opposite i))
-    indice'v = {!!}
+    indice'v v i = begin
+      lookup (B2f.indice' v) i ≡⟨ {!!} ⟩
+      lookup v i , Data.Fin.opposite i ∎
 
   module Portenfa where
     non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
