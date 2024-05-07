@@ -1207,13 +1207,17 @@ module B2fVeritas where
              → (_≡_
                  (lookup (B2f.indice' v) i)
                  (lookup v i , Data.Fin.opposite i))
-    indice'v v i = begin
+    indice'v {n = n} v i = begin
       lookup (B2f.indice' v) i ≡⟨ refl ⟩
-      lookup (flip zipᵥ (reverseᵥ $ allFin _) v) i ≡⟨ refl ⟩
-      lookup (zipᵥ v $ reverseᵥ $ allFin _) i ≡⟨ {!!} ⟩
-      lookup v i , lookup (reverseᵥ $ allFin _) i ≡⟨ {!!} ⟩
-      lookup v i , lookup (mapᵥ Data.Fin.opposite $ allFin _) i ≡⟨ {!!} ⟩
+      L (B2f.indice' v) ≡⟨ refl ⟩
+      L (flip zipᵥ (reverseᵥ $ allFin _) v) ≡⟨ refl ⟩
+      L (zipᵥ v $ reverseᵥ $ allFin _) ≡⟨ {!!} ⟩
+      L v , L (reverseᵥ $ allFin _) ≡⟨ {!!} ⟩
+      L v , L (mapᵥ Data.Fin.opposite $ allFin _) ≡⟨ {!!} ⟩
       lookup v i , Data.Fin.opposite i ∎
+      where
+      L : ∀ {a} → {A : Set a} → Vec A n → A
+      L = flip lookup i
 
   module Portenfa where
     non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
