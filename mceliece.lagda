@@ -1214,6 +1214,7 @@ module B2fVeritas where
       L (zipᵥ v $ reverseᵥ $ allFin _) ≡⟨ {!!} ⟩
       L v , L (reverseᵥ $ allFin _) ≡⟨ {!!} ⟩
       L v , L (mapᵥ Data.Fin.opposite $ allFin _) ≡⟨ {!!} ⟩
+      L v , Data.Fin.opposite (L $ allFin _) ≡⟨ {!!} ⟩
       lookup v i , Data.Fin.opposite i ∎
       where
       L : ∀ {a} → {A : Set a} → Vec A n → A
