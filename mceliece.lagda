@@ -1115,8 +1115,11 @@ module B2fVeritas where
          → (v : Vec (Fin $ suc m) n)
          → let _+'_ = f𝔽 _+_ in
            sumᵥ'₂ (e ∷ v) ≡ e +' sumᵥ'₂ v
-    inc₂ e [] = {!!}
-    inc₂ e (v ∷ vs) = {!!}
+    inc₂ e v = begin
+      sumᵥ'₂ (e ∷ v) ≡⟨ {!!} ⟩
+      e +' sumᵥ'₂ v ∎
+      where
+      _+'_ = f𝔽 _+_
 
     sumᵥ'≡sumᵥ'₂ : {m n : ℕ}
                  → (x : Vec (Fin $ suc m) n)
