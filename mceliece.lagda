@@ -1239,7 +1239,8 @@ module B2fVeritas where
   mulj m 0 x [] = begin
     toℕ (b2f $ x ∷ []) ≡⟨ refl ⟩
     toℕ (B2f.portenfa {m} $ mapᵥ f2f $ x ∷ []) ≡⟨ refl ⟩
-    toℕ (B2f.portenfa {m} $ f2f x ∷ []) ≡⟨ {!!} ⟩
+    toℕ (B2f.portenfa {m} $ f2f x ∷ []) ≡⟨ refl ⟩
+    toℕ (B2f.portenfa₁ {m} $ B2f.indice' $ f2f x ∷ []) ≡⟨ {!!} ⟩
     toℕ (b2f {m} []) + toℕ x * suc m ^ 0 ∎
   mulj m (suc n) x (z ∷ zs) = {!!}
 \end{code}
