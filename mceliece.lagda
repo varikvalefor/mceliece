@@ -2107,7 +2107,8 @@ module SeededKeyGenVeritas where
               (mapₘ (toℕ ∘ b2f ∘ Private.s) $ just S)
               (just $ toℕ δ))
       dun = sym $ begin
-        mapₘ (toℕ ∘ b2f ∘ Private.s) (just S) ≡⟨ {!!} ⟩
+        mapₘ (toℕ ∘ b2f ∘ Private.s) (just S) ≡⟨ refl ⟩
+        just (toℕ $ b2f $ Private.s S) ≡⟨ {!!} ▹ cong just ⟩
         just (toℕ δ) ∎
         where
         open ≡-Reasoning
