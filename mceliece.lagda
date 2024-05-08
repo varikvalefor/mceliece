@@ -2106,7 +2106,11 @@ module SeededKeyGenVeritas where
       dun : (flip _≡_
               (mapₘ (toℕ ∘ b2f ∘ Private.s) $ just S)
               (just $ toℕ δ))
-      dun = {!!}
+      dun = sym $ begin
+        mapₘ (toℕ ∘ b2f ∘ Private.s) (just S) ≡⟨ {!!} ⟩
+        just (toℕ δ) ∎
+        where
+        open ≡-Reasoning
 
     nog : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
