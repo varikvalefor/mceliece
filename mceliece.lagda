@@ -2119,6 +2119,12 @@ module SeededKeyGenVeritas where
         → sivni? {p} δ ≡ nothing
     nog _ refl = refl
 
+    no,ir : {p : MCParam}
+          → (δ : Fin $ 2 ^ MCParam.ℓ p)
+          → Irreducible {p} (Eₚ' {p} δ) ≡ nothing
+          → sivni? {p} δ ≡ nothing
+    no,ir _ refl = refl
+
   module Mapti? where
     nos : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
