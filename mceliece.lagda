@@ -2119,23 +2119,12 @@ module SeededKeyGenVeritas where
     nog _ refl = refl
 
   module Mapti? where
-    nog : {p : MCParam}
+    nos : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
         → (E : _)
-        → G?.g? {p} δ ≡ nothing
+        → sivni? {p} δ ≡ nothing
         → mapti? {p} δ E ≡ nothing
-    nog {p} δ E N = begin
-      mapti? {p} δ E ≡⟨ refl ⟩
-      _,ₘ_ (sivni >>=ₘ MatGen) sivni ≡⟨ refl ⟩
-      _ ≡⟨ s≡n ▹ cong (_,ₘ_ $ sivni >>=ₘ MatGen) ⟩
-      _,ₘ_ (sivni >>=ₘ MatGen) nothing ≡⟨ refl ⟩
-      nothing ∎
-      where
-      _,ₘ_ = (Data.Maybe.ap ∘₂ mapₘ) _,_
-      sivni = sivni? {p} δ
-      s≡n : sivni ≡ nothing
-      s≡n = Sivni?.nog {p} δ N
-      open ≡-Reasoning
+    nos _ _ _ = refl
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
