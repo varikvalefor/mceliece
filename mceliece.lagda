@@ -627,11 +627,14 @@ ni'o ga jonai la'o zoi.\ \F{\AgdaUnderscore{}++\AgdaUnderscore}\ \OpF \$\ \F{rep
 
 \begin{code}
 module Resize where
+  coc : ∀ {a} → {m n : ℕ} → {A : Set a}
+      → n ℕ.≤ m
+      → Vec A m ≡ Vec A (m ∸ n + n)
+  coc z = DNP.m∸n+n≡m z ▹ cong (Vec _) ▹ sym
+
   xt : ∀ {a} → {m n : ℕ} → {A : Set a}
      → A → Vec A m → Dec (n ℕ.≤ m) → Vec A n
-  xt {_} {m} {n} x xs (yes z) = drop (m ∸ n) $ coerce coc xs
-    where
-    coc = DNP.m∸n+n≡m z ▹ cong (Vec _) ▹ sym
+  xt {_} {m} {n} x xs (yes z) = drop (m ∸ n) $ coerce (coc z) xs
   xt {_} {m} {n} x xs (no z) = padin ++ xs ▹ coerce bitc
     where
     padin : Vec _ $ n ∸ m
