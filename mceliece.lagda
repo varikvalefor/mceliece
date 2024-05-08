@@ -632,15 +632,18 @@ module Resize where
       → Vec A m ≡ Vec A (m ∸ n + n)
   coc z = DNP.m∸n+n≡m z ▹ cong (Vec _) ▹ sym
 
+  bitc : ∀ {a} → {m n : ℕ} → {A : Set a}
+       → ¬_ $ n ℕ.≤ m
+       → Vec A (n ∸ m + m) ≡ Vec A n
+  bitc z = DNP.m∸n+n≡m (DNP.≰⇒≥ z) ▹ cong (Vec _)
+
   xt : ∀ {a} → {m n : ℕ} → {A : Set a}
      → A → Vec A m → Dec (n ℕ.≤ m) → Vec A n
   xt {_} {m} {n} x xs (yes z) = drop (m ∸ n) $ coerce (coc z) xs
-  xt {_} {m} {n} x xs (no z) = padin ++ xs ▹ coerce bitc
+  xt {_} {m} {n} x xs (no z) = padin ++ xs ▹ coerce (bitc z)
     where
     padin : Vec _ $ n ∸ m
     padin = replicate x
-    bitc : Vec _ (n ∸ m + m) ≡ Vec _ n
-    bitc = DNP.m∸n+n≡m (DNP.≰⇒≥ z) ▹ cong (Vec _)
 
   resize : ∀ {a} → {m n : ℕ} → {A : Set a}
          → A → Vec A m → Vec A n
