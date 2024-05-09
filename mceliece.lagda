@@ -2112,10 +2112,8 @@ module SeededKeyGenVeritas where
         where
         open ≡-Reasoning
       just∈L : just (toℕ δ) ∈' L
-      just∈L = ∃→∈ ex
+      just∈L = ∃→∈ {x = L} $ suc zero , refl
         where
-        ex : ∃ $ λ n → Data.List.lookup L n ≡ just (toℕ δ)
-        ex = suc zero , refl
         ∃→∈ : ∀ {a} → {A : Set a}
             → ⦃ _ : Eq A ⦄
             → {x : List A}
