@@ -119,7 +119,6 @@ ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 
 \begin{code}
 {-# OPTIONS --guardedness #-}
-{-# OPTIONS --allow-unsolved-metas #-}
 
 open import IO
   using (
