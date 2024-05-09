@@ -2049,10 +2049,10 @@ module SeededKeyGenVeritas where
       b2f (replicate {n = σ₁*t} zero) ≡⟨ B2fVeritas.non' 1 $ σ₁*t ⟩
       Z (MCParam.σ₁*t p) ∎
       where
-      σ₁*t = MCParam.σ₁*t p
-      ℓ = MCParam.ℓ p
       P = proj₂ ∘ pausyk 1
       Z = mink zero ∘ P
+      σ₁*t = MCParam.σ₁*t p
+      ℓ = MCParam.ℓ p
       n = MCParam.n p
       nb = nbits {n + σ₁*t}
       open ≡-Reasoning
