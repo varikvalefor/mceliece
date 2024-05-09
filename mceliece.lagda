@@ -2044,9 +2044,9 @@ module SeededKeyGenVeritas where
       _ ≡⟨ tomindus _ (P ℓ) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
       b2f (drop n $ nb 0) ≡⟨ refl ⟩
       _ ≡⟨ NbitsVeritas.zeros {n + σ₁*t} ▹ cong (b2f ∘ drop n) ⟩
-      b2f (drop n $ replicate {n = n + σ₁*t} $ zero {1}) ≡⟨ refl ⟩
-      _ ≡⟨ replidrop {m = n} {n = σ₁*t} (zero {1}) ▹ cong b2f ⟩
-      b2f (replicate {n = σ₁*t} $ zero {1}) ≡⟨ B2fVeritas.non' 1 $ σ₁*t ⟩
+      b2f (drop n $ replicate {n = n + σ₁*t} zero) ≡⟨ refl ⟩
+      _ ≡⟨ replidrop {m = n} {n = σ₁*t} zero ▹ cong b2f ⟩
+      b2f (replicate {n = σ₁*t} zero) ≡⟨ B2fVeritas.non' 1 $ σ₁*t ⟩
       Z (MCParam.σ₁*t p) ∎
       where
       σ₁*t = MCParam.σ₁*t p
