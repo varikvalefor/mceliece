@@ -2034,24 +2034,24 @@ module SeededKeyGenVeritas where
 
   module Eₚ' where
     nos : {p : MCParam}
-        → let M = mink zero ∘ proj₂ ∘ pausyk 1 in
+        → let Z = mink zero ∘ proj₂ ∘ pausyk 1 in
           (_≡_
-            (Eₚ' {p} $ M $ MCParam.ℓ p)
-            (M $ MCParam.σ₁*t p))
+            (Eₚ' {p} $ Z $ MCParam.ℓ p)
+            (Z $ MCParam.σ₁*t p))
     nos {p} = begin
-      Eₚ' {p} (M ℓ) ≡⟨ refl ⟩
-      b2f (drop n $ nb $ toℕ $ M $ MCParam.ℓ p) ≡⟨ refl ⟩
+      Eₚ' {p} (Z ℓ) ≡⟨ refl ⟩
+      b2f (drop n $ nb $ toℕ $ Z $ MCParam.ℓ p) ≡⟨ refl ⟩
       _ ≡⟨ tomindus _ (P ℓ) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
       b2f (drop n $ nb 0) ≡⟨ refl ⟩
       _ ≡⟨ NbitsVeritas.zeros {n + MCParam.σ₁*t p} ▹ cong (b2f ∘ drop n) ⟩
       b2f (drop n $ replicate {n = n + MCParam.σ₁*t p} $ zero {1}) ≡⟨ refl ⟩
       _ ≡⟨ replidrop {m = n} {n = MCParam.σ₁*t p} (zero {1}) ▹ cong b2f ⟩
       b2f (replicate {n = MCParam.σ₁*t p} $ zero {1}) ≡⟨ {!!} ⟩
-      M (MCParam.σ₁*t p) ∎
+      Z (MCParam.σ₁*t p) ∎
       where
       ℓ = MCParam.ℓ p
       P = proj₂ ∘ pausyk 1
-      M = mink zero ∘ P
+      Z = mink zero ∘ P
       n = MCParam.n p
       nb = nbits {n + MCParam.σ₁*t p}
       open ≡-Reasoning
