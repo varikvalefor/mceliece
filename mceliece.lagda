@@ -2043,17 +2043,18 @@ module SeededKeyGenVeritas where
       b2f (drop n $ nb $ toℕ $ Z $ MCParam.ℓ p) ≡⟨ refl ⟩
       _ ≡⟨ tomindus _ (P ℓ) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
       b2f (drop n $ nb 0) ≡⟨ refl ⟩
-      _ ≡⟨ NbitsVeritas.zeros {n + MCParam.σ₁*t p} ▹ cong (b2f ∘ drop n) ⟩
-      b2f (drop n $ replicate {n = n + MCParam.σ₁*t p} $ zero {1}) ≡⟨ refl ⟩
-      _ ≡⟨ replidrop {m = n} {n = MCParam.σ₁*t p} (zero {1}) ▹ cong b2f ⟩
-      b2f (replicate {n = MCParam.σ₁*t p} $ zero {1}) ≡⟨ B2fVeritas.non' 1 $ MCParam.σ₁*t p ⟩
+      _ ≡⟨ NbitsVeritas.zeros {n + σ₁*t} ▹ cong (b2f ∘ drop n) ⟩
+      b2f (drop n $ replicate {n = n + σ₁*t} $ zero {1}) ≡⟨ refl ⟩
+      _ ≡⟨ replidrop {m = n} {n = σ₁*t} (zero {1}) ▹ cong b2f ⟩
+      b2f (replicate {n = σ₁*t} $ zero {1}) ≡⟨ B2fVeritas.non' 1 $ σ₁*t ⟩
       Z (MCParam.σ₁*t p) ∎
       where
+      σ₁*t = MCParam.σ₁*t p
       ℓ = MCParam.ℓ p
       P = proj₂ ∘ pausyk 1
       Z = mink zero ∘ P
       n = MCParam.n p
-      nb = nbits {n + MCParam.σ₁*t p}
+      nb = nbits {n + σ₁*t}
       open ≡-Reasoning
       replidrop : ∀ {a} → {A : Set a} → {m n : ℕ}
                 → (x : A)
