@@ -2098,9 +2098,8 @@ module SeededKeyGenVeritas where
              (nothing ∷ just (toℕ δ) ∷ List.[]))
     sles {p} δ m with sivni? {p} δ
     ... | nothing = refl
-    ... | just S = subst (_∈' L) dun just∈L
+    ... | just S = subst (_∈ L) dun just∈L
       where
-      _∈'_ = _∈_ {A = List _}
       L = nothing ∷ just (toℕ δ) ∷ List.[]
       dun : (flip _≡_
               (mapₘ (toℕ ∘ b2f ∘ Private.s) $ just S)
@@ -2111,7 +2110,7 @@ module SeededKeyGenVeritas where
         just (toℕ δ) ∎
         where
         open ≡-Reasoning
-      just∈L : just (toℕ δ) ∈' L
+      just∈L : just (toℕ δ) ∈ L
       just∈L = ∃→∈ {x = L} $ suc zero , refl
         where
         ∃→∈ : ∀ {a} → {A : Set a}
