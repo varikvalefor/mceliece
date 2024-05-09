@@ -2098,13 +2098,10 @@ module SeededKeyGenVeritas where
              (nothing ∷ just (toℕ δ) ∷ List.[]))
     sles {p} δ m with sivni? {p} δ
     ... | nothing = refl
-    ... | just S = subst (_∈' L) dun $ D ∋ (∃→∈ ex)
+    ... | just S = subst (_∈' L) dun just∈L
       where
       _∈'_ = _∈_ {A = List _}
       L = nothing ∷ just (toℕ δ) ∷ List.[]
-      D = just (toℕ δ) ∈' L
-      ex : ∃ $ λ n → Data.List.lookup L n ≡ just (toℕ δ)
-      ex = {!!}
       dun : (flip _≡_
               (mapₘ (toℕ ∘ b2f ∘ Private.s) $ just S)
               (just $ toℕ δ))
@@ -2114,13 +2111,18 @@ module SeededKeyGenVeritas where
         just (toℕ δ) ∎
         where
         open ≡-Reasoning
-      ∃→∈ : ∀ {a} → {A : Set a}
-          → ⦃ _ : Eq A ⦄
-          → {x : List A}
-          → {e : A}
-          → (∃ $ λ n → Data.List.lookup x n ≡ e)
-          → e ∈ x
-      ∃→∈ = {!!}
+      just∈L : just (toℕ δ) ∈' L
+      just∈L = ∃→∈ ex
+        where
+        ex : ∃ $ λ n → Data.List.lookup L n ≡ just (toℕ δ)
+        ex = {!!}
+        ∃→∈ : ∀ {a} → {A : Set a}
+            → ⦃ _ : Eq A ⦄
+            → {x : List A}
+            → {e : A}
+            → (∃ $ λ n → Data.List.lookup x n ≡ e)
+            → e ∈ x
+        ∃→∈ = {!!}
 
     nog : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
