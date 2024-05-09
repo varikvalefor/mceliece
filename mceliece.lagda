@@ -2115,7 +2115,7 @@ module SeededKeyGenVeritas where
       just∈L = ∃→∈ ex
         where
         ex : ∃ $ λ n → Data.List.lookup L n ≡ just (toℕ δ)
-        ex = {!!}
+        ex = suc zero , refl
         ∃→∈ : ∀ {a} → {A : Set a}
             → ⦃ _ : Eq A ⦄
             → {x : List A}
