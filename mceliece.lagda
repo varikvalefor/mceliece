@@ -2045,7 +2045,7 @@ module SeededKeyGenVeritas where
       b2f (drop n $ nb 0) ≡⟨ refl ⟩
       _ ≡⟨ NbitsVeritas.zeros {n + σ₁*t} ▹ cong (b2f ∘ drop n) ⟩
       b2f (drop n $ replicate {n = n + σ₁*t} zero) ≡⟨ refl ⟩
-      _ ≡⟨ replidrop {m = n} {n = σ₁*t} zero ▹ cong b2f ⟩
+      _ ≡⟨ replidrop {m = n} {σ₁*t} zero ▹ cong b2f ⟩
       b2f (replicate {n = σ₁*t} zero) ≡⟨ B2fVeritas.non' 1 $ σ₁*t ⟩
       Z (MCParam.σ₁*t p) ∎
       where
