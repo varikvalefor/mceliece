@@ -1459,7 +1459,8 @@ module Hw𝕄Veritas where
     𝕄0≡replicate[] : ∀ {a} → {A : Set a} → {m : ℕ}
                    → (x : 𝕄 A 0 m)
                    → x ≡ replicate {n = m} []
-    𝕄0≡replicate[] = {!!}
+    𝕄0≡replicate[] {m = 0} [] = {!!}
+    𝕄0≡replicate[] {m = suc m} (x ∷ xs) = {!!}
 
   pav : {a m : ℕ}
       → (e : Vec (Fin a) m)
