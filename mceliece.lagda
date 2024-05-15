@@ -2386,7 +2386,8 @@ module DecodeVeritas where
               → (z : Vec A n)
               → take m (x ++ z) ≡ x
       takedun [] z = refl
-      takedun (x ∷ xs) z = {!!}
+      takedun (x ∷ xs) [] = {!!}
+      takedun (x ∷ xs) (z ∷ zs) = {!!}
       open ≡-Reasoning
 
     romois : {p : MCParam}
