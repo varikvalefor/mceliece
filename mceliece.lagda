@@ -1250,7 +1250,7 @@ module B2fVeritas where
            (mink zero $ proj₂ $ pausyk m n)
            (b2f $ replicate {n = n} $ zero {m}))
   non' _ 0 = refl
-  non' x (suc n) = non' x n ▹ cong {!!}
+  non' x (suc n) = {!!}
 
   non : (m n : ℕ)
       → flip _≡_ 0 $ toℕ $ b2f $ replicate {n = n} $ zero {m}
@@ -1459,7 +1459,7 @@ module Hw𝕄Veritas where
     𝕄0≡replicate[] : ∀ {a} → {A : Set a} → {m : ℕ}
                    → (x : 𝕄 A 0 m)
                    → x ≡ replicate {n = m} []
-    𝕄0≡replicate[] {m = 0} [] = {!!}
+    𝕄0≡replicate[] {m = 0} [] = refl
     𝕄0≡replicate[] {m = suc m} (x ∷ xs) = {!!}
 
   pav : {a m : ℕ}
@@ -2128,13 +2128,13 @@ module SeededKeyGenVeritas where
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
         → G?.g? {p} δ ≡ nothing
         → sivni? {p} δ ≡ nothing
-    nog _ refl = refl
+    nog = {!!}
 
     no,ir : {p : MCParam}
           → (δ : Fin $ 2 ^ MCParam.ℓ p)
           → Irreducible {p} (Eₚ' {p} δ) ≡ nothing
           → sivni? {p} δ ≡ nothing
-    no,ir _ refl = refl
+    no,ir = {!!}
 
   module Mapti? where
     nos : {p : MCParam}
@@ -2142,7 +2142,7 @@ module SeededKeyGenVeritas where
         → (E : _)
         → sivni? {p} δ ≡ nothing
         → mapti? {p} δ E ≡ nothing
-    nos _ _ _ = refl
+    nos = {!!}
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
