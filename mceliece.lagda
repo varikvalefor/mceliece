@@ -2387,7 +2387,7 @@ module DecodeVeritas where
               → take m (x ++ z) ≡ x
       takedun [] z = refl
       takedun (x ∷ xs) [] = {!!}
-      takedun (x ∷ xs) (z ∷ zs) = {!!}
+      takedun (x ∷ xs) (z ∷ zs) = takedun xs zs ▹ coerce {!!}
       open ≡-Reasoning
 
     romois : {p : MCParam}
