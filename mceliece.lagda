@@ -1460,7 +1460,9 @@ module Hw𝕄Veritas where
                    → (x : 𝕄 A 0 m)
                    → x ≡ replicate {n = m} []
     𝕄0≡replicate[] {m = 0} [] = refl
-    𝕄0≡replicate[] {m = suc m} ([] ∷ xs) = 𝕄0≡replicate[] xs ▹ cong (_ ∷_)
+    𝕄0≡replicate[] {m = suc m} ([] ∷ xs) = R ▹ cong (_ ∷_)
+      where
+      R = 𝕄0≡replicate[] xs
 
   pav : {a m : ℕ}
       → (e : Vec (Fin a) m)
