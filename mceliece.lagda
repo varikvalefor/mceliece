@@ -1458,7 +1458,7 @@ module Hw𝕄Veritas where
                    → (f : A → B)
                    → (x : A)
                    → (_≡_
-                       (mapᵥ f $ replicate {n = n}  x)
+                       (mapᵥ f $ replicate {n = n} x)
                        (replicate {n = n} $ f x))
     mapᵥ-replicate = {!!}
     𝕄0≡replicate[] : ∀ {a} → {A : Set a} → {m : ℕ}
