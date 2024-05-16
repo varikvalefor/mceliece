@@ -1455,7 +1455,7 @@ module Hw𝕄Veritas where
     open ≡-Reasoning
     nosum : (m : ℕ) → sumᵥ (replicate {n = m} 0) ≡ 0
     nosum 0 = refl
-    nosum (suc n) = {!!}
+    nosum (suc n) = nosum n
     𝕄0≡replicate[] : ∀ {a} → {A : Set a} → {m : ℕ}
                    → (x : 𝕄 A 0 m)
                    → x ≡ replicate {n = m} []
