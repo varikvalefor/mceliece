@@ -1460,7 +1460,7 @@ module Hw𝕄Veritas where
                    → (_≡_
                        (mapᵥ f $ replicate {n = n} x)
                        (replicate {n = n} $ f x))
-    mapᵥ-replicate = {!!}
+    mapᵥ-replicate f x = DVP.map-replicate f x _
     𝕄0≡replicate[] : ∀ {a} → {A : Set a} → {m : ℕ}
                    → (x : 𝕄 A 0 m)
                    → x ≡ replicate {n = m} []
