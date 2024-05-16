@@ -241,7 +241,8 @@ open import Data.Product
     Σ;
     ∃
   )
-open import Data.Nat as ℕ
+open import Data.Nat
+  as ℕ
   using (
     _^_;
     _*_;
