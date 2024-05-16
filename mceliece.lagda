@@ -1449,10 +1449,12 @@ module Hw𝕄Veritas where
     hw𝕄 {a} (replicate {n = m} []) ≡⟨ refl ⟩
     sumᵥ (mapᵥ hWV𝔽 $ replicate {n = m} []) ≡⟨ refl ⟩
     _ ≡⟨ DVP.map-replicate hWV𝔽 [] m ▹ cong sumᵥ ⟩
-    sumᵥ (replicate {n = m} 0) ≡⟨ {!!} ⟩
+    sumᵥ (replicate {n = m} 0) ≡⟨ nosum m ⟩
     0 ∎
     where
     open ≡-Reasoning
+    nosum : (m : ℕ) → sumᵥ (replicate {n = m} 0) ≡ 0
+    nosum = {!!}
     𝕄0≡replicate[] : ∀ {a} → {A : Set a} → {m : ℕ}
                    → (x : 𝕄 A 0 m)
                    → x ≡ replicate {n = m} []
