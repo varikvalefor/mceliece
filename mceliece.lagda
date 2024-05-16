@@ -1403,7 +1403,11 @@ module ∧𝔹ℕ𝔽Veritas where
   idx : {m : ℕ}
       → (f : Fin $ suc m)
       → toℕ f ∧𝔹ℕ𝔽 f ≡ f
-  idx = {!!}
+  idx {m} f = begin
+    toℕ f ∧𝔹ℕ𝔽 f ≡⟨ {!!} ⟩
+    f ∎
+    where
+    open ≡-Reasoning
 
   dunli : {m : ℕ}
         → (n : ℕ)
