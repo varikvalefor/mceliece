@@ -1241,6 +1241,12 @@ module B2fVeritas where
     non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
     non = refl
 
+    jmina : {m n : ℕ}
+          → (x : _)
+          → (xs : Vec (Fin _) n)
+          → B2f.portenfa {m} (x ∷ xs) ≡ {!!}
+    jmina = {!!}
+
   kunti : (m : ℕ) → b2f {m} [] ≡ zero
   kunti _ = refl
 
