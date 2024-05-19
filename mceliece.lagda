@@ -1234,9 +1234,7 @@ module B2fVeritas where
       L : ∀ {a} → {A : Set a} → Vec A n → A
       L = flip lookup i
       oppositevec : (n : ℕ)
-                  → (_≡_
-                      (reverseᵥ $ allFin n)
-                      (mapᵥ o $ allFin n))
+                  → reverseᵥ (allFin n) ≡ mapᵥ o (allFin n)
       oppositevec = {!!}
 
   module Portenfa where
