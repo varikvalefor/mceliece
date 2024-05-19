@@ -1230,9 +1230,9 @@ module B2fVeritas where
       _ ≡⟨ DVP.lookup-allFin i ▹ cong (λ x → L v , o x) ⟩
       lookup v i , o i ∎
       where
+      o = Data.Fin.opposite
       L : ∀ {a} → {A : Set a} → Vec A n → A
       L = flip lookup i
-      o = Data.Fin.opposite
       oppositevec : (n : ℕ)
                   → (_≡_
                       (reverseᵥ $ allFin n)
