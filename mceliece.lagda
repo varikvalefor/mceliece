@@ -1243,7 +1243,7 @@ module B2fVeritas where
 
     jmina : {m n : ℕ}
           → (x : _)
-          → (xs : Vec (Fin _) n)
+          → (xs : Vec _ n)
           → B2f.portenfa {m} (x ∷ xs) ≡ {!!}
     jmina = {!!}
 
