@@ -1261,7 +1261,7 @@ module B2fVeritas where
            → (_≡_
                (toℕ $ B2f.portenfa {m} {suc n} $ x ∷ xs)
                (_+_
-                 {!!}
+                 (toℕ x * suc m ^ suc n)
                  (toℕ
                    (B2f.portenfa {m} {n} (xs ▹ mapᵥ f2f)))))
     jminan = {!!}
