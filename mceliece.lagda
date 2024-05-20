@@ -1235,7 +1235,8 @@ module B2fVeritas where
       L = flip lookup i
       oppositevec : (n : ℕ)
                   → reverseᵥ (allFin n) ≡ mapᵥ o (allFin n)
-      oppositevec = {!!}
+      oppositevec 0 = {!!}
+      oppositevec (suc n) = {!!}
 
   module Portenfa where
     non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
