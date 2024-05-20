@@ -1793,7 +1793,7 @@ module FieldOrderingVeritas where
               → ¬_ $ m ℕ.< suc n
               → toℕ (FieldOrdering.toFin {suc n} m) ≡ {!!}
     dubjavmau = {!!}
-    
+
   module Sartre where
     module Jort where
       dubjavme'a : ∀ {a} → {A : Set a} → {m n : ℕ}
