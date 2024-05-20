@@ -1247,7 +1247,9 @@ module B2fVeritas where
           → (xs : Vec _ n)
           → (_≡_
               (B2f.portenfa {m} $ x ∷ xs)
-              {!!})
+              (flip mink
+                (pausyk m (suc n) ▹ proj₂)
+                {!!}))
     jmina = {!!}
 
     -- | ni'o la .varik. cu djica lo nu basti pe'a ko'a
