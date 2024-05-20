@@ -1250,7 +1250,7 @@ module B2fVeritas where
               (flip mink
                 (pausyk m (suc n) ▹ proj₂)
                 (f𝔽 _+_
-                  {!!}
+                  (fromℕ< {toℕ x * m ^ suc n} {!!})
                   {!!})))
     jmina = {!!}
 
