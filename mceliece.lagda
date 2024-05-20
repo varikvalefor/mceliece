@@ -1247,6 +1247,11 @@ module B2fVeritas where
           → B2f.portenfa {m} (x ∷ xs) ≡ {!!}
     jmina = {!!}
 
+    -- | ni'o la .varik. cu djica lo nu basti pe'a ko'a
+    -- goi le me'oi .f2f. co'e fa lo zmadu be ko'a bei le
+    -- ka tu'a ce'u .indika... kei kei jenai ku'i cu birti
+    -- lo du'u ma kau zmadu... kei je ku'i cu djica curmi
+    -- lo nu stidi
     jminan : {m n : ℕ}
            → (x : _)
            → (xs : Vec _ n)
