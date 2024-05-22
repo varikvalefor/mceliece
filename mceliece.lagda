@@ -1238,6 +1238,7 @@ module B2fVeritas where
       oppositevec 0 = refl
       oppositevec (suc n) = begin
         reverseᵥ (allFin $ suc n) ≡⟨ {!!} ⟩
+        {!!} ∷ mapᵥ {!!} (reverseᵥ $ allFin n) ≡⟨ {!!} ⟩
         mapᵥ o (allFin $ suc n) ∎
 
   module Portenfa where
