@@ -1238,7 +1238,7 @@ module B2fVeritas where
       oppositevec 0 = refl
       oppositevec (suc n) = begin
         reverseᵥ (allFin $ suc n) ≡⟨ {!!} ⟩
-        o zero ∷ mapᵥ {!!} (reverseᵥ $ allFin n) ≡⟨ {!!} ⟩
+        o zero ∷ mapᵥ Data.Fin.inject₁ (reverseᵥ $ allFin n) ≡⟨ {!!} ⟩
         mapᵥ o (allFin $ suc n) ∎
 
   module Portenfa where
