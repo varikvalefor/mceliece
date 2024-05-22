@@ -1236,7 +1236,9 @@ module B2fVeritas where
       oppositevec : (n : ℕ)
                   → reverseᵥ (allFin n) ≡ mapᵥ o (allFin n)
       oppositevec 0 = refl
-      oppositevec (suc n) = {!!}
+      oppositevec (suc n) = begin
+        reverseᵥ (allFin $ suc n) ≡⟨ {!!} ⟩
+        mapᵥ o (allFin $ suc n) ∎
 
   module Portenfa where
     non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
