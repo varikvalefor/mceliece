@@ -1239,7 +1239,7 @@ module B2fVeritas where
       oppositevec 0 = refl
       oppositevec (suc n) = begin
         reverseᵥ (allFin $ suc n) ≡⟨ reverse-allFin-∷ ⟩
-        o zero ∷ mapᵥ 𝔽.inject₁ (reverseᵥ $ allFin n) ≡⟨ {!!} ⟩
+        o zero ∷ mapᵥ 𝔽.inject₁ (reverseᵥ $ allFin n) ≡⟨ {!!} ▹ cong (λ n → o zero ∷ mapᵥ 𝔽.inject₁ n) ⟩
         o zero ∷ mapᵥ 𝔽.inject₁ (mapᵥ o $ allFin n) ≡⟨ {!!} ⟩
         mapᵥ o (allFin $ suc n) ∎
         where
