@@ -127,6 +127,7 @@ open import IO
     IO
   )
 open import Data.Fin
+  as 𝔽
   using (
     opposite;
     fromℕ<;
@@ -1215,7 +1216,7 @@ module B2fVeritas where
              → (i : Fin n)
              → (_≡_
                  (lookup (B2f.indice' v) i)
-                 (lookup v i , Data.Fin.opposite i))
+                 (lookup v i , 𝔽.opposite i))
     indice'v {n = n} v i = begin
       lookup (B2f.indice' v) i ≡⟨ refl ⟩
       L (B2f.indice' v) ≡⟨ refl ⟩
@@ -1230,7 +1231,7 @@ module B2fVeritas where
       _ ≡⟨ DVP.lookup-allFin i ▹ cong (λ x → L v , o x) ⟩
       lookup v i , o i ∎
       where
-      o = Data.Fin.opposite
+      o = 𝔽.opposite
       L : ∀ {a} → {A : Set a} → Vec A n → A
       L = flip lookup i
       oppositevec : (n : ℕ)
@@ -1238,8 +1239,8 @@ module B2fVeritas where
       oppositevec 0 = refl
       oppositevec (suc n) = begin
         reverseᵥ (allFin $ suc n) ≡⟨ {!!} ⟩
-        o zero ∷ mapᵥ Data.Fin.inject₁ (reverseᵥ $ allFin n) ≡⟨ {!!} ⟩
-        o zero ∷ mapᵥ Data.Fin.inject₁ (mapᵥ o $ allFin n) ≡⟨ {!!} ⟩
+        o zero ∷ mapᵥ 𝔽.inject₁ (reverseᵥ $ allFin n) ≡⟨ {!!} ⟩
+        o zero ∷ mapᵥ 𝔽.inject₁ (mapᵥ o $ allFin n) ≡⟨ {!!} ⟩
         mapᵥ o (allFin $ suc n) ∎
 
   module Portenfa where
@@ -1808,7 +1809,7 @@ module FieldOrderingVeritas where
                  → (v : Vec (Fin m × A) $ suc n)
                  → (i : Fin n)
                  → let v' = FieldOrdering.Sartre.jort v in
-                   let i' = Data.Fin.inject₁ i in
+                   let i' = 𝔽.inject₁ i in
                    ((𝕊._≤_ on (show ∘ proj₁))
                      (lookup v' i')
                      (lookup v' $ suc i))
