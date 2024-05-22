@@ -1238,10 +1238,20 @@ module B2fVeritas where
                   → reverseᵥ (allFin n) ≡ mapᵥ o (allFin n)
       oppositevec 0 = refl
       oppositevec (suc n) = begin
-        reverseᵥ (allFin $ suc n) ≡⟨ {!!} ⟩
+        reverseᵥ (allFin $ suc n) ≡⟨ reverse-allFin-∷ ⟩
         o zero ∷ mapᵥ 𝔽.inject₁ (reverseᵥ $ allFin n) ≡⟨ {!!} ⟩
         o zero ∷ mapᵥ 𝔽.inject₁ (mapᵥ o $ allFin n) ≡⟨ {!!} ⟩
         mapᵥ o (allFin $ suc n) ∎
+        where
+        reverse-allFin-∷ : {n : ℕ}
+                         → (_≡_
+                             (reverseᵥ $ allFin $ suc n)
+                             (_∷_
+                               (o zero)
+                               (mapᵥ
+                                 𝔽.inject₁
+                                 (reverseᵥ $ allFin n))))
+        reverse-allFin-∷ = {!!}
 
   module Portenfa where
     non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
