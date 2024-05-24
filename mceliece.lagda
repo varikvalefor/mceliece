@@ -184,6 +184,7 @@ open import Data.Bool
     true
   )
 open import Data.List
+  as 𝕃
   using (
     reverse;
     List;
@@ -775,7 +776,7 @@ module Dist where
        → (x z : A)
        → LL.l Q x ≡ LL.l Q z
        → ℕ
-  dist x z d = length $ Data.List.filter drata $ zipₓ x z d
+  dist x z d = length $ 𝕃.filter drata $ zipₓ x z d
 
 open Dist
   using (
@@ -835,7 +836,7 @@ module DistVeritas where
     length (filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
     dist x z refl ∎
     where
-    filterₗ = Data.List.filter
+    filterₗ = 𝕃.filter
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
@@ -846,11 +847,11 @@ module DistVeritas where
   dratav x z e₁ e₂ j = sym $ begin
     dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ refl ⟩
     length (filterₗ drata $ zipₓ (e₁ ∷ x) (e₂ ∷ z) refl) ≡⟨ {!!} ⟩
-    length ((e₁ , e₂) Data.List.∷_ $ filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
+    length ((e₁ , e₂) 𝕃.∷_ $ filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
     suc (length $ filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
     suc (dist x z refl) ∎
     where
-    filterₗ = Data.List.filter
+    filterₗ = 𝕃.filter
     open ≡-Reasoning
 
   dubjavme'av : ∀ {a} → {A : Set a} → {n : ℕ}
@@ -1908,11 +1909,11 @@ module FixedWeight where
   a? : (p : MCParam)
      → Fin $ 2 ^_ $ MCParam.σ₁ p * τ' p
      → Maybe $ Vec (Fin $ MCParam.n p) $ MCParam.t p
-  a? p b = _>>=ₘ panci $ toVec? $ Data.List.take (MCParam.t p) mlen
+  a? p b = _>>=ₘ panci $ toVec? $ 𝕃.take (MCParam.t p) mlen
     where
     -- | ni'o zo .mlen. cmavlaka'i lu mleca la .n. li'u
     mlen : List $ Fin $ MCParam.n p
-    mlen = Data.List.mapMaybe id $ mapₗ mlen? $ toList $ d p b
+    mlen = 𝕃.mapMaybe id $ mapₗ mlen? $ toList $ d p b
       where
       mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
 
@@ -1924,7 +1925,7 @@ module FixedWeight where
     e' : (a : _)
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
-         × let el = Data.List.allFin _ in
+         × let el = 𝕃.allFin _ in
            flip Listal.All el $ _≡_ (suc zero) ∘ lookup e ∘ lookup a
     e' = {!!}
 
@@ -2174,7 +2175,7 @@ module SeededKeyGenVeritas where
             → ⦃ _ : Eq A ⦄
             → {x : List A}
             → {e : A}
-            → (∃ $ λ n → Data.List.lookup x n ≡ e)
+            → (∃ $ λ n → 𝕃.lookup x n ≡ e)
             → e ∈ x
         ∃→∈ = {!!}
 
