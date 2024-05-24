@@ -23,6 +23,7 @@
 \newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb M}}}
 \newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb S}}}
+\newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
 \newunicodechar{𝔹}{\ensuremath{\mathnormal{\mathbb B}}}
 \newunicodechar{ν}{\ensuremath{\mathnormal\nu}}
 \newunicodechar{μ}{\ensuremath{\mathnormal\mu}}
