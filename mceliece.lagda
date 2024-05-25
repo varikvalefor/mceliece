@@ -1857,10 +1857,10 @@ module FieldOrderingVeritas where
       jus : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
           → ⦃ _ : Eq A ⦄
           → (x : Vec (A × B) n)
-          → ((n₁ n₂ : Fin n)
-             → (¬_ $ _×_
-                 (n₁ ≡ n₂)
-                 (lookup x n₁ ≡ lookup x n₂)))
+          → (_ : (n₁ n₂ : Fin n)
+               → (¬_ $ _×_
+                   (n₁ ≡ n₂)
+                   (lookup x n₁ ≡ lookup x n₂)))
           → FieldOrdering.Sartre.panci₂ x ≡ just x
       jus = {!!}
 
