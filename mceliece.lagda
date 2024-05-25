@@ -1756,7 +1756,7 @@ module FieldOrdering where
     where
     m = MCParam.m p
     -- | ni'o mo la .z.
-    -- .i ga naja cpolynomi'a co'e gi na sarcu fa lo nu
+    -- .i ga naja cpolynomi'a co'e gi na sarcu fa tu'a lo
     -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
     -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
     -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
