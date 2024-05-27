@@ -1832,9 +1832,9 @@ module FieldOrderingVeritas where
                  → (i : Fin n)
                  → let v' = FieldOrdering.Sartre.jort v in
                    let i' = 𝔽.inject₁ i in
-                   ((𝕊._≤_ on (show ∘ proj₁))
-                     (lookup v' i')
-                     (lookup v' $ suc i))
+                   ((𝕊._≤_ on (show ∘ proj₁ ∘ lookup v'))
+                     i'
+                     (suc i))
       dubjavme'a = {!!}
 
       cmimajos : ∀ {a} → {A : Set a} → {m n : ℕ}
