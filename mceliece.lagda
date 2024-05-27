@@ -1858,9 +1858,8 @@ module FieldOrderingVeritas where
           → ⦃ _ : Eq A ⦄
           → (x : Vec (A × B) n)
           → (_ : (n₁ n₂ : Fin n)
-               → (¬_ $ _×_
-                   (¬_ $ n₁ ≡ n₂)
-                   (lookup x n₁ ≡ lookup x n₂)))
+               → lookup x n₁ ≡ lookup x n₂
+               → n₁ ≡ n₂)
           → FieldOrdering.Sartre.panci₂ x ≡ just x
       jus = {!!}
 
