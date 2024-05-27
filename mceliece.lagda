@@ -832,7 +832,7 @@ module DistVeritas where
          → dist x z refl ≡ dist (e ∷ x) (e ∷ z) refl
   dunliv x z e = sym $ begin
     dist (e ∷ x) (e ∷ z) refl ≡⟨ refl ⟩
-    length (filterₗ drata $ zipₓ (e ∷ x) (e ∷ z) refl) ≡⟨ {!!} ⟩
+    length (filterₗ drata $ zipₓ (e ∷ x) (e ∷ z) refl) ≡⟨ refl ⟩
     length (filterₗ drata $ (e , e) ∷ zipₓ x z refl) ≡⟨ {!!} ⟩
     length (filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
     dist x z refl ∎
