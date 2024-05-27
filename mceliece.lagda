@@ -833,11 +833,19 @@ module DistVeritas where
   dunliv x z e = sym $ begin
     dist (e ∷ x) (e ∷ z) refl ≡⟨ refl ⟩
     length (filterₗ drata $ zipₓ (e ∷ x) (e ∷ z) refl) ≡⟨ refl ⟩
-    length (filterₗ drata $ (e , e) ∷ zipₓ x z refl) ≡⟨ {!!} ⟩
+    length (filterₗ drata $ (e , e) ∷ zipₓ x z refl) ≡⟨ drats e (zipₓ x z refl) ▹ cong length ⟩
     length (filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
     dist x z refl ∎
     where
     filterₗ = 𝕃.filter
+    drats : ∀ {a} → {A : Set a}
+          → ⦃ _ : Eq A ⦄
+          → (x : A)
+          → (xs : List $ A × A)
+          → (_≡_
+              (filterₗ drata $ (x , x) ∷ xs)
+              (filterₗ drata xs))
+    drats = {!!}
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
          → ⦃ E : Eq A ⦄
