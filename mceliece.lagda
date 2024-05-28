@@ -953,7 +953,7 @@ module PanciVertias where
       → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
       → (x : A)
       → ∃ $ λ n → panci x ≡ lookup (just x ∷ nothing ∷ []) n
-  xor x with (Dec (nu,iork x) ∋ _ ≟ _)
+  xor x with Dec (nu,iork x) ∋ _ ≟ _
   ... | yes n = zero , refl
   ... | no _ = suc zero , refl
 
