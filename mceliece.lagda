@@ -2469,7 +2469,7 @@ module DecodeVeritas where
         where
         open ≡-Reasoning
         x' : Vec _ $ suc m + 0
-        x' = x ▹ coerce {!!}
+        x' = x ▹ coerce (DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _))
       takedun (x ∷ xs) (z ∷ zs) = takedun xs zs ▹ coerce {!!}
       open ≡-Reasoning
 
