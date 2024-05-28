@@ -2464,9 +2464,12 @@ module DecodeVeritas where
       takedun [] z = refl
       takedun {m = suc m} x@(x₁ ∷ xs) [] = begin
         take (suc m) (x ++ []) ≡⟨ {!!} ⟩
+        take (suc m) x' ≡⟨ {!!} ⟩
         x ∎
         where
         open ≡-Reasoning
+        x' : Vec _ $ suc m + 0
+        x' = x ▹ coerce {!!}
       takedun (x ∷ xs) (z ∷ zs) = takedun xs zs ▹ coerce {!!}
       open ≡-Reasoning
 
