@@ -2470,7 +2470,7 @@ module DecodeVeritas where
         open ≡-Reasoning
         x' : Vec _ $ suc m + 0
         x' = x ▹_ $ coerce $ DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _)
-      takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ coerce {!!}
+      takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ {!!}
       open ≡-Reasoning
 
     romois : {p : MCParam}
