@@ -2134,6 +2134,8 @@ module SeededKeyGenVeritas where
                 → drop m (replicate {n = m + n} x) ≡ replicate x
       replidrop {m = m} {n = n} x = begin
         drop m (replicate {n = m + n} x) ≡⟨ {!!} ⟩
+        (fromList (𝕃.drop m $ 𝕃.replicate (m + n) x) ▹ coerce {!!}) ≡⟨ {!!} ⟩
+        (fromList (𝕃.replicate n x) ▹ coerce {!!}) ≡⟨ {!!} ⟩
         replicate {n = n} x ≡⟨ refl ⟩
         replicate x ∎
 
