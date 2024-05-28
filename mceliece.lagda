@@ -956,6 +956,15 @@ module PanciVertias where
   xor x with (Dec (nu,iork x) ∋ _ ≟ _)
   ... | yes n = zero , refl
   ... | no _ = suc zero , refl
+
+  dratan : ∀ {a} → {A : Set a}
+         → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
+         → (x : A)
+         → (n₁ n₂ : Fin _)
+         → lookup (vec x) n₁ ≡ lookup (vec x) n₂
+         → ¬_ $ n₁ ≡ n₂
+         → panci x ≡ nothing
+  dratan = {!!}
 \end{code}
 
 \section{la .\F{indice}}
