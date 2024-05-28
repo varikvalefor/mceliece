@@ -2197,7 +2197,8 @@ module SeededKeyGenVeritas where
             → {e : A}
             → (∃ $ λ n → 𝕃.lookup x n ≡ e)
             → e ∈ x
-        ∃→∈ = {!!}
+        ∃→∈ {x = x ∷ xs} {e} (𝔽.zero , d) = {!!}
+        ∃→∈ {x = x ∷ xs} {e} (𝔽.suc n , d) = {!!}
 
     nog : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
