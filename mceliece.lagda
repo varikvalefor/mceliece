@@ -902,7 +902,7 @@ pausyk b' (suc e) = _ , sym mips
 \end{code}
 
 \section{la \F{panci}}
-ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \F{panci} \B k\ .zoi.\ gi ga je ctaipe la'o zoi.\ \F{nu,iork} \B k\ .zoi.\ gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ la .\B{k}.
+ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \F{panci} \B k\ .zoi.\ gi ga je ctaipe la'o zoi.\ \F{nu,iork} \B k\ .zoi.\ gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ la .\B k.
 
 \begin{code}
 panci : ∀ {a} → {A : Set a}
