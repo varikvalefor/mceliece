@@ -897,7 +897,7 @@ pausyk b' (suc e) = _ , sym mips
     where
     z₁ = proj₁ $ pausyk b' e
     b = suc b'
-    bizum = _+_ $ b * z₁
+    bizum = b * z₁ +_
     open ≡-Reasoning
 \end{code}
 
