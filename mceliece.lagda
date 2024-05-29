@@ -2190,16 +2190,16 @@ module SeededKeyGenVeritas where
         where
         open ≡-Reasoning
       just∈L : just (toℕ δ) ∈ L
-      just∈L = ∃→∈ {x = L} $ suc zero , refl
+      just∈L = ∃⇒∈ {x = L} $ suc zero , refl
         where
-        ∃→∈ : ∀ {a} → {A : Set a}
+        ∃⇒∈ : ∀ {a} → {A : Set a}
             → ⦃ _ : Eq A ⦄
             → {x : List A}
             → {e : A}
             → (∃ $ λ n → 𝕃.lookup x n ≡ e)
             → e ∈ x
-        ∃→∈ {x = x ∷ xs} {e} (𝔽.zero , d) = {!!}
-        ∃→∈ {x = x ∷ xs} {e} (𝔽.suc n , d) = {!!}
+        ∃⇒∈ {x = x ∷ xs} {e} (𝔽.zero , d) = {!!}
+        ∃⇒∈ {x = x ∷ xs} {e} (𝔽.suc n , d) = {!!}
 
     nog : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
