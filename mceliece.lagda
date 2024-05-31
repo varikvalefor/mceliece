@@ -519,7 +519,7 @@ module F2fVeritas where
               → (f : Fin m)
               → (ml : toℕ f ℕ.< suc n)
               → fromℕ< ml ≡ f2f f
-  fromℕ<-f2f {m} {n} zero (ℕ.s≤s ℕ.z≤n) = {!!}
+  fromℕ<-f2f {m} {n} zero (ℕ.s≤s ℕ.z≤n) = refl
   fromℕ<-f2f {m} {n} (𝔽.suc f) (ℕ.s≤s s) = {!!}
 \end{code}
 
