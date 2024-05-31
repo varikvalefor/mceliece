@@ -497,9 +497,7 @@ module F2fVeritas where
       where
       sykles : {m n : ℕ} → suc m ℕ.≤ n → m ℕ.≤ n
       sykles (ℕ.s≤s s) = DNP.≤-step s
-      ≥⇒≤⍨ : {m n : ℕ}
-           → (m ℕ.≥ n)
-           → n ℕ.≤ m
+      ≥⇒≤⍨ : {m n : ℕ} → (m ℕ.≥ n) → n ℕ.≤ m
       ≥⇒≤⍨ = id
 
   zeron : {n m : ℕ}
