@@ -1279,7 +1279,8 @@ module B2fVeritas where
                          (mapᵥ
                            𝔽.inject₁
                              (mapᵥ o $ allFin n))))
-        o-allFin-∷ = {!!}
+        o-allFin-∷ {0} = {!!}
+        o-allFin-∷ {suc n} = {!!}
 
   module Portenfa where
     non : {m : ℕ} → B2f.portenfa {m} [] ≡ zero
