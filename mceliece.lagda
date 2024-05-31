@@ -1269,7 +1269,8 @@ module B2fVeritas where
                                (mapᵥ
                                  𝔽.inject₁
                                  (reverseᵥ $ allFin n))))
-        reverse-allFin-∷ = {!!}
+        reverse-allFin-∷ {0} = {!!}
+        reverse-allFin-∷ {suc n} = {!!}
         o-allFin-∷ : {n : ℕ}
                    → (_≡_
                        (mapᵥ o $ allFin $ suc n)
