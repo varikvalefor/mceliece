@@ -2396,7 +2396,8 @@ module DecodeVeritas where
         _ ≡⟨ dun?≡justd₁ ▹ cong (λ j → mapₘ (e ,_) $ j >>=ₘ λ x → mapₘ (x ,_) dun?) ⟩
         mapₘ (e ,_) (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
         mapₘ (e ,_) (mapₘ (d₁ ,_) dun?) ≡⟨ {!!} ⟩
-        mapₘ (e ,_) (just $ d₁ , d₂) ≡⟨ refl ⟩
+        mapₘ (λ i → e , d₁ , i) dun? ≡⟨ {!!} ⟩
+        mapₘ (λ i → e , d₁ , i) (just d₂) ≡⟨ refl ⟩
         just (e , d₁ , d₂) ∎
         where
         d₁ = proj₁ m
