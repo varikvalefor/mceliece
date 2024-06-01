@@ -326,6 +326,7 @@ import Data.Fin.Properties as DFP
 import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
 import Data.List.Properties as DLP
+import Data.Maybe.Properties as DMP
 import Data.Product.Properties as DPP
 import Data.List.Relation.Unary.All as Listal
 \end{code}
@@ -2395,7 +2396,7 @@ module DecodeVeritas where
         mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
         _ ≡⟨ dun?≡justd₁ ▹ cong (λ j → mapₘ (e ,_) $ j >>=ₘ λ x → mapₘ (x ,_) dun?) ⟩
         mapₘ (e ,_) (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
-        mapₘ (e ,_) (mapₘ (d₁ ,_) dun?) ≡⟨ {!!} ⟩
+        mapₘ (e ,_) (mapₘ (d₁ ,_) dun?) ≡⟨ DMP.map-compose {g = e ,_} {d₁ ,_} dun? ▹ sym ⟩
         mapₘ (λ i → e , d₁ , i) dun? ≡⟨ dun?≡justd₂ ▹ cong (mapₘ _) ⟩
         mapₘ (λ i → e , d₁ , i) (just d₂) ≡⟨ refl ⟩
         just (e , d₁ , d₂) ∎
