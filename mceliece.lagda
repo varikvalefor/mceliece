@@ -2392,7 +2392,7 @@ module DecodeVeritas where
       open ≡-Reasoning
       dunlyctaipe = begin
         mapti? {p} C₀ bar e ≡⟨ refl ⟩
-        mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
+        mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ dun?≡justd₁ ▹ cong (λ j → mapₘ (e ,_) $ j >>=ₘ λ x → mapₘ (x ,_) dun?) ⟩
         mapₘ (e ,_) (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
         mapₘ (e ,_) (just $ d₁ , d₂) ≡⟨ refl ⟩
         just (e , d₁ , d₂) ∎
