@@ -2394,7 +2394,8 @@ module DecodeVeritas where
         mapti? {p} C₀ bar e ≡⟨ refl ⟩
         mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
         _ ≡⟨ dun?≡justd₁ ▹ cong (λ j → mapₘ (e ,_) $ j >>=ₘ λ x → mapₘ (x ,_) dun?) ⟩
-        mapₘ (e ,_) (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
+        mapₘ (e ,_) (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
+        mapₘ (e ,_) (mapₘ (d₁ ,_) dun?) ≡⟨ {!!} ⟩
         mapₘ (e ,_) (just $ d₁ , d₂) ≡⟨ refl ⟩
         just (e , d₁ , d₂) ∎
         where
