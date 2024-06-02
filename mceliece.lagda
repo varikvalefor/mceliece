@@ -236,7 +236,6 @@ open import Data.Product
     uncurry;
     proj₁;
     proj₂;
-    curry;
     map₂;
     _×_;
     _,_;
