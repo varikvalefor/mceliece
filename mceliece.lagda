@@ -336,9 +336,7 @@ ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo ckupau poi
 ni'o la .varik.\ cu pacna lo nu na sarcu fa lo nu ciksi bau la .lojban.
 
 \begin{code}
-zmadekydu'i : {m n : ℕ}
-            → (x z : m ℕ.≤ n)
-            → x ≡ z
+zmadekydu'i : {m n : ℕ} → (x z : m ℕ.≤ n) → x ≡ z
 zmadekydu'i = DNP.≤-irrelevant
 \end{code}
 
