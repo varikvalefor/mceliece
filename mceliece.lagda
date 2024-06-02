@@ -274,6 +274,13 @@ open import Data.Vec.Bounded
   renaming (
     _,_ to _,ᵥ_
   )
+open import Data.Nat.Properties
+  as DNP
+  using (
+  )
+  renaming (
+    ≤-irrelevant to zmadekydu'i
+  )
 open import Truthbrary.Data.Fin
   using (
     tomindus;
@@ -321,7 +328,6 @@ open import Relation.Binary.PropositionalEquality
 
 import Agda.Builtin.IO as ABIO
 import Data.Fin.Properties as DFP
-import Data.Nat.Properties as DNP
 import Data.Vec.Properties as DVP
 import Data.List.Properties as DLP
 import Data.Maybe.Properties as DMP
@@ -331,14 +337,6 @@ import Data.List.Relation.Unary.All as Listal
 
 \chap{le vrici}
 ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo ckupau poi srana ke'a xi pa fa lo ro selvau be ke'a xi re
-
-\section{la \F{zmadekydu'i}}
-ni'o la .varik.\ cu pacna lo nu na sarcu fa lo nu ciksi bau la .lojban.
-
-\begin{code}
-zmadekydu'i : {m n : ℕ} → (x z : m ℕ.≤ n) → x ≡ z
-zmadekydu'i = DNP.≤-irrelevant
-\end{code}
 
 \section{la'oi .\F{hWV𝔽}.}
 ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x\ .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.\sds  .i sa'u nai ko'a nilzilcmi lo'i ro co'e poi la'oi .\AgdaInductiveConstructor{zero}.\ na meirmoi ke'a fo la'oi .\B x.
