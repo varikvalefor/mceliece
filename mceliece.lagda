@@ -272,7 +272,7 @@ open import Data.Nat.Properties
   using (
   )
   renaming (
-    ≤-irrelevant to zmadekydu'i
+    ≤-irrelevant to ≤≡≤
   )
 open import Truthbrary.Data.Fin
   using (
@@ -403,7 +403,7 @@ module F2fVeritas where
       m <?ₘ n ≡⟨ refl ⟩
       decToMaybe (m ℕ.<? n) ≡⟨ proj₂ DY ▹ cong decToMaybe ⟩
       decToMaybe (yes $ proj₁ DY) ≡⟨ refl ⟩
-      just (proj₁ DY) ≡⟨ zmadekydu'i _ _ ▹ cong just ⟩
+      just (proj₁ DY) ≡⟨ ≤≡≤ _ _ ▹ cong just ⟩
       just x ∎
       where
       DY = Relation.Nullary.Decidable.dec-yes (m ℕ.<? n) x
@@ -695,7 +695,7 @@ module ResizeVeritas where
       resize x xs ≡⟨ refl ⟩
       xt x xs (_ ℕ.≤? _) ≡⟨ DY ▹ proj₂ ▹ cong (xt x xs) ⟩
       xt x xs (yes $ proj₁ DY) ≡⟨ refl ⟩
-      _ ≡⟨ zmadekydu'i (proj₁ DY) g ▹ cong (xt x xs ∘ yes) ⟩
+      _ ≡⟨ ≤≡≤ (proj₁ DY) g ▹ cong (xt x xs ∘ yes) ⟩
       xt x xs (yes g) ∎
       where
       DY = Relation.Nullary.Decidable.dec-yes (_ ℕ.≤? _) g
@@ -1168,7 +1168,7 @@ module B2fVeritas where
         _ ≡⟨ dec-yes _ ml ▹ proj₂ ▹ cong decToMaybe ⟩
         decToMaybe (yes $ dec-yes (_ ℕ.<? _) ml ▹ proj₁) ≡⟨ refl ⟩
         just (dec-yes (_ ℕ.<? _) ml ▹ proj₁) ≡⟨ refl ⟩
-        _ ≡⟨ zmadekydu'i _ _ ▹ cong just ⟩
+        _ ≡⟨ ≤≡≤ _ _ ▹ cong just ⟩
         just ml ∎
         where
         open Relation.Nullary.Decidable using (dec-yes)
