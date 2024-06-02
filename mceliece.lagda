@@ -339,8 +339,7 @@ ni'o la .varik.\ cu pacna lo nu na sarcu fa lo nu ciksi bau la .lojban.
 zmadekydu'i : {m n : ℕ}
             → (x z : m ℕ.≤ n)
             → x ≡ z
-zmadekydu'i ℕ.z≤n ℕ.z≤n = refl
-zmadekydu'i (ℕ.s≤s x) (ℕ.s≤s z) = zmadekydu'i x z ▹ cong ℕ.s≤s
+zmadekydu'i = DNP.≤-irrelevant
 \end{code}
 
 \section{la'oi .\F{hWV𝔽}.}
