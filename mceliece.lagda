@@ -267,13 +267,6 @@ open import Relation.Nullary
     no;
     ¬_
   )
-open import Data.Vec.Bounded
-  using (
-    Vec≤
-  )
-  renaming (
-    _,_ to _,ᵥ_
-  )
 open import Data.Nat.Properties
   as DNP
   using (
