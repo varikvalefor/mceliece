@@ -238,7 +238,6 @@ open import Data.Product
     proj₂;
     curry;
     map₂;
-    dmap;
     _×_;
     _,_;
     Σ;
