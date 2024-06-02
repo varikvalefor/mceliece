@@ -1156,13 +1156,13 @@ module B2fVeritas where
       B2f.sumᵥ' v ≡⟨ sumᵥ'≡sumᵥ'₂ v ⟩
       sumᵥ'₂ v ≡⟨ refl ⟩
       maybe′ fromℕ< (fromℕ m) mleca? ≡⟨ refl ⟩
-      _ ≡⟨ J ▹_ $ cong $ maybe′ fromℕ< $ fromℕ m ⟩
+      _ ≡⟨ mleca?≡justml ▹_ $ cong $ maybe′ fromℕ< $ fromℕ m ⟩
       maybe′ fromℕ< (fromℕ m) (just ml) ≡⟨ refl ⟩
       fromℕ< ml ∎
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
-      J : mleca? ≡ just ml
-      J = begin
+      mleca?≡justml : mleca? ≡ just ml
+      mleca?≡justml = begin
         mleca? ≡⟨ refl ⟩
         decToMaybe (sumᵥ (mapᵥ toℕ v) ℕ.<? suc m) ≡⟨ refl ⟩
         _ ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
