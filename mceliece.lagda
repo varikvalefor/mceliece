@@ -1165,13 +1165,14 @@ module B2fVeritas where
       J = begin
         mleca? ≡⟨ refl ⟩
         decToMaybe (sumᵥ (mapᵥ toℕ v) ℕ.<? suc m) ≡⟨ refl ⟩
-        _ ≡⟨ dec-yes _ ml ▹ proj₂ ▹ cong decToMaybe ⟩
-        decToMaybe (yes $ dec-yes (_ ℕ.<? _) ml ▹ proj₁) ≡⟨ refl ⟩
-        just (dec-yes (_ ℕ.<? _) ml ▹ proj₁) ≡⟨ refl ⟩
+        _ ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
+        decToMaybe (yes $ DY ▹ proj₁) ≡⟨ refl ⟩
+        just (DY ▹ proj₁) ≡⟨ refl ⟩
         _ ≡⟨ ≤≡≤ _ _ ▹ cong just ⟩
         just ml ∎
         where
         open Relation.Nullary.Decidable using (dec-yes)
+        DY = dec-yes (_ ℕ.<? _) ml 
 
     dubjavmau : {m n : ℕ}
               → (v : Vec (Fin $ suc m) n)
