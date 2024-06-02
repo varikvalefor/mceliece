@@ -1161,7 +1161,6 @@ module B2fVeritas where
       fromℕ< ml ∎
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
-      mleca?≡justml : mleca? ≡ just ml
       mleca?≡justml = begin
         mleca? ≡⟨ refl ⟩
         decToMaybe (sumᵥ (mapᵥ toℕ v) ℕ.<? suc m) ≡⟨ refl ⟩
