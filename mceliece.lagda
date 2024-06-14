@@ -2425,7 +2425,8 @@ module DecodeVeritas where
 
     vc≡C₀++rz : {p : MCParam}
               → (C₀ : xv p MCParam.n-k)
-              → vc' {p} C₀ ≡ C₀ ++ replicate zero
+              → let vc = vc' {p} C₀ in
+                vc ≡ C₀ ++ replicate zero
     vc≡C₀++rz {p} C₀ = CoerceVeritas.flipko _ (n∸k+k≡n p) ▹ sym
 
 
