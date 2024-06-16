@@ -2124,7 +2124,9 @@ module SeededKeyGenVeritas where
         replicate {n = n} x ≡⟨ refl ⟩
         replicate x ∎
         where
-        k = {!!} ▹ cong (Vec _)
+        k = cong (Vec _) $ begin
+          𝕃.length (𝕃.drop m (𝕃.replicate (m + n) x)) ≡⟨ {!!} ⟩
+          n ∎
 
   module G?V where
     open SeededKeyGen.G?
