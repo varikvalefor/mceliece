@@ -2219,6 +2219,13 @@ module SeededKeyGenVeritas where
         → sivni? {p} δ ≡ nothing
         → mapti? {p} δ E ≡ nothing
     nos = {!!}
+
+    jus : {p : MCParam}
+        → (δ : Fin $ 2 ^ MCParam.ℓ p)
+        → (E : _)
+        → Set {!!} ∋ {!!}
+        → mapti? {p} δ E ≡ just {!!}
+    jus = {!!}
 \end{code}
 
 \section{la'oi .\F{KeyGen}.}
