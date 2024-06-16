@@ -2124,7 +2124,7 @@ module SeededKeyGenVeritas where
         replicate {n = n} x ≡⟨ refl ⟩
         replicate x ∎
         where
-        k = {!!}
+        k = {!!} ▹ cong (Vec _)
 
   module G?V where
     open SeededKeyGen.G?
