@@ -2126,7 +2126,7 @@ module SeededKeyGenVeritas where
         where
         k = cong (Vec _) $ begin
           𝕃.length (𝕃.drop m (𝕃.replicate (m + n) x)) ≡⟨ {!!} ⟩
-          𝕃.length (𝕃.replicate n x) ≡⟨ {!!} ⟩
+          𝕃.length (𝕃.replicate n x) ≡⟨ DLP.length-replicate n ⟩
           n ∎
 
   module G?V where
