@@ -2135,7 +2135,8 @@ module SeededKeyGenVeritas where
                         → (_≡_
                             (𝕃.drop m $ 𝕃.replicate (m + n) x)
                             (𝕃.replicate n x))
-          m↓r[m+n]≡r[n] = {!!}
+          m↓r[m+n]≡r[n] 0 n x = {!!}
+          m↓r[m+n]≡r[n] (ℕ.suc m) n x = {!!}
 
   module G?V where
     open SeededKeyGen.G?
