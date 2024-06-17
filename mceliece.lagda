@@ -2116,7 +2116,9 @@ module SeededKeyGenVeritas where
       open ≡-Reasoning
       replidrop : ∀ {a} → {A : Set a} → {m n : ℕ}
                 → (x : A)
-                → drop m (replicate {n = m + n} x) ≡ replicate x
+                → (_≡_
+                    (drop m (replicate {n = m + n} x))
+                    (replicate x))
       replidrop {m = m} {n = n} x = begin
         drop m (replicate {n = m + n} x) ≡⟨ {!!} ⟩
         (fromList (𝕃.drop m $ 𝕃.replicate (m + n) x) ▹ coerce k) ≡⟨ {!!} ⟩
