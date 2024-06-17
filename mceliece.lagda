@@ -2128,8 +2128,8 @@ module SeededKeyGenVeritas where
         where
         k' = DLP.length-replicate _ ▹ cong (Vec _)
         k = cong (Vec _) $ begin
-          𝕃.length (𝕃.drop m $ 𝕃.replicate (m + n) x)
-            ≡⟨ m↓r[m+n]≡r[n] m n x ▹ cong 𝕃.length ⟩
+          𝕃.length (𝕃.drop m $ 𝕃.replicate (m + n) x) ≡⟨ refl ⟩
+          _ ≡⟨ m↓r[m+n]≡r[n] m n x ▹ cong 𝕃.length ⟩
           𝕃.length (𝕃.replicate n x) ≡⟨ DLP.length-replicate n ⟩
           n ∎
           where
