@@ -2122,7 +2122,7 @@ module SeededKeyGenVeritas where
       replidrop {m = m} {n = n} x = begin
         drop m (replicate {n = m + n} x) ≡⟨ {!!} ⟩
         (fromList (𝕃.drop m $ 𝕃.replicate (m + n) x) ▹ coerce k) ≡⟨ {!!} ⟩
-        (fromList (𝕃.replicate n x) ▹ coerce {!!}) ≡⟨ {!!} ⟩
+        (fromList (𝕃.replicate n x) ▹ coerce k') ≡⟨ {!!} ⟩
         replicate {n = n} x ≡⟨ refl ⟩
         replicate x ∎
         where
@@ -2140,6 +2140,7 @@ module SeededKeyGenVeritas where
                             (𝕃.replicate n x))
           m↓r[m+n]≡r[n] 0 n x = refl
           m↓r[m+n]≡r[n] (ℕ.suc m) n x = m↓r[m+n]≡r[n] m n x
+        k' = {!!}
 
   module G?V where
     open SeededKeyGen.G?
