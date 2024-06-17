@@ -2126,6 +2126,7 @@ module SeededKeyGenVeritas where
         replicate {n = n} x ≡⟨ refl ⟩
         replicate x ∎
         where
+        k' = DLP.length-replicate _ ▹ cong (Vec _)
         k = cong (Vec _) $ begin
           𝕃.length (𝕃.drop m $ 𝕃.replicate (m + n) x)
             ≡⟨ m↓r[m+n]≡r[n] m n x ▹ cong 𝕃.length ⟩
@@ -2140,7 +2141,6 @@ module SeededKeyGenVeritas where
                             (𝕃.replicate n x))
           m↓r[m+n]≡r[n] 0 n x = refl
           m↓r[m+n]≡r[n] (ℕ.suc m) n x = m↓r[m+n]≡r[n] m n x
-        k' = DLP.length-replicate _ ▹ cong (Vec _)
 
   module G?V where
     open SeededKeyGen.G?
