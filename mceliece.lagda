@@ -605,7 +605,7 @@ module FromList?Veritas where
          → (x : List A)
          → (∃ $ λ i → _≡_
              (mapₘ toList $ fromList? {n = n} x)
-             (i ▹_ $ lookup $ nothing ∷ just x ∷ []))
+             (flip lookup i $ nothing ∷ just x ∷ []))
   mapdus = {!!}
 \end{code}
 
