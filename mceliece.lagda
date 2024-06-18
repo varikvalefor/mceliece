@@ -431,9 +431,10 @@ module F2fVeritas where
 
     jonais : {m n : ℕ}
            → (j : Maybe _)
-           → (_⊎_
-               (toℕ (mFdᵢ {n} {m} j) ≡ n)
-               (toℕ (mFdᵢ {n} {m} j) ≡ m))
+           → let t = toℕ (mFdᵢ {n} {m} j) in
+             (_⊎_
+               (t ≡ n)
+               (t ≡ m))
     jonais = {!!}
 
   module MFd where
