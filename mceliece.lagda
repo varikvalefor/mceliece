@@ -138,6 +138,11 @@ open import Data.Fin
     Fin;
     suc
   )
+open import Data.Sum
+  as _⊎_
+  using (
+    _⊎_
+  )
 open import Data.Vec
   using (
     replicate;
@@ -423,6 +428,13 @@ module F2fVeritas where
 
     nada : {m n : ℕ} → n ≡_ $ toℕ $ mFdᵢ {n} {m} nothing
     nada = DFP.toℕ-fromℕ< _ ▹ sym
+
+    jonais : {m n : ℕ}
+           → (j : Maybe _)
+           → (_⊎_
+               (toℕ (mFdᵢ {n} {m} j) ≡ n)
+               (toℕ (mFdᵢ {n} {m} j) ≡ m))
+    jonais = {!!}
 
   module MFd where
     mleca : {m n : ℕ}
