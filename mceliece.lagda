@@ -534,6 +534,8 @@ f𝔽 f = f2f ∘₂ fromℕ ∘₂ f on toℕ
 
 \begin{code}
 module F𝔽Veritas where
+  open ≡-Reasoning
+
   mleca : {n : ℕ}
         → (f : Op₂ ℕ)
         → (x z : Fin $ suc n)
@@ -548,7 +550,6 @@ module F𝔽Veritas where
     f' = f on toℕ
     f'' = fromℕ ∘₂ f'
     m' = m ▹_ $ subst (ℕ._< _) $ DFP.toℕ-fromℕ _ ▹ sym
-    open ≡-Reasoning
 
   dubjavmau : {n : ℕ}
             → (f : Op₂ ℕ)
@@ -570,7 +571,6 @@ module F𝔽Veritas where
     DN = Relation.Nullary.Decidable.dec-no (f'' x z ℕ.<? _) j'
       where
       j' = j ▹ subst (¬_ ∘ (ℕ._< suc n)) (DFP.toℕ-fromℕ _ ▹ sym)
-    open ≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{coerce}.}
