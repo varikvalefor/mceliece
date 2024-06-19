@@ -2074,7 +2074,7 @@ module SeededKeyGen where
   sivni? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
          → Maybe $ Private p
-  sivni? {p} δ = g? {p} δ >>=ₘ just ∘ Sivni?I.f δ
+  sivni? {p} δ = mapₘ (Sivni?I.f δ) $ g? {p} δ
 
   mapti? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
