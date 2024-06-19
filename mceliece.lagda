@@ -2238,7 +2238,11 @@ module SeededKeyGenVeritas where
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
         → G?.g? {p} δ ≡ nothing
         → sivni? {p} δ ≡ nothing
-    nog = {!!}
+    nog {p} δ d = begin
+      sivni? {p} δ ≡⟨ {!!} ⟩
+      nothing ∎
+      where
+      open ≡-Reasoning
 
     no,ir : {p : MCParam}
           → (δ : Fin $ 2 ^ MCParam.ℓ p)
