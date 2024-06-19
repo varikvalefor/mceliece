@@ -1917,7 +1917,13 @@ module FixedWeight where
         -- fa tu'a la'oi .fromℕ.  .i ku'i xu mleca ko'a
         mind = fromℕ $ toℕ i + MCParam.σ₁ p * toℕ j
         sukdiz : ∃ $ λ n → suc n ≡ MCParam.σ₁ p * τ' p
-        sukdiz = {!!}
+        sukdiz = sukdiz-¬0 (MCParam.σ₁ p) (τ' p) {!!} {!!}
+          where
+          sukdiz-¬0 : (m n : ℕ)
+                    → ¬ (m ≡ 0)
+                    → ¬ (n ≡ 0)
+                    → ∃ $ λ o → suc o ≡ m * n
+          sukdiz-¬0 = {!!}
       b' = nbits $ toℕ b
 
   a? : (p : MCParam)
