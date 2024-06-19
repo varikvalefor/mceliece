@@ -2258,6 +2258,7 @@ module SeededKeyGenVeritas where
       mapₘ (Sivni?I.f δ) (G?.g? {p} δ) ≡⟨ refl ⟩
       S (G?.g? {p} δ) ≡⟨ refl ⟩
       S (mapₘ (G?.frir p) $ Irreducible {p} $ Eₚ' {p} δ) ≡⟨ {!!} ⟩
+      S (mapₘ (G?.frir p) nothing) ≡⟨ {!!} ⟩
       nothing ∎
       where
       open ≡-Reasoning
