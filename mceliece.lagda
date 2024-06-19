@@ -2525,6 +2525,7 @@ module DecodeEncode where
                     (just e)
                     (Decode
                       {p}
+                      -- | .i ba xruti
                       (Encode p e g dun)
                       g
                       {!!}
