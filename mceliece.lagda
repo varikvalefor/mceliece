@@ -2255,10 +2255,12 @@ module SeededKeyGenVeritas where
           → sivni? {p} δ ≡ nothing
     no,ir {p} δ d = begin
       sivni? {p} δ ≡⟨ refl ⟩
-      mapₘ (Sivni?I.f δ) (G?.g? {p} δ) ≡⟨ {!!} ⟩
+      mapₘ (Sivni?I.f δ) (G?.g? {p} δ) ≡⟨ refl ⟩
+      S (G?.g? {p} δ) ≡⟨ {!!} ⟩
       nothing ∎
       where
       open ≡-Reasoning
+      S = mapₘ $ Sivni?I.f δ
 
   module Mapti? where
     nos : {p : MCParam}
