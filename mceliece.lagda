@@ -2059,14 +2059,22 @@ module SeededKeyGen where
       g?
     )
 
+  module Sivni?I where
+    f : {p : MCParam}
+      → Fin $ 2 ^ MCParam.ℓ p
+      → let Vq = Vec $ Fin $ MCParam.q p in
+        Vq (MCParam.n p) × ∃ Vq
+      → Private p
+    f {p} δ (j , lg , g) = record {
+      lg = lg;
+      Γ = g , j;
+      s = nbits $ toℕ $ b2f $ nbits {MCParam.n p} $ toℕ δ
+      }
+
   sivni? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
          → Maybe $ Private p
-  sivni? {p} δ = g? {p} δ >>=ₘ λ (j , lg , g) → just record {
-    lg = lg;
-    Γ = g , j;
-    s = nbits $ toℕ $ b2f $ nbits {MCParam.n p} $ toℕ δ
-    }
+  sivni? {p} δ = g? {p} δ >>=ₘ just ∘ (Sivni?I.f δ)
 
   mapti? : {p : MCParam}
          → Fin $ 2 ^ MCParam.ℓ p
