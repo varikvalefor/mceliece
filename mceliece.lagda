@@ -2236,7 +2236,11 @@ module SeededKeyGenVeritas where
           → (δ : Fin $ 2 ^ MCParam.ℓ p)
           → Irreducible {p} (Eₚ' {p} δ) ≡ nothing
           → sivni? {p} δ ≡ nothing
-    no,ir = {!!}
+    no,ir {p} δ d = begin
+      sivni? {p} δ ≡⟨ {!!} ⟩
+      nothing ∎
+      where
+      open ≡-Reasoning
 
   module Mapti? where
     nos : {p : MCParam}
