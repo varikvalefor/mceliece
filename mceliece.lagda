@@ -2241,6 +2241,7 @@ module SeededKeyGenVeritas where
     nog {p} δ d = begin
       sivni? {p} δ ≡⟨ refl ⟩
       mapₘ (Sivni?I.f δ) (G?.g? {p} δ) ≡⟨ {!!} ⟩
+      mapₘ (Sivni?I.f δ) nothing ≡⟨ refl ⟩
       nothing ∎
       where
       open ≡-Reasoning
