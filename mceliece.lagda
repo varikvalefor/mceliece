@@ -1923,7 +1923,9 @@ module FixedWeight where
                     → ¬ (m ≡ 0)
                     → ¬ (n ≡ 0)
                     → ∃ $ λ o → suc o ≡ m * n
-          sukdiz-¬0 = {!!}
+          sukdiz-¬0 (suc m) (suc n) N₁ N₂ = {!!}
+          sukdiz-¬0 0 n N₁ N₂ = {!!}
+          sukdiz-¬0 m 0 N₁ N₂ = {!!}
       b' = nbits $ toℕ b
 
   a? : (p : MCParam)
