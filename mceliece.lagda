@@ -2256,7 +2256,8 @@ module SeededKeyGenVeritas where
     no,ir {p} δ d = begin
       sivni? {p} δ ≡⟨ refl ⟩
       mapₘ (Sivni?I.f δ) (G?.g? {p} δ) ≡⟨ refl ⟩
-      S (G?.g? {p} δ) ≡⟨ {!!} ⟩
+      S (G?.g? {p} δ) ≡⟨ refl ⟩
+      S (mapₘ (G?.frir p) $ Irreducible {p} $ Eₚ' {p} δ) ≡⟨ {!!} ⟩
       nothing ∎
       where
       open ≡-Reasoning
