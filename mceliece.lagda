@@ -2257,7 +2257,8 @@ module SeededKeyGenVeritas where
       sivni? {p} δ ≡⟨ refl ⟩
       mapₘ (Sivni?I.f δ) (G?.g? {p} δ) ≡⟨ refl ⟩
       S (G?.g? {p} δ) ≡⟨ refl ⟩
-      S (mapₘ (G?.frir p) $ Irreducible {p} $ Eₚ' {p} δ) ≡⟨ d ▹ cong (S ∘ mapₘ (G?.frir p)) ⟩
+      S (mapₘ (G?.frir p) $ Irreducible {p} $ Eₚ' {p} δ) ≡⟨ refl ⟩
+      _ ≡⟨ d ▹ cong (S ∘ mapₘ (G?.frir p)) ⟩
       S (mapₘ (G?.frir p) nothing) ≡⟨ refl ⟩
       S nothing ≡⟨ refl ⟩
       nothing ∎
