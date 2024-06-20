@@ -1313,7 +1313,7 @@ module B2fVeritas where
                (_+_
                  (toℕ x * suc m ^ suc n)
                  (toℕ
-                   (B2f.portenfa {m} {n} (xs ▹ mapᵥ f2f)))))
+                   (B2f.portenfa {m} {n} $ xs ▹ mapᵥ f2f))))
     jminan = {!!}
 
   kunti : (m : ℕ) → b2f {m} [] ≡ zero
