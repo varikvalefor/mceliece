@@ -2358,7 +2358,7 @@ ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka ce'u xe fa
 \begin{code}
 module Decode where
   xv : MCParam → (MCParam → ℕ) → Set
-  xv p = Vec (Fin 2) ∘_ $ _$ p
+  xv = Vec (Fin 2) ∘₂ flip _$_
 
   mapti : {p : MCParam}
         → xv p MCParam.n-k
@@ -2389,7 +2389,6 @@ module Decode where
                 (xv p MCParam.n))
     n∸k+k≡n p = DNP.m∸n+n≡m k≤n ▹ cong (Vec _)
       where
-      k≤n : MCParam.k p ℕ.≤ MCParam.n p
       k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
 
     v' : (p : MCParam) → xv p MCParam.n-k → xv p MCParam.n
