@@ -496,8 +496,8 @@ module F2fVeritas where
     n ℕ.⊓ toℕ f ∎
     where
     ≰⇒≤⍨ : {m n : ℕ}
-        → ¬_ $ suc m ℕ.≤ suc n
-        → n ℕ.≤ m
+         → ¬_ $ suc m ℕ.≤ suc n
+         → n ℕ.≤ m
     ≰⇒≤⍨ = sykles ∘ ≥⇒≤⍨ ∘ DNP.≮⇒≥
       where
       sykles : {m n : ℕ} → suc m ℕ.≤ n → m ℕ.≤ n
