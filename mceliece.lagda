@@ -1560,7 +1560,7 @@ module Hw𝕄Veritas where
           → (x : 𝕄 (Fin a) m n)
           → (e : Vec (Fin a) m)
           → hw𝕄 (e ∷ x) ≡ hw𝕄 (e ∷ []) + hw𝕄 x
-  jminas₂ x e = jminas x e ▹ subst (_≡_ $ hw𝕄 $ e ∷ x) (pav' x e)
+  jminas₂ x e = jminas x e ▹ subst (_≡_ _) (pav' x e)
     where
     pav' = λ x e → pav e ▹ sym ▹ cong (_+ hw𝕄 x)
 \end{code}
