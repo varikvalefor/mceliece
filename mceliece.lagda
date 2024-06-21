@@ -2534,7 +2534,7 @@ module DecodeVeritas where
     romois : {p : MCParam}
            → (C₀ : xv p MCParam.n-k)
            → let vc = vc' {p} C₀ in
-             _≡_ (drop (length C₀) vc) (replicate zero)
+             (drop (length C₀) vc) ≡ (replicate zero)
     romois {p} C₀ = begin
       drop (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹_ $ cong $ drop _ ⟩
       drop (length C₀) (C₀ ++ replicate zero) ≡⟨ dropdun C₀ _ ⟩
