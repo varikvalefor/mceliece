@@ -2467,16 +2467,16 @@ module DecodeVeritas where
              → ⦃ _ : Eq A ⦄
              → Maybe $ B ≡ C
         dun? = decToMaybe $ _ ≟ _
-        xy : ∀ {a} → {A : Set a}
-           → ⦃ _ : Eq A ⦄
-           → {x z : A}
-           → (d : x ≡ z)
-           → decToMaybe (x ≟ z) ≡ just d
-        xy = {!!}
+        xys : ∀ {a} → {A : Set a}
+            → ⦃ _ : Eq A ⦄
+            → {x z : A}
+            → (d : x ≡ z)
+            → decToMaybe (x ≟ z) ≡ just d
+        xys = {!!}
         dun?≡justd₂ : dun? ≡ just d₂
-        dun?≡justd₂ = xy d₂
+        dun?≡justd₂ = xys d₂
         dun?≡justd₁ : dun? ≡ just d₁
-        dun?≡justd₁ = xy d₁
+        dun?≡justd₁ = xys d₁
 
     nada : {p : MCParam}
          → (C₀ : xv p MCParam.n-k)
