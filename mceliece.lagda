@@ -2474,6 +2474,7 @@ module DecodeVeritas where
             → decToMaybe (x ≟ z) ≡ just d
         xys {x = x} {z} d = begin
           decToMaybe (x ≟ z) ≡⟨ {!!} ⟩
+          decToMaybe (yes d) ≡⟨ refl ⟩
           just d ∎
           where
           open ≡-Reasoning
