@@ -2473,11 +2473,13 @@ module DecodeVeritas where
             → (d : x ≡ z)
             → decToMaybe (x ≟ z) ≡ just d
         xys {x = x} {z} d = begin
-          decToMaybe (x ≟ z) ≡⟨ {!!} ⟩
+          decToMaybe (x ≟ z) ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
+          decToMaybe (yes $ proj₁ DY) ≡⟨ {!!} ⟩
           decToMaybe (yes d) ≡⟨ refl ⟩
           just d ∎
           where
           open ≡-Reasoning
+          DY = Relation.Nullary.Decidable.dec-yes (x ≟ z) d
         dun?≡justd₂ : dun? ≡ just d₂
         dun?≡justd₂ = xys d₂
         dun?≡justd₁ : dun? ≡ just d₁
