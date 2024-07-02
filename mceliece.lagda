@@ -2494,7 +2494,7 @@ module DecodeVeritas where
          → (e : xv p MCParam.n)
          → ¬_ $ mapti {p} C₀ bar e
          → mapti? {p} C₀ bar e ≡ nothing
-    nada = λ C₀ bar e N → begin
+    nada C₀ bar e N = begin
       mapti? C₀ bar e ≡⟨ {!!} ⟩
       nothing ∎
       where
