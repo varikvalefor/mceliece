@@ -2453,7 +2453,7 @@ module DecodeVeritas where
       dunlyctaipe = begin
         mapti? {p} C₀ bar e ≡⟨ refl ⟩
         mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
-        _ ≡⟨ dun?≡justd₁ ▹ cong (λ j → mapₘ (e ,_) $ j >>=ₘ λ x → mapₘ (x ,_) dun?) ⟩
+        _ ≡⟨ xys d₁ ▹ cong (λ j → mapₘ (e ,_) $ j >>=ₘ λ x → mapₘ (x ,_) dun?) ⟩
         mapₘ (e ,_) (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
         mapₘ (e ,_) (mapₘ (d₁ ,_) dun?) ≡⟨ refl ⟩
         _ ≡⟨ DMP.map-compose {g = e ,_} {d₁ ,_} dun? ▹ sym ⟩
@@ -2486,8 +2486,6 @@ module DecodeVeritas where
               → (d₁ d₂ : x ≡ z)
               → d₁ ≡ d₂
           ≡≡≡ refl refl = refl
-        dun?≡justd₁ : dun? ≡ just d₁
-        dun?≡justd₁ = xys d₁
 
     nada : {p : MCParam}
          → (C₀ : xv p MCParam.n-k)
