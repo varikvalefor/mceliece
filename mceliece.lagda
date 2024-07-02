@@ -2485,7 +2485,7 @@ module DecodeVeritas where
               → {x z : A}
               → (d₁ d₂ : x ≡ z)
               → d₁ ≡ d₂
-          ≡≡≡ = {!!}
+          ≡≡≡ refl refl = refl
         dun?≡justd₁ : dun? ≡ just d₁
         dun?≡justd₁ = xys d₁
 
