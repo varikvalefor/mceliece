@@ -342,6 +342,16 @@ import Data.List.Relation.Unary.All as Listal
 \chap{le vrici}
 ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo ckupau poi srana ke'a xi pa fa lo ro selvau be ke'a xi re
 
+\section{la'o zoi.\ \F{dun?}\ .zoi.}
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi la'o zoi.\ \F{dun?}\ .zoi.\ bau la .lojban.
+
+\begin{code}
+dun? : ∀ {a} → {A : Set a} → {B C : A}
+     → ⦃ Eq A ⦄
+     → Maybe $ B ≡ C
+dun? = decToMaybe $ _ ≟ _
+\end{code}
+
 \section{la'oi .\F{hWV𝔽}.}
 ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x\ .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.\sds  .i sa'u nai ko'a nilzilcmi lo'i ro co'e poi la'oi .\AgdaInductiveConstructor{zero}.\ na meirmoi ke'a fo la'oi .\B x.
 
@@ -1013,7 +1023,6 @@ toVec? : ∀ {a} → {A : Set a} → {n : ℕ}
 toVec? l = mapₘ (λ n → fromList l ▹_ $ coerce $ vk n) dun?
   where
   vk = cong $ Vec _
-  dun? = decToMaybe $ _ ≟ _
 \end{code}
 
 \chap{le fancu co ke porsi be lo'i me'oi .bit.\ ke'e}
@@ -2377,11 +2386,6 @@ module Decode where
   mapti? C₀ bar e = mapₘ (e ,_) ctaiporsis
     where
     ctaiporsis = dun? >>=ₘ λ x → mapₘ (x ,_) dun?
-      where
-      dun? : ∀ {a} → {A : Set a} → {B C : A}
-           → ⦃ Eq A ⦄
-           → Maybe $ B ≡ C
-      dun? = decToMaybe $ _ ≟ _
 
   module V' where
     n∸k+k≡n : (p : MCParam)
@@ -2464,10 +2468,6 @@ module DecodeVeritas where
         where
         d₁ = proj₁ m
         d₂ = proj₂ m
-        dun? : ∀ {a} → {A : Set a} → {B C : A}
-             → ⦃ _ : Eq A ⦄
-             → Maybe $ B ≡ C
-        dun? = decToMaybe $ _ ≟ _
         xys : ∀ {a} → {A : Set a}
             → ⦃ _ : Eq A ⦄
             → {x z : A}
