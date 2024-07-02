@@ -2472,8 +2472,9 @@ module DecodeVeritas where
             → ⦃ _ : Eq A ⦄
             → {x z : A}
             → (d : x ≡ z)
-            → decToMaybe (x ≟ z) ≡ just d
+            → dun? ≡ just d
         xys {x = x} {z} d = begin
+          dun? ≡⟨ refl ⟩
           decToMaybe (x ≟ z) ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
           decToMaybe (yes $ proj₁ DY) ≡⟨ refl ⟩
           _ ≡⟨ ≡≡≡ (proj₁ DY) d ▹ cong (decToMaybe ∘ yes) ⟩
