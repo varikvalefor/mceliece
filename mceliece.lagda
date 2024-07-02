@@ -371,9 +371,7 @@ module Dun?Veritas where
     where
     open ≡-Reasoning
     DY = Relation.Nullary.Decidable.dec-yes (x ≟ z) d
-    ≡≡≡ : ∀ {a} → {A : Set a}
-        → {x z : A}
-        → (d₁ d₂ : x ≡ z)
+    ≡≡≡ : (d₁ d₂ : x ≡ z)
         → d₁ ≡ d₂
     ≡≡≡ refl refl = refl
 \end{code}
