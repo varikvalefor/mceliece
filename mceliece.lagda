@@ -2457,7 +2457,7 @@ module DecodeVeritas where
         mapₘ (e ,_) (just d₁ >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ refl ⟩
         mapₘ (e ,_) (mapₘ (d₁ ,_) dun?) ≡⟨ refl ⟩
         _ ≡⟨ DMP.map-compose {g = e ,_} {d₁ ,_} dun? ▹ sym ⟩
-        mapₘ (λ i → e , d₁ , i) dun? ≡⟨ dun?≡justd₂ ▹ cong (mapₘ _) ⟩
+        mapₘ (λ i → e , d₁ , i) dun? ≡⟨ xys d₂ ▹ cong (mapₘ _) ⟩
         mapₘ (λ i → e , d₁ , i) (just d₂) ≡⟨ refl ⟩
         just (e , d₁ , d₂) ∎
         where
@@ -2480,8 +2480,6 @@ module DecodeVeritas where
           where
           open ≡-Reasoning
           DY = Relation.Nullary.Decidable.dec-yes (x ≟ z) d
-        dun?≡justd₂ : dun? ≡ just d₂
-        dun?≡justd₂ = xys d₂
         dun?≡justd₁ : dun? ≡ just d₁
         dun?≡justd₁ = xys d₁
 
