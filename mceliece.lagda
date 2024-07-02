@@ -352,6 +352,32 @@ dun? : ∀ {a} → {A : Set a} → {B C : A}
 dun? = decToMaybe $ _ ≟ _
 \end{code}
 
+\subsection{le ctaipe be le su'u la'o zoi.\ \F{dun?}\ .zoi.\ mapti}
+
+\begin{code}
+module Dun?Veritas where
+  jus : ∀ {a} → {A : Set a}
+      → ⦃ _ : Eq A ⦄
+      → {x z : A}
+      → (d : x ≡ z)
+      → dun? ≡ just d
+  jus {x = x} {z} d = begin
+    dun? ≡⟨ refl ⟩
+    decToMaybe (x ≟ z) ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
+    decToMaybe (yes $ proj₁ DY) ≡⟨ refl ⟩
+    _ ≡⟨ ≡≡≡ (proj₁ DY) d ▹ cong (decToMaybe ∘ yes) ⟩
+    decToMaybe (yes d) ≡⟨ refl ⟩
+    just d ∎
+    where
+    open ≡-Reasoning
+    DY = Relation.Nullary.Decidable.dec-yes (x ≟ z) d
+    ≡≡≡ : ∀ {a} → {A : Set a}
+        → {x z : A}
+        → (d₁ d₂ : x ≡ z)
+        → d₁ ≡ d₂
+    ≡≡≡ refl refl = refl
+\end{code}
+
 \section{la'oi .\F{hWV𝔽}.}
 ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x\ .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.\sds  .i sa'u nai ko'a nilzilcmi lo'i ro co'e poi la'oi .\AgdaInductiveConstructor{zero}.\ na meirmoi ke'a fo la'oi .\B x.
 
@@ -2468,26 +2494,7 @@ module DecodeVeritas where
         where
         d₁ = proj₁ m
         d₂ = proj₂ m
-        xys : ∀ {a} → {A : Set a}
-            → ⦃ _ : Eq A ⦄
-            → {x z : A}
-            → (d : x ≡ z)
-            → dun? ≡ just d
-        xys {x = x} {z} d = begin
-          dun? ≡⟨ refl ⟩
-          decToMaybe (x ≟ z) ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
-          decToMaybe (yes $ proj₁ DY) ≡⟨ refl ⟩
-          _ ≡⟨ ≡≡≡ (proj₁ DY) d ▹ cong (decToMaybe ∘ yes) ⟩
-          decToMaybe (yes d) ≡⟨ refl ⟩
-          just d ∎
-          where
-          open ≡-Reasoning
-          DY = Relation.Nullary.Decidable.dec-yes (x ≟ z) d
-          ≡≡≡ : ∀ {a} → {A : Set a}
-              → {x z : A}
-              → (d₁ d₂ : x ≡ z)
-              → d₁ ≡ d₂
-          ≡≡≡ refl refl = refl
+        xys = Dun?Veritas.jus
 
     nada : {p : MCParam}
          → (C₀ : xv p MCParam.n-k)
