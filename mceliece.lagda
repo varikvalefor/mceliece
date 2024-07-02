@@ -2472,7 +2472,11 @@ module DecodeVeritas where
             → {x z : A}
             → (d : x ≡ z)
             → decToMaybe (x ≟ z) ≡ just d
-        xys = {!!}
+        xys {x = x} {z} d = begin
+          decToMaybe (x ≟ z) ≡⟨ {!!} ⟩
+          just d ∎
+          where
+          open ≡-Reasoning
         dun?≡justd₂ : dun? ≡ just d₂
         dun?≡justd₂ = xys d₂
         dun?≡justd₁ : dun? ≡ just d₁
