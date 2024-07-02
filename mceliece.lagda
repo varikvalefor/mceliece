@@ -2474,7 +2474,7 @@ module DecodeVeritas where
             → decToMaybe (x ≟ z) ≡ just d
         xys {x = x} {z} d = begin
           decToMaybe (x ≟ z) ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
-          decToMaybe (yes $ proj₁ DY) ≡⟨ {!!} ⟩
+          decToMaybe (yes $ proj₁ DY) ≡⟨ {!!} ▹ cong (decToMaybe ∘ yes) ⟩
           decToMaybe (yes d) ≡⟨ refl ⟩
           just d ∎
           where
