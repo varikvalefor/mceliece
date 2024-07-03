@@ -2565,7 +2565,7 @@ module DecodeVeritas where
            → let vc = vc' {p} C₀ in
              replicate zero ≡ drop (length C₀) vc 
     romois {p} C₀ = sym $ begin
-      drop (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹_ $ cong $ drop _ ⟩
+      drop (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹ cong (drop _) ⟩
       drop (length C₀) (C₀ ++ replicate zero) ≡⟨ dropdun C₀ _ ⟩
       replicate zero ∎
       where
