@@ -2505,7 +2505,8 @@ module DecodeVeritas where
          → ¬_ $ mapti {p} C₀ bar e
          → mapti? {p} C₀ bar e ≡ nothing
     nada C₀ bar e N = begin
-      mapti? C₀ bar e ≡⟨ {!!} ⟩
+      mapti? C₀ bar e ≡⟨ refl ⟩
+      mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
       nothing ∎
       where
       open ≡-Reasoning
