@@ -2342,8 +2342,9 @@ module Hx where
      → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
   Hx p T = I zero (suc zero) ∣ T ▹ coerce n∸k+k≡n'
     where
-    nacmeimid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
     n∸k+k≡n' = n∸k+k≡n p ▹ cong nacmeimid
+      where
+      nacmeimid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
 
 open Hx
   using (
