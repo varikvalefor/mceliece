@@ -2368,7 +2368,7 @@ module HxVeritas where
          → (n : Fin _)
          → toℕ m ≡ toℕ n
          → lookup (lookup (Hx p T) m) n ≡ suc zero
-  pavind = λ p T m n d → begin
+  pavind p T m n d = begin
     lookup (lookup (Hx p T) m) n ≡⟨ {!!} ⟩
     suc zero ∎
     where
