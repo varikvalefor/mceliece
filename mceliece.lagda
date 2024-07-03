@@ -2368,7 +2368,11 @@ module HxVeritas where
          → (n : Fin _)
          → toℕ m ≡ toℕ n
          → lookup (lookup (Hx p T) m) n ≡ suc zero
-  pavind = {!!}
+  pavind = λ p T m n d → begin
+    lookup (lookup (Hx p T) m) n ≡⟨ {!!} ⟩
+    suc zero ∎
+    where
+    open ≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{Encode}.}
