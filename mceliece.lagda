@@ -2370,6 +2370,7 @@ module HxVeritas where
          → lookup (lookup (Hx p T) m) n ≡ suc zero
   pavind p T m n d = begin
     lookup (lookup (Hx p T) m) n ≡⟨ {!!} ⟩
+    lookup (lookup (I zero $ suc zero) m) m ≡⟨ {!!} ⟩
     suc zero ∎
     where
     open ≡-Reasoning
