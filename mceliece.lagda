@@ -1054,7 +1054,7 @@ ni'o la .varik.\ na birti lo du'u ma kau zabna je cu lojbo je cu velcki la'o zoi
 toVec? : ∀ {a} → {A : Set a} → {n : ℕ}
        → List A
        → Maybe $ Vec A n
-toVec? l = dun? ▹ mapₘ (λ n → fromList l ▹_ $ coerce $ vk n)
+toVec? l = dun? ▹ mapₘ (λ n → fromList l ▹ coerce (vk n))
   where
   vk = cong $ Vec _
 \end{code}
