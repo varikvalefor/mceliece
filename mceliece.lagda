@@ -1022,7 +1022,7 @@ indice = flip zipᵥ $ allFin _
 module IndiceVeritas where
   ordun : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : Vec A n)
-        → (<_,_> (lookup x) id) ≗ lookup (indice x)
+        → <_,_> (lookup x) id ≗ lookup (indice x)
   ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ $ R , P
     where
     open ≡-Reasoning
