@@ -998,7 +998,7 @@ module PanciVertias where
          → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
          → (x : A)
          → (n₁ n₂ : Fin _)
-         → lookup (vec x) n₁ ≡ lookup (vec x) n₂
+         → (_≡_ on lookup (vec x)) n₁ n₂
          → ¬_ $ n₁ ≡ n₂
          → panci x ≡ nothing
   dratan = {!!}
