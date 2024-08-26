@@ -1037,6 +1037,14 @@ module IndiceVeritas where
       _ ≡⟨ DVP.lookup-zip i x _ ▹ cong proj₂ ⟩
       lookup (allFin _) i ≡⟨ DVP.lookup-allFin i ⟩
       i ∎
+
+  rev : ∀ {a} → {A : Set a} → {n : ℕ}
+      → ⦃ _ : Eq A ⦄
+      → (x : Vec A n)
+      → (e : A × Fin (length x))
+      → e Truthbrary.Record.LLC.∈ indice x
+      → Data.Vec.lookup x (proj₂ e) ≡ proj₁ e
+  rev = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{toVec?}\ .zoi.}
