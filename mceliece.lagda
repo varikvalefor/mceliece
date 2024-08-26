@@ -327,6 +327,7 @@ open import Relation.Binary.PropositionalEquality
     subst;
     cong;
     refl;
+    _≗_;
     _≡_;
     sym
   )
@@ -1020,7 +1021,7 @@ indice = flip zipᵥ $ allFin _
 module IndiceVeritas where
   ordun : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : Vec A n)
-        → (Relation.Binary.PropositionalEquality._≗_
+        → (_≗_
             (λ i → lookup x i , i)
             (lookup (indice x)))
   ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ $ R , P
