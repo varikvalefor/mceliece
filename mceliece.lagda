@@ -243,6 +243,7 @@ open import Data.Product
     uncurry;
     proj₁;
     proj₂;
+    <_,_>;
     map₂;
     _×_;
     _,_;
@@ -1021,7 +1022,7 @@ indice = flip zipᵥ $ allFin _
 module IndiceVeritas where
   ordun : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : Vec A n)
-        → (Data.Product.<_,_> (lookup x) id) ≗ lookup (indice x)
+        → (<_,_> (lookup x) id) ≗ lookup (indice x)
   ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ $ R , P
     where
     open ≡-Reasoning
