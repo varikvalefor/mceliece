@@ -312,6 +312,7 @@ open import Relation.Nullary.Negation
   )
 open import Relation.Nullary.Decidable
   using (
+    dec-no;
     isYes
   )
 open import Truthbrary.Data.Vec.Matrix
@@ -976,7 +977,6 @@ module PanciVertias where
   ¬[nu,iork]→nothing x j = dec-no (_ ≟ _) j ▹ proj₂ ▹ cong f
     where
     f = mapₘ (const x) ∘ decToMaybe
-    dec-no = Relation.Nullary.Decidable.dec-no
 
   nothing→¬[nu,iork] : ∀ {a} → {A : Set a}
                      → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
