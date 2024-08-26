@@ -1021,7 +1021,7 @@ module IndiceVeritas where
   ordun : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : Vec A n)
         → (i : Fin n)
-        → (lookup x i , i) ≡_ $ lookup (indice x) i
+        → (lookup x i , i) ≡ lookup (indice x) i
   ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ $ R , P
     where
     open ≡-Reasoning
