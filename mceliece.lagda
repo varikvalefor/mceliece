@@ -973,9 +973,9 @@ module PanciVertias where
                      → (x : A)
                      → ¬_ $ nu,iork x
                      → panci x ≡ nothing
-  ¬[nu,iork]→nothing x j = dec-no (_ ≟ _) j ▹ proj₂ ▹ cong K
+  ¬[nu,iork]→nothing x j = dec-no (_ ≟ _) j ▹ proj₂ ▹ cong f
     where
-    K = mapₘ (const x) ∘ decToMaybe
+    f = mapₘ (const x) ∘ decToMaybe
     dec-no = Relation.Nullary.Decidable.dec-no
 
   nothing→¬[nu,iork] : ∀ {a} → {A : Set a}
