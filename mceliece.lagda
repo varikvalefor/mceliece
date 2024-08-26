@@ -944,7 +944,8 @@ ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\
 \begin{code}
 panci : ∀ {a} → {A : Set a}
       → ⦃ L : LL A ⦄ → ⦃ Eq $ LL.e L ⦄
-      → A → Maybe A
+      → A
+      → Maybe A
 panci v = mapₘ (const v) $ decToMaybe $ Dec (nu,iork v) ∋ _ ≟ _
 \end{code}
 
