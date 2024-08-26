@@ -2491,7 +2491,7 @@ module DecodeVeritas where
         → (bar : Public p)
         → (e : xv p MCParam.n)
         → mapti {p} C₀ bar e
-        → ∃ $ λ m → mapti? {p} C₀ bar e ≡ just m
+        → ∃ $ (mapti? {p} C₀ bar e ≡_) ∘ just
     jus {p} C₀ bar e m = _ , dunlyctaipe
       where
       open ≡-Reasoning
