@@ -1009,7 +1009,8 @@ ni'o ro da poi ke'a ctaipe la'o zoi.\ \D{Fin} \AgdaUnderscore{}\ .zoi.\ zo'u lo 
 
 \begin{code}
 indice : ∀ {a} → {A : Set a} → {n : ℕ}
-       → Vec A n → flip Vec n $ A × Fin n
+       → Vec A n
+       → flip Vec n $ A × Fin n
 indice = flip zipᵥ $ allFin _
 \end{code}
 
