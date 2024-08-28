@@ -262,7 +262,8 @@ open import Data.Nat
   )
 open import Relation.Unary
   using (
-    Decidable
+    Decidable;
+    _⊆_
   )
 open import Data.Nat.DivMod
   using (
@@ -1119,7 +1120,7 @@ module B2f where
            → Fin $ suc m ^ n
   portenfa = portenfa₁ ∘ indice'
 
-  b2f : {m : ℕ} → Vec (Fin (suc m)) Relation.Unary.⊆ Fin ∘ suc m ^_
+  b2f : {m : ℕ} → Vec (Fin (suc m)) ⊆ Fin ∘ suc m ^_
   b2f = portenfa ∘ mapᵥ f2f
 
 open B2f
