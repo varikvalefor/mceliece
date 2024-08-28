@@ -1083,10 +1083,10 @@ module NbitsVeritas where
     where
     open ≡-Reasoning
 
-  nth : {n x : ℕ}
-      → (f : Fin n)
-      → lookup (nbits {n} x) f ≡ {!!}
-  nth = {!!}
+  meirmoi : {n x : ℕ}
+          → (f : Fin n)
+          → lookup (nbits {n} x) f ≡ {!!}
+  meirmoi = {!!}
 \end{code}
 
 \section{la'oi .\F{b2f}.}
