@@ -1119,7 +1119,7 @@ module B2f where
            → Fin $ suc m ^ n
   portenfa = portenfa₁ ∘ indice'
 
-  b2f : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m ^ n
+  b2f : {m : ℕ} → Vec (Fin (suc m)) Relation.Unary.⊆ Fin ∘ suc m ^_
   b2f = portenfa ∘ mapᵥ f2f
 
 open B2f
@@ -1400,7 +1400,7 @@ module B2f-toℕ where
   toℕ∘b2f∘nbits : {n : ℕ}
                 → (x : ℕ)
                 → 2 ^ n ℕ.> x
-                → x ≡_ $ toℕ $ b2f {n = n} $ nbits x
+                → x ≡_ $ toℕ $ b2f {x = n} $ nbits x
   toℕ∘b2f∘nbits = {!!}
 \end{code}
 
