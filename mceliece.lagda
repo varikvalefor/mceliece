@@ -1139,7 +1139,7 @@ module B2fVeritas where
   open ≡-Reasoning
 
   module Sumᵥ' where
-    sumᵥ'₂ : {m n : ℕ} → (Vec (Fin $ suc m) n) → Fin $ suc m
+    sumᵥ'₂ : {m n : ℕ} → Vec (Fin $ suc m) n → Fin $ suc m
     sumᵥ'₂ {m} x = maybe fromℕ< (fromℕ m) mleca?
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ x) ℕ.<? suc m
