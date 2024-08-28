@@ -1156,7 +1156,7 @@ module B2fVeritas where
       f2f (fromℕ $ toℕ f) ≡⟨ F2fVeritas.fromℕ-toℕ f ⟩
       f2f f ∎
 
-    pav₂ : {m : ℕ} → (f : Fin $ suc m) → sumᵥ'₂ (f ∷ []) ≡ f2f f
+    pav₂ : {m : ℕ} → _≗_ {A = Fin $ suc m} (sumᵥ'₂ ∘ (_∷ [])) f2f
     pav₂ f = begin
       sumᵥ'₂ (f ∷ []) ≡⟨ refl ⟩
       maybe fromℕ< (fromℕ _) mleca? ≡⟨ {!!} ⟩
