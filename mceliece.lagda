@@ -1324,7 +1324,9 @@ module B2fVeritas where
                          (mapᵥ
                            𝔽.inject₁
                            (mapᵥ o $ allFin n))))
-        o-allFin-∷ {0} = {!!}
+        o-allFin-∷ {0} = begin
+          mapᵥ o (allFin $ suc 0) ≡⟨ {!!} ⟩
+          o zero ∷ mapᵥ 𝔽.inject₁ (mapᵥ o $ allFin 0) ∎
         o-allFin-∷ {suc n} = {!!}
 
   module Portenfa where
