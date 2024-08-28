@@ -2273,7 +2273,7 @@ module SeededKeyGenVeritas where
             → ⦃ _ : Eq A ⦄
             → {x : List A}
             → {e : A}
-            → (∃ $ λ n → 𝕃.lookup x n ≡ e)
+            → (∃ $ λ n → (_≡ e) $ 𝕃.lookup x n)
             → e ∈ x
         ∃⇒∈ {x = x ∷ xs} {e} (𝔽.zero , d) = {!!}
         ∃⇒∈ {x = x ∷ xs} {e} (𝔽.suc n , d) = {!!}
