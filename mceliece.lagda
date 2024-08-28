@@ -2276,10 +2276,11 @@ module SeededKeyGenVeritas where
             → ∃ $ (_≡ e) ∘ 𝕃.lookup x
             → e ∈ x
         ∃⇒∈ {x = x ∷ xs} {e} (𝔽.zero , d) = sym $ begin
-          length (𝕃.take 1 $ 𝕃.filter (_≟_ e) $ x ∷ toList (fromList xs)) ≡⟨ {!!} ⟩
+          length (𝕃.take 1 $ 𝕃.filter (_≟_ e) $ x ∷ tf xs) ≡⟨ {!!} ⟩
           1 ∎
           where
           open ≡-Reasoning
+          tf = toList ∘ fromList
         ∃⇒∈ {x = x ∷ xs} {e} (𝔽.suc n , d) = {!!}
 
     nog : {p : MCParam}
