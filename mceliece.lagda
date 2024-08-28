@@ -2193,7 +2193,7 @@ module SeededKeyGenVeritas where
       replidrop : ∀ {a} → {A : Set a} → {m n : ℕ}
                 → (x : A)
                 → (_≡_
-                    (drop m (replicate {n = m + n} x))
+                    (drop m $ replicate {n = m + n} x)
                     (replicate x))
       replidrop {m = m} {n = n} x = begin
         drop m (replicate {n = m + n} x) ≡⟨ {!!} ⟩
