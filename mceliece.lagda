@@ -1166,8 +1166,7 @@ module B2fVeritas where
       F2f.mFd (toℕ f) ≡⟨ refl ⟩
       f2f f ∎
       where
-      [f] = f ∷ []
-      mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ [f]) ℕ.<? suc _
+      mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ $ f ∷ []) ℕ.<? suc _
       mleca?₂ = decToMaybe $ toℕ f ℕ.<? suc _
 
     kunti : {n : ℕ}
