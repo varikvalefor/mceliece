@@ -1323,7 +1323,7 @@ module B2fVeritas where
                          (o zero)
                          (mapᵥ
                            𝔽.inject₁
-                             (mapᵥ o $ allFin n))))
+                           (mapᵥ o $ allFin n))))
         o-allFin-∷ {0} = {!!}
         o-allFin-∷ {suc n} = {!!}
 
