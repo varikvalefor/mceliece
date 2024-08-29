@@ -2592,7 +2592,7 @@ module DecodeVeritas where
               → (z : Vec A n)
               → drop m (x ++ z) ≡ z
       dropdun [] _ = refl
-      dropdun (x ∷ xs) z = dropdun xs z ▹ coerce {!!}
+      dropdun (x ∷ xs) z = dropdun xs z ▹ coerce (cong (_≡ z) {!!})
       open ≡-Reasoning
 \end{code}
 
