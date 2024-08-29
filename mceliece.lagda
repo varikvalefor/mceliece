@@ -2277,7 +2277,7 @@ module SeededKeyGenVeritas where
             → e ∈ x
         ∃⇒∈ {x = x ∷ xs} {e} (𝔽.zero , d) = sym $ begin
           length (𝕃.take 1 $ 𝕃.filter (e ≟_) $ x ∷ tf xs) ≡⟨ {!!} ⟩
-          length (x ∷ []) ≡⟨ {!!} ⟩
+          𝕃.length (x ∷ []) ≡⟨ {!!} ⟩
           1 ∎
           where
           open ≡-Reasoning
