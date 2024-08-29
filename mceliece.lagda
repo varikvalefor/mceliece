@@ -2004,7 +2004,7 @@ module FixedWeight where
   FixedWeight : {p : MCParam}
               → (IO $ Σ
                   (Vec (Fin 2) $ MCParam.n p)
-                  (λ e → hWV𝔽 e ≡ MCParam.t p))
+                  ((_≡ MCParam.t p) ∘ hWV𝔽))
   FixedWeight {p} = cof IO.>>= restart? ∘ FixedWeight' p
     where
     OT = ∃ $ λ e → hWV𝔽 e ≡ MCParam.t p
