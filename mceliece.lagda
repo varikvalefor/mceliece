@@ -1951,7 +1951,7 @@ module FixedWeight where
   d p b = mapᵥ (λ j → sumᵥ $ mapᵥ (uijis j) $ allFin _) $ allFin $ τ' p
     where
     uijis : Fin $ τ' p → Fin $ MCParam.m p → ℕ
-    uijis j i = 2 ^ toℕ i *_ $ toℕ $ lookup b' ind
+    uijis j i = 2 ^ toℕ i * toℕ (lookup b' ind)
       where
       ind = f2f mind ▹_ $ coerce $ cong Fin $ proj₂ sukdiz
         where
