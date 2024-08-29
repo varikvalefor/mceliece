@@ -2013,7 +2013,7 @@ module FixedWeight where
     restart? : Maybe OT → IO OT
     restart? = maybe pure $ FixedWeight {p}
     -- | ni'o la'o zoi. mceliece.pdf .zoi. vasru le na'e
-    -- zabna je velcki be la'oi .τ'.  .i la .varik. cu
+    -- zabna je velcki be la'oi .τ'.  .i la .varik.
     -- na birti lo du'u pilji ji kau cu tenfa  .i ku'i la
     -- .varik. cu djuno le du'u na mapti fa le me zo joi se
     -- xamsku
