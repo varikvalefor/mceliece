@@ -792,7 +792,7 @@ module ResizeVeritas where
 \end{code}
 
 \section{la .\F{dist}.}
-ni'o la'o zoi.\ \F{dist} \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} \OpF \$ \F{length} \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei fo la'oi .\B{x}.\ cu drata lo meirmoi be ke'a bei fo la'oi .\B{x}.
+ni'o la'o zoi.\ \F{dist} \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o zoi.\ \D{Fin} \OpF \$ \F{length} \B x\ .zoi.\ be'o poi lo meirmoi be ke'a bei fo la'oi .\B x.\ cu drata lo meirmoi be ke'a bei fo la'oi .\B x.
 
 \begin{code}
 module Dist where
