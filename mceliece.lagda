@@ -1997,7 +1997,7 @@ module FixedWeight where
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
          × let el = 𝕃.allFin _ in
-           flip Listal.All el $ _≡_ (suc zero) ∘ lookup e ∘ lookup a
+           flip Listal.All el $ (suc zero ≡_) ∘ lookup e ∘ lookup a
     e' = {!!}
 
   {-# NON_TERMINATING #-}
