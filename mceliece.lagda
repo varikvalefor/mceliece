@@ -2320,9 +2320,11 @@ module SeededKeyGenVeritas where
         → mapti? {p} δ E ≡ nothing
     nos {p} δ E d = begin
       mapti? δ E ≡⟨ {!!} ⟩
+      _,ₘ_ (sivni? {p} δ >>=ₘ MatGen) (sivni? {p} δ) ≡⟨ {!!} ⟩
       nothing ∎
       where
       open ≡-Reasoning
+      _,ₘ_ = (apₘ ∘₂ mapₘ) _,_
 
     jus : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
