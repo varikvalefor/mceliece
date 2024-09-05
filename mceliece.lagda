@@ -2318,7 +2318,7 @@ module SeededKeyGenVeritas where
         → (E : _)
         → sivni? {p} δ ≡ nothing
         → mapti? {p} δ E ≡ nothing
-    nos = λ δ E d → begin
+    nos δ E d = begin
       mapti? δ E ≡⟨ {!!} ⟩
       nothing ∎
       where
