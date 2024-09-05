@@ -2321,6 +2321,7 @@ module SeededKeyGenVeritas where
     nos {p} δ E d = begin
       mapti? δ E ≡⟨ {!!} ⟩
       _,ₘ_ (sivni? {p} δ >>=ₘ MatGen) (sivni? {p} δ) ≡⟨ {!!} ⟩
+      (λ x → _,ₘ_ (x >>=ₘ MatGen) x) (sivni? {p} δ) ≡⟨ {!!} ⟩
       nothing ∎
       where
       open ≡-Reasoning
