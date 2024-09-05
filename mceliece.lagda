@@ -2258,9 +2258,9 @@ module SeededKeyGenVeritas where
     ... | just S = subst (_∈ L) (dun ▹ cong just) just∈L
       where
       L = nothing ∷ just (toℕ δ) ∷ List.[]
-      dun : (flip _≡_
-              (toℕ $ b2f $ Private.s S)
-              (toℕ δ))
+      dun : (_≡_
+              (toℕ δ)
+              (toℕ $ b2f $ Private.s S))
       dun = sym $ begin
         toℕ (b2f $ Private.s S) ≡⟨ {!!} ⟩
         toℕ δ ∎
