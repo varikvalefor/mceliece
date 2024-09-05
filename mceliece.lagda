@@ -2320,7 +2320,7 @@ module SeededKeyGenVeritas where
         → mapti? {p} δ E ≡ nothing
     nos {p} δ E d = begin
       mapti? δ E ≡⟨ {!!} ⟩
-      _,ₘ_ (sivni? {p} δ >>=ₘ MatGen) (sivni? {p} δ) ≡⟨ {!!} ⟩
+      _,ₘ_ (sivni? {p} δ >>=ₘ MatGen) (sivni? {p} δ) ≡⟨ refl ⟩
       (λ x → _,ₘ_ (x >>=ₘ MatGen) x) (sivni? {p} δ) ≡⟨ d ▹ cong (λ x → _,ₘ_ (x >>=ₘ MatGen) x) ⟩
       (λ x → _,ₘ_ (x >>=ₘ MatGen) x) nothing ≡⟨ refl ⟩
       nothing ∎
