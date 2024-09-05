@@ -2318,7 +2318,11 @@ module SeededKeyGenVeritas where
         → (E : _)
         → sivni? {p} δ ≡ nothing
         → mapti? {p} δ E ≡ nothing
-    nos = {!!}
+    nos = λ δ E d → begin
+      mapti? δ E ≡⟨ {!!} ⟩
+      nothing ∎
+      where
+      open ≡-Reasoning
 
     jus : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
