@@ -1412,9 +1412,10 @@ cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
   cunvek : (n : ℕ) → IO $ Vec Bool n
   cunvek n = sequenceᵥ cunste
     where
-    sequenceᵥ : ∀ {a} → {A : Set a} → {n : ℕ}
-              → Vec (IO A) n
-              → IO $ Vec A n
+    sequenceᵥ : ∀ {a} → {A : Set a}
+              → (_⊆_
+                  (Vec (IO A))
+                  (IO ∘ Vec A))
     sequenceᵥ [] = pure []
     sequenceᵥ (x ∷ xs) = x IO.>>= λ x' → (x' ∷_) IO.<$> sequenceᵥ xs
     cunste : {n : ℕ} → Vec (IO Bool) n
