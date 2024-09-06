@@ -1534,7 +1534,7 @@ module ∧𝔹ℕ𝔽Veritas where
     fromℕ< (DNP.m⊓n≤n _ _) ∎
     where
     pav = replicate $ suc zero
-    p = zipWithᵥ (f𝔽 _*_) (nbits n)
+    p = zipWithᵥ (f𝔽 _*_) $ nbits n
     toFin : {m : ℕ} → Vec (Fin 2) $ suc m → Fin $ suc m
     toFin = f2f ∘ b2f
 \end{code}
