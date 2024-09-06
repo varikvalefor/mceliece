@@ -1510,7 +1510,7 @@ module ∧𝔹ℕ𝔽Veritas where
              → (x : A)
              → (z : Vec B n)
              → zipWithᵥ f (replicate x) z ≡ mapᵥ (f x) z
-      ziprep f x [] = refl
+      ziprep _ _ [] = refl
       ziprep f x (z ∷ zs) = ziprep f x zs ▹ cong (f x z ∷_)
 
   idx : {m : ℕ} → (f : Fin $ suc m) → toℕ f ∧𝔹ℕ𝔽 f ≡ f
