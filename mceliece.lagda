@@ -1476,6 +1476,7 @@ open ∧𝔹ℕ𝔽
 \begin{code}
 module ∧𝔹ℕ𝔽Veritas where
   open ∧𝔹ℕ𝔽
+  open ≡-Reasoning
 
   module _∧𝔹ℕ𝔽₁_ where
 
@@ -1494,7 +1495,6 @@ module ∧𝔹ℕ𝔽Veritas where
     toFin = f2f ∘ b2f
     zW = zipWithᵥ (f𝔽 _*_) $ nbits n
     Z = replicate zero
-    open ≡-Reasoning
     f2f-zero = F2fVeritas.zeron
     zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
     zipdun = begin
@@ -1520,7 +1520,6 @@ module ∧𝔹ℕ𝔽Veritas where
     toℕ f ∧𝔹ℕ𝔽 f ≡⟨ {!!} ⟩
     f ∎
     where
-    open ≡-Reasoning
 
   dunli : {m : ℕ}
         → (n : ℕ)
@@ -1538,7 +1537,6 @@ module ∧𝔹ℕ𝔽Veritas where
     p = zipWithᵥ (f𝔽 _*_) (nbits n)
     toFin : {m : ℕ} → Vec (Fin 2) $ suc m → Fin $ suc m
     toFin = f2f ∘ b2f
-    open ≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
