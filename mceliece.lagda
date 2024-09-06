@@ -1529,12 +1529,13 @@ module ∧𝔹ℕ𝔽Veritas where
             (fromℕ< {n ℕ.⊓ 2 ^ m} $ DNP.m⊓n≤n _ _))
   dunli {m} n = begin
     n ∧𝔹ℕ𝔽 opposite zero ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
-    toFin (zipWithᵥ (f𝔽 _*_) (nbits n) $ nbits toz) ≡⟨ {!!} ⟩
-    toFin (zipWithᵥ (f𝔽 _*_) (nbits n) pav) ≡⟨ {!!} ⟩
+    toFin (p $ nbits toz) ≡⟨ {!!} ⟩
+    toFin (p pav) ≡⟨ {!!} ⟩
     toFin (nbits n) ≡⟨ {!!} ⟩
     fromℕ< (DNP.m⊓n≤n _ _) ∎
     where
     pav = replicate $ suc zero
+    p = zipWithᵥ (f𝔽 _*_) (nbits n)
     toFin : {m : ℕ} → Vec (Fin 2) $ suc m → Fin $ suc m
     toFin = f2f ∘ b2f
     toz = toℕ $ opposite $ zero {2 ^ m}
