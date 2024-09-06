@@ -454,7 +454,7 @@ module F2fVeritas where
       just (proj₁ DY) ≡⟨ ≤≡≤ _ _ ▹ cong just ⟩
       just x ∎
       where
-      DY = Relation.Nullary.Decidable.dec-yes (m ℕ.<? n) x
+      DY = Relation.Nullary.Decidable.dec-yes (m ℕ.<? _) x
 
     nago'is : {m n : ℕ} → ¬_ $ m ℕ.< n → m <?ₘ n ≡ nothing
     nago'is J = DN _ J ▹ proj₂ ▹ cong decToMaybe
@@ -899,7 +899,6 @@ module DistVeritas where
     suc (dist x z refl) ∎
     where
     filterₗ = 𝕃.filter
-    open ≡-Reasoning
 
   dubjavme'av : ∀ {a} → {A : Set a} → {n : ℕ}
               → ⦃ E : Eq A ⦄
