@@ -1433,8 +1433,7 @@ cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
         cunsob = head . map (== 1) . filter (< 2) <$> cunsol
           -- ni'o le me'oi .filter. co'e cu masno je
           -- ku'i cu filri'a lo nu na mutce le ka ce'u
-          -- cafne kei fa lo nu li no zmadu li pa le ka
-          -- me'oi .pure. ce'u
+          -- cafne kei fa lo nu li no zmadu li pa
           where
           cunsol = BSL.unpack <$> BSL.readFile "/dev/random"
       #-}
