@@ -1519,7 +1519,6 @@ module ∧𝔹ℕ𝔽Veritas where
   idx {m} f = begin
     toℕ f ∧𝔹ℕ𝔽 f ≡⟨ {!!} ⟩
     f ∎
-    where
 
   dunli : {m : ℕ}
         → (n : ℕ)
