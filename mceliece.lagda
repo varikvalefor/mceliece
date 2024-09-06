@@ -456,9 +456,7 @@ module F2fVeritas where
       where
       DY = Relation.Nullary.Decidable.dec-yes (m ℕ.<? n) x
 
-    nago'is : {m n : ℕ}
-            → ¬_ $ m ℕ.< n
-            → m <?ₘ n ≡ nothing
+    nago'is : {m n : ℕ} → ¬_ $ m ℕ.< n → m <?ₘ n ≡ nothing
     nago'is J = DN _ J ▹ proj₂ ▹ cong decToMaybe
       where
       DN = Relation.Nullary.Decidable.dec-no
