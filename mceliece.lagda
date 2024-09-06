@@ -1513,9 +1513,7 @@ module ∧𝔹ℕ𝔽Veritas where
       ziprep f x [] = refl
       ziprep f x (z ∷ zs) = ziprep f x zs ▹ cong (f x z ∷_)
 
-  idx : {m : ℕ}
-      → (f : Fin $ suc m)
-      → toℕ f ∧𝔹ℕ𝔽 f ≡ f
+  idx : {m : ℕ} → (f : Fin $ suc m) → toℕ f ∧𝔹ℕ𝔽 f ≡ f
   idx {m} f = begin
     toℕ f ∧𝔹ℕ𝔽 f ≡⟨ refl ⟩
     fromℕ< (∧𝔹ℕ𝔽._∧𝔹ℕ𝔽₁_mleca (toℕ f) f) ≡⟨ {!!} ⟩
