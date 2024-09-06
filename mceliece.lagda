@@ -476,8 +476,7 @@ module F2fVeritas where
            → (j : Maybe _)
            → let t = toℕ $ mFdᵢ {n} {m} j in
              (t ≡ m) ⊎ (n ≡ t)
-    jonais {m} {n} (just j) = _⊎_.inj₁ $ sym $ jus j
-    jonais {m} {n} nothing = _⊎_.inj₂ $ nada {m}
+    jonais {m} = maybe (_⊎_.inj₁ ∘ sym ∘ jus) $ _⊎_.inj₂ $ nada {m}
 
   module MFd where
     mleca : {m n : ℕ}
