@@ -894,7 +894,7 @@ module DistVeritas where
     dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ refl ⟩
     length (filterₗ drata $ zipₓ (e₁ ∷ x) (e₂ ∷ z) refl) ≡⟨ refl ⟩
     length (filterₗ drata $ (e₁ , e₂) ∷ zipₓ x z refl) ≡⟨ {!!} ⟩
-    length ((e₁ , e₂) ∷_ $ filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
+    length ((e₁ , e₂) ∷ filterₗ drata (zipₓ x z refl)) ≡⟨ refl ⟩
     suc (length $ filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
     suc (dist x z refl) ∎
     where
