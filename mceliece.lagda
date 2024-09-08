@@ -383,7 +383,7 @@ module Dun?Veritas where
 ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x\ .zoi.\ mu'oi glibau.\ HAMMING weight .glibau.\ la'oi .\B x.\sds  .i sa'u nai ko'a nilzilcmi lo'i ro co'e poi la'oi .\AgdaInductiveConstructor{zero}.\ na meirmoi ke'a fo la'oi .\B x.
 
 \begin{code}
-hWV𝔽 : {a b : ℕ} → Vec (Fin b) a → ℕ
+hWV𝔽 : {m n : ℕ} → Vec (Fin n) m → ℕ
 hWV𝔽 = sumᵥ ∘ mapᵥ (λ {(suc _) → 1; zero → 0})
 \end{code}
 
@@ -391,7 +391,7 @@ hWV𝔽 = sumᵥ ∘ mapᵥ (λ {(suc _) → 1; zero → 0})
 
 \begin{code}
 module HWV𝔽Veritas where
-  kunti : {n : ℕ} → hWV𝔽 {b = n} [] ≡ 0
+  kunti : {n : ℕ} → hWV𝔽 {n = n} [] ≡ 0
   kunti = refl
 
   dunlis : {a b : ℕ}
