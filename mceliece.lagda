@@ -1658,7 +1658,7 @@ ni'o la'o zoi.\ \AgdaField{MCParam.σ₁} \B q\ .zoi.\ me'oi .arbitrary.
 \paragraph{la'oi .\AgdaField{MCParam.G}.}
 ni'o la'o zoi.\ \AgdaField{MCParam.G} \B q \B x\ .zoi.\ me'oi .pseudorandom.
 
-\paragraph{lo ctaipe be lo su'u dubjavme'a ja co'e}
+\subsection{lo ctaipe be lo su'u dubjavme'a ja co'e}
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi bau la .lojban.\ fe la'oi .\AgdaField{n≤q}.\ ja la'oi .\AgdaField{t≥2}.\ ja la'oi .\AgdaField{ν≥μ}.\ ja la'oi .\AgdaField{ν≤μ+k}.\ ja la'oi .\AgdaField{σ₁≥m}.\ ja la'oi .\AgdaField{σ₂≥2*m}.\ ja la \AgdaField{ctejau}
 
 \begin{code}
