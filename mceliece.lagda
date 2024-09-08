@@ -350,9 +350,9 @@ ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo ckupau poi
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi la'o zoi.\ \F{dun?}\ .zoi.\ bau la .lojban.
 
 \begin{code}
-dun? : ∀ {a} → {A : Set a} → {B C : A}
+dun? : ∀ {a} → {A : Set a} → {x z : A}
      → ⦃ Eq A ⦄
-     → Maybe $ B ≡ C
+     → Maybe $ x ≡ z
 dun? = decToMaybe $ _ ≟ _
 \end{code}
 
