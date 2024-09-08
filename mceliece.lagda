@@ -1871,7 +1871,10 @@ module FieldOrderingVeritas where
     mleca : (m n : ℕ)
           → m ℕ.< suc n
           → toℕ (FieldOrdering.toFin {suc n} m) ≡ n
-    mleca = {!!}
+    mleca 0 0 = {!!}
+    mleca 0 (suc n) = {!!}
+    mleca (suc m) 0 = {!!}
+    mleca (suc m) (suc n) = {!!}
 
     dubjavmau : (m n : ℕ)
               → ¬_ $ m ℕ.< suc n
