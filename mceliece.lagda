@@ -405,9 +405,9 @@ module HWV𝔽Veritas where
         → hWV𝔽 (suc z ∷ x) ≡ suc (hWV𝔽 x)
   cykas _ _ = refl
 
-  dubjavme'a : {a b : ℕ}
-             → (x : Vec (Fin $ suc a) b)
-             → hWV𝔽 x ℕ.≤ b
+  dubjavme'a : {m n : ℕ}
+             → (x : Vec (Fin $ suc m) n)
+             → hWV𝔽 x ℕ.≤ n
   dubjavme'a [] = ℕ.z≤n
   dubjavme'a (zero ∷ x) = DNP.≤-trans (dubjavme'a x) $ DNP.n≤1+n _
   dubjavme'a (suc _ ∷ xs) = dubjavme'a xs ▹ ℕ.s≤s
