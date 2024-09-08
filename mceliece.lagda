@@ -1943,7 +1943,7 @@ module FixedWeight where
     uijis : Fin $ τ' p → Fin $ MCParam.m p → ℕ
     uijis j i = 2 ^ toℕ i * toℕ (lookup b' ind)
       where
-      ind = f2f mind ▹_ $ coerce $ cong Fin $ proj₂ sukdiz
+      ind = f2f mind ▹ coerce (cong Fin $ proj₂ sukdiz)
         where
         -- | ni'o zo .mind. cmavlaka'i lu mabla
         -- .indice li'u
