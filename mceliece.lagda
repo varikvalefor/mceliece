@@ -369,7 +369,7 @@ module Dun?Veritas where
     dun? ≡⟨ refl ⟩
     decToMaybe (x ≟ z) ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
     decToMaybe (yes $ proj₁ DY) ≡⟨ refl ⟩
-    _ ≡⟨ ≡≡≡ (proj₁ DY) d ▹ cong (decToMaybe ∘ yes) ⟩
+    _ ≡⟨ ≡≡≡ _ d ▹ cong (decToMaybe ∘ yes) ⟩
     decToMaybe (yes d) ≡⟨ refl ⟩
     just d ∎
     where
