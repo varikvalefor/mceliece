@@ -1602,7 +1602,9 @@ module Hw𝕄Veritas where
 ni'o la'o zoi.\ \F{moult}\ \B a\ \B b\ .zoi.\ pilji la'oi .\B{a}.\ la'oi .\B{b}.
 
 \begin{code}
-moult : {m n o : ℕ} → 𝕄 (Fin 2) m n → Vec (Fin 2) o
+moult : {m n o : ℕ}
+      → 𝕄 (Fin 2) m n
+      → Vec (Fin 2) o
       → Vec (Fin 2) n
 moult = {!!}
 \end{code}
