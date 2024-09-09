@@ -2575,13 +2575,17 @@ module DecodeVeritas where
               → take m (x ++ z) ≡ x
       takedun [] z = refl
       takedun {m = suc m} x@(x₁ ∷ xs) [] = begin
-        take (suc m) (x ++ []) ≡⟨ {!!} ⟩
+        take (suc m) (x ++ []) ≡⟨ x++[]≡x' x ▹ cong (take $ suc m) ⟩
         take (suc m) x' ≡⟨ {!!} ⟩
         x ∎
         where
         open ≡-Reasoning
         x' : Vec _ $ suc m + 0
         x' = x ▹_ $ coerce $ DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _)
+        x++[]≡x' : ∀ {a} → {A : Set a} → {n : ℕ}
+                 → (x : Vec A n)
+                 → (x ++ []) ≡ (x ▹_ $ coerce $ DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _))
+        x++[]≡x' = {!!}
       takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ {!!}
       open ≡-Reasoning
 
