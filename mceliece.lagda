@@ -2012,7 +2012,7 @@ module FixedWeight where
     -- na birti lo du'u pilji ji kau cu tenfa  .i ku'i la
     -- .varik. cu djuno le du'u na mapti fa le me zo joi se
     -- xamsku
-    cof = cunsof (MCParam.σ₁ p * τ' p)
+    cof = cunsof $ MCParam.σ₁ p * τ' p
 
 open FixedWeight
   using (
