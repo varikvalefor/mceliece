@@ -2589,7 +2589,8 @@ module DecodeVeritas where
                      (flip coerce
                        x
                        (DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _))))
-        x++[]≡x' = {!!}
+        x++[]≡x' [] = {!!}
+        x++[]≡x' (x ∷ xs) = {!!}
       takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ {!!}
       open ≡-Reasoning
 
