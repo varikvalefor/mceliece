@@ -2361,7 +2361,7 @@ module Hx where
     where
     n∸k+k≡n' = n∸k+k≡n p ▹ cong nacmeimid
       where
-      nacmeimid = λ i → 𝕄 (Fin 2) i $ MCParam.n-k p
+      nacmeimid = λ i → 𝕄 _ i $ MCParam.n-k p
 
 open Hx
   using (
