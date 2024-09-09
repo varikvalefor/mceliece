@@ -2584,7 +2584,9 @@ module DecodeVeritas where
         x' = x ▹_ $ coerce $ DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _)
         x++[]≡x' : ∀ {a} → {A : Set a} → {n : ℕ}
                  → (x : Vec A n)
-                 → (x ++ []) ≡ (x ▹_ $ coerce $ DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _))
+                 → (_≡_
+                     (x ++ [])
+                     (x ▹_ $ coerce $ DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _)))
         x++[]≡x' = {!!}
       takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ {!!}
       open ≡-Reasoning
