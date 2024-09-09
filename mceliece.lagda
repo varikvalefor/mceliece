@@ -2394,7 +2394,9 @@ module HxVeritas where
     open ≡-Reasoning
     Ix : {m n : ℕ}
        → {f : Fin n}
-       → lookup (lookup (I {n = n} (zero {suc m}) (suc zero)) f) f ≡ suc zero
+       → (_≡_
+           (lookup (lookup (I {n = n} (zero {suc m}) (suc zero)) f) f)
+           (suc zero))
     Ix = {!!}
 \end{code}
 
