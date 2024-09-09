@@ -2392,13 +2392,15 @@ module HxVeritas where
     suc zero ∎
     where
     open ≡-Reasoning
-    Ix : {m n : ℕ}
+    Ix : ∀ {a} → {A : Set a}
+       → {n : ℕ}
        → {f : Fin n}
+       → {x z : A}
        → (_≡_
            (flip lookup
              f
-             (lookup (I {n = n} (zero {suc m}) (suc zero)) f))
-           (suc zero))
+             (lookup (I {n = n} x z) f))
+           (z))
     Ix = {!!}
 \end{code}
 
