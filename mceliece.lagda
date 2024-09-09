@@ -1403,8 +1403,8 @@ ni'o la .\F{cunsof}.\ cu me'oi .\F{pure}.\ lo me'oi .pseudorandom.
 ni'o zo .cunsof.\ cmavlaka'i lu cunso .fin.\ li'u
 
 \begin{code}
-cunsof : {n : ℕ} → IO $ Fin $ 2 ^ n
-cunsof {n} = b2f ∘ mapᵥ sb2f <$> cunvek n
+cunsof : (n : ℕ) → IO $ Fin $ 2 ^ n
+cunsof n = b2f ∘ mapᵥ sb2f <$> cunvek n
   where
   sb2f = if_then suc zero else zero
   cunvek : (n : ℕ) → IO $ Vec Bool n
@@ -2012,7 +2012,7 @@ module FixedWeight where
     -- na birti lo du'u pilji ji kau cu tenfa  .i ku'i la
     -- .varik. cu djuno le du'u na mapti fa le me zo joi se
     -- xamsku
-    cof = cunsof {MCParam.σ₁ p * τ' p}
+    cof = cunsof (MCParam.σ₁ p * τ' p)
 
 open FixedWeight
   using (
@@ -2337,7 +2337,7 @@ ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
-KeyGen p = SeededKeyGen IO.<$> cunsof {MCParam.ℓ p}
+KeyGen p = SeededKeyGen IO.<$> cunsof (MCParam.ℓ p)
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
