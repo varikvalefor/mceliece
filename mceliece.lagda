@@ -2388,10 +2388,14 @@ module HxVeritas where
          → lookup (lookup (Hx p T) m) n ≡ suc zero
   pavind p T m n d = begin
     lookup (lookup (Hx p T) m) n ≡⟨ {!!} ⟩
-    lookup (lookup (I zero $ suc zero) m) m ≡⟨ {!!} ⟩
+    lookup (lookup (I zero $ suc zero) m) m ≡⟨ Ix {f = m} ⟩
     suc zero ∎
     where
     open ≡-Reasoning
+    Ix : {m n : ℕ}
+       → {f : Fin n}
+       → lookup (lookup (I {n = n} (zero {suc m}) (suc zero)) f) f ≡ suc zero
+    Ix = {!!}
 \end{code}
 
 \section{la'oi .\F{Encode}.}
