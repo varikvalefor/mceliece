@@ -2388,7 +2388,7 @@ module HxVeritas where
          → lookup (lookup (Hx p T) m) n ≡ suc zero
   pavind p T m n d = begin
     lookup (lookup (Hx p T) m) n ≡⟨ {!!} ⟩
-    lookup (lookup (I zero $ suc zero) m) m ≡⟨ Ix {f = m} ⟩
+    lookup (lookup (I zero $ suc zero) m) m ≡⟨ Ix {f = m} ▹ sym ⟩
     suc zero ∎
     where
     open ≡-Reasoning
@@ -2396,7 +2396,7 @@ module HxVeritas where
        → {n : ℕ}
        → {f : Fin n}
        → {x z : A}
-       → flip lookup f (lookup (I {n = n} x z) f) ≡ z
+       → z ≡ flip lookup f (lookup (I {n = n} x z) f)
     Ix = {!!}
 \end{code}
 
