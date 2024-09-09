@@ -2337,7 +2337,7 @@ ni'o la'o zoi.\ \F{KeyGen} \B p\ .zoi.\ me'oi .\F{pure}.\ lo me'oi .pseudorandom
 
 \begin{code}
 KeyGen : (p : MCParam) → IO $ KP p
-KeyGen p = SeededKeyGen IO.<$> cunsof {n = MCParam.ℓ p}
+KeyGen p = SeededKeyGen IO.<$> cunsof {MCParam.ℓ p}
 \end{code}
 
 \chap{le fancu poi tu'a ke'a filri'a lo nu me'oi .encode.\ kei je lo nu me'oi .decode.}
