@@ -2395,9 +2395,9 @@ module HxVeritas where
     Ix : {m n : ℕ}
        → {f : Fin n}
        → (_≡_
-           (lookup
-             (lookup (I {n = n} (zero {suc m}) (suc zero)) f)
-             f)
+           (flip lookup
+             f
+             (lookup (I {n = n} (zero {suc m}) (suc zero)) f))
            (suc zero))
     Ix = {!!}
 \end{code}
