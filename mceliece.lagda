@@ -2396,7 +2396,7 @@ module HxVeritas where
        → {n : ℕ}
        → {f : Fin n}
        → {x z : A}
-       → ((flip lookup f (lookup (I {n = n} x z) f)) ≡ (z))
+       → (flip lookup f (lookup (I {n = n} x z) f)) ≡ (z)
     Ix = {!!}
 \end{code}
 
