@@ -2435,9 +2435,15 @@ module Decode where
          → (bar : Public p)
          → xv p MCParam.n
          → Maybe $ ∃ $ mapti {p} C₀ bar
-  mapti? C₀ bar e = mapₘ (e ,_) ctaiporsis
+  mapti? C₀ bar e = mapₘ (e ,_) $ mapₘ₂ _,_ dun? dun?
     where
-    ctaiporsis = dun? >>=ₘ λ x → mapₘ (x ,_) dun?
+    mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+          → (A → B → C)
+          → Maybe A
+          → Maybe B
+          → Maybe C
+    mapₘ₂ f (just x) (just z) = just $ f x z
+    mapₘ₂ _ _ _ = nothing
 
   module V' where
     n∸k+k≡n : (p : MCParam)
@@ -2449,7 +2455,7 @@ module Decode where
       k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
 
     v' : (p : MCParam) → xv p MCParam.n-k → xv p MCParam.n
-    v' p C₀ = C₀ ++ replicate zero ▹_ $ coerce $ n∸k+k≡n p
+    v' p C₀ = C₀ ++ replicate zero ▹ coerce (n∸k+k≡n p)
 
   open V'
     using (
