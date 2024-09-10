@@ -2435,15 +2435,7 @@ module Decode where
          → (bar : Public p)
          → xv p MCParam.n
          → Maybe $ ∃ $ mapti {p} C₀ bar
-  mapti? C₀ bar e = mapₘ (e ,_) $ mapₘ₂ _,_ dun? dun?
-    where
-    mapₘ₂ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-          → (A → B → C)
-          → Maybe A
-          → Maybe B
-          → Maybe C
-    mapₘ₂ f (just x) (just z) = just $ f x z
-    mapₘ₂ _ _ _ = nothing
+  mapti? C₀ bar e = mapₘ (e ,_) $ dun? >>=ₘ λ x → mapₘ (x ,_) dun?
 
   module V' where
     n∸k+k≡n : (p : MCParam)
