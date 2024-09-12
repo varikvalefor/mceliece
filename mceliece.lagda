@@ -896,6 +896,10 @@ module DistVeritas where
     suc (length $ filterₗ drate $ zipₓ x z refl) ≡⟨ refl ⟩
     suc (dist x z refl) ∎
     where
+    drate : ∀ {a} → {A : Set a}
+          → ⦃ E : Eq A ⦄
+          → (x : A × A)
+          → Dec $ false ≡_ $ isYes $ uncurry _≟_ x
     drate = uncurry drata
     filterₗ = 𝕃.filter
 
