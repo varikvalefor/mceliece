@@ -891,7 +891,7 @@ module DistVeritas where
   dratav x z e₁ e₂ j = sym $ begin
     dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ refl ⟩
     length (filterₗ drate $ zipₓ (e₁ ∷ x) (e₂ ∷ z) refl) ≡⟨ refl ⟩
-    length (filterₗ drate $ (e₁ , e₂) ∷ zipₓ x z refl) ≡⟨ {!!} ▹ cong 𝕃.length ⟩
+    length (filterₗ drate $ (e₁ , e₂) ∷ zipₓ x z refl) ≡⟨ lend x z e₁ e₂ j ▹ cong length ⟩
     length ((e₁ , e₂) ∷ filterₗ drate (zipₓ x z refl)) ≡⟨ refl ⟩
     suc (length $ filterₗ drate $ zipₓ x z refl) ≡⟨ refl ⟩
     suc (dist x z refl) ∎
@@ -902,6 +902,15 @@ module DistVeritas where
           → Dec $ false ≡_ $ isYes $ uncurry _≟_ x
     drate = uncurry drata
     filterₗ = 𝕃.filter
+    lend : ∀ {a} → {A : Set a} → {n : ℕ}
+         → ⦃ E : Eq A ⦄
+         → (x z : Vec A n)
+         → (e₁ e₂ : A)
+         → ¬_ $ e₁ ≡ e₂
+         → (_≡_
+             (filterₗ drate $ (e₁ , e₂) ∷ zipₓ x z refl)
+             ((e₁ , e₂) ∷ filterₗ drate (zipₓ x z refl)))
+    lend = {!!}
 
   dubjavme'av : ∀ {a} → {A : Set a} → {n : ℕ}
               → ⦃ E : Eq A ⦄
