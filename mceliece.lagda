@@ -890,10 +890,10 @@ module DistVeritas where
          → suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
   dratav x z e₁ e₂ j = sym $ begin
     dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ refl ⟩
-    length (filterₗ (drate) $ zipₓ (e₁ ∷ x) (e₂ ∷ z) refl) ≡⟨ refl ⟩
-    length (filterₗ (drate) $ (e₁ , e₂) ∷ zipₓ x z refl) ≡⟨ {!!} ⟩
-    length ((e₁ , e₂) ∷ filterₗ (drate) (zipₓ x z refl)) ≡⟨ refl ⟩
-    suc (length $ filterₗ (drate) $ zipₓ x z refl) ≡⟨ refl ⟩
+    length (filterₗ drate $ zipₓ (e₁ ∷ x) (e₂ ∷ z) refl) ≡⟨ refl ⟩
+    length (filterₗ drate $ (e₁ , e₂) ∷ zipₓ x z refl) ≡⟨ {!!} ⟩
+    length ((e₁ , e₂) ∷ filterₗ drate (zipₓ x z refl)) ≡⟨ refl ⟩
+    suc (length $ filterₗ drate $ zipₓ x z refl) ≡⟨ refl ⟩
     suc (dist x z refl) ∎
     where
     drate = uncurry drata
