@@ -793,9 +793,9 @@ ni'o la'o zoi.\ \F{dist} \B x \B z \B d\ .zoi.\ nilzilcmi lo'i ro ctaipe be la'o
 module Dist where
   drata : ∀ {a} → {A : Set a}
         → ⦃ _ : Eq A ⦄
-        → (x : A × A)
-        → Dec $ false ≡_ $ isYes $ uncurry _≟_ x
-  drata = _≟_ false ∘ isYes ∘ uncurry _≟_
+        → (x z : A)
+        → Dec $ false ≡_ $ isYes $ _≟_ x z
+  drata = _≟_ false ∘₂ isYes ∘₂ _≟_
 
   zipₓ : ∀ {a} → {A : Set a}
        → ⦃ Q : LL A ⦄ → ⦃ Eq $ LL.e Q ⦄
@@ -812,7 +812,7 @@ module Dist where
        → (x z : A)
        → LL.l Q x ≡ LL.l Q z
        → ℕ
-  dist x z d = length $ 𝕃.filter drata $ zipₓ x z d
+  dist x z d = length $ 𝕃.filter (uncurry drata) $ zipₓ x z d
 
 open Dist
   using (
@@ -866,10 +866,10 @@ module DistVeritas where
          → dist x z refl ≡ dist (e ∷ x) (e ∷ z) refl
   dunliv x z e = sym $ begin
     dist (e ∷ x) (e ∷ z) refl ≡⟨ refl ⟩
-    length (filterₗ drata $ zipₓ (e ∷ x) (e ∷ z) refl) ≡⟨ refl ⟩
-    length (filterₗ drata $ (e , e) ∷ zipₓ x z refl) ≡⟨ refl ⟩
+    length (filterₗ (uncurry drata) $ zipₓ (e ∷ x) (e ∷ z) refl) ≡⟨ refl ⟩
+    length (filterₗ (uncurry drata) $ (e , e) ∷ zipₓ x z refl) ≡⟨ refl ⟩
     _ ≡⟨ drats e (zipₓ x z refl) ▹ cong length ⟩
-    length (filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
+    length (filterₗ (uncurry drata) $ zipₓ x z refl) ≡⟨ refl ⟩
     dist x z refl ∎
     where
     filterₗ = 𝕃.filter
@@ -878,8 +878,8 @@ module DistVeritas where
           → (x : A)
           → (xs : List $ A × A)
           → (_≡_
-              (filterₗ drata $ (x , x) ∷ xs)
-              (filterₗ drata xs))
+              (filterₗ (uncurry drata) $ (x , x) ∷ xs)
+              (filterₗ (uncurry drata) xs))
     drats = {!!}
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
@@ -890,10 +890,10 @@ module DistVeritas where
          → suc (dist x z refl) ≡ dist (e₁ ∷ x) (e₂ ∷ z) refl
   dratav x z e₁ e₂ j = sym $ begin
     dist (e₁ ∷ x) (e₂ ∷ z) refl ≡⟨ refl ⟩
-    length (filterₗ drata $ zipₓ (e₁ ∷ x) (e₂ ∷ z) refl) ≡⟨ refl ⟩
-    length (filterₗ drata $ (e₁ , e₂) ∷ zipₓ x z refl) ≡⟨ {!!} ⟩
-    length ((e₁ , e₂) ∷ filterₗ drata (zipₓ x z refl)) ≡⟨ refl ⟩
-    suc (length $ filterₗ drata $ zipₓ x z refl) ≡⟨ refl ⟩
+    length (filterₗ (uncurry drata) $ zipₓ (e₁ ∷ x) (e₂ ∷ z) refl) ≡⟨ refl ⟩
+    length (filterₗ (uncurry drata) $ (e₁ , e₂) ∷ zipₓ x z refl) ≡⟨ {!!} ⟩
+    length ((e₁ , e₂) ∷ filterₗ (uncurry drata) (zipₓ x z refl)) ≡⟨ refl ⟩
+    suc (length $ filterₗ (uncurry drata) $ zipₓ x z refl) ≡⟨ refl ⟩
     suc (dist x z refl) ∎
     where
     filterₗ = 𝕃.filter
