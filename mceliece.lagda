@@ -883,7 +883,7 @@ module DistVeritas where
     drats = {!!}
 
   dratav : ∀ {a} → {A : Set a} → {n : ℕ}
-         → ⦃ E : Eq A ⦄
+         → ⦃ _ : Eq A ⦄
          → (x z : Vec A n)
          → (e₁ e₂ : A)
          → ¬_ $ e₁ ≡ e₂
