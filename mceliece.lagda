@@ -1047,7 +1047,7 @@ module IndiceVeritas where
       → (x : Vec A n)
       → (e : A × Fin (length x))
       → e Truthbrary.Record.LLC.∈ indice x
-      → Data.Vec.lookup x (proj₂ e) ≡ proj₁ e
+      → lookup x (proj₂ e) ≡ proj₁ e
   rev = {!!}
 \end{code}
 
