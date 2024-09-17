@@ -662,13 +662,13 @@ module FromList?Veritas where
           (mapₘ toList $ fromList? {n = n} x))
   jus = {!!}
 
-  nadun : ∀ {a} → {A : Set a} → {n : ℕ}
+  nadas : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : List A)
         → ¬_ $ length x ≡ n
         → (_≡_
             nothing
             (mapₘ toList $ fromList? {n = n} x))
-  nadun = {!!}
+  nadas = {!!}
 
   mapdus : ∀ {a} → {A : Set a} → {n : ℕ}
          → (x : List A)
