@@ -658,8 +658,8 @@ module FromList?Veritas where
       → (x : List A)
       → length x ≡ n
       → (_≡_
-          (mapₘ toList $ fromList? {n = n} x)
-          (just x))
+          (just x)
+          (mapₘ toList $ fromList? {n = n} x))
   dun = {!!}
 
   nadun : ∀ {a} → {A : Set a} → {n : ℕ}
