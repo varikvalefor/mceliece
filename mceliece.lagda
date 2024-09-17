@@ -860,7 +860,7 @@ module DistVeritas where
       L = length $ zipₓ x z d
 
   dunliv : ∀ {a} → {A : Set a} → {n : ℕ}
-         → ⦃ E : Eq A ⦄
+         → ⦃ _ : Eq A ⦄
          → (x z : Vec A n)
          → (e : A)
          → dist x z refl ≡ dist (e ∷ x) (e ∷ z) refl
