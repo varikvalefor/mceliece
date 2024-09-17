@@ -654,13 +654,13 @@ fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
 
 \begin{code}
 module FromList?Veritas where
-  dun : ∀ {a} → {A : Set a} → {n : ℕ}
+  jus : ∀ {a} → {A : Set a} → {n : ℕ}
       → (x : List A)
       → length x ≡ n
       → (_≡_
           (just x)
           (mapₘ toList $ fromList? {n = n} x))
-  dun = {!!}
+  jus = {!!}
 
   nadun : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : List A)
