@@ -13,6 +13,7 @@
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{𝕍}{\ensuremath{\mathnormal{\mathbb V}}}
 \newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
 \newunicodechar{∃}{\ensuremath{\mathnormal\exists}}
 \newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
@@ -146,6 +147,7 @@ open import Data.Sum
     _⊎_
   )
 open import Data.Vec
+  as 𝕍
   using (
     replicate;
     fromList;
@@ -1159,7 +1161,7 @@ module B2fVeritas where
       f2f (fromℕ $ toℕ f) ≡⟨ F2fVeritas.fromℕ-toℕ f ⟩
       f2f f ∎
 
-    pav₂ : {m : ℕ} → f2f ≗_ $ sumᵥ'₂ {m} ∘ Data.Vec.[_]
+    pav₂ : {m : ℕ} → f2f ≗_ $ sumᵥ'₂ {m} ∘ 𝕍.[_]
     pav₂ f = sym $ begin
       sumᵥ'₂ (f ∷ []) ≡⟨ refl ⟩
       maybe fromℕ< (fromℕ _) mleca? ≡⟨ {!!} ⟩
