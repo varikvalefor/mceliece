@@ -1159,8 +1159,8 @@ module B2fVeritas where
       f2f (fromℕ $ toℕ f) ≡⟨ F2fVeritas.fromℕ-toℕ f ⟩
       f2f f ∎
 
-    pav₂ : {m : ℕ} → _≗_ (sumᵥ'₂ {m} ∘ Data.Vec.[_]) f2f
-    pav₂ f = begin
+    pav₂ : {m : ℕ} → _≗_ f2f (sumᵥ'₂ {m} ∘ Data.Vec.[_])
+    pav₂ f = sym $ begin
       sumᵥ'₂ (f ∷ []) ≡⟨ refl ⟩
       maybe fromℕ< (fromℕ _) mleca? ≡⟨ {!!} ⟩
       maybe fromℕ< (fromℕ _) mleca?₂ ≡⟨ refl ⟩
@@ -1200,7 +1200,7 @@ module B2fVeritas where
     sumᵥ'≡sumᵥ'₂ [] = refl
     sumᵥ'≡sumᵥ'₂ (x ∷ []) = begin
       B2f.sumᵥ' (x ∷ []) ≡⟨ pav x ⟩
-      f2f x ≡⟨ pav₂ x ▹ sym ⟩
+      f2f x ≡⟨ pav₂ x ⟩
       sumᵥ'₂ (x ∷ []) ∎
     sumᵥ'≡sumᵥ'₂ (x ∷ xs) = begin
       B2f.sumᵥ' (x ∷ xs) ≡⟨ refl ⟩
