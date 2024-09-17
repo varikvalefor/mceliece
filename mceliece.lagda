@@ -660,6 +660,14 @@ module FromList?Veritas where
              (mapₘ toList $ fromList? {n = n} x)
              (flip lookup i $ nothing ∷ just x ∷ []))
   mapdus = {!!}
+
+  dun : ∀ {a} → {A : Set a} → {n : ℕ}
+      → (x : List A)
+      → length x ≡ n
+      → (_≡_
+          (mapₘ toList $ fromList? {n = n} x)
+          (just x))
+  dun = {!!}
 \end{code}
 
 \section{la'oi .\F{resize}.}
