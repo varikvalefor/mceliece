@@ -1164,7 +1164,7 @@ module B2fVeritas where
     pav₂ : {m : ℕ} → f2f ≗_ $ sumᵥ'₂ {m} ∘ 𝕍.[_]
     pav₂ f = sym $ begin
       sumᵥ'₂ (f ∷ []) ≡⟨ refl ⟩
-      maybe fromℕ< (fromℕ _) mleca? ≡⟨ {!!} ⟩
+      maybe fromℕ< (fromℕ _) mleca? ≡⟨ d ⟩
       maybe fromℕ< (fromℕ _) mleca?₂ ≡⟨ refl ⟩
       _ ≡⟨ DFP.fromℕ-def _ ▹ cong (λ n → maybe fromℕ< n mleca?₂) ⟩
       maybe fromℕ< (fromℕ< _) mleca?₂ ≡⟨ refl ⟩
@@ -1173,6 +1173,8 @@ module B2fVeritas where
       where
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ $ f ∷ []) ℕ.<? suc _
       mleca?₂ = decToMaybe $ toℕ f ℕ.<? suc _
+      d : maybe fromℕ< (fromℕ _) mleca? ≡ maybe fromℕ< (fromℕ _) mleca?₂
+      d = {!!}
 
     kunti : {n : ℕ}
           → (v : Vec (Fin $ suc n) 0)
