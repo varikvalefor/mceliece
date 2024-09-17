@@ -654,13 +654,6 @@ fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
 
 \begin{code}
 module FromList?Veritas where
-  mapdus : ∀ {a} → {A : Set a} → {n : ℕ}
-         → (x : List A)
-         → (∃ $ λ i → _≡_
-             (mapₘ toList $ fromList? {n = n} x)
-             (flip lookup i $ nothing ∷ just x ∷ []))
-  mapdus = {!!}
-
   dun : ∀ {a} → {A : Set a} → {n : ℕ}
       → (x : List A)
       → length x ≡ n
@@ -668,6 +661,13 @@ module FromList?Veritas where
           (mapₘ toList $ fromList? {n = n} x)
           (just x))
   dun = {!!}
+
+  mapdus : ∀ {a} → {A : Set a} → {n : ℕ}
+         → (x : List A)
+         → (∃ $ λ i → _≡_
+             (mapₘ toList $ fromList? {n = n} x)
+             (flip lookup i $ nothing ∷ just x ∷ []))
+  mapdus = {!!}
 \end{code}
 
 \section{la'oi .\F{resize}.}
