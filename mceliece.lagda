@@ -908,7 +908,7 @@ module DistVeritas where
     lend = {!!}
 
   dubjavme'av : ∀ {a} → {A : Set a} → {n : ℕ}
-              → ⦃ E : Eq A ⦄
+              → ⦃ _ : Eq A ⦄
               → (x z : Vec A n)
               → dist x z refl ℕ.≤ n
   dubjavme'av [] [] = ℕ.z≤n
