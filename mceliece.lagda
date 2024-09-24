@@ -2576,7 +2576,11 @@ module DecodeVeritas where
             (just e ∷ nothing ∷ List.[]))
     xor {p} C₀ bar e with mapₘ proj₁ $ mapti? {p} C₀ bar e
     ... | nothing = refl
-    ... | just e' = {!!}
+    ... | just e' = sym $ begin
+      𝕃.length (𝕃.take 1 $ 𝕃.filter (just e' ≟_) (just e ∷ nothing ∷ [])) ≡⟨ {!!} ⟩
+      1 ∎
+      where
+      open ≡-Reasoning
 
   module V' where
     open Decode.V'
