@@ -2407,7 +2407,11 @@ module HxVeritas where
          → (d : MCParam.n p ≡ 0)
          → let []' = [] ▹_ $ coerce $ d ▹ sym ▹ cong (Vec _) in
            Hx p T ≡ replicate []'
-  kunti₁ = {!!}
+  kunti₁ = λ p T d → begin
+    Hx p T ≡⟨ {!!} ⟩
+    replicate ([] ▹_ $ coerce $ d ▹ sym ▹ cong (Vec _)) ∎
+    where
+    open ≡-Reasoning
 
   pavind : (p : MCParam)
          → (T : Public p)
