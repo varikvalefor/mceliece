@@ -2573,7 +2573,7 @@ module DecodeVeritas where
         → (e : xv p MCParam.n)
         → (_∈_
             (mapₘ proj₁ $ mapti? {p} C₀ bar e)
-            (just e ∷ nothing ∷ List.[]))
+            (just e ∷ nothing ∷ []))
     xor {p} C₀ bar e with mapₘ proj₁ $ mapti? {p} C₀ bar e
     ... | nothing = refl
     ... | just e' = sym $ begin
