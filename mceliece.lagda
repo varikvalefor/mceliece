@@ -801,7 +801,7 @@ module ResizeVeritas where
     dropdus [] _ = refl
     dropdus (x ∷ xs) z = dropdus xs z ▹ subst (_ ≡_) (d xs z x)
       where
-      d = λ x z e → sym $ DVP.unfold-drop (length x) e $ x ++ z
+      d = λ x z e → DVP.unfold-drop (length x) e (x ++ z) ▹ sym
 \end{code}
 
 \section{la .\F{dist}.}
