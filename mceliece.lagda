@@ -2574,7 +2574,9 @@ module DecodeVeritas where
         → (_∈_
             (mapₘ proj₁ $ mapti? {p} C₀ bar e)
             (just e ∷ nothing ∷ List.[]))
-    xor = {!!}
+    xor {p} C₀ bar e with mapₘ proj₁ $ mapti? {p} C₀ bar e
+    ... | nothing = {!!}
+    ... | just e' = {!!}
 
   module V' where
     open Decode.V'
