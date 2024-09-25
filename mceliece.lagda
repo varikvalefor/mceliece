@@ -2280,7 +2280,7 @@ module SeededKeyGenVeritas where
          → toℕ δ ℕ.< 2 ^ MCParam.n p
          → (_∈_
              (mapₘ (toℕ ∘ b2f ∘ Private.s) $ sivni? {p} δ)
-             (nothing ∷ just (toℕ δ) ∷ List.[]))
+             (nothing ∷ just (toℕ δ) ∷ []))
     sles {p} δ m with sivni? {p} δ
     ... | nothing = refl
     ... | just S = subst (_∈ L) (dun ▹ cong just) just∈L
