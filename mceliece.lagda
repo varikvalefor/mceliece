@@ -125,6 +125,7 @@ ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 {-#
   OPTIONS
     --guardedness
+    --instance-search-depth=3
  #-}
 
 open import IO
