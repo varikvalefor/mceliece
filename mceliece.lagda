@@ -1250,7 +1250,7 @@ module B2fVeritas where
         decToMaybe (sumᵥ (mapᵥ toℕ v) ℕ.<? suc m) ≡⟨ refl ⟩
         _ ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
         decToMaybe (yes $ DY ▹ proj₁) ≡⟨ refl ⟩
-        just (DY ▹ proj₁) ≡⟨ ≤≡≤ _ _ ▹ cong just ⟩
+        just (proj₁ DY) ≡⟨ ≤≡≤ _ _ ▹ cong just ⟩
         just ml ∎
         where
         DY = R₀D.dec-yes (_ ℕ.<? _) ml
