@@ -2280,7 +2280,7 @@ module SeededKeyGenVeritas where
          → toℕ δ ℕ.< 2 ^ MCParam.n p
          → (_∈_
              (mapₘ (toℕ ∘ b2f ∘ Private.s) $ sivni? {p} δ)
-             (nothing ∷ just (toℕ δ) ∷ []))
+             (nothing ∷ just (toℕ δ) ∷ 𝕃.[]))
     sles {p} δ m with sivni? {p} δ
     ... | nothing = refl
     ... | just S = subst (_∈ L) (dun ▹ cong just) just∈L
@@ -2577,7 +2577,7 @@ module DecodeVeritas where
         → (e : xv p MCParam.n)
         → (_∈_
             (mapₘ proj₁ $ mapti? {p} C₀ bar e)
-            (just e ∷ nothing ∷ []))
+            (just e ∷ nothing ∷ 𝕃.[]))
     xor {p} C₀ bar e with mapₘ proj₁ $ mapti? {p} C₀ bar e
     ... | nothing = refl
     ... | just e' = sym $ begin
