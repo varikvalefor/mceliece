@@ -319,6 +319,7 @@ open import Relation.Nullary.Negation
     contradiction to _⇒⇐_
   )
 open import Relation.Nullary.Decidable
+  as R₀D
   using (
     dec-no;
     isYes
@@ -380,7 +381,7 @@ module Dun?Veritas where
     just d ∎
     where
     open ≡-Reasoning
-    DY = Relation.Nullary.Decidable.dec-yes (x ≟ z) d
+    DY = R₀D.dec-yes (x ≟ z) d
     ≡≡≡ : (d₁ d₂ : x ≡ z) → d₁ ≡ d₂
     ≡≡≡ refl refl = refl
 \end{code}
@@ -458,12 +459,12 @@ module F2fVeritas where
       just (proj₁ DY) ≡⟨ ≤≡≤ _ _ ▹ cong just ⟩
       just x ∎
       where
-      DY = Relation.Nullary.Decidable.dec-yes (m ℕ.<? _) x
+      DY = R₀D.dec-yes (m ℕ.<? _) x
 
     nago'is : {m n : ℕ} → ¬_ $ m ℕ.< n → m <?ₘ n ≡ nothing
     nago'is J = DN _ J ▹ proj₂ ▹ cong decToMaybe
       where
-      DN = Relation.Nullary.Decidable.dec-no
+      DN = R₀D.dec-no
 
   module MFdᵢ where
     jus : {m n : ℕ}
@@ -613,7 +614,7 @@ module F𝔽Veritas where
     mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n _
     f' = f on toℕ
     f'' = toℕ ∘₂ fromℕ ∘₂ f'
-    DN = Relation.Nullary.Decidable.dec-no (f'' x z ℕ.<? _) j'
+    DN = R₀D.dec-no (f'' x z ℕ.<? _) j'
       where
       j' = j ▹ subst (¬_ ∘ (ℕ._< suc n)) (DFP.toℕ-fromℕ _ ▹ sym)
 \end{code}
@@ -771,13 +772,13 @@ module ResizeVeritas where
       _ ≡⟨ ≤≡≤ (proj₁ DY) g ▹ cong (xt x xs ∘ yes) ⟩
       xt x xs (yes g) ∎
       where
-      DY = Relation.Nullary.Decidable.dec-yes (_ ℕ.≤? _) g
+      DY = R₀D.dec-yes (_ ℕ.≤? _) g
 
   takis : ∀ {a} → {m n : ℕ} → {A : Set a}
         → (x : A)
         → (xs : Vec A m)
         → (g : ¬ (n ℕ.≤ m))
-        → let DN = Relation.Nullary.Decidable.dec-no (_ ℕ.≤? _) g in
+        → let DN = R₀D.dec-no (_ ℕ.≤? _) g in
           let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ $ proj₁ DN in
           let sink = k ▹ cong (Vec A) ▹ sym in
           xs ≡_ $ drop (n ∸ m) $ resize x xs ▹ coerce sink
@@ -788,7 +789,7 @@ module ResizeVeritas where
     xs ∎
     where
     pad = replicate x
-    DN = Relation.Nullary.Decidable.dec-no (n ℕ.≤? m) g
+    DN = R₀D.dec-no (n ℕ.≤? m) g
     k = DNP.m∸n+n≡m (DNP.≰⇒≥ $ proj₁ DN) ▹ cong (Vec A)
     konk : Vec A $ n ∸ m + m
     konk = xt x xs (no $ proj₁ DN) ▹ coerce (sym k)
@@ -989,7 +990,7 @@ module PanciVertias where
   nu,iork→just x n = dec-yes (_ ≟ _) n ▹ proj₂ ▹ cong f
     where
     f = mapₘ (λ _ → x) ∘ decToMaybe
-    dec-yes = Relation.Nullary.Decidable.dec-yes
+    dec-yes = R₀D.dec-yes
 
   just→nu,iork : ∀ {a} → {A : Set a}
                → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
@@ -1255,7 +1256,7 @@ module B2fVeritas where
         just (DY ▹ proj₁) ≡⟨ ≤≡≤ _ _ ▹ cong just ⟩
         just ml ∎
         where
-        open Relation.Nullary.Decidable using (dec-yes)
+        open R₀D using (dec-yes)
         DY = dec-yes (_ ℕ.<? _) ml 
 
     dubjavmau : {m n : ℕ}
@@ -1275,7 +1276,7 @@ module B2fVeritas where
       K : mleca? ≡ nothing
       K = dec-no _ J ▹ proj₂ ▹ cong decToMaybe
         where
-        open Relation.Nullary.Decidable using (dec-no)
+        open R₀D using (dec-no)
 
     du : {m n : ℕ}
        → (v : Vec (Fin $ suc m) n)
