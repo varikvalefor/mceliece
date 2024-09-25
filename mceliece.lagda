@@ -345,7 +345,7 @@ import Data.Fin.Properties as DFP
 import Data.Vec.Properties as DVP
 import Data.List.Properties as DLP
 import Data.Maybe.Properties as DMP
-import Data.Product.Properties as DPP
+import Data.Product.Properties as ΣP
 import Data.List.Relation.Unary.All as Listal
 \end{code}
 
@@ -1049,7 +1049,7 @@ module IndiceVeritas where
   ordun : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : Vec A n)
         → <_,_> (lookup x) id ≗ lookup (indice x)
-  ordun x i = Function.Inverse.f DPP.×-≡,≡↔≡ $ R , P
+  ordun x i = Function.Inverse.f ΣP.×-≡,≡↔≡ $ R , P
     where
     open ≡-Reasoning
     R = sym $ begin
