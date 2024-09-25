@@ -985,10 +985,9 @@ module PanciVertias where
                → (x : A)
                → nu,iork x
                → panci x ≡ just x
-  nu,iork→just x n = dec-yes (_ ≟ _) n ▹ proj₂ ▹ cong f
+  nu,iork→just x n = R₀D.dec-yes (_ ≟ _) n ▹ proj₂ ▹ cong f
     where
     f = mapₘ (λ _ → x) ∘ decToMaybe
-    dec-yes = R₀D.dec-yes
 
   just→nu,iork : ∀ {a} → {A : Set a}
                → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
