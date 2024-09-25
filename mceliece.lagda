@@ -392,7 +392,7 @@ ni'o ko'a goi la'o zoi.\ \F{hWV𝔽} \B x\ .zoi.\ mu'oi glibau.\ HAMMING weight 
 
 \begin{code}
 hWV𝔽 : {m n : ℕ} → Vec (Fin n) m → ℕ
-hWV𝔽 = sumᵥ ∘ mapᵥ (λ {(suc _) → 1; zero → 0})
+hWV𝔽 = sumᵥ ∘ mapᵥ (λ {zero → 0; (suc _) → 1})
 \end{code}
 
 \subsection{le ctaipe be le su'u la'oi .\F{hWV𝔽}.\ mapti}
