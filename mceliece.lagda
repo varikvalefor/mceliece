@@ -1272,9 +1272,7 @@ module B2fVeritas where
       F = fromℕ< {_}
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
       K : mleca? ≡ nothing
-      K = dec-no _ J ▹ proj₂ ▹ cong decToMaybe
-        where
-        open R₀D using (dec-no)
+      K = R₀D.dec-no _ J ▹ proj₂ ▹ cong decToMaybe
 
     du : {m n : ℕ}
        → (v : Vec (Fin $ suc m) n)
