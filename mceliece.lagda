@@ -1253,8 +1253,7 @@ module B2fVeritas where
         just (DY ▹ proj₁) ≡⟨ ≤≡≤ _ _ ▹ cong just ⟩
         just ml ∎
         where
-        open R₀D using (dec-yes)
-        DY = dec-yes (_ ℕ.<? _) ml 
+        DY = R₀D.dec-yes (_ ℕ.<? _) ml 
 
     dubjavmau : {m n : ℕ}
               → (v : Vec (Fin $ suc m) n)
