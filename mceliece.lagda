@@ -462,9 +462,7 @@ module F2fVeritas where
       DY = R₀D.dec-yes (m ℕ.<? _) x
 
     nago'is : {m n : ℕ} → ¬_ $ m ℕ.< n → m <?ₘ n ≡ nothing
-    nago'is J = DN _ J ▹ proj₂ ▹ cong decToMaybe
-      where
-      DN = R₀D.dec-no
+    nago'is J = R₀D.dec-no _ J ▹ proj₂ ▹ cong decToMaybe
 
   module MFdᵢ where
     jus : {m n : ℕ}
