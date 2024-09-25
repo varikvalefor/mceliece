@@ -2429,7 +2429,7 @@ module HxVeritas where
        → {n : ℕ}
        → (f : Fin n)
        → {x z : A}
-       → z ≡_ $ f ▹ flip lookup ˢ lookup (I {n = n} x z)
+       → z ≡_ $ f ▹ flip lookup ˢ lookup (I x z)
     Ix = {!!}
 \end{code}
 
