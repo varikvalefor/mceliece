@@ -181,6 +181,7 @@ open import Function
     _on_;
     flip;
     _∋_;
+    _ˢ_;
     _$_;
     _∘_;
     id
@@ -2428,7 +2429,7 @@ module HxVeritas where
        → {n : ℕ}
        → (f : Fin n)
        → {x z : A}
-       → z ≡_ $ f ▹ flip lookup Function.ˢ lookup (I {n = n} x z)
+       → z ≡_ $ f ▹ flip lookup ˢ lookup (I {n = n} x z)
     Ix = {!!}
 \end{code}
 
