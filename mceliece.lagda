@@ -984,7 +984,7 @@ module PanciVertias where
   nu,iork→just : ∀ {a} → {A : Set a}
                → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
                → (Relation.Unary._⊆′_
-                   (nu,iork)
+                   nu,iork
                    (λ x → panci {A = A} x ≡ just x))
   nu,iork→just x n = R₀D.dec-yes (_ ≟ _) n ▹ proj₂ ▹ cong f
     where
