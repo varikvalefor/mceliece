@@ -983,9 +983,9 @@ panci v = mapₘ (const v) $ decToMaybe $ Dec (nu,iork v) ∋ _ ≟ _
 module PanciVertias where
   nu,iork→just : ∀ {a} → {A : Set a}
                → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
-               → (x : A)
-               → nu,iork x
-               → panci x ≡ just x
+               → (Relation.Unary._⊆′_
+                   (λ x → nu,iork {Bean = A} x)
+                   (λ x → panci {A = A} x ≡ just x))
   nu,iork→just x n = R₀D.dec-yes (_ ≟ _) n ▹ proj₂ ▹ cong f
     where
     f = mapₘ (λ _ → x) ∘ decToMaybe
