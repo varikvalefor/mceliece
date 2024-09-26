@@ -270,6 +270,7 @@ open import Data.Nat
 open import Relation.Unary
   using (
     Decidable;
+    _⊆′_;
     _⊆_
   )
 open import Data.Nat.DivMod
@@ -983,7 +984,7 @@ panci v = mapₘ (const v) $ decToMaybe $ Dec (nu,iork v) ∋ _ ≟ _
 module PanciVertias where
   nu,iork→just : ∀ {a} → {A : Set a}
                → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
-               → (Relation.Unary._⊆′_ {A = A}
+               → (_⊆′_ {A = A}
                    nu,iork
                    (λ x → panci x ≡ just x))
   nu,iork→just x n = R₀D.dec-yes (_ ≟ _) n ▹ proj₂ ▹ cong f
@@ -992,14 +993,14 @@ module PanciVertias where
 
   just→nu,iork : ∀ {a} → {A : Set a}
                → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
-               → (Relation.Unary._⊆′_ {A = A}
+               → (_⊆′_ {A = A}
                    (λ x → panci x ≡ just x)
                    nu,iork)
   just→nu,iork = {!!}
 
   ¬[nu,iork]→nothing : ∀ {a} → {A : Set a}
                      → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
-                     → (Relation.Unary._⊆′_ {A = A}
+                     → (_⊆′_ {A = A}
                          (¬_ ∘ nu,iork)
                          ((_≡ nothing) ∘ panci))
   ¬[nu,iork]→nothing x j = dec-no (_ ≟ _) j ▹ proj₂ ▹ cong f
