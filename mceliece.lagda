@@ -1001,7 +1001,7 @@ module PanciVertias where
                      → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
                      → (Relation.Unary._⊆′_ {A = A}
                          (¬_ ∘ nu,iork)
-                         (λ x → (_≡ nothing) $ panci x))
+                         ((_≡ nothing) ∘ panci))
   ¬[nu,iork]→nothing x j = dec-no (_ ≟ _) j ▹ proj₂ ▹ cong f
     where
     f = mapₘ (const x) ∘ decToMaybe
