@@ -992,7 +992,7 @@ module PanciVertias where
 
   just→nu,iork : ∀ {a} → {A : Set a}
                → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
-               → (Relation.Unary._⊆′_
+               → (Relation.Unary._⊆′_ {A = A}
                    (λ x → panci x ≡ just x)
                    nu,iork)
   just→nu,iork = {!!}
