@@ -1011,7 +1011,7 @@ module PanciVertias where
                      → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
                      → (_⊆′_ {A = A}
                          (λ x → panci x ≡ nothing)
-                         (λ x → ¬_ $ nu,iork x))
+                         (¬_ ∘ nu,iork))
   nothing→¬[nu,iork] = {!!}
 
   xor : ∀ {a} → {A : Set a}
