@@ -999,7 +999,7 @@ module PanciVertias where
 
   ¬[nu,iork]→nothing : ∀ {a} → {A : Set a}
                      → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
-                     → (Relation.Unary._⊆′_
+                     → (Relation.Unary._⊆′_ {A = A}
                          (¬_ ∘ nu,iork)
                          (λ x → panci x ≡ nothing))
   ¬[nu,iork]→nothing x j = dec-no (_ ≟ _) j ▹ proj₂ ▹ cong f
