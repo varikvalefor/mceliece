@@ -404,7 +404,7 @@ module HWV𝔽Veritas where
 
   dunlis : {a b : ℕ}
          → (x : Vec (Fin $ suc b) a)
-         → hWV𝔽 (zero ∷ x) ≡ hWV𝔽 x
+         → (hWV𝔽 ∘ (zero ∷_)) x ≡ hWV𝔽 x
   dunlis _ = refl
 
   cykas : {a b : ℕ}
