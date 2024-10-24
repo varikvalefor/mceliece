@@ -114,7 +114,7 @@
 ni'o le velcki cu zabna najenai cu mulno
 
 \chap{le terzu'e}
-ni'o me'oi .Agda,\ co'e fa ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u\sds  .i ko'a jai filri'a lo nu jimpe fi la'o glibau.\ Classic MCELIECE .glibau.
+ni'o me'oi .Agda.\ co'e fa ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau.\ Classic MCELIECE .glibau.\ li'u\sds  .i ko'a jai filri'a lo nu jimpe fi la'o glibau.\ Classic MCELIECE .glibau.
 
 .i la .varik.\ cu mutce le ka ce'u troci lo nu ko'a drani je cu zabna fi vo'a\ldots kei kei je nai le ka ce'u troci lo nu ko'a mutce le ka ce'u xi re skami sutra co'e\sds  .i ku'i la .varik.\ na toldji lo da'i nu ko'a drani ba'e je cu skami sutra co'e
 
