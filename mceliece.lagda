@@ -317,6 +317,8 @@ open import Truthbrary.Record.LLC
     LL
   )
 open import Relation.Nullary.Negation
+  using (
+  )
   renaming (
     contradiction to _⇒⇐_
   )
