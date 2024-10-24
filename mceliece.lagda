@@ -1271,7 +1271,7 @@ module B2fVeritas where
       maybe′ F (fromℕ m) nothing ≡⟨ refl ⟩
       fromℕ m ∎
       where
-      F = fromℕ< {_}
+      F = fromℕ<
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
       K : mleca? ≡ nothing
       K = R₀D.dec-no _ J ▹ proj₂ ▹ cong decToMaybe
