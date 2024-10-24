@@ -681,7 +681,7 @@ module FromList?Veritas where
              (mapₘ toList $ fromList? {n = n} x)
              (flip lookup i $ nothing ∷ just x ∷ []))
   mapdus {n = n} x with n ≟ length x
-  ... | yes d = {!!}
+  ... | yes d = {!!} , {!!}
   ... | no N = {!!}
 \end{code}
 
