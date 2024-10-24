@@ -784,7 +784,7 @@ module ResizeVeritas where
           let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ $ proj₁ DN in
           let sink = k ▹ cong (Vec A) ▹ sym in
           xs ≡_ $ drop (n ∸ m) $ resize x xs ▹ coerce sink
-  takis {_} {m} {n} {A} x xs g = sym $ begin
+  takis {m = m} {n} {A} x xs g = sym $ begin
     drop (n ∸ m) konk₁ ≡⟨ resize≡xt ▹ cong (drop _ ∘ coerce (sym k)) ⟩
     drop (n ∸ m) konk ≡⟨ konkydus ▹ cong (drop _) ⟩
     drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ▹ sym ⟩
