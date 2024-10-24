@@ -1373,7 +1373,7 @@ module B2fVeritas where
 
     -- | ni'o la .varik. cu djica lo nu basti pe'a ko'a
     -- goi le me'oi .f2f. co'e fa lo zmadu be ko'a bei le
-    -- ka tu'a ce'u .indika... kei kei jenai ku'i cu birti
+    -- ka ce'u jai .indika... kei kei jenai ku'i cu birti
     -- lo du'u ma kau zmadu... kei je ku'i cu djica curmi
     -- lo nu stidi
     jminan : {m n : ℕ}
