@@ -1295,7 +1295,7 @@ module B2fVeritas where
       m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
       where
       s≤⇒≤ : {m n : ℕ} → suc m ℕ.≤ n → m ℕ.≤ n
-      s≤⇒≤ {0} (ℕ.s≤s x) = ℕ.z≤n
+      s≤⇒≤ {0} (ℕ.s≤s _) = ℕ.z≤n
       s≤⇒≤ {suc _} (ℕ.s≤s x) = ℕ.s≤s $ s≤⇒≤ x
 
   module Indice' where
