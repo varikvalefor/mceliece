@@ -1268,7 +1268,7 @@ module B2fVeritas where
       sumᵥ'₂ v ≡⟨ refl ⟩
       maybe′ F (fromℕ m) mleca? ≡⟨ refl ⟩
       _ ≡⟨ K ▹_ $ cong $ maybe′ F $ fromℕ m ⟩
-      maybe′ F (fromℕ m) nothing ≡⟨ refl ⟩
+      maybe′ (F {m = {!!}}) (fromℕ m) nothing ≡⟨ refl ⟩
       fromℕ m ∎
       where
       F = fromℕ<
