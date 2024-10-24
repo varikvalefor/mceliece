@@ -682,7 +682,9 @@ module FromList?Veritas where
          → (∃ $ λ i → _≡_
              (mapₘ toList $ fromList? {n = n} x)
              (flip lookup i $ nothing ∷ just x ∷ []))
-  mapdus = {!!}
+  mapdus {n = n} x with n ≟ length x
+  ... | yes d = {!!}
+  ... | no N = {!!}
 \end{code}
 
 \section{la'oi .\F{resize}.}
