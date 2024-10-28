@@ -707,7 +707,9 @@ module Resize where
     padin = replicate x
 
   resize : ∀ {a} → {m n : ℕ} → {A : Set a}
-         → A → Vec A m → Vec A n
+         → A
+         → Vec A m
+         → Vec A n
   resize x = (_$ _ ℕ.≤? _) ∘ xt x
 
 open Resize
