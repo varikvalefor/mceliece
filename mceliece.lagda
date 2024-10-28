@@ -699,7 +699,10 @@ module Resize where
   bitc z = DNP.m∸n+n≡m (DNP.≰⇒≥ z) ▹ cong (Vec _)
 
   xt : ∀ {a} → {m n : ℕ} → {A : Set a}
-     → A → Vec A m → Dec (n ℕ.≤ m) → Vec A n
+     → A
+     → Vec A m
+     → Dec (n ℕ.≤ m)
+     → Vec A n
   xt {_} {m} {n} x xs (yes z) = drop (m ∸ n) $ xs ▹ coerce (coc z)
   xt {_} {m} {n} x xs (no z) = padin ++ xs ▹ coerce (bitc z)
     where
