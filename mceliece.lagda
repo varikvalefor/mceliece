@@ -622,7 +622,7 @@ module F𝔽Veritas where
 \end{code}
 
 \section{la'oi .\F{coerce}.}
-ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{coerce}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{coerce}.\ fo lo te gerna be la .lojban.
 
 \begin{code}
 coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
