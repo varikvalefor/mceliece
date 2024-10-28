@@ -708,7 +708,7 @@ module Resize where
 
   resize : ∀ {a} → {m n : ℕ} → {A : Set a}
          → A → Vec A m → Vec A n
-  resize x = (λ f → f $ _ ℕ.≤? _) ∘ xt x
+  resize x = (_$ _ ℕ.≤? _) ∘ xt x
 
 open Resize
   using (
