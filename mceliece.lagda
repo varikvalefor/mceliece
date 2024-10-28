@@ -710,7 +710,7 @@ module Resize where
          → A
          → Vec A m
          → Vec A n
-  resize x = (_$ _ ℕ.≤? _) ∘ xt x
+  resize = (_$ _ ℕ.≤? _) ∘₂ xt
 
 open Resize
   using (
