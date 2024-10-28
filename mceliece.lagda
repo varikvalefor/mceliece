@@ -68,7 +68,7 @@
 \newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 \newunicodechar{⊓}{\ensuremath{\mathnormal\sqcap}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal\uplus}}
-\newunicodechar{⍨}{\raisebox{-0.25ex}{$\ddot\sim$}}
+\newunicodechar{⍨}{\ensuremath{\raisebox{-0.25ex}{\ddot\sim}}}
 
 % | ni'o tu'a le canlu lerfu cu milxe le ka ce'u fegli kei je ku'i cu mutce le ka ce'u filri'a lo nu na me'oi .overfull.
 %
