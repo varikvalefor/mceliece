@@ -935,7 +935,7 @@ module DistVeritas where
               → (x z : Vec A n)
               → dist x z refl ℕ.≤ n
   dubjavme'av [] [] = ℕ.z≤n
-  dubjavme'av {n = n} (x ∷ xs) (z ∷ zs) with x ≟ z
+  dubjavme'av {n = _} (x ∷ xs) (z ∷ zs) with x ≟ z
   ... | yes d = dubjavme'av xs zs ▹ DNP.≤-step
   ... | no d = dubjavme'av xs zs ▹ ℕ.s≤s
 \end{code}
