@@ -634,9 +634,7 @@ coerce refl = id
 \begin{code}
 module CoerceVeritas where
   reflek : ∀ {a} → {A : Set a}
-         → (_≗_ {A = A}
-             id
-             (coerce refl))
+         → (_≗_ {A = A} id (coerce refl))
   reflek _ = refl
 
   flipko : ∀ {a} → {A B : Set a}
