@@ -700,7 +700,7 @@ module Resize where
 
   xt : ∀ {a} → {m n : ℕ} → {A : Set a}
      → A → Vec A m → Dec (n ℕ.≤ m) → Vec A n
-  xt {_} {m} {n} x xs (yes z) = drop (m ∸ n) $ coerce (coc z) xs
+  xt {_} {m} {n} x xs (yes z) = drop (m ∸ n) $ xs ▹ coerce (coc z)
   xt {_} {m} {n} x xs (no z) = padin ++ xs ▹ coerce (bitc z)
     where
     padin : Vec _ $ n ∸ m
