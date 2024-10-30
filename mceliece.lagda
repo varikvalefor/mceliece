@@ -19,7 +19,6 @@
 \newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
-\newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb M}}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
