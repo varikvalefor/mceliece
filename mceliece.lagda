@@ -945,7 +945,7 @@ module DistVeritas where
 \end{code}
 
 \section{la .\F{pausyk}.}
-ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi la .\F{pausyk}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi la .\F{pausyk}.\ fo lo te gerna be la .lojban.
 
 \begin{code}
 pausyk : (b e : ℕ) → ∃ $ (_≡ suc b ^ e) ∘ suc
