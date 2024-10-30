@@ -650,7 +650,7 @@ ni'o ga jo la'oi .\AgdaInductiveConstructor{nothing}.\ jonai la'o zoi.\ \AgdaInd
 fromList? : ∀ {a} → {A : Set a} → {n : ℕ}
           → List A
           → Maybe $ Vec A n
-fromList? v = mapₘ kofrol $ decToMaybe $ _ ≟ _
+fromList? v = mapₘ kofrol $ dun?
   where
   kofrol = λ c → fromList v ▹ coerce (c ▹ cong (Vec _))
 \end{code}
