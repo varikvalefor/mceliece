@@ -12,7 +12,6 @@
 
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
-\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{𝕍}{\ensuremath{\mathnormal{\mathbb V}}}
 \newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
 \newunicodechar{∃}{\ensuremath{\mathnormal\exists}}
@@ -23,6 +22,7 @@
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb M}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb S}}}
 \newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
 \newunicodechar{𝔹}{\ensuremath{\mathnormal{\mathbb B}}}
