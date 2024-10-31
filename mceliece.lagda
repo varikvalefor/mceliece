@@ -122,9 +122,7 @@ ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 
 \begin{code}
 {-# OPTIONS --guardedness #-}
-{-# OPTIONS
-    --instance-search-depth=3
- #-}
+{-# OPTIONS --instance-search-depth=3 #-}
 
 open import IO
   using (
