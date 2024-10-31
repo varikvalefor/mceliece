@@ -121,9 +121,8 @@ ni'o me'oi .Agda.\ co'e fa ko'a goi la'au le me'oi .Agda.\ velcki be la'o glibau
 ni'o la'au \chapsname\ li'u vasru le .importe ja me'oi .pragma.\ selsku
 
 \begin{code}
-{-#
-  OPTIONS
-    --guardedness
+{-# OPTIONS --guardedness #-}
+{-# OPTIONS
     --instance-search-depth=3
  #-}
 
