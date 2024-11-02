@@ -2456,7 +2456,7 @@ ni'o \specimp{Decode}\sds  .i la'oi .\F{Decode}.\ na prane pe'a le ka fanva ko'a
 \begin{code}
 module Decode where
   xv : MCParam → (MCParam → ℕ) → Set
-  xv = Vec (Fin 2) ∘₂ flip _$_
+  xv = Vec (Fin 2) ∘₂ _▹_
 
   mapti : {p : MCParam}
         → xv p MCParam.n-k
