@@ -2590,7 +2590,7 @@ module DecodeVeritas where
          → (v x z : A)
          → v ≡ x
          → ¬_ $ v ≡ z
-         → 𝕃.filter (v ≟_) (x ∷ z ∷ []) ≡ (x ∷ [])
+         → 𝕃.filter (v ≟_) (x ∷ z ∷ []) ≡ x ∷ []
       fd = {!!}
       open ≡-Reasoning
 
