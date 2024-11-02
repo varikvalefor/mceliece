@@ -2564,7 +2564,7 @@ module DecodeVeritas where
     nada C₀ bar e N = begin
       mapti? C₀ bar e ≡⟨ refl ⟩
       mapₘ (e ,_) (dun? >>=ₘ λ x → mapₘ (x ,_) dun?) ≡⟨ {!!} ⟩
-      mapₘ (e ,_) nothing ≡⟨ {!!} ⟩
+      mapₘ (e ,_) nothing ≡⟨ refl ⟩
       nothing ∎
       where
       open ≡-Reasoning
