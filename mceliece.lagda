@@ -2335,8 +2335,8 @@ module SeededKeyGenVeritas where
       S nothing ≡⟨ refl ⟩
       nothing ∎
       where
-      open ≡-Reasoning
       S = mapₘ $ Sivni?I.f δ
+      open ≡-Reasoning
 
   module Mapti? where
     nos : {p : MCParam}
