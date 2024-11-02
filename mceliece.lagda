@@ -2579,12 +2579,19 @@ module DecodeVeritas where
     xor {p} C₀ bar e with mapₘ proj₁ $ mapti? {p} C₀ bar e
     ... | nothing = refl
     ... | just e' = sym $ begin
-      𝕃.length (𝕃.take 1 $ 𝕃.filter (just e' ≟_) L) ≡⟨ {!!} ⟩
+      𝕃.length (𝕃.take 1 $ 𝕃.filter (just e' ≟_) L) ≡⟨ cong (𝕃.length ∘ 𝕃.take 1) (fd (just e') (just e) nothing {!!} {!!}) ⟩
       𝕃.length (𝕃.take 1 $ just e' ∷ []) ≡⟨ {!!} ⟩
       𝕃.length (just e' ∷ []) ≡⟨ refl ⟩
       1 ∎
       where
       L = just e ∷ nothing ∷ []
+      fd : ∀ {a} → {A : Set a}
+         → ⦃ _ : Eq A ⦄
+         → (v x z : A)
+         → v ≡ x
+         → ¬_ $ v ≡ z
+         → 𝕃.filter (v ≟_) (x ∷ z ∷ []) ≡ (x ∷ [])
+      fd = {!!}
       open ≡-Reasoning
 
   module V' where
