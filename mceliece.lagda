@@ -2353,7 +2353,7 @@ module SeededKeyGenVeritas where
       nothing ∎
       where
       open ≡-Reasoning
-      _,ₘ_ = (apₘ ∘₂ mapₘ) _,_
+      _,ₘ_ = apₘ ∘ mapₘ _,_
 
     jus : {p : MCParam}
         → (δ : Fin $ 2 ^ MCParam.ℓ p)
