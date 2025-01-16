@@ -473,7 +473,7 @@ module F2fVeritas where
     nada = DFP.toℕ-fromℕ< _ ▹ sym
 
     jonais : {m n : ℕ}
-           → (j : Maybe _)
+           → (j : _)
            → let t = toℕ $ mFdᵢ {n} {m} j in
              (t ≡ m) ⊎ (n ≡ t)
     jonais {m} = maybe (_⊎_.inj₁ ∘ sym ∘ jus) $ _⊎_.inj₂ $ nada {m}
