@@ -450,9 +450,7 @@ module F2fVeritas where
   open F2f
 
   module _<?ₘ_ where
-    go'is : {m n : ℕ}
-          → (x : m ℕ.< n)
-          → m <?ₘ n ≡ just x
+    go'is : {m n : ℕ} → (x : m ℕ.< n) → m <?ₘ n ≡ just x
     go'is {m} {n} x = begin
       m <?ₘ n ≡⟨ refl ⟩
       decToMaybe (m ℕ.<? n) ≡⟨ proj₂ DY ▹ cong decToMaybe ⟩
