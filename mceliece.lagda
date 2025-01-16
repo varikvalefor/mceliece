@@ -1,3 +1,4 @@
+% vdid: 5kYP4pjetYFDdmxSvnAoaNBe2IJcQpGl
 \documentclass{report}
 
 \usepackage{ar}
