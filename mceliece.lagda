@@ -542,9 +542,9 @@ module F2fVeritas where
       ≥⇒≤⍨ = id
 
   zeron : {n m : ℕ}
-        → (x : Fin n)
+        → (x : Fin m)
         → toℕ x ≡ 0
-        → f2f {n = m} x ≡ zero
+        → f2f {n = n} x ≡ zero
   zeron x d = begin
     f2f x ≡⟨ refl ⟩
     mFd (toℕ x) ≡⟨ d ▹ cong mFd ⟩
