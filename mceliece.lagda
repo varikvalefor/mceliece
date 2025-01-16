@@ -658,7 +658,7 @@ module FromList?Veritas where
   jus : ∀ {a} → {A : Set a} → {n : ℕ}
       → (x : List A)
       → length x ≡ n
-      → just x ≡ (mapₘ toList $ fromList? {n = n} x)
+      → just x ≡ mapₘ toList (fromList? {n = n} x)
   jus = {!!}
 
   nadas : ∀ {a} → {A : Set a} → {n : ℕ}
