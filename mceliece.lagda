@@ -563,6 +563,7 @@ module F2fVeritas where
   fromℕ<-f2f {m} {n} zero (ℕ.s≤s ℕ.z≤n) = refl
   fromℕ<-f2f {m} {n} (𝔽.suc f) (ℕ.s≤s s) = sym $ begin
     f2f (𝔽.suc f) ≡⟨ {!!} ⟩
+    mFd (toℕ (𝔽.suc f)) ≡⟨ {!!} ⟩
     fromℕ< (ℕ.s≤s s) ∎
 \end{code}
 
