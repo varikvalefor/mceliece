@@ -534,7 +534,7 @@ module F2fVeritas where
     ≰ˢ⇒≤⍨ : {m n : ℕ}
           → ¬_ $ suc m ℕ.≤ suc n
           → n ℕ.≤ m
-    ≰ˢ⇒≤⍨ = sykles ∘ ≥⇒≤⍨ ∘ DNP.≮⇒≥
+    ≰ˢ⇒≤⍨ = (λ {(ℕ.s≤s s) → DNP.≤-step s}) ∘ ≥⇒≤⍨ ∘ DNP.≮⇒≥
       where
       sykles : {m n : ℕ} → suc m ℕ.≤ n → m ℕ.≤ n
       sykles (ℕ.s≤s s) = DNP.≤-step s
