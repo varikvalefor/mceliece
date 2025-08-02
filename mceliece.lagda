@@ -1850,6 +1850,12 @@ module FieldOrdering where
   module Sartre where
 
     module Jort where
+      _>ₗ_ : ∀ {a} → {A : Set a} → {m : ℕ}
+           → Fin m × A
+           → Fin m × A
+           → Set a
+      _>ₗ_ = {!!}
+
       jort' : ∀ {a} → {A : Set a} → {m n : ℕ}
             → Op₁ $ Vec (Fin m × A) n
       jort' = {!!}
