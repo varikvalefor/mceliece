@@ -1866,6 +1866,14 @@ module FieldOrdering where
            → Op₁ $ flip Vec n $ Fin m × A
       jort {m = m} = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
 
+      module Veritas where
+        zmadu₁ : ∀ {a} → {A : Set a} → {m n : ℕ}
+               → (x : flip Vec n $ Fin m × A)
+               → (j k : Fin n)
+               → toℕ k ≡ toℕ j + 1
+               → lookup x k >ₗ lookup x k
+        zmadu₁ = {!!}
+
     jort = Jort.jort
 
     panci₂ : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
