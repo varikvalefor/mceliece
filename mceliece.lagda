@@ -1867,7 +1867,7 @@ module FieldOrdering where
       -- porganzu
       jort : ∀ {a} → {A : Set a} → {m n : ℕ}
            → Op₁ $ flip Vec n $ Fin m × A
-      jort {m = _} = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
+      jort = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
 
       module Veritas where
         zmadu₁ : ∀ {a} → {A : Set a} → {m n : ℕ}
