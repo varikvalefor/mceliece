@@ -1846,20 +1846,22 @@ module FieldOrdering where
 
 \begin{code}
   module α' where
-    -- | ni'o mo la .z.
-    -- .i ga naja cpolynomi'a co'e gi na sarcu fa tu'a lo
-    -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
-    -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
-    -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
-    -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
-    -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
-    -- ko'a
     tefpi'i : (p : MCParam)
             → Fin $ MCParam.σ₂ p
             → Fin $ MCParam.q p
             → Fin $ MCParam.m p
             → ℕ
-    tefpi'i = λ p a π j → toℕ π * {!!} ^ (MCParam.m p ∸ 1 ∸ toℕ j)
+    tefpi'i = λ p a π j → toℕ π * z ^ (MCParam.m p ∸ 1 ∸ toℕ j)
+      where
+      -- | ni'o mo la .z.
+      -- .i ga naja cpolynomi'a co'e gi na sarcu fa tu'a lo
+      -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
+      -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
+      -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
+      -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
+      -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
+      -- ko'a
+      z = {!!}
 
     α' : (p : MCParam)
        → let q = MCParam.q p in
