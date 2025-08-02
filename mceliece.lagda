@@ -1012,7 +1012,7 @@ module PanciVertias where
                          (¬_ ∘ nu,iork))
   nothing→¬[nu,iork] x Nn with Dec (nu,iork x) ∋ _ ≟ _
   ... | yes n = {!!}
-  ... | no Nk = {!!}
+  ... | no Nk = Nk
 
   xor : ∀ {a} → {A : Set a}
       → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
