@@ -1874,6 +1874,12 @@ module FieldOrdering where
                → lookup x k >ₗ lookup x k
         zmadu₁ = {!!}
 
+        x⊆j : ∀ {a} → {A : Set a} → {m n : ℕ}
+            → (x : flip Vec n $ Fin m × A)
+            → (i₁ : Fin n)
+            → ∃ $ λ i₂ → lookup x i₁ ≡ lookup (jort x) i₂
+        x⊆j = {!!}
+
     jort = Jort.jort
 
     panci₂ : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
