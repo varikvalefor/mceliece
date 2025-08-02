@@ -1880,6 +1880,12 @@ module FieldOrdering where
             → ∃ $ λ i₂ → lookup x i₁ ≡ lookup (jort x) i₂
         x⊆j = {!!}
 
+        j⊆x : ∀ {a} → {A : Set a} → {m n : ℕ}
+            → (x : flip Vec n $ Fin m × A)
+            → (i₁ : Fin $ length $ jort x)
+            → ∃ $ λ i₂ → lookup (jort x) i₁ ≡ lookup x i₂
+        j⊆x = {!!}
+
     jort = Jort.jort
 
     panci₂ : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
