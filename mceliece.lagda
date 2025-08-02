@@ -1850,7 +1850,7 @@ module FieldOrdering where
        → let q = MCParam.q p in
          flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
        → Vec (Fin q) q
-    α' p = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
+    α' p = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i p a π) $ allFin m
       where
       m = MCParam.m p
       -- | ni'o mo la .z.
@@ -1861,8 +1861,12 @@ module FieldOrdering where
       -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
       -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
       -- ko'a
-      tefpi'i : Fin $ MCParam.σ₂ p → Fin $ MCParam.q p → Fin m → ℕ
-      tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
+      tefpi'i : (p : MCParam)
+              → Fin $ MCParam.σ₂ p
+              → Fin $ MCParam.q p
+              → Fin $ MCParam.m p
+              → ℕ
+      tefpi'i = λ p a π j → toℕ π * {!!} ^ (MCParam.m p ∸ 1 ∸ toℕ j)
 
   α' = α'.α'
 \end{code}
