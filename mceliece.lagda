@@ -1553,7 +1553,7 @@ module ∧𝔹ℕ𝔽Veritas where
       zidus : {m o : ℕ}
             → {x : Vec (Fin $ suc m) o}
             → (_≡_
-                (mapᵥ (f𝔽 _*_ $ zero) x)
+                (mapᵥ (f𝔽 _*_ zero) x)
                 (replicate zero))
       zidus {x = []} = refl
       zidus {x = x ∷ xs} = cong (zero ∷_) $ zidus {x = xs}
