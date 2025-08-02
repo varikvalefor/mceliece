@@ -1555,7 +1555,8 @@ module ∧𝔹ℕ𝔽Veritas where
             → (_≡_
                 (mapᵥ (f𝔽 _*_ $ zero {m}) x)
                 (replicate zero))
-      zidus = {!!}
+      zidus {x = []} = {!!}
+      zidus {x = x ∷ xs} = {!!}
 
   idx : {m : ℕ} → (f : Fin $ suc m) → toℕ f ∧𝔹ℕ𝔽 f ≡ f
   idx {m} f = begin
