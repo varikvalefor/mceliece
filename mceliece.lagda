@@ -2393,7 +2393,6 @@ module Hx where
      → Public p
      → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
   Hx p T = I zero (suc zero) ∣ T ▹ coerce (n∸k+k≡n' p)
-    where
 
 open Hx
   using (
