@@ -1010,7 +1010,7 @@ module PanciVertias where
                      → (_⊆′_ {A = A}
                          ((nothing ≡_) ∘ panci)
                          (¬_ ∘ nu,iork))
-  nothing→¬[nu,iork] x d with _ ≟ _
+  nothing→¬[nu,iork] x d with Dec (nu,iork x) ∋ _ ≟ _
   ... | yes n = d ⇒⇐ λ ()
   ... | no Nk = Nk
 
