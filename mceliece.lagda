@@ -1850,15 +1850,15 @@ module FieldOrdering where
   module Sartre where
 
     module Jort where
+      jort' : ∀ {a} → {A : Set a} → {m n : ℕ}
+            → Op₁ $ Vec (Fin m × A) n
+      jort' = {!!}
+
       -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
       -- porganzu
       jort : ∀ {a} → {A : Set a} → {m n : ℕ}
            → Op₁ $ flip Vec n $ Fin m × A
       jort {m = m} = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
-        where
-        jort' : ∀ {a} → {A : Set a} → {n : ℕ}
-              → Op₁ $ Vec (Fin m × A) n
-        jort' = {!!}
 
     jort = Jort.jort
 
