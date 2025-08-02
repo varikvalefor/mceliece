@@ -2381,14 +2381,19 @@ module Hx where
     where
     m = MCParam.m p
 
+  n∸k+k≡n' : (p : MCParam)
+           → ((_≡_ on λ i → 𝕄 (Fin 2) i (MCParam.n-k p))
+               (MCParam.n-k p + MCParam.k p)
+               (MCParam.n p))
+  n∸k+k≡n' p = n∸k+k≡n p ▹ cong nacmeimid
+    where
+    nacmeimid = λ i → 𝕄 _ i $ MCParam.n-k p
+
   Hx : (p : MCParam)
      → Public p
      → 𝕄 (Fin 2) (MCParam.n p) $ MCParam.n-k p
-  Hx p T = I zero (suc zero) ∣ T ▹ coerce n∸k+k≡n'
+  Hx p T = I zero (suc zero) ∣ T ▹ coerce (n∸k+k≡n' p)
     where
-    n∸k+k≡n' = n∸k+k≡n p ▹ cong nacmeimid
-      where
-      nacmeimid = λ i → 𝕄 _ i $ MCParam.n-k p
 
 open Hx
   using (
