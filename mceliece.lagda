@@ -1861,6 +1861,7 @@ module FieldOrdering where
       -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
       -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
       -- ko'a
+      tefpi'i : Fin $ MCParam.σ₂ p → Fin $ MCParam.q p → Fin m → ℕ
       tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
 
   α' = α'.α'
