@@ -1034,9 +1034,9 @@ module PanciVertias where
          → (x : A)
          → (J : Data.Maybe.Is-just $ panci x)
          → (n₁ n₂ : Fin _)
-         → ¬_ $ n₁ ≡ n₂
          → let x' = vec $ Data.Maybe.to-witness J in
-           ¬_ $ lookup x' n₁ ≡ lookup x' n₂
+           lookup x' n₁ ≡ lookup x' n₂
+         → n₁ ≡ n₂
   dratav = {!!}
 \end{code}
 
