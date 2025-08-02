@@ -1028,6 +1028,16 @@ module PanciVertias where
          → ¬_ $ n₁ ≡ n₂
          → panci x ≡ nothing
   dratan = {!!}
+
+  dratav : ∀ {a} → {A : Set a}
+         → ⦃ L : LL A ⦄ → ⦃ _ : Eq $ LL.e L ⦄
+         → (x : A)
+         → (J : Data.Maybe.Is-just $ panci x)
+         → (n₁ n₂ : Fin _)
+         → ¬_ $ n₁ ≡ n₂
+         → let x' = vec $ Data.Maybe.to-witness J in
+           ¬_ $ lookup x' n₁ ≡ lookup x' n₂
+  dratav = {!!}
 \end{code}
 
 \section{la .\F{indice}}
