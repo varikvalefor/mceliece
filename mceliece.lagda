@@ -1850,6 +1850,9 @@ module FieldOrdering where
   module Sartre where
 
     module Jort where
+      -- | ni'o ro da zo'u ro de zo'u ga jo ctaipe lo mu'oi
+      -- zoi. _>ₗ_ .zoi. be da bei de gi da de zmadu co
+      -- me'oi .lexicographic.
       _>ₗ_ : ∀ {a} → {A : Set a} → {m : ℕ}
            → Fin m × A
            → Fin m × A
