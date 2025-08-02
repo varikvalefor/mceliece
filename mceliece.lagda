@@ -1835,6 +1835,11 @@ module FieldOrdering where
 \end{code}
 
 \begin{code}
+  -- | ni'o le te tcidu cu jai .indika le du'u fancu
+  -- lo'i kacna'u lo me'oi .Fin. be zo'e... kei jenai ku'i
+  -- le du'u ma kau fancu
+  -- .i so'i da zo'u cumki fa lo nu djica tu'a da  .i ku'i
+  -- la .varik. na birti ca le nu vo'a cusku dei
   toFin : {n : ℕ} → ℕ → Fin n
   toFin = {!!}
 \end{code}
