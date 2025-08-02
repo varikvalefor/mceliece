@@ -1845,22 +1845,25 @@ module FieldOrdering where
 \end{code}
 
 \begin{code}
-  α' : (p : MCParam)
-     → let q = MCParam.q p in
-       flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
-     → Vec (Fin q) q
-  α' p = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
-    where
-    m = MCParam.m p
-    -- | ni'o mo la .z.
-    -- .i ga naja cpolynomi'a co'e gi na sarcu fa tu'a lo
-    -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
-    -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
-    -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
-    -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
-    -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
-    -- ko'a
-    tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
+  module α' where
+    α' : (p : MCParam)
+       → let q = MCParam.q p in
+         flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
+       → Vec (Fin q) q
+    α' p = mapᵥ $ λ (a , π) → toFin $ sumᵥ $ mapᵥ (tefpi'i a π) $ allFin m
+      where
+      m = MCParam.m p
+      -- | ni'o mo la .z.
+      -- .i ga naja cpolynomi'a co'e gi na sarcu fa tu'a lo
+      -- pilji  .i nibli la'e di'u fa le su'u ga je co'e gi
+      -- pilno la'oi .Vec. tu'a lo cpolinomi'a  .i ku'i la
+      -- .varik. na birti ko'a goi le du'u cpolinomi'a co'e
+      -- .i ku'i cumki fa lo nu binxo  .i le su'u sampu cu
+      -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
+      -- ko'a
+      tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
+
+  α' = α'.α'
 \end{code}
 
 \begin{code}
