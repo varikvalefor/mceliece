@@ -49,6 +49,7 @@
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
+\newunicodechar{⊆}{\ensuremath{\mathnormal\subseteq}}
 \newunicodechar{ᵢ}{\ensuremath{\mathnormal{_\AgdaFontStyle{i}}}}
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_\AgdaFontStyle{l}}}}
 \newunicodechar{ₓ}{\ensuremath{\mathnormal{_\AgdaFontStyle{x}}}}
@@ -1874,7 +1875,7 @@ module FieldOrdering where
                → (x : flip Vec n $ Fin m × A)
                → (j k : Fin n)
                → toℕ k ≡ toℕ j + 1
-               → lookup x k >ₗ lookup x k
+               → lookup x k >ₗ lookup x j
         zmadu₁ = {!!}
 
         x⊆j : ∀ {a} → {A : Set a} → {m n : ℕ}
