@@ -1848,15 +1848,19 @@ module FieldOrdering where
     tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
 
   module Sartre where
-    -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
-    -- porganzu
-    jort : ∀ {a} → {A : Set a} → {m n : ℕ}
-         → Op₁ $ flip Vec n $ Fin m × A
-    jort {m = m} = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
-      where
-      jort' : ∀ {a} → {A : Set a} → {n : ℕ}
-            → Op₁ $ Vec (Fin m × A) n
-      jort' = {!!}
+
+    module Jort where
+      -- | ni'o pilno la .jort. lo nu me'oi .lexicographic.
+      -- porganzu
+      jort : ∀ {a} → {A : Set a} → {m n : ℕ}
+           → Op₁ $ flip Vec n $ Fin m × A
+      jort {m = m} = mapᵥ proj₂ ∘ jort' ∘ mapᵥ (λ a → proj₁ a , a)
+        where
+        jort' : ∀ {a} → {A : Set a} → {n : ℕ}
+              → Op₁ $ Vec (Fin m × A) n
+        jort' = {!!}
+
+    jort = Jort.jort
 
     panci₂ : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
            → ⦃ Eq A ⦄
