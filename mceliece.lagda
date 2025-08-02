@@ -1011,7 +1011,7 @@ module PanciVertias where
                          ((nothing ≡_) ∘ panci)
                          (¬_ ∘ nu,iork))
   nothing→¬[nu,iork] x d with Dec (nu,iork x) ∋ _ ≟ _
-  ... | yes n = λ x₁ → nu,iork→just x n ⇒⇐ {!!}
+  ... | yes n = d ⇒⇐ λ ()
   ... | no Nk = Nk
 
   xor : ∀ {a} → {A : Set a}
