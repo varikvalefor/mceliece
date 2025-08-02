@@ -1828,11 +1828,18 @@ ni'o \specimp{FieldOrdering}
 
 .i ku'i pluja  .i la'e di'u krinu tu'a le me'oi .module.\ noi ke'a vasru le jai filri'a be lo nu ciksi la'oi .\F{FieldOrdering}.\ fo le cmalu je jai frili
 
+\begin{AgdaAlign}
+
 \begin{code}
 module FieldOrdering where
+\end{code}
+
+\begin{code}
   toFin : {n : ℕ} → ℕ → Fin n
   toFin = {!!}
+\end{code}
 
+\begin{code}
   α' : (p : MCParam)
      → let q = MCParam.q p in
        flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
@@ -1849,7 +1856,9 @@ module FieldOrdering where
     -- krinu le su'u la .varik. cu milxe le ka ce'u senpi
     -- ko'a
     tefpi'i = λ a π j → toℕ π * {!!} ^ (m ∸ 1 ∸ toℕ j)
+\end{code}
 
+\begin{code}
   module Sartre where
 
     module Jort where
@@ -1911,7 +1920,9 @@ module FieldOrdering where
     using (
       sartre
     )
+\end{code}
 
+\begin{code}
   FieldOrdering : {p : MCParam}
                 → Fin $ MCParam.σ₂ p * MCParam.q p
                 → Maybe $ Vec (Fin $ MCParam.q p) $ MCParam.q p
@@ -1921,12 +1932,16 @@ module FieldOrdering where
     vex = flip Vec q $ Fin (MCParam.σ₂ p) × Fin q
     a : flip Vec q $ Fin $ MCParam.σ₂ p
     a = {!!}
+\end{code}
 
+\begin{code}
 open FieldOrdering
   using (
     FieldOrdering
   )
 \end{code}
+
+\end{AgdaAlign}
 
 \subsection{le ctaipe be le su'u la'oi .\F{FieldOrdering}.\ mapti}
 
