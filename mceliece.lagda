@@ -1538,7 +1538,7 @@ module ∧𝔹ℕ𝔽Veritas where
     zipdun = begin
       zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ {!!} ⟩
       zipWithᵥ (f𝔽 _*_) Z (nbits n) ≡⟨ ziprep (f𝔽 _*_) zero $ nbits n ⟩
-      mapᵥ (f𝔽 _*_ zero) (nbits n) ≡⟨ {!!} ⟩
+      mapᵥ (f𝔽 _*_ zero) (nbits n) ≡⟨ zidus ⟩
       Z ∎
       where
       ziprep : ∀ {a b c}
@@ -1550,6 +1550,12 @@ module ∧𝔹ℕ𝔽Veritas where
              → zipWithᵥ f (replicate x) z ≡ mapᵥ (f x) z
       ziprep _ _ [] = refl
       ziprep f x (z ∷ zs) = ziprep f x zs ▹ cong (f x z ∷_)
+      zidus : {m o : ℕ}
+            → {x : Vec (Fin $ suc m) o}
+            → (_≡_
+                (mapᵥ (f𝔽 _*_ $ zero {m}) x)
+                (replicate zero))
+      zidus = {!!}
 
   idx : {m : ℕ} → (f : Fin $ suc m) → toℕ f ∧𝔹ℕ𝔽 f ≡ f
   idx {m} f = begin
