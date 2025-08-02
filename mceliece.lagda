@@ -1826,6 +1826,8 @@ Irreducible {p} d = fromList? g
 \section{la'oi .\F{FieldOrdering}.}
 ni'o \specimp{FieldOrdering}
 
+.i ku'i pluja  .i la'e di'u krinu tu'a le me'oi .module.\ noi ke'a vasru le jai filri'a be lo nu ciksi la'oi .\F{FieldOrdering}.\ fo le cmalu je jai frili
+
 \begin{code}
 module FieldOrdering where
   toFin : {n : ℕ} → ℕ → Fin n
