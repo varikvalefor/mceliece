@@ -1064,7 +1064,7 @@ module IndiceVeritas where
   ordun : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : Vec A n)
         → < lookup x , id > ≗ lookup (indice x)
-  ordun x i = {!!} ΣP.×-≡,≡↔≡ $ R , P
+  ordun x i = Function.Inverse.to ΣP.×-≡,≡↔≡ $ R , P
     where
     open ≡-Reasoning
     R = sym $ begin
