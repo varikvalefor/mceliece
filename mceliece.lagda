@@ -136,7 +136,6 @@ open import Data.Fin
   as 𝔽
   using (
     opposite;
-    fromℕ<;
     fromℕ;
     zero;
     toℕ;
@@ -355,6 +354,12 @@ import Data.List.Relation.Unary.All as Listal
 \chap{le vrici}
 ni'o la'au \chapsname\ li'u vasru zo'e poi na racli fa lo nu zbasu lo ckupau poi srana ke'a xi pa fa lo ro selvau be ke'a xi re
 
+\begin{code}
+fromℕ< : {m n : ℕ} → m ℕ.< n → Fin n
+fromℕ< (ℕ.s≤s ℕ.z≤n) = 𝔽.zero
+fromℕ< {suc m} (ℕ.s≤s x) = 𝔽.suc $ fromℕ< x
+\end{code}
+
 \section{la'o zoi.\ \F{dun?}\ .zoi.}
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi la'o zoi.\ \F{dun?}\ .zoi.\ bau la .lojban.
 
@@ -462,16 +467,16 @@ module F2fVeritas where
       DY = R₀D.dec-yes (m ℕ.<? _) x
 
     nago'is : {m n : ℕ} → ¬_ $ m ℕ.< n → m <?ₘ n ≡ nothing
-    nago'is J = R₀D.dec-no _ J ▹ proj₂ ▹ cong decToMaybe
+    nago'is J = R₀D.dec-no _ J ▹ cong decToMaybe
 
   module MFdᵢ where
     jus : {m n : ℕ}
         → (j : m ℕ.< suc n)
         → m ≡_ $ toℕ $ mFdᵢ $ just j
-    jus = sym ∘ DFP.toℕ-fromℕ<
+    jus = {!!}
 
     nada : {m n : ℕ} → n ≡_ $ toℕ $ mFdᵢ {n} {m} nothing
-    nada = DFP.toℕ-fromℕ< _ ▹ sym
+    nada = {!!}
 
     jonais : {m n : ℕ}
            → (j : _)
@@ -604,8 +609,8 @@ module F𝔽Veritas where
     toℕ (f𝔽 f x z) ≡⟨ refl ⟩
     toℕ (f2f $ fromℕ $ f' x z) ≡⟨ refl ⟩
     toℕ (mFd $ decToMaybe $ f'' x z ℕ.<? _ ) ≡⟨ refl ⟩
-    _ ≡⟨ DN ▹ proj₂ ▹  cong (toℕ ∘ mFd ∘ decToMaybe) ⟩
-    toℕ (fromℕ< $ DNP.n<1+n _ ) ≡⟨ DFP.toℕ-fromℕ< _ ⟩
+    _ ≡⟨ DN ▹ cong (toℕ ∘ mFd ∘ decToMaybe) ⟩
+    toℕ (fromℕ< $ DNP.n<1+n _ ) ≡⟨ {!!} ⟩
     n ∎
     where
     mFd = maybe fromℕ< $ fromℕ< $ DNP.n<1+n _
@@ -700,7 +705,7 @@ module Resize where
   xt {_} {m} {n} x xs (no z) = padin ++ xs ▹ coerce (bitc z)
     where
     padin : Vec _ $ n ∸ m
-    padin = replicate x
+    padin = replicate _ x
 
   resize : ∀ {a} → {m n : ℕ} → {A : Set a}
          → A
@@ -777,7 +782,7 @@ module ResizeVeritas where
         → (xs : Vec A m)
         → (g : ¬ (n ℕ.≤ m))
         → let DN = R₀D.dec-no (_ ℕ.≤? _) g in
-          let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ $ proj₁ DN in
+          let k = DNP.m∸n+n≡m $ DNP.≰⇒≥ g in
           let sink = k ▹ cong (Vec A) ▹ sym in
           xs ≡_ $ drop (n ∸ m) $ resize x xs ▹ coerce sink
   takis {m = m} {n} {A} x xs g = sym $ begin
@@ -786,17 +791,17 @@ module ResizeVeritas where
     drop (n ∸ m) (pad ++ xs) ≡⟨ dropdus pad xs ▹ sym ⟩
     xs ∎
     where
-    pad = replicate x
+    pad = replicate _ x
     DN = R₀D.dec-no (n ℕ.≤? m) g
-    k = DNP.m∸n+n≡m (DNP.≰⇒≥ $ proj₁ DN) ▹ cong (Vec A)
+    k = DNP.m∸n+n≡m (DNP.≰⇒≥ $ g) ▹ cong (Vec A)
     konk : Vec A $ n ∸ m + m
-    konk = xt x xs (no $ proj₁ DN) ▹ coerce (sym k)
+    konk = xt x xs (no $ g) ▹ coerce (sym k)
     konk₁ : Vec A $ n ∸ m + m
     konk₁ = resize x xs ▹ coerce (sym k)
     konkydus : konk ≡ pad ++ xs
     konkydus = flipko (pad ++ xs) k ▹ sym
-    resize≡xt : resize x xs ≡ xt x xs (no $ proj₁ DN)
-    resize≡xt = DN ▹ proj₂ ▹ cong (xt x xs)
+    resize≡xt : resize x xs ≡ xt x xs (no $ g)
+    resize≡xt = DN ▹ cong (xt x xs)
     dropdus : ∀ {a} → {A : Set a} → {m n : ℕ}
             → (x : Vec A m)
             → (z : Vec A n)
@@ -1001,7 +1006,7 @@ module PanciVertias where
                      → (_⊆′_ {A = A}
                          (¬_ ∘ nu,iork)
                          ((_≡ nothing) ∘ panci))
-  ¬[nu,iork]→nothing x j = dec-no (_ ≟ _) j ▹ proj₂ ▹ cong f
+  ¬[nu,iork]→nothing x j = dec-no (_ ≟ _) j ▹ cong f
     where
     f = mapₘ (const x) ∘ decToMaybe
 
@@ -1059,7 +1064,7 @@ module IndiceVeritas where
   ordun : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : Vec A n)
         → < lookup x , id > ≗ lookup (indice x)
-  ordun x i = Function.Inverse.f ΣP.×-≡,≡↔≡ $ R , P
+  ordun x i = {!!} ΣP.×-≡,≡↔≡ $ R , P
     where
     open ≡-Reasoning
     R = sym $ begin
@@ -1111,10 +1116,10 @@ nbits = resize zero ∘ fromList ∘ reverse ∘ proj₁ ∘ toDigits 2
 
 \begin{code}
 module NbitsVeritas where
-  zeros : {n : ℕ} → nbits {n} 0 ≡ replicate zero
+  zeros : {n : ℕ} → nbits {n} 0 ≡ replicate _ zero
   zeros {n} = begin
     nbits {n} 0 ≡⟨ {!!} ⟩
-    replicate zero ∎
+    replicate _ zero ∎
     where
     open ≡-Reasoning
 
@@ -1155,7 +1160,7 @@ module B2f where
            → Fin $ suc m ^ n
   portenfa = portenfa₁ ∘ indice'
 
-  b2f : {m : ℕ} → Vec (Fin $ suc m) ⊆ Fin ∘ suc m ^_
+  b2f : {m : ℕ} → Vec (Fin $ suc m) ⊆ Fin ∘ (suc m ^_)
   b2f = portenfa ∘ mapᵥ f2f
 
 open B2f
@@ -1196,7 +1201,7 @@ module B2fVeritas where
       sumᵥ'₂ (f ∷ []) ≡⟨ refl ⟩
       maybe fromℕ< (fromℕ _) mleca? ≡⟨ d ⟩
       maybe fromℕ< (fromℕ _) mleca?₂ ≡⟨ refl ⟩
-      _ ≡⟨ DFP.fromℕ-def _ ▹ cong (λ n → maybe fromℕ< n mleca?₂) ⟩
+      _ ≡⟨ {!!} ⟩
       maybe fromℕ< (fromℕ< _) mleca?₂ ≡⟨ refl ⟩
       F2f.mFd (toℕ f) ≡⟨ refl ⟩
       f2f f ∎
@@ -1282,7 +1287,7 @@ module B2fVeritas where
       F = fromℕ<
       mleca? = decToMaybe $ sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
       K : mleca? ≡ nothing
-      K = R₀D.dec-no _ J ▹ proj₂ ▹ cong decToMaybe
+      K = R₀D.dec-no _ J ▹ cong decToMaybe
 
     du : {m n : ℕ}
        → (v : Vec (Fin $ suc m) n)
@@ -1290,7 +1295,7 @@ module B2fVeritas where
     du {m} {n} v with sumᵥ (mapᵥ toℕ v) ℕ.<? suc m
     ... | yes M = begin
       toℕ (B2f.sumᵥ' v) ≡⟨ mleca v M ▹ cong toℕ ⟩
-      toℕ (fromℕ< M) ≡⟨ DFP.toℕ-fromℕ< M ⟩
+      toℕ (fromℕ< M) ≡⟨ {!!} ⟩
       sumᵥ (mapᵥ toℕ v) ≡⟨ DNP.m≥n⇒m⊓n≡n (<⇒≤ M) ▹ sym ⟩
       m ℕ.⊓ sumᵥ (mapᵥ toℕ v) ∎
       where
@@ -1400,14 +1405,14 @@ module B2fVeritas where
   non' : (m n : ℕ)
        → (flip _≡_
            (mink zero $ proj₂ $ pausyk m n)
-           (b2f $ replicate {n = n} $ zero {m}))
+           (b2f $ replicate n $ zero {m}))
   non' _ 0 = refl
   non' m (suc n) = {!!}
 
   non : (m n : ℕ)
-      → (_≡ 0) $ toℕ $ b2f $ replicate {n = n} $ zero {m}
+      → (_≡ 0) $ toℕ $ b2f $ replicate n $ zero {m}
   non m n = begin
-    toℕ (b2f $ replicate {n = n} $ zero) ≡⟨ non' m n ▹ cong toℕ ⟩
+    toℕ (b2f $ replicate n $ zero) ≡⟨ non' m n ▹ cong toℕ ⟩
     toℕ (mink zero $ pausyk m n ▹ proj₂ ) ≡⟨ tomindus _ _ ▹ sym ⟩
     0 ∎
 
@@ -1457,7 +1462,7 @@ cunsof n = b2f ∘ mapᵥ sb2f <$> cunvek n
     sequenceᵥ [] = pure []
     sequenceᵥ (x ∷ xs) = x IO.>>= λ x' → (x' ∷_) IO.<$> sequenceᵥ xs
     cunste : {n : ℕ} → Vec (IO Bool) n
-    cunste = replicate $ IO.lift cunsob
+    cunste = replicate _ $ IO.lift cunsob
       where
       -- | ni'o cadga fa lo nu la'o zoi. cunsob n .zoi.
       -- me'oi .pure. lo me'oi .pseudorandom.
@@ -1521,7 +1526,7 @@ module ∧𝔹ℕ𝔽Veritas where
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
   nada {m} n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ refl ⟩
-    fromℕ< (_∧𝔹ℕ𝔽₁_mleca n zero) ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
+    fromℕ< (_∧𝔹ℕ𝔽₁_mleca n zero) ≡⟨ F2fVeritas.fromℕ<-f2f (_∧𝔹ℕ𝔽_ n zero) {!!} ⟩
     f2f (b2f $ zW $ nbits 0) ≡⟨ refl ⟩
     toFin (zW $ nbits 0) ≡⟨ NbitsVeritas.zeros ▹ cong (toFin ∘ zW) ⟩
     toFin (zW Z) ≡⟨ zipdun ▹ cong toFin ⟩
@@ -1532,7 +1537,7 @@ module ∧𝔹ℕ𝔽Veritas where
     toFin : Vec (Fin 2) $ suc m → Fin $ suc m
     toFin = f2f ∘ b2f
     zW = zipWithᵥ (f𝔽 _*_) $ nbits n
-    Z = replicate zero
+    Z = replicate _ zero
     f2f-zero = F2fVeritas.zeron
     zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
     zipdun = begin
@@ -1547,14 +1552,14 @@ module ∧𝔹ℕ𝔽Veritas where
              → (f : A → B → C)
              → (x : A)
              → (z : Vec B n)
-             → zipWithᵥ f (replicate x) z ≡ mapᵥ (f x) z
+             → zipWithᵥ f (replicate _ x) z ≡ mapᵥ (f x) z
       ziprep _ _ [] = refl
       ziprep f x (z ∷ zs) = ziprep f x zs ▹ cong (f x z ∷_)
       zidus : {m o : ℕ}
             → {x : Vec (Fin $ suc m) o}
             → (_≡_
                 (mapᵥ (f𝔽 _*_ zero) x)
-                (replicate zero))
+                (replicate _ zero))
       zidus {x = []} = refl
       zidus {x = x ∷ xs} = cong (zero ∷_) $ zidus {x = xs}
 
@@ -1570,13 +1575,13 @@ module ∧𝔹ℕ𝔽Veritas where
             (n ∧𝔹ℕ𝔽 opposite zero)
             (fromℕ< {n ℕ.⊓ 2 ^ m} $ DNP.m⊓n≤n _ _))
   dunli {m} n = begin
-    n ∧𝔹ℕ𝔽 opposite zero ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
+    n ∧𝔹ℕ𝔽 opposite zero ≡⟨ F2fVeritas.fromℕ<-f2f (n ∧𝔹ℕ𝔽 opposite zero) {!!} ⟩
     toFin (p $ nbits $ toℕ $ opposite $ zero {2 ^ m}) ≡⟨ {!!} ⟩
     toFin (p pav) ≡⟨ {!!} ⟩
     toFin (nbits n) ≡⟨ {!!} ⟩
     fromℕ< (DNP.m⊓n≤n _ _) ∎
     where
-    pav = replicate $ suc zero
+    pav = replicate _ $ suc zero
     p = zipWithᵥ (f𝔽 _*_) $ nbits n
     toFin : {m : ℕ} → Vec (Fin 2) $ suc m → Fin $ suc m
     toFin = f2f ∘ b2f
@@ -1600,19 +1605,19 @@ module Hw𝕄Veritas where
   kunti₂ : {a m : ℕ} → (x : 𝕄 (Fin a) 0 m) → hw𝕄 x ≡ 0
   kunti₂ {a} {m} x = begin
     hw𝕄 x ≡⟨ 𝕄0≡replicate[] x ▹ cong hw𝕄 ⟩
-    hw𝕄 {a} (replicate {n = m} []) ≡⟨ refl ⟩
-    sumᵥ (mapᵥ hWV𝔽 $ replicate {n = m} []) ≡⟨ refl ⟩
+    hw𝕄 {a} (replicate m []) ≡⟨ refl ⟩
+    sumᵥ (mapᵥ hWV𝔽 $ replicate m []) ≡⟨ refl ⟩
     _ ≡⟨ DVP.map-replicate hWV𝔽 [] m ▹ cong sumᵥ ⟩
-    sumᵥ (replicate {n = m} 0) ≡⟨ nosum m ⟩
+    sumᵥ (replicate m 0) ≡⟨ nosum m ⟩
     0 ∎
     where
     open ≡-Reasoning
-    nosum : (m : ℕ) → sumᵥ (replicate {n = m} 0) ≡ 0
+    nosum : (m : ℕ) → sumᵥ (replicate m 0) ≡ 0
     nosum 0 = refl
     nosum (suc n) = nosum n
     𝕄0≡replicate[] : ∀ {a} → {A : Set a} → {m : ℕ}
                    → (x : 𝕄 A 0 m)
-                   → x ≡ replicate {n = m} []
+                   → x ≡ replicate m []
     𝕄0≡replicate[] [] = refl
     𝕄0≡replicate[] ([] ∷ xs) = R ▹ cong (_ ∷_)
       where
@@ -2286,9 +2291,9 @@ module SeededKeyGenVeritas where
       _ ≡⟨ tomindus _ (P ℓ) ▹ sym ▹ cong (b2f ∘ drop n ∘ nb) ⟩
       b2f (drop n $ nb 0) ≡⟨ refl ⟩
       _ ≡⟨ NbitsVeritas.zeros {n + σ₁*t} ▹ cong (b2f ∘ drop n) ⟩
-      b2f (drop n $ replicate {n = n + σ₁*t} zero) ≡⟨ refl ⟩
+      b2f (drop n $ replicate (n + σ₁*t) zero) ≡⟨ refl ⟩
       _ ≡⟨ replidrop {m = n} {σ₁*t} zero ▹ cong b2f ⟩
-      b2f (replicate {n = σ₁*t} zero) ≡⟨ B2fVeritas.non' 1 $ σ₁*t ⟩
+      b2f (replicate σ₁*t zero) ≡⟨ B2fVeritas.non' 1 $ σ₁*t ⟩
       Z (MCParam.σ₁*t p) ∎
       where
       P = proj₂ ∘ pausyk 1
@@ -2301,14 +2306,14 @@ module SeededKeyGenVeritas where
       replidrop : ∀ {a} → {A : Set a} → {m n : ℕ}
                 → (x : A)
                 → (_≡_
-                    (drop m $ replicate {n = m + n} x)
-                    (replicate x))
+                    (drop m $ replicate (m + n) x)
+                    (replicate n x))
       replidrop {m = m} {n = n} x = begin
-        drop m (replicate {n = m + n} x) ≡⟨ {!!} ⟩
+        drop m (replicate (m + n) x) ≡⟨ {!!} ⟩
         (fromList (𝕃.drop m $ 𝕃.replicate (m + n) x) ▹ coerce k) ≡⟨ {!!} ⟩
         (fromList (𝕃.replicate n x) ▹ coerce k') ≡⟨ {!!} ⟩
-        replicate {n = n} x ≡⟨ refl ⟩
-        replicate x ∎
+        replicate n x ≡⟨ refl ⟩
+        replicate n x ∎
         where
         k' = DLP.length-replicate _ ▹ cong (Vec _)
         k = cong (Vec _) $ begin
@@ -2494,10 +2499,10 @@ module HxVeritas where
          → (T : Public p)
          → (d : MCParam.n p ≡ 0)
          → let []' = [] ▹_ $ coerce $ d ▹ sym ▹ cong (Vec _) in
-           Hx p T ≡ replicate []'
+           Hx p T ≡ replicate _ []'
   kunti₁ = λ p T d → begin
     Hx p T ≡⟨ {!!} ⟩
-    replicate ([] ▹_ $ coerce $ d ▹ sym ▹ cong (Vec _)) ∎
+    replicate _ ([] ▹_ $ coerce $ d ▹ sym ▹ cong (Vec _)) ∎
     where
     open ≡-Reasoning
 
@@ -2568,7 +2573,7 @@ module Decode where
       k≤n = DNP.m∸n≤m _ $ MCParam.m p * MCParam.t p
 
     v' : (p : MCParam) → xv p MCParam.n-k → xv p MCParam.n
-    v' p C₀ = C₀ ++ replicate zero ▹ coerce (n∸k+k≡n p)
+    v' p C₀ = C₀ ++ replicate _ zero ▹ coerce (n∸k+k≡n p)
 
   open V'
     using (
@@ -2691,7 +2696,7 @@ module DecodeVeritas where
     vc≡C₀++rz : {p : MCParam}
               → (C₀ : xv p MCParam.n-k)
               → let vc = vc' {p} C₀ in
-                vc ≡ C₀ ++ replicate zero
+                vc ≡ C₀ ++ replicate _ zero
     vc≡C₀++rz {p} C₀ = CoerceVeritas.flipko _ (n∸k+k≡n p) ▹ sym
 
 
@@ -2701,7 +2706,7 @@ module DecodeVeritas where
              take (length C₀) vc ≡ C₀
     pamois {p} C₀ = begin
       take (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹_ $ cong $ take _ ⟩
-      take (length C₀) (C₀ ++ replicate zero) ≡⟨ takedun C₀ _ ⟩
+      take (length C₀) (C₀ ++ replicate _ zero) ≡⟨ takedun C₀ _ ⟩
       C₀ ∎
       where
       vc = vc' {p} C₀
@@ -2733,11 +2738,11 @@ module DecodeVeritas where
     romois : {p : MCParam}
            → (C₀ : xv p MCParam.n-k)
            → let vc = vc' {p} C₀ in
-             replicate zero ≡ drop (length C₀) vc 
+             replicate _ zero ≡ drop (length C₀) vc 
     romois {p} C₀ = sym $ begin
       drop (length C₀) vc ≡⟨ vc≡C₀++rz {p} C₀ ▹ cong (drop _) ⟩
-      drop (length C₀) (C₀ ++ replicate zero) ≡⟨ dropdun C₀ _ ⟩
-      replicate zero ∎
+      drop (length C₀) (C₀ ++ replicate _ zero) ≡⟨ dropdun C₀ _ ⟩
+      replicate _ zero ∎
       where
       vc = vc' {p} C₀
       dropdun : ∀ {a} → {A : Set a} → {m n : ℕ}
