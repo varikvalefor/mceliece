@@ -2092,7 +2092,7 @@ module FixedWeight where
     where
     -- | ni'o zo .mlen. cmavlaka'i lu mleca la .n. li'u
     mlen : List $ Fin $ MCParam.n p
-    mlen = 𝕃.mapMaybe id $ mapₗ mlen? $ toList $ d p b
+    mlen = 𝕃.mapMaybe mlen? $ toList $ d p b
       where
       mlen? = mapₘ fromℕ< ∘ decToMaybe ∘ (ℕ._<? _)
 
