@@ -1930,7 +1930,7 @@ module FieldOrdering where
         zmadu₁ : ∀ {a} → {A : Set a} → {m n : ℕ}
                → (x : flip Vec n $ Fin m × A)
                → (j k : Fin n)
-               → toℕ k ℕ.> toℕ j
+               → k 𝔽.> j
                → _>ₗ_ ⦃ {!!} ⦄ (lookup x k) $ lookup x j
         zmadu₁ = {!!}
 
