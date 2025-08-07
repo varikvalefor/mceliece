@@ -1915,9 +1915,11 @@ module FieldOrdering where
       -- | ni'o ro da zo'u ro de zo'u ga jo ctaipe lo mu'oi
       -- zoi. _>ₗ_ .zoi. be da bei de gi da de zmadu co
       -- me'oi .lexicographic.
-      _>ₗ_ : ∀ {a} → {A : Set a} → {m : ℕ}
-           → Fin m × A
-           → Fin m × A
+      _>ₗ_ : ∀ {a b} → {A : Set a} → {B : Set b}
+           → ⦃ L A ⦄
+           → ⦃ L B ⦄
+           → A × B
+           → A × B
            → Set a
       _>ₗ_ = {!!}
 
@@ -1936,7 +1938,7 @@ module FieldOrdering where
                → (x : flip Vec n $ Fin m × A)
                → (j k : Fin n)
                → toℕ k ≡ toℕ j + 1
-               → lookup x k >ₗ lookup x j
+               → _>ₗ_ ⦃ {!!} ⦄ ⦃ {!!} ⦄ (lookup x k) $ lookup x j
         zmadu₁ = {!!}
 
         x⊆j : ∀ {a} → {A : Set a} → {m n : ℕ}
