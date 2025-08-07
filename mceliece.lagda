@@ -2082,7 +2082,7 @@ module FixedWeight where
                     → ∃ $ (_≡ m * n) ∘ suc
           sukdiz-¬0 0 _ N₁ _ = refl ⇒⇐ N₁
           sukdiz-¬0 _ 0 _ N₂ = refl ⇒⇐ N₂
-          sukdiz-¬0 (suc m) (suc n) N₁ N₂ = _ , refl
+          sukdiz-¬0 (suc m) (suc n) _ N₂ = _ , refl
       b' = nbits $ toℕ b
 
   a? : (p : MCParam)
