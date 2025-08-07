@@ -1909,7 +1909,7 @@ module FieldOrdering where
       -- | ni'o ro da zo'u ro de zo'u ga jo ctaipe lo mu'oi
       -- zoi. _>ₗ_ .zoi. be da bei de gi da de zmadu co
       -- me'oi .lexicographic.
-      _>ₗ_ : ∀ {a b} → {A : Set a} → {B : Set b}
+      _>ₗ_ : ∀ {a} → {A : Set a}
            → ⦃ Truthbrary.Record.SR.Show A ⦄
            → A
            → A
