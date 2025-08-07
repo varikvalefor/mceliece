@@ -1913,7 +1913,7 @@ module FieldOrdering where
            → ⦃ Truthbrary.Record.SR.Show A ⦄
            → A
            → A
-           → Set a
+           → Set
       _>ₗ_ = {!!}
 
       jort' : ∀ {a} → {A : Set a} → {m n : ℕ}
