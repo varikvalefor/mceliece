@@ -1917,9 +1917,8 @@ module FieldOrdering where
       -- me'oi .lexicographic.
       _>ₗ_ : ∀ {a b} → {A : Set a} → {B : Set b}
            → ⦃ L A ⦄
-           → ⦃ L B ⦄
-           → A × B
-           → A × B
+           → A
+           → A
            → Set a
       _>ₗ_ = {!!}
 
@@ -1938,7 +1937,7 @@ module FieldOrdering where
                → (x : flip Vec n $ Fin m × A)
                → (j k : Fin n)
                → toℕ k ≡ toℕ j + 1
-               → _>ₗ_ ⦃ {!!} ⦄ ⦃ {!!} ⦄ (lookup x k) $ lookup x j
+               → _>ₗ_ ⦃ {!!} ⦄ (lookup x k) $ lookup x j
         zmadu₁ = {!!}
 
         x⊆j : ∀ {a} → {A : Set a} → {m n : ℕ}
