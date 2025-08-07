@@ -1906,17 +1906,11 @@ module FieldOrdering where
   module Sartre where
 
     module Jort where
-      record L {a b c} (A : Set a) : Set (a ⊔ Level.suc b ⊔ Level.suc c) where
-        field
-          _≤_ : A → A → Set b
-          _≈_ : A → A → Set c
-          preorder : IsPreorder _≈_ _≤_
-
       -- | ni'o ro da zo'u ro de zo'u ga jo ctaipe lo mu'oi
       -- zoi. _>ₗ_ .zoi. be da bei de gi da de zmadu co
       -- me'oi .lexicographic.
       _>ₗ_ : ∀ {a b} → {A : Set a} → {B : Set b}
-           → ⦃ L A ⦄
+           → ⦃ Truthbrary.Record.SR.Show A ⦄
            → A
            → A
            → Set a
