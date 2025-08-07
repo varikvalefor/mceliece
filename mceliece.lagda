@@ -1914,7 +1914,7 @@ module FieldOrdering where
            → A
            → A
            → Set
-      _>ₗ_ = {!!}
+      _>ₗ_ = flip 𝕊._<_ Function.on Truthbrary.Record.SR.show
 
       jort' : ∀ {a} → {A : Set a} → {m n : ℕ}
             → Op₁ $ Vec (Fin m × A) n
