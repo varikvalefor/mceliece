@@ -572,6 +572,7 @@ module F2fVeritas where
   fromℕ<-f2f {m} {n} (𝔽.suc f) (ℕ.s≤s s) = sym $ begin
     f2f (𝔽.suc f) ≡⟨ refl ⟩
     mFd (toℕ $ 𝔽.suc f) ≡⟨ {!!} ⟩
+    (F2f.mFdᵢ ∘ (_<?ₘ _)) (toℕ $ 𝔽.suc f) ≡⟨ {!!} ⟩
     fromℕ< (ℕ.s≤s s) ∎
 \end{code}
 
