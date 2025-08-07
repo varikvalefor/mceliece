@@ -132,6 +132,10 @@ open import IO
     pure;
     IO
   )
+open import Level
+  using (
+    _⊔_
+  )
 open import Data.Fin
   as 𝔽
   using (
@@ -325,6 +329,11 @@ open import Relation.Nullary.Decidable
   using (
     dec-no;
     isYes
+  )
+open import Relation.Binary.Structures
+  as R₂S
+  using (
+    IsPreorder
   )
 open import Truthbrary.Data.Vec.Matrix
   using (
@@ -1897,6 +1906,12 @@ module FieldOrdering where
   module Sartre where
 
     module Jort where
+      record L {a b c} (A : Set a) : Set (a ⊔ Level.suc b ⊔ Level.suc c) where
+        field
+          _≤_ : A → A → Set b
+          _≈_ : A → A → Set c
+          preorder : IsPreorder _≈_ _≤_
+
       -- | ni'o ro da zo'u ro de zo'u ga jo ctaipe lo mu'oi
       -- zoi. _>ₗ_ .zoi. be da bei de gi da de zmadu co
       -- me'oi .lexicographic.
