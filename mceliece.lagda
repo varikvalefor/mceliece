@@ -2765,7 +2765,7 @@ module DecodeVeritas where
                  → (x : Vec A n)
                  → (z : Vec A o)
                  → drop n (x ++ z) ≡ drop (suc n) (e ∷ (x ++ z))
-        dropkons e [] z = {!!}
+        dropkons e [] z = refl
         dropkons e (x ∷ xs) z = {!!}
       open ≡-Reasoning
 \end{code}
