@@ -577,7 +577,6 @@ module F2fVeritas where
     F2f.mFdᵢ (just $ ℕ.s≤s s) ≡⟨ refl ⟩
     fromℕ< (ℕ.s≤s s) ∎
     where
-    DY = R₀D.dec-yes _ $ ℕ.s≤s s
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
