@@ -573,8 +573,8 @@ module F2fVeritas where
     f2f (𝔽.suc f) ≡⟨ refl ⟩
     mFd (toℕ $ 𝔽.suc f) ≡⟨ refl ⟩
     (F2f.mFdᵢ ∘ (_<?ₘ suc n)) (toℕ $ 𝔽.suc f) ≡⟨ refl ⟩
-    F2f.mFdᵢ (toℕ (𝔽.suc f) <?ₘ _) ≡⟨ {!!} ⟩
-    F2f.mFdᵢ (just ml) ≡⟨ {!!} ⟩
+    F2f.mFdᵢ (toℕ (𝔽.suc f) <?ₘ _) ≡⟨ _<?ₘ_.go'is (ℕ.s≤s s) ▹ cong F2f.mFdᵢ ⟩
+    F2f.mFdᵢ (just $ ℕ.s≤s s) ≡⟨ {!!} ⟩
     fromℕ< (ℕ.s≤s s) ∎
     where
     DY = R₀D.dec-yes _ $ ℕ.s≤s s
