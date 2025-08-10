@@ -2753,6 +2753,7 @@ module DecodeVeritas where
       replicate zero ∎
       where
       vc = vc' {p} C₀
+      open ≡-Reasoning
       dropdun : ∀ {a} → {A : Set a} → {m n : ℕ}
               → (x : Vec A m)
               → (z : Vec A n)
@@ -2767,7 +2768,6 @@ module DecodeVeritas where
                  → drop n (x ++ z) ≡ drop (suc n) (e ∷ (x ++ z))
         dropkons e [] z = refl
         dropkons e (x ∷ xs) z = {!!}
-      open ≡-Reasoning
 \end{code}
 
 \section{le su'u la'oi .\F{Decode}.\ srana la'oi .\F{Encode}.}
