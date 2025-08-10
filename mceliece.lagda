@@ -2767,7 +2767,9 @@ module DecodeVeritas where
                  → (z : Vec A o)
                  → drop n (x ++ z) ≡ drop (suc n) (e ∷ (x ++ z))
         dropkons e [] z = refl
-        dropkons e (x ∷ xs) z = {!!}
+        dropkons {n = n} {o} e (x ∷ xs) z = sym $ begin
+          drop (suc n) (e ∷ ((x ∷ xs) ++ z)) ≡⟨ {!!} ⟩
+          drop n ((x ∷ xs) + z) ∎
 \end{code}
 
 \section{le su'u la'oi .\F{Decode}.\ srana la'oi .\F{Encode}.}
