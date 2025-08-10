@@ -576,7 +576,6 @@ module F2fVeritas where
     F2f.mFdᵢ (toℕ (𝔽.suc f) <?ₘ _) ≡⟨ _<?ₘ_.go'is (ℕ.s≤s s) ▹ cong F2f.mFdᵢ ⟩
     F2f.mFdᵢ (just $ ℕ.s≤s s) ≡⟨ refl ⟩
     fromℕ< (ℕ.s≤s s) ∎
-    where
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
