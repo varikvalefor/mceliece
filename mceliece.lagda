@@ -2758,7 +2758,14 @@ module DecodeVeritas where
               → (z : Vec A n)
               → drop m (x ++ z) ≡ z
       dropdun [] _ = refl
-      dropdun (x ∷ xs) z = dropdun xs z ▹ coerce (cong (_≡ z) {!!})
+      dropdun (x ∷ xs) z = dropdun xs z ▹ coerce (cong (_≡ z) $ dropkons x xs z)
+        where
+        dropkons : ∀ {a} → {A : Set a} → {n o : ℕ}
+                 → (e : A)
+                 → (x : Vec A n)
+                 → (z : Vec A o)
+                 → drop n (x ++ z) ≡ drop (suc n) (e ∷ (x ++ z))
+        dropkons = {!!}
       open ≡-Reasoning
 \end{code}
 
