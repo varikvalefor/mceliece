@@ -577,7 +577,7 @@ module F2fVeritas where
     F2f.mFdᵢ (just ml) ≡⟨ {!!} ⟩
     fromℕ< (ℕ.s≤s s) ∎
     where
-    ml : toℕ f ℕ.< suc n
+    ml : toℕ (𝔽.suc f) ℕ.< suc n
     ml = {!!}
 \end{code}
 
