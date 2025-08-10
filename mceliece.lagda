@@ -2769,7 +2769,7 @@ module DecodeVeritas where
         dropkons e [] z = refl
         dropkons {n = n} {o} e (x ∷ xs) z = sym $ begin
           drop (suc n) (e ∷ ((x ∷ xs) ++ z)) ≡⟨ {!!} ⟩
-          drop n (drop 1 (e ∷ ((x ∷ xs) ++ z))) ≡⟨ {!!} ⟩
+          drop n (drop 1 (e ∷ ((x ∷ xs) ++ z))) ≡⟨ refl ⟩
           drop n ((x ∷ xs) ++ z) ∎
 \end{code}
 
