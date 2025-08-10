@@ -578,8 +578,6 @@ module F2fVeritas where
     fromℕ< (ℕ.s≤s s) ∎
     where
     DY = R₀D.dec-yes _ $ ℕ.s≤s s
-    ml : toℕ (𝔽.suc f) ℕ.< suc n
-    ml = DY ▹ proj₁
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
