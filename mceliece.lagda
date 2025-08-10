@@ -574,7 +574,11 @@ module F2fVeritas where
     mFd (toℕ $ 𝔽.suc f) ≡⟨ refl ⟩
     (F2f.mFdᵢ ∘ (_<?ₘ suc n)) (toℕ $ 𝔽.suc f) ≡⟨ refl ⟩
     F2f.mFdᵢ (toℕ (𝔽.suc f) <?ₘ _) ≡⟨ {!!} ⟩
+    F2f.mFdᵢ (just ml) ≡⟨ {!!} ⟩
     fromℕ< (ℕ.s≤s s) ∎
+    where
+    ml : toℕ f ℕ.< suc n
+    ml = {!!}
 \end{code}
 
 \section{la'oi .\F{f𝔽}.}
