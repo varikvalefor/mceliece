@@ -670,7 +670,11 @@ module FromList?Veritas where
       → (x : List A)
       → length x ≡ n
       → just x ≡ mapₘ toList (fromList? {n = n} x)
-  jus = {!!}
+  jus x d = sym $ begin
+    mapₘ toList (fromList? x) ≡⟨ {!!} ⟩
+    just x ∎
+    where
+    open ≡-Reasoning
 
   nadas : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : List A)
