@@ -671,7 +671,8 @@ module FromList?Veritas where
       → length x ≡ n
       → just x ≡ mapₘ toList (fromList? {n = n} x)
   jus x d = sym $ begin
-    mapₘ toList (fromList? x) ≡⟨ {!!} ⟩
+    mapₘ toList (fromList? x) ≡⟨ refl ⟩
+    mapₘ toList (mapₘ (λ c → fromList x ▹ coerce (c ▹ cong (Vec _))) dun?) ≡⟨ {!!} ⟩
     just x ∎
     where
     open ≡-Reasoning
