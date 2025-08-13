@@ -2687,7 +2687,7 @@ module DecodeVeritas where
     xor {p} C₀ bar e with mapₘ proj₁ $ mapti? {p} C₀ bar e
     ... | nothing = refl
     ... | just e' = sym $ begin
-      𝕃.length (𝕃.take 1 $ 𝕃.filter (just e' ≟_) L) ≡⟨ cong (𝕃.length ∘ 𝕃.take 1) $ fd (just e') (just e) nothing {!!} $ λ () ⟩
+      𝕃.length (𝕃.take 1 $ 𝕃.filter (just e' ≟_) L) ≡⟨ cong (𝕃.length ∘ 𝕃.take 1) $ fd (just e') (just e) nothing {!!} (λ ()) ⟩
       𝕃.length (𝕃.take 1 $ just e' ∷ []) ≡⟨ refl ⟩
       𝕃.length (just e' ∷ []) ≡⟨ refl ⟩
       1 ∎
