@@ -2688,7 +2688,7 @@ module DecodeVeritas where
     ... | nothing = refl
     ... | just e' = sym $ begin
       𝕃.length (𝕃.take 1 $ 𝕃.filter (just e' ≟_) L) ≡⟨ cong (𝕃.length ∘ 𝕃.take 1) $ fd (just e') (just e) nothing {!!} {!!} ⟩
-      𝕃.length (𝕃.take 1 $ just e' ∷ []) ≡⟨ {!!} ⟩
+      𝕃.length (𝕃.take 1 $ just e' ∷ []) ≡⟨ refl ⟩
       𝕃.length (just e' ∷ []) ≡⟨ refl ⟩
       1 ∎
       where
