@@ -2750,7 +2750,14 @@ module DecodeVeritas where
         x++[]≡x' [] = refl
         x++[]≡x' (x ∷ xs) = begin
           ((x ∷ xs) ++ []) ≡⟨ {!!} ⟩
+          cfl (𝕍.toList $ x ∷ xs) {!!} ≡⟨ {!!} ⟩
           flip coerce (x ∷ xs) (DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _)) ∎
+          where
+          cfl : ∀ {a} → {A : Set a} → {n : ℕ}
+              → (x : List A)
+              → length x ≡ n
+              → Vec A n
+          cfl = {!!}
         tc : ∀ {a} → {A : Set a} → {n : ℕ}
            → (x : Vec A n)
            → (d : Vec A n ≡ Vec A (n + 0))
