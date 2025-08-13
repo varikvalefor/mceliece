@@ -2755,7 +2755,14 @@ module DecodeVeritas where
            → x ≡ take n (coerce d x)
         tc {n = n} x₂ d = sym $ begin
           take n (coerce d x₂) ≡⟨ {!!} ⟩
+          ctl (𝕃.take n $ 𝕍.toList x₂) {!!} ≡⟨ {!!} ⟩
           x₂ ∎
+          where
+          ctl : ∀ {a} → {A : Set a} → {n : ℕ}
+              → (x : List A)
+              → 𝕃.length x ≡ n
+              → Vec A n
+          ctl = {!!}
       takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ λ _ → sym $ ts _ _ _
         where
         ts : ∀ {a} → {A : Set a} → {m n : ℕ}
