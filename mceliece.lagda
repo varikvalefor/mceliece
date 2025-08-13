@@ -2756,6 +2756,7 @@ module DecodeVeritas where
         tc {n = n} x₂ d = sym $ begin
           take n (coerce d x₂) ≡⟨ {!!} ⟩
           ctl (𝕃.take n $ 𝕍.toList x₂) {!!} ≡⟨ {!!} ⟩
+          ctl (𝕍.toList x₂) {!!} ≡⟨ {!!} ⟩
           x₂ ∎
           where
           ctl : ∀ {a} → {A : Set a} → {n : ℕ}
