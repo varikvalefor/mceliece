@@ -2756,7 +2756,7 @@ module DecodeVeritas where
         tc {n = n} x₂ d = sym $ begin
           take n (coerce d x₂) ≡⟨ {!!} ⟩
           ctl (𝕃.take n $ 𝕍.toList x₂) {!!} ≡⟨ {!!} ⟩
-          ctl (𝕍.toList x₂) {!!} ≡⟨ {!!} ⟩
+          ctl (𝕍.toList x₂) (length∘toList x₂ ▹ sym) ≡⟨ {!!} ⟩
           x₂ ∎
           where
           ctl : ∀ {a} → {A : Set a} → {n : ℕ}
@@ -2764,6 +2764,10 @@ module DecodeVeritas where
               → 𝕃.length x ≡ n
               → Vec A n
           ctl = {!!}
+          length∘toList : ∀ {a} → {A : Set a} → {n : ℕ}
+                        → (x : Vec A n)
+                        → n ≡ length (𝕍.toList x)
+          length∘toList = {!!}
       takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ λ _ → sym $ ts _ _ _
         where
         ts : ∀ {a} → {A : Set a} → {m n : ℕ}
