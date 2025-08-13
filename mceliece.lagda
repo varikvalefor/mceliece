@@ -2754,6 +2754,16 @@ module DecodeVeritas where
            → (d : Vec A n ≡ Vec A (n + 0))
            → x ≡ take n (coerce d x)
         tc x₂ d = {!!}
+      takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ λ _ → sym $ ts _ _ _
+        where
+        ts : ∀ {a} → {A : Set a} → {m n : ℕ}
+           → (x : Vec A m)
+           → (z : Vec A n)
+           → (e : A)
+           → (_≡_
+               (e ∷ x)
+               (take (suc m) $ e ∷ x 𝕍.++ z))
+        ts = {!!}
       open ≡-Reasoning
 
     romois : {p : MCParam}
