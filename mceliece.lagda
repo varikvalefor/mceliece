@@ -2767,7 +2767,8 @@ module DecodeVeritas where
           length∘toList : ∀ {a} → {A : Set a} → {n : ℕ}
                         → (x : Vec A n)
                         → n ≡ length (𝕍.toList x)
-          length∘toList = {!!}
+          length∘toList [] = {!!}
+          length∘toList (x ∷ xs) = {!!}
       takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ λ _ → sym $ ts _ _ _
         where
         ts : ∀ {a} → {A : Set a} → {m n : ℕ}
