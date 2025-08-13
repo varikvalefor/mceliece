@@ -2764,15 +2764,15 @@ module DecodeVeritas where
            → x ≡ take n (coerce d x)
         tc {n = n} x₂ d = sym $ begin
           take n (coerce d x₂) ≡⟨ {!!} ⟩
-          ctl (𝕃.take n $ 𝕍.toList x₂) {!!} ≡⟨ {!!} ⟩
-          ctl (𝕍.toList x₂) (length∘toList x₂ ▹ sym) ≡⟨ {!!} ⟩
+          cfl (𝕃.take n $ 𝕍.toList x₂) {!!} ≡⟨ {!!} ⟩
+          cfl (𝕍.toList x₂) (length∘toList x₂ ▹ sym) ≡⟨ {!!} ⟩
           x₂ ∎
           where
-          ctl : ∀ {a} → {A : Set a} → {n : ℕ}
+          cfl : ∀ {a} → {A : Set a} → {n : ℕ}
               → (x : List A)
               → 𝕃.length x ≡ n
               → Vec A n
-          ctl x d = 𝕍.fromList x ▹ coerce (d ▹ cong (Vec _))
+          cfl x d = 𝕍.fromList x ▹ coerce (d ▹ cong (Vec _))
           length∘toList : ∀ {a} → {A : Set a} → {n : ℕ}
                         → (x : Vec A n)
                         → n ≡ length (𝕍.toList x)
