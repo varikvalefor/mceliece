@@ -2754,7 +2754,7 @@ module DecodeVeritas where
            → (d : Vec A n ≡ Vec A (n + 0))
            → x ≡ take n (coerce d x)
         tc {n = n} x₂ d = sym $ begin
-          take _ (coerce d x₂) ≡⟨ {!!} ⟩
+          take n (coerce d x₂) ≡⟨ {!!} ⟩
           x₂ ∎
       takedun (x ∷ xs) (z ∷ zs) = takedun xs (z ∷ zs) ▹ λ _ → sym $ ts _ _ _
         where
