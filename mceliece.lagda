@@ -1568,7 +1568,8 @@ module ∧𝔹ℕ𝔽Veritas where
     zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
     zipdun = begin
       zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ {!!} ⟩
-      zipWithᵥ (f𝔽 _*_) Z (nbits n) ≡⟨ DVP.zipWith-replicate₁ (f𝔽 _*_) zero $ nbits n ⟩
+      zipWithᵥ (f𝔽 _*_) Z (nbits n) ≡⟨ refl ⟩
+      _ ≡⟨ DVP.zipWith-replicate₁ (f𝔽 _*_) zero $ nbits n ⟩
       mapᵥ (f𝔽 _*_ zero) (nbits n) ≡⟨ zidus ⟩
       Z ∎
       where
