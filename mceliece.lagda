@@ -68,7 +68,9 @@
 \newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
 \newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 \newunicodechar{⊓}{\ensuremath{\mathnormal\sqcap}}
+\newunicodechar{⊔}{\ensuremath{\mathnormal\sqcup}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal\uplus}}
+\newunicodechar{≗}{\ensuremath{\mathnormal\circeq}}
 \newunicodechar{⍨}{\ensuremath{\raisebox{-0.25ex}{\ddot\sim}}}
 
 % | ni'o tu'a le valsi bitmu lerfu cu milxe le ka ce'u fegli kei je ku'i cu mutce le ka ce'u filri'a lo nu na me'oi .overfull.
