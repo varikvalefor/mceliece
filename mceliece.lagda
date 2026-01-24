@@ -1547,7 +1547,9 @@ module ∧𝔹ℕ𝔽Veritas where
       → (_≡_
           (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂)
           (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁))
-  ass = {!!}
+  ass f₁ f₂ = begin
+    𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂) ≡⟨ {!!} ⟩
+    𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁) ∎
 
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
   nada {m} n = begin
