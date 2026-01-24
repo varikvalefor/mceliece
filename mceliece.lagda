@@ -1568,19 +1568,10 @@ module ∧𝔹ℕ𝔽Veritas where
     zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
     zipdun = begin
       zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ {!!} ⟩
-      zipWithᵥ (f𝔽 _*_) Z (nbits n) ≡⟨ ziprep (f𝔽 _*_) zero $ nbits n ⟩
+      zipWithᵥ (f𝔽 _*_) Z (nbits n) ≡⟨ DVP.zipWith-replicate₁ (f𝔽 _*_) zero $ nbits n ⟩
       mapᵥ (f𝔽 _*_ zero) (nbits n) ≡⟨ zidus ⟩
       Z ∎
       where
-      ziprep : ∀ {a b c}
-             → {A : Set a} → {B : Set b} → {C : Set c}
-             → {n : ℕ}
-             → (f : A → B → C)
-             → (x : A)
-             → (z : Vec B n)
-             → zipWithᵥ f (replicate x) z ≡ mapᵥ (f x) z
-      ziprep _ _ [] = refl
-      ziprep f x (z ∷ zs) = ziprep f x zs ▹ cong (f x z ∷_)
       zidus : {m o : ℕ}
             → {x : Vec (Fin $ suc m) o}
             → (_≡_
