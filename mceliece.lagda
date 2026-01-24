@@ -1541,6 +1541,14 @@ module ∧𝔹ℕ𝔽Veritas where
 
   module _∧𝔹ℕ𝔽₁_ where
 
+  ass : {n₁ n₂ : ℕ}
+      → (f₁ : Fin $ ℕ.suc n₁)
+      → (f₂ : Fin $ ℕ.suc n₂)
+      → (_≡_
+          (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂)
+          (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁))
+  ass = {!!}
+
   nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
   nada {m} n = begin
     n ∧𝔹ℕ𝔽 zero ≡⟨ refl ⟩
