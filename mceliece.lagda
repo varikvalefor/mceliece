@@ -360,7 +360,7 @@ import Data.Vec.Properties as DVP
 import Data.List.Properties as DLP
 import Data.Maybe.Properties as DMP
 import Data.Product.Properties as ΣP
-import Data.List.Relation.Unary.All as Listal
+import Data.List.Relation.Unary.All as 𝕃∀
 \end{code}
 
 \chap{le vrici}
@@ -2137,7 +2137,7 @@ module FixedWeight where
        → Σ (Vec (Fin 2) (MCParam.n p)) $ λ e
          → hWV𝔽 e ≡ MCParam.t p
          × let el = 𝕃.allFin _ in
-           flip Listal.All el $ (suc zero ≡_) ∘ lookup e ∘ lookup a
+           flip 𝕃∀.All el $ (suc zero ≡_) ∘ lookup e ∘ lookup a
     e' = {!!}
 
   {-# NON_TERMINATING #-}
