@@ -1588,7 +1588,15 @@ module ∧𝔹ℕ𝔽Veritas where
             → (_≡_
                 (zipWithᵥ (f𝔽 _*_) x z)
                 (zipWithᵥ (f𝔽 _*_) z x))
-      zw*-⍨ = {!!}
+      zw*-⍨ = zw⍨-⍨ (f𝔽 _*_) {!!}
+        where
+        zw⍨-⍨ : ∀ {a b} → {A : Set a} → {B : Set b}
+             → {n : ℕ}
+             → (f : A → A → B)
+             → ((x z : A) → f x z ≡ f z x)
+             → (x z : Vec A n)
+             → zipWithᵥ f x z ≡ zipWithᵥ f z x
+        zw⍨-⍨ = {!!}
 
   idx : {m : ℕ} → (f : Fin $ suc m) → toℕ f ∧𝔹ℕ𝔽 f ≡ f
   idx {m} f = begin
