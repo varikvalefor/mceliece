@@ -1570,7 +1570,7 @@ module ∧𝔹ℕ𝔽Veritas where
     f2f-zero = F2fVeritas.zeron
     zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
     zipdun = begin
-      zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ {!!} ⟩
+      zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ zw*-⍨ _ _ ⟩
       zipWithᵥ (f𝔽 _*_) Z (nbits n) ≡⟨ refl ⟩
       _ ≡⟨ DVP.zipWith-replicate₁ (f𝔽 _*_) zero $ nbits n ⟩
       mapᵥ (f𝔽 _*_ zero) (nbits n) ≡⟨ zidus ⟩
@@ -1583,6 +1583,12 @@ module ∧𝔹ℕ𝔽Veritas where
                 (replicate zero))
       zidus {x = []} = refl
       zidus {x = x ∷ xs} = cong (zero ∷_) $ zidus {x = xs}
+      zw*-⍨ : {m n : ℕ}
+            → (x z : Vec (Fin $ suc m) n)
+            → (_≡_
+                (zipWithᵥ (f𝔽 _*_) x z)
+                (zipWithᵥ (f𝔽 _*_) z x))
+      zw*-⍨ = {!!}
 
   idx : {m : ℕ} → (f : Fin $ suc m) → toℕ f ∧𝔹ℕ𝔽 f ≡ f
   idx {m} f = begin
