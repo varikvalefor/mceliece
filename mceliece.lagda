@@ -684,10 +684,12 @@ module FromList?Veritas where
         → ¬_ $ length x ≡ n
         → nothing ≡_ $ mapₘ toList $ fromList? {n = n} x
   nadas x N = sym $ begin
-    mapₘ toList (fromList? x) ≡⟨ {!!} ⟩
+    mapₘ toList (fromList? x) ≡⟨ refl ⟩
+    mapₘ toList (mapₘ kofrol dun?) ≡⟨ {!!} ⟩
     nothing ∎
     where
     open ≡-Reasoning
+    kofrol = λ c → fromList x ▹ coerce (c ▹ cong (Vec _))
 
   mapdus : ∀ {a} → {A : Set a} → {n : ℕ}
          → (x : List A)
