@@ -691,7 +691,7 @@ module FromList?Veritas where
         → ¬_ $ length x ≡ n
         → nothing ≡_ $ mapₘ toList $ fromList? {n = n} x
   nadas x N = cong (mapₘ toList) $ sym $ begin
-    (fromList? x) ≡⟨ refl ⟩
+    fromList? x ≡⟨ refl ⟩
     (mapₘ kofrol dun?) ≡⟨ {!!} ⟩
     nothing ∎
     where
