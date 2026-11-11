@@ -397,6 +397,13 @@ module Dun?Veritas where
     DY = R₀D.dec-yes (x ≟ z) d
     ≡≡≡ : (d₁ d₂ : x ≡ z) → d₁ ≡ d₂
     ≡≡≡ refl refl = refl
+
+  nax : ∀ {a} → {A : Set a}
+      → ⦃ _ : Eq A ⦄
+      → {x z : A}
+      → ¬_ $ x ≡ z
+      → dun? ≡ nothing
+  nax = {!!}
 \end{code}
 
 \section{la'oi .\F{hWV𝔽}.}
