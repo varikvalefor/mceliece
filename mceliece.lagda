@@ -691,7 +691,7 @@ module FromList?Veritas where
     mapₘ toList (mapₘ (λ c → fromList x ▹ coerce (c ▹ cong (Vec _))) dun?) ≡⟨ {!!} ⟩
     mapₘ toList (mapₘ (λ c → fromList x ▹ coerce (c ▹ cong (Vec _))) $ just d) ≡⟨ refl ⟩
     mapₘ toList (just $ fromList x ▹ coerce (d ▹ cong (Vec _))) ≡⟨ refl ⟩
-    just (toList $ fromList x ▹ coerce (d ▹ cong (Vec _))) ≡⟨ {!!} ⟩
+    just (toList $ fromList x ▹ coerce (d ▹ cong (Vec _))) ≡⟨ {!!} ▹ cong just ⟩
     just x ∎
     where
     open ≡-Reasoning
