@@ -1553,13 +1553,13 @@ module ∧𝔹ℕ𝔽Veritas where
 
   module _∧𝔹ℕ𝔽₁_ where
 
-  ass : {n₁ n₂ : ℕ}
+  com : {n₁ n₂ : ℕ}
       → (f₁ : Fin $ ℕ.suc n₁)
       → (f₂ : Fin $ ℕ.suc n₂)
       → (_≡_
           (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂)
           (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁))
-  ass f₁ f₂ = begin
+  com f₁ f₂ = begin
     𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂) ≡⟨ refl ⟩
     𝔽.toℕ (fromℕ< $ _∧𝔹ℕ𝔽₁_mleca (𝔽.toℕ f₁) f₂) ≡⟨ {!!} ⟩
     𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁) ∎
