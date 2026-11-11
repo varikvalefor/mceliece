@@ -1555,7 +1555,7 @@ module ∧𝔹ℕ𝔽 where
             (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁))
     com f₁ f₂ = begin
       𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂) ≡⟨ refl ⟩
-      𝔽.toℕ (fromℕ< $ _∧𝔹ℕ𝔽₁_mleca (𝔽.toℕ f₁) f₂) ≡⟨ {!!} ⟩
+      𝔽.toℕ (fromℕ< {toℕ $ b2f $ _∧𝔹ℕ𝔽₁_ (𝔽.toℕ f₁) f₂} $ _∧𝔹ℕ𝔽₁_mleca (𝔽.toℕ f₁) f₂) ≡⟨ {!!} ⟩
       𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁) ∎
   
     nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
