@@ -1537,101 +1537,104 @@ module ∧𝔹ℕ𝔽 where
 
   _∧𝔹ℕ𝔽_ : {n : ℕ} → ℕ → Op₁ $ Fin $ suc n
   _∧𝔹ℕ𝔽_ = fromℕ< ∘₂ _∧𝔹ℕ𝔽₁_mleca
-
-open ∧𝔹ℕ𝔽
-  using (
-    _∧𝔹ℕ𝔽_
-  )
 \end{code}
 
 \subsection{le ctaipe be le su'u la'oi .\F{\AgdaUnderscore{}∧𝔹ℕ𝔽\AgdaUnderscore}.\ mapti}
 
 \begin{code}
-module ∧𝔹ℕ𝔽Veritas where
-  open ∧𝔹ℕ𝔽
-  open ≡-Reasoning
-
-  module _∧𝔹ℕ𝔽₁_ where
-
-  com : {n₁ n₂ : ℕ}
-      → (f₁ : Fin $ ℕ.suc n₁)
-      → (f₂ : Fin $ ℕ.suc n₂)
-      → (_≡_
-          (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂)
-          (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁))
-  com f₁ f₂ = begin
-    𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂) ≡⟨ refl ⟩
-    𝔽.toℕ (fromℕ< $ _∧𝔹ℕ𝔽₁_mleca (𝔽.toℕ f₁) f₂) ≡⟨ {!!} ⟩
-    𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁) ∎
-
-  nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
-  nada {m} n = begin
-    n ∧𝔹ℕ𝔽 zero ≡⟨ refl ⟩
-    fromℕ< (_∧𝔹ℕ𝔽₁_mleca n zero) ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
-    f2f (b2f $ zW $ nbits 0) ≡⟨ refl ⟩
-    toFin (zW $ nbits 0) ≡⟨ NbitsVeritas.zeros ▹ cong (toFin ∘ zW) ⟩
-    toFin (zW Z) ≡⟨ zipdun ▹ cong toFin ⟩
-    toFin Z ≡⟨ refl ⟩
-    f2f (b2f Z) ≡⟨ f2f-zero (b2f Z) $ B2fVeritas.non 1 $ length Z ⟩
-    zero ∎
-    where
-    toFin : Vec (Fin 2) $ suc m → Fin $ suc m
-    toFin = f2f ∘ b2f
-    zW = zipWithᵥ (f𝔽 _*_) $ nbits n
-    Z = replicate zero
-    f2f-zero = F2fVeritas.zeron
-    zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
-    zipdun = begin
-      zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ zw*-⍨ _ _ ⟩
-      zipWithᵥ (f𝔽 _*_) Z (nbits n) ≡⟨ refl ⟩
-      _ ≡⟨ DVP.zipWith-replicate₁ (f𝔽 _*_) zero $ nbits n ⟩
-      mapᵥ (f𝔽 _*_ zero) (nbits n) ≡⟨ zidus ⟩
-      Z ∎
-      where
-      zidus : {m o : ℕ}
-            → {x : Vec (Fin $ suc m) o}
-            → (_≡_
-                (mapᵥ (f𝔽 _*_ zero) x)
-                (replicate zero))
-      zidus {x = []} = refl
-      zidus {x = x ∷ xs} = cong (zero ∷_) $ zidus {x = xs}
-      zw*-⍨ : {m n : ℕ}
-            → (x z : Vec (Fin $ suc m) n)
-            → (_≡_
-                (zipWithᵥ (f𝔽 _*_) x z)
-                (zipWithᵥ (f𝔽 _*_) z x))
-      zw*-⍨ = zw⍨-⍨ (f𝔽 _*_) {!!}
-        where
-        zw⍨-⍨ : ∀ {a b} → {A : Set a} → {B : Set b}
-             → {n : ℕ}
-             → (f : A → A → B)
-             → ((x z : A) → f x z ≡ f z x)
-             → (x z : Vec A n)
-             → zipWithᵥ f x z ≡ zipWithᵥ f z x
-        zw⍨-⍨ = {!!}
-
-  idx : {m : ℕ} → (f : Fin $ suc m) → toℕ f ∧𝔹ℕ𝔽 f ≡ f
-  idx {m} f = begin
-    toℕ f ∧𝔹ℕ𝔽 f ≡⟨ refl ⟩
-    fromℕ< (∧𝔹ℕ𝔽._∧𝔹ℕ𝔽₁_mleca (toℕ f) f) ≡⟨ {!!} ⟩
-    f ∎
-
-  dunli : {m : ℕ}
-        → (n : ℕ)
+  module Veritas where
+    open ≡-Reasoning
+  
+    module _∧𝔹ℕ𝔽₁_ where
+  
+    com : {n₁ n₂ : ℕ}
+        → (f₁ : Fin $ ℕ.suc n₁)
+        → (f₂ : Fin $ ℕ.suc n₂)
         → (_≡_
-            (n ∧𝔹ℕ𝔽 opposite zero)
-            (fromℕ< {n ℕ.⊓ 2 ^ m} $ DNP.m⊓n≤n _ _))
-  dunli {m} n = begin
-    n ∧𝔹ℕ𝔽 opposite zero ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
-    toFin (p $ nbits $ toℕ $ opposite $ zero {2 ^ m}) ≡⟨ {!!} ⟩
-    toFin (p pav) ≡⟨ {!!} ⟩
-    toFin (nbits n) ≡⟨ {!!} ⟩
-    fromℕ< (DNP.m⊓n≤n _ _) ∎
-    where
-    pav = replicate $ suc zero
-    p = zipWithᵥ (f𝔽 _*_) $ nbits n
-    toFin : {m : ℕ} → Vec (Fin 2) $ suc m → Fin $ suc m
-    toFin = f2f ∘ b2f
+            (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂)
+            (𝔽.toℕ $ _∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁))
+    com f₁ f₂ = begin
+      𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₁) f₂) ≡⟨ refl ⟩
+      𝔽.toℕ (fromℕ< $ _∧𝔹ℕ𝔽₁_mleca (𝔽.toℕ f₁) f₂) ≡⟨ {!!} ⟩
+      𝔽.toℕ (_∧𝔹ℕ𝔽_ (𝔽.toℕ f₂) f₁) ∎
+  
+    nada : {m : ℕ} → (n : ℕ) → _∧𝔹ℕ𝔽_ {m} n zero ≡ zero
+    nada {m} n = begin
+      n ∧𝔹ℕ𝔽 zero ≡⟨ refl ⟩
+      fromℕ< (_∧𝔹ℕ𝔽₁_mleca n zero) ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
+      f2f (b2f $ zW $ nbits 0) ≡⟨ refl ⟩
+      toFin (zW $ nbits 0) ≡⟨ NbitsVeritas.zeros ▹ cong (toFin ∘ zW) ⟩
+      toFin (zW Z) ≡⟨ zipdun ▹ cong toFin ⟩
+      toFin Z ≡⟨ refl ⟩
+      f2f (b2f Z) ≡⟨ f2f-zero (b2f Z) $ B2fVeritas.non 1 $ length Z ⟩
+      zero ∎
+      where
+      toFin : Vec (Fin 2) $ suc m → Fin $ suc m
+      toFin = f2f ∘ b2f
+      zW = zipWithᵥ (f𝔽 _*_) $ nbits n
+      Z = replicate zero
+      f2f-zero = F2fVeritas.zeron
+      zipdun : zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡ Z
+      zipdun = begin
+        zipWithᵥ (f𝔽 _*_) (nbits n) Z ≡⟨ zw*-⍨ _ _ ⟩
+        zipWithᵥ (f𝔽 _*_) Z (nbits n) ≡⟨ refl ⟩
+        _ ≡⟨ DVP.zipWith-replicate₁ (f𝔽 _*_) zero $ nbits n ⟩
+        mapᵥ (f𝔽 _*_ zero) (nbits n) ≡⟨ zidus ⟩
+        Z ∎
+        where
+        zidus : {m o : ℕ}
+              → {x : Vec (Fin $ suc m) o}
+              → (_≡_
+                  (mapᵥ (f𝔽 _*_ zero) x)
+                  (replicate zero))
+        zidus {x = []} = refl
+        zidus {x = x ∷ xs} = cong (zero ∷_) $ zidus {x = xs}
+        zw*-⍨ : {m n : ℕ}
+              → (x z : Vec (Fin $ suc m) n)
+              → (_≡_
+                  (zipWithᵥ (f𝔽 _*_) x z)
+                  (zipWithᵥ (f𝔽 _*_) z x))
+        zw*-⍨ = zw⍨-⍨ (f𝔽 _*_) {!!}
+          where
+          zw⍨-⍨ : ∀ {a b} → {A : Set a} → {B : Set b}
+               → {n : ℕ}
+               → (f : A → A → B)
+               → ((x z : A) → f x z ≡ f z x)
+               → (x z : Vec A n)
+               → zipWithᵥ f x z ≡ zipWithᵥ f z x
+          zw⍨-⍨ = {!!}
+  
+    idx : {m : ℕ} → (f : Fin $ suc m) → toℕ f ∧𝔹ℕ𝔽 f ≡ f
+    idx {m} f = begin
+      toℕ f ∧𝔹ℕ𝔽 f ≡⟨ refl ⟩
+      fromℕ< (_∧𝔹ℕ𝔽₁_mleca (toℕ f) f) ≡⟨ {!!} ⟩
+      f ∎
+  
+    dunli : {m : ℕ}
+          → (n : ℕ)
+          → (_≡_
+              (n ∧𝔹ℕ𝔽 opposite zero)
+              (fromℕ< {n ℕ.⊓ 2 ^ m} $ DNP.m⊓n≤n _ _))
+    dunli {m} n = begin
+      n ∧𝔹ℕ𝔽 opposite zero ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
+      toFin (p $ nbits $ toℕ $ opposite $ zero {2 ^ m}) ≡⟨ {!!} ⟩
+      toFin (p pav) ≡⟨ {!!} ⟩
+      toFin (nbits n) ≡⟨ {!!} ⟩
+      fromℕ< (DNP.m⊓n≤n _ _) ∎
+      where
+      pav = replicate $ suc zero
+      p = zipWithᵥ (f𝔽 _*_) $ nbits n
+      toFin : {m : ℕ} → Vec (Fin 2) $ suc m → Fin $ suc m
+      toFin = f2f ∘ b2f
+\end{code}
+
+\subsection{le co'e ja cmavlaka'i}
+
+\begin{code}
+open ∧𝔹ℕ𝔽
+  using (
+    _∧𝔹ℕ𝔽_
+  )
 \end{code}
 
 \section{la'oi .\F{hw𝕄}.}
