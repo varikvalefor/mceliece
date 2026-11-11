@@ -402,7 +402,7 @@ module Dun?Veritas where
       → ⦃ _ : Eq A ⦄
       → {x z : A}
       → ¬_ $ x ≡ z
-      → dun? ≡ nothing
+      → dun? {x = x} {z} ≡ nothing
   nax = {!!}
 \end{code}
 
