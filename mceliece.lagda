@@ -692,7 +692,7 @@ module FromList?Veritas where
         → nothing ≡_ $ mapₘ toList $ fromList? {n = n} x
   nadas x N = cong (mapₘ toList) $ sym $ begin
     fromList? x ≡⟨ refl ⟩
-    mapₘ kofrol dun? ≡⟨ {!!} ⟩
+    mapₘ kofrol dun? ≡⟨ (dun? ≡ nothing) ∋ {!!} ▹ cong (mapₘ kofrol) ⟩
     nothing ∎
     where
     open ≡-Reasoning
