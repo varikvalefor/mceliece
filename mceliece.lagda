@@ -696,8 +696,8 @@ module FromList?Veritas where
   nadas : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : List A)
         → ¬_ $ length x ≡ n
-        → nothing ≡_ $ mapₘ toList $ fromList? {n = n} x
-  nadas x N = cong (mapₘ toList) $ sym $ begin
+        → nothing ≡_ $ fromList? {n = n} x
+  nadas x N = sym $ begin
     fromList? x ≡⟨ refl ⟩
     mapₘ kofrol dun? ≡⟨ Dun?Veritas.nax N ▹ cong (mapₘ kofrol) ⟩
     nothing ∎
