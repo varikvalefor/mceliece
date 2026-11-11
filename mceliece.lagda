@@ -686,15 +686,8 @@ module FromList?Veritas where
       → (x : List A)
       → length x ≡ n
       → just x ≡ mapₘ toList (fromList? {n = n} x)
-  jus x d = sym $ begin
-    mapₘ toList (fromList? x) ≡⟨ refl ⟩
-    mapₘ toList (mapₘ (λ c → fromList x ▹ coerce (c ▹ cong (Vec _))) dun?) ≡⟨ Dun?Veritas.jus d ▹ cong (λ d → mapₘ toList (mapₘ (λ c → fromList x ▹ coerce (c ▹ cong (Vec _))) d)) ⟩
-    mapₘ toList (mapₘ (λ c → fromList x ▹ coerce (c ▹ cong (Vec _))) $ just d) ≡⟨ refl ⟩
-    mapₘ toList (just $ fromList x ▹ coerce (d ▹ cong (Vec _))) ≡⟨ refl ⟩
-    just (toList $ fromList x ▹ coerce (d ▹ cong (Vec _))) ≡⟨ {!!} ▹ cong just ⟩
-    just x ∎
-    where
-    open ≡-Reasoning
+  jus {n = 0} 𝕃.[] refl = refl
+  jus {n = ℕ.suc n} (x 𝕃.∷ xs) d = {!!}
 
   nadas : ∀ {a} → {A : Set a} → {n : ℕ}
         → (x : List A)
