@@ -628,6 +628,13 @@ module F𝔽Veritas where
     DN = R₀D.dec-no (f'' x z ℕ.<? _) j'
       where
       j' = j ▹ subst (¬_ ∘ (ℕ._< suc n)) (DFP.toℕ-fromℕ _ ▹ sym)
+
+  ⍨⇒⍨ : {n : ℕ}
+      → (f : Op₂ ℕ)
+      → ((x z : ℕ) → f x z ≡ f z x)
+      → (x z : Fin $ suc n)
+      → f𝔽 f x z ≡ f𝔽 f z x
+  ⍨⇒⍨ = {!!}
 \end{code}
 
 \section{la'oi .\F{coerce}.}
