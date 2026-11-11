@@ -690,9 +690,9 @@ module FromList?Veritas where
         → (x : List A)
         → ¬_ $ length x ≡ n
         → nothing ≡_ $ mapₘ toList $ fromList? {n = n} x
-  nadas x N = sym $ begin
-    mapₘ toList (fromList? x) ≡⟨ refl ⟩
-    mapₘ toList (mapₘ kofrol dun?) ≡⟨ {!!} ⟩
+  nadas x N = cong (mapₘ toList) $ sym $ begin
+    (fromList? x) ≡⟨ refl ⟩
+    (mapₘ kofrol dun?) ≡⟨ {!!} ⟩
     nothing ∎
     where
     open ≡-Reasoning
