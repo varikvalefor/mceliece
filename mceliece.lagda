@@ -683,7 +683,7 @@ module FromList?Veritas where
         → (x : List A)
         → ¬_ $ length x ≡ n
         → nothing ≡_ $ mapₘ toList $ fromList? {n = n} x
-  nadas = λ x N → sym $ begin
+  nadas x N = sym $ begin
     mapₘ toList (fromList? x) ≡⟨ {!!} ⟩
     nothing ∎
     where
