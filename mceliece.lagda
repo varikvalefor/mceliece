@@ -403,7 +403,7 @@ module Dun?Veritas where
       → {x z : A}
       → ¬_ $ x ≡ z
       → dun? {x = x} {z} ≡ nothing
-  nax = {!!}
+  nax = cong decToMaybe ∘_ $ proj₂ ∘_ $ R₀D.dec-no $ _ ≟ _
 \end{code}
 
 \section{la'oi .\F{hWV𝔽}.}
