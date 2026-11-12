@@ -1700,9 +1700,9 @@ module Hw𝕄Veritas where
          → hw𝕄 (e ∷ x) ≡ hWV𝔽 e + hw𝕄 x
   jminas _ _ = refl
 
-  jminas₂ : {a m n : ℕ}
-          → (x : 𝕄 (Fin a) m n)
-          → (e : Vec (Fin a) m)
+  jminas₂ : {fn m n : ℕ}
+          → (x : 𝕄 (Fin fn) m n)
+          → (e : Vec (Fin fn) m)
           → hw𝕄 (e ∷ x) ≡ hw𝕄 (e ∷ []) + hw𝕄 x
   jminas₂ x e = jminas x e ▹ subst (_≡_ _) (pav' x e)
     where
