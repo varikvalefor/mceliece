@@ -1627,7 +1627,6 @@ module ∧𝔹ℕ𝔽 where
     dunli {m} n = begin
       n ∧𝔹ℕ𝔽 opposite zero ≡⟨ F2fVeritas.fromℕ<-f2f _ _ ⟩
       toFin (p $ nbits $ toℕ $ opposite $ zero {2 ^ m}) ≡⟨ {!!} ⟩
-      toFin (p $ nbits $ 2 ^ m ℕ.∸ 1) ≡⟨ {!!} ⟩
       toFin (p pav) ≡⟨ {!!} ⟩
       toFin (nbits n) ≡⟨ {!!} ⟩
       fromℕ< (DNP.m⊓n≤n _ _) ∎
