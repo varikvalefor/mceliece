@@ -717,7 +717,7 @@ module FromList?Veritas where
              (flip lookup i $ nothing ∷ just x ∷ []))
   mapdus {n = n} x with n ≟ length x
   ... | yes d = {!!} , {!!}
-  ... | no N = {!!} , {!!}
+  ... | no N = zero , {!!}
 \end{code}
 
 \section{la'oi .\F{resize}.}
