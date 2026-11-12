@@ -717,7 +717,7 @@ module FromList?Veritas where
              (flip lookup i $ nothing ∷ just x ∷ []))
   mapdus {n = n} x with n ≟ length x
   ... | yes d = {!!} , {!!}
-  ... | no N = zero , sym (cong (mapₘ toList) $ nadas x $ N ∘ sym)
+  ... | no N = zero ,_ $ nadas x (N ∘ sym) ▹ cong (mapₘ toList) ▹ sym
 \end{code}
 
 \section{la'oi .\F{resize}.}
