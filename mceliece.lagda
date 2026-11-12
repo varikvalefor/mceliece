@@ -664,6 +664,15 @@ module CoerceVeritas where
          → (d : A ≡ B)
          → x ≡_ $ x ▹ coerce d ▹ coerce (sym d)
   flipko _ refl = refl
+
+  kotran : ∀ {a} → {A B C : Set a}
+         → (x : A)
+         → (d₁ : A ≡ B)
+         → (d₂ : B ≡ C)
+         → (_≡_
+             (x ▹ coerce d₁ ▹ coerce d₂)
+             (x ▹ coerce (Relation.Binary.PropositionalEquality.trans d₁ d₂)))
+  kotran = {!!}
 \end{code}
 
 \section{la'oi .\F{fromList?}.}
