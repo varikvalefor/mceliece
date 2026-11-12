@@ -672,7 +672,7 @@ module CoerceVeritas where
          → (_≡_
              (x ▹ coerce d₁ ▹ coerce d₂)
              (x ▹ coerce (Relation.Binary.PropositionalEquality.trans d₁ d₂)))
-  kotran = {!!}
+  kotran = λ {_ refl refl → refl}
 \end{code}
 
 \section{la'oi .\F{fromList?}.}
