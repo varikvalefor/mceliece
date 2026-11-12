@@ -716,7 +716,7 @@ module FromList?Veritas where
              (mapₘ toList $ fromList? {n = n} x)
              (flip lookup i $ nothing ∷ just x ∷ []))
   mapdus {n = n} x with n ≟ length x
-  ... | yes d = suc zero , sym (jus x $ sym d)
+  ... | yes d = suc zero ,_ $ jus x (sym d) ▹ sym
   ... | no N = zero ,_ $ nadas x (N ∘ sym) ▹ cong (mapₘ toList) ▹ sym
 \end{code}
 
