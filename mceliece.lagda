@@ -1165,11 +1165,17 @@ module NbitsVeritas where
     where
     open ≡-Reasoning
 
+  private
+    2^n≢0 : (n : ℕ) → R₀D.False $ (2 ℕ.^ n) ≟ 0
+    2^n≢0 n with (2 ℕ.^ n) ≟ 0
+    ... | no _ = _
+    ... | yes d = (λ ()) $ DNP.m^n≡0⇒m≡0 2 n d
+
   meirmoi : {n x : ℕ}
           → (f : Fin n)
           → (_≡_
               (lookup (nbits {n} x) f)
-              ((_/_ x (2 ^ 𝔽.toℕ f) {{!!}}) mod 2))
+              ((_/_ x (2 ^ 𝔽.toℕ f) {2^n≢0 $ 𝔽.toℕ f}) mod 2))
   meirmoi = {!!}
 \end{code}
 
