@@ -1169,7 +1169,7 @@ module NbitsVeritas where
           → (f : Fin n)
           → (_≡_
               (lookup (nbits {n} x) f)
-              ((x / (2 ^ 𝔽.toℕ f)) mod 2))
+              ((_/_ x (2 ^ 𝔽.toℕ f) {{!!}}) mod 2))
   meirmoi = {!!}
 \end{code}
 
