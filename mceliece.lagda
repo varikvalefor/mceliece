@@ -279,6 +279,7 @@ open import Relation.Unary
   )
 open import Data.Nat.DivMod
   using (
+    _mod_;
     _div_
   )
 open import Relation.Nullary
@@ -1165,7 +1166,7 @@ module NbitsVeritas where
 
   meirmoi : {n x : ℕ}
           → (f : Fin n)
-          → lookup (nbits {n} x) f ≡ (x Data.Nat.DivMod./ (2 ^ 𝔽.toℕ f)) Data.Nat.DivMod.mod 2
+          → lookup (nbits {n} x) f ≡ (x Data.Nat.DivMod./ (2 ^ 𝔽.toℕ f)) mod 2
   meirmoi = {!!}
 \end{code}
 
