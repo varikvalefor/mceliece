@@ -2695,17 +2695,17 @@ module DecodeVeritas where
       dunlyctaipe = begin
         mapti? {p} C₀ bar e ≡⟨ refl ⟩
         mapₘ (e ,_) (dun? >>=ₘ λ x → dun? ▹ mapₘ (x ,_)) ≡⟨ refl ⟩
-        _ ≡⟨ xys m₁ ▹ cong (λ j → mapₘ (e ,_) $ j >>=ₘ λ x → dun? ▹ mapₘ (x ,_)) ⟩
+        _ ≡⟨ jus m₁ ▹ cong (λ j → mapₘ (e ,_) $ j >>=ₘ λ x → dun? ▹ mapₘ (x ,_)) ⟩
         mapₘ (e ,_) (just m₁ >>=ₘ λ x → dun? ▹ mapₘ (x ,_)) ≡⟨ refl ⟩
         mapₘ (e ,_) (mapₘ (m₁ ,_) dun?) ≡⟨ refl ⟩
         _ ≡⟨ DMP.map-compose {g = e ,_} {m₁ ,_} dun? ▹ sym ⟩
-        mapₘ (λ i → e , m₁ , i) dun? ≡⟨ xys m₂ ▹ cong (mapₘ _) ⟩
+        mapₘ (λ i → e , m₁ , i) dun? ≡⟨ jus m₂ ▹ cong (mapₘ _) ⟩
         mapₘ (λ i → e , m₁ , i) (just m₂) ≡⟨ refl ⟩
         just (e , m₁ , m₂) ∎
         where
         m₁ = proj₁ m
         m₂ = proj₂ m
-        xys = Dun?Veritas.jus
+        jus = Dun?Veritas.jus
 
     nada : {p : MCParam}
          → (C₀ : xv p MCParam.n-k)
