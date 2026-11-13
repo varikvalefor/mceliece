@@ -1743,7 +1743,9 @@ moult = {!!}
                _
                (f𝔽 _*_)
                𝔽.zero
-               (𝕍.map (λ j → f𝔽 _*_ (𝕍.lookup (𝕍.lookup x i) j) (𝕍.lookup v j)) $ allFin _)))
+               (𝕍.map
+                 (λ j → f𝔽 _*_ (𝕍.lookup (𝕍.lookup x i) j) (𝕍.lookup v j))
+                 (allFin _))))
     dunᵢ = {!!}
 \end{code}
 
