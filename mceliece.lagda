@@ -2837,7 +2837,7 @@ module DecodeVeritas where
            → x ≡ take n (coerce d x)
         tc {n = n} x₂ d = sym $ begin
           take n (coerce d x₂) ≡⟨ {!!} ⟩
-          cfl (𝕃.take n $ 𝕍.toList x₂) {!!} ≡⟨ {!!} ⟩
+          cfl (𝕃.take n $ 𝕍.toList x₂) (trans (DLP.length-take n (𝕍.toList x₂)) {!!}) ≡⟨ {!!} ⟩
           cfl (𝕍.toList x₂) (length∘toList x₂ ▹ sym) ≡⟨ cfl∘toList x₂ ▹ sym ⟩
           x₂ ∎
           where
