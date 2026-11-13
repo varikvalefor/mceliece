@@ -2801,7 +2801,7 @@ module DecodeVeritas where
               → (x : List A)
               → length x ≡ n
               → Vec A n
-          cfl = {!!}
+          cfl = λ x d → 𝕍.fromList x ▹ coerce (d ▹ cong (Vec _))
         tc : ∀ {a} → {A : Set a} → {n : ℕ}
            → (x : Vec A n)
            → (d : Vec A n ≡ Vec A (n + 0))
