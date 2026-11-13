@@ -1728,7 +1728,7 @@ moult : {m n : ℕ}
       → 𝕄 (Fin 2) m n
       → Vec (Fin 2) m
       → Vec (Fin 2) n
-moult = {!!}
+moult = λ m v → 𝕍.map {!!} $ allFin _
 \end{code}
 
 \chap{la'oi .\AgdaRecord{MCParam}.\ je zo'e}
