@@ -1731,6 +1731,18 @@ moult : {m n : ℕ}
 moult = {!!}
 \end{code}
 
+\begin{code}
+  module MoultVeritas where
+    dunᵢ : {m n : ℕ}
+         → (x : 𝕄 (Fin 2) m n)
+         → (v : Vec (Fin 2) m)
+         → (i : Fin n)
+         → (_≡_
+             (𝕍.lookup (moult x v) i)
+             {!!})
+    dunᵢ = {!!}
+\end{code}
+
 \chap{la'oi .\AgdaRecord{MCParam}.\ je zo'e}
 ni'o la'au \chapsname\ li'u vasru le velcki be ko'a goi la'oi .\AgdaRecord{MCParam}.\ be'o je le pinka be ko'a be'o je ko'a goi le fancu poi ke'a srana la'oi .\AgdaRecord{MCParam}.\ po'o ku'o je le pinka be ko'a
 
