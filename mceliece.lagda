@@ -642,7 +642,7 @@ module F𝔽Veritas where
       → ((x z : ℕ) → f x z ≡ f z x)
       → (x z : Fin $ suc n)
       → f𝔽 f x z ≡ f𝔽 f z x
-  ⍨⇒⍨ = λ f df x z → cong (f2f ∘ fromℕ) $ df (toℕ x) $ toℕ z
+  ⍨⇒⍨ f df x z = cong (f2f ∘ fromℕ) $ df (toℕ x) $ toℕ z
 \end{code}
 
 \section{la'oi .\F{coerce}.}
