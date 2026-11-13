@@ -1733,9 +1733,9 @@ moult = {!!}
 
 \begin{code}
   module MoultVeritas where
-    dunᵢ : {m n : ℕ}
-         → (x : 𝕄 (Fin 2) m n)
-         → (v : Vec (Fin 2) m)
+    dunᵢ : {m n f : ℕ}
+         → (x : 𝕄 (Fin $ suc f) m n)
+         → (v : Vec (Fin $ suc f) m)
          → (i : Fin n)
          → (_≡_
              (𝕍.lookup (moult x v) i)
