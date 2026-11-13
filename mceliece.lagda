@@ -2784,6 +2784,12 @@ module DecodeVeritas where
         open ≡-Reasoning
         x' : Vec _ $ suc m + 0
         x' = x ▹_ $ coerce $ DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _)
+
+        cfl : ∀ {a} → {A : Set a} → {n : ℕ}
+            → (x : List A)
+            → length x ≡ n
+            → Vec A n
+        cfl x d = 𝕍.fromList x ▹ coerce (d ▹ cong (Vec _))
         x++[]≡x' : ∀ {a} → {A : Set a} → {n : ℕ}
                  → (x : Vec A n)
                  → (_≡_
@@ -2796,12 +2802,6 @@ module DecodeVeritas where
           ((x ∷ xs) ++ []) ≡⟨ {!!} ⟩
           cfl (𝕍.toList $ x ∷ xs) {!!} ≡⟨ {!!} ⟩
           flip coerce (x ∷ xs) (DNP.+-identityʳ _ ▹ sym ▹ cong (Vec _)) ∎
-          where
-          cfl : ∀ {a} → {A : Set a} → {n : ℕ}
-              → (x : List A)
-              → length x ≡ n
-              → Vec A n
-          cfl x d = 𝕍.fromList x ▹ coerce (d ▹ cong (Vec _))
         tc : ∀ {a} → {A : Set a} → {n : ℕ}
            → (x : Vec A n)
            → (d : Vec A n ≡ Vec A (n + 0))
@@ -2812,11 +2812,6 @@ module DecodeVeritas where
           cfl (𝕍.toList x₂) (length∘toList x₂ ▹ sym) ≡⟨ cfl∘toList x₂ ▹ sym ⟩
           x₂ ∎
           where
-          cfl : ∀ {a} → {A : Set a} → {n : ℕ}
-              → (x : List A)
-              → 𝕃.length x ≡ n
-              → Vec A n
-          cfl x d = 𝕍.fromList x ▹ coerce (d ▹ cong (Vec _))
           length∘toList : ∀ {a} → {A : Set a} → {n : ℕ}
                         → (x : Vec A n)
                         → n ≡ length (𝕍.toList x)
