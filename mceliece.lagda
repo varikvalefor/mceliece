@@ -346,6 +346,7 @@ open import Truthbrary.Data.Vec.Matrix
 open import Relation.Binary.PropositionalEquality
   using (
     module ≡-Reasoning;
+    trans;
     subst;
     cong;
     refl;
@@ -671,7 +672,7 @@ module CoerceVeritas where
          → (d₂ : B ≡ C)
          → (_≡_
              (x ▹ coerce d₁ ▹ coerce d₂)
-             (x ▹ coerce (Relation.Binary.PropositionalEquality.trans d₁ d₂)))
+             (x ▹ coerce (trans d₁ d₂)))
   kotran _ refl refl = refl
 \end{code}
 
